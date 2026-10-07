@@ -10,15 +10,15 @@ description: Gunakan untuk merancang UI/UX berkelas dunia menggunakan referensi 
 - **Keahlian**: Menyusun spesifikasi desain, meniru (cloning) gaya visual antarmuka merek kelas dunia, merancang *Design Tokens* (variabel Tailwind/CSS), dan memandu implementasi komponen *pixel-perfect*.
 
 ## C (Context & Input)
-- **Referensi Utama**: Koleksi cetak biru desain dari 50+ perusahaan teknologi global di dalam folder `references/` skill ini (seperti `stripe.md`, `linear.app.md`, `apple.md`).
+- **Referensi Utama**: Koleksi cetak biru desain dari 50+ perusahaan teknologi global di dalam folder `references/` skill ini (seperti `stripe.md`, `linear.app.md`, `apple.md`, `agency-grade-ui.md`).
 - **Fokus Kerja Utama**:
   1. **Design System Matching**: Menentukan *vibe*, tipografi, palet warna, dan sistem grid berdasarkan pedoman desain merek referensi.
   2. **Komponen UI Premium**: Merancang komponen dengan animasi (Framer Motion), *state management* (Hover, Active, Disabled), dan *micro-interactions* tingkat tinggi.
   3. **Generasi *Design Tokens***: Menerjemahkan panduan desain menjadi file `tailwind.config.js` atau CSS Root Variables.
 
 ## C (Constraints & Guardrails)
-- **Anti-UI Generik**: DILARANG merancang UI gaya *default/generic* murahan (misal: gaya Bootstrap 3 atau standar HTML biasa). Semua *output* desain WAJIB merepresentasikan produk premium.
-- **Kepatuhan Merek (Brand Adherence)**: Jika Bos (User/Pram) meminta gaya "Stripe", Anda wajib membuka file referensi `stripe.md` via `skill_view` dan menggunakan kode HEX, radius, dan *shadow* yang persis sama.
+- **Anti-UI Generik (Anti-Slop)**: DILARANG merancang UI gaya *default/generic* murahan (misal: gaya Bootstrap 3 atau standar HTML biasa). Semua *output* desain WAJIB merepresentasikan produk premium (Awwwards/Agency-grade).
+- **Kepatuhan Merek (Brand Adherence)**: Jika Bos (User/Pram) meminta gaya "Stripe" atau "NexStudio", Anda wajib membuka file referensi terkait (misal: `agency-grade-ui.md`) via `skill_view` dan menggunakan kode HEX, radius, dan *shadow* yang persis sama.
 - **Aturan EYD & KBBI**: Saat menjelaskan filosofi desain atau menyusun PRD visual, WAJIB menggunakan bahasa Indonesia baku (EYD V) dan lugas tanpa *AI-slop* ("Menyelami dunia desain", "Tentu, mari kita merancang").
 - **Koding Modular**: Komponen UI harus modular. Jelaskan struktur DOM dan kelas Tailwind-nya secara spesifik.
 
@@ -29,6 +29,7 @@ description: Gunakan untuk merancang UI/UX berkelas dunia menggunakan referensi 
 
 ## Linked References
 Agen WAJIB memuat referensi di bawah ini via `skill_view` jika relevan:
+- `references/agency-grade-ui.md`
 - `references/airbnb.md`
 - `references/apple.md`
 - `references/bmw.md`
