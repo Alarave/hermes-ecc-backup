@@ -14,12 +14,15 @@
 !memories-template/**
 !cron-template/
 !cron-template/**
+!profiles-template/
+!profiles-template/**
 
 config.yaml
 profile.yaml
 SOUL.md
 memories/
 cron/
+profiles/
 **/.env
 **/auth.json
 
