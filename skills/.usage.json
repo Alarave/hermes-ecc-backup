@@ -769,6 +769,22 @@
     "use_count": 2,
     "view_count": 2
   },
+  "hermes-ecc-templating": {
+    "archived_at": null,
+    "created_at": "2026-10-07T01:25:47.084941+00:00",
+    "created_by": "agent",
+    "first_seen_at": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "hermes-local-skill-management": {
     "archived_at": null,
     "created_at": "2026-09-27T03:03:06.586481+00:00",
@@ -1974,6 +1990,22 @@
     "state": "active",
     "use_count": 1,
     "view_count": 1
+  },
+  "spesialis-ui-templates": {
+    "archived_at": null,
+    "created_at": "2026-10-07T01:28:00.685407+00:00",
+    "created_by": null,
+    "first_seen_at": null,
+    "last_patched_at": "2026-10-07T01:28:00.685432+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 1,
+    "patch_generation": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "spike": {
     "archived_at": null,

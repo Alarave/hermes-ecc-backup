@@ -3,8 +3,8 @@ import time
 import shutil
 from pathlib import Path
 
-HERMES_DIR = Path(r"C:\Users\HP\AppData\Local\hermes\skills")
-GEMINI_DIR = Path(r"C:\Users\HP\.gemini\config\rules")
+HERMES_DIR = Path.home() / "AppData" / "Local" / "hermes" / "skills"
+GEMINI_DIR = Path.home() / ".gemini" / "config" / "rules"
 
 def ensure_dirs():
     HERMES_DIR.mkdir(parents=True, exist_ok=True)

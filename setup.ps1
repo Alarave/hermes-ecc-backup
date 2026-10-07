@@ -1,7 +1,16 @@
 Write-Host "Memulai setup ECC Hermes untuk pengguna baru..." -ForegroundColor Green
 
 # Setup Root Profile
-if (-Not (Test-Path "config.yaml")) { Copy-Item "config.example.yaml" "config.yaml" }
+$userProfilePath = $env:USERPROFILE
+if (-Not (Test-Path "config.yaml")) { 
+    $content = Get-Content "config.example.yaml" -Raw
+    $content = $content.Replace('C:\Users\Template', $userProfilePath).Replace('C:\Users\HP', $userProfilePath)
+    Set-Content "config.yaml" -Value $content
+} else {
+    $content = Get-Content "config.yaml" -Raw
+    $content = $content.Replace('C:\Users\Template', $userProfilePath).Replace('C:\Users\HP', $userProfilePath)
+    Set-Content "config.yaml" -Value $content
+}
 if (-Not (Test-Path "profile.yaml")) { Copy-Item "profile.example.yaml" "profile.yaml" }
 if (-Not (Test-Path "SOUL.md")) { Copy-Item "SOUL.example.md" "SOUL.md" }
 if (-Not (Test-Path "memories")) {
@@ -36,4 +45,29 @@ if (Test-Path "sync_skills.py") {
     Write-Host "[OK] Skill berhasil di-inject ke ekosistem CLI." -ForegroundColor Green
 }
 
+Write-Host "[OK] Menghubungkan skill secara global (Claude, Codex, Kiro, Antigravity)..." -ForegroundColor Yellow
+$masterSkills = "$env:USERPROFILE\AppData\Local\hermes\skills"
+$tools = @(".claude", ".codex", ".kiro", ".gemini\antigravity", ".hermes")
+
+foreach ($tool in $tools) {
+    $toolPath = "$env:USERPROFILE\$tool"
+    $skillPath = "$toolPath\skills"
+    
+    if (-Not (Test-Path $toolPath)) {
+        New-Item -ItemType Directory -Force -Path $toolPath | Out-Null
+    }
+    
+    if (Test-Path $skillPath) {
+        $isJunc = (Get-Item $skillPath -ErrorAction SilentlyContinue).LinkType -eq 'Junction'
+        if (-Not $isJunc) {
+            Remove-Item -Recurse -Force $skillPath
+            cmd /c mklink /J "$skillPath" "$masterSkills" > $null
+        }
+    } else {
+        cmd /c mklink /J "$skillPath" "$masterSkills" > $null
+    }
+}
+Write-Host "[OK] Skill global berhasil di-link." -ForegroundColor Green
+
 Write-Host "Setup selesai! Silakan buka config.yaml (root dan profil) untuk mengisi API Key." -ForegroundColor Cyan
+

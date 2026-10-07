@@ -349,9 +349,9 @@ mcp_servers:
       GOOGLE_REDIRECT_URI: http://localhost
   claude-mem:
     enabled: true
-    command: C:\Users\HP\AppData\Local\hermes\node\node.exe
+    command: C:\Users\Template\AppData\Local\hermes\node\node.exe
     args:
-      - C:\Users\HP\.claude\plugins\marketplaces\thedotmack\plugin\scripts\mcp-server.cjs
+      - C:\Users\Template\.claude\plugins\marketplaces\thedotmack\plugin\scripts\mcp-server.cjs
   context7:
     url: https://mcp.context7.com/mcp
     headers:
@@ -362,7 +362,7 @@ mcp_servers:
     command: cmd.exe
     args:
       - /c
-      - cd /d C:\Users\HP\open-knowledge-wiki && npx -y @inkeep/open-knowledge mcp
+      - cd /d C:\Users\Template\open-knowledge-wiki && npx -y @inkeep/open-knowledge mcp
 custom_providers:
   - api_key: sk-648ff3b88f947d4a-93n2wm-88d74920
     base_url: http://127.0.0.1:20128/v1
