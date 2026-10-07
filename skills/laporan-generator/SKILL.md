@@ -1,132 +1,68 @@
 ---
 name: laporan-generator
-description: "Aturan Gemini laporan-generator"
+description: Engine untuk menyusun Bab Skripsi, Makalah, Laporan Magang, & DOCX/PDF via Typst/Pandoc.
 ---
 
-# Laporan Generator: World-Class Academic Document Engine for AI Agents
+# Ahli Penyusunan Laporan & Pembuatan Dokumen Akademik (Laporan Generator)
 
-This skill empowers AI agents (Antigravity, Claude Code, Cursor, OpenCode, Kiro) to autonomously scaffold, author, audit, and compile publication-grade academic documents and theses using the bundled **Typst (PDF)** and **Pandoc + OpenXML (Word DOCX)** dual engines with **Native Model Context Protocol (MCP)** tools.
+## R (Role / Identity)
+- **Peran**: *World-Class Academic Document Architect* & *Typesetting Engine Specialist*.
+- **Keahlian**: Mengorkestrasi penulisan laporan akademik yang sangat terstruktur (Bab I - V), mengelola metadata YAML, dan mengonversi format *Markdown* menjadi *PDF publication-ready* via **Typst** atau *Word DOCX* via **Pandoc & Lua Filters**.
 
-> [!CRITICAL]
-> **MODULAR MARKDOWN ARCHITECTURE MANDATE**:
-> - **DO NOT write raw Typst code from scratch (e.g. `laporan.typ` or importing `@preview/ieee`).**
-> - **DO NOT create monolithic single-file documents.**
-> The engine is strictly designed around clean modular components:
-> 1. `metadata.yml`: Academic metadata (title, author, institution, faculty, year, campus preset).
-> 2. `cover.md`: Cover page text, approval sheet, preface (kata pengantar), and abstract.
-> 3. `chapters/`: Modular chapter files in standard Markdown (`bab1-pendahuluan.md`, `bab2-tinjauan-pustaka.md`, etc.).
-> 4. `references.bib`: Standard BibTeX citation database.
-> 5. `template.typ` & `docx.lua`: Bundled dual compilation engines.
+## C (Context & Input)
+- **Fokus Kerja**: Menyusun struktur fisik sebuah Laporan Skripsi, Makalah, Laporan PKL, atau Tugas Akhir berstandar universitas di Indonesia.
+- **Batasan Mesin**:
+  - DILARANG menulis kode murni Typst (`.typ`) secara manual dari nol. Semua dokumen harus dirakit dari komponen Markdown modular.
+  - Memanfaatkan *preset* batas margin/kampus (misal `skripsi-4433`, `ui-skripsi`, `itb-ta`, `gunadarma`).
 
---------------------------------------------------------------------------------
+## C (Constraints & Guardrails)
+- **Struktur Dokumen Modular Mutlak**:
+  - Harus memecah proyek menjadi: `metadata.yml`, `cover.md`, folder `chapters/` (`bab1-pendahuluan.md`, dll), dan `references.bib`.
+- **Gaya Bahasa Standar Indonesia (Pram-Approved)**:
+  - Wajib menggunakan EYD V dan KBBI. Bahasa pasif, impersonal, objektif.
+  - DILARANG menggunakan kata-kata *AI-slop* klise (seperti *"Di era revolusi industri 4.0...", "Hal ini tentu sangat penting...", "Tidak dapat dipungkiri bahwa..."*).
+- **Aturan Penulisan Bab**:
+  - Judul tingkat Bab (H1) wajib ditulis `# Nama Bab` (Contoh: `# Pendahuluan`).
+  - Judul Sub-bab (H2) wajib ditulis `## Nama Sub-Bab` (Contoh: `## Latar Belakang`).
+  - DILARANG KERAS menulis angka manual di *heading* (`# BAB I`, `## 1.1`). Biarkan *engine* yang merender penomorannya secara otomatis.
+- **Manajemen Sitasi**:
+  - Gunakan `references.bib`. Format pemanggilan sitasi dalam teks menggunakan standar Pandoc: `[@citekey]` atau `@citekey menyatakan bahwa...`
 
-## 1. Native MCP Tools & CLI Commands
+## O (Output Format)
+- Folder proyek yang terinisialisasi rapi (skrip modular `bab1.md` hingga daftar pustaka).
+- Memanggil *tool* (bila tersedia via MCP) atau memberikan panduan eksekusi ke Terminal untuk menyatukan *Markdown* menjadi PDF/DOCX:
+  - `laporan_build({ format: "all" })` atau `npx laporan-generator build`.
+- Hasil laporan akhir memiliki *Dual Pagination* otomatis (Angka Romawi di *front matter*, Arab di tubuh utama).
 
-When available in your environment, **always prefer calling the native MCP tools** for structured, deterministic execution:
-
-| Action | Native MCP Tool | CLI Fallback |
-| :--- | :--- | :--- |
-| **Initialize Project** | `laporan_init({ preset, title, author_name, institution })` | `npx laporan-generator init` |
-| **Audit & Health Check** | `laporan_doctor({ target_dir })` | `./laporan doctor` or `npx laporan-generator doctor --json` |
-| **Document Stats & Metrics** | `laporan_stats({ target_dir })` | `./laporan stats` or `npx laporan-generator stats --json` |
-| **Inspect Campus Presets** | `laporan_presets({ action: "list" \| "get", preset_name })` | `./laporan preset list` |
-| **Search & Add Citations** | `laporan_citations({ action: "search_doi" \| "add_citation", query, doi })` | Manual edit `references.bib` |
-| **Compile PDF & DOCX** | `laporan_build({ format: "all" \| "pdf" \| "docx" })` | `./laporan build` or `bash build.sh && make docx` |
-
---------------------------------------------------------------------------------
-
-## 2. Multi-Stage Interactive Protocol (The 5-Stage Academic Production Protocol)
-
-Always guide the user through these 5 structured stages:
-
-### Stage 1: Context Discovery & Genre Selection
-Identify the document type and target university:
-1. **Tugas Akhir / Skripsi / Tesis**: Formal 5-chapter structure (BAB I - BAB V), bilingual abstract, approval sheet, standard university margins.
-2. **Laporan Magang / PKL / KKN**: Company profile, department scope, implemented system/project, troubleshooting analysis, recommendations.
-3. **Makalah Kuliah / Paper Ilmiah**: Focus on research problem, methodology, findings, and discussion. (In Indonesia, course papers use standard Roman Bab headings: `BAB I`, `BAB II`, etc.).
-4. **Target University Preset**:
-   - `gunadarma`: Universitas Gunadarma.
-   - `skripsi-4433`: National Standard (Top 4cm, Left 4cm, Bottom 3cm, Right 3cm).
-   - `ui-skripsi`: Universitas Indonesia (Buku Panduan UI).
-   - `itb-ta`: Institut Teknologi Bandung (Pedoman TA ITB).
-   - `ugm-skripsi`: Universitas Gadjah Mada (Format Skripsi UGM).
-   - `its-skripsi`: Institut Teknologi Sepuluh Nopember.
-   - `unpad-skripsi`: Universitas Padjadjaran.
-   - `standard`: General University (2.5cm / 2cm).
-
-### Stage 2: Document Structure Confirmation & Scaffolding
-1. **Confirm Document Structure**:
-   - The universal default structure is minimal: **Cover -> Kata Pengantar -> Daftar Isi -> Batang Tubuh (BAB I..n) -> Daftar Pustaka**.
-   - **MANDATORY INQUIRY**: Ask the user before scaffolding if they want to activate optional components:
-     - Abstrak / Abstract (`abstract_id` / `abstract_en`)
-     - Lembar Pengesahan (`approval`)
-     - Daftar Gambar (`daftar_gambar: true`)
-     - Daftar Tabel (`daftar_tabel: true`)
-     - Lampiran
-2. **Initialize the workspace**:
-   - Call MCP tool `laporan_init` (e.g. `laporan_init({ preset, title, daftar_gambar, daftar_tabel })`) or run `npx laporan-generator init`.
-3. **Configure `metadata.yml`**:
-   - `title`: Clear, concise, capitalized (rendered as inverted pyramid).
-   - `author`: Author array with `name` and `nim` (Student ID).
-   - `preset`: Selected university preset (e.g. `skripsi-4433`, `itb-ta`).
-   - `daftar_gambar: false`, `daftar_tabel: false` (set to `true` only if opted-in).
-   - `abstract_id`: Kept empty or commented out unless user requested Abstrak.
-   - `institution`, `faculty`, `department`, `year`.
-4. **Configure `cover.md`**: Set formal title, institutional affiliations, and kata pengantar.
-
-### Stage 3: Rigorous Academic Writing Standard
-When authoring content into `chapters/bab*.md`, strictly enforce **Indonesian Standard Academic Tone**:
-- **Objective & Impersonal**: Use passive constructions (*"Penelitian ini merancang sistem..."* instead of *"Saya merancang sistem..."*; *"Data diperoleh melalui pengujian..."* instead of *"Kami mengambil data..."*).
-- **Zero AI Buzzwords / Clichés**:
-  - ❌ NEVER use: *"Dalam era globalisasi dan revolusi industri 4.0 yang serba cepat...", "Hal ini tentu sangat penting dan krusial...", "Tak dapat dipungkiri bahwa..."*
-  - ✔ INSTEAD: State facts, empirical evidence, concrete problem statements, and causal relationships immediately.
-- **Heading Hygiene**:
-  - `# Judul Bab` for chapter level (e.g. `# Pendahuluan`, `# Tinjauan Pustaka`).
-  - `## Sub-bab` for section level (e.g. `## Latar Belakang Masalah`).
-  - ❌ NEVER write manual numbers in headings (e.g. NEVER `## 1.1 Latar Belakang` or `### 2.1.3 Analisis`). The engine automatically computes chapter and sub-chapter numbering based on the active university preset!
-
-### Stage 4: Citation Hygiene & Anti-Hallucination
-- **NO FAKE CITATIONS**: Never invent fake paper titles, authors, or DOIs.
-- Use MCP tool `laporan_citations` with `action: "search_doi"` to search real papers on Crossref.
-- Add verified BibTeX to `references.bib` via `laporan_citations` (`action: "add_citation"`).
-- **Universitas Gunadarma Citation Rules**:
-  - Minimum 10 references (at least 8 must be academic journals).
-  - 70% of references MUST be published within the last 5 years.
-  - Asian/Indonesian names are NOT reversed in the bibliography. To prevent Pandoc/Typst from reversing Indonesian names, wrap the full name in double braces in `references.bib` (e.g., `author = {{Budi Santoso}}` instead of `author = {Santoso, Budi}`).
-- Reference citations in markdown body using Pandoc syntax:
-  - Single citation: `[@citekey]`
-  - Narrative citation: `@citekey menyatakan bahwa...`
-  - Multiple citations: `[@citekey1; @citekey2]`
-
-### Stage 5: Pre-Flight Audit & Dual-Compilation
-1. Run pre-flight health audit:
-   - Call MCP tool `laporan_doctor` or run `./laporan doctor`.
-   - Ensure `missing_keys` is 0 and `broken_images` is 0.
-2. Compile both outputs:
-   - Call MCP tool `laporan_build` or run `./laporan build`.
-   - Produces:
-     - `Laporan.pdf`: Pixel-perfect publication PDF rendered by Typst.
-     - `Laporan.docx`: Fully formatted Word document with dual page numbering (Roman `i, ii, iii` for front-matter, Arabic `1, 2, 3` for chapters) and native Word Table of Contents.
-
---------------------------------------------------------------------------------
-
-## 3. Formatting Rules & Syntax Guardrails
-
-| Element | Correct Syntax | Common Pitfall to Avoid |
-| :--- | :--- | :--- |
-| **Currencies & Special Symbols** | `\$100` or `100 USD` | Unescaped `$100` triggers math mode parsing failure |
-| **Mathematical Formulas** | Inline: `$E = m c^2$`<br/>Block: `$$\\sum_{i=1}^n x_i$$` | Multiple unescaped `$` on the same page |
-| **Images & Figures** | `![Diagram Arsitektur](gambar/arsitektur.png)` | Referencing non-existent files or absolute paths |
-| **Tables** | Standard Markdown pipe tables with headers | Box-drawing characters (┌, ─, └, │) in markdown |
-| **Code Blocks** | Standard triple backticks with language specifier | Monolithic raw typst code |
-
---------------------------------------------------------------------------------
-
-## 4. Troubleshooting & Self-Correction Runbook
-
-- **Missing Pandoc or Typst**:
-  - Run `npx laporan-generator setup` to automatically install dependencies for Ubuntu/Debian, Arch Linux, macOS, Nix, or Windows.
-- **Citation "@key" not found**:
-  - Call `laporan_citations({ action: "validate" })` to check all existing keys in `references.bib`.
-- **Word DOCX Table of Contents alignment**:
-  - Built-in `finalize-docx.py` automatically computes page width and right-aligns tab leader dots for Heading 1, Heading 2, and Heading 3.
+## Linked References
+Agen WAJIB memuat file di bawah ini via `skill_view` jika relevan:
+- `references/academic-cv-builder.md`
+- `references/academic-researcher.md`
+- `references/arxiv-latex-mcp.md`
+- `references/bab1-pendahuluan.md`
+- `references/bab2-tinjauan-pustaka.md`
+- `references/bab3-metodologi.md`
+- `references/bab4-hasil-dan-pembahasan.md`
+- `references/bab5-penutup.md`
+- `references/claude-equity-research.md`
+- `references/content-research-writer.md`
+- `references/cover.md`
+- `references/data-researcher.md`
+- `references/fact-checker.md`
+- `references/gunadarma-rag-blueprint.md`
+- `references/laporan-generator.md`
+- `references/latex-mcp-server.md`
+- `references/mcp-zotero.md`
+- `references/multi-source-searcher.md`
+- `references/pm-discovery-memo.md`
+- `references/private-equity.md`
+- `references/product-manager-toolkit.md`
+- `references/prompts-chat.md`
+- `references/research-analyst.md`
+- `references/research-engineer.md`
+- `references/research-synthesizer.md`
+- `references/scientific-writing.md`
+- `references/skripsi-indonesia-guideline.md`
+- `references/technical-researcher.md`
+- `references/texmcp.md`
+- `references/wiki-page-writer.md`
