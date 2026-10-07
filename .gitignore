@@ -31,3 +31,4 @@ profiles/
 **/.venv/
 **/*.pyc
 **/.DS_Store
+!install.ps1
