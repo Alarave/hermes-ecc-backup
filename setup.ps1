@@ -27,9 +27,13 @@ foreach ($p in $profiles) {
         if (Test-Path "profiles-template/$p/config.example.yaml") { Copy-Item "profiles-template/$p/config.example.yaml" "$targetDir/config.yaml" }
         if (Test-Path "profiles-template/$p/memories/USER.example.md") { Copy-Item "profiles-template/$p/memories/USER.example.md" "$targetDir/memories/USER.md" }
         if (Test-Path "profiles-template/$p/memories/MEMORY.example.md") { Copy-Item "profiles-template/$p/memories/MEMORY.example.md" "$targetDir/memories/MEMORY.md" }
-        
-        Write-Host "[OK] Profil $p disiapkan."
     }
+}
+
+Write-Host "[OK] Sinkronisasi Skill ke Antigravity / Gemini CLI..." -ForegroundColor Yellow
+if (Test-Path "sync_skills.py") {
+    python sync_skills.py
+    Write-Host "[OK] Skill berhasil di-inject ke ekosistem CLI." -ForegroundColor Green
 }
 
 Write-Host "Setup selesai! Silakan buka config.yaml (root dan profil) untuk mengisi API Key." -ForegroundColor Cyan
