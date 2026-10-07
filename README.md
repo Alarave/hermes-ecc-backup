@@ -1,21 +1,17 @@
-# Hermes ECC Framework
+# Hermes ECC (Enterprise Command Center)
 
-Repositori ini berisi *Skills*, *Plugins*, dan template dasar untuk menjalankan Hermes Agent layaknya arsitektur Enterprise Command Center (ECC).
+Sistem otak *multi-agent* terpusat (Pram, Dazai, Spesialis UI, dll) yang kompatibel dengan Hermes, Antigravity, dan Gemini CLI.
 
-## Cara Instalasi Untuk User Baru
+## 🚀 One-Click Install (Tinggal Pakai)
+Buka terminal PowerShell Anda dan cukup *copy-paste* perintah ini (mirip cara kerja npx/brew):
 
-1. Clone repositori ini ke folder Hermes di lokal:
-   ```bash
-   git clone https://github.com/Alarave/hermes-ecc-backup.git "C:/Users/<UsernameAnda>/AppData/Local/hermes"
-   ```
-2. Buka PowerShell di folder tersebut dan jalankan skrip instalasi:
-   ```powershell
-   cd "C:\Users\<UsernameAnda>\AppData\Local\hermes"
-   .\setup.ps1
-   ```
-3. Buka dan sesuaikan:
-   - `config.yaml` (Masukkan API key LLM Anda).
-   - `memories/USER.md` (Ubah nama dan profil Anda).
-   - `memories/MEMORY.md` (Aturan khusus Anda).
+```powershell
+irm https://raw.githubusercontent.com/Alarave/hermes-ecc-backup/main/install.ps1 | iex
+```
 
-Selamat menggunakan AI Agent yang terotomatisasi penuh!
+**Apa yang skrip ini lakukan?**
+1. Mendownload seluruh paket AI *Skills* dan SOP ke komputer Anda.
+2. Melakukan *symlink* (penyambungan otomatis) langsung ke dalam jantung *Hermes Agent* dan *Antigravity CLI*.
+3. Jika di masa depan repositori ini di-*update*, Anda cukup menjalankan perintah itu lagi untuk mendapatkan fitur AI terbaru.
+
+*Plug and play.* Langsung *chat* dengan Pram!
