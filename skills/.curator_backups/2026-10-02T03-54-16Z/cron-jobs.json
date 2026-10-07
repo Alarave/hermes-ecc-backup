@@ -1,0 +1,116 @@
+{
+  "jobs": [
+    {
+      "id": "050e574f5385",
+      "name": "self-improving-dev-agent",
+      "prompt": "Kamu adalah Self-Improving Developer Agent. Jalankan 4 tugas ini:\\n\\n1. Scan log error terbaru di C:/Users/HP/AppData/Local/hermes/logs/ — cari pola error berulang\\n2. Baca 3-5 skill di C:/Users/HP/AppData/Local/hermes/skills/claude-ecc/ yang relevan dengan error — patch jika perlu\\n3. Cari file AGENTS.md atau .hermes.md di C:/Users/HP/ — identifikasi area improvement\\n4. Tulis laporan singkat: error ditemukan, skill diupdate, saran perbaikan\\n\\nSimpan laporan ke C:/Users/HP/self-improve-reports/[tanggal].md\\nOutput ke user: ringkasan 5 baris dalam Bahasa Indonesia.",
+      "skills": [],
+      "skill": null,
+      "model": "gemini flash 3.8 high",
+      "provider": "antigravity",
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": [
+        "self"
+      ],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "display": "every day at 9am"
+      },
+      "schedule_display": "every day at 9am",
+      "repeat": {
+        "times": null,
+        "completed": 16
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-09-18T13:47:57.969657+07:00",
+      "next_run_at": "2026-10-03T09:00:00+07:00",
+      "last_run_at": "2026-10-02T09:00:12.513116+07:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: Response remained truncated after 4 continuation attempts",
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 16,
+      "deliver": "whatsapp:33677593546839@lid",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal",
+        "web"
+      ],
+      "workdir": null,
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-10-02T09:00:00+07:00",
+        "dispatched_at": "2026-10-02T09:00:09.088599+07:00",
+        "lateness_seconds": 9.1,
+        "kind": "on_time"
+      }
+    },
+    {
+      "id": "e61c04f3a787",
+      "name": "daily-learning-10pct",
+      "prompt": "Kamu adalah Academic Note Coach & Learning Curator untuk Firman.\n\nSetiap hari pilih 1 materi TERBARU (2024-2026) dari domain yang berotasi:\n1. Machine Learning & Deep Learning\n2. Data Science\n3. MCP & Agentic AI\n4. System Analyst & Software Engineering\n5. Project Management\n6. Personal Development\n\nLangkah:\n1. Cari satu artikel/paper/tutorial terbaru di domain hari ini (web_search + web_extract).\n2. Buat catatan markdown dan simpan ke E:/BELAJAR BANGET/SKILL BELAJAR/<DOMAIN>/<Judul_Singkat>.md dengan format:\n\n---\ntitle: \"<Judul>\"\ntags: [\"<domain-tag>\", \"academic-notes\", \"exam-prep\"]\ndate_created: YYYY-MM-DD\ntype: study-note\nsource: \"<URL>\"\nauthor: Academic Note Coach\n---\n# <Judul>\n> [!IMPORTANT] Ringkasan Eksekutif (2-3 kalimat).\n## 1. Latar Belakang & Tujuan\n(singkat, spesifik)\n## 2. 5W+1H + Solusi\n- What: ...\n- Why: ...\n- Who: ...\n- Where: ...\n- When: ...\n- How: ...\n## 3. 5 Poin Kunci\n1. ...\n2. ...\n3. ...\n4. ...\n5. ...\n## 4. Pertanyaan Latihan (3 soal + jawaban)\n---\n\n3. Tambahkan link [[Nama_File]] ke E:/BELAJAR BANGET/SKILL BELAJAR/🏠 Master Index (MOC).md\n\n4. Output akhir ke user (ringkasan WhatsApp):\nMateri Hari Ini: <Judul>\nLink: <URL>\nTersimpan: <path file>\n5 Poin Kunci: ...\nMicro-action (<15 menit): ...\nDomain besok: <domain berikutnya>",
+      "skills": [],
+      "skill": null,
+      "model": "claude sonnet 4",
+      "provider": "antigravity",
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": [
+        "self"
+      ],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * *",
+        "display": "every day at 7am"
+      },
+      "schedule_display": "every day at 7am",
+      "repeat": {
+        "times": null,
+        "completed": 21
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-09-18T14:01:11.255029+07:00",
+      "next_run_at": "2026-10-03T07:00:00+07:00",
+      "last_run_at": "2026-10-02T08:30:19.623682+07:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: Response remained truncated after 4 continuation attempts",
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 18,
+      "deliver": "whatsapp:33677593546839@lid",
+      "origin": null,
+      "enabled_toolsets": [
+        "web"
+      ],
+      "workdir": null,
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-10-02T07:00:00+07:00",
+        "dispatched_at": "2026-10-02T08:29:49.862473+07:00",
+        "lateness_seconds": 5389.9,
+        "kind": "late"
+      }
+    }
+  ],
+  "updated_at": "2026-10-02T09:00:12.514122+07:00"
+}

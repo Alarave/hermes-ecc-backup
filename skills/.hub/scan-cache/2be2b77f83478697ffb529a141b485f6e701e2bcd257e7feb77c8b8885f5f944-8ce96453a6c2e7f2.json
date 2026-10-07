@@ -1,0 +1,43 @@
+{
+  "bundle_hash": "sha256:2be2b77f83478697ffb529a141b485f6e701e2bcd257e7feb77c8b8885f5f944",
+  "scanner_version": "skills-guard-v5",
+  "source": "browse-sh/valet.dev/create-slack-agents-52xlt6",
+  "source_url": "https://github.com/browserbase/browse.sh/blob/main/skills/valet.dev/create-slack-agents-52xlt6/SKILL.md",
+  "verdict": "safe",
+  "trust_level": "community",
+  "findings": [
+    {
+      "pattern_id": "agent_config_ref",
+      "severity": "low",
+      "category": "persistence",
+      "file": "SKILL.md",
+      "line": 67,
+      "match": "5. **Scaffold the agent project.** `valet new <name>` (or `mkdir -p <name>/channels`) creates a project with `SOUL.md...",
+      "description": "references agent config files (informational; only modification intent is scored)"
+    },
+    {
+      "pattern_id": "agent_config_ref",
+      "severity": "low",
+      "category": "persistence",
+      "file": "SKILL.md",
+      "line": 91,
+      "match": "11. **Hand off.** Write `AGENTS.md` (last) describing connectors, channels, secrets, and any external setup \u2014 never i...",
+      "description": "references agent config files (informational; only modification intent is scored)"
+    },
+    {
+      "pattern_id": "agent_config_ref",
+      "severity": "low",
+      "category": "persistence",
+      "file": "SKILL.md",
+      "line": 113,
+      "match": "- **`valet.yaml` is opt-in.** Only write the manifest when the user explicitly asks (\"yaml\", \"1-click deploy\", \"dashb...",
+      "description": "references agent config files (informational; only modification intent is scored)"
+    }
+  ],
+  "rules": [
+    "agent_config_ref"
+  ],
+  "scanned_at": "2026-09-25T01:36:27.552717+00:00",
+  "summary": "create-slack-agents: safe \u2014 3 finding(s) in persistence",
+  "fresh": true
+}

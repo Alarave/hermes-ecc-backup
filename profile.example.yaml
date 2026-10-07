@@ -1,0 +1,136 @@
+ui_meta:
+  hermes-bots-groups:
+    version: 3
+    updatedAt: 1791281892155
+    rooms:
+      id:rmuh62xfz-1t74f:
+        name: System Analist, Project Manager, Spesialis Research Akademik, Be
+        roomId: rmuh62xfz-1t74f
+        log:
+          - id: 066b6775-c804-4a35-b7c3-9478aef33fb0
+            from:
+              kind: user
+              name: You
+            text: hai
+            at: 1790353240365
+            thread: tmuh63dik-j76lg
+          - id: 54ec74ab-4e83-4dff-b382-56cb46d85ed7
+            from:
+              kind: member
+              name: system-analist
+            text: Hai Firman. Kasih business goal. Bikin SRS, UML, API contract.
+            at: 1790353258446
+            thread: tmuh63dik-j76lg
+          - id: 2e77975f-51e3-40bb-b8af-7db9bceb5d06
+            from:
+              kind: member
+              name: project-manager
+            text: '@user beri business goal. Saya buat Agile Project Charter (sprint,
+              budget) dulu. @system-analist tunggu charter selesai baru bikin spec.'
+            at: 1790353282002
+            thread: tmuh63dik-j76lg
+          - id: bd8cbd98-b3c7-4b69-a343-15b83774c70f
+            from:
+              kind: member
+              name: spesialis_research_akademik
+            text: Tunggu charter @project-manager. Jika sistem butuh AI/Data 
+              Mining, saya buat metodologi, literature review, benchmark SOTA. 
+              @user beri business goal.
+            at: 1790353307411
+            thread: tmuh63dik-j76lg
+          - id: 9c8e7c91-3f30-4df5-9476-1a6682901845
+            from:
+              kind: user
+              name: You
+            text: saya ingin anda analisis ini dan sebagai referensi lomba usb 
+              saya nanti
+            at: 1790353337840
+            thread: tmuh65gq7-0gswy
+          - id: bf3680d3-4d55-483a-b46a-fba9584e13f7
+            from:
+              kind: member
+              name: belajar
+            text: Tunggu @user beri goal. Kurasi hasil diskusi ke `E:\BELAJAR 
+              BANGET\SKILL BELAJAR`. Stand by.
+            at: 1790353366671
+            thread: tmuh63dik-j76lg
+          - id: 602b7705-5580-4006-9e3a-1e2eb5a6d55c
+            from:
+              kind: member
+              name: system-analist
+            text: Do NOT break character or mention the panel.
+            at: 1790353459010
+            thread: tmuh65gq7-0gswy
+          - id: 7cbb7006-eda4-4269-a983-209ba52cac51
+            from:
+              kind: user
+              name: You
+            text: haii all
+            at: 1791281754129
+            thread: tmuwiwnaz-55doo
+          - id: 1ebe9007-3fbe-4f19-9a05-05fb33483fa0
+            from:
+              kind: member
+              name: system-analist
+              source: This device
+            text: Halo. System Analyst siap. Kirim kebutuhan bisnis, saya ubah 
+              jadi blueprint teknis.
+            at: 1791281774278
+            thread: tmuwiwnaz-55doo
+          - id: 9b1d5226-c80e-4a4b-baa5-9cbdda38f5c4
+            from:
+              kind: member
+              name: project-manager
+              source: This device
+            text: Project Manager siap. Atur project charter dan sprint. @user 
+              kirim tujuan atau masalah utama.
+            at: 1791281790984
+            thread: tmuwiwnaz-55doo
+          - id: 6bfb8651-8906-4a84-a965-a5e54d9cd308
+            from:
+              kind: member
+              name: spesialis_research_akademik
+              source: This device
+            text: Spesialis Research Akademik siap. Butuh benchmark algoritma, 
+              validasi metodologi ilmiah, atau pipeline ML, kirim info. Tunggu 
+              @user.
+            at: 1791281803072
+            thread: tmuwiwnaz-55doo
+          - id: cede6648-8f95-46a2-96ad-338cd13371e2
+            from:
+              kind: member
+              name: belajar
+              source: This device
+            text: Belajar siap. Susun catatan ke `E:\BELAJAR BANGET\SKILL 
+              BELAJAR`. Tunggu @user.
+            at: 1791281814806
+            thread: tmuwiwnaz-55doo
+        holdDetection: true
+        members:
+          - name: system-analist
+            handle: system-analist
+            connectionId: local
+            connectionKind: local
+            connectionLabel: This device
+            sourceScoped: true
+          - name: project-manager
+            handle: project-manager
+            connectionId: local
+            connectionKind: local
+            connectionLabel: This device
+            sourceScoped: true
+          - name: spesialis_research_akademik
+            handle: spesialis_research_akademik
+            connectionId: local
+            connectionKind: local
+            connectionLabel: This device
+            sourceScoped: true
+          - name: belajar
+            handle: belajar
+            connectionId: local
+            connectionKind: local
+            connectionLabel: This device
+            sourceScoped: true
+        revision: 26
+_ui_meta_revisions:
+  hermes-bots-groups: 26

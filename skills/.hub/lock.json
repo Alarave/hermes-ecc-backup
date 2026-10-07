@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "installed": {
+    "create-slack-agents": {
+      "source": "browse-sh",
+      "identifier": "browse-sh/valet.dev/create-slack-agents-52xlt6",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:2be2b77f83478697",
+      "install_path": "create-slack-agents",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "slug": "valet.dev/create-slack-agents-52xlt6",
+        "hostname": "valet.dev",
+        "source_url": "https://github.com/browserbase/browse.sh/blob/main/skills/valet.dev/create-slack-agents-52xlt6/SKILL.md",
+        "skill_md_url": "https://gh0lfhlmyzhg6tww.public.blob.vercel-storage.com/skills/valet.dev/create-slack-agents-52xlt6/SKILL.md"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:2be2b77f83478697ffb529a141b485f6e701e2bcd257e7feb77c8b8885f5f944",
+        "scanner_version": "skills-guard-v5",
+        "source": "browse-sh/valet.dev/create-slack-agents-52xlt6",
+        "source_url": "https://github.com/browserbase/browse.sh/blob/main/skills/valet.dev/create-slack-agents-52xlt6/SKILL.md",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "SKILL.md",
+            "line": 67,
+            "match": "5. **Scaffold the agent project.** `valet new <name>` (or `mkdir -p <name>/channels`) creates a project with `SOUL.md...",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "SKILL.md",
+            "line": 91,
+            "match": "11. **Hand off.** Write `AGENTS.md` (last) describing connectors, channels, secrets, and any external setup — never i...",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "SKILL.md",
+            "line": 113,
+            "match": "- **`valet.yaml` is opt-in.** Only write the manifest when the user explicitly asks (\"yaml\", \"1-click deploy\", \"dashb...",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          }
+        ],
+        "rules": [
+          "agent_config_ref"
+        ],
+        "scanned_at": "2026-09-25T01:36:27.552717+00:00",
+        "summary": "create-slack-agents: safe — 3 finding(s) in persistence",
+        "fresh": false
+      },
+      "installed_at": "2026-09-25T01:42:17.236435+00:00",
+      "updated_at": "2026-09-25T01:42:17.236435+00:00"
+    },
+    "agent-merge-conflict-arbiter": {
+      "source": "official",
+      "identifier": "official/autonomous-ai-agents/agent-merge-conflict-arbiter",
+      "trust_level": "builtin",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:c708cdd11f94e914",
+      "install_path": "autonomous-ai-agents/agent-merge-conflict-arbiter",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {},
+      "scan_provenance": {
+        "bundle_hash": "sha256:c708cdd11f94e914d74d1cdb8e08af1791aa5fef0336d3ef07956b18846547ea",
+        "scanner_version": "skills-guard-v5",
+        "source": "official",
+        "source_url": "official/autonomous-ai-agents/agent-merge-conflict-arbiter",
+        "verdict": "safe",
+        "trust_level": "builtin",
+        "findings": [],
+        "rules": [],
+        "scanned_at": "2026-09-25T01:42:22.015231+00:00",
+        "summary": "agent-merge-conflict-arbiter: clean scan, no threats detected",
+        "fresh": true
+      },
+      "installed_at": "2026-09-25T01:42:22.041271+00:00",
+      "updated_at": "2026-09-25T01:42:22.041271+00:00"
+    },
+    "antigravity-cli": {
+      "source": "official",
+      "identifier": "official/autonomous-ai-agents/antigravity-cli",
+      "trust_level": "builtin",
+      "scan_verdict": "dangerous",
+      "content_hash": "sha256:7c5c9609254e7d2f",
+      "install_path": "autonomous-ai-agents/antigravity-cli",
+      "files": [
+        "SKILL.md",
+        "references\\cli-docs.md"
+      ],
+      "metadata": {},
+      "scan_provenance": {
+        "bundle_hash": "sha256:7c5c9609254e7d2f077791f1a51340f4ade522ca9459a2fc06b38f8fbd457e90",
+        "scanner_version": "skills-guard-v5",
+        "source": "official",
+        "source_url": "official/autonomous-ai-agents/antigravity-cli",
+        "verdict": "dangerous",
+        "trust_level": "builtin",
+        "findings": [
+          {
+            "pattern_id": "curl_pipe_shell",
+            "severity": "critical",
+            "category": "supply_chain",
+            "file": "references\\cli-docs.md",
+            "line": 9,
+            "match": "- macOS/Linux: `curl -fsSL https://antigravity.google/cli/install.sh | bash`",
+            "description": "curl piped to shell (download-and-execute)"
+          }
+        ],
+        "rules": [
+          "curl_pipe_shell"
+        ],
+        "scanned_at": "2026-09-25T01:42:29.035042+00:00",
+        "summary": "antigravity-cli: dangerous — 1 finding(s) in supply_chain",
+        "fresh": true
+      },
+      "installed_at": "2026-09-25T01:42:29.062644+00:00",
+      "updated_at": "2026-09-25T01:42:29.062644+00:00"
+    }
+  }
+}

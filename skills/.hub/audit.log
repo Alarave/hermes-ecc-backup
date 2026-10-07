@@ -1,0 +1,5 @@
+2026-09-25T01:36:27Z INSTALL create-slack-agents browse-sh:community safe sha256:2be2b77f83478697
+2026-09-25T01:41:25Z INSTALL create-slack-agents browse-sh:community safe sha256:2be2b77f83478697
+2026-09-25T01:42:17Z INSTALL create-slack-agents browse-sh:community safe sha256:2be2b77f83478697
+2026-09-25T01:42:22Z INSTALL agent-merge-conflict-arbiter official:builtin safe sha256:c708cdd11f94e914
+2026-09-25T01:42:29Z INSTALL antigravity-cli official:builtin dangerous sha256:7c5c9609254e7d2f

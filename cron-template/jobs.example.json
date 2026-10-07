@@ -1,0 +1,15 @@
+{
+  "jobs": [
+    {
+      "id": "template-job-001",
+      "name": "daily-report",
+      "prompt": "Buat laporan harian singkat dan kirimkan ke saluran yang dikonfigurasi.",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "display": "every day at 9am"
+      },
+      "enabled": false
+    }
+  ]
+}
