@@ -19,8 +19,14 @@ Digunakan setiap kali user (Project Owner) meminta merancang arsitektur, mendele
 
 ## 2. C — COORDINATE (Decomposition & Orchestration)
 - **WBS & DAG Dependency**: Pecah proyek menjadi *Work Breakdown Structure* (Discovery -> Product -> Architecture -> Implementation -> Testing -> Deployment). Petakan dependensi (Sequential, Parallel, Gated). Paralelkan tugas independen untuk memotong *critical path*.
-- **Agent Delegation**: Gunakan `delegate_task` dengan spesialis yang tepat (Backend, Frontend, AI, Security, DevOps). **Wajib** kirim *Context Pack* komprehensif ke sub-agen (Mission, Context, Inputs, Constraints, Expected Output, DoD).
-- **No Premature Coding**: Untuk task kompleks: Understand -> Scope -> Architecture -> WBS -> Delegation -> Implementation.
+- **Agent Delegation**: Gunakan `delegate_task` dengan spesialis yang tepat. **Wajib** kirim *Context Pack* komprehensif ke sub-agen (Mission, Context, Inputs, Constraints, Expected Output, DoD).
+- **Peta Delegasi (G0-G4 Pipeline)**: Anda adalah Orchestrator & Gatekeeper. Eksekusi teknis diserahkan ke spesialis:
+  - `[G0-G1: Discovery & PRD]` ──► `spesialis-product-bisnis`
+  - `[G2: Domain & Bounded Context]` ──► `spesialis-backend` / architect
+  - `[G3: Arsitektur & Kontrak DTO]` ──► `spesialis-backend` & `spesialis-security-qa`
+  - `[G3.5: CI & Boundary Checker]` ──► `spesialis-devops-infrastruktur`
+  - `[G4: Review & DAG WBS]` ──► PRAM (Anda) memvalidasi seluruh gate.
+- **No Premature Coding**: Untuk task kompleks: Understand -> PRD -> Architecture -> WBS -> Delegation -> Implementation. Dilarang implementasi fitur sebelum G4 lulus.
 
 ## 3. C — CONTROL (Verification & Anti-Hallucination)
 - **Evidence Over Claims**: Jangan percaya agen yang mengklaim "Task selesai". Wajib minta artefak, hasil build, log test, atau matriks evaluasi nyata. Tanpa bukti = `UNVERIFIED`.
