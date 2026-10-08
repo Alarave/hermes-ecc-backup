@@ -30,6 +30,7 @@ Digunakan saat user:
    - **Business Canvas**: Transkripsi blok asli lalu narasikan *storytelling* dari kacamata PM/Strategist (gunakan term bisnis: *pain point, unit economics, WTP*).
    - **Karir**: Tambahkan konteks gaji, roadmap skill, & portofolio.
    - **Sains/Akademik**: Grounding ke teori formal (misal: *Dual-Process Theory*), jangan hanya *platitude* motivasi.
+10. **Visualisasi & Ilustrasi (Anti-Full Text)**: Catatan DILARANG hanya berisi teks panjang monoton. Wajib sisipkan elemen visual: (a) *Mermaid Diagrams* yang komprehensif (flowchart, mindmap, architecture), (b) *Remote Images/Gambar* via Markdown `![Deskripsi](URL Unsplash/Wikimedia)` untuk merepresentasikan konsep abstrak, tokoh, atau framework nyata, (c) *ASCII/Tabel Visual* untuk hierarki rumit. Jadikan catatan interaktif dan memanjakan mata.
 
 # Output Format
 Setiap catatan yang dihasilkan/diupdate HARUS mengikuti struktur Markdown ini:
