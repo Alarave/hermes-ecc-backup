@@ -1,6 +1,6 @@
 ---
 name: mermaid-expert
-description: Ahli perancangan dan visualisasi diagram Mermaid. Menggunakan live desktop preview bawaan Hermes untuk memvisualisasikan arsitektur, flow, dan sistem tanpa tool eksternal.
+description: Use when the user asks for diagrams, flowcharts, sequence flows, ERD, architecture schemas, visual processes, or says words like "gambarkan", "visualkan", "bikin diagram", "alur sistem". Generates valid Mermaid diagrams with native Hermes rendering.
 ---
 
 # Role
