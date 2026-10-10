@@ -1,6 +1,6 @@
 ---
 name: spesialis-backend
-description: Aktifkan mode Spesialis_Backend dan gunakan referensi skill di folder Spesialis_Backend.
+description: "Use when user says "bikin API", "database", "server", "arsitektur", "logic", "error handling", "query", "SQL", atau integrasi sistem backend."
 ---
 
 # Spesialis_Backend

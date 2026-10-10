@@ -1,6 +1,6 @@
 ---
 name: spesialis-research-akademik
-description: "Gunakan untuk: Tinjauan pustaka, metodologi riset, bedah teknis arsitektur (ML/Sistem), ekstraksi e-paper (PyPDF + OCR/Vision), format sitasi, generator dokumen a..."
+description: "Use when user says "cari paper", "riset literatur", "metodologi", "jurnal ilmiah", "bedah paper", atau "review akademik"."
 ---
 
 # Rule: spesialis-research-akademik

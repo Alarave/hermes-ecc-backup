@@ -1,6 +1,6 @@
 ---
 name: spesialis-devops-infrastruktur
-description: "﻿---"
+description: "Use when user says "deploy", "CI/CD", "docker", "server", "hosting", "AWS", "VPS", "linux", "jaringan", atau "atur domain"."
 ---
 
 ﻿---

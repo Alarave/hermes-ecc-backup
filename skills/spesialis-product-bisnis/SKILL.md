@@ -1,6 +1,6 @@
 ---
 name: spesialis-product-bisnis
-description: "﻿---"
+description: "Use when user says "ide bisnis", "bikin PRD", "riset kompetitor", "target pasar", "MVP", "fitur produk", "monetisasi", atau strategi bisnis. Mengatur Product Management."
 ---
 
 ﻿---

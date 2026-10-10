@@ -1,6 +1,6 @@
 ---
 name: spesialis-integrasi-api
-description: "Aturan Gemini spesialis-integrasi-api"
+description: "Use when user says "sambungin API", "fetch data", "pihak ketiga", "webhook", "OAuth", "API eksternal", atau "scraping"."
 ---
 
 # Spesialis Integrasi Api

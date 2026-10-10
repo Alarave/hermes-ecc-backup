@@ -1,6 +1,6 @@
 ---
 name: spesialis-animasi-grafis
-description: "Aturan Gemini spesialis-animasi-grafis"
+description: "Use when user says "bikin animasi", "grafis bergerak", "transisi UI", "canvas", "WebGL", atau "efek visual"."
 ---
 
 # Spesialis Animasi Grafis

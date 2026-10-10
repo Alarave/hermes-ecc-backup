@@ -1,6 +1,6 @@
 ---
 name: spesialis-frontend
-description: Spesialis rekayasa antarmuka modern (React, Next.js, Tailwind), optimasi performa, dan integrasi API.
+description: "Use when user says "bikin UI", "slicing", "React", "Next.js", "Tailwind", "tampilan web", "animasi web", atau "benerin tampilan"."
 ---
 
 # Ahli Frontend & Rekayasa Antarmuka (Spesialis Frontend)

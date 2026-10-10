@@ -1,6 +1,6 @@
 ---
 name: spesialis-laporan-akademik
-description: "Aturan Gemini spesialis-laporan-akademik"
+description: "Use when user says "nulis laporan", "skripsi", "tesis", "paper", "jurnal", "format akademis", "daftar pustaka", atau "sitasi"."
 ---
 
 # Spesialis Laporan Akademik

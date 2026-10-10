@@ -1,6 +1,6 @@
 ---
 name: spesialis-ui-templates
-description: Gunakan untuk merancang UI/UX berkelas dunia menggunakan referensi Design System premium (Stripe, Linear, Apple, dll).
+description: "Use when user says "design system", "template UI", "komponen", "Figma to code", "desain antarmuka", atau "UI berkelas"."
 ---
 
 # Ahli Design System & UI/UX Architect

@@ -1,6 +1,6 @@
 ---
 name: spesialis-data-ai-agentic
-description: "﻿---"
+description: "Use when user says "machine learning", "bikin AI", "data science", "NLP", "LLM", "agentic workflow", "RAG", atau "analisis data"."
 ---
 
 ﻿---

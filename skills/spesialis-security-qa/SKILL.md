@@ -1,6 +1,6 @@
 ---
 name: spesialis-security-qa
-description: "﻿---"
+description: "Use when user says "test aplikasi", "cari bug", "QA", "keamanan", "anti-hacker", "E2E testing", "unit test", atau "cek celah"."
 ---
 
 ﻿---
