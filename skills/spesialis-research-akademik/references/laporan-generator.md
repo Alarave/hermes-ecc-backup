@@ -69,6 +69,7 @@ Identify the document type and target university:
    - `title`: Clear, concise, capitalized (rendered as inverted pyramid).
    - `author`: Author array with `name` and `nim` (Student ID).
    - `preset`: Selected university preset (e.g. `skripsi-4433`, `itb-ta`).
+     - **PITFALL**: When patching `metadata.yml` to set a custom preset, do not leave the default `preset: "standard"` intact at the bottom. A duplicate key triggers a YAML parsing warning (`Duplicate key: .preset`) during build. Remove the old key when adding the new one.
    - `daftar_gambar: false`, `daftar_tabel: false` (set to `true` only if opted-in).
    - `abstract_id`: Kept empty or commented out unless user requested Abstrak.
    - `institution`, `faculty`, `department`, `year`.

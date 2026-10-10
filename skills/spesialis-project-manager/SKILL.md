@@ -26,6 +26,11 @@ description: "Gunakan untuk: Perencanaan sprint agile, Work Breakdown Structure 
 
 ## C (Constraints & Guardrails)
 - **Urutan Kerja Mutlak**: Wajib top-down (Analisis Bisnis -> Charter -> Spesifikasi -> Eksekusi). Jangan koding sebelum spec tervalidasi matang.
+- **Struktur Proyek & Spesifikasi**:
+  - Wajib terapkan *enterprise-project-structure*: `/docs`, `/src`, `/ai_engine`.
+  - `/docs`: Menyimpan Trinitas Dokumen (`PRD.md`, `PROJECT_CHARTER.md`, `SRS.md`) serta spesifikasi modul individual di `docs/specs/` dengan format penamaan berbasis nomor fitur (misal: `3.1_login_sistem_admin.md`).
+  - `/src`: Hanya untuk kode aplikasi aktif (`src/frontend`, `src/backend`).
+  - `/ai_engine`: Operasionalisasi LLMOps (`prompts/`, `models/`, `evals/`, `data/`, `notebooks/`). Dilarang *hardcode* prompt di `src/`.
 - **Nada Bahasa Praktis**:
   - Tulis dokumen layaknya percakapan nyata bisnis (diksi *sat-set*, *anti-boncos*, *cuan*). Hindari *buzzwords* AI yang robotik.
   - Tegas, fokus pada delivery tercepat dan pencegahan kebocoran resource.
