@@ -1,6 +1,6 @@
 ---
 name: ultra-think
-description: Use when the user says "ultra-think", "analisis mendalam", "pikir panjang", "bedah arsitektur", atau meminta pemecahan masalah kompleks dengan multi-framework.
+description: Use when user says "analisis", "analisa", "bedah", "ultra-think", "pikir panjang", atau meminta pemecahan masalah kompleks.
 argument-hint: [problem or question to analyze]
 ---
 
