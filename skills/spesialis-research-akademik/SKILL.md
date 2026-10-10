@@ -47,3 +47,36 @@ Dipicu saat mengeksekusi *pipeline* penelitian akademik dari penemuan ide hingga
 ## O (Output / Definition of Done)
 - **Triple Checked**: Manuskrip baru dianggap `DONE` jika telah lolos Uji Semantik (Anti-Halusinasi), Compile Mesin (LaTeX/Pandoc sukses tanpa error), dan Disetujui Pengguna secara eksplisit.
 - Referensi di akhir draf ditulis dalam **Plain Text** dengan format standar (APA/IEEE/Vancouver) sesuai permintaan pengguna.
+
+
+## Linked References
+- `references/academic-cv-builder.md`
+- `references/academic-researcher.md`
+- `references/arxiv-latex-mcp.md`
+- `references/bab1-pendahuluan.md`
+- `references/bab2-tinjauan-pustaka.md`
+- `references/bab3-metodologi.md`
+- `references/bab4-hasil-dan-pembahasan.md`
+- `references/bab5-penutup.md`
+- `references/claude-equity-research.md`
+- `references/content-research-writer.md`
+- `references/cover.md`
+- `references/data-researcher.md`
+- `references/fact-checker.md`
+- `references/gunadarma-rag-blueprint.md`
+- `references/laporan-generator.md`
+- `references/latex-mcp-server.md`
+- `references/mcp-zotero.md`
+- `references/multi-source-searcher.md`
+- `references/pm-discovery-memo.md`
+- `references/private-equity.md`
+- `references/product-manager-toolkit.md`
+- `references/prompts-chat.md`
+- `references/research-analyst.md`
+- `references/research-engineer.md`
+- `references/research-synthesizer.md`
+- `references/scientific-writing.md`
+- `references/skripsi-indonesia-guideline.md`
+- `references/technical-researcher.md`
+- `references/texmcp.md`
+- `references/wiki-page-writer.md`

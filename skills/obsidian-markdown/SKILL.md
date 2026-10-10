@@ -194,3 +194,9 @@ Reviewed in [[Meeting Notes 2024-01-10#Decisions]].
 - [Embed files](https://help.obsidian.md/embeds)
 - [Callouts](https://help.obsidian.md/callouts)
 - [Properties](https://help.obsidian.md/properties)
+
+
+## Linked References
+- `references/CALLOUTS.md`
+- `references/EMBEDS.md`
+- `references/PROPERTIES.md`

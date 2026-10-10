@@ -567,3 +567,12 @@ This skill includes comprehensive reference materials that provide detailed fram
 3. Recognize limitations and uncertainties
 4. Suggest improvements for future work
 5. Advance scientific understanding
+
+
+## Linked References
+- `references/common_biases.md`
+- `references/evidence_hierarchy.md`
+- `references/experimental_design.md`
+- `references/logical_fallacies.md`
+- `references/scientific_method.md`
+- `references/statistical_pitfalls.md`

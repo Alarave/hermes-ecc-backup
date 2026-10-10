@@ -391,3 +391,10 @@ Write operation blocked to prevent failure.
   - Network file systems (NFS/SMB) require specialized handling
   - Some antivirus software cannot be reliably detected
   - System-level permission changes require admin rights
+
+
+## Linked References
+- `references/diagnostic-procedures.md`
+- `references/index.md`
+- `references/integration-guide.md`
+- `references/platform-specific.md`

@@ -246,3 +246,12 @@ buildings_near_roads = buildings[buildings.geometry.distance(roads.union_all()) 
 6. **Preserve topology** when simplifying for analysis
 7. **Use GeoPackage** format for modern workflows (better than Shapefile)
 8. **Set max_distance** in sjoin_nearest for better performance
+
+
+## Linked References
+- `references/crs-management.md`
+- `references/data-io.md`
+- `references/data-structures.md`
+- `references/geometric-operations.md`
+- `references/spatial-analysis.md`
+- `references/visualization.md`

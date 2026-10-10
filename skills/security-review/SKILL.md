@@ -310,3 +310,23 @@ If no vulnerabilities found, state: "No high-confidence vulnerabilities identifi
 - `terraform.md` - IaC security
 - `ci-cd.md` - Pipeline security
 - `cloud.md` - AWS/GCP/Azure security
+
+
+## Linked References
+- `references/api-security.md`
+- `references/authentication.md`
+- `references/authorization.md`
+- `references/business-logic.md`
+- `references/cryptography.md`
+- `references/csrf.md`
+- `references/data-protection.md`
+- `references/deserialization.md`
+- `references/error-handling.md`
+- `references/file-security.md`
+- `references/injection.md`
+- `references/logging.md`
+- `references/misconfiguration.md`
+- `references/modern-threats.md`
+- `references/ssrf.md`
+- `references/supply-chain.md`
+- `references/xss.md`

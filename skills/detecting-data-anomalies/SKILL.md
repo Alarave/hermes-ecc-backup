@@ -39,3 +39,10 @@ Use this skill when:
 
 - `scikit-learn` as the governed routed owner for classical anomaly-detection workflows
 - `creating-data-visualizations` after anomalies are identified
+
+
+## Linked References
+- `references/README.md`
+- `references/errors.md`
+- `references/examples.md`
+- `references/implementation.md`

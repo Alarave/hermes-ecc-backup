@@ -827,3 +827,9 @@ For detailed information, see:
 - Production deployment and MLOps (use deployment skills)
 - Distributed training infrastructure
 - Model serving and monitoring
+
+
+## Linked References
+- `references/expert-thinking.md`
+- `references/index.md`
+- `references/workflow-guide.md`

@@ -274,3 +274,7 @@ Before outputting, verify:
 
 For detailed syntax rules and troubleshooting, see:
 - [references/syntax-rules.md](references/syntax-rules.md) - Complete syntax reference and error prevention
+
+
+## Linked References
+- `references/syntax-rules.md`

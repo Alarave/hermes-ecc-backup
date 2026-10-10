@@ -135,3 +135,7 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 - “顶刊作图：matplotlib 多子图 + 色盲友好 + 导出 PDF + TIFF 600dpi（每张图的规范写清楚）”
 - “我要回复审稿意见：请生成 rebuttal 矩阵，并给出逐条回应的写作规范”
 - “请把当前 LaTeX 项目接入 GitHub Actions 自动编译并生成 submission zip”
+
+
+## Linked References
+- `references/case-library.md`

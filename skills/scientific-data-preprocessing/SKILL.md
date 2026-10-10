@@ -572,3 +572,11 @@ print("Sliding window (correct):", df['recent_win_rate'].values[50:60])
 - Focused on numeric/categorical features (text/image preprocessing partially covered)
 - Does not prescribe domain-specific feature engineering (user decides business logic)
 - Requires basic understanding of statistics (mean, std, correlation)
+
+
+## Linked References
+- `references/ai-common-pitfalls.md`
+- `references/decision-trees.md`
+- `references/error-case-studies.md`
+- `references/index.md`
+- `references/validation-checklist.md`

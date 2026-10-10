@@ -328,3 +328,7 @@ ON SKILL ACTIVATION:
   - 标签生成基于简单的关键词提取，可能不够精确
   - 分析生成基于预设模板，可能需要用户后续编辑
   - GitHub 同步需要网络连接
+
+
+## Linked References
+- `references/index.md`

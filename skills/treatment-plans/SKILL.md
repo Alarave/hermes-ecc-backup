@@ -1577,3 +1577,12 @@ Balance medical recommendations with patient autonomy and values while promoting
 
 Part of the Claude Scientific Writer project. See main LICENSE file.
 
+
+
+## Linked References
+- `references/README.md`
+- `references/goal_setting_frameworks.md`
+- `references/intervention_guidelines.md`
+- `references/regulatory_compliance.md`
+- `references/specialty_specific_guidelines.md`
+- `references/treatment_plan_standards.md`

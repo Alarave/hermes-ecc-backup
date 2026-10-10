@@ -277,3 +277,12 @@ gtars.set_log_level("DEBUG")
 # CLI verbose mode
 gtars --verbose <command>
 ```
+
+
+## Linked References
+- `references/cli.md`
+- `references/coverage.md`
+- `references/overlap.md`
+- `references/python-api.md`
+- `references/refget.md`
+- `references/tokenizers.md`

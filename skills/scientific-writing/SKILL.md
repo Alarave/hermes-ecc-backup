@@ -443,3 +443,11 @@ This skill includes comprehensive reference files covering specific aspects of s
 - `references/writing_principles.md`: Core principles of effective scientific communication
 
 Load these references as needed when working on specific aspects of scientific writing.
+
+
+## Linked References
+- `references/citation_styles.md`
+- `references/figures_tables.md`
+- `references/imrad_structure.md`
+- `references/reporting_guidelines.md`
+- `references/writing_principles.md`

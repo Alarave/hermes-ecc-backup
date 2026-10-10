@@ -463,3 +463,11 @@ The Paper2All system includes built-in quality assessment:
 - **Standards**: Valid HTML/CSS, print-ready PDFs
 
 All outputs undergo automated quality checks before generation completes.
+
+
+## Linked References
+- `references/installation.md`
+- `references/paper2poster.md`
+- `references/paper2video.md`
+- `references/paper2web.md`
+- `references/usage_examples.md`

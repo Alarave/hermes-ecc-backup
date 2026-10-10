@@ -437,3 +437,13 @@ Biopython provides comprehensive tools for computational molecular biology. When
 5. **Follow best practices** for file handling, error checking, and data management
 
 The modular reference documentation ensures detailed, searchable information for every major Biopython capability.
+
+
+## Linked References
+- `references/advanced.md`
+- `references/alignment.md`
+- `references/blast.md`
+- `references/databases.md`
+- `references/phylogenetics.md`
+- `references/sequence_io.md`
+- `references/structure.md`

@@ -143,3 +143,14 @@ the module file, flag "productive tensions" for the group alignment workshop.
 
 - `competitive-platform-analysis` — after brand-discovery establishes the positioning brief, use this to scope and categorise the competitor set.
 - `brand-voice` (ECC) — if the brand-discovery voice-and-tone module needs a separate, source-derived writing-style profile.
+
+
+## Linked References
+- `references/10_purpose-why.md`
+- `references/20_positioning.md`
+- `references/30_audience-niche.md`
+- `references/40_personality-archetype.md`
+- `references/50_voice-tone.md`
+- `references/60_narrative-story.md`
+- `references/70_founder-tension.md`
+- `references/90_SYNTHESIS.md`

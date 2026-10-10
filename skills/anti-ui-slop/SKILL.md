@@ -56,3 +56,7 @@ Read `references/uizze-reference-policy.md` before using the paid MCP. It expose
 ## Finish
 
 Complete the requested scope. When the environment supports it, render and inspect once. Fix observable breakage such as clipping, overlap, distorted media, inaccessible controls, or inert interactions. Keep the handoff concise.
+
+
+## Linked References
+- `references/uizze-reference-policy.md`

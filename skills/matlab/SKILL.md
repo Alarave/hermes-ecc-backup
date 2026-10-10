@@ -374,3 +374,14 @@ For complete compatibility guide, see [references/octave-compatibility.md](refer
 - GNU Octave Manual: https://docs.octave.org/latest/
 - MATLAB Onramp (free course): https://www.mathworks.com/learn/tutorials/matlab-onramp.html
 - File Exchange: https://www.mathworks.com/matlabcentral/fileexchange/
+
+
+## Linked References
+- `references/data-import-export.md`
+- `references/executing-scripts.md`
+- `references/graphics-visualization.md`
+- `references/mathematics.md`
+- `references/matrices-arrays.md`
+- `references/octave-compatibility.md`
+- `references/programming.md`
+- `references/python-integration.md`

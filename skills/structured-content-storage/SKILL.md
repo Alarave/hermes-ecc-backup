@@ -270,3 +270,10 @@ def clean_sensor_data(df, threshold=0.95):
 - Sources: Software engineering best practices, data science project standards, documentation conventions
 - Last updated: 2026-01-19
 - Known limits: Does not enforce specific coding style (PEP8, etc.) beyond documentation requirements
+
+
+## Linked References
+- `references/comment-guidelines.md`
+- `references/directory-templates.md`
+- `references/documentation-standards.md`
+- `references/index.md`

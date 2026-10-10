@@ -37,3 +37,7 @@ Use this skill when:
 
 - `preprocessing-data-with-automated-pipelines` for the broader preprocessing sequence
 - `ml-data-leakage-guard` to verify the split does not leak future or test information
+
+
+## Linked References
+- `references/README.md`

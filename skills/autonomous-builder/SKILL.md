@@ -1244,3 +1244,21 @@ Before marking project complete:
 3. [ ] No uncommitted changes
 4. [ ] Documentation generated
 5. [ ] State archived to `.builder/archive/`
+
+
+## Linked References
+- `references/architecture-patterns.md`
+- `references/error-recovery.md`
+- `references/github-integration.md`
+- `references/index.md`
+- `references/loop-prevention.md`
+- `references/mcp-auto-integration.md`
+- `references/mcp-integration.md`
+- `references/multi-language.md`
+- `references/multi-layer-security.md`
+- `references/safety-protocols.md`
+- `references/session-continuity.md`
+- `references/skill-scheduling.md`
+- `references/think-tool.md`
+- `references/two-agent-architecture.md`
+- `references/workflow-recording.md`

@@ -412,3 +412,9 @@ Available in `references/` directory:
 - `poster_design_principles.md`: Typography, color theory, and visual hierarchy
 - `poster_layout_design.md`: Layout principles and grid systems
 
+
+
+## Linked References
+- `references/poster_content_guide.md`
+- `references/poster_design_principles.md`
+- `references/poster_layout_design.md`

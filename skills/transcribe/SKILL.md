@@ -79,3 +79,7 @@ python3 "$TRANSCRIBE_CLI" \
 
 ## Reference map
 - `references/api.md`: supported formats, limits, response formats, and known-speaker notes.
+
+
+## Linked References
+- `references/api.md`

@@ -332,3 +332,32 @@ This skill (as part of claude-scientific-skills) is distributed under the MIT Li
 [^1]: GitHub Blog. (2022). "Include diagrams in your Markdown files with Mermaid." https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
 
 [^2]: Mermaid. "Mermaid Diagramming and Charting Tool." https://mermaid.js.org/
+
+
+## Linked References
+- `references/diagrams/architecture.md`
+- `references/diagrams/block.md`
+- `references/diagrams/c4.md`
+- `references/diagrams/class.md`
+- `references/diagrams/complex_examples.md`
+- `references/diagrams/er.md`
+- `references/diagrams/flowchart.md`
+- `references/diagrams/gantt.md`
+- `references/diagrams/git_graph.md`
+- `references/diagrams/kanban.md`
+- `references/diagrams/mindmap.md`
+- `references/diagrams/packet.md`
+- `references/diagrams/pie.md`
+- `references/diagrams/quadrant.md`
+- `references/diagrams/radar.md`
+- `references/diagrams/requirement.md`
+- `references/diagrams/sankey.md`
+- `references/diagrams/sequence.md`
+- `references/diagrams/state.md`
+- `references/diagrams/timeline.md`
+- `references/diagrams/treemap.md`
+- `references/diagrams/user_journey.md`
+- `references/diagrams/xy_chart.md`
+- `references/diagrams/zenuml.md`
+- `references/markdown_style_guide.md`
+- `references/mermaid_style_guide.md`

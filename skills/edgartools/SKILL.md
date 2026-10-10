@@ -132,3 +132,13 @@ Load these when you need detailed information:
 - **[entity-facts.md](references/entity-facts.md)** — EntityFacts API, FactQuery, FinancialStatement, FinancialFact
 - **[ai-integration.md](references/ai-integration.md)** — MCP server setup, Skills installation, `.docs` and `.to_context()` properties
 
+
+
+## Linked References
+- `references/ai-integration.md`
+- `references/companies.md`
+- `references/data-objects.md`
+- `references/entity-facts.md`
+- `references/filings.md`
+- `references/financial-data.md`
+- `references/xbrl.md`

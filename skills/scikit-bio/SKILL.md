@@ -429,3 +429,7 @@ For detailed API information, parameter specifications, and advanced usage examp
 - Official documentation: https://scikit.bio/docs/latest/
 - GitHub repository: https://github.com/scikit-bio/scikit-bio
 - Forum support: https://forum.qiime2.org (scikit-bio is part of QIIME 2 ecosystem)
+
+
+## Linked References
+- `references/api_reference.md`

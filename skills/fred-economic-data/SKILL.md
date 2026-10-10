@@ -428,3 +428,13 @@ uv run python scripts/fred_examples.py
 - **ALFRED (Vintage Data)**: https://alfred.stlouisfed.org/
 - **Terms of Use**: https://fred.stlouisfed.org/legal/
 
+
+
+## Linked References
+- `references/api_basics.md`
+- `references/categories.md`
+- `references/geofred.md`
+- `references/releases.md`
+- `references/series.md`
+- `references/sources.md`
+- `references/tags.md`

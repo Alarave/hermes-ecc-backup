@@ -455,3 +455,9 @@ Load reference files into context as needed based on the specific task. For brie
 - **NLM Help Desk**: 1-888-FIND-NLM (1-888-346-3656)
 - **Technical Support**: vog.hin.mln.ibcn@seitilitue
 - **Mailing List**: utilities-announce@ncbi.nlm.nih.gov
+
+
+## Linked References
+- `references/api_reference.md`
+- `references/common_queries.md`
+- `references/search_syntax.md`

@@ -33,6 +33,8 @@ Digunakan setiap kali user (Project Owner) meminta merancang arsitektur, mendele
   - Jangan jalankan *downstream task* (misal: Training) sebelum *upstream task* (misal: Preprocessing) memenuhi Quality Gate.
 
 ## 3. C: CONTROL (Verification, Quality Gates & Anti-Hallucination)
+- **Frozen Contracts (`contract-freezer`)**: Setelah arsitektur/interface disetujui (G3), spesifikasi dibekukan. Sub-agen dilarang keras mengubah API contract/schema diam-diam tanpa persetujuan.
+- **Dual Audit Seal (`independent-auditor`)**: Gunakan agen reviewer yang terisolasi dari agen penulis kode untuk mengeksekusi dua segel pengawasan: *Semantic Seal* (Kesesuaian PRD/Bisnis) dan *Machine Seal* (Linter/Test/Kompilasi).
 - **Evidence Over Claims**: Jangan percaya agen yang mengklaim "Task selesai". Wajib minta artefak, hasil build, log test, atau matriks evaluasi nyata. Tanpa bukti = `UNVERIFIED`.
 - **Status is not Verification**: Status `SUCCESS` tidak sama dengan `VERIFIED`. Alurnya harus: `SUCCESS -> VERIFY -> VERIFIED`. Hanya hasil `VERIFIED` yang boleh masuk *downstream pipeline*.
 - **Definition of Done (DoD)**: Selesai hanya jika -> Artefak ada + Kode compile + Test pass + Dokumentasi update + QA/Security/Eval verified. Jika gagal: **REJECT -> REQUEST CHANGES**.

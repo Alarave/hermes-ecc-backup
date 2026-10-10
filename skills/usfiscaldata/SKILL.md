@@ -158,3 +158,14 @@ resp = requests.get(f"{BASE_URL}/v1/accounting/dts/deposits_withdrawals_operatin
 - **[response-format.md](references/response-format.md)** — Response objects, error handling, pagination, response codes
 - **[examples.md](references/examples.md)** — Python, R, and pandas code examples for common use cases
 
+
+
+## Linked References
+- `references/api-basics.md`
+- `references/datasets-debt.md`
+- `references/datasets-fiscal.md`
+- `references/datasets-interest-rates.md`
+- `references/datasets-securities.md`
+- `references/examples.md`
+- `references/parameters.md`
+- `references/response-format.md`

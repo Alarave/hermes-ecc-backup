@@ -344,3 +344,9 @@ For detailed API documentation, tutorials, and advanced usage, see the `referenc
 
 - **v2.0**: Removed HookedSAE (moved to SAELens)
 - **v3.0 (alpha)**: TransformerBridge for loading any nn.Module
+
+
+## Linked References
+- `references/README.md`
+- `references/api.md`
+- `references/tutorials.md`

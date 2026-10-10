@@ -39,3 +39,7 @@ Use this skill when:
 
 - `detecting-performance-regressions` to prove there is a real regression
 - `performance-testing` to collect the measurements behind the advice
+
+
+## Linked References
+- `references/README.md`

@@ -489,3 +489,8 @@ Always use polite pool for production workflows by providing email to client.
 - Rate limits apply globally, not per IP
 - Use LitLLM with OpenRouter if LLM-based analysis is needed (don't use Perplexity API directly)
 - Client handles pagination, retries, and rate limiting automatically
+
+
+## Linked References
+- `references/api_guide.md`
+- `references/common_queries.md`

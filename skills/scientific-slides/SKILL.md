@@ -1151,3 +1151,12 @@ See `document-skills/pptx/SKILL.md` for complete PowerPoint workflow.
 - **Boring = Forgotten**: Dry, text-heavy slides fail to communicate your science
 - **Visual + Research = Impact**: Combine compelling visuals with research-backed context
 - **You are the presentation, slides are visual support**: They should enhance, not replace your talk
+
+
+## Linked References
+- `references/beamer_guide.md`
+- `references/data_visualization_slides.md`
+- `references/presentation_structure.md`
+- `references/slide_design_principles.md`
+- `references/talk_types_guide.md`
+- `references/visual_review_workflow.md`

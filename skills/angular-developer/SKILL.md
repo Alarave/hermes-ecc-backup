@@ -153,3 +153,41 @@ When working with Angular tooling, consult the following references:
 - `tdd-workflow` — test-driven development workflow applicable to Angular components and services
 - `security-review` — security checklist for web applications including Angular-specific concerns
 - `frontend-patterns` — general frontend patterns for context on React/Next.js approaches
+
+
+## Linked References
+- `references/angular-animations.md`
+- `references/angular-aria.md`
+- `references/cli.md`
+- `references/component-harnesses.md`
+- `references/component-styling.md`
+- `references/components.md`
+- `references/creating-services.md`
+- `references/data-resolvers.md`
+- `references/define-routes.md`
+- `references/defining-providers.md`
+- `references/di-fundamentals.md`
+- `references/e2e-testing.md`
+- `references/effects.md`
+- `references/hierarchical-injectors.md`
+- `references/host-elements.md`
+- `references/injection-context.md`
+- `references/inputs.md`
+- `references/linked-signal.md`
+- `references/loading-strategies.md`
+- `references/mcp.md`
+- `references/navigate-to-routes.md`
+- `references/outputs.md`
+- `references/reactive-forms.md`
+- `references/rendering-strategies.md`
+- `references/resource.md`
+- `references/route-animations.md`
+- `references/route-guards.md`
+- `references/router-lifecycle.md`
+- `references/router-testing.md`
+- `references/show-routes-with-outlets.md`
+- `references/signal-forms.md`
+- `references/signals-overview.md`
+- `references/tailwind-css.md`
+- `references/template-driven-forms.md`
+- `references/testing-fundamentals.md`

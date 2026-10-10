@@ -207,3 +207,10 @@ Common issues and solutions:
 - **LaTeX compilation**: Install TeX distribution or use Docker image with pre-installed LaTeX
 - **Package conflicts**: Use virtual environments or Docker for isolation
 - **Python version**: Requires Python 3.12 or higher
+
+
+## Linked References
+- `references/examples.md`
+- `references/installation.md`
+- `references/llm_configuration.md`
+- `references/research_pipeline.md`

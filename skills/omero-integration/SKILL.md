@@ -250,3 +250,14 @@ finally:
 - Always close connections to free server resources
 - Use context managers for automatic resource management
 - Pixel data is returned as NumPy arrays for analysis
+
+
+## Linked References
+- `references/advanced.md`
+- `references/connection.md`
+- `references/data_access.md`
+- `references/image_processing.md`
+- `references/metadata.md`
+- `references/rois.md`
+- `references/scripts.md`
+- `references/tables.md`

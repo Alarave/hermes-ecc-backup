@@ -774,3 +774,7 @@ For detailed API documentation, advanced usage, and the latest updates:
 - **Xarray**: https://docs.xarray.dev/ (labeled arrays)
 - **Dask**: https://docs.dask.org/ (parallel computing)
 - **NumCodecs**: https://numcodecs.readthedocs.io/ (compression codecs)
+
+
+## Linked References
+- `references/api_reference.md`

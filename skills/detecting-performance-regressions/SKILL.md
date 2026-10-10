@@ -37,3 +37,7 @@ Use this skill when:
 
 - `performance-testing` for benchmark generation
 - `providing-performance-optimization-advice` after the regression is confirmed
+
+
+## Linked References
+- `references/README.md`

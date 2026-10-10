@@ -41,3 +41,7 @@ Use this skill when the main task is biological database lookup, annotation, or 
 ## Source Guide
 
 See `references/database-evidence-sources.md` for source-specific boundaries and query notes.
+
+
+## Linked References
+- `references/database-evidence-sources.md`

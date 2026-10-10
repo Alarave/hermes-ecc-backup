@@ -366,3 +366,17 @@ Detailed information available in `references/`:
 - GitHub: https://github.com/aeon-toolkit/aeon
 - Examples: https://www.aeon-toolkit.org/en/stable/examples.html
 - API Reference: https://www.aeon-toolkit.org/en/stable/api_reference.html
+
+
+## Linked References
+- `references/anomaly_detection.md`
+- `references/classification.md`
+- `references/clustering.md`
+- `references/datasets_benchmarking.md`
+- `references/distances.md`
+- `references/forecasting.md`
+- `references/networks.md`
+- `references/regression.md`
+- `references/segmentation.md`
+- `references/similarity_search.md`
+- `references/transformations.md`

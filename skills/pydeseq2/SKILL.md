@@ -551,3 +551,8 @@ uv pip install pydeseq2
 - **GitHub Repository:** https://github.com/owkin/PyDESeq2
 - **Publication:** Muzellec et al. (2023) Bioinformatics, DOI: 10.1093/bioinformatics/btad547
 - **Original DESeq2 (R):** Love et al. (2014) Genome Biology, DOI: 10.1186/s13059-014-0550-8
+
+
+## Linked References
+- `references/api_reference.md`
+- `references/workflow_guide.md`

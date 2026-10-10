@@ -201,3 +201,7 @@ External resources:
 **Last Updated**: 2024-12-29
 **Author**: Murat Can Koylan
 **Version**: 1.0.0
+
+
+## Linked References
+- `references/file-formats.md`

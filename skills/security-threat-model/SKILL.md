@@ -79,3 +79,8 @@ Deliver an actionable AppSec-grade threat model that is specific to the reposito
 - Optional controls/asset list: `references/security-controls-and-assets.md`
 
 Only load the reference files you need. Keep the final result concise, grounded, and reviewable.
+
+
+## Linked References
+- `references/prompt-template.md`
+- `references/security-controls-and-assets.md`

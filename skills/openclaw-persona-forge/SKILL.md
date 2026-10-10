@@ -287,3 +287,12 @@ python3 ${SKILL_DIR}/gacha.py [次数]
 头像生图能力通过当前环境中已审核的可选生图 skill 提供。
 
 > 注：README.md / README.zh.md 是给人类用户看的安装说明，不影响 Skill 运行。
+
+
+## Linked References
+- `references/avatar-style.md`
+- `references/boundary-rules.md`
+- `references/error-handling.md`
+- `references/identity-tension.md`
+- `references/naming-system.md`
+- `references/output-template.md`

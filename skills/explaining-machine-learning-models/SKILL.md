@@ -39,3 +39,7 @@ Use this skill when:
 
 - `shap` for SHAP-specific workflows
 - `evaluating-machine-learning-models` when the question is whether the model is good enough
+
+
+## Linked References
+- `references/README.md`

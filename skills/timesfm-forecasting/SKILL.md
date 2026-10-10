@@ -30,3 +30,9 @@ Setiap analisis atau perancangan sistem wajib mencakup:
 1. **Desain Patching**: Nilai *input patch*, *output patch*, *stride*, dan tokenisasi.
 2. **Arsitektur Jaringan**: Detail Transformer (*hidden layers*, spesifikasi *decoder mask* matriks diagonal kausal).
 3. **Pipeline Evaluasi Zero-Shot**: Output metrik evaluasi murni (*out-of-the-box*) tanpa tahapan *retraining*.
+
+
+## Linked References
+- `references/api_reference.md`
+- `references/data_preparation.md`
+- `references/system_requirements.md`

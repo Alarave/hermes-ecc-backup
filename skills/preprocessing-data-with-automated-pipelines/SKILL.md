@@ -38,3 +38,7 @@ Use this skill when:
 
 - `ml-data-leakage-guard` before trusting fitted preprocessing steps
 - `splitting-datasets` when the next narrow problem is partition strategy
+
+
+## Linked References
+- `references/README.md`

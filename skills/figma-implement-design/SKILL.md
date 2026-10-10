@@ -266,3 +266,8 @@ By following this workflow, you ensure that every Figma design is implemented wi
 - [Figma MCP Server Documentation](https://developers.figma.com/docs/figma-mcp-server/)
 - [Figma MCP Server Tools and Prompts](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/)
 - [Figma Variables and Design Tokens](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma)
+
+
+## Linked References
+- `references/figma-mcp-config.md`
+- `references/figma-tools-and-prompts.md`

@@ -348,3 +348,18 @@ Load specific reference files as needed using the Read tool to access detailed f
 - Official Documentation: https://neuropsychology.github.io/NeuroKit/
 - GitHub Repository: https://github.com/neuropsychology/NeuroKit
 - Publication: Makowski et al. (2021). NeuroKit2: A Python toolbox for neurophysiological signal processing. Behavior Research Methods. https://doi.org/10.3758/s13428-020-01516-y
+
+
+## Linked References
+- `references/bio_module.md`
+- `references/complexity.md`
+- `references/ecg_cardiac.md`
+- `references/eda.md`
+- `references/eeg.md`
+- `references/emg.md`
+- `references/eog.md`
+- `references/epochs_events.md`
+- `references/hrv.md`
+- `references/ppg.md`
+- `references/rsp.md`
+- `references/signal_processing.md`

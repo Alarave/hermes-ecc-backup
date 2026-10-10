@@ -384,3 +384,9 @@ cfg = LanguageModelSAERunnerConfig(
     activation_fn_kwargs={"k": 50},
 )
 ```
+
+
+## Linked References
+- `references/README.md`
+- `references/api.md`
+- `references/tutorials.md`

@@ -502,3 +502,12 @@ See the `scripts/` directory for analysis and visualization tools:
 - `validate_cds_document.py` - Quality and compliance checks (HIPAA, statistical reporting standards)
 - `grade_evidence.py` - Automated GRADE assessment helper for treatment recommendations
 
+
+
+## Linked References
+- `references/biomarker_classification.md`
+- `references/clinical_decision_algorithms.md`
+- `references/evidence_synthesis.md`
+- `references/outcome_analysis.md`
+- `references/patient_cohort_analysis.md`
+- `references/treatment_recommendations.md`

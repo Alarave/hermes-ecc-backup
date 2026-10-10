@@ -391,3 +391,12 @@ from sksurv.datasets import load_gbsg2, load_breast_cancer, load_veterans_lung_c
 # Kernels
 from sksurv.kernels import ClinicalKernelTransform
 ```
+
+
+## Linked References
+- `references/competing-risks.md`
+- `references/cox-models.md`
+- `references/data-handling.md`
+- `references/ensemble-models.md`
+- `references/evaluation-metrics.md`
+- `references/svm-models.md`

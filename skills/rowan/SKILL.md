@@ -425,3 +425,12 @@ except TimeoutError:
 - **Documentation**: https://docs.rowansci.com
 - **Python API Docs**: https://docs.rowansci.com/api/python/v2/
 - **Tutorials**: https://docs.rowansci.com/tutorials
+
+
+## Linked References
+- `references/api_reference.md`
+- `references/molecule_handling.md`
+- `references/proteins_and_organization.md`
+- `references/rdkit_native.md`
+- `references/results_interpretation.md`
+- `references/workflow_types.md`

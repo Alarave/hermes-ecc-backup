@@ -57,3 +57,12 @@ Use this skill when:
 
 - Run scaffold helper: `scripts/new-run.ps1 -Topic <name>`
 
+
+
+## Linked References
+- `references/role-prompts/arch-critic.md`
+- `references/role-prompts/bug-analyst.md`
+- `references/role-prompts/integration-analyst.md`
+- `references/role-prompts/team-lead.md`
+- `references/role-prompts/usability-analyst.md`
+- `references/vibe-compatibility.md`

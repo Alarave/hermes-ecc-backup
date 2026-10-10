@@ -179,3 +179,6 @@ Requires SymPy:
 ```bash
 pip install sympy
 ```
+
+## Linked References
+- `references/api_reference.md`

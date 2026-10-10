@@ -686,3 +686,11 @@ Requirements:
 - Python 3.10 or higher
 - pymatgen >= 2023.x
 - mp-api (for Materials Project access)
+
+
+## Linked References
+- `references/analysis_modules.md`
+- `references/core_classes.md`
+- `references/io_formats.md`
+- `references/materials_project_api.md`
+- `references/transformations_workflows.md`

@@ -513,3 +513,12 @@ python scripts/fda_examples.py
 
 - **GitHub Issues**: https://github.com/FDA/openfda/issues
 - **Email**: open-fda@fda.hhs.gov
+
+
+## Linked References
+- `references/animal_veterinary.md`
+- `references/api_basics.md`
+- `references/devices.md`
+- `references/drugs.md`
+- `references/foods.md`
+- `references/other.md`

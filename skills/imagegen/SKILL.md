@@ -172,3 +172,11 @@ Asset-type templates (website assets, game assets, wireframes, logo) are consoli
 - **`references/prompting.md`**: prompting principles (structure, constraints/invariants, iteration patterns).
 - **`references/sample-prompts.md`**: copy/paste prompt recipes (generate + edit workflows; examples only).
 - **`references/codex-network.md`**: environment/sandbox/network-approval troubleshooting.
+
+
+## Linked References
+- `references/cli.md`
+- `references/codex-network.md`
+- `references/image-api.md`
+- `references/prompting.md`
+- `references/sample-prompts.md`

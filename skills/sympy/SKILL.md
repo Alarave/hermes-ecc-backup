@@ -492,3 +492,11 @@ f(np.array([1, 2, 3]))
 - Tutorial: https://docs.sympy.org/latest/tutorials/intro-tutorial/index.html
 - API Reference: https://docs.sympy.org/latest/reference/index.html
 - Examples: https://github.com/sympy/sympy/tree/master/examples
+
+
+## Linked References
+- `references/advanced-topics.md`
+- `references/code-generation-printing.md`
+- `references/core-capabilities.md`
+- `references/matrices-linear-algebra.md`
+- `references/physics-mechanics.md`

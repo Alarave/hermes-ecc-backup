@@ -121,3 +121,7 @@ See `references/benchmark-patterns.md` for detailed patterns.
 
 ---
 Last updated: December 31, 2025
+
+
+## Linked References
+- `references/benchmark-patterns.md`

@@ -137,3 +137,14 @@ Load these for detailed endpoint documentation:
 - **[economic-indicators.md](references/economic-indicators.md)** — GDP, CPI, interest rates, employment data
 - **[technical-indicators.md](references/technical-indicators.md)** — 50+ technical analysis indicators (SMA, EMA, MACD, RSI, etc.)
 
+
+
+## Linked References
+- `references/commodities.md`
+- `references/economic-indicators.md`
+- `references/forex-crypto.md`
+- `references/fundamentals.md`
+- `references/intelligence.md`
+- `references/options.md`
+- `references/technical-indicators.md`
+- `references/time-series.md`

@@ -241,3 +241,11 @@ External (official):
 - Sources: local spec files in `skills/claude-skills/references/` + upstream official docs in `references/README.md`
 - Last updated: 2025-12-14
 - Known limits: `validate-skill.sh` is heuristic; strict mode assumes the recommended section headings
+
+
+## Linked References
+- `references/README.md`
+- `references/anti-patterns.md`
+- `references/index.md`
+- `references/quality-checklist.md`
+- `references/skill-spec.md`

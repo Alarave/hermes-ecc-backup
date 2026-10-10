@@ -679,3 +679,18 @@ with rasterio.open('suitability.tif', 'w', **profile) as dst:
 9. **Preserve Lineage** for reproducible research
 10. **Use Appropriate Spatial Resolution** for your analysis scale
 
+
+
+## Linked References
+- `references/advanced-gis.md`
+- `references/big-data.md`
+- `references/code-examples.md`
+- `references/core-libraries.md`
+- `references/data-sources.md`
+- `references/gis-software.md`
+- `references/industry-applications.md`
+- `references/machine-learning.md`
+- `references/programming-languages.md`
+- `references/remote-sensing.md`
+- `references/scientific-domains.md`
+- `references/specialized-topics.md`

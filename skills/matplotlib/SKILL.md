@@ -353,3 +353,10 @@ Matplotlib integrates well with:
 - Gallery: https://matplotlib.org/stable/gallery/index.html
 - Cheatsheets: https://matplotlib.org/cheatsheets/
 - Tutorials: https://matplotlib.org/stable/tutorials/index.html
+
+
+## Linked References
+- `references/api_reference.md`
+- `references/common_issues.md`
+- `references/plot_types.md`
+- `references/styling_guide.md`

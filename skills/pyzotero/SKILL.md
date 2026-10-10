@@ -109,3 +109,19 @@ print(bibtex.entries)
 zot = Zotero(library_id='123456', library_type='user', local=True)
 items = zot.items()
 ```
+
+
+## Linked References
+- `references/authentication.md`
+- `references/cli.md`
+- `references/collections.md`
+- `references/error-handling.md`
+- `references/exports.md`
+- `references/files-attachments.md`
+- `references/full-text.md`
+- `references/pagination.md`
+- `references/read-api.md`
+- `references/saved-searches.md`
+- `references/search-params.md`
+- `references/tags.md`
+- `references/write-api.md`

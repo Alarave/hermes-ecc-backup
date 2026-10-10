@@ -142,3 +142,16 @@ Use these modules when the request is for a specific delivery style. They provid
 - **`references/ivr.md`**: templates + defaults for IVR/phone prompts.
 - **`references/accessibility.md`**: templates + defaults for accessibility reads.
 - **`references/codex-network.md`**: environment/sandbox/network-approval troubleshooting.
+
+
+## Linked References
+- `references/accessibility.md`
+- `references/audio-api.md`
+- `references/cli.md`
+- `references/codex-network.md`
+- `references/ivr.md`
+- `references/narration.md`
+- `references/prompting.md`
+- `references/sample-prompts.md`
+- `references/voice-directions.md`
+- `references/voiceover.md`

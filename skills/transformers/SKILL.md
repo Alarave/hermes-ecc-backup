@@ -155,3 +155,11 @@ For detailed information on specific components:
 - **Generation**: `references/generation.md` - Text generation strategies and parameters
 - **Training**: `references/training.md` - Fine-tuning with Trainer API
 - **Tokenizers**: `references/tokenizers.md` - Tokenization and preprocessing
+
+
+## Linked References
+- `references/generation.md`
+- `references/models.md`
+- `references/pipelines.md`
+- `references/tokenizers.md`
+- `references/training.md`

@@ -448,3 +448,12 @@ All reference documentation files can be read as needed for detailed information
 - `references/best-practices.md` - Comprehensive performance optimization and troubleshooting
 
 Load these files when users need detailed information about specific Dask components, operations, or patterns beyond the quick guidance provided here.
+
+
+## Linked References
+- `references/arrays.md`
+- `references/bags.md`
+- `references/best-practices.md`
+- `references/dataframes.md`
+- `references/futures.md`
+- `references/schedulers.md`

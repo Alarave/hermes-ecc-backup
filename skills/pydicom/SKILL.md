@@ -433,3 +433,8 @@ Official pydicom documentation: https://pydicom.github.io/pydicom/dev/
 - Tutorials: https://pydicom.github.io/pydicom/dev/tutorials/index.html
 - API Reference: https://pydicom.github.io/pydicom/dev/reference/index.html
 - Examples: https://pydicom.github.io/pydicom/dev/auto_examples/index.html
+
+
+## Linked References
+- `references/common_tags.md`
+- `references/transfer_syntaxes.md`

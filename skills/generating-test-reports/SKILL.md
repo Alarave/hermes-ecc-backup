@@ -37,3 +37,7 @@ Use this skill when:
 
 - `systematic-debugging` before report packaging if failures are still unexplained
 - `verification-before-completion` when the report is part of a completion gate
+
+
+## Linked References
+- `references/README.md`

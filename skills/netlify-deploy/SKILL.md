@@ -245,3 +245,9 @@ For secrets and configuration:
 - [CLI commands](references/cli-commands.md)
 - [Deployment patterns](references/deployment-patterns.md)
 - [netlify.toml guide](references/netlify-toml.md)
+
+
+## Linked References
+- `references/cli-commands.md`
+- `references/deployment-patterns.md`
+- `references/netlify-toml.md`

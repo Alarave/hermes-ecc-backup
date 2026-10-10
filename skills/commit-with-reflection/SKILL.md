@@ -831,3 +831,9 @@ ON SKILL ACTIVATION:
 ### v3.0 (2026-02-16)
 - 添加 ToolSearch 插件智能发现
 - 自动使用 MCP 插件增强报告质量
+
+
+## Linked References
+- `references/best-practices.md`
+- `references/error-taxonomy.md`
+- `references/index.md`

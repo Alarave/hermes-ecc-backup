@@ -104,3 +104,7 @@ python C:\Users\羽裳\.codex\skills\video-studio\scripts\video_studio.py burn-s
 ## 边界
 - 本 skill 会生成/编辑视频文件，但不会替你发布到平台。
 - 高级“像剪映一样”的轨道编辑：优先走 VectCutAPI（如果你有服务），否则用 FFmpeg 的能力做到“够用的自动剪辑”。
+
+
+## Linked References
+- `references/sample_spec.json`

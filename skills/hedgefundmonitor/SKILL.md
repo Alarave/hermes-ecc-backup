@@ -123,3 +123,13 @@ mnemonics = [
 - **[references/parameters.md](references/parameters.md)** — Complete parameter reference with periodicity codes, how values
 - **[references/examples.md](references/examples.md)** — Python examples: discovery, bulk download, spread analysis, DataFrame workflows
 
+
+
+## Linked References
+- `references/api-overview.md`
+- `references/datasets.md`
+- `references/endpoints-combined.md`
+- `references/endpoints-metadata.md`
+- `references/endpoints-series-data.md`
+- `references/examples.md`
+- `references/parameters.md`

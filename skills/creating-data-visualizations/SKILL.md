@@ -38,3 +38,7 @@ This skill focuses on everyday analytical visualization choices: bars, lines, sc
 - "Plot monthly conversion rate with a confidence band"
 - "Make a scatter plot of latency vs throughput"
 - "Turn this CSV summary into a small dashboard"
+
+
+## Linked References
+- `references/README.md`

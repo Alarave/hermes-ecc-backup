@@ -202,3 +202,10 @@ Detailed reference documentation is available in the `references/` directory:
 - `workflows.md` - Common analysis patterns and examples
 
 Load these references as needed for detailed information about specific matchms capabilities.
+
+
+## Linked References
+- `references/filtering.md`
+- `references/importing_exporting.md`
+- `references/similarity.md`
+- `references/workflows.md`

@@ -256,3 +256,10 @@ Comprehensive documentation for each endpoint is available in the `references/` 
 5. **Cache resolutions**: If querying the same entities repeatedly, store name→DCID mappings
 6. **Filter by facet for consistency**: Use `filter_facet_domains` to ensure data from the same source
 7. **Read reference docs**: Each endpoint has extensive documentation in the `references/` directory
+
+
+## Linked References
+- `references/getting_started.md`
+- `references/node.md`
+- `references/observation.md`
+- `references/resolve.md`

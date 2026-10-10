@@ -561,3 +561,9 @@ After generating:
 ---
 
 Use this skill to create professional, accessible, and visually compelling infographics using the power of Nano Banana Pro AI with intelligent quality review.
+
+
+## Linked References
+- `references/color_palettes.md`
+- `references/design_principles.md`
+- `references/infographic_types.md`

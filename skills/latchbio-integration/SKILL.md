@@ -348,3 +348,10 @@ For issues or questions:
 2. Search GitHub issues
 3. Ask in Slack community
 4. Contact support@latch.bio
+
+
+## Linked References
+- `references/data-management.md`
+- `references/resource-configuration.md`
+- `references/verified-workflows.md`
+- `references/workflow-creation.md`

@@ -155,3 +155,7 @@ These foundations enable:
 - Count permutations with constraints
 - Solve modular equations
 - Apply pigeonhole principle
+
+
+## Linked References
+- `references/PROOF-TECHNIQUES.md`

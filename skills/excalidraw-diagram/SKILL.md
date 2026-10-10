@@ -472,3 +472,7 @@ To generate animation:
 3. Preview the animation
 4. Click Export to save as SVG or WebM
 ```
+
+
+## Linked References
+- `references/excalidraw-schema.md`

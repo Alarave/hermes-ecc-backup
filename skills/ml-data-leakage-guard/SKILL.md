@@ -352,3 +352,10 @@ y = df['churned']
 - Sources: ML best practices, Kaggle competition lessons, production ML experience
 - Last updated: 2026-01-19
 - Known limits: Cannot detect domain-specific leakage without context (e.g., whether a feature is post-event in a specific business context)
+
+
+## Linked References
+- `references/detection-strategies.md`
+- `references/index.md`
+- `references/leakage-patterns.md`
+- `references/temporal-leakage.md`

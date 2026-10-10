@@ -221,3 +221,20 @@ Keep it short: the image does the work. Don't attach variants, boards or icon se
 | `references/redesign.md` | Refresh vs. rebrand, equity audit, refresh techniques |
 | `references/critique.md` | Structured logo critique with scorecard and fixes |
 | `references/library-guide.md` | What's in the 1,400+ logo library, insights, curated examples by technique |
+
+
+## Linked References
+- `references/color.md`
+- `references/critique.md`
+- `references/discovery-brief.md`
+- `references/identity-system.md`
+- `references/library-guide.md`
+- `references/mark-types.md`
+- `references/presentation-delivery.md`
+- `references/principles.md`
+- `references/process.md`
+- `references/redesign.md`
+- `references/svg-construction.md`
+- `references/testing-checklist.md`
+- `references/typography.md`
+- `references/visual-techniques.md`

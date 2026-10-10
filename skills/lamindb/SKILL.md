@@ -382,3 +382,12 @@ Read the relevant reference file(s) based on the specific LaminDB capability nee
 - **GitHub Repository**: https://github.com/laminlabs/lamindb
 - **Tutorial**: https://docs.lamin.ai/tutorial
 - **FAQ**: https://docs.lamin.ai/faq
+
+
+## Linked References
+- `references/annotation-validation.md`
+- `references/core-concepts.md`
+- `references/data-management.md`
+- `references/integrations.md`
+- `references/ontologies.md`
+- `references/setup-deployment.md`

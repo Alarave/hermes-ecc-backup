@@ -102,3 +102,12 @@ JUnit 5 を使用して、アクションが `ActionRegistry` に登録されて
 - [データ処理](references/data-handling.md) — JSONのためのネイティブ `Builder` の使用
 - [システムと使用方法](references/system-usage.md) — Context、セッション、イベント、CLI使用方法
 - [テストパターン](references/testing.md) — JUnit 5 統合と ActionRegistry テスト
+
+
+## Linked References
+- `references/architecture.md`
+- `references/data-handling.md`
+- `references/database.md`
+- `references/routing.md`
+- `references/system-usage.md`
+- `references/testing.md`

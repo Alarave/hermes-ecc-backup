@@ -349,3 +349,16 @@ project/
 - **Allen Institute ecephys**: https://github.com/AllenInstitute/ecephys_spike_sorting
 - **Bombcell (Automated QC)**: https://github.com/Julie-Fabre/bombcell
 - **SpikeAgent (AI Curation)**: https://github.com/SpikeAgent/SpikeAgent
+
+
+## Linked References
+- `references/AI_CURATION.md`
+- `references/ANALYSIS.md`
+- `references/AUTOMATED_CURATION.md`
+- `references/MOTION_CORRECTION.md`
+- `references/PREPROCESSING.md`
+- `references/QUALITY_METRICS.md`
+- `references/SPIKE_SORTING.md`
+- `references/api_reference.md`
+- `references/plotting_guide.md`
+- `references/standard_workflow.md`
