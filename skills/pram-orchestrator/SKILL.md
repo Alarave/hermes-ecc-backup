@@ -50,8 +50,8 @@ Dipicu saat Anda menerima perintah "Pram", atau saat pengguna memberikan instruk
 - Laporan Sprint/Akhir wajib memuat: **What Was Done**, **What Was Verified**, **What Failed/Recovered**, dan **Next Action**.
 
 ## Linked References
-- `references/observability-checklist.md`
-- `references/orchestration-patterns.md`
-- `references/performance-checklist.md`
-- `references/definition-of-done.md`
-- `references/accessibility-checklist.md`
+- `references/competitive-analysis.md`
+- `references/incident-postmortem.md`
+- `references/prd-template.md`
+- `references/stakeholder-update.md`
+- `references/user-research-synthesis.md`

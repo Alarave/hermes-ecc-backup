@@ -15,7 +15,6 @@ Konteks: Gunakan prinsip dan standar kerja dari file-file di e:\skill claude\ski
 Tugas: Pastikan pendekatan, arsitektur, dan kode mengikuti best practices di bidang ini.
 
 ## Linked References
-Agen WAJIB memuat satu atau lebih file di bawah ini dengan `skill_view(name='spesialis-product-bisnis', file_path='references/<nama_file>')` sebelum memulai eksekusi:
 - `references/architect.md`
 - `references/brand-discovery.md`
 - `references/brand-voice.md`
@@ -25,11 +24,12 @@ Agen WAJIB memuat satu atau lebih file di bawah ini dengan `skill_view(name='spe
 - `references/code-simplifier.md`
 - `references/codebase-onboarding.md`
 - `references/comment-analyzer.md`
+- `references/competitive-analysis.md`
 - `references/connections-optimizer.md`
 - `references/content-engine.md`
 - `references/content-hash-cache-pattern.md`
-- `references/continuous-learning.md`
 - `references/continuous-learning-v2.md`
+- `references/continuous-learning.md`
 - `references/conversation-analyzer.md`
 - `references/cost-tracking.md`
 - `references/create-readme.md`
@@ -43,6 +43,7 @@ Agen WAJIB memuat satu atau lebih file di bawah ini dengan `skill_view(name='spe
 - `references/gan-planner.md`
 - `references/growth-log.md`
 - `references/harmonyos-app-resolver.md`
+- `references/incident-postmortem.md`
 - `references/inherit-legacy-style.md`
 - `references/inventory-demand-planning.md`
 - `references/investor-materials.md`
@@ -53,6 +54,7 @@ Agen WAJIB memuat satu atau lebih file di bawah ini dengan `skill_view(name='spe
 - `references/opensource-sanitizer.md`
 - `references/performance-optimizer.md`
 - `references/planner.md`
+- `references/prd-template.md`
 - `references/product-capability.md`
 - `references/product-lens.md`
 - `references/product-price-monitor.md`
@@ -61,8 +63,10 @@ Agen WAJIB memuat satu atau lebih file di bawah ini dengan `skill_view(name='spe
 - `references/refactor-cleaner.md`
 - `references/returns-reverse-logistics.md`
 - `references/rules-distill.md`
-- `references/seo.md`
 - `references/seo-specialist.md`
+- `references/seo.md`
 - `references/social-graph-ranker.md`
 - `references/social-publisher.md`
 - `references/spec-miner.md`
+- `references/stakeholder-update.md`
+- `references/user-research-synthesis.md`
