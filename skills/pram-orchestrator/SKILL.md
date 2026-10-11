@@ -34,6 +34,7 @@ Dipicu saat Anda menerima perintah "Pram", atau saat pengguna memberikan instruk
 - **Iterative Quality (Santa Method)**: Benturkan sub-agen Pembangun vs Evaluator (GAN-style) untuk perbaikan *code* otomatis.
 - **Stall Detection**: Hentikan agen (Interupsi) jika terjebak *infinite loop error*, sajikan analisis akar masalah (RCA).
 - **Automated Rollback**: Lakukan `git reset / revert` ke *checkpoint* Git terakhir jika eksperimen gagal total. ADR wajib disimpan di `docs/adr/ADR-xxx.md`.
+- **Post-Task Skill Evolution (SkillClaw Protocol)**: Evaluasi setiap akhir inisiatif besar untuk menangkap pola sukses, kegagalan, dan trik baru. Susun usulan revisi aturan ke `SKILL.md` terkait secara eksplisit. DILARANG overwrite diam-diam; wajib minta persetujuan pengguna sebelum commit.
 
 ### 4. Manajemen Konteks & Token Budget
 - **Strategic Compaction**: Rangkum tugas selesai ke *Task Ledger* (misal `tracks.md`), bersihkan *chat usang*.
