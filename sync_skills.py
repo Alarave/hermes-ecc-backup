@@ -1,9 +1,12 @@
 import os
+import sys
 import time
 import shutil
 from pathlib import Path
 
-HERMES_DIR = Path.home() / "AppData" / "Local" / "hermes" / "skills"
+# Auto-detect root directory based on script location
+BASE_DIR = Path(__file__).resolve().parent
+HERMES_DIR = BASE_DIR / "skills"
 GEMINI_DIR = Path.home() / ".gemini" / "config" / "rules"
 
 def ensure_dirs():

@@ -22,7 +22,8 @@ if (Test-Path "sync_skills.py") {
 
 # 3. Verifikasi tautan global (Junction links ke Claude, Codex, Kiro, Antigravity)
 Write-Host "[3/3] Memeriksa tautan global toolchains..." -ForegroundColor Yellow
-$masterSkills = "$env:USERPROFILE\AppData\Local\hermes\skills"
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$masterSkills = Join-Path $scriptDir "skills"
 $tools = @(".claude", ".codex", ".kiro", ".gemini\antigravity", ".hermes")
 
 foreach ($tool in $tools) {

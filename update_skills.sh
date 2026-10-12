@@ -20,7 +20,8 @@ fi
 
 # 3. Verifikasi symlink global
 echo "[3/3] Memeriksa tautan global toolchains..."
-MASTER_SKILLS="$HOME/.hermes/skills"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MASTER_SKILLS="$SCRIPT_DIR/skills"
 TOOLS=(".claude" ".codex" ".kiro" ".gemini/antigravity")
 
 for tool in "${TOOLS[@]}"; do
