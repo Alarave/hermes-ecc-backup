@@ -64,6 +64,23 @@ cd "$HOME/.hermes-ecc"
 ./update_skills.sh
 ```
 
+---
+
+## 🧬 Berbagi Pengalaman & Evolusi Kolektif (Team Instincts)
+
+Ketika teman Anda menyelesaikan masalah rumit atau menemukan trik baru di komputernya, mereka bisa langsung membagikannya ke repositori bersama dalam 1 perintah:
+
+```bash
+python scripts/share_experience.py "Pola baru optimasi query PostgreSQL"
+```
+
+Skrip ini otomatis:
+1. Membuat file pengalaman terisolasi di `instincts/shared/<nama_user>/`.
+2. Menyensor kredensial dan path lokal secara otomatis.
+3. Melakukan git commit dan push ke repositori tim.
+
+Saat Anda menjalankan `.\update_skills.ps1`, AI Anda akan mendeteksi pengalaman tersebut dan menyerap ilmunya secara otomatis!
+
 Skrip ini akan otomatis:
 1. Menarik commit terbaru via `git pull origin main`.
 2. Menyinkronkan seluruh skill ke memori lokal Antigravity CLI.

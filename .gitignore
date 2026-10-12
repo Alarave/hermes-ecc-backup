@@ -2,6 +2,10 @@
 !.gitignore
 !skills/
 !skills/**
+!instincts/
+!instincts/**
+!scripts/
+!scripts/**
 !plugins/
 !plugins/**
 !*.py
@@ -39,4 +43,6 @@ profiles/
 !update_skills.sh
 !.github/
 !.github/**
+!.state/
+!.state/**
 !install.ps1

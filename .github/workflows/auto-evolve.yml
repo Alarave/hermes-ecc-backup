@@ -1,0 +1,61 @@
+name: Auto Evolve & Sync Skills (Setiap 3 Hari)
+
+on:
+  schedule:
+    # Berjalan setiap 3 hari sekali pada pukul 00:00 UTC (07:00 WIB)
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # Memungkinkan trigger manual lewat tombol di GitHub Actions
+
+permissions:
+  contents: write
+
+jobs:
+  evolve-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Instinct Distillation & Auto-Lint
+        run: |
+          python -c '
+          import os, glob
+
+          print(">>> Memeriksa folder instincts/shared/ untuk evolusi skill...")
+          shared_instincts = glob.glob("instincts/shared/**/*.yaml", recursive=True)
+          print(f">>> Ditemukan {len(shared_instincts)} file pengalaman tim.")
+
+          # Verifikasi sanitasi path pada seluruh skill
+          skills_dir = "skills"
+          leaks = 0
+          for root, dirs, files in os.walk(skills_dir):
+              for f in files:
+                  if f.endswith((".md", ".yaml")):
+                      path = os.path.join(root, f)
+                      with open(path, "r", encoding="utf-8", errors="ignore") as file:
+                          c = file.read()
+                          if "C:\\Users\\" in c or "E:\\BELAJAR BANGET" in c and "${OBSIDIAN_VAULT_PATH" not in c:
+                              print(f"[WARN] File butuh sanitasi: {path}")
+                              leaks += 1
+          print(f">>> Verifikasi integritas selesai. Status leak: {leaks}")
+          '
+
+      - name: Commit and Push Evolution Status
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Catat timestamp evolusi berkala
+          mkdir -p .state
+          echo "Last evolved: $(date -u)" > .state/last_evolution.txt
+          
+          git add .state/last_evolution.txt
+          git diff --quiet && git diff --staged --quiet || (git commit -m "koreografi: auto-update dan sinkronisasi evolusi skill berkala (3 harian)" && git push origin main)

@@ -12,10 +12,15 @@ echo "[1/3] Menarik commit terbaru via Git pull..."
 git pull origin main || echo "[WARN] Gagal menjalankan git pull. Pastikan koneksi internet aktif."
 
 # 2. Jalankan sinkronisasi ke ekosistem CLI jika ada python
-echo "[2/3] Memperbarui sinkronisasi skill lokal..."
+echo "[2/3] Memperbarui sinkronisasi skill lokal & pengalaman tim..."
 if [ -f "sync_skills.py" ]; then
     python3 sync_skills.py 2>/dev/null || python sync_skills.py 2>/dev/null || true
     echo "[OK] Sinkronisasi skill lokal selesai."
+fi
+
+SHARED_COUNT=$(find instincts/shared -type f -name "*.yaml" 2>/dev/null | wc -l || echo "0")
+if [ "$SHARED_COUNT" -gt 0 ]; then
+    echo "[INFO] Terdeteksi $SHARED_COUNT file pengalaman tim aktif di instincts/shared/"
 fi
 
 # 3. Verifikasi symlink global
