@@ -1,61 +1,102 @@
-# ⚡ Hermes ECC (Enterprise Command Center)
-> **The All-in-One Multi-Agent Orchestration & Skill Framework**  
-> *Kompatibel penuh dengan Hermes Agent, Antigravity CLI, dan Gemini CLI.*
-
-Repositori ini adalah sistem otak AI terpadu (Enterprise Command Center) yang mengadopsi metodologi *Superpowers* dan *Meta-Skills*. Dilengkapi dengan peran agen spesialis yang terstruktur (Orchestrator, Research Akademik, Arsitek UI, Backend, Frontend, hingga Trading).
+# ⚡ Agent Harness OS (Hermes ECC)
+> **Sistem Operasi Multi-Agen, Orkestrasi WBS DAG, dan Gudang Skill Berstandar RCCO.**  
+> *Kompatibel lintas toolchains: Hermes Desktop, Claude Code, Codex CLI, Kiro, dan Gemini / Antigravity CLI.*
 
 ---
 
-## 🚀 One-Click Install (Plug-and-Play)
-Cukup buka **PowerShell** di Windows Anda dan jalankan perintah satu baris ini:
+## 🔒 Catatan Akses Repositori (Private Repo)
+Repositori ini bersifat **Private**. Sebelum teman atau anggota tim Anda dapat menginstal atau memperbarui skill, pastikan Anda telah memberikan akses kolaborator:
+1. Buka repositori di GitHub: `Settings` -> `Collaborators` -> `Add people`.
+2. Masukkan username atau email GitHub teman Anda.
+3. Setelah mereka menerima undangan kolaborasi, mereka dapat langsung menginstal repositori menggunakan instruksi di bawah.
+
+---
+
+## 🚀 Panduan Instalasi (Untuk Teman / Device Baru)
+
+### A. Windows (PowerShell)
+Buka PowerShell, lalu jalankan perintah berikut:
 
 ```powershell
-irm https://raw.githubusercontent.com/Alarave/hermes-ecc-backup/main/install.ps1 | iex
+# 1. Clone repositori ke komputer lokal
+git clone https://github.com/Alarave/hermes-ecc-backup.git "$env:LOCALAPPDATA\hermes-ecc"
+
+# 2. Masuk ke direktori dan jalankan setup otomatis
+cd "$env:LOCALAPPDATA\hermes-ecc"
+.\setup.ps1
 ```
 
-### 🛠️ Apa yang Dilakukan Skrip Ini Secara Otomatis?
-1. **Clone & Sinkronisasi Repo**: Mengunduh seluruh pustaka ke direktori `%LOCALAPPDATA%\hermes-ecc`.
-2. **Penyambungan ke Hermes Agent**: Membuat *directory junction* (symlink) dari semua folder `skills/` langsung ke Hermes, sehingga penambahan fitur baru langsung aktif tanpa install ulang.
-3. **Injeksi ke Antigravity / Gemini CLI**: Menjalankan konversi otomatis agar aturan dan meta-skill dikenali oleh Antigravity CLI (`~/.gemini/config/rules/`).
-4. **Keamanan Data Terjamin**: Konfigurasi pribadi, memori profil, kredensial, dan API Key tidak akan bocor karena menggunakan sistem *template*.
+> **Apa yang dilakukan `setup.ps1` secara otomatis?**
+> - Menginisialisasi konfigurasi profil tanpa menimpa data kredensial.
+> - Membuat *directory junction (symlink)* global ke `.hermes`, `.claude`, `.codex`, `.kiro`, dan `.gemini\antigravity`.
+> - Menginjeksi aturan ke Antigravity / Gemini CLI (`~/.gemini/config/rules/`).
 
 ---
 
-## 🧠 Daftar Meta-Skills Utama
+### B. Linux & macOS (Bash)
+Buka terminal:
 
-| Skill | Role / Deskripsi | Standar Metodologi |
-| :--- | :--- | :--- |
-| **`pram`** | **Chief AI Orchestrator & PM** | WBS, DAG Dependency Gating, Trinitas Dokumen (PRD, Charter, SRS), Anti-Bego Verification Protocol. |
-| **`dazai`** | **Spesialis Riset Akademik** | Literature Review, Piramida Terbalik (Bab I), Audit DOI, Penulisan LaTeX/Typst, 1 Task 1 Cell Notebook. |
-| **`spesialis-ui-templates`** | **Arsitek Design System & UI** | 50+ Referensi Brand Dunia (Stripe, Linear, Apple), Design Tokens, Anti-UI Generik. |
-| **`spesialis-frontend`** | **Senior Frontend Engineer** | Next.js, React, Tailwind, Micro-animations, Aksesibilitas (WCAG/a11y). |
-| **`spesialis-backend`** | **Backend & Systems Architect** | API Contract, Database Indexing, Unit Testing wajib (Anti-Mocking). |
-| **`trading-agent`** | **Algo & Quantitative Trading** | Analisis tren, sintesis sinyal pasar, mitigasi risiko keuangan. |
-
----
-
-## 📖 Cara Pemakaian Cepat
-
-### 1. Di Hermes Desktop
-Setelah instalasi selesai, cukup panggil agen yang Anda butuhkan di kolom chat:
-- *"Pram, rancang spesifikasi dan arsitektur aplikasi e-commerce baru."*
-- *"Dazai, cari celah penelitian dari jurnal-jurnal metode LSTM terbaru."*
-- *"Buatkan antarmuka dashboard admin dengan tema ala Stripe."*
-
-### 2. Di Antigravity / Gemini CLI
-Buka terminal dan gunakan *command* biasa. Aturan dari skill-skill di atas sudah otomatis terinjeksi ke dalam memori CLI:
 ```bash
-agy "Analisis bug autentikasi ini menggunakan standar spesialis-backend"
+# 1. Clone repositori
+git clone https://github.com/Alarave/hermes-ecc-backup.git "$HOME/.hermes-ecc"
+
+# 2. Masuk direktori dan jalankan script update
+cd "$HOME/.hermes-ecc"
+chmod +x update_skills.sh
+./update_skills.sh
 ```
 
 ---
 
-## 🔄 Pembaruan (Update)
-Jika ada pembaruan skill di repositori ini, Anda cukup menjalankan perintah install satu baris di atas kembali, atau masuk ke folder dan lakukan:
+## 🔄 Cara Memperbarui Skill (Auto-Update 1-Klik)
+
+Setiap kali ada pembaruan skill baru di repositori ini, teman Anda tidak perlu instalasi ulang. Cukup jalankan:
+
+### Di Windows (PowerShell):
 ```powershell
-cd $env:LOCALAPPDATA\hermes-ecc
-git pull origin main
-python sync_skills.py
+cd "$env:LOCALAPPDATA\hermes-ecc"
+.\update_skills.ps1
 ```
 
-Selamat berkarya dengan AI yang terotomatisasi penuh!
+### Di Linux / macOS (Bash):
+```bash
+cd "$HOME/.hermes-ecc"
+./update_skills.sh
+```
+
+Skrip ini akan otomatis:
+1. Menarik commit terbaru via `git pull origin main`.
+2. Menyinkronkan seluruh skill ke memori lokal Antigravity CLI.
+3. Memverifikasi seluruh tautan symlink global agar selalu terhubung.
+
+---
+
+## 🧠 Daftar Komando & Spesialis Utama
+
+| Agen / Skill | Peran Utama | Standar Metodologi |
+| :--- | :--- | :--- |
+| **`pram-orchestrator`** | **Chief AI Orchestrator & TPM** | Sistem RCCO, WBS DAG Engine, Quality Gate G0-G4, Dual Audit Seal, Frozen Contracts, Postmortem SRE, dan Zero Cognitive Load. |
+| **`spesialis-data-ai-agentic`** | **Principal Data & MLOps Engineer** | Pipeline DAG, Great Expectations Quality Gate, Parquet/Arrow, DVC Data Lineage, Hybrid Search RAG + Reranker. |
+| **`spesialis-research-akademik`** | **Peneliti Akademik (Q1/Q2)** | Protokol PRISMA, Falsifiability Popper, Template Bab 1-5 Skripsi, Sitasi Markdown Keys `[@citekey]`, Anti-Slop Writing. |
+| **`academic-note-coach`** / **`note`** | **Tutor 0-ke-100 & Zettelkasten** | Pedagogi 0-100, Analogi Dunia Nyata, LaTeX + Simulasi Hitungan Manual, Mermaid Mindmap, Collapsible Active Recall `> [!question]-`. |
+| **`ceemdan-lstm-forecasting`** | **Time-Series Deep Learning** | Anti-Leakage Split (Train-first), Sample Entropy Grouping, Bi-LSTM, Huber Loss, Validasi Diebold-Mariano vs Naive Baseline. |
+| **`spesialis-product-bisnis`** | **Product Lead & Strategist** | PRD FAANG (Rubrik 0-40), RICE Scoring, Incident Postmortem, Executive RAG Updates, Competitive Parity Matrix. |
+
+---
+
+## 💬 Cara Memanggil Agen (Zero Cognitive Load)
+
+Tidak perlu menghafal nama file atau perintah slash command. Cukup ketik maksud Anda di kolom chat:
+- *"Pram, rancang arsitektur dan timeline WBS untuk aplikasi baru ini."*
+- *"Pram, bantu tuliskan Bab 1 Pendahuluan untuk skripsi saya."*
+- *"Bikin catatan belajar materi Machine Learning ini dari level 0 sampai 100 ke Obsidian."*
+- *"Prediksi time series saham ini menggunakan CEEMDAN-LSTM."*
+- *"Bikinin PRD dan analisis kompetitor untuk fitur baru."*
+
+---
+
+## 🛡️ Kebijakan Privasi & Kontribusi (Zero Leakage)
+- Dilarang keras melakukan hardcode path komputer pribadi. Selalu gunakan format variabel dinamis:  
+  `${OBSIDIAN_VAULT_PATH:-~/notes}`.
+- Seluruh kredensial sensitif wajib disamarkan menjadi `[REDACTED]`.
+- Pesan Git commit wajib berbahasa Indonesia terstruktur: `fitur:`, `perbaikan:`, `dokumen:`, `rapihan:`, `koreografi:`.
