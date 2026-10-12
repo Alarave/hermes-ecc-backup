@@ -26,9 +26,17 @@ profiles/
 **/.env
 **/auth.json
 
-**/node_modules/
+.locks/
+.hub/
+*.lock
+*.jsonl
+*.json
 **/__pycache__/
 **/.venv/
 **/*.pyc
 **/.DS_Store
+!update_skills.ps1
+!update_skills.sh
+!.github/
+!.github/**
 !install.ps1
