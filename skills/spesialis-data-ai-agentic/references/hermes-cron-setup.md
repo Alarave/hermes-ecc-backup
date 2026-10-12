@@ -37,7 +37,7 @@ cronjob_manage(action='update', job_id='<id>', deliver='whatsapp:<chat_id>')
 
 Cron jobs run in a fresh session with zero chat context. The prompt must include all domain knowledge, folder paths, and output instructions inline. Never rely on context from the creating session.
 
-If the job writes files, include the exact absolute path in the prompt (e.g. `E:\BELAJAR BANGET\SKILL BELAJAR\Daily Learning\`).
+If the job writes files, include the exact target path in the prompt (e.g. `${OBSIDIAN_VAULT_PATH:-~/notes}/Daily Learning/`).
 
 ## 4. Auto-start gateway on Windows boot
 
@@ -58,7 +58,7 @@ To load skills from an external drive without copying:
 ```python
 import subprocess
 src = r"E:\path\to\skills"
-dst = r"C:\Users\HP\AppData\Local\hermes\skills\my-skills"
+dst = os.path.expanduser("~/.hermes/skills/my-skills")
 cmd = f'cmd.exe /c mklink /J "{dst}" "{src}"'
 subprocess.run(cmd, capture_output=True, text=True, shell=True)
 ```

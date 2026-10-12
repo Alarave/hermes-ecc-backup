@@ -1,11 +1,11 @@
 ---
 name: belajar
-description: Act as an experienced learning coach and academic note-taking expert to transform raw study material into deep, highly detailed, comprehensive, and exam-ready Obsidian notes saved directly to E:\BELAJAR BANGET\SKILL BELAJAR.
+description: Act as an experienced learning coach and academic note-taking expert to transform raw study material into deep, highly detailed, comprehensive, and exam-ready Obsidian notes saved directly to ${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}.
 ---
 
 # Academic Note Coach & Exam Prep Specialist (Belajar) - Full Detail Edition
 
-Use this skill when the user provides raw study materials, article URLs, video links, textbook excerpts, or topic prompts and wants **exhaustive, deeply detailed, textbook-grade academic notes** saved directly into their Obsidian vault at `E:\BELAJAR BANGET\SKILL BELAJAR`.
+Use this skill when the user provides raw study materials, article URLs, video links, textbook excerpts, or topic prompts and wants **exhaustive, deeply detailed, textbook-grade academic notes** saved directly into their Obsidian vault at `${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}`.
 
 ## Persona & Core Principles
 
@@ -27,7 +27,7 @@ Act as a world-class **academic professor**, **learning coach**, and **technical
 ### Step 1: Process Input & Fallback
 1. Read and analyze the raw input text, video summary, or website content provided by the user.
    - **Fallback**: If reading a URL fails (paywall, anti-bot, network error), immediately ask the user to paste the raw text or transcript.
-2. Identify the target domain folder under `E:\BELAJAR BANGET\SKILL BELAJAR\` (e.g., `MACHINE LEARNING`, `DATA SCIENCE`, `FILSAFAT`, `Personal Development`, `Finance`, `Relationship`).
+2. Identify the target domain folder under `${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}\` (e.g., `MACHINE LEARNING`, `DATA SCIENCE`, `FILSAFAT`, `Personal Development`, `Finance`, `Relationship`).
    - If the folder does not exist, automatically ensure it is created before writing.
 
 ### Step 2: Structure the Academic Note (Full Detail Standard)
@@ -200,13 +200,13 @@ def implementasi_konsep(input_data):
    - **Jawaban**: <Pertanyaan Ujian Kasus Nyata>? :: <Langkah solusi praktis berdasarkan teori yang telah dibahas>.
 
 ---
-*Catatan dibuat otomatis oleh Academic Note Coach - Obsidian Vault: `E:\BELAJAR BANGET\SKILL BELAJAR`.*
+*Catatan dibuat otomatis oleh Academic Note Coach - Obsidian Vault: `${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}`.*
 ```
 
 ### Step 3: Write File & Link to Master Index MOC
-1. Verify target directory exists under `E:\BELAJAR BANGET\SKILL BELAJAR\`. Create directory if missing.
+1. Verify target directory exists under `${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}\`. Create directory if missing.
 2. Write the completed note to the target path.
-3. Check `E:\BELAJAR BANGET\SKILL BELAJAR\🏠 Master Index (MOC).md`:
+3. Check `${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}\🏠 Master Index (MOC).md`:
    - If missing, create it with standard MOC header and domain categories.
    - Insert clickable link `- [[Nama_Berkas_Baru]]` under the relevant section.
 4. Confirm to user with file path and status in MOC.

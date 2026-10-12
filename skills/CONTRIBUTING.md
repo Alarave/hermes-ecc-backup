@@ -91,12 +91,34 @@ skills/
 
 ### SKILL.md Template
 
+Wajib mengadopsi standar **RCCO (Role, Context, Constraints, Output)**:
+
 ```markdown
 ---
 name: your-skill-name
-description: Brief description shown in skill list and used for auto-activation
-origin: ECC
+description: "Use when user says 'kata pemicu 1', 'kata pemicu 2'. Brief description."
 ---
+
+# Your Skill Name (your-skill-name)
+
+## R (Role / Identity)
+- Definisi persona ahli dan tanggung jawab utama.
+
+## C (Context / Boundaries)
+- Skenario pemicu dan batasan lingkungan.
+- Sanitasi path wajib: gunakan format dinamis `${TARGET_PATH:-~/default}` (dilarang hardcode path PC pribadi).
+
+## C (Constraints / Orchestration Rules)
+- Aturan mutu, batasan teknis, dan verifikasi.
+
+## O (Output Format / Delivery)
+- Format deliverable akhir yang dapat diverifikasi.
+```
+
+### Aturan Sanitasi Path & Privasi (Zero Leakage)
+1. **Dilarang keras hardcode path lokal** (contoh: `C:\Users\...` atau drive spesifik `E:\...`). Gunakan environment variables atau fallback dinamis.
+2. **Kredensial wajib disamarkan** menjadi `[REDACTED]`.
+3. **Commit wajib berbahasa Indonesia**: `fitur:`, `perbaikan:`, `dokumen:`, `rapihan:`, `koreografi:`.
 
 # Your Skill Title
 

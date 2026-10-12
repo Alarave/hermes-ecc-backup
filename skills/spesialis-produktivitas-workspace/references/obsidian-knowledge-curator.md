@@ -1,7 +1,7 @@
 # Obsidian Knowledge Curator
 
 ## When to use this skill
-Whenever the user provides an article, tutorial, or prompt to extract knowledge and save it into their Obsidian vault (`E:\BELAJAR BANGET\SKILL BELAJAR`).
+Whenever the user provides an article, tutorial, or prompt to extract knowledge and save it into their Obsidian vault (`${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}`).
 
 ## Rules & Standards
 1. **Frontmatter**: Every note must begin with YAML frontmatter containing:
