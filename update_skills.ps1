@@ -6,11 +6,17 @@ Write-Host ">>> Memulai pemeriksaan pembaruan skill dari repositori upstream..."
 
 # 1. Tarik pembaruan terbaru dari Git upstream
 try {
-    Write-Host "[1/3] Menarik commit terbaru via Git pull..." -ForegroundColor Yellow
+    Write-Host "[1/4] Menarik commit terbaru via Git pull..." -ForegroundColor Yellow
     $gitOutput = git pull origin main 2>&1
     Write-Host $gitOutput -ForegroundColor Gray
 } catch {
     Write-Host "[WARN] Gagal menjalankan git pull. Pastikan koneksi internet aktif." -ForegroundColor Red
+}
+
+# 2. Audit Mutu Pembaruan Otomatis (Pram Audit Engine)
+Write-Host "[2/4] Menjalankan audit mutu dan keamanan skill terbaru..." -ForegroundColor Yellow
+if (Test-Path "scripts\audit_incoming_skills.py") {
+    python scripts\audit_incoming_skills.py
 }
 
 # Auto-schedule update lokal setiap 3 hari via Windows Task Scheduler (jika belum ada)
@@ -40,7 +46,24 @@ if ($sharedInstincts) {
     Write-Host "[INFO] Terdeteksi $($sharedInstincts.Count) file pengalaman tim aktif di instincts/shared/" -ForegroundColor Cyan
 }
 
-# 3. Verifikasi tautan global (Junction links ke Claude, Codex, Kiro, Antigravity)
+# 3. Jalankan Background Learner Daemon (Auto-Push Senyap)
+Write-Host "[3/4] Memastikan background learner aktif..." -ForegroundColor Yellow
+$daemonName = "HermesBackgroundLearner"
+$existingDaemon = Get-ScheduledTask -TaskName $daemonName -ErrorAction SilentlyContinue
+if (-Not $existingDaemon) {
+    try {
+        $pyPath = (Get-Command python -ErrorAction SilentlyContinue).Source
+        if ($pyPath) {
+            $learnerScript = Join-Path $scriptDir "scripts\background_learner.py"
+            $action = New-ScheduledTaskAction -Execute $pyPath -Argument "`"$learnerScript`" --once"
+            $trigger = New-ScheduledTaskTrigger -Daily -At "12:00"
+            Register-ScheduledTask -TaskName $daemonName -Action $action -Trigger $trigger -Description "Auto sync pengalaman tim ke Git secara senyap" -ErrorAction SilentlyContinue | Out-Null
+            Write-Host "[OK] Background Learner terdaftar di Windows Task Scheduler." -ForegroundColor Green
+        }
+    } catch {}
+}
+
+# 4. Verifikasi tautan global (Junction links ke Claude, Codex, Kiro, Antigravity)
 Write-Host "[3/3] Memeriksa tautan global toolchains..." -ForegroundColor Yellow
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $masterSkills = Join-Path $scriptDir "skills"

@@ -89,6 +89,9 @@ domain: general
             print("[BERHASIL] Pengalaman berhasil dibagikan ke repositori tim!")
         except Exception as e:
             print(f"[ERROR] Gagal membagikan ke Git: {e}")
+    else:
+        # Otomatis diserahkan ke background daemon untuk auto-push senyap
+        print("[INFO] File disimpan. Background daemon akan melakukan auto-push secara senyap.")
 
 if __name__ == "__main__":
     main()

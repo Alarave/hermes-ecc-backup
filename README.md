@@ -68,18 +68,16 @@ cd "$HOME/.hermes-ecc"
 
 ## 🧬 Berbagi Pengalaman & Evolusi Kolektif (Team Instincts)
 
-Ketika teman Anda menyelesaikan masalah rumit atau menemukan trik baru di komputernya, mereka bisa langsung membagikannya ke repositori bersama dalam 1 perintah:
+Sistem ini mendukung **pembelajaran tim otomatis**. Ketika teman Anda menggunakan skill di komputernya:
+1. AI teman Anda secara otomatis merekam pola sukses atau trik yang berhasil ke `instincts/shared/<username>/`.
+2. Pengalaman tersebut langsung di-push ke GitHub repositori tim via `scripts/auto_evolve_listener.py`.
+3. GitHub Action (`.github/workflows/skill-audit.yml`) otomatis mengaudit mutu dan keamanan file tersebut.
+4. Di komputer Anda (dan teman lain), saat perintah `.\update_skills.ps1` berjalan, pengalaman baru tersebut otomatis terserap.
 
+Jika teman Anda ingin menambahkan catatan pembelajaran secara manual, cukup ketik:
 ```bash
 python scripts/share_experience.py "Pola baru optimasi query PostgreSQL"
 ```
-
-Skrip ini otomatis:
-1. Membuat file pengalaman terisolasi di `instincts/shared/<nama_user>/`.
-2. Menyensor kredensial dan path lokal secara otomatis.
-3. Melakukan git commit dan push ke repositori tim.
-
-Saat Anda menjalankan `.\update_skills.ps1`, AI Anda akan mendeteksi pengalaman tersebut dan menyerap ilmunya secara otomatis!
 
 Skrip ini akan otomatis:
 1. Menarik commit terbaru via `git pull origin main`.

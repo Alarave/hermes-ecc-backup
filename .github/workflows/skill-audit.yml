@@ -18,38 +18,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Skill Security & RCCO Linter
+      - name: Run Pram Quality & Security Audit
         run: |
-          python -c '
-          import os, sys, re
-
-          skills_dir = "skills"
-          if not os.path.isdir(skills_dir):
-              print("Directory skills/ not found!")
-              sys.exit(1)
-
-          failed = False
-          hardcoded_path_pattern = re.compile(r"[A-Za-z]:\\[Uu]sers\\[A-Za-z0-9_]+")
-
-          for root, dirs, files in os.walk(skills_dir):
-              # Skip non-skill internals
-              if any(p in root for p in [".git", "node_modules", ".hub", ".locks"]):
-                  continue
-              for f in files:
-                  if f.endswith((".md", ".yaml", ".yml", ".json", ".py", ".sh")):
-                      filepath = os.path.join(root, f)
-                      with open(filepath, "r", encoding="utf-8", errors="ignore") as file:
-                          content = file.read()
-                          if hardcoded_path_pattern.search(content):
-                              print(f"[FAIL: LEAK] Hardcoded Windows User path detected: {filepath}")
-                              failed = True
-                          if "E:\\BELAJAR BANGET" in content and "${OBSIDIAN_VAULT_PATH" not in content:
-                              print(f"[FAIL: LEAK] Unsanitized vault path detected: {filepath}")
-                              failed = True
-
-          if failed:
-              print("\nCI Lint Failed: Please sanitize hardcoded local paths before merging!")
-              sys.exit(1)
-          else:
-              print("\nCI Lint Passed: All skills conform to Privacy & Zero-Leakage standards.")
-          '
+          python scripts/audit_incoming_skills.py
