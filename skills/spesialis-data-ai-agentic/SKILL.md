@@ -37,7 +37,8 @@ Dipicu saat mengeksekusi proyek data, pemodelan ML, RAG, atau ETL.
 - **Data Lineage**: Kunci versi dataset dan model weights menggunakan **DVC** yang terikat pada Git commit.
 
 ### 4. Generative AI & RAG (Anti-Hallucination)
-- **Retrieval Engine**: Wajib menggunakan **Hybrid Search** (Dense Vector + BM25 Sparse) dengan **Reranker** (Cross-Encoder). Jangan gunakan vektor biasa (Cos-Sim) sendirian.
+- **Retrieval Engine**: Wajib menggunakan **Hybrid Search** (Dense Vector + BM25 Sparse) dengan Reciprocal Rank Fusion (RRF) dan **Cross-Encoder Reranker** (lihat `references/hybrid-rag-structured-outputs.md`). Jangan gunakan vektor biasa (Cos-Sim) sendirian.
+- **Structured Outputs**: Wajib gunakan validasi skema ketat (**Pydantic / OpenAI Strict Mode**) untuk seluruh output JSON agar bebas dari halusinasi skema dan parsing crash.
 - **RAG Evaluation**: Validasi kualitas *prompt* & respons LLM menggunakan **RAG Triad** (Context Relevance, Groundedness, Answer Relevance via Ragas/TruLens) dan validasi parsial dengan *Human Feedback*.
 
 ## O (Output Format / Delivery)
@@ -45,6 +46,7 @@ Saat merancang sistem data atau memberikan kode, pastikan format RCCO selalu dit
 
 
 ## Linked References
+- `references/hybrid-rag-structured-outputs.md`
 - `references/.agent_agents.md`
 - `references/.claude-plugin_plugin-schema-notes.md`
 - `references/.claude-plugin_readme.md`

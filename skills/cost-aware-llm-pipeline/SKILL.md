@@ -7,16 +7,17 @@ metadata:
 
 # Cost-Aware LLM Pipeline
 
-Patterns for controlling LLM API costs while maintaining quality. Combines model routing, budget tracking, retry logic, and prompt caching into a composable pipeline.
+## R (Role & Identity)
+- **Peran**: LLM Cost Optimization Architect & Pipeline Engineer.
+- **Misi**: Mengendalikan biaya token API LLM, mencegah pemborosan anggaran (*burn rate*), dan mempertahankan kualitas output melalui perutean model, prompt caching, dan batch orchestration.
 
-## When to Activate
+## C (Context & Activation)
+Gunakan saat:
+- Membangun aplikasi yang memanggil API LLM (Claude, GPT, dll.).
+- Memproses ribuan item atau dataset besar secara berkala.
+- Menetapkan pagu anggaran (*budget guardrails*) ketat sebelum proses berjalan.
 
-- Building applications that call LLM APIs (Claude, GPT, etc.)
-- Processing batches of items with varying complexity
-- Need to stay within a budget for API spend
-- Optimizing cost without sacrificing quality on complex tasks
-
-## Core Concepts
+## C (Constraints & Optimization Patterns)
 
 ### 1. Model Routing by Task Complexity
 
@@ -77,53 +78,83 @@ class CostTracker:
         return self.total_cost > self.budget_limit
 ```
 
-### 3. Narrow Retry Logic
+### 3. Narrow Retry Logic with Full Jitter
 
-Retry only on transient errors. Fail fast on authentication or bad request errors.
+Retry only on transient errors. Use exponential backoff with full jitter to avoid the thundering herd problem. Fail fast on authentication or validation errors.
 
 ```python
-from anthropic import (
-    APIConnectionError,
-    InternalServerError,
-    RateLimitError,
-)
+import random
+import time
+from anthropic import APIConnectionError, InternalServerError, RateLimitError
 
 _RETRYABLE_ERRORS = (APIConnectionError, RateLimitError, InternalServerError)
 _MAX_RETRIES = 3
+_BASE_DELAY = 1.0
+_MAX_DELAY = 20.0
 
 def call_with_retry(func, *, max_retries: int = _MAX_RETRIES):
-    """Retry only on transient errors, fail fast on others."""
+    """Retry with full jitter backoff on transient errors."""
     for attempt in range(max_retries):
         try:
             return func()
         except _RETRYABLE_ERRORS:
             if attempt == max_retries - 1:
                 raise
-            time.sleep(2 ** attempt)  # Exponential backoff
-    # AuthenticationError, BadRequestError etc. → raise immediately
+            # Full Jitter formula: sleep = random(0, min(cap, base * 2^attempt))
+            sleep_time = random.uniform(0, min(_MAX_DELAY, _BASE_DELAY * (2 ** attempt)))
+            time.sleep(sleep_time)
 ```
 
-### 4. Prompt Caching
+### 4. Prompt Caching & Static Prefix Discipline
 
-Cache long system prompts to avoid resending them on every request.
+Cache long system prompts and reference documentation. Keep static content strictly at the beginning of the prompt. Dynamic variables (timestamps, user IDs, questions) MUST be appended at the end to prevent cache invalidation.
 
 ```python
+# Anthropic Ephemeral Breakpoint
 messages = [
     {
         "role": "user",
         "content": [
             {
                 "type": "text",
-                "text": system_prompt,
-                "cache_control": {"type": "ephemeral"},  # Cache this
+                "text": static_system_instructions,
+                "cache_control": {"type": "ephemeral"},  # Cache breakpoint
             },
             {
                 "type": "text",
-                "text": user_input,  # Variable part
+                "text": dynamic_query,  # Variable payload at the tail
             },
         ],
     }
 ]
+```
+
+### 5. Asynchronous Batch API (-50% Cost Discount)
+
+For non-blocking tasks (evaluasi data, ekstraksi dokumen, batch scraping, summarization offline), gunakan endpoint Batch API (OpenAI `/v1/batches` atau Anthropic Message Batches).
+
+- **Keuntungan**: Diskon 50% biaya token input dan output, limit rate terpisah.
+- **SLA**: Hasil dikembalikan dalam rentang 24 jam.
+
+```python
+# Pola Orkestrasi OpenAI Batch API
+import json
+from openai import OpenAI
+
+client = OpenAI()
+
+def submit_batch_job(requests_list: list[dict], batch_file: str = "batch_input.jsonl"):
+    with open(batch_file, "w") as f:
+        for r in requests_list:
+            f.write(json.dumps(r) + "\n")
+            
+    file_batch = client.files.create(file=open(batch_file, "rb"), purpose="batch")
+    batch_job = client.batches.create(
+        input_file_id=file_batch.id,
+        endpoint="/v1/chat/completions",
+        completion_window="24h"
+    )
+    return batch_job.id
 ```
 
 ## Composition
