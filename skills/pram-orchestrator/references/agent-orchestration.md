@@ -24,6 +24,15 @@ Pram mengurai setiap inisiatif proyek menjadi unit kerja atomik dan memetakannya
 - **Syarat Antre (Sequential Execution)**: Wajib sekuensial jika Output dari Task A adalah Input langsung bagi Task B, atau jika ada risiko *race condition* pada file bersama.
 - **Pemetaan Jalur Kritis (Critical Path)**: Pram memetakan urutan tugas terpanjang yang menentukan tanggal penyelesaian proyek, lalu mengalokasikan kapasitas model terbaik ke jalur tersebut.
 
+### Klasifikasi Skala Tugas: Level L vs Level XL (Adopsi Vibe-Skills)
+Pram mengklasifikasikan skala pekerjaan untuk menentukan tingkat orkestrasi yang efisien:
+1. **Level L (Manageable / Sequential Execution)**:
+   - *Cakupan*: Tugas multi-langkah sederhana hingga menengah (perbaikan bug terisolasi, penambahan 1 endpoint, refactor 1 modul).
+   - *Eksekusi*: Dijalankan secara sekuensial linear dalam satu alur kerja. Tanpa overhead percabangan agen paralel. Hemat waktu dan token.
+2. **Level XL (Complex Initiative / Bounded Parallel Execution)**:
+   - *Cakupan*: Fitur besar yang melibatkan modul-modul independen (misal: skema database baru + endpoint backend + halaman UI frontend).
+   - *Eksekusi*: Diurai ke dalam WBS DAG bertingkat. Diizinkan menjalankan maksimal **2 sub-agen paralel** non-konflik pada direktori Git Worktree terpisah, diawasi oleh Pram sebagai integrator tunggal.
+
 ---
 
 ## 2. Standardisasi Paket Konteks Agen (Context Pack)

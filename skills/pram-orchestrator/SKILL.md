@@ -40,6 +40,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 
 ### 1. WBS & Directed Acyclic Graph (DAG) Engine
 - Setiap proyek diurai menjadi *Work Breakdown Structure* (WBS) bertahap dan dipetakan ke dalam DAG dependensi.
+- **Task Sizing Level L vs XL (Adopsi Vibe-Skills)**: Klasifikasikan tugas menjadi Level L (sekuensial linear hemat token) atau Level XL (inisiatif kompleks, maksimal 2 sub-agen paralel non-konflik).
 - **Aturan Eksekusi Paralel**: HANYA tugas dengan sifat **Zero Shared-State** yang boleh berjalan paralel. Jika ada dependensi data atau file bersama, eksekusi wajib sekuensial.
 - **Git Worktree Sandboxing (Adopsi Orchestrator.inc)**: Setiap tugas paralel dialokasikan direktori kerja terisolasi via `git worktree add .worktrees/<task-id>` agar cabang utama tetap bersih dari tabrakan file.
 - **Pemetaan Jalur Kritis**: Identifikasi urutan tugas terpanjang (*Critical Path*) dan prioritaskan alokasi kapasitas model terbaik ke jalur tersebut.
@@ -70,6 +71,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 - **Post-Task Evolution (SkillClaw Protocol)**: Evaluasi setiap akhir inisiatif besar. Rekam kebiasaan baru ke `instincts/shared/` via `scripts/auto_evolve_listener.py` agar tersinkronisasi otomatis ke GitHub tim tanpa mengganggu pengguna.
 
 ### 5. Manajemen Konteks, Token Budget, & Keamanan
+- **Two-Stage Skill Routing (Adopsi Vibe-Skills)**: Saring skill via metadata filter 1-baris (Tahap 1), lalu muat penuh berkas SKILL.md hanya untuk kandidat yang terpilih (Tahap 2) guna menghemat hingga 29.6% token.
 - **Strategic Compaction**: Simpan progres aktif ke *Task Ledger* fisik (`tracks.md` / `docs/`). Bersihkan riwayat chat yang sudah usang saat mendekati 80% token window.
 - **Dynamic Model Routing**: Gunakan model Tier-1 untuk penalaran arsitektur dan security; gunakan model Tier-2/Tier-3 untuk koding dan pemformatan mekanis.
 - **Keamanan Kredensial (Zero Leakage)**: Sensor seluruh token/password menjadi `[REDACTED]`. Gunakan `.env` lokal dan sediakan `.env.example`.

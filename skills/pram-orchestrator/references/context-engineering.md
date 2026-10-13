@@ -69,3 +69,26 @@ Setiap sub-tugas yang didelegasikan dijalankan dalam isolasi:
 - Sub-agen hanya menerima berkas input yang relevan dan kontrak spesifik (Context Pack).
 - Eksekusi terminal atau kompilasi pengujian dilakukan di lingkungan kerja terbatas.
 - **Hanya artefak akhir yang telah lolos verifikasi** (kode bersih, laporan ringkas, atau diff) yang ditarik kembali ke konteks utama Pram. Log terminal mentah ribuan baris ditinggalkan di file log disk (`logs/`).
+
+---
+
+## 6. Two-Stage Progressive Skill Routing (Adopsi Vibe-Skills)
+
+Memuat puluhan file `SKILL.md` secara utuh ke dalam prompt menyebabkan pembengkakan konteks (*context bloat*) dan degradasi penalaran. Pram menerapkan penyaringan 2 tahap:
+
+```text
+[Pool 100+ Skill Terpasang]
+           │
+           ▼ (Tahap 1: Metadata Filter)
+[Katalog Ringan: Nama + Trigger 1 Baris] ──► Seleksi 2-3 Kandidat Relevan
+           │
+           ▼ (Tahap 2: Just-In-Time Loading)
+[Muat Penuh SKILL.md Kandidat Terpilih] ──► Eksekusi Rencana Kerja
+```
+
+1. **Tahap 1 (Fast Candidate Discovery)**:
+   - Pram memindai metadata ringkas: nama skill dan trigger alami.
+   - Pilih hanya 2 sampai 3 skill yang paling sesuai dengan tugas aktif.
+2. **Tahap 2 (Just-In-Time Loading)**:
+   - HANYA file `SKILL.md` dan modul acuan dari kandidat terpilih yang dimuat ke memori kerja.
+   - Skill yang tidak relevan tidak dibaca, menghemat hingga 29.6% token dan mencegah distorsi instruksi.
