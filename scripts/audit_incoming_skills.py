@@ -34,7 +34,7 @@ def get_git_changed_skills():
         return []
 
 def audit_skill_file(filepath: Path):
-    rel_path = filepath.relative_to(BASE_DIR)
+    rel_path = filepath.resolve().relative_to(BASE_DIR.resolve())
     verdict = {
         "file": str(rel_path),
         "score": 100,
