@@ -92,3 +92,34 @@ Memuat puluhan file `SKILL.md` secara utuh ke dalam prompt menyebabkan pembengka
 2. **Tahap 2 (Just-In-Time Loading)**:
    - HANYA file `SKILL.md` dan modul acuan dari kandidat terpilih yang dimuat ke memori kerja.
    - Skill yang tidak relevan tidak dibaca, menghemat hingga 29.6% token dan mencegah distorsi instruksi.
+
+---
+
+## 7. Hierarchical Capability Tree Navigation (Adopsi AgentSkillOS)
+
+Pencarian vektor teks murni sering mengalami *Myopic Retrieval* (pandangan sempit), hanya mencocokkan kemiripan kata kunci tanpa menyadari kebutuhan skill komplementer. Pram menavigasi ekosistem melalui **Pohon Kapabilitas 5 Cabang**:
+
+```text
+POHON KAPABILITAS SKILL (CAPABILITY TREE):
+│
+├── [Branch 1: Governance & Quality Control]
+│   └── pram-orchestrator, independent-auditor, contract-freezer, quality-gates
+│
+├── [Branch 2: Data, AI & Modeling]
+│   └── spesialis-data-ai-agentic, ceemdan-lstm-forecasting, timesfm-forecasting, mlops-orchestration
+│
+├── [Branch 3: Software Architecture & Systems]
+│   └── spesialis-backend, spesialis-frontend, git-workflow, agent-orchestration
+│
+├── [Branch 4: Security & Verification]
+│   └── security-reviewer (Codex Loop), security-threat-model, tdd-workflow
+│
+└── [Branch 5: Research, Product & Dissemination]
+    └── spesialis-research-akademik, spesialis-product-bisnis, note, campus-repository-scraper
+```
+
+### Aturan Komposisi Lintas Cabang (Cross-Branch Composition):
+- Untuk tugas berskala **Level XL**, Pram DILARANG hanya memilih 1 skill tunggal.
+- Pram wajib mengomposisikan kombinasi komplementer lintas cabang ke dalam DAG:
+  - *Cabang Eksekusi*: Misal Branch 2 (Data AI) atau Branch 3 (Software Systems).
+  - *Cabang Verifikasi Mutlak*: Wajib mengikutsertakan Branch 4 (Security Reviewer) atau Branch 1 (Independent Auditor) sebagai gerbang penyelesaian.

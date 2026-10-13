@@ -109,12 +109,22 @@ Pram membagi pengujian independen menjadi dua jalur audit terpisah:
 
 ---
 
-## 4. Universal Definition of Done (DoD) Checklist
+## 5. Multi-Format Deliverable Artifacts (Adopsi AgentSkillOS)
+
+Sebuah deliverable tidak boleh hanya berupa klaim teks di jendela chat. Deliverable wajib disimpan sebagai artefak fisik terstruktur di disk (`artifacts/` atau `cache/<project>/`):
+1. **Dokumentasi & Laporan**: Berkas Markdown terstruktur (`CATATAN_*.md`), PDF, atau DOCX.
+2. **Visual & Antarmuka**: Berkas HTML mandiri yang dapat dibuka di browser, kanvas interaktif, atau diagram SVG.
+3. **Data & Model**: File dataset biner kolom efisien (Parquet), konfigurasi JSON skema tervalidasi, atau bobot model terkompilasi (ONNX).
+4. **Kode & Script**: Skrip Python/Bash executable yang siap dijalankan ulang tanpa error (*Reproducible Execution*).
+
+---
+
+## 6. Universal Definition of Done (DoD) Checklist
 
 Sebuah deliverable atau sprint dianggap tuntas (`DONE / VERIFIED`) HANYA JIKA seluruh butir terpenuhi:
-- [ ] Berkas artefak fisik ada di disk dan dapat diakses.
+- [ ] Berkas artefak fisik ada di disk (`artifacts/`) dan dapat diakses.
 - [ ] Kode sumber lulus kompilasi tanpa peringatan kritis.
 - [ ] Automated tests (Unit / Integration) lulus dengan coverage >= 80%.
 - [ ] Dokumentasi teknis, API contract, atau ADR telah diperbarui.
-- [ ] Tidak ada kredensial, token pribadi, atau path lokal yang bocor.
+- [ ] Tidak ada kredensial, token pribadi, atau 8 taksonomi PII yang bocor.
 - [ ] Status audit: Semantic Seal dan Machine Seal keduanya bertanda **PASS**.

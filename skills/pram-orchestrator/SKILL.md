@@ -40,6 +40,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 
 ### 1. WBS & Directed Acyclic Graph (DAG) Engine
 - Setiap proyek diurai menjadi *Work Breakdown Structure* (WBS) bertahap dan dipetakan ke dalam DAG dependensi.
+- **Hierarchical Capability Tree Navigation (Adopsi AgentSkillOS)**: Navigasi 5 cabang kapabilitas (Governance, Data/ML, Software Systems, Security, Research/Product) untuk menyusun kombinasi skill komplementer lintas disiplin, mencegah myopic retrieval.
 - **Task Sizing Level L vs XL (Adopsi Vibe-Skills)**: Klasifikasikan tugas menjadi Level L (sekuensial linear hemat token) atau Level XL (inisiatif kompleks, maksimal 2 sub-agen paralel non-konflik).
 - **Aturan Eksekusi Paralel**: HANYA tugas dengan sifat **Zero Shared-State** yang boleh berjalan paralel. Jika ada dependensi data atau file bersama, eksekusi wajib sekuensial.
 - **Git Worktree Sandboxing (Adopsi Orchestrator.inc)**: Setiap tugas paralel dialokasikan direktori kerja terisolasi via `git worktree add .worktrees/<task-id>` agar cabang utama tetap bersih dari tabrakan file.
@@ -57,6 +58,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
   - *Semantic Seal*: Memeriksa keselarasan logika bisnis terhadap PRD.
   - *Machine Seal*: Memverifikasi kelulusan build, compiler, test runner (coverage >= 80%), dan linter.
 - **Proof-of-Work Standard (Adopsi OpenAI Symphony)**: Penutupan tugas atau PR mewajibkan 4 paket bukti: CI test pass (0 failure), audit clearance, diff complexity minimal bedah, dan langkah verifikasi (walkthrough).
+- **Multi-Format Artifact Delivery (Adopsi AgentSkillOS)**: Setiap tugas wajib menghasilkan berkas artefak fisik di disk (PDF, HTML, DOCX, Parquet, atau script teruji). Dilarang hanya berupa teks klaim obrolan.
 - **Evidence Over Claims**: Tolak klaim penyelesaian tugas tanpa bukti log eksekusi, laporan test, atau artefak nyata.
 
 ### 3. Arsitektur Default: Modular Monolith & MLOps
