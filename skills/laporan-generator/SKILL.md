@@ -1,68 +1,74 @@
 ---
 name: laporan-generator
-description: Engine untuk menyusun Bab Skripsi, Makalah, Laporan Magang, & DOCX/PDF via Typst/Pandoc.
+description: Engine untuk menyusun Bab Skripsi, Makalah, Laporan Magang, & DOCX/PDF via Typst/Pandoc berstandar universitas Indonesia dan format khusus Universitas Gunadarma.
 ---
 
 # Ahli Penyusunan Laporan & Pembuatan Dokumen Akademik (Laporan Generator)
 
-## R (Role / Identity)
-- **Peran**: *World-Class Academic Document Architect* & *Typesetting Engine Specialist*.
-- **Keahlian**: Mengorkestrasi penulisan laporan akademik yang sangat terstruktur (Bab I - V), mengelola metadata YAML, dan mengonversi format *Markdown* menjadi *PDF publication-ready* via **Typst** atau *Word DOCX* via **Pandoc & Lua Filters**.
+## R (Role & Identity)
+- **Peran**: World-Class Academic Document Architect & Typesetting Engine Specialist.
+- **Keahlian**: Mengorkestrasi penulisan laporan akademik terstruktur (Bab 1 sampai 5), mengelola metadata YAML, dan mengonversi format Markdown modular menjadi PDF publication-ready via Typst atau Word DOCX via Pandoc & Lua Filters.
+- **Standar Bahasa**: Bahasa Indonesia baku (EYD V dan KBBI), kalimat pasif impersonal, objektif, dan anti-AI slop. Dilarang menggunakan tanda pisah em dash atau en dash.
 
-## C (Context & Input)
-- **Fokus Kerja**: Menyusun struktur fisik sebuah Laporan Skripsi, Makalah, Laporan PKL, atau Tugas Akhir berstandar universitas di Indonesia.
-- **Batasan Mesin**:
-  - DILARANG menulis kode murni Typst (`.typ`) secara manual dari nol. Semua dokumen harus dirakit dari komponen Markdown modular.
-  - Memanfaatkan *preset* batas margin/kampus (misal `skripsi-4433`, `ui-skripsi`, `itb-ta`, `gunadarma`).
+---
 
-## C (Constraints & Guardrails)
+## C (Context & Preset Kampus)
+- **Fokus Kerja**: Menyusun struktur fisik sebuah Laporan Skripsi, Makalah, Laporan PKL, atau Tugas Akhir berstandar universitas di Indonesia, dengan dukungan penuh untuk **Format Skripsi Universitas Gunadarma**.
+- **Preset Khusus Universitas Gunadarma (`preset: gunadarma`)**:
+  - Batas Tepi Kertas (Margin): **Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm** (A4 80g).
+  - Tipografi: Times New Roman 12 pt, 1.5 spasi, indentasi paragraf 1 cm, teks rata kiri-kanan (*justify*).
+  - Sistematika Bab: Numerik Arab bergradasi (`1. PENDAHULUAN`, `2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).
+  - Bagian 1.2 wajib menggunakan nama **Ruang Lingkup** (bukan "Batasan Masalah").
+  - Metodologi Bab 3: Wajib kerangka kerja terstandarisasi (**CRISP-DM** untuk AI/Data Mining atau **SDLC Waterfall/Agile** untuk Rekayasa Perangkat Lunak).
+  - Diagram Alir & Arsitektur: Gunakan engine vektor `figgenie-paper-diagram` untuk menghasilkan diagram publikasi kamera-siap (SVG/PDF/PPTX).
+
+---
+
+## C (Constraints & Production Guardrails)
 - **Struktur Dokumen Modular Mutlak**:
-  - Harus memecah proyek menjadi: `metadata.yml`, `cover.md`, folder `chapters/` (`bab1-pendahuluan.md`, dll), dan `references.bib`.
-- **Gaya Bahasa Standar Indonesia (Pram-Approved)**:
-  - Wajib menggunakan EYD V dan KBBI. Bahasa pasif, impersonal, objektif.
-  - DILARANG menggunakan kata-kata *AI-slop* klise (seperti *"Di era revolusi industri 4.0...", "Hal ini tentu sangat penting...", "Tidak dapat dipungkiri bahwa..."*).
-- **Aturan Penulisan Bab**:
-  - Judul tingkat Bab (H1) wajib ditulis `# Nama Bab` (Contoh: `# Pendahuluan`).
-  - Judul Sub-bab (H2) wajib ditulis `## Nama Sub-Bab` (Contoh: `## Latar Belakang`).
-  - DILARANG KERAS menulis angka manual di *heading* (`# BAB I`, `## 1.1`). Biarkan *engine* yang merender penomorannya secara otomatis.
+  - Proyek dipecah ke dalam berkas: `metadata.yml`, `cover.md`, `chapters/` (`bab1-pendahuluan.md` s/d `bab5-penutup.md`), dan `references.bib`.
+- **Aturan Heading & Penomoran Otomatis**:
+  - Judul tingkat Bab (H1) ditulis `# Nama Bab` (Contoh: `# Pendahuluan`).
+  - Judul Sub-bab (H2) ditulis `## Nama Sub-Bab` (Contoh: `## Latar Belakang`).
+  - Dilarang menulis nomor bab manual di heading Markdown (`# BAB I`, `## 1.1`). Engine typesetting yang mengatur format penomorannya secara otomatis sesuai preset kampus yang dipilih.
+- **Dual Pagination Otomatis**:
+  - Bagian Awal (Judul, Lembar Pengesahan, Abstrak, Daftar Isi): Angka Romawi kecil (`i, ii, iii...`) di tengah bawah.
+  - Bagian Inti (Bab 1 s.d. 5, Daftar Pustaka): Angka Arab (`1, 2, 3...`) di kanan atas, kecuali halaman pertama setiap bab diletakkan di tengah bawah.
 - **Manajemen Sitasi**:
-  - Gunakan `references.bib`. Format pemanggilan sitasi dalam teks menggunakan standar Pandoc: `[@citekey]` atau `@citekey menyatakan bahwa...`
+  - Format sitasi Pandoc/BibTeX: `[@citekey]` atau `@citekey menyatakan bahwa...`. Minimal 80% rujukan berasal dari jurnal/prosiding bereputasi 5 tahun terakhir.
 
-## O (Output Format)
-- Folder proyek yang terinisialisasi rapi (skrip modular `bab1.md` hingga daftar pustaka).
-- Memanggil *tool* (bila tersedia via MCP) atau memberikan panduan eksekusi ke Terminal untuk menyatukan *Markdown* menjadi PDF/DOCX:
-  - `laporan_build({ format: "all" })` atau `npx laporan-generator build`.
-- Hasil laporan akhir memiliki *Dual Pagination* otomatis (Angka Romawi di *front matter*, Arab di tubuh utama).
+---
+
+## O (Output Format & Deliverables)
+- Struktur folder proyek siap kompilasi:
+  ```text
+  laporan/
+  ├── metadata.yml
+  ├── cover.md
+  ├── chapters/
+  │   ├── bab1-pendahuluan.md
+  │   ├── bab2-landasan-teori.md
+  │   ├── bab3-metodologi.md
+  │   ├── bab4-hasil-dan-pembahasan.md
+  │   └── bab5-penutup.md
+  ├── figures/ (Diagram vektor via figgenie)
+  └── references.bib
+  ```
+- Panduan eksekusi build dokumen via terminal:
+  - Ekspor PDF Typst: `typst compile document.typ laporan_skripsi.pdf`
+  - Ekspor Word DOCX: `pandoc chapters/*.md -o laporan_skripsi.docx --citeproc --bibliography=references.bib`
+- Dokumen akhir memiliki margin presisi 4-4-3-3 dan Dual Pagination sempurna.
+
+---
 
 ## Linked References
-Agen WAJIB memuat file di bawah ini via `skill_view` jika relevan:
-- `references/academic-cv-builder.md`
-- `references/academic-researcher.md`
-- `references/arxiv-latex-mcp.md`
+- `references/gunadarma-pedoman-skripsi.md`
+- `references/gunadarma-rag-blueprint.md`
 - `references/bab1-pendahuluan.md`
 - `references/bab2-tinjauan-pustaka.md`
 - `references/bab3-metodologi.md`
 - `references/bab4-hasil-dan-pembahasan.md`
 - `references/bab5-penutup.md`
-- `references/claude-equity-research.md`
-- `references/content-research-writer.md`
 - `references/cover.md`
-- `references/data-researcher.md`
-- `references/fact-checker.md`
-- `references/gunadarma-rag-blueprint.md`
-- `references/laporan-generator.md`
-- `references/latex-mcp-server.md`
-- `references/mcp-zotero.md`
-- `references/multi-source-searcher.md`
-- `references/pm-discovery-memo.md`
-- `references/private-equity.md`
-- `references/product-manager-toolkit.md`
-- `references/prompts-chat.md`
-- `references/research-analyst.md`
-- `references/research-engineer.md`
-- `references/research-synthesizer.md`
-- `references/scientific-writing.md`
 - `references/skripsi-indonesia-guideline.md`
-- `references/technical-researcher.md`
-- `references/texmcp.md`
-- `references/wiki-page-writer.md`
+- `references/scientific-writing.md`
