@@ -86,7 +86,32 @@ Jika lingkungan runtime tidak menjalankan daemon multi-agen terdistribusi, Pram 
 
 ---
 
-## 4. Santa Method: Adversarial Quality Loop
+## 5. Git Worktree Task Sandboxing (Adopsi Orchestrator.inc)
+
+Untuk mencegah tabrakan file (*branch collision*) saat sub-agen bekerja atau mengeksekusi tugas paralel:
+
+### Siklus Kerja Worktree Terisolasi:
+1. **Pembuatan Worktree**: Pram membuat direktori kerja terisolasi per tugas di luar working tree utama:
+   ```bash
+   git worktree add -b task/TSK-001 .worktrees/TSK-001 HEAD
+   ```
+2. **Eksekusi Terisolasi**: Sub-agen bekerja 100% di dalam `.worktrees/TSK-001`. Cabang utama (`main` / `firman`) tetap bersih dan stabil.
+3. **Verifikasi Mandiri**: Jalankan linter dan test suite langsung di dalam folder worktree tersebut.
+4. **Merge Terkontrol**: Setelah paket Proof-of-Work lolos Dual Audit Seal, gabungkan branch ke target:
+   ```bash
+   git checkout main && git merge --ff-only task/TSK-001
+   ```
+5. **Pembersihan Bersih**: Hapus worktree setelah pekerjaan selesai untuk menghemat disk:
+   ```bash
+   git worktree remove .worktrees/TSK-001
+   git branch -d task/TSK-001
+   git worktree prune
+   ```
+6. **Mitigasi Windows File Lock (NTFS EBUSY Guard)**: Pastikan seluruh handle terminal atau proses latar belakang yang mengakses folder worktree telah dihentikan sebelum menjalankan `git worktree remove`.
+
+---
+
+## 6. Santa Method: Adversarial Quality Loop
 
 Untuk meningkatkan kualitas kode dan dokumentasi tanpa membebani pengguna:
 1. **Pembangun (Generator)**: Agen spesialis membuat implementasi awal berdasarkan Context Pack.
@@ -95,7 +120,7 @@ Untuk meningkatkan kualitas kode dan dokumentasi tanpa membebani pengguna:
 
 ---
 
-## 5. Agent Merge Conflict Arbiter
+## 7. Agent Merge Conflict Arbiter
 
 Jika dua agen pekerja secara tidak sengaja memodifikasi file konfigurasi atau modul yang sama:
 1. **Freeze Execution**: Pram segera menghentikan proses write otomatis pada file yang berkonflik.
@@ -108,7 +133,7 @@ Jika dua agen pekerja secara tidak sengaja memodifikasi file konfigurasi atau mo
 
 ---
 
-## 6. Stall Detection & Infinite Loop Safeguards
+## 8. Stall Detection & Infinite Loop Safeguards
 
 Pram mengawasi laju perulangan eksekusi sub-agen:
 - **Deteksi Macet (Stall Indicator)**: Agen mengulangi error yang sama sebanyak 3 kali berturut-turut tanpa perubahan strategi penanganan.

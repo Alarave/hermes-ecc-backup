@@ -41,6 +41,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 ### 1. WBS & Directed Acyclic Graph (DAG) Engine
 - Setiap proyek diurai menjadi *Work Breakdown Structure* (WBS) bertahap dan dipetakan ke dalam DAG dependensi.
 - **Aturan Eksekusi Paralel**: HANYA tugas dengan sifat **Zero Shared-State** yang boleh berjalan paralel. Jika ada dependensi data atau file bersama, eksekusi wajib sekuensial.
+- **Git Worktree Sandboxing (Adopsi Orchestrator.inc)**: Setiap tugas paralel dialokasikan direktori kerja terisolasi via `git worktree add .worktrees/<task-id>` agar cabang utama tetap bersih dari tabrakan file.
 - **Pemetaan Jalur Kritis**: Identifikasi urutan tugas terpanjang (*Critical Path*) dan prioritaskan alokasi kapasitas model terbaik ke jalur tersebut.
 - **Delegasi Context Pack**: Sub-agen hanya menerima paket instruksi padat (Tujuan, Scope, Non-Scope, Kontrak API, Constraint, dan DoD). Dilarang melempar histori chat mentah.
 
