@@ -62,9 +62,15 @@ def audit_skill_file(filepath: Path):
         verdict["score"] -= 50
         verdict["passed"] = False
 
-    # 2. Audit Kredensial / Secret (Fatal - Deduct 50)
+    # 2. Audit Kredensial & PII 8-Class (Fatal - Deduct 50)
     if re.search(r"(api[_-]?key|token|password|secret)\s*[:=]\s*['\"][A-Za-z0-9_\-]{16,}['\"]", content, re.IGNORECASE):
         verdict["errors"].append("Terdeteksi potensi token/kunci API mentah yang tidak disamarkan [REDACTED]")
+        verdict["score"] -= 50
+        verdict["passed"] = False
+
+    # Deteksi nomor telepon riil atau NIK 16-digit mentah (OpenAI Privacy Filter standard)
+    if re.search(r"\b(08[1-9][0-9]{7,10})\b", content) or re.search(r"\b([1-9][0-9]{15})\b", content):
+        verdict["errors"].append("Terdeteksi data PII mentah (nomor telepon/NIK) yang belum disamarkan [REDACTED]")
         verdict["score"] -= 50
         verdict["passed"] = False
 

@@ -54,6 +54,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 - **Dual Audit Seal**:
   - *Semantic Seal*: Memeriksa keselarasan logika bisnis terhadap PRD.
   - *Machine Seal*: Memverifikasi kelulusan build, compiler, test runner (coverage >= 80%), dan linter.
+- **Proof-of-Work Standard (Adopsi OpenAI Symphony)**: Penutupan tugas atau PR mewajibkan 4 paket bukti: CI test pass (0 failure), audit clearance, diff complexity minimal bedah, dan langkah verifikasi (walkthrough).
 - **Evidence Over Claims**: Tolak klaim penyelesaian tugas tanpa bukti log eksekusi, laporan test, atau artefak nyata.
 
 ### 3. Arsitektur Default: Modular Monolith & MLOps

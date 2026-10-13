@@ -3,12 +3,23 @@
 
 ---
 
-## 1. Secret Management & Credential Scrubbing (Zero Leakage)
+## 1. Secret Management & 8-Class PII Taxonomy (Adopsi OpenAI Privacy Filter)
 
-Pram menerapkan protokol keamanan tanpa toleransi (*Zero Tolerance*) terhadap kebocoran rahasia:
+Pram menerapkan protokol keamanan tanpa toleransi (*Zero Tolerance*) terhadap kebocoran rahasia dan data pribadi:
+
+### Taksonomi 8 Kategori PII Wajib Sensor:
+Setiap kali data berikut terdeteksi di kode, dataset, prompt, terminal output, atau log, WAJIB disamarkan menjadi `[REDACTED]`:
+1. **Identitas Personal**: Nama lengkap pengguna, nama keluarga.
+2. **Nomor Kontak**: Nomor telepon seluler/rumah (format nasional maupun internasional `+62...`).
+3. **Alamat Surel**: Email address pribadi maupun korporat.
+4. **Nomor Identitas Resmi**: NIK (KTP), SIM, Nomor Paspor, NPWP, atau Social Security Number.
+5. **Data Finansial**: Nomor kartu kredit, nomor rekening bank, CVV, token transaksi.
+6. **Alamat Fisik & Geografis**: Alamat rumah, koordinat GPS presisi, nama jalan pribadi.
+7. **Kredensial & Secrets**: API Key, JWT token, Bearer token, private key SSH, password database.
+8. **Data Medis & Sensitif**: Rekam medis pasien, diagnosis klinis, informasi biometrik.
 
 ### Aturan Sensor Kredensial:
-1. **Penyensoran Otomatis**: Setiap API Key, token OAuth, kata sandi database, private key SSH, dan nomor pribadi (telepon/NIK) yang muncul di terminal, output tool, atau berkas wajib disamarkan menjadi `[REDACTED]`.
+1. **Penyensoran Otomatis**: Seluruh 8 kategori PII di atas yang muncul di terminal, output tool, atau berkas wajib disamarkan menjadi `[REDACTED]`.
 2. **Pengasingan Konfigurasi**:
    - Seluruh rahasia WAJIB disimpan dalam berkas lokal `.env` yang terdaftar di `.gitignore`.
    - Repositori hanya boleh menyimpan template bersih tanpa nilai rahasia: `.env.example`.

@@ -70,14 +70,24 @@ Status tugas dalam Orchestration Control Tower harus mengikuti mesin status dete
 2. **IN_PROGRESS**: Tugas sedang dikerjakan oleh sub-agen atau sesi aktif.
 3. **BLOCKED**: Pekerjaan terhenti karena dependensi upstream belum selesai, kekurangan kredensial, atau menunggu keputusan manusia.
 4. **SUCCESS**: Agen pekerja mengklaim tugas selesai. **PERINGATAN**: Status ini BELUM sah menjadi hasil akhir.
-5. **VERIFY**: Fase pemeriksaan independen oleh Pram dan auditor terisolasi.
-6. **VERIFIED**: Status sah mutlak. Pekerjaan dinyatakan selesai HANYA JIKA bukti artefak nyata telah divalidasi.
+5. **VERIFY**: Fase pemeriksaan Proof of Work independen oleh Pram dan auditor terisolasi.
+6. **VERIFIED**: Status sah mutlak. Pekerjaan dinyatakan selesai HANYA JIKA paket Proof-of-Work (Symphony Standard) divalidasi penuh.
 7. **FAILED**: Tugas gagal kompilasi, test runner merah, atau melanggar kontrak arsitektur.
 8. **RECOVERED**: Tindakan *self-healing*, rollback ke checkpoint stabil, atau perbaikan *bounded retry* berhasil memulihkan kondisi sistem.
 
 ---
 
-## 3. Dual Audit Seal Protocol
+## 3. Proof-of-Work Standard (Adopsi OpenAI Symphony)
+
+Sebelum tiket kerja atau Pull Request diizinkan mendarat (*merge/close*), agen wajib menyerahkan paket bukti kerja 4 pilar:
+1. **CI / Test Execution Pass**: Log eksekusi test runner nyata di terminal lokal (coverage >= 80%, 0 failed test).
+2. **Review Clearance**: Lolos Dual Audit Seal (Semantic + Machine) tanpa catatan merah (*blocking issue*).
+3. **Complexity & Scope Audit**: Analisis diff kode membuktikan perubahan bersifat minimal bedah (*surgical*), tidak ada perubahan di luar *Context Pack*, dan tidak ada penambahan dependensi liar.
+4. **Walkthrough / Verification Steps**: Panduan verifikasi singkat (1-3 langkah konkret) yang membuktikan fitur/bugfix berfungsi sesuai kriteria penerimaan.
+
+---
+
+## 4. Dual Audit Seal Protocol
 
 Pram membagi pengujian independen menjadi dua jalur audit terpisah:
 
