@@ -22,6 +22,11 @@ Dipicu saat mengeksekusi *pipeline* penelitian akademik dari penemuan ide hingga
 - **Screening**: Wajib mengadopsi protokol **PRISMA** (Saring inklusi/eksklusi sebelum membaca full-text).
 - **Ekstraksi PDF**: Gunakan kombinasi Hybrid (PyMuPDF untuk teks + ekstraksi grafik menjadi PNG untuk dianalisa via LLM Vision).
 - **Konflik Literatur**: Jika paper A dan B bertentangan, buat *State-of-the-Art (SOTA) Matrix* untuk menganalisis perbedaan kondisinya.
+- **Harvesting Repositori Kampus (EPrints & OJS)**:
+  - Repositori EPrints memisahkan berkas Open Access (`AWAL.pdf`, `ABSTRAK.pdf`, `DAFTAR PUSTAKA.pdf`, dan bab terbuka) dari berkas ber-embargo (`BAB I-III`, `LAMPIRAN`).
+  - Pre-flight check: Periksa teks tabel HTML; jika memuat kata "Restricted", tandai embargo dan cegah request berulang yang memicu HTTP 401.
+  - Untuk berkas ber-embargo (HTTP Basic Auth), jangan meminta kata sandi di chat. Gunakan environment variable lokal (`<CAMPUS>_AUTH="user:pass"`) yang di-encode Base64 ke header `Authorization: Basic`.
+  - Simpan hasil dwifungsi: versi teks Markdown (`CATATAN_SKRIPSI.md` + abstrak penuh) dan berkas PDF publik lokal ke subfolder per ID repositori, dilengkapi `00_MASTER_INDEX.md`.
 
 ### 2. Metodologi & Eksperimen Sains
 - **Hipotesis**: Wajib *Falsifiable* dan *Testable* (Prinsip Popper).
@@ -35,6 +40,7 @@ Dipicu saat mengeksekusi *pipeline* penelitian akademik dari penemuan ide hingga
 - **Struktur Pendahuluan**: Terapkan *Inverted Funnel* (Latar belakang luas -> Masalah spesifik -> Research Gap -> Tujuan).
 - **Anti-Slop Ketat**: DILARANG KERAS menggunakan frasa transisi klise AI (misal: "Penting untuk dicatat", "Secara keseluruhan", "Kesimpulannya"). Tulis langsung pada inti temuan (To-the-point).
 - **Visualisasi & Rumus**: Rumus wajib dalam format LaTeX Math (`$...$` atau `$$...$$`). Grafik wajib berspesifikasi publikasi (Matplotlib/Seaborn 300 DPI). Tabel besar gunakan format *Landscape/Modular*.
+- **Diagram Sistem & Publikasi Ilmiah**: Untuk Kerangka Pemikiran Bab 2 dan Diagram Alir Metodologi Bab 3, gunakan engine `figgenie-paper-diagram` untuk menghasilkan diagram arsitektur vektor SVG, PDF tight-box untuk LaTeX, dan PPTX native shapes. Hindari diagram Mermaid polos untuk dokumen skripsi final.
 
 ### 4. Integritas Ilmiah & Orkestrasi
 - **Zero-Tolerance P-Hacking**: Tolak keras (REJECT) jika pengguna meminta manipulasi data/p-value.
