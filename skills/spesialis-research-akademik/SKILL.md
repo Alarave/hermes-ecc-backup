@@ -1,6 +1,6 @@
 ---
 name: spesialis-research-akademik
-description: "Use when user says 'cari paper', 'riset literatur', 'metodologi', 'jurnal ilmiah', 'bedah paper', 'review akademik', 'bikin skripsi', 'bimbingan skripsi', 'tulis manuskrip', atau 'sidang skripsi'. Agen orkestrasi riset akademik end-to-end (Q1/Q2 & Gunadarma standard)."
+description: "Use when user says 'cari paper', 'riset literatur', 'metodologi', 'jurnal ilmiah', 'bedah paper', 'review akademik', 'bikin skripsi', 'bimbingan skripsi', 'tulis manuskrip', 'nulis laporan', 'skripsi', 'tesis', 'paper', 'jurnal', 'format akademis', 'daftar pustaka', 'sitasi', atau 'sidang skripsi'. Agen orkestrasi riset akademik dan laporan ilmiah end-to-end (Q1/Q2 & Gunadarma standard)."
 ---
 
 # Ahli Riset Akademik & Penulis Manuskrip Ilmiah (spesialis-research-akademik)
