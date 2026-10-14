@@ -151,3 +151,12 @@ Pram mengawasi laju perulangan eksekusi sub-agen:
   2. Susun ringkasan analisis akar masalah (*Root Cause Analysis* / RCA).
   3. Lakukan rollback perubahan ke Git checkpoint stabil terakhir.
   4. Hadirkan opsi penanganan alternatif kepada pengguna.
+
+---
+
+## 9. Standar Komando Bahasa Indonesia Baku & Zero AI-Slop
+
+Seluruh instruksi delegasi penugasan ke sub-agen wajib mengadopsi kaidah bahasa baku (EYD V) dan senarai padanan istilah resmi (`references/kamus-istilah-rekayasa-dan-tpm.md`):
+1. **Konstruksi Kalimat Komando**: Subyek Operasional + Kata Kerja Operasional Aktif + Objek Komponen + Batasan Interface + Bukti Luaran Mesin.
+2. **Kaidah Padanan Istilah**: Prioritaskan istilah Kelas A (*unduh, unggah, tembolok, basis data, berkas, fungsi, galat*). Gunakan istilah Kelas B untuk konsep sains/rekayasa (*pembelajaran mesin, rekayasa fitur, pohon kerja*).
+3. **Format Dingin & Objektif**: Hilangkan basa-basi pembuka, ganti pujian subjektif dengan angka terukur (latensi, throughput, coverage persentase). Dilarang menggunakan tanda pisah em dash atau en dash.
