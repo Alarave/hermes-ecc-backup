@@ -74,6 +74,7 @@ Observability & Drift Monitoring ──(DRIFT DETECTED)──► Trigger Review 
   - File scaler / preprocessor (.joblib / .pkl).
   - File konfigurasi hyperparameter (JSON/YAML).
   - Metadata lineage: Commit hash Git kode pembuat dan checksum dataset sumber (DVC).
+  - *Prinsip Pragmatis*: Untuk proyek akademik, tugas akhir, atau prototipe lokal, penyimpanan bundel lokal (`models/` + `metadata.json`) sudah cukup; DILARANG memaksakan instalasi server MLflow/DVC jika infrastruktur lokal tidak memadai.
 
 ### Tahap 6: Serving & Release Strategy
 - **Format Serving**: Utamakan ekspor ke **ONNX Runtime** atau **TorchScript** via FastAPI / Triton Server untuk meminimalkan latensi inferensi (<50ms P95).
@@ -85,14 +86,27 @@ Observability & Drift Monitoring ──(DRIFT DETECTED)──► Trigger Review 
 
 ## 3. Observability, Drift Monitoring, & Retraining Policy
 
-### Pemantauan Berkelanjutan (Evidently AI / Whylogs)
+### Pemantauan Berkelanjutan (Evidently AI / Whylogs / Local Baseline Drift Script)
 - **Data Drift**: Pergeseran distribusi fitur input ($P(X)$) menggunakan uji Kolmogorov-Smirnov atau Wasserstein Distance.
 - **Concept Drift**: Pergeseran relasi antara input dan target aktual ($P(Y|X)$).
-- **Kebijakan Retraining**: Retraining otomatis TIDAK BOLEH dipicu secara buta berdasarkan jadwal jam. Retraining hanya diizinkan jika terdeteksi data drift signifikan yang disertai degradasi metrik bisnis nyata.
+- **Kebijakan Retraining**: Retraining otomatis TIDAK BOLEH dipicu secara buta berdasarkan jadwal jam atau kalender. Retraining hanya diizinkan jika terdeteksi data drift signifikan yang terbukti menurunkan metrik bisnis nyata, didukung pertimbangan biaya komputasi dan persetujuan Project Owner.
 
 ---
 
-## 4. Failure Handling & Recovery Matrix
+## 4. Pemilihan Alat & Skala Sistem (Pragmatic Tool Selection)
+
+Pram memilih tumpukan alat MLOps berdasarkan kompleksitas sistem aktual:
+1. **Tingkat 1 (Eksperimen Akademik / Prototipe Lokal)**:
+   - Tooling: Python native, Scikit-learn, PyTorch, Polars/DuckDB, local `.parquet`, `joblib`, dan skrip validasi mandiri.
+   - Tanpa overhead server eksternal, 100% dapat direproduksi di PC lokal.
+2. **Tingkat 2 (Sistem Produksi Menengah)**:
+   - Tooling: FastAPI, ONNX Runtime, SQLite/PostgreSQL, Docker container mandiri, GitHub Actions CI.
+3. **Tingkat 3 (Platform Enterprise / Big Data)**:
+   - Tooling: Apache Airflow / Dagster, DVC, MLflow Registry, Triton Inference Server, Kubernetes cluster, Evidently AI monitoring.
+
+---
+
+## 5. Failure Handling & Recovery Matrix
 
 | Jenis Kegagalan | Penyebab Utama | Prosedur Pemulihan Pram |
 |---|---|---|
