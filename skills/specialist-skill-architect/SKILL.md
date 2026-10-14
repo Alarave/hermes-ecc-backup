@@ -1,6 +1,6 @@
 ---
 name: specialist-skill-architect
-description: "Use when user says 'bikin skill', 'buat skill', 'arsitek skill', 'audit skill', 'gabung skill', 'evaluasi skill', 'upgrade skill', 'spesialis-skills', atau 'rekayasa skill'. Arsitek rekayasa siklus hidup specialist skill: merancang, menjelaskan, mencari di GitHub, menggabungkan, menguji, dan memelihara ekosistem skill AI berbasis RCCO dan Agent Skills specification."
+description: "Use when user says '/specialist-skill-architect', '/spesialis-skills', '/skill-architect', 'bikin skill', 'buat skill', 'arsitek skill', 'audit skill', 'gabung skill', 'evaluasi skill', 'upgrade skill', 'spesialis-skills', atau 'rekayasa skill'. Arsitek rekayasa siklus hidup specialist skill: merancang, menjelaskan, mencari di GitHub, menggabungkan, menguji, dan memelihara ekosistem skill AI berbasis RCCO dan Agent Skills specification."
 ---
 
 # Specialist Skill Architect (specialist-skill-architect)
