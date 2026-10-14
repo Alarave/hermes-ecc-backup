@@ -20,7 +20,7 @@ description: >
 Abstracts contain legitimate, citable information: quantitative results, study
 design, sample sizes, effect sizes, p-values, and main conclusions. If the
 abstract provides the data you need, there is no obligation to retrieve the
-full text — doing so consumes context without adding value.
+full text ,  doing so consumes context without adding value.
 
 However, **transparency is non-negotiable**. The user must always know which
 sources were read in full and which were used via abstract only. Before
@@ -50,7 +50,7 @@ used via abstract only. A simple list is sufficient:
 > **Sources used via abstract only:** Smith et al. 2021, Jones et al. 2023.
 > All other sources were read in full.
 
-This is not a warning — it is an informational disclosure that lets the user
+This is not a warning ,  it is an informational disclosure that lets the user
 judge the evidence quality and decide whether to provide additional full texts.
 
 ---
@@ -68,7 +68,7 @@ See `references/workflow-detail.md` for the complete phase specifications.
 
 ---
 
-## Phase 1: SCOPE — Define the Article
+## Phase 1: SCOPE ,  Define the Article
 
 **Goal**: Understand exactly what needs to be written before searching anything.
 
@@ -78,7 +78,7 @@ See `references/workflow-detail.md` for the complete phase specifications.
 3. Determine approximate length and section structure
 4. Identify citation style (Vancouver, APA, IEEE, etc.)
 5. Clarify key questions the article must answer
-6. Agree on scope boundaries — what is IN and what is OUT
+6. Agree on scope boundaries ,  what is IN and what is OUT
 
 **Exit criteria**: Clear written specification of what will be produced.
 
@@ -87,13 +87,13 @@ This leads to unfocused literature retrieval and wasted effort.
 
 ---
 
-## Phase 2: SEARCH — Find Sources
+## Phase 2: SEARCH ,  Find Sources
 
 **Goal**: Build a comprehensive, relevant bibliography.
 
 **Actions**:
 1. Construct search queries based on the scope (use PubMed, web search, or whatever tools are available)
-2. Cast a wide initial net — search for more sources than you'll ultimately cite
+2. Cast a wide initial net ,  search for more sources than you'll ultimately cite
 3. Triage results: categorize by relevance (essential / supporting / background)
 4. Record all sources with their identifiers (DOI, PMID, URL)
 
@@ -113,13 +113,13 @@ This leads to unfocused literature retrieval and wasted effort.
 
 ---
 
-## Phase 3: READ — Understand the Sources
+## Phase 3: READ ,  Understand the Sources
 
 **Goal**: Develop sufficient understanding of the source material before writing.
 
 ### When abstracts are enough
 
-For many sources — especially supporting or background references — the abstract
+For many sources ,  especially supporting or background references ,  the abstract
 provides all the data you need: study design, sample size, key results, main
 conclusion. In these cases, there is no need to retrieve the full text.
 
@@ -128,10 +128,10 @@ conclusion. In these cases, there is no need to retrieve the full text.
 For **essential** sources where you need interpretive depth, methodological detail,
 subgroup analyses, or limitations, attempt full-text retrieval:
 
-1. **web_fetch on DOI URL** — often resolves to full HTML text on publisher sites
-2. **Open access repositories** — PMC, Europe PMC, BioRxiv, MedRxiv
-3. **Publisher open access** — JMIR, PLOS, BMC, Frontiers, MDPI are fully OA
-4. **Preprint versions** — BioRxiv, MedRxiv, arXiv, SSRN
+1. **web_fetch on DOI URL** ,  often resolves to full HTML text on publisher sites
+2. **Open access repositories** ,  PMC, Europe PMC, BioRxiv, MedRxiv
+3. **Publisher open access** ,  JMIR, PLOS, BMC, Frontiers, MDPI are fully OA
+4. **Preprint versions** ,  BioRxiv, MedRxiv, arXiv, SSRN
 
 If full text is behind a paywall, the abstract is sufficient. Do not waste
 effort trying to circumvent access restrictions.
@@ -163,7 +163,7 @@ Even when using abstracts, cite concrete numbers, not vague summaries.
 
 ---
 
-## Phase 4: WRITE — Compose the Article
+## Phase 4: WRITE ,  Compose the Article
 
 **Goal**: Produce a well-structured scientific article grounded in the sources you've read.
 
@@ -174,7 +174,7 @@ See `references/article-structures.md` for detailed templates.
 **General principles that apply to all types**:
 
 1. **Introduction**: Establish context → Identify the gap/need → State the objective
-2. **Body**: Organize by theme, chronology, or methodology — NOT by source.
+2. **Body**: Organize by theme, chronology, or methodology ,  NOT by source.
    Never write "Smith et al. found X. Jones et al. found Y. Lee et al. found Z."
    Instead: "Multiple studies have demonstrated X [refs], although the effect varies
    by population [ref1, ref2]."
@@ -186,7 +186,7 @@ See `references/article-structures.md` for detailed templates.
 - **Every factual claim needs a citation**. No exceptions.
 - **Use specific data**, not vague summaries. Say "92.5% maintained viral
   suppression at 48 weeks" not "most patients responded well." Abstracts
-  often contain these specific numbers — use them.
+  often contain these specific numbers ,  use them.
 - **Acknowledge contradictions** in the literature. Don't cherry-pick.
 - **Distinguish between what the data shows and what it suggests**. Use language
   appropriately: "demonstrated" vs "suggested" vs "may indicate."
@@ -210,7 +210,7 @@ Citations should be integral to the writing process, not a post-hoc decoration.
 
 ---
 
-## Phase 5: DELIVER — Produce the Final Document
+## Phase 5: DELIVER ,  Produce the Final Document
 
 **Goal**: Generate a polished, properly formatted deliverable.
 
@@ -265,7 +265,7 @@ follow its Steps 4-6 during Phase 5.
 Before delivering the final document, verify:
 
 - [ ] Every factual claim has a citation
-- [ ] Specific numbers (percentages, sample sizes, CIs) are cited — abstracts are a valid source for these
+- [ ] Specific numbers (percentages, sample sizes, CIs) are cited ,  abstracts are a valid source for these
 - [ ] Contradictions in the literature are acknowledged
 - [ ] Limitations are stated
 - [ ] The article answers the question defined in Phase 1
