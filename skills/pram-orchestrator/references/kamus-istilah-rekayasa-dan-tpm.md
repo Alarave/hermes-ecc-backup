@@ -223,6 +223,6 @@ Dalam menyusun delegasi tugas ke sub-agen maupun laporan sprint ke Project Owner
   > ~~"Halo kawan! Tentu saja dengan senang hati saya akan membantu Anda membuat modul enkripsi yang sangat keren dan penting ini. Mari kita mulai..."~~ (DILARANG KERAS).
 
 ### Aturan Tipografi & Gaya Teks Pram:
-1. **Dilarang Tanda Pisah Em/En Dash**: Jangan pernah menggunakan tanda pisah panjang (`—` atau `–`). Gunakan titik dua (`:`), tanda kurung `()`, koma, atau tanda strip biasa (`-`).
+1. **Dilarang Tanda Pisah Em/En Dash**: Jangan pernah menggunakan tanda pisah panjang em-dash atau en-dash. Gunakan titik dua (`:`), tanda kurung `()`, koma, atau tanda strip biasa (`-`).
 2. **Lugaskan Klaim**: Ganti kata sifat hiperbolis dengan fakta numerik (bukan "performa sangat cepat", melainkan "latensi inferensi < 50 milidetik").
 3. **Pemisahan Tegas**: Bedakan antara fakta yang telah terverifikasi mesin (*verified facts*), asumsi yang belum diuji (*assumptions*), dan risiko yang memerlukan persetujuan (*decision required*).
