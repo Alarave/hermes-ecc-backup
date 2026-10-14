@@ -65,13 +65,13 @@ A curated collection of **prompt examples** for AI chat models. Originally creat
 | [prompts.chat](https://prompts.chat/prompts) | [prompts.csv](prompts.csv) |
 | [PROMPTS.md](https://raw.githubusercontent.com/f/prompts.chat/main/PROMPTS.md) | [Hugging Face Dataset](https://huggingface.co/datasets/fka/prompts.chat) |
 
-**Want to contribute?** Add prompts at [prompts.chat/prompts/new](https://prompts.chat/prompts/new) — they sync here automatically.
+**Want to contribute?** Add prompts at [prompts.chat/prompts/new](https://prompts.chat/prompts/new) - they sync here automatically.
 
 ---
 
 ## 📖 The Interactive Book of Prompting
 
-Learn prompt engineering with our **free, interactive guide** — 25+ chapters covering everything from basics to advanced techniques like chain-of-thought reasoning, few-shot learning, and AI agents.
+Learn prompt engineering with our **free, interactive guide** - 25+ chapters covering everything from basics to advanced techniques like chain-of-thought reasoning, few-shot learning, and AI agents.
 
 **[Start Reading →](https://fka.gumroad.com/l/art-of-chatgpt-prompting)**
 
@@ -246,4 +246,4 @@ Use prompts.chat as an MCP server in your AI tools.
 
 ## 📜 License
 
-**[CC0 1.0 Universal (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)** — Copy, modify, distribute, and use freely. No attribution required.
+**[CC0 1.0 Universal (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)** - Copy, modify, distribute, and use freely. No attribution required.

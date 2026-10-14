@@ -22,11 +22,11 @@ Model Context Protocol). The default entrypoint is `run_server.py`.
 
 Tools exposed by this MCP server
 - Total tools: 5
-  - render_latex_document — write LaTeX and optionally compile to PDF
-  - render_template_document — render a Jinja2 template and optionally compile
-  - list_templates — list available templates
-  - list_artifacts — list files produced in `src/artifacts/`
-  - get_template — return the raw contents of a template file so clients can inspect it before rendering
+  - render_latex_document - write LaTeX and optionally compile to PDF
+  - render_template_document - render a Jinja2 template and optionally compile
+  - list_templates - list available templates
+  - list_artifacts - list files produced in `src/artifacts/`
+  - get_template - return the raw contents of a template file so clients can inspect it before rendering
 ---
 
 ## Getting started (local development)
@@ -72,10 +72,10 @@ transport to `http` (see commented code) and run via `uv run` or `uvicorn`.
 3) Artifacts
 
 Rendered outputs are placed in `src/artifacts/`. For each job you should see a `.tex` file and
-— if `pdflatex` is available — a matching `.pdf`.
+ -  if `pdflatex` is available - a matching `.pdf`.
 
 Templates
- - Several example templates live in `src/mcp_server/templates/`. There are 15 templates included (for example `sample_invoice.tex.j2`, `sample_letter.tex.j2`, `sample_resume.tex.j2`). Use `list_templates` to get the full list programmatically. The templates are deliberately simple and ready to customize — add your own `.tex.j2` files to that folder to expand the catalog.
+ - Several example templates live in `src/mcp_server/templates/`. There are 15 templates included (for example `sample_invoice.tex.j2`, `sample_letter.tex.j2`, `sample_resume.tex.j2`). Use `list_templates` to get the full list programmatically. The templates are deliberately simple and ready to customize - add your own `.tex.j2` files to that folder to expand the catalog.
 
 Included templates (in `src/mcp_server/templates/`)
 
@@ -128,7 +128,7 @@ If you edit Claude's config yourself (Windows: `%APPDATA%\\Claude\\claude_deskto
 ```
 
 Notes
-- Do NOT point Claude at the virtualenv `activate` script — it is a shell helper and not an executable. Point Claude to the `python.exe` inside the venv (or to `uv.exe` inside the venv if you installed `uv`).
+- Do NOT point Claude at the virtualenv `activate` script - it is a shell helper and not an executable. Point Claude to the `python.exe` inside the venv (or to `uv.exe` inside the venv if you installed `uv`).
 - After any config changes, fully restart Claude Desktop.
 
 ---
@@ -175,7 +175,7 @@ docker run -p 8000:8000 -v $(pwd)/src/artifacts:/app/src/artifacts fastmcp-latex
 You can  Use a Model Context Protocol / FastMCP client library (Like OpenAI Responses API) in your agent code to call tools programmatically. For example, in Python you can use the `mcp` or `fastmcp` client (see library docs) to connect to `http://localhost:8000/mcp` and call `render_latex_document` with arguments.
 
 Security notes
-- If you expose the HTTP endpoint beyond localhost, secure it (TLS, firewall, or authentication) — rendering arbitrary LaTeX can pose risks (shell commands in templates, large resource use).
+- If you expose the HTTP endpoint beyond localhost, secure it (TLS, firewall, or authentication) - rendering arbitrary LaTeX can pose risks (shell commands in templates, large resource use).
 
 ---
 
@@ -187,5 +187,5 @@ Thanks for wanting to contribute! See `CONTRIBUTING.md` for the development work
 
 ## License
 
-This project is released under the MIT License — see `LICENSE`.
+This project is released under the MIT License - see `LICENSE`.
 

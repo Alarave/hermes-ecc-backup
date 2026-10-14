@@ -103,7 +103,7 @@ On Windows (PowerShell / Bash), if your paper_1 root is at `C:\Users\User\projec
 }
 ```
 
-Forward slashes are fine; they avoid the need to escape backslashes. Be sure to replace the placeholder `ABSOLUTE_PATH_TO_YOUR_PAPER_1_ROOT` — leaving a placeholder like `WORKSPACE_FOLDER_PATH` will cause the runtime error:
+Forward slashes are fine; they avoid the need to escape backslashes. Be sure to replace the placeholder `ABSOLUTE_PATH_TO_YOUR_PAPER_1_ROOT` - leaving a placeholder like `WORKSPACE_FOLDER_PATH` will cause the runtime error:
 
 ```
 Workspace does not exist: C:\Users\User\WORKSPACE_FOLDER_PATH\PAPER_1

@@ -106,3 +106,36 @@ Sistematika penulisan laporan ini disusun ke dalam lima bab sebagai berikut:
 - **BAB IV HASIL DAN PEMBAHASAN**: Menyajikan hasil eksperimen, visualisasi data, analisis perbandingan performa terhadap model baseline, serta interpretasi temuan ilmiah.
 - **BAB V KESIMPULAN DAN SARAN**: Berisi kesimpulan akhir yang menjawab rumusan masalah secara komprehensif serta saran strategis untuk pengembangan penelitian di masa depan.
 ```
+
+---
+
+## 🏛️ STRUKTUR ALTERNATIF: PRESET UNIVERSITAS GUNADARMA (4 SUB-BAB)
+
+Khusus mahasiswa Universitas Gunadarma (FIKTI/FTI), gunakan struktur numerik 4 sub-bab baku:
+
+```markdown
+# 1. PENDAHULUAN
+
+## 1.1. Latar Belakang
+[Piramida terbalik 4 paragraf: Makro industri -> Masalah lapangan & data awal -> Research Gap -> Solusi usulan.]
+
+## 1.2. Ruang Lingkup
+Untuk menjaga fokus penelitian, ruang lingkup penelitian ini dibatasi pada 8 aspek berikut:
+1. **Objek Penelitian**: Sistem [Nama Objek] yang berfokus pada [Topik].
+2. **Dataset**: Menggunakan data historis [Sumber] periode [Bulan/Tahun - Bulan/Tahun] sebanyak [N] observasi.
+3. **Fitur Masukan & Luaran**: Input berupa [Fitur X] dengan target luaran berupa [Variabel Y].
+4. **Alur Algoritma**: Pemodelan menerapkan [Metode Inti] dengan optimasi [Metode Optimasi/Decomposition].
+5. **Tumpukan Teknologi**: Backend dibangun menggunakan [Framework], bahasa [Python/Node], dan database [DB].
+6. **Batasan Antarmuka**: Sistem menyediakan fungsionalitas inferensi berbasis [Web/CLI/API].
+7. **Batasan Evaluasi**: Evaluasi kinerja kuantitatif diukur melalui [RMSE, MAE, MDA] dan uji signifikansi statistik Diebold-Mariano.
+8. **Pernyataan Non-Scope**: Penelitian ini tidak mencakup [aspek di luar lingkup, misal fine-tuning parameter hardware].
+
+## 1.3. Tujuan Penelitian
+Tujuan operasional yang hendak dicapai dalam penelitian ini adalah:
+1. Mengembangkan arsitektur [Model] untuk mengatasi masalah [X].
+2. Menganalisis signifikansi peningkatan akurasi model usulan terhadap baseline.
+
+## 1.4. Sistematika Penulisan
+Penulisan skripsi ini disusun ke dalam 5 bab yang saling berkesinambungan:
+Bab 1 Pendahuluan menguraikan latar belakang, ruang lingkup, tujuan, dan sistematika penulisan. Bab 2 Landasan Teori membedah teori pendukung, matriks SOTA, dan kerangka pemikiran. Bab 3 Metodologi Penelitian merinci alur CRISP-DM, partisi data anti-leakage, dan formula evaluasi. Bab 4 Hasil dan Pembahasan memaparkan pengujian black-box, evaluasi metrik, uji statistik Diebold-Mariano, dan diskusi temuan. Bab 5 Penutup merangkum kesimpulan 1:1 terhadap tujuan penelitian dan rekomendasi teknis lanjutan.
+```

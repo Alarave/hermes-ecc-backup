@@ -17,7 +17,7 @@ Panduan mengubah tumpukan riset (wawancara, tiket, kompetitor) menjadi memo kepu
    - Wajib pakai pola: **Klaim Spesifik + Bukti Spesifik + Rekomendasi Spesifik**.
 
 ## O (Output Format - The Discovery Memo)
-Panjang maksimal: 300–400 kata. Struktur wajib:
+Panjang maksimal: 300-400 kata. Struktur wajib:
 1. **THE QUESTION**: Keputusan spesifik dalam 1 kalimat pembuka.
 2. **WHAT WE KNOW**: 3 fakta temuan (Fakta + Sumber Bukti + Implikasi).
 3. **WHAT WE DON'T KNOW**: 2 asumsi yang masih berisiko salah + cara validasinya.

@@ -1,116 +1,112 @@
-# METODOLOGI
+# STANDAR OPERASIONAL & TEMPLATE: BAB III METODOLOGI PENELITIAN
+> Dokumen referensi resmi penulisan Bab 3 Metodologi Penelitian (Standar CRISP-DM, SDLC Rekayasa Perangkat Lunak, Protokol Anti-Leakage AI, dan Validasi Statistik).
 
-## Arsitektur Sistem dan Alur Kerja Pipeline
+---
 
-Pengembangan sistem **Laporan Generator** dirancang dengan prinsip modularitas tinggi dan pemisahan lapisan tugas (*separation of concerns*). Arsitektur sistem dibagi menjadi tiga lapisan utama: Lapisan Masukan (*Input Layer*), Lapisan Pemrosesan (*Processing Layer*), dan Lapisan Keluaran (*Output Layer*).
+## 🏛️ PEDOMAN ARSITEKTUR BAB III (RULES & CONSTRAINTS)
 
+### 1. Pemilihan Kerangka Kerja Metodologi Baku
+Penelitian wajib menyandarkan alurnya pada metodologi ilmiah yang diakui secara global:
+- **Riset AI / Data Science / Time-Series**: Wajib menggunakan **CRISP-DM (Cross-Industry Standard Process for Data Mining)**:
+  1. *Business / Domain Understanding*: Pemahaman konteks masalah dan formulasi tujuan analitis.
+  2. *Data Understanding*: Eksplorasi karakteristik data, distribusi, korelasi awal, dan deteksi anomali.
+  3. *Data Preparation*: Pembersihan data, imputasi terukur, rekayasa fitur, dan partisi data.
+  4. *Modeling*: Perancangan arsitektur, pemilihan fungsi kerugian (*loss function*), dan pelatihan model.
+  5. *Evaluation*: Pengujian metrik performa multivariat dan uji signifikansi statistik.
+  6. *Deployment*: Penyiapan modul inferensi atau rencana integrasi sistem.
+- **Riset Rekayasa Perangkat Lunak (Software Engineering)**: Wajib menggunakan **SDLC (Waterfall / Agile Scrum)**:
+  1. *Requirement Analysis*: Pengumpulan kebutuhan fungsional dan non-fungsional.
+  2. *System Design*: Perancangan arsitektur sistem, diagram relasi entitas (ERD), dan antarmuka.
+  3. *Implementation*: Pengkodean modul (*backend*, *frontend*, dan database).
+  4. *Testing*: Pengujian *Black-Box* dan *User Acceptance Testing (UAT)*.
+  5. *Maintenance*: Dokumentasi dan rencana pemeliharaan.
+
+---
+
+### 2. Protokol Anti-Data Leakage Mutlak (Khusus Machine Learning)
+- **Partisi Data Sebelum Pemrosesan**:
+  - Pemisahan data latih (*Train*) dan data uji (*Test*) **WAJIB** dilakukan sebelum operasi penskalaan (*MinMaxScaler/StandardScaler*), imputasi *missing values*, atau dekomposisi sinyal (seperti CEEMDAN/Wavelet).
+  - Penskalaan hanya boleh di-*fit* pada data latih, kemudian di-*transform* ke data uji.
+- **Integritas Waktu (Time-Series Guard)**:
+  - Dilarang keras melakukan pengacakan data (*random shuffle*) pada data deret waktu.
+  - Urutan kronologis wajib dipertahankan (*Walk-Forward Validation / Temporal Split*).
+- **Penentuan Parameter Input Berbasis Statistik**:
+  - Penentuan nilai *lag lookback* atau fitur input wajib dibuktikan melalui analisis statistik formal (analisis *Partial Autocorrelation Function* / PACF, korelasi Pearson/Spearman, atau *SHAP Feature Importance*). Dilarang menebak angka lag tanpa bukti empiris.
+
+---
+
+### 3. Prosedur Penyiapan & Pembersihan Data (Data Preparation)
+- **Pembersihan Anomali**:
+  - *Outlier*: Uji deteksi menggunakan metode *Interquartile Range (IQR)* atau *Z-score*. Berikan justifikasi teknis apakah outlier dipotong (*trimmed*) atau disesuaikan (*winsorized*).
+  - *Missing Values*: Analisis pola kekosongan data. Terapkan interpolasi linier/spline untuk data time-series, atau imputasi berbasis median/K-NN untuk data tabular.
+  - *Ketidakseimbangan Kelas*: Terapkan teknik *Synthetic Minority Over-sampling Technique (SMOTE)* atau pembobotan kelas (*class weights*) pada fungsi kerugian.
+
+---
+
+### 4. Diagram Alir Penelitian (Research Flowchart)
+- **Standar Visualisasi Vektor (Engine FigGenie)**:
+  - Diagram Alir Penelitian WAJIB digambar menggunakan engine vektor `figgenie-paper-diagram`.
+  - Format keluaran: Vektor SVG cetak (240 pt untuk kolom tunggal, 504 pt untuk kolom ganda) dan PDF terpotong rapi untuk naskah skripsi.
+  - Setiap blok diagram wajib mendefinisikan masukan (*input*), proses inti, dan luaran (*output*) secara transparan.
+
+---
+
+## 📝 TEMPLATE STRUKTUR BAB III METODOLOGI PENELITIAN
+
+```markdown
+# 3. METODOLOGI PENELITIAN
+
+## 3.1 Kerangka Kerja Penelitian
+Penelitian ini dilaksanakan mengikuti tahapan standar *Cross-Industry Standard Process for Data Mining* (CRISP-DM) yang disesuaikan dengan kebutuhan pemodelan kecerdasan buatan, seperti divisualisasikan pada Gambar 3.1:
+
+![Diagram Alir Metodologi Penelitian](figures/diagram_metodologi.png)  
+*Gambar 3.1: Diagram Alir Tahapan Penelitian (Engine: FigGenie Vector)*
+
+Tahapan penelitian diuraikan secara sistematis sebagai berikut:
+1. **Pemahaman Domain (Domain Understanding)**: Menganalisis dinamika volatilitas [Objek Data] dan merumuskan batasan masalah prediksi.
+2. **Pengumpulan dan Pemahaman Data (Data Understanding)**: Mengakuisisi dataset sekunder dari [Sumber Data] dan melakukan eksplorasi statistik deskriptif.
+3. **Pra-pemrosesan Data (Data Preparation)**: Menerapkan pemisahan data latih/uji anti-leakage, pembersihan anomali, dekomposisi sinyal, dan normalisasi.
+4. **Pembangunan Model (Modeling)**: Melatih arsitektur [Model Usulan] dan model baseline pembanding.
+5. **Evaluasi dan Pengujian (Evaluation)**: Mengukur akurasi prediksi serta melakukan uji signifikansi statistik Diebold-Mariano.
+
+## 3.2 Sumber dan Karakteristik Data
+Dataset yang digunakan dalam penelitian ini merupakan data historis [Nama Objek] yang diperoleh dari [Sumber Resmi]:
+1. **Periode Observasi**: Data harian dari tanggal [DD/MM/YYYY] hingga [DD/MM/YYYY].
+2. **Jumlah Sampel**: Sebanyak [N] baris data observasi.
+3. **Variabel Penelitian**: Terdiri dari variabel target [Y] dan variabel fitur pendukung [X1, X2, X3].
+
+## 3.3 Pra-pemrosesan Data dan Protokol Anti-Leakage
+Untuk menjamin integritas saintifik dan mencegah kebocoran informasi (*data leakage*), tahapan penyiapan data dirancang dengan protokol ketat:
+
+### 3.3.1 Partisi Data Latih dan Uji
+Dataset dipartisi secara kronologis (*temporal split*) tanpa pengacakan dengan rasio 80% data latih ([N_train] baris) dan 20% data uji ([N_test] baris). Partisi dilakukan pada tahap paling awal sebelum operasi normalisasi nilai.
+
+### 3.3.2 Penentuan Lag Masukan (PACF Analysis)
+Penentuan panjang jendela observasi masa lalu (*lookback lag*) didasarkan pada grafik *Partial Autocorrelation Function* (PACF). Lag yang dipilih adalah lag yang memiliki nilai signifikansi melampaui batas interval kepercayaan 95%.
+
+### 3.3.3 Dekomposisi Sinyal dan Normalisasi
+Dekomposisi sinyal dilakukan untuk mengurai derau (*noise*). Penskalaan fitur menggunakan metode *Min-Max Normalization* sesuai Persamaan 3.1:
+
+$$ x_{\text{norm}} = \frac{x - x_{\min(\text{train})}}{x_{\max(\text{train})} - x_{\min(\text{train})}} \tag{3.1} $$
+
+Nilai $x_{\min}$ dan $x_{\max}$ dihitung secara eksklusif dari data latih dan diterapkan pada data uji untuk mencegah bias masa depan (*look-ahead bias*).
+
+## 3.4 Perancangan Arsitektur Model
+Model yang dikembangkan mengintegrasikan modul [Komponen A] dan [Komponen B]. Konfigurasi hyperparameter ditetapkan secara terstruktur melalui pencarian sistematis:
+- Ukuran *batch* (*batch size*): [Nilai]
+- Laju pembelajaran (*learning rate*): [Nilai]
+- Fungsi optimasi (*optimizer*): Adam dengan *weight decay*
+- Fungsi kerugian (*loss function*): Huber Loss / Mean Squared Error
+
+## 3.5 Metode Pengujian dan Evaluasi Kinerja
+Kinerja sistem dievaluasi melalui dua pendekatan komplementer:
+
+### 3.5.1 Metrik Kuantitatif
+Evaluasi akurasi prediksi diukur menggunakan metrik kesalahan dan ketepatan arah tren:
+1. *Root Mean Squared Error* (RMSE)
+2. *Mean Absolute Error* (MAE)
+3. *Mean Directional Accuracy* (MDA)
+
+### 3.5.2 Uji Signifikansi Statistik (Diebold-Mariano Test)
+Untuk membuktikan bahwa penurunan nilai kesalahan model usulan terhadap model pembanding memiliki signifikansi statistik nyata, dilakukan uji hipotesis Diebold-Mariano dengan tingkat signifikansi $\alpha = 0.05$. Hipotesis nol ($H_0$) menyatakan tidak terdapat perbedaan performa antara kedua model, sedangkan hipotesis alternatif ($H_1$) menyatakan model usulan memiliki akurasi yang lebih unggul secara signifikan.
 ```
-+-------------------------------------------------------------------------+
-|                              INPUT LAYER                                |
-|  chapters/bab*.md  |  cover.md  |  metadata.yml  |  presets/*.yml       |
-|  references.bib    |  apa.csl   |  logo.jpg      |  gambar/*            |
-+-------------------------------------------------------------------------+
-                                    |
-            +-----------------------+-----------------------+
-            |                                               |
-            v                                               v
-+---------------------------------------+ +-------------------------------+
-|       PIPELINE 1: TYPST (PDF)         | |   PIPELINE 2: DOCX MULTI-PASS |
-|                                       | |                               |
-| 1. ImageMagick Alpha Normalization    | | 1. Pandoc + docx.lua Filter   |
-| 2. Preset Metadata Extraction         | | 2. Base reference.docx Styling|
-| 3. Pandoc AST + Citeproc Processing   | | 3. finalize-docx.py (3 Sect)  |
-| 4. Typst Typesetting Engine Render    | | 4. docx-pagenum.py (Page Inj) |
-+---------------------------------------+ +-------------------------------+
-            |                                               |
-            v                                               v
-+---------------------------------------+ +-------------------------------+
-|             Laporan.pdf               | |          Laporan.docx         |
-| (Clean Vector, APA Style, Typst)      | | (Roman Front, Arabic Body)    |
-+---------------------------------------+ +-------------------------------+
-```
-
-## Perancangan Template Visual Typst (`template.typ`)
-
-Template visual Typst berfungsi sebagai pengatur tata letak halaman, tipografi, dan penomoran dokumen PDF. Template dirancang fleksibel untuk mendukung preset margin dinamis dan penomoran otomatis.
-
-### Pengaturan Geometri Halaman dan Margin
-
-Geometri halaman diatur secara adaptif melalui blok evaluasi kondisi Typst:
-
-```typst
-#set page(
-  paper: "a4",
-  margin: doc-margin,
-  numbering: none,
-)
-```
-
-Variabel `doc-margin` dievaluasi dari berkas konfigurasi preset (`margin_top`, `margin_bottom`, `margin_left`, `margin_right`) yang diinjeksikan oleh Pandoc pada saat kompilasi.
-
-### Penomoran Heading Bertingkat
-
-Penomoran judul bab dan sub-bab ditangani melalui fungsi callback `#set heading()`:
-
-```typst
-#set heading(numbering: (..ns) => {
-  if ns.len() == 1 {
-    "BAB " + numbering("I", ns.at(0))
-  } else if ns.len() == 2 {
-    numbering("1.1.", ..ns)
-  } else {
-    numbering("1.1.1", ..ns)
-  }
-})
-```
-
-Penanganan khusus diimplementasikan pada `#show heading.where(level: 1)` untuk menghasilkan jeda halaman otomatis (*pagebreak*) dan meletakkan nomor bab ("BAB I") di atas judul bab dengan gaya huruf kapital tebal 14pt di tengah halaman.
-
-### Algoritma Keseimbangan Judul Sampul (*Balanced Title Splitting*)
-
-Untuk mencegah terjadinya fenomena kata menggantung sendirian di baris bawah (*orphan words*), template mengintegrasikan fungsi pembagi judul berbasis Dynamic Programming (`balance-split`). Algoritma ini mengevaluasi jumlah karakter per baris dan meminimalisir fungsi biaya (*cost function*) agar panjang tiap baris judul sampul depan simetris menyerupai bentuk piramida terbalik.
-
-## Perancangan Pipeline Dokumen Microsoft Word (DOCX)
-
-Penyusunan dokumen DOCX resmi memerlukan integrasi tiga komponen pemrosesan berurutan:
-
-### Filter Lua docx.lua
-Filter Lua mengintersepsi pohon sintaks abstrak (AST) Pandoc. Fungsi `Header(el)` menghitung indeks bab dan sub-bab serta menyusun entri Daftar Isi ber-hyperlink. Fungsi `Pandoc(doc)` membangun halaman sampul formal menggantikan title block bawaan Pandoc.
-
-### Partisi Tiga Seksi Dokumen finalize-docx.py
-Skrip Python memanipulasi struktur OpenXML berkas `word/document.xml` dengan membagi dokumen ke dalam tiga penanda seksi (`w:sectPr`):
-- **Seksi 1 (Sampul)**: Menghapus elemen `<w:footerReference>` sehingga nomor halaman tidak tampil pada sampul luar.
-- **Seksi 2 (Front Matter)**: Menginjeksikan `<w:pgNumType w:fmt="lowerRoman" w:start="1"/>` agar halaman KATA PENGANTAR dan DAFTAR ISI diberi nomor *i, ii, iii*.
-- **Seksi 3 (Main Body)**: Menginjeksikan `<w:pgNumType w:fmt="decimal" w:start="1"/>` sebelum judul BAB I agar penomoran dimulai ulang dari angka 1, 2, 3.
-
-### Sinkronisasi Nomor Halaman Aktual docx-pagenum.py
-Untuk memastikan Daftar Isi pada dokumen DOCX menampilkan nomor halaman yang akurat di seluruh aplikasi pengolah kata, skrip `docx-pagenum.py` melakukan:
-1. Render headless berkas DOCX menjadi PDF temporer menggunakan LibreOffice (`soffice --headless`).
-2. Ekstraksi teks per halaman menggunakan utilitas `pdftotext`.
-3. Pencocokan teks heading dengan footer halaman aktual.
-4. Pengisian nilai cache pada field OpenXML `<w:instrText>PAGEREF</w:instrText>`.
-
-## Sistem Preset Kampus Deklaratif
-
-Untuk memfasilitasi keberagaman pedoman penulisan skripsi di berbagai perguruan tinggi di Indonesia, arsitektur preset deklaratif (`presets/*.yml`) dibangun dengan skema standar:
-
-| Kategori Parameter | Kunci Konfigurasi | Contoh Nilai | Keterangan |
-|:---|:---|:---|:---|
-| **Identitas** | `preset_id`, `name` | `ui-skripsi`, `itb-ta` | Identifikasi unik dan nama institusi |
-| **Geometri Margin** | `margin_top`, `margin_left` | `4cm`, `3cm`, `2.5cm` | Batas tepi kertas A4 |
-| **Tipografi** | `font_family`, `font_size` | `Libertinus Serif`, `12pt` | Jenis font dan ukuran teks isi |
-| **Spasi & Indentasi** | `line_spacing`, `first_line_indent` | `0.75em`, `1.25cm` | Spasi 1.5 dan indent alinea |
-| **Sampul (Cover)** | `cover_show_lecturer` | `true` / `false` | Pengaturan tampilan dosen pembimbing |
-
-Sistem ini didukung oleh dua utilitas otomatis:
-1. **`scripts/scan-preset.py`**: Mengekstraksi aturan margin, spasi, dan font secara otomatis dari berkas PDF Buku Pedoman Skripsi kampus baru menggunakan regex heuristik.
-2. **`scripts/validate-preset.py`**: Melakukan validasi sintaks dan verifikasi skema pada seluruh berkas preset YAML sebelum digunakan pada proses kompilasi.
-
-## Metodologi Pengujian dan Verifikasi
-
-Keandalan seluruh komponen pipeline diuji menggunakan test suite otomatis (`test.sh`) yang mencakup 20 kategori pengujian dan 78 *test assertions*. Pengujian memverifikasi:
-1. Ketersediaan dependensi dan kelengkapan struktur direktori proyek.
-2. Validitas metadata YAML dan integritas basis data sitasi BibTeX.
-3. Keterbacaan teks berkas PDF dan kelayakan ukuran berkas keluaran.
-4. Validitas struktur OpenXML dokumen DOCX (pemeriksaan 3 seksi, format nomor Romawi/Arab, gaya font Times New Roman, dan field TOC).
-5. Integritas sistem preset kampus, fungsionalitas scanner PDF, dan CLI helper.

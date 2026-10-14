@@ -25,7 +25,10 @@
 - **Penutup**: Akhiri sub-bab ini dengan **Paragraf Sintesis Research Gap** (Benang merah yang menegaskan kelemahan kolektif paper sebelumnya dan justifikasi solusi Anda).
 
 ### 3. Kerangka Pemikiran & Hipotesis
-- **Visualisasi & Narasi**: Wajib menyediakan **Diagram Alur Visual** (via kode Mermaid `graph TD` atau `flowchart LR`) yang menunjukkan alur Input $\rightarrow$ Proses $\rightarrow$ Output. SETELAH diagram, wajib berikan paragraf **Bedah Narasi** yang menguraikan logika panah tersebut.
+- **Visualisasi & Narasi (Standar Vektor FigGenie)**:
+  - Wajib menyediakan **Diagram Alur Visual** yang menunjukkan alur Masalah -> Input -> Pengolahan Inti -> Luaran -> Tolok Ukur.
+  - Untuk naskah skripsi final dan persiapan slide sidang, WAJIB digambar menggunakan engine vektor `figgenie-paper-diagram` (format SVG 240pt/504pt, PDF tight-box untuk LaTeX/Typst, dan PPTX native shapes). Kode Mermaid (`graph TD`) hanya digunakan sebagai draf sketsa teks awal.
+  - SETELAH diagram, wajib berikan paragraf **Bedah Narasi** yang menguraikan logika panah tersebut secara mendalam.
 - **Hipotesis (Hanya untuk Riset Kuantitatif)**:
   - Wajib *Testable* (Dapat Diuji secara statistik), memuat $H_0$ dan $H_1$.
   - Umumnya ditempatkan di akhir Bab 2 atau awal Bab 3.

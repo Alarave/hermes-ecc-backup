@@ -1,40 +1,40 @@
 # Claude for Financial Services Plugins
 
-Plugins that turn Claude into a specialist for financial services — investment banking, equity research, private equity, and wealth management. Built for [Claude Cowork](https://claude.com/product/cowork), also compatible with [Claude Code](https://claude.com/product/claude-code).
+Plugins that turn Claude into a specialist for financial services - investment banking, equity research, private equity, and wealth management. Built for [Claude Cowork](https://claude.com/product/cowork), also compatible with [Claude Code](https://claude.com/product/claude-code).
 
 ## Why Plugins
 
-Cowork lets you set the goal and Claude delivers finished, professional work. Plugins let you go further: tell Claude how your firm does analysis, which data sources to pull from, how to handle critical workflows, and what slash commands to expose — so your team gets better and more consistent outcomes.
+Cowork lets you set the goal and Claude delivers finished, professional work. Plugins let you go further: tell Claude how your firm does analysis, which data sources to pull from, how to handle critical workflows, and what slash commands to expose - so your team gets better and more consistent outcomes.
 
-Each plugin bundles the skills, connectors, slash commands, and sub-agents for a specific financial services workflow. Out of the box, they give Claude a strong starting point for helping anyone in that role. The real power comes when you customize them for your firm — your models, your templates, your processes — so Claude works like it was built for your team.
+Each plugin bundles the skills, connectors, slash commands, and sub-agents for a specific financial services workflow. Out of the box, they give Claude a strong starting point for helping anyone in that role. The real power comes when you customize them for your firm - your models, your templates, your processes - so Claude works like it was built for your team.
 
 ## What is Claude for Financial Services?
 
-Claude for Financial Services is a comprehensive solution built on Claude for Enterprise with specialized capabilities for financial analysis. It connects Claude to the data sources and tools financial professionals use daily — eliminating the need to juggle multiple browser tabs and improving source verification to reduce the risk of errors from manual data gathering.
+Claude for Financial Services is a comprehensive solution built on Claude for Enterprise with specialized capabilities for financial analysis. It connects Claude to the data sources and tools financial professionals use daily - eliminating the need to juggle multiple browser tabs and improving source verification to reduce the risk of errors from manual data gathering.
 
 ## End-to-End Workflows
 
-These plugins aren't just a collection of point tools — they enable complete workflows that span research, analysis, modeling, and output creation:
+These plugins aren't just a collection of point tools - they enable complete workflows that span research, analysis, modeling, and output creation:
 
-- **Research to Report**: Pull real-time data from MCP providers, analyze earnings results, and generate publication-ready equity research reports — all in a single session
+- **Research to Report**: Pull real-time data from MCP providers, analyze earnings results, and generate publication-ready equity research reports - all in a single session
 - **Spreadsheet Analysis**: Build comparable company analyses, DCF models, and LBO models as fully functional Excel workbooks with live formulas, sensitivity tables, and industry-standard formatting
-- **Financial Modeling**: Populate 3-statement models from SEC filings, cross-check assumptions against peer data, and stress-test scenarios — with blue/black/green color coding conventions built in
+- **Financial Modeling**: Populate 3-statement models from SEC filings, cross-check assumptions against peer data, and stress-test scenarios - with blue/black/green color coding conventions built in
 - **Deal Materials**: Draft CIMs, teasers, and process letters, then generate pitch deck slides and strip profiles using your firm's branded PowerPoint templates
-- **Portfolio to Presentation**: Screen opportunities, run diligence checklists, build IC memos, and track portfolio KPIs — moving seamlessly from data to deliverable
+- **Portfolio to Presentation**: Screen opportunities, run diligence checklists, build IC memos, and track portfolio KPIs - moving seamlessly from data to deliverable
 
 Each workflow connects upstream data sources (via MCP) to downstream outputs (Excel, PowerPoint, Word), so you move from question to finished work product without context-switching.
 
 ## Plugin Marketplace
 
-Start with **financial analysis** — the core plugin that provides shared modeling tools and all MCP data connectors. Then add any function-specific plugins to enhance Claude's capabilities for your workflow.
+Start with **financial analysis** - the core plugin that provides shared modeling tools and all MCP data connectors. Then add any function-specific plugins to enhance Claude's capabilities for your workflow.
 
 | Plugin | Type | How it helps | Connectors |
 |--------|------|-------------|------------|
 | **[financial analysis](./financial-analysis)** | Core (install first) | Build comps, DCF models, LBO models, and 3-statement financials. QC presentations and create reusable PPT templates. Provides the shared foundation and all data connectors. | Daloopa, Morningstar, S&P Global, FactSet, Moody's, MT Newswires, Aiera, LSEG, PitchBook, Chronograph, Egnyte |
-| **[investment banking](./investment-banking)** | Add-on | Draft CIMs, teasers, and process letters. Build buyer lists, run merger models, create strip profiles, and track live deals through milestones. | — |
-| **[equity research](./equity-research)** | Add-on | Write earnings updates and initiating coverage reports. Maintain investment theses, track catalysts, draft morning notes, and screen for new ideas. | — |
-| **[private equity](./private-equity)** | Add-on | Source and screen deals, run due diligence checklists, analyze unit economics and returns, draft IC memos, and monitor portfolio company KPIs. | — |
-| **[wealth management](./wealth-management)** | Add-on | Prep for client meetings, build financial plans, rebalance portfolios, generate client reports, and identify tax-loss harvesting opportunities. | — |
+| **[investment banking](./investment-banking)** | Add-on | Draft CIMs, teasers, and process letters. Build buyer lists, run merger models, create strip profiles, and track live deals through milestones. | - |
+| **[equity research](./equity-research)** | Add-on | Write earnings updates and initiating coverage reports. Maintain investment theses, track catalysts, draft morning notes, and screen for new ideas. | - |
+| **[private equity](./private-equity)** | Add-on | Source and screen deals, run due diligence checklists, analyze unit economics and returns, draft IC memos, and monitor portfolio company KPIs. | - |
+| **[wealth management](./wealth-management)** | Add-on | Prep for client meetings, build financial plans, rebalance portfolios, generate client reports, and identify tax-loss harvesting opportunities. | - |
 
 **41 skills, 38 commands, 11 MCP integrations**
 
@@ -97,9 +97,9 @@ plugin-name/
 
 - **Skills** encode the domain expertise, best practices, and step-by-step workflows Claude needs to deliver professional-quality financial work. Claude draws on them automatically when relevant.
 - **Commands** are explicit actions you trigger (e.g., `/comps`, `/earnings`, `/ic-memo`).
-- **Connectors** wire Claude to the external data sources your workflow depends on — financial data terminals, research platforms, document management, and more — via [MCP servers](https://modelcontextprotocol.io/).
+- **Connectors** wire Claude to the external data sources your workflow depends on - financial data terminals, research platforms, document management, and more - via [MCP servers](https://modelcontextprotocol.io/).
 
-Every component is file-based — markdown and JSON, no code, no infrastructure, no build steps.
+Every component is file-based - markdown and JSON, no code, no infrastructure, no build steps.
 
 ## MCP Integrations
 
@@ -125,11 +125,11 @@ All connectors are centralized in the **financial analysis** core plugin and sha
 
 These plugins are starting points. They become much more useful when you customize them for how your firm actually works:
 
-- **Swap connectors** — Edit `.mcp.json` to point at your specific data providers and internal tools.
-- **Add firm context** — Drop your terminology, deal processes, and formatting standards into skill files so Claude understands your world.
-- **Bring your templates** — Use `/ppt-template` to teach Claude your firm's branded PowerPoint layouts, so every deck matches your style guide.
-- **Adjust workflows** — Modify skill instructions to match how your team actually does analysis, not how a textbook says to.
-- **Build new plugins** — Follow the structure above to create plugins for workflows we haven't covered yet.
+- **Swap connectors** - Edit `.mcp.json` to point at your specific data providers and internal tools.
+- **Add firm context** - Drop your terminology, deal processes, and formatting standards into skill files so Claude understands your world.
+- **Bring your templates** - Use `/ppt-template` to teach Claude your firm's branded PowerPoint layouts, so every deck matches your style guide.
+- **Adjust workflows** - Modify skill instructions to match how your team actually does analysis, not how a textbook says to.
+- **Build new plugins** - Follow the structure above to create plugins for workflows we haven't covered yet.
 
 As your team builds and shares plugins, Claude becomes a cross-functional expert. The context you define gets baked into every relevant interaction, so leaders can spend less time enforcing processes and more time improving them.
 
