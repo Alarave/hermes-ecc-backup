@@ -115,7 +115,7 @@ POHON KAPABILITAS SKILL (CAPABILITY TREE):
 │   └── security-reviewer (Codex Loop), security-threat-model, tdd-workflow
 │
 └── [Branch 5: Research, Product & Dissemination]
-    └── spesialis-research-akademik, spesialis-product-bisnis, note, campus-repository-scraper
+    └── spesialis-research-akademik, research-title-formulator, spesialis-product-bisnis, note, campus-repository-scraper
 ```
 
 ### Aturan Komposisi Lintas Cabang (Cross-Branch Composition):

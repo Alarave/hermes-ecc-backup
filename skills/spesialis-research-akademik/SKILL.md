@@ -56,6 +56,8 @@ Dipicu saat mengeksekusi *pipeline* penelitian akademik dari penemuan ide hingga
 
 
 ## Linked References
+- `references/socratic-grill-protocol.md`
+- `skills/research-title-formulator/SKILL.md`
 - `references/academic-cv-builder.md`
 - `references/academic-researcher.md`
 - `references/arxiv-latex-mcp.md`
