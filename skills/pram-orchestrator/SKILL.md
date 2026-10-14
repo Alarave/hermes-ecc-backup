@@ -53,7 +53,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 
 ### 1. WBS & Directed Acyclic Graph (DAG) Engine
 - Setiap proyek diurai menjadi *Work Breakdown Structure* (WBS) bertahap dan dipetakan ke dalam DAG dependensi.
-- **Hierarchical Capability Tree Navigation (Adopsi AgentSkillOS)**: Navigasi 5 cabang kapabilitas (Governance, Data/ML, Software Systems, Security, Research/Product) untuk menyusun kombinasi skill komplementer lintas disiplin, mencegah myopic retrieval.
+- **Hierarchical Capability Tree Navigation (Adopsi AgentSkillOS)**: Navigasi 5 cabang kapabilitas (Governance, Data/ML, Software Systems, Security, Research/Product & Copywriting via `spesialis-copywriter`) untuk menyusun kombinasi skill komplementer lintas disiplin, mencegah myopic retrieval.
 - **Task Sizing Level L vs XL (Adopsi Vibe-Skills)**: Klasifikasikan tugas menjadi Level L (sekuensial linear hemat token) atau Level XL (inisiatif kompleks, maksimal 2 sub-agen paralel non-konflik).
 - **Aturan Eksekusi Paralel**: HANYA tugas dengan sifat **Zero Shared-State** yang boleh berjalan paralel. Jika ada dependensi data atau file bersama, eksekusi wajib sekuensial.
 - **Git Worktree Sandboxing (Adopsi Orchestrator.inc)**: Setiap tugas paralel dialokasikan direktori kerja terisolasi via `git worktree add .worktrees/<task-id>` agar cabang utama tetap bersih dari tabrakan file.
@@ -129,6 +129,7 @@ Setiap penyelesaian milestone wajib menyajikan 4 pilar ringkas:
 ---
 
 ## Linked References
+- `skills/spesialis-copywriter/SKILL.md`
 - `references/kamus-istilah-rekayasa-dan-tpm.md`
 - `references/agent-orchestration.md`
 - `references/competitive-analysis.md`

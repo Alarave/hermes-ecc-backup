@@ -16,6 +16,7 @@ description: Router utama untuk memilih dan mengaktifkan mode spesialis tertentu
 Ini adalah skill utama untuk beralih mode.
 Spesialis yang tersedia untuk diaktifkan (via slash command):
 - /spesialis-backend
+- /spesialis-copywriter
 - /spesialis-data-ai-agentic
 - /spesialis-devops-infrastruktur
 - /spesialis-frontend
