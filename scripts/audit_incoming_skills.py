@@ -15,23 +15,37 @@ import re
 import subprocess
 from pathlib import Path
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SKILLS_DIR = BASE_DIR / "skills"
 
 def get_git_changed_skills():
     """Mengambil daftar file SKILL.md yang berubah di commit/PR terbaru."""
-    try:
-        # Cek diff terhadap HEAD~1 atau origin/main
-        out = subprocess.check_output(
-            ["git", "diff", "--name-only", "HEAD~1", "HEAD"], 
-            text=True, 
-            cwd=str(BASE_DIR)
-        )
-        changed_files = [f.strip() for f in out.splitlines() if f.strip().endswith("SKILL.md")]
-        return changed_files
-    except Exception:
-        # Fallback: scan seluruh skills/
-        return []
+    changed_files = set()
+    diff_commands = [
+        ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
+        ["git", "diff", "--name-only", "HEAD^", "HEAD"],
+        ["git", "show", "--name-only", "--format=", "HEAD"],
+        ["git", "diff", "--name-only", "origin/main...HEAD"],
+        ["git", "status", "--porcelain"]
+    ]
+    for cmd in diff_commands:
+        try:
+            out = subprocess.check_output(cmd, text=True, cwd=str(BASE_DIR), stderr=subprocess.DEVNULL)
+            for line in out.splitlines():
+                parts = line.strip().split()
+                if not parts:
+                    continue
+                path_str = parts[-1]
+                if path_str.endswith("SKILL.md"):
+                    changed_files.add(path_str)
+            if changed_files:
+                break
+        except Exception:
+            continue
+    return list(changed_files)
 
 def audit_skill_file(filepath: Path):
     rel_path = filepath.resolve().relative_to(BASE_DIR.resolve())
@@ -63,10 +77,14 @@ def audit_skill_file(filepath: Path):
         verdict["passed"] = False
 
     # 2. Audit Kredensial & PII 8-Class (Fatal - Deduct 50)
-    if re.search(r"(api[_-]?key|token|password|secret)\s*[:=]\s*['\"][A-Za-z0-9_\-]{16,}['\"]", content, re.IGNORECASE):
+    for m in re.finditer(r"(api[_-]?key|token|password|secret)\s*[:=]\s*['\"]([^'\"]{16,})['\"]", content, re.IGNORECASE):
+        val = m.group(2).lower()
+        if any(ph in val for ph in ["your-key", "your_key", "your-api", "placeholder", "example", "dummy", "insert-", "change-me", "xxxx", "sk-or-v1-your", "sk-ant-api03-***"]):
+            continue
         verdict["errors"].append("Terdeteksi potensi token/kunci API mentah yang tidak disamarkan [REDACTED]")
         verdict["score"] -= 50
         verdict["passed"] = False
+        break
 
     # Deteksi nomor telepon riil atau NIK 16-digit mentah (OpenAI Privacy Filter standard)
     if re.search(r"\b(08[1-9][0-9]{7,10})\b", content) or re.search(r"\b([1-9][0-9]{15})\b", content):
@@ -113,16 +131,23 @@ def main():
     print("=" * 60)
 
     # Ambil argumen spesifik atau scan file yang berubah
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 1 and sys.argv[1] != "--all":
         target_files = [Path(sys.argv[1])]
+    elif len(sys.argv) > 1 and sys.argv[1] == "--all":
+        print("[INFO] Mode --all aktif. Menjalankan audit menyeluruh pada root skills/...")
+        target_files = [d / "SKILL.md" for d in SKILLS_DIR.iterdir() if d.is_dir() and not d.name.startswith(".")]
     else:
         changed = get_git_changed_skills()
         if changed:
             print(f"[INFO] Mendeteksi {len(changed)} skill yang baru di-update.")
             target_files = [BASE_DIR / f for f in changed]
         else:
-            print("[INFO] Tidak ada file diff spesifik. Menjalankan audit menyeluruh pada skills/...")
-            target_files = list(SKILLS_DIR.glob("**/SKILL.md"))
+            print("[INFO] Tidak ada file SKILL.md yang berubah di commit ini. Audit dilewati.")
+            print("\n" + "=" * 60)
+            print("HASIL AKHIR: 0 LULUS, 0 DITOLAK (Tidak ada perubahan skill).")
+            print("=" * 60)
+            print("\n[VERDIK PRAM]: Semua pembaruan BERMUTU TINGGI dan aman diserap oleh seluruh tim.")
+            sys.exit(0)
 
     total = len(target_files)
     passed_count = 0

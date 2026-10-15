@@ -2,9 +2,9 @@ name: Skill Lint & Quality Gate
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, firman ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, firman ]
 
 jobs:
   audit-skills:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
