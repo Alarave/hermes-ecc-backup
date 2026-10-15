@@ -1,6 +1,6 @@
 ---
 name: gstack-guard
-description: "Aturan Gemini gstack-guard"
+description: "Run /guard full safety mode protecting against unintended modifications."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

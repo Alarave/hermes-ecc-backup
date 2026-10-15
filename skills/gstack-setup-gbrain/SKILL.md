@@ -1,6 +1,6 @@
 ---
 name: gstack-setup-gbrain
-description: "Aturan Gemini gstack-setup-gbrain"
+description: "Initialize and configure GBrain persistent semantic memory index."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

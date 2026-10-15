@@ -1,6 +1,6 @@
 ---
 name: pm-competitive-intel
-description: "Aturan Gemini pm-competitive-intel"
+description: "Competitive intelligence and stakeholder briefs based on real market evidence."
 ---
 
 # Competitive Intelligence & Stakeholder Briefs

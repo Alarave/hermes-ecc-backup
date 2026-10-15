@@ -1,6 +1,6 @@
 ---
 name: github-repo-safety-audit
-description: "Aturan Gemini github-repo-safety-audit"
+description: "Analyze unknown GitHub repositories for security risks before cloning or installing."
 ---
 
 # GitHub Repo Safety Audit

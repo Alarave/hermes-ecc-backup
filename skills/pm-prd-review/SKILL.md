@@ -1,6 +1,6 @@
 ---
 name: pm-prd-review
-description: "Aturan Gemini pm-prd-review"
+description: "Multi-perspective PRD review auditing drafts across engineering, design, and business lenses."
 ---
 
 # Multi-Perspective PRD Review

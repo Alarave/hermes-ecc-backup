@@ -1,6 +1,6 @@
 ---
 name: gstack-plan-design-review
-description: "Aturan Gemini gstack-plan-design-review"
+description: "Run /plan-design-review designer-perspective review on UI/UX plans."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

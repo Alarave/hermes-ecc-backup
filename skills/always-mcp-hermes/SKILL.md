@@ -1,6 +1,6 @@
 ---
 name: always-mcp-hermes
-description: "Aturan Gemini always-mcp-hermes"
+description: "Aturan global Hermes MCP dan background tool execution standar."
 ---
 
 # Rule: always-mcp-hermes

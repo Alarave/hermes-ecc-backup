@@ -1,6 +1,6 @@
 ---
 name: gstack-codex
-description: "Aturan Gemini gstack-codex"
+description: "Run /codex to get multi-AI second opinions on code and architecture."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

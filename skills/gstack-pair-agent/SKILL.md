@@ -1,6 +1,6 @@
 ---
 name: gstack-pair-agent
-description: "Aturan Gemini gstack-pair-agent"
+description: "Pair programming agent coordination protocol for collaborative feature building."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

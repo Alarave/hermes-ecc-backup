@@ -1,6 +1,6 @@
 ---
 name: spesialis
-description: "Aturan Gemini spesialis"
+description: "Router and orchestrator for specialized task-based agent personas and skills."
 ---
 
 "

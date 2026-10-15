@@ -1,6 +1,6 @@
 ---
 name: gstack-investigate
-description: "Aturan Gemini gstack-investigate"
+description: "Run /investigate deep debugging and root-cause analysis on anomalous behavior."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

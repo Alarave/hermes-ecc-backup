@@ -1,6 +1,6 @@
 ---
 name: agent-merge-conflict-arbiter
-description: "Aturan Gemini agent-merge-conflict-arbiter"
+description: "Resolve git merge conflict between two agents branches as impartial third party."
 ---
 
 # Agent Merge-Conflict Arbiter

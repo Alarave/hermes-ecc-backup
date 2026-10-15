@@ -1,6 +1,6 @@
 ---
 name: gstack-benchmark
-description: "Aturan Gemini gstack-benchmark"
+description: "Run /benchmark performance regression detection across code revisions."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

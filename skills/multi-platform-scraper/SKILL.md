@@ -1,6 +1,6 @@
 ---
 name: multi-platform-scraper
-description: "Aturan Gemini multi-platform-scraper"
+description: "Multi-platform web scraper (Agent-Reach) for extracting content from complex web sources."
 ---
 
 # Multi-Platform Scraper (Agent-Reach)

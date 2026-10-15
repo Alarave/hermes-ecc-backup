@@ -1,6 +1,6 @@
 ---
 name: gstack-diagram
-description: "Aturan Gemini gstack-diagram"
+description: "Run /diagram to generate Mermaid and architectural visualization diagrams."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

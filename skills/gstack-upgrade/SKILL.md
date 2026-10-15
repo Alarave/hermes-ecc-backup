@@ -1,6 +1,6 @@
 ---
 name: gstack-upgrade
-description: "Aturan Gemini gstack-upgrade"
+description: "Upgrade gstack tools, binary runners, and skill definitions to latest version."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

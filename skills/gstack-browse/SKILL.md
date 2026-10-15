@@ -1,6 +1,6 @@
 ---
 name: gstack-browse
-description: "Aturan Gemini gstack-browse"
+description: "Run /browse visual browser interaction for agent web exploration."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

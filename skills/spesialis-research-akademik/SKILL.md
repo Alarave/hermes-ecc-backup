@@ -41,6 +41,7 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 
 ### 1. Formulasi Judul & Validitas Masalah (Problem-First)
 - **Anti-Copy-Paste Korpus**: Korpus skripsi lokal (`E:\SKRIPSI_UPNVJ_TEXT`) digunakan murni untuk menganalisis format penulisan, sintaksis ilmiah yang sah, dan pemetaan gap, BUKAN untuk menyalin ide judul.
+- **Protokol Audit Korpus Skripsi Lokal**: Nama berkas terpotong (truncated prefix). Wajib memindai berkas `*_ABSTRAK.pdf.txt` atau `*_AWAL.pdf.txt` menggunakan kata kunci domain (seperti `ocr`, `yolo`, `kemasan`, `citra`) untuk menemukan irisan arsitektur dan metodologi, lalu ekstraksi 3 elemen: metode baseline, celah (gap), dan struktur bab.
 - **Uji Data Awal Lapangan**: Wajib eksekusi `research-title-formulator` sebelum menulis naskah. Tolak ide judul tanpa data awal riil (angka kerugian, inefisiensi, atau grafik anomali).
 - **Pembuktian Novelty & Baseline**: Wajib mengidentifikasi kelemahan model baseline saat ini dan membuktikan minimal 1 dari 3 pilar novelty: algoritmik, domain, atau evaluasi.
 

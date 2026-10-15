@@ -26,7 +26,8 @@ def strip_frontmatter(content):
 import re
 
 def extract_description(name, content):
-    match = re.search(r"-\s*\*\*Keahlian\*\*\s*:\s*(.+)", content, re.IGNORECASE)
+    content_clean = content.replace("\u2014", "-").replace("\u2013", "-")
+    match = re.search(r"-\s*\*\*Keahlian\*\*\s*:\s*(.+)", content_clean, re.IGNORECASE)
     if match:
         desc = match.group(1).strip()
         desc = re.sub(r'[*_`]', '', desc)
@@ -34,7 +35,7 @@ def extract_description(name, content):
             desc = desc[:147] + "..."
         return f"Gunakan untuk: {desc}"
     
-    match = re.search(r"-\s*\*\*Fokus Kerja\*\*\s*:\s*(.+)", content, re.IGNORECASE)
+    match = re.search(r"-\s*\*\*Fokus Kerja\*\*\s*:\s*(.+)", content_clean, re.IGNORECASE)
     if match:
         desc = match.group(1).strip()
         desc = re.sub(r'[*_`]', '', desc)
@@ -42,7 +43,24 @@ def extract_description(name, content):
             desc = desc[:147] + "..."
         return f"Gunakan untuk: {desc}"
 
-    return f"Aturan Gemini {name}"
+    # Check for command or purpose in header
+    cmd_match = re.search(r"^#+\s+(/[a-zA-Z0-9_-]+[^\n]*)", content_clean, re.MULTILINE)
+    if cmd_match:
+        desc = re.sub(r'[*_`#]', '', cmd_match.group(1)).strip()
+        if len(desc) > 150:
+            desc = desc[:147] + "..."
+        return f"Gunakan saat menjalankan {desc}"
+
+    # Check first substantive heading
+    title_match = re.search(r"^#+\s+([^#\n]+)", content_clean, re.MULTILINE)
+    if title_match:
+        desc = re.sub(r'[*_`#]', '', title_match.group(1)).strip()
+        if desc and not desc.lower().startswith("preamble"):
+            if len(desc) > 140:
+                desc = desc[:137] + "..."
+            return f"Gunakan untuk: {desc}"
+
+    return f"Gunakan untuk panduan dan kapabilitas {name.replace('-', ' ')}"
 
 def generate_frontmatter(name, content):
     if has_frontmatter(content):

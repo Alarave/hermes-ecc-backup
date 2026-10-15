@@ -1,6 +1,6 @@
 ---
 name: gstack-document-generate
-description: "Aturan Gemini gstack-document-generate"
+description: "Run /document-generate to produce structured project and API documentation."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

@@ -1,6 +1,6 @@
 ---
 name: pm-vault-manager
-description: "Aturan Gemini pm-vault-manager"
+description: "Organize and audit PM Obsidian vault architecture to prevent context fragmentation."
 ---
 
 # PM Vault Organization & Workspace Audit

@@ -71,6 +71,13 @@ Untuk menjaga riset tetap fokus, terukur, dan tidak dibantai penguji sidang:
 | 4 | Li et al. (2025) - CVPR | *Florence-2: Advancing Unified Multimodal Models* | Prompt-based Multimodal Transformer | Dataset DocVQA & Public Benchmarks | Precision Grounding: 84.1% | Mengalami halusinasi pada pembacaan string nomor registrasi digit panjang tanpa delimiter. | Menjadikan Florence-2 sebagai pengisolasi wilayah label, sementara pembacaan karakter dialirkan ke OCR. |
 | 5 | Kusuma et al. (2025) - Jurnal TI Gunadarma | *Verifikasi Informasi Produk Katalog E-Commerce Berbasis Teks* | TF-IDF + Cosine Similarity murni teks | 8.000 entri katalog Shopee | Akurasi: 73.1% | Hanya memverifikasi teks vs teks, tidak memverifikasi bukti fisik dari foto kemasan produk. | Mengambil citra kemasan fisik riil sebagai sumber kebenaran (*ground truth*) verifikasi katalog. |
 
+### 2.3 Komparasi Celah Metodologi Skripsi Sejenis (Korpus Lokal)
+Sebagai bahan argumen penguat di Bab 1 dan Bab 2:
+- **Pelangi (2024)**: *Pengembangan Aplikasi Pengajuan Polis Asuransi Sepeda pada BRINSmobile dengan Optimalisasi Menggunakan Metode Deep Learning*
+  - *Metode*: Object Detection (YOLO) + Gemini OCR API via Flask microservice.
+  - *Celah/Kelemahan*: Mengandalkan API komersial pihak ketiga (risiko biaya per token, privasi, latensi tidak terjamin), memproses citra objek dan dokumen secara terpisah tanpa visual grounding terpadu, dan tidak menyertakan uji signifikansi statistik formal (McNemar).
+  - *Posisi Riset Ini*: Membangun arsitektur hibrida end-to-end berbasis model *open-weights* lokal (Florence-2 / Qwen2-VL dipadu PaddleOCR) pada citra tunggal produk kemasan e-commerce tanpa dependensi API eksternal, divalidasi dengan uji McNemar ($p < 0.05$).
+
 ---
 
 ## 3. Metodologi Penelitian CRISP-DM Multimodal (Bab 3)

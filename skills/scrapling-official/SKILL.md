@@ -1,6 +1,6 @@
 ---
 name: scrapling-official
-description: "Aturan Gemini scrapling-official"
+description: "High-performance web scraping and DOM content extraction with Scrapling library."
 ---
 
 # Scrapling

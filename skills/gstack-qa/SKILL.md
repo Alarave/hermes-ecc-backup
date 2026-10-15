@@ -1,6 +1,6 @@
 ---
 name: gstack-qa
-description: "Aturan Gemini gstack-qa"
+description: "Run comprehensive quality assurance checks and test suites before release."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

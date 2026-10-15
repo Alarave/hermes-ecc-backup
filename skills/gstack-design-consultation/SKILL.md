@@ -1,6 +1,6 @@
 ---
 name: gstack-design-consultation
-description: "Aturan Gemini gstack-design-consultation"
+description: "Run /design-consultation to collaboratively construct and audit design systems."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

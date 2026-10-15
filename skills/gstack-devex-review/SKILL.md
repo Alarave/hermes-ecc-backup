@@ -1,6 +1,6 @@
 ---
 name: gstack-devex-review
-description: "Aturan Gemini gstack-devex-review"
+description: "Run /devex-review to evaluate developer experience and API ergonomics."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

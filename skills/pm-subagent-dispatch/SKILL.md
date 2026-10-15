@@ -1,6 +1,6 @@
 ---
 name: pm-subagent-dispatch
-description: "Aturan Gemini pm-subagent-dispatch"
+description: "Dispatch parallel sub-agents for heavy PM workloads such as multi-source analysis."
 ---
 
 # Parallel Sub-Agent Dispatch Protocol

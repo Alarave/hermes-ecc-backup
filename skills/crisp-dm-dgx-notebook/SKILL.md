@@ -1,6 +1,6 @@
 ---
 name: crisp-dm-dgx-notebook
-description: "Aturan Gemini crisp-dm-dgx-notebook"
+description: "Standard CRISP-DM framework for structuring and refactoring data science and ML Jupyter notebooks."
 ---
 
 # CRISP-DM DGX Notebook Standard

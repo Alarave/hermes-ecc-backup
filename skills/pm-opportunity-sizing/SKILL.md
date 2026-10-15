@@ -1,6 +1,6 @@
 ---
 name: pm-opportunity-sizing
-description: "Aturan Gemini pm-opportunity-sizing"
+description: "Market opportunity sizing (TAM / SAM / SOM) based on realistic bottom-up models."
 ---
 
 # Opportunity Sizing (TAM / SAM / SOM) Protocol

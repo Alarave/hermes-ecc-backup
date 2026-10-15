@@ -1,6 +1,6 @@
 ---
 name: mlops-zoomcamp-scaffold
-description: "Aturan Gemini mlops-zoomcamp-scaffold"
+description: "MLOps Zoomcamp pipeline builder, orchestration, experiment tracking, and deployment scaffold."
 ---
 
 # MLOps Zoomcamp Pipeline Builder

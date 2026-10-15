@@ -1,6 +1,6 @@
 ---
 name: gstack-setup-browser-cookies
-description: "Aturan Gemini gstack-setup-browser-cookies"
+description: "Configure and authenticate browser cookies for protected scraping sessions."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

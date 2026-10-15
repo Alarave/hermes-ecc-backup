@@ -1,6 +1,6 @@
 ---
 name: gstack-autoplan
-description: "Aturan Gemini gstack-autoplan"
+description: "Run /autoplan automated multi-perspective review pipeline for implementation plans."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

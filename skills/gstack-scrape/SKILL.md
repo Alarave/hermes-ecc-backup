@@ -1,6 +1,6 @@
 ---
 name: gstack-scrape
-description: "Aturan Gemini gstack-scrape"
+description: "Extract structured data from target web pages using headless scraper commands."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

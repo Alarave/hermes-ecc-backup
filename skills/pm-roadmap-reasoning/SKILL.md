@@ -1,6 +1,6 @@
 ---
 name: pm-roadmap-reasoning
-description: "Aturan Gemini pm-roadmap-reasoning"
+description: "Prioritize and stress-test product roadmaps across strategic business horizons."
 ---
 
 # Roadmap Reasoning & Stress-Testing Protocol

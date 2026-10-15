@@ -1,6 +1,6 @@
 ---
 name: qmd
-description: "Search the vault using QMD semantic search. Use PROACTIVELY before reading files. Preference order: (1) MCP tools — mcp__qmd__query, mcp__qmd__get, mcp__qmd__multi_get, mcp__qmd__status — if they appear in your tool menu, use them first; (2) CLI `qmd --index <name> ...` as fallback; (3) Grep/Glob only when QMD is not installed. Trigger proactively for past decisions, incidents, people, meetings, architecture, patterns, or any vault content — and after creating/editing notes to check for duplicates and related content."
+description: "Search the vault using QMD semantic search. Use PROACTIVELY before reading files. Preference order: (1) MCP tools - mcp__qmd__query, mcp__qmd__get, mcp__qmd__multi_get, mcp__qmd__status - if they appear in your tool menu, use them first; (2) CLI `qmd --index <name> ...` as fallback; (3) Grep/Glob only when QMD is not installed. Trigger proactively for past decisions, incidents, people, meetings, architecture, patterns, or any vault content - and after creating/editing notes to check for duplicates and related content."
 ---
 
 # QMD — Vault Semantic Search

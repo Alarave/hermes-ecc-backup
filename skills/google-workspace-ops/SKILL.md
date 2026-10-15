@@ -27,6 +27,19 @@ Use Google Drive as the entry point, then switch to the right specialist:
 
 Do not guess structure from filenames alone. Inspect first.
 
+## Bulk Upload and Dataset Ingestion
+
+For batch synchronization, local directory backups, or uploading hundreds of files (>5MB total):
+- Do NOT use individual MCP upload tool calls; per-call overhead, payload caps, and timeouts make MCP unsuitable for large datasets.
+- Use native multi-threaded script: `scripts/upload_folder_to_gdrive.py`.
+- Detailed architecture and quota rules: `references/bulk-upload-sync.md`.
+
+## Pitfalls
+
+- **Invalid MCP package name**: Do NOT configure `@modelcontextprotocol/server-google-drive` in configs (it does not exist on npm and throws 404). Use `@aaronsb/google-workspace-mcp` (Node 20+) for unified Workspace access or `@modelcontextprotocol/server-gdrive` (legacy).
+- **Bulk uploads via MCP**: Never loop MCP upload tools over bulk folders because toolkits enforce payload caps (often 5MB) or require remote staging keys. Use a native multi-threaded script with `uv run` and `google-api-python-client`.
+- **Duplicate files during batch upload**: Always pre-fetch existing filenames in the target Drive folder before starting uploads to guarantee idempotency and instant resume upon interruption.
+
 ## Workflow
 
 ### 1. Find the asset

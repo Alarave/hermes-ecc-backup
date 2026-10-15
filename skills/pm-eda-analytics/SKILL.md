@@ -1,6 +1,6 @@
 ---
 name: pm-eda-analytics
-description: "Aturan Gemini pm-eda-analytics"
+description: "Exploratory data analysis (EDA) protocol for raw product and telemetry datasets."
 ---
 
 # Exploratory Data Analysis (EDA) Protocol

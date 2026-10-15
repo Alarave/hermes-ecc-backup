@@ -1,6 +1,6 @@
 ---
 name: gstack-landing-report
-description: "Aturan Gemini gstack-landing-report"
+description: "Run /landing-report dashboard for tracking version queues and deployment readiness."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

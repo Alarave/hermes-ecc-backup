@@ -1,6 +1,6 @@
 ---
 name: gstack-ios-clean
-description: "Aturan Gemini gstack-ios-clean"
+description: "Clean iOS project build artifacts, derived data, and SPM caches."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

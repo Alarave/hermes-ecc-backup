@@ -1,6 +1,6 @@
 ---
 name: gstack-learn
-description: "Aturan Gemini gstack-learn"
+description: "Run /learn post-mortem loop extracting reusable patterns into growth logs."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

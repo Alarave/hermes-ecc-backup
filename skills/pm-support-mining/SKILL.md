@@ -1,6 +1,6 @@
 ---
 name: pm-support-mining
-description: "Aturan Gemini pm-support-mining"
+description: "Mine customer support tickets and user feedback to extract prioritized product insights."
 ---
 
 # Support Ticket Mining & Signal Extraction

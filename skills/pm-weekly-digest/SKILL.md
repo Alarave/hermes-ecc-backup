@@ -1,6 +1,6 @@
 ---
 name: pm-weekly-digest
-description: "Aturan Gemini pm-weekly-digest"
+description: "Generate automated weekly PM metrics digests and Slack-ready product updates."
 ---
 
 # Weekly PM Metrics Digest Generator

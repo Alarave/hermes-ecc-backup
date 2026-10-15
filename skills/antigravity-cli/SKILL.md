@@ -1,6 +1,6 @@
 ---
 name: antigravity-cli
-description: "Aturan Gemini antigravity-cli"
+description: "Operator guide for Antigravity CLI (agy) commands, config, and logs."
 ---
 
 # Antigravity CLI (`agy`)

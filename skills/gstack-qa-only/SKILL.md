@@ -1,6 +1,6 @@
 ---
 name: gstack-qa-only
-description: "Aturan Gemini gstack-qa-only"
+description: "Run isolated QA validation suite without modifying codebase assets."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

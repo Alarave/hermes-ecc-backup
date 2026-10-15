@@ -1,6 +1,6 @@
 ---
 name: gstack-review
-description: "Aturan Gemini gstack-review"
+description: "Run code review pipeline checking logic, security, and performance standards."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

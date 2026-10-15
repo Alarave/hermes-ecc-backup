@@ -1,6 +1,6 @@
 ---
 name: gstack-spec
-description: "Aturan Gemini gstack-spec"
+description: "Draft comprehensive technical specification before plan creation."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

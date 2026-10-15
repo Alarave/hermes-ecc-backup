@@ -1,6 +1,6 @@
 ---
 name: gstack-retro
-description: "Aturan Gemini gstack-retro"
+description: "Run project retrospective analysis summarizing wins, blockers, and improvements."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

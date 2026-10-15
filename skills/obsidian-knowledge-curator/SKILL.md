@@ -1,6 +1,6 @@
 ---
 name: obsidian-knowledge-curator
-description: "Aturan Gemini obsidian-knowledge-curator"
+description: "Organize, index, interlink, and maintain Obsidian knowledge vaults and markdown notes."
 ---
 
 # Obsidian Knowledge Curator

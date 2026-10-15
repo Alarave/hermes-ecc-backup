@@ -1,6 +1,6 @@
 ---
 name: gstack-plan-tune
-description: "Aturan Gemini gstack-plan-tune"
+description: "Fine-tune implementation plan steps for clarity, order, and testability."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

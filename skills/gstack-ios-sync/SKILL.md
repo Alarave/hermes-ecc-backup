@@ -1,6 +1,6 @@
 ---
 name: gstack-ios-sync
-description: "Aturan Gemini gstack-ios-sync"
+description: "Synchronize iOS project assets, schemas, and API contracts."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

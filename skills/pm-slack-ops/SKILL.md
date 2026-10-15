@@ -1,6 +1,6 @@
 ---
 name: pm-slack-ops
-description: "Aturan Gemini pm-slack-ops"
+description: "Automate Slack communications, broadcast weekly digests, and notify launch status."
 ---
 
 # Slack Automation & Team Broadcasting Protocol

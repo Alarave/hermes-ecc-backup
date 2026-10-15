@@ -1,6 +1,6 @@
 ---
 name: gstack-context-restore
-description: "Aturan Gemini gstack-context-restore"
+description: "Run /context-restore to recover saved working context and task state."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

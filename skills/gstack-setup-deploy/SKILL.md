@@ -1,6 +1,6 @@
 ---
 name: gstack-setup-deploy
-description: "Aturan Gemini gstack-setup-deploy"
+description: "Setup deployment pipelines, CI/CD targets, and hosting credentials."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

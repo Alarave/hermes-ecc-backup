@@ -1,6 +1,6 @@
 ---
 name: gstack-test-audit
-description: "Aturan Gemini gstack-test-audit"
+description: "Audit test suite coverage, identify flaky tests, and verify assertion quality."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

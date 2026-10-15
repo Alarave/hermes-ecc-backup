@@ -1,6 +1,6 @@
 ---
 name: gstack-open-gstack-browser
-description: "Aturan Gemini gstack-open-gstack-browser"
+description: "Launch interactive gstack browser session for live web inspection."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

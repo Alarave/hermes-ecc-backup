@@ -1,6 +1,6 @@
 ---
 name: pm-lightweight-spec
-description: "Aturan Gemini pm-lightweight-spec"
+description: "Lightweight spec sizing and 1-page spec generator for agile engineering scopes."
 ---
 
 # Lightweight Spec & Sizing Protocol

@@ -1,6 +1,6 @@
 ---
 name: codebase-graph-audit
-description: "Aturan Gemini codebase-graph-audit"
+description: "Senior codebase auditor for AST, call graph, and architecture dependency analysis."
 ---
 
 # Codebase Graph Audit

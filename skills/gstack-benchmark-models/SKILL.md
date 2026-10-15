@@ -1,6 +1,6 @@
 ---
 name: gstack-benchmark-models
-description: "Aturan Gemini gstack-benchmark-models"
+description: "Run /benchmark-models cross-model skill and prompt benchmarks."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

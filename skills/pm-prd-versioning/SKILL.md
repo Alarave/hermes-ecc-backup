@@ -1,6 +1,6 @@
 ---
 name: pm-prd-versioning
-description: "Aturan Gemini pm-prd-versioning"
+description: "Track PRD document revisions, generate changelogs, and maintain semantic versioning."
 ---
 
 # PRD Versioning & Changelog Protocol

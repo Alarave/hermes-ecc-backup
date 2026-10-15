@@ -1,6 +1,6 @@
 ---
 name: pm-objection-simulation
-description: "Aturan Gemini pm-objection-simulation"
+description: "Simulate fierce debate and stress-test PRD or roadmap proposals with stakeholders."
 ---
 
 # Objection Simulation & Stakeholder Roleplay Protocol

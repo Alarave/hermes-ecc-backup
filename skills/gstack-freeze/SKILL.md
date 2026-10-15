@@ -1,6 +1,6 @@
 ---
 name: gstack-freeze
-description: "Aturan Gemini gstack-freeze"
+description: "Run /freeze to restrict workspace file edits to an allowed directory boundary."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

@@ -1,6 +1,6 @@
 ---
 name: spreadsheet
-description: "Aturan Gemini spreadsheet"
+description: "Create, edit, analyze, and visualize spreadsheets (XLSX/CSV) with formulas and formatting."
 ---
 
 # Spreadsheet Skill (Create, Edit, Analyze, Visualize)

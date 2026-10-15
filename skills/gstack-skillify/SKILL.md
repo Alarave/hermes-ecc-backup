@@ -1,6 +1,6 @@
 ---
 name: gstack-skillify
-description: "Aturan Gemini gstack-skillify"
+description: "Convert successful workflows and solutions into reusable agent skills."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

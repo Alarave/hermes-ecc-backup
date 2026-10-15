@@ -1,6 +1,6 @@
 ---
 name: gstack-health
-description: "Aturan Gemini gstack-health"
+description: "Run /health diagnostics to inspect workspace integrity and runtime environment."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

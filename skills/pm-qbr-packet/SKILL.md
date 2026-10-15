@@ -1,6 +1,6 @@
 ---
 name: pm-qbr-packet
-description: "Aturan Gemini pm-qbr-packet"
+description: "Assemble QBR strategy packets and 1-pagers aligning product strategy with business goals."
 ---
 
 # QBR & Product Strategy One-Pager Protocol

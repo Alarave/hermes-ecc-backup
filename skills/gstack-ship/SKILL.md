@@ -1,6 +1,6 @@
 ---
 name: gstack-ship
-description: "Aturan Gemini gstack-ship"
+description: "Finalize feature branch, run quality gates, and ship changes to production."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

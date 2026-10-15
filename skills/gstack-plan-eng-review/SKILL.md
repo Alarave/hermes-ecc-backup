@@ -1,6 +1,6 @@
 ---
 name: gstack-plan-eng-review
-description: "Aturan Gemini gstack-plan-eng-review"
+description: "Run /plan-eng-review engineering feasibility, reliability, and edge-case review."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

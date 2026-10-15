@@ -1,6 +1,6 @@
 ---
 name: gstack-design-shotgun
-description: "Aturan Gemini gstack-design-shotgun"
+description: "Run /design-shotgun to generate multiple divergent visual design variations."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

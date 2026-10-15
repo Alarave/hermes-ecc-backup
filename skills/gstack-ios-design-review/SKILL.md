@@ -1,6 +1,6 @@
 ---
 name: gstack-ios-design-review
-description: "Aturan Gemini gstack-ios-design-review"
+description: "Review iOS SwiftUI and UIKit interfaces against Apple Human Interface Guidelines."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

@@ -1,6 +1,6 @@
 ---
 name: gstack-ios-fix
-description: "Aturan Gemini gstack-ios-fix"
+description: "Diagnose and fix compilation errors and runtime crashes in iOS projects."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

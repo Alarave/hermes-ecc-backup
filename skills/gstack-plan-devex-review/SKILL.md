@@ -1,6 +1,6 @@
 ---
 name: gstack-plan-devex-review
-description: "Aturan Gemini gstack-plan-devex-review"
+description: "Run /plan-devex-review developer ergonomics and maintainability review."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

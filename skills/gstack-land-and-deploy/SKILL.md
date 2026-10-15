@@ -1,6 +1,6 @@
 ---
 name: gstack-land-and-deploy
-description: "Aturan Gemini gstack-land-and-deploy"
+description: "Run /land-and-deploy to verify, commit, and trigger production deployments."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

@@ -1,6 +1,6 @@
 ---
 name: gstack-context-save
-description: "Aturan Gemini gstack-context-save"
+description: "Run /context-save to checkpoint current working context and task state."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

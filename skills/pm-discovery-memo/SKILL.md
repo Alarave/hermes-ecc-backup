@@ -1,6 +1,6 @@
 ---
 name: pm-discovery-memo
-description: "Aturan Gemini pm-discovery-memo"
+description: "Convert user research, support tickets, and competitor data into crisp discovery memos."
 ---
 
 # Discovery Memo & Anti-Slop Protocol

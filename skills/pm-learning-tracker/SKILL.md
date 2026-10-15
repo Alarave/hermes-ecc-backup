@@ -1,6 +1,6 @@
 ---
 name: pm-learning-tracker
-description: "Aturan Gemini pm-learning-tracker"
+description: "Maintain living learning.md tracker for project milestones and PM skill acquisition."
 ---
 
 # Learning Companion & Progress Tracker

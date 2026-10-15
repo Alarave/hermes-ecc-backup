@@ -1,6 +1,6 @@
 ---
 name: pm-ab-test-design
-description: "Aturan Gemini pm-ab-test-design"
+description: "A/B Test Design and Anti-Peeking Framework for product experimentation."
 ---
 
 # A/B Test Design & Anti-Peeking Framework

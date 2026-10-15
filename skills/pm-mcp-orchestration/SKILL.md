@@ -1,6 +1,6 @@
 ---
 name: pm-mcp-orchestration
-description: "Aturan Gemini pm-mcp-orchestration"
+description: "Model Context Protocol (MCP) integrations connecting AI agents to PM tools."
 ---
 
 # MCP (Model Context Protocol) PM Operations

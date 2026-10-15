@@ -1,6 +1,6 @@
 ---
 name: gstack-document-release
-description: "Aturan Gemini gstack-document-release"
+description: "Run /document-release to prepare release notes, changelogs, and announcements."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

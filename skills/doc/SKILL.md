@@ -1,6 +1,6 @@
 ---
 name: doc
-description: "Aturan Gemini doc"
+description: "Read and review DOCX documents with complex layout, tables, diagrams, and pagination."
 ---
 
 # DOCX Skill

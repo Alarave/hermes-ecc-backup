@@ -1,6 +1,6 @@
 ---
 name: gstack-unfreeze
-description: "Aturan Gemini gstack-unfreeze"
+description: "Run /unfreeze to remove workspace file edit restrictions."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

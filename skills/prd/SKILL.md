@@ -1,6 +1,6 @@
 ---
 name: prd
-description: "Aturan Gemini prd"
+description: "5-Stage PRD Generator for drafting comprehensive Product Requirements Documents."
 ---
 
 # 5-Stage PRD Generator

@@ -1,6 +1,6 @@
 ---
 name: pm-file-ops
-description: "Aturan Gemini pm-file-ops"
+description: "PM file operations and living document protocol for multi-file synthesis and diffs."
 ---
 
 # PM File Operations & Living Document Protocol

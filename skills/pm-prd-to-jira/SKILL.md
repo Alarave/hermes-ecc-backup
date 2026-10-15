@@ -1,6 +1,6 @@
 ---
 name: pm-prd-to-jira
-description: "Aturan Gemini pm-prd-to-jira"
+description: "Break down final PRDs into engineering epics, stories, and tasks for Jira or WBS."
 ---
 
 # PRD-to-Jira / WBS Ticket Pipeline

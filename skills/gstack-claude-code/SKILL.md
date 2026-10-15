@@ -1,6 +1,6 @@
 ---
 name: gstack-claude-code
-description: "Aturan Gemini gstack-claude-code"
+description: "Run /claude-code to get a second opinion from Claude Code CLI."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

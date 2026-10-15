@@ -1,6 +1,6 @@
 ---
 name: gstack-deslop-shared-libs
-description: "Aturan Gemini gstack-deslop-shared-libs"
+description: "Find and extract duplicate code patterns into clean shared libraries."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

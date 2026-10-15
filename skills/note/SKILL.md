@@ -17,9 +17,10 @@ Dipicu saat user meminta membuat rangkuman materi, belajar konsep baru, menerjem
 5. **Gambar & Ilustrasi Eksternal (Anti-Full Text)**: Catatan tidak boleh monoton! Sisipkan URL gambar publik (Unsplash, Wikimedia Commons, diagram resmi) via sintaks Markdown `![Ilustrasi](URL)` jika visual nyata membantu pemahaman (misal: arsitektur cloud, skema biologi, interface software).
 6. **Perbandingan (Head-to-Head)**: Selalu sediakan tabel perbandingan detail (Aspek | Konsep A | Konsep B) jika materi membahas opsi, metode, atau arsitektur yang bersaing.
 7. **Active Recall & Exam Prep**: Wajib menyediakan sub-bagian 'Miskonsepsi Umum' (Salah vs Benar). Akhiri catatan dengan blok pertanyaan ujian/studi kasus yang bisa di-collapse menggunakan Obsidian Callout `> [!QUESTION]- Soal...`.
-8. **Operasi File & Integrasi Vault (CRITICAL)**:
+8. **Tipografi & Tanda Baca (Anti-Em/En Dash)**: DILARANG KERAS menggunakan tanda pisah em dash (`—`) atau en dash (`–`). Gunakan tanda titik dua (`:`), kurung `()`, atau tanda strip biasa (`-`) untuk seluruh pemisah keterangan, poin, atau rentang nilai.
+9. **Operasi File & Integrasi Vault (CRITICAL)**:
    - **File Baru**: Simpan di folder target `${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}\<domain>\`. Tambahkan wikilink `[[Judul]]` ke file `🏠 Master Index (MOC).md`.
-   - **Update/Rapikan**: WAJIB jalankan `read_file` FULL (100% baris) sebelum menata ulang isinya dan menimpa dengan `write_file`. JANGAN pernah sekadar append.
+   - **Update/Rapikan**: WAJIB jalankan `read_file(path)` FULL (100% baris tanpa parameter offset/limit terpaginasi) sebelum menata ulang isinya dan menimpa dengan `write_file`. Jika guard proteksi file aktif atau file terkunci, tulis berkas via skrip Python mandiri UTF-8 di scratch directory. JANGAN pernah sekadar append.
    - **Wikilinks**: Jalankan `search_files` (`*.md`) di folder tujuan untuk menemukan file tetangga. Buat wikilink valid `[[Nama File Asli]]` di blok *Related Topics*. JANGAN mengarang/halusinasi link.
 
 # Output Format (Obsidian Safe)

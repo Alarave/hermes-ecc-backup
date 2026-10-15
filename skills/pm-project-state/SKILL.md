@@ -1,6 +1,6 @@
 ---
 name: pm-project-state
-description: "Aturan Gemini pm-project-state"
+description: "Cold-start orientation audit to inspect current project status, blockers, and backlog."
 ---
 
 # Project State & Status Audit Protocol

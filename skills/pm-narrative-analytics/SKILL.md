@@ -1,6 +1,6 @@
 ---
 name: pm-narrative-analytics
-description: "Aturan Gemini pm-narrative-analytics"
+description: "Narrative analytics and A/B test memos turning metrics into actionable decisions."
 ---
 
 # Narrative Analytics & A/B Test Memo

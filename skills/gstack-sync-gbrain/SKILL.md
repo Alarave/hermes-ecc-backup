@@ -1,6 +1,6 @@
 ---
 name: gstack-sync-gbrain
-description: "Aturan Gemini gstack-sync-gbrain"
+description: "Synchronize project documentation and code changes with GBrain memory."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

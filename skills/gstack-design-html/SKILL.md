@@ -1,6 +1,6 @@
 ---
 name: gstack-design-html
-description: "Aturan Gemini gstack-design-html"
+description: "Run /design-html pretext-native HTML component and layout engine."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

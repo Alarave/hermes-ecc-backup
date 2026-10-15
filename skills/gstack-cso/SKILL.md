@@ -1,6 +1,6 @@
 ---
 name: gstack-cso
-description: "Aturan Gemini gstack-cso"
+description: "Run /cso security verification ensuring evidence before assurance."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

@@ -1,6 +1,6 @@
 ---
 name: pm-interview-synthesis
-description: "Aturan Gemini pm-interview-synthesis"
+description: "Scale interview synthesis to convert mass interview transcripts into discovery memos."
 ---
 
 # Interview Synthesis at Scale

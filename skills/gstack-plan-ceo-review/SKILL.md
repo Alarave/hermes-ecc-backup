@@ -1,6 +1,6 @@
 ---
 name: gstack-plan-ceo-review
-description: "Aturan Gemini gstack-plan-ceo-review"
+description: "Run /plan-ceo-review high-level strategic alignment and value-proposition review."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

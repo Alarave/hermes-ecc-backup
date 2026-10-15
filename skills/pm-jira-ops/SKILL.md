@@ -1,6 +1,6 @@
 ---
 name: pm-jira-ops
-description: "Aturan Gemini pm-jira-ops"
+description: "Jira and issue tracker MCP integration to convert PRDs into engineering backlogs."
 ---
 
 # Jira & Issue Tracker MCP Integration Protocol

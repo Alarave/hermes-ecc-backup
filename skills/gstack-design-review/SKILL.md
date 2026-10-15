@@ -1,6 +1,6 @@
 ---
 name: gstack-design-review
-description: "Aturan Gemini gstack-design-review"
+description: "Run /design-review to inspect visual fidelity, UI consistency, and aesthetics."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

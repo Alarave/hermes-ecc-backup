@@ -1,6 +1,6 @@
 ---
 name: pm-decision-log
-description: "Aturan Gemini pm-decision-log"
+description: "Product decision log protocol for Architecture and Product Decision Records (ADR)."
 ---
 
 # Product Decision Log (ADR) Protocol

@@ -1,6 +1,6 @@
 ---
 name: gstack-office-hours
-description: "Aturan Gemini gstack-office-hours"
+description: "Run /office-hours interactive technical mentorship and design sparring session."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

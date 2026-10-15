@@ -1,6 +1,6 @@
 ---
 name: gstack-ios-qa
-description: "Aturan Gemini gstack-ios-qa"
+description: "Run automated QA, UI tests, and accessibility audits on iOS targets."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

@@ -1,6 +1,6 @@
 ---
 name: pm-executive-narrative
-description: "Aturan Gemini pm-executive-narrative"
+description: "Executive narrative and persuasion-focused strategy docs for executive buy-in."
 ---
 
 # Executive Narrative & Strategy Docs Protocol

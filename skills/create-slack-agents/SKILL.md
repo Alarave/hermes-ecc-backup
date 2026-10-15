@@ -1,6 +1,6 @@
 ---
 name: create-slack-agents
-description: "Aturan Gemini create-slack-agents"
+description: "Find, create, and deploy AI agents on Slack via Valet CLI and gallery."
 ---
 
 # Create Slack AI Agents on Valet

@@ -1,6 +1,6 @@
 ---
 name: system-analyst-skkni
-description: "Aturan Gemini system-analyst-skkni"
+description: "System analyst specifications following Indonesian SKKNI and ITSE 1450 standard."
 ---
 
 # System Analyst SKKNI & ITSE 1450 Standard

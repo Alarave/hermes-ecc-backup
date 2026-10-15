@@ -1,6 +1,6 @@
 ---
 name: gstack-careful
-description: "Aturan Gemini gstack-careful"
+description: "Run /careful guardrails to prevent destructive shell commands and file loss."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

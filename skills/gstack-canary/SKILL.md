@@ -1,6 +1,6 @@
 ---
 name: gstack-canary
-description: "Aturan Gemini gstack-canary"
+description: "Run /canary post-deploy visual and functional site monitoring."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

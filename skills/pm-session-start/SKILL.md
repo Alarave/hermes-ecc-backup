@@ -1,6 +1,6 @@
 ---
 name: pm-session-start
-description: "Aturan Gemini pm-session-start"
+description: "Initiate PM work session by loading project identity, priorities, and active state."
 ---
 
 # Session Start & Context Loading Protocol

@@ -1,6 +1,6 @@
 ---
 name: windows-terminal-workflow
-description: "Aturan Gemini windows-terminal-workflow"
+description: "Windows Terminal CLI execution, PowerShell commands, and profile configuration."
 ---
 
 # Windows Terminal Workflow

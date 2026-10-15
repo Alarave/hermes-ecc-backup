@@ -1,6 +1,6 @@
 ---
 name: gstack-make-pdf
-description: "Aturan Gemini gstack-make-pdf"
+description: "Generate polished PDF documents from markdown using headless render engines."
 ---
 
 <!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->

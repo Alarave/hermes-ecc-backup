@@ -1,6 +1,6 @@
 ---
 name: pm-churn-retention
-description: "Aturan Gemini pm-churn-retention"
+description: "Account health and churn analysis generator for customer retention analysis."
 ---
 
 # Account Health & Churn Analysis Generator

@@ -1,6 +1,6 @@
 ---
 name: pm-team-context
-description: "Aturan Gemini pm-team-context"
+description: "Manage shared team context infrastructure (TEAM-CLAUDE.md) across multiple PMs."
 ---
 
 # Shared Team Context & Onboarding Protocol

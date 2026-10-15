@@ -1,6 +1,6 @@
 ---
 name: laya-text-classifier
-description: "Aturan Gemini laya-text-classifier"
+description: "Text classification workflows, data preprocessing, and model evaluation for Laya framework."
 ---
 
 # Laya Text Classifier
