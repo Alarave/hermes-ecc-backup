@@ -119,12 +119,12 @@ When creating a Mermaid diagram:
 ✅ RIGHT: Title --> agent          → Reference subgraph ID
 ```
 
-### Rule 4: Special Characters in Node Text
+### Rule 4: Special Characters & Line Breaks in Node Text
 ```
 ✅ Use quotes for text with spaces: ["Text with spaces"]
-✅ Escape or avoid: quotation marks → use 『』 instead
-✅ Escape or avoid: parentheses → use 「」 instead
-✅ Line breaks in circle nodes only: ((Text<br/>Break))
+✅ Escape or avoid: quotation marks -> use 『』 or '' instead
+✅ Escape or avoid: parentheses -> use 「」 or wrap in ["..."]
+✅ Line breaks: ALWAYS use <br/> for labels > 20 chars in ALL node types: ["Line 1<br/>Line 2"], ("Line 1<br/>Line 2"), {"Line 1<br/>Line 2"} to prevent text clipping and wide overflow.
 ```
 
 ### Rule 5: Arrow Types
