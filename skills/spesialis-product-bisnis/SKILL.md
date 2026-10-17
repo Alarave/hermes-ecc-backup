@@ -1,11 +1,6 @@
 ---
 name: spesialis-product-bisnis
-description: "Use when user says "ide bisnis", "bikin PRD", "riset kompetitor", "target pasar", "MVP", "fitur produk", "monetisasi", atau strategi bisnis. Mengatur Product Management."
----
-
-﻿---
-name: spesialis-product-bisnis
-description: Aktifkan mode Spesialis_Product_Bisnis dan gunakan referensi skill di folder Spesialis_Product_Bisnis.
+description: "Use when user says 'ide bisnis', 'bikin PRD', 'riset kompetitor', 'target pasar', 'monetisasi', 'pitch deck', 'lean canvas', 'business model canvas', 'bmc', 'analisis bisnis', atau 'product management'. Spesialis Product & Bisnis: merancang strategi produk, validasi pasar, PRD tajam, model bisnis, dan unit economics."
 ---
 
 # Spesialis_Product_Bisnis

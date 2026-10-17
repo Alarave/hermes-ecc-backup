@@ -1,6 +1,6 @@
 ---
 name: figgenie-paper-diagram
-description: "Draw publication-quality system architecture and overview figures as SVG for systems-conference papers (OSDI, NSDI, SOSP, ASPLOS style), with anti-clipping and anti-overlap layout rules."
+description: "Use when user says 'gambar arsitektur', 'bikin diagram paper', 'diagram metodologi skripsi', 'overview diagram', 'gambar skripsi', 'vektor diagram', atau 'buat gambar paper'. Draw publication-quality system architecture and overview figures as SVG with anti-clipping and anti-overlap layout rules."
 ---
 
 # FigGenie Paper Diagram (Publication-Ready Vector Graphics)
@@ -44,9 +44,9 @@ Work in a folder per figure: `brief.md`, `spec.json`, `plan.md`, `fig.svg`, and 
    `references/layouts.md` ("Choosing a template", then the one template section you need; 20 ids: 7 core +
    13 added). Then look at exemplars along two lines, because the template says how the corpus arranges a
    figure and the content says how this field draws its objects:
- - **by template**: two or three from `assets/exemplars/<template>/index.json` (starred = must-see, each with
+  - **by template**: two or three from `assets/exemplars/<template>/index.json` (starred = must-see, each with
      a one-line lesson);
- - **by domain, content and meaning**: `python3 scripts/find_exemplars.py --domain "<field, kind of system>"
+  - **by domain, content and meaning**: `python3 scripts/find_exemplars.py --domain "<field, kind of system>"
      --content "<what is drawn: components, structures, objects>" --semantics "<the point the figure argues>"`
      with the words of the brief ranks all 485 exemplars of both kinds; open the top three to five whose systems
      resemble yours, whatever their template. This is where a field's habits come from - how LLM-serving papers
@@ -83,11 +83,11 @@ Work in a folder per figure: `brief.md`, `spec.json`, `plan.md`, `fig.svg`, and 
    badges, `a:` annotations, `legend`. Text stays `<text>`; a formula is the one exception - a `<g data-symbol="tex" data-tex="..." data-x data-y data-size data-anchor/>`
    placeholder that `tex_fill.py` renders to paths (`references/formulas.md`); no gradients, filters or external refs.
    **Anti-Clipping & Anti-Overlap Rules (MANDATORY)**:
-   - Canvas Padding: Reserve at least 15-20 pt margin on all 4 sides inside `viewBox` (elements must never touch x=0, y=0, W, or H).
-   - Box Sizing: Ensure `box_width >= text_width + 16 pt` and `box_height >= (line_count * size * 1.3) + 12 pt`.
-   - Multi-line `<text>`: Explicitly define `x` and `y` on EVERY `<tspan>` (`<tspan x="..." y="...">`). Never omit `x` on subsequent tspans.
-   - Edge Labels: Place an opaque backdrop `<rect fill="#fff" ...>` behind every line label so connectors never strike through or collide with text.
-   - Node Spacing: Maintain minimum 14-16 pt distance between adjacent boxes to prevent overlap collisions.
+  - Canvas Padding: Reserve at least 15-20 pt margin on all 4 sides inside `viewBox` (elements must never touch x=0, y=0, W, or H).
+  - Box Sizing: Ensure `box_width >= text_width + 16 pt` and `box_height >= (line_count * size * 1.3) + 12 pt`.
+  - Multi-line `<text>`: Explicitly define `x` and `y` on EVERY `<tspan>` (`<tspan x="..." y="...">`). Never omit `x` on subsequent tspans.
+  - Edge Labels: Place an opaque backdrop `<rect fill="#fff" ...>` behind every line label so connectors never strike through or collide with text.
+  - Node Spacing: Maintain minimum 14-16 pt distance between adjacent boxes to prevent overlap collisions.
    Mark a group drawn to scale from numbers (bars, Gantt rows) `data-scale="data"` and a label set beside its box on
    purpose `data-label="outside"` (spec-guide §4): the linter then stops asking you to snap data or centre that label.
    A bitmap - a sample input or output, a photo, a screenshot, a rendered result, an icon - is an `<image>` in its

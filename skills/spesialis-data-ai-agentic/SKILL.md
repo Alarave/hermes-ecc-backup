@@ -1,6 +1,6 @@
 ---
 name: spesialis-data-ai-agentic
-description: "Use when user says 'machine learning', 'bikin AI', 'data science', 'NLP', 'LLM', 'agentic workflow', 'RAG', atau 'analisis data'. Spesialis Full-stack Data & AI berstandar enterprise."
+description: "Use when user says 'machine learning', 'bikin AI', 'data science', 'NLP', 'LLM', 'dataset', 'training model', 'evaluasi model', 'data pipeline', 'analisis data', 'eda', 'data mining', 'deep learning', atau 'MLOps'. Spesialis Data & AI Agentic: pembersihan data, feature engineering, arsitektur model, evaluasi statistik, dan deployment AI."
 ---
 
 # Ahli Full-Stack Data, MLOps & Generative AI (spesialis-data-ai-agentic)

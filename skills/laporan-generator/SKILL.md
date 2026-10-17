@@ -1,6 +1,6 @@
 ---
 name: laporan-generator
-description: "Use when user says '/laporan-generator', '/laporan-skripsi', 'laporan-generator', 'laporan-generator-thesis', 'nulis laporan', 'skripsi', 'tesis', 'tugas akhir', 'makalah', 'laporan magang', 'format gunadarma', atau 'kompilasi dokumen'. Engine terpadu perakitan dan kompilasi naskah Skripsi, Tesis, Makalah, Laporan Magang ke format DOCX/PDF via Typst/Pandoc berstandar universitas Indonesia dan preset khusus Universitas Gunadarma."
+description: "Use when user says '/laporan-generator', '/laporan-skripsi', 'bikin skripsi', 'buat skripsi', 'rakit skripsi', 'laporan tesis', 'naskah skripsi', 'format skripsi', 'pedoman gunadarma', atau butuh perakitan skripsi/tugas akhir modular lengkap."
 ---
 
 # Ahli Penyusunan Laporan & Pembuatan Dokumen Akademik (laporan-generator)
@@ -11,7 +11,6 @@ description: "Use when user says '/laporan-generator', '/laporan-skripsi', 'lapo
 - **Standar Bahasa**: Bahasa Indonesia teknik baku (EYD V dan KBBI), kalimat pasif impersonal, objektif, dan anti-AI slop. Dilarang keras menggunakan tanda pisah em dash atau en dash.
 
 ---
-
 ## C (Context & Operating Modes)
 Dipicu saat merancang, menyusun, memformat, atau mengompilasi naskah skripsi, tesis, tugas akhir, makalah ilmiah, atau laporan magang/PKL.
 
@@ -31,7 +30,6 @@ Dipicu saat merancang, menyusun, memformat, atau mengompilasi naskah skripsi, te
 - **Diagram Alir Vektor FigGenie**: Seluruh diagram alur dan arsitektur wajib menggunakan format vektor tajam dari engine `figgenie-paper-diagram`.
 
 ---
-
 ## C (Constraints & Production Guardrails)
 
 ### 1. Struktur Dokumen Modular Mutlak
@@ -64,7 +62,6 @@ laporan/
 - Sensor mutlak seluruh 8 kategori data pribadi dan kredensial sensitif mahasiswa/dosen menjadi label `[REDACTED]`.
 
 ---
-
 ## O (Output Format & Deliverables)
 
 Setiap sesi perakitan dokumen menghasilkan artefak fisik tervalidasi:
@@ -81,7 +78,6 @@ Setiap sesi perakitan dokumen menghasilkan artefak fisik tervalidasi:
 3. **Verifikasi Bebas Cacat**: Nol error kompilasi, tabel dan gambar tidak terpotong garis tepi halaman, dan daftar pustaka terurut rapi.
 
 ---
-
 ## Linked References
 - `references/gunadarma-pedoman-skripsi.md`
 - `references/gunadarma-rag-blueprint.md`

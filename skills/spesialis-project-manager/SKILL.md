@@ -1,6 +1,6 @@
 ---
 name: spesialis-project-manager
-description: "Gunakan untuk: Perencanaan sprint agile, Work Breakdown Structure (WBS) dependency gating, manajemen risiko kuantitatif, orkestrasi tim engineer, dan penyusunan P..."
+description: "Use when user says 'project manager', 'manajemen proyek', 'sprint agile', 'wbs', 'scrum', 'timeline proyek', 'milestone', 'jadwal tugas', 'tracking delivery', atau 'kanban'."
 ---
 
 # Rule: spesialis-project-manager

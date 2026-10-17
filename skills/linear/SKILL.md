@@ -1,6 +1,6 @@
 ---
 name: linear
-description: "Use when user says 'Linear', 'bikin tiket', 'cek backlog', 'sprint issue', 'triage bug', 'status task', 'buat issue', atau manajemen proyek di Linear. Mengelola tiket, siklus sprint, dan pelacakan pekerjaan tim."
+description: "Use when user says 'Linear', 'bikin tiket', 'cek backlog', 'sprint issue', 'triage issue', atau butuh manajemen tiket issue tracker Linear."
 ---
 
 # Linear Project Management

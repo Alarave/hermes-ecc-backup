@@ -1,6 +1,6 @@
 ---
 name: ceemdan-lstm-forecasting
-description: "Use when user says 'prediksi time series', 'forecasting cuaca/saham/listrik', 'EMD', 'CEEMDAN', atau 'hybrid LSTM'. Spesialis prediksi sinyal non-stasioner."
+description: "Use when user says 'prediksi time series', 'forecasting cuaca/saham/listrik', 'ceemdan', 'lstm', 'bbca', 'harga saham', 'co-imf', atau butuh arsitektur hibrida time series anti-leakage."
 ---
 
 # Pakar Time-Series Forecasting: CEEMDAN-LSTM (ceemdan-lstm-forecasting)

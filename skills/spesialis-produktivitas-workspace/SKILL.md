@@ -1,11 +1,6 @@
 ---
 name: spesialis-produktivitas-workspace
-description: "﻿---"
----
-
-﻿---
-name: spesialis-produktivitas-workspace
-description: Aktifkan mode Spesialis_Produktivitas_Workspace dan gunakan referensi skill di folder Spesialis_Produktivitas_Workspace.
+description: "Use when user says 'produktivitas', 'kelola workspace', 'rapikan file', 'organisir drive', 'bersihkan folder', 'google workspace', 'tugas harian', atau butuh otomatisasi produktivitas kantor."
 ---
 
 # Spesialis_Produktivitas_Workspace

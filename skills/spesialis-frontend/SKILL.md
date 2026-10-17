@@ -1,6 +1,6 @@
 ---
 name: spesialis-frontend
-description: "Use when user says "bikin UI", "slicing", "React", "Next.js", "Tailwind", "tampilan web", "animasi web", atau "benerin tampilan"."
+description: "Use when user says 'bikin UI', 'slicing', 'React', 'Next.js', 'Tailwind', 'tampilan web', 'frontend', 'komponen', 'antarmuka pengguna', 'halaman web', atau 'CSS'. Spesialis Frontend: slicing mockup, responsive design, state management, interaksi pengguna, dan optimasi performa web."
 ---
 
 # Ahli Frontend & Rekayasa Antarmuka (Spesialis Frontend)

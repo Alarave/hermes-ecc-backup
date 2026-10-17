@@ -1,6 +1,6 @@
 ---
 name: timesfm-forecasting
-description: "Gunakan untuk: Implementasi Zero-Shot Forecasting, arsitektur Transformer (Decoder-Only), tokenisasi/patching deret waktu, dan inferensi deret waktu tanpa covaria..."
+description: "Use when user says 'timesfm', 'zero-shot forecasting', 'foundation model time series', 'google timesfm', atau peramalan time series tanpa training dari nol."
 ---
 
 # Rule: timesfm-forecasting

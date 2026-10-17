@@ -1,6 +1,6 @@
 ---
 name: spreadsheet
-description: "Create, edit, analyze, and visualize spreadsheets (XLSX/CSV) with formulas and formatting."
+description: "Use when user says 'spreadsheet', 'excel', 'bikin excel', 'edit spreadsheet', 'olah xlsx', 'analisis csv', atau butuh manipulasi rumus/tabel workbook."
 ---
 
 # Spreadsheet Skill (Create, Edit, Analyze, Visualize)

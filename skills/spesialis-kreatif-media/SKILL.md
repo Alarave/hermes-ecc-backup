@@ -1,11 +1,6 @@
 ---
 name: spesialis-kreatif-media
-description: "﻿---"
----
-
-﻿---
-name: spesialis-kreatif-media
-description: Aktifkan mode Spesialis_Kreatif_Media dan gunakan referensi skill di folder Spesialis_Kreatif_Media.
+description: "Use when user says 'kreatif', 'media', 'bikin video', 'animasi', 'konten kreatif', 'infografis', 'desain banner', 'manim', 'remotion', atau butuh produksi aset kreatif audio-visual."
 ---
 
 # Spesialis_Kreatif_Media

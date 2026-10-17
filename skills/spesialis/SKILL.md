@@ -1,16 +1,14 @@
 ---
 name: spesialis
-description: "Router and orchestrator for specialized task-based agent personas and skills."
+description: "Use when user says 'spesialis', '/spesialis', 'panggil spesialis', atau butuh router multi-domain ke 12+ spesialis (backend, frontend, mobile, devops, data, research, qa, product, copywriter, dll)."
 ---
 
 "
 ---
-
-﻿---
+---
 name: spesialis
 description: Router utama untuk memilih dan mengaktifkan mode spesialis tertentu (Backend, Frontend, dsb).
 ---
-
 # Spesialis Router
 
 Ini adalah skill utama untuk beralih mode.

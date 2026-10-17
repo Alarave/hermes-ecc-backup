@@ -1,6 +1,6 @@
 ---
 name: team-composition-analysis
-description: "Use when user says 'struktur tim', 'bikin startup', 'hitung gaji', 'rekrutmen', 'budget tim', 'pembagian saham', 'equity', atau 'org chart'. Skill untuk merancang struktur organisasi, headcount planning, dan kompensasi (gaji & saham) untuk startup (Pre-Seed hingga Series A)."
+description: "Use when user says 'struktur tim', 'bikin startup', 'hitung gaji', 'rekrutmen', 'estimasi tim', atau analisis komposisi dan kompensasi SDM proyek IT."
 metadata:
   version: 1.0.0
 ---

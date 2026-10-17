@@ -1,6 +1,6 @@
 ---
 name: ultra-think
-description: Use when user says "analisis", "analisa", "bedah", "ultra-think", "pikir panjang", atau meminta pemecahan masalah kompleks.
+description: "Use when user says 'analisis', 'analisa', 'bedah', 'ultra-think', 'pikir panjang', 'deep thinking', atau butuh analisis mendalam multi-fase."
 argument-hint: [problem or question to analyze]
 ---
 
@@ -24,8 +24,8 @@ Your analysis must address all of the following. Order and depth are yours to de
 
 - **Problem framing**: What is actually being asked? What assumptions are embedded in the question?
 - **Competing solutions**: At least 3 meaningfully different approaches, not variations of the same idea.
-- **Multi-lens evaluation**: Assess each solution across the lenses most relevant to this problem (technical, economic, human, systemic, temporal — select and justify which apply).
-- **Adversarial testing**: For each leading solution, argue against it. What would have to be true for it to fail badly? Use inversion — ask what you would do to guarantee failure, then ensure the recommendation avoids those paths.
+- **Multi-lens evaluation**: Assess each solution across the lenses most relevant to this problem (technical, economic, human, systemic, temporal - select and justify which apply).
+- **Adversarial testing**: For each leading solution, argue against it. What would have to be true for it to fail badly? Use inversion - ask what you would do to guarantee failure, then ensure the recommendation avoids those paths.
 - **Cross-domain insight**: Draw at least one non-obvious parallel from a different field or discipline.
 - **Second-order effects**: What does each approach make more or less likely to happen in 6 months, 2 years, 10 years?
 - **Synthesis**: Which approach or combination is recommended? Why, given the specific trade-offs?
@@ -67,7 +67,7 @@ Present findings using this structure:
 ## Output Expectations
 
 - Every solution option is evaluated on its own merits, not just compared relatively.
-- Reasoning chains are explicit — conclusions reference the evidence or logic that produced them.
+- Reasoning chains are explicit - conclusions reference the evidence or logic that produced them.
 - Uncertainty is surfaced, not hidden. If data is insufficient, say so and specify what would resolve it.
 - The recommendation section is actionable: next steps are specific enough to begin on immediately.
 - Length matches problem complexity. Avoid padding.

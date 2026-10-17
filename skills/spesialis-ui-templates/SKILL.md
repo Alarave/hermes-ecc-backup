@@ -1,6 +1,6 @@
 ---
 name: spesialis-ui-templates
-description: "Use when user says "design system", "template UI", "komponen", "Figma to code", "desain antarmuka", atau "UI berkelas"."
+description: "Use when user says 'design system', 'template UI', 'komponen', 'Figma to code', 'UI kit', '21st component', 'shadcn', atau 'dashboard template'. Spesialis UI Templates: koleksi template komponen siap pakai, design token, dan akselerasi implementasi antarmuka."
 ---
 
 # Ahli Design System & UI/UX Architect

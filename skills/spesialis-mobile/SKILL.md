@@ -1,11 +1,6 @@
 ---
 name: spesialis-mobile
-description: "﻿---"
----
-
-﻿---
-name: spesialis-mobile
-description: Aktifkan mode Spesialis_Mobile dan gunakan referensi skill di folder Spesialis_Mobile.
+description: "Use when user says 'bikin aplikasi mobile', 'mobile app', 'flutter', 'android', 'ios', 'react native', 'kotlin multiplatform', 'kmp', 'swift', atau butuh pengembangan aplikasi mobile cross-platform."
 ---
 
 # Spesialis_Mobile

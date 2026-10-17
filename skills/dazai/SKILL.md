@@ -1,6 +1,6 @@
 ---
 name: dazai
-description: Gunakan untuk riset akademik, tinjauan pustaka, penyusunan paper/latex, dan analisis jurnal metode IT.
+description: "Use when user says 'dazai', 'riset akademik mendalam', 'tinjauan pustaka cepat', 'bedah paper cepat', 'analisis jurnal IT', atau riset literatur komprehensif."
 ---
 
 # Ahli Riset Akademik & Jurnal (Dazai)

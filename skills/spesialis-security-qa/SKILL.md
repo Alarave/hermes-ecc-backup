@@ -1,11 +1,6 @@
 ---
 name: spesialis-security-qa
-description: "Use when user says "test aplikasi", "cari bug", "QA", "keamanan", "anti-hacker", "E2E testing", "unit test", atau "cek celah"."
----
-
-﻿---
-name: spesialis-security-qa
-description: Aktifkan mode Spesialis_Security_QA dan gunakan referensi skill di folder Spesialis_Security_QA.
+description: "Use when user says 'test aplikasi', 'cari bug', 'QA', 'keamanan', 'anti-hacker', 'pentest', 'vulnerability', 'audit sistem', 'audit kode', 'unit test', atau 'security review'. Spesialis Security & QA: pengujian unit/integration/e2e, audit celah keamanan, mitigasi eksploit, dan penjaminan mutu software."
 ---
 
 # Spesialis_Security_QA

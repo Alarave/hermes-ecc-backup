@@ -1,6 +1,6 @@
 ---
 name: crispdm-lstm-forecasting
-description: "Gunakan untuk: Arsitektur Long Short-Term Memory (LSTM), siklus Cross-Industry Standard Process for Data Mining (CRISP-DM), ekstraksi API finansial (yfinance), da..."
+description: "Use when user says 'crisp-dm', 'siklus data mining', 'lstm forecasting', 'tahapan data mining', atau butuh metodologi CRISP-DM untuk pemodelan prediksi."
 ---
 
 # Rule: crispdm-lstm-forecasting

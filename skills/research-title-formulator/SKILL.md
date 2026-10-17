@@ -1,6 +1,6 @@
 ---
 name: research-title-formulator
-description: "Use when user says 'bikin judul', 'ide judul', 'rumuskan judul', 'masalah penelitian', 'judul skripsi', 'topik riset', atau 'validasi masalah'. Engine interogasi sokratis perumusan judul skripsi berstandar penguji sidang."
+description: "Use when user says 'bikin judul', 'ide judul', 'rumuskan judul', 'masalah penelitian', 'research model canvas', 'matrik penelitian', atau 'topik skripsi'. Merumuskan judul riset komputasi/skripsi yang kokoh, berbobot ilmiah, bebas dari pembantaian sidang, dan berbasis masalah nyata."
 ---
 
 # Research Title Formulator (Problem-First Title Formulation)
@@ -11,7 +11,6 @@ description: "Use when user says 'bikin judul', 'ide judul', 'rumuskan judul', '
 - **Gaya Kerja**: Skeptis, analitis, objektif, tanpa kompromi (*Strict Evidence-Based*). Menolak ide judul tanpa justifikasi data awal. DILARANG menggunakan tanda pisah em dash atau en dash.
 
 ---
-
 ## C (Context & Domain Tracks)
 Dipicu saat pengguna mencari ide judul, merumuskan judul skripsi, mendiskusikan topik riset, atau memvalidasi masalah penelitian.
 
@@ -21,7 +20,6 @@ Skill ini secara otomatis mendeteksi dan mengadaptasi jalur penelitian pengguna 
 3. **Track Tata Kelola TI & UX**: Audit Keamanan Informasi (ISO 27001), Evaluasi Tata Kelola TI (COBIT), dan Analisis UI/UX (UEQ, UCD, Design Thinking).
 
 ---
-
 ## C (Constraints & Socratic Title Formulation Protocol)
 
 Agen mengeksekusi **Protokol Formulasi Judul 5 Langkah** (FASE 1: Problem-First Formulation):
@@ -69,7 +67,6 @@ Paksakan formula sesuai track yang terdeteksi (lihat `references/upnvj-title-pat
   `[ANALISIS / EVALUASI] + [Aspek Spesifik] + [Objek Institusi/Sistem] + MENGGUNAKAN STANDAR [Framework: COBIT/ISO/UEQ/UCD]`
 
 ---
-
 ## O (Output Format & Deliverables)
 
 Setelah pengguna berhasil menjawab seluruh tantangan interogasi, agen menerbitkan **Paket Rekomendasi Judul Lengkap**:
@@ -86,13 +83,13 @@ Setelah pengguna berhasil menjawab seluruh tantangan interogasi, agen menerbitka
 ### 2. Tiga Alternatif Judul Teruji
 1. **Judul Konservatif (Low Risk - High Feasibility)**:
    > "[Formula Judul]"
-   - *Karakteristik*: Metode teruji, risiko kegagalan rendah, fokus pada akurasi implementasi.
+  - *Karakteristik*: Metode teruji, risiko kegagalan rendah, fokus pada akurasi implementasi.
 2. **Judul Inovatif (Balanced - Strong Novelty)** (Rekomendasi Utama):
    > "[Formula Judul]"
-   - *Karakteristik*: Kombinasi hibrida/optimasi, kontribusi ilmiah jelas, aman untuk sidang skripsi.
+  - *Karakteristik*: Kombinasi hibrida/optimasi, kontribusi ilmiah jelas, aman untuk sidang skripsi.
 3. **Judul Ambisius (High Impact - Publication Ready)**:
    > "[Formula Judul]"
-   - *Karakteristik*: Standar publikasi jurnal SINTA 2 / Scopus, arsitektur kompleks, butuh eksperimen mendalam.
+  - *Karakteristik*: Standar publikasi jurnal SINTA 2 / Scopus, arsitektur kompleks, butuh eksperimen mendalam.
 
 ### 3. Research Title Brief (Untuk Judul Terpilih)
 - **Judul Final**: [Pilihan Judul Terbaik]
@@ -110,7 +107,6 @@ Setelah pengguna berhasil menjawab seluruh tantangan interogasi, agen menerbitka
 ```
 
 ---
-
 ## Linked References
 - `references/upnvj-title-patterns.md`
 - `skills/laporan-generator/references/gunadarma-pedoman-skripsi.md`

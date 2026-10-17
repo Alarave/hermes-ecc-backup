@@ -1,6 +1,6 @@
 ---
 name: track-management
-description: "Use when user says 'bikin fitur baru', 'fix bug ini', 'track issue', 'buat spesifikasi', 'spec.md', 'plan.md', atau mengatur manajemen fitur/bug. Mengelola siklus hidup fitur dari spesifikasi hingga selesai."
+description: "Use when user says 'bikin fitur baru', 'fix bug ini', 'track issue', 'buat spesifikasi track', atau manajemen pelacakan tiket perbaikan sistem."
 ---
 
 # Track Management (Feature & Bug Tracking)

@@ -1,6 +1,6 @@
 ---
 name: spesialis-copywriter
-description: "Use when user says 'copywriter', 'copywriting', 'bikin copy', 'tulis copy', 'penulisan wara', 'landing page copy', 'bikin headline', 'sales letter', 'email marketing', 'iklan', 'social media copy', 'anti ai slop', 'mikrokopi', 'cta', 'bikin slide', 'naskah presentasi', 'pitch deck', 'slide sidang', 'slide penguji', 'slide klien', atau 'pptx copy'. Spesialis penulisan wara persuasif, konversi tinggi, slide presentasi bisnis dan sidang akademik, patuh EYD V dan KBBI, serta anti-AI slop total."
+description: "Use when user says 'copywriter', 'copywriting', 'bikin copy', 'tulis copy', 'penulisan persuasif', 'landing page copy', 'iklan', 'promosi', 'tagline', 'headline', 'anti ai-slop writing', 'sales pitch', 'script presentasi', 'transisi paragraf', atau 'perbaiki kata-kata'. Ahli copywriting profesional dan editor gaya bahasa Indonesia alami."
 ---
 
 # Spesialis Penulisan Wara & Konversi (spesialis-copywriter)
@@ -17,7 +17,6 @@ description: "Use when user says 'copywriter', 'copywriting', 'bikin copy', 'tul
 - **Standar Bahasa**: Bahasa Indonesia baku, bernas, memikat, mematuhi EYD V dan KBBI. DILARANG KERAS menggunakan tanda pisah em dash atau en dash.
 
 ---
-
 ## C (Context & Operating Modes)
 
 Skill ini dipicu saat pengguna membutuhkan teks pemasaran, penulisan wara produk, perbaikan pesan penjualan, optimasi konversi, atau penghapusan gaya bahasa klise AI.
@@ -25,27 +24,26 @@ Skill ini dipicu saat pengguna membutuhkan teks pemasaran, penulisan wara produk
 ### 5 Mode Operasional Mandiri:
 
 1. **Mode A (LANDING_PAGE)**:
-   - *Tujuan*: Merancang hierarki teks laman landas berorientasi konversi tinggi.
-   - *Cakupan Elemen*: Tajuk utama (Hero Headline), sub-tajuk penguat, bukti sosial awal, agitasi masalah, pembongkaran solusi produk, konversi fitur menjadi manfaat nyata (FAB), penanganan keraguan (FAQ/Objection Handling), dan ajakan bertindak utama (Primary CTA).
+  - *Tujuan*: Merancang hierarki teks laman landas berorientasi konversi tinggi.
+  - *Cakupan Elemen*: Tajuk utama (Hero Headline), sub-tajuk penguat, bukti sosial awal, agitasi masalah, pembongkaran solusi produk, konversi fitur menjadi manfaat nyata (FAB), penanganan keraguan (FAQ/Objection Handling), dan ajakan bertindak utama (Primary CTA).
 
 2. **Mode B (DIRECT_RESPONSE_ADS & SOCIAL)**:
-   - *Tujuan*: Menulis naskah iklan digital berbayar dan konten media sosial yang menghentikan scroll (scroll-stopping).
-   - *Cakupan*: Pengait visual/tekstual (3 detik pertama), jembatan cerita atau fakta mencengangkan, perkenalan penawaran menarik, dan CTA tunggal yang mendesak.
+  - *Tujuan*: Menulis naskah iklan digital berbayar dan konten media sosial yang menghentikan scroll (scroll-stopping).
+  - *Cakupan*: Pengait visual/tekstual (3 detik pertama), jembatan cerita atau fakta mencengangkan, perkenalan penawaran menarik, dan CTA tunggal yang mendesak.
 
 3. **Mode C (EMAIL_SEQUENCE)**:
-   - *Tujuan*: Menyusun alur email pemasaran otomatis dengan tingkat buka (open rate) dan tingkat klik (CTR) optimal.
-   - *Cakupan*: Baris subjek (Subject Line A/B), teks pratinjau (Preview Text), pembuka personal, cerita bernilai, transisi halus menuju tawaran, dan tautan aksi yang jelas.
+  - *Tujuan*: Menyusun alur email pemasaran otomatis dengan tingkat buka (open rate) dan tingkat klik (CTR) optimal.
+  - *Cakupan*: Baris subjek (Subject Line A/B), teks pratinjau (Preview Text), pembuka personal, cerita bernilai, transisi halus menuju tawaran, dan tautan aksi yang jelas.
 
 4. **Mode D (UX_MICROCOPY)**:
-   - *Tujuan*: Merumuskan teks antarmuka mikro pada produk digital yang memandu pengguna menyelesaikan tugas tanpa friksi.
-   - *Cakupan*: Teks tombol aksi (CTA), placeholder formulir, label kolom input, status kosong (empty state), pesan peringatan, konfirmasi pembayaran, dan pesan galat solutif.
+  - *Tujuan*: Merumuskan teks antarmuka mikro pada produk digital yang memandu pengguna menyelesaikan tugas tanpa friksi.
+  - *Cakupan*: Teks tombol aksi (CTA), placeholder formulir, label kolom input, status kosong (empty state), pesan peringatan, konfirmasi pembayaran, dan pesan galat solutif.
 
 5. **Mode E (SLIDE_DECK_AND_DEFENSE)**:
-   - *Tujuan*: Merancang naskah slide presentasi (PPTX/Marp) dan catatan pembicara (*speaker notes*) untuk dua skenario utama: (1) Presentasi Bisnis / Klien / Investor (Pitch Deck, Value Proposition, ROI Solution) dan (2) Sidang Ujian Akademik / Dosen Penguji (Sidang Skripsi, Tesis, Seminar Proposal).
-   - *Prinsip Utama*: Judul slide wajib berupa klaim/argumen konklusif (bukan topik pasif), satu ide pokok per slide, visual/data sebagai pahlawan, dilengkapi skrip lisan (*Speaker Notes*) terstruktur per slide, dan kartu antisipasi pertanyaan sanggahan (Q&A Cards).
+  - *Tujuan*: Merancang naskah slide presentasi (PPTX/Marp) dan catatan pembicara (*speaker notes*) untuk dua skenario utama: (1) Presentasi Bisnis / Klien / Investor (Pitch Deck, Value Proposition, ROI Solution) dan (2) Sidang Ujian Akademik / Dosen Penguji (Sidang Skripsi, Tesis, Seminar Proposal).
+  - *Prinsip Utama*: Judul slide wajib berupa klaim/argumen konklusif (bukan topik pasif), satu ide pokok per slide, visual/data sebagai pahlawan, dilengkapi skrip lisan (*Speaker Notes*) terstruktur per slide, dan kartu antisipasi pertanyaan sanggahan (Q&A Cards).
 
 ---
-
 ## C (Constraints & Architectural Standards)
 
 ### 1. Standar Anti-AI Slop Total
@@ -86,21 +84,20 @@ Setiap naskah wara wajib dibangun di atas salah satu kerangka kerja baku sesuai 
 - Tidak menyertakan path direktori sistem operasi lokal milik pengguna.
 
 ---
-
 ## O (Output Format & Definition of Done)
 
 ### 1. Struktur Luaran Wajib
 Setiap penyusunan teks wara disajikan dalam format terstruktur:
 
 1. **Copy Brief Summary**:
-   - Target Audiens & Tingkat Kesadaran (Unaware / Problem-Aware / Solution-Aware / Product-Aware / Most Aware).
-   - Masalah Utama & Transformasi yang Dijanjikan.
-   - Pilihan Kerangka Kerja Persuasi yang Digunakan.
+  - Target Audiens & Tingkat Kesadaran (Unaware / Problem-Aware / Solution-Aware / Product-Aware / Most Aware).
+  - Masalah Utama & Transformasi yang Dijanjikan.
+  - Pilihan Kerangka Kerja Persuasi yang Digunakan.
 2. **Draft Salinan Naskah (Core Copy)**:
-   - Diberi penanda seksi yang jelas (Tajuk Utama, Sub-tajuk, Paragraf Tubuh, CTA).
-   - Menyertakan minimal 2 variasi Tajuk Utama (Opsi A: Pendekatan Masalah/PAS; Opsi B: Pendekatan Hasil/Benefit).
+  - Diberi penanda seksi yang jelas (Tajuk Utama, Sub-tajuk, Paragraf Tubuh, CTA).
+  - Menyertakan minimal 2 variasi Tajuk Utama (Opsi A: Pendekatan Masalah/PAS; Opsi B: Pendekatan Hasil/Benefit).
 3. **Logika Persuasi (Conversion Rationale)**:
-   - Penjelasan 1-2 kalimat mengapa kata-kata tertentu dipilih dan bagaimana teks tersebut menggerakkan pembaca mengambil aksi.
+  - Penjelasan 1-2 kalimat mengapa kata-kata tertentu dipilih dan bagaimana teks tersebut menggerakkan pembaca mengambil aksi.
 
 ### 2. Universal Definition of Done (DoD)
 Naskah dinyatakan sah (`VERIFIED`) jika memenuhi seluruh kriteria:
@@ -111,7 +108,6 @@ Naskah dinyatakan sah (`VERIFIED`) jika memenuhi seluruh kriteria:
 5. Tersimpan fisik sebagai berkas artefak atau tersaji rapi dalam deliverable proyek.
 
 ---
-
 ## Linked References
 Agen memuat berkas panduan teknis berikut via `skill_view` saat membutuhkan rincian prosedur:
 - `references/copywriting-frameworks.md`

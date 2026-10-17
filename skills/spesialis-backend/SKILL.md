@@ -1,6 +1,6 @@
 ---
 name: spesialis-backend
-description: "Use when user says "bikin API", "database", "server", "arsitektur", "logic", "error handling", "query", "SQL", atau integrasi sistem backend."
+description: "Use when user says 'bikin API', 'database', 'server', 'arsitektur', 'logic', 'endpoint', 'Golang', 'Python', 'FastAPI', 'Django', 'Laravel', 'Express', 'SQL', 'PostgreSQL', 'backend', atau 'microservice'. Spesialis Backend & Sistem: perancangan API, schema database, otentikasi, orkestrasi service, dan skalabilitas sistem."
 ---
 
 # Spesialis_Backend

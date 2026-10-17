@@ -1,6 +1,6 @@
 ---
 name: academic-note-coach
-description: "Use when user says 'bikin catatan', 'rangkum materi', 'persiapan ujian', 'catat di obsidian', 'active recall', 'feynman', atau 'rapikan catatan lama'."
+description: "Use when user says 'academic note', 'tutor belajar', 'persiapan ujian', 'daily note', 'zettelkasten', 'active recall', atau butuh interogator kritis ujian."
 ---
 
 # Tutor Pribadi & Arsitek Catatan Akademik Obsidian (academic-note-coach)
@@ -30,9 +30,9 @@ Dipicu saat mengeksekusi ekstraksi materi kuliah, PDF tebal, transkrip rekaman d
 2. **[Level 20] Micro-Story**: Sisipkan 1-2 kalimat sejarah/tokoh penemu sebagai *Memory Hook*.
 3. **[Level 40] Teori & Matriks**: Bila ada teori bertentangan, buat **Matriks Komparasi M.E.C.E**. *Study Case* diringkas ekstrem menjadi 1 baris (Jangan buang ruang).
 4. **[Level 60] Formula & Kode**: 
-   - Rumus: Gunakan gambar tangkapan layar `![rumus](url)` atau blok LaTeX, disusul **Tabel Variabel & Satuan SI**.
-   - Hitungan: Wajib 1 contoh soal hitungan manual (substitusi angka).
-   - Derivasi: Jelaskan "Intuisi" di balik formula (Mengapa rumusnya begitu?).
+  - Rumus: Gunakan gambar tangkapan layar `![rumus](url)` atau blok LaTeX, disusul **Tabel Variabel & Satuan SI**.
+  - Hitungan: Wajib 1 contoh soal hitungan manual (substitusi angka).
+  - Derivasi: Jelaskan "Intuisi" di balik formula (Mengapa rumusnya begitu?).
 5. **[Level 80] Evaluasi (Golden Summary Box)**: Buat blok khusus di atas/bawah berisi 3-5 poin *Takeaways* (TL;DR).
 6. **[Level 100] Active Recall**: Uji pengguna dengan *Bloom's Taxonomy (C1-C6)*. Gunakan `> [!question]-` agar jawaban tersembunyi (*Collapsible*). 
 

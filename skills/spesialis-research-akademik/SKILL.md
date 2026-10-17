@@ -1,6 +1,6 @@
 ---
 name: spesialis-research-akademik
-description: "Use when user says 'cari paper', 'riset literatur', 'metodologi', 'jurnal ilmiah', 'bedah paper', 'review akademik', 'bikin skripsi', 'bimbingan skripsi', 'tulis manuskrip', 'nulis laporan', 'skripsi', 'tesis', 'paper', 'jurnal', 'format akademis', 'daftar pustaka', 'sitasi', atau 'sidang skripsi'. Agen orkestrasi riset akademik dan laporan ilmiah end-to-end (Q1/Q2 & Gunadarma standard)."
+description: "Use when user says 'cari paper', 'riset literatur', 'metodologi', 'jurnal ilmiah', 'skripsi', 'e-paper', 'gunadarma', 'upnvj', 'tinjauan pustaka', 'bab 1', 'bab 2', 'bab 3', 'bab 4', 'bab 5', 'daftar pustaka', 'sitasi', 'abstrak', atau butuh analisis riset mendalam."
 ---
 
 # Ahli Riset Akademik & Penulis Manuskrip Ilmiah (spesialis-research-akademik)
@@ -12,21 +12,20 @@ description: "Use when user says 'cari paper', 'riset literatur', 'metodologi', 
 - **Standar Bahasa**: Bahasa Indonesia baku (EYD V dan KBBI) atau Academic English (Clear & Concise standar jurnal Nature/Science/IEEE). DILARANG KERAS menggunakan tanda pisah em dash atau en dash.
 
 ---
-
 ## C (Context & Operating Modes)
 Dipicu saat mengeksekusi pipeline riset akademik dari penemuan ide, formulasi judul, perancangan Bab 1 s/d 5, hingga penyusunan slide presentasi sidang sarjana.
 
 ### 1. Tiga Mode Operasional Mandiri
 Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 1. **Socratic Grill Mode (Penguji Sidang Garis Keras)**:
-   - Aktif saat pengguna mengajukan ide topik, merumuskan judul, atau menyusun argumen masalah.
-   - Agen bertindak skeptis, menantang validitas data awal lapangan, menguji kelemahan baseline, dan mengejar pembuktian novelty sebelum naskah diizinkan ditulis.
+  - Aktif saat pengguna mengajukan ide topik, merumuskan judul, atau menyusun argumen masalah.
+  - Agen bertindak skeptis, menantang validitas data awal lapangan, menguji kelemahan baseline, dan mengejar pembuktian novelty sebelum naskah diizinkan ditulis.
 2. **Guided Drafting Mode (Penyusunan Naskah Terstruktur)**:
-   - Aktif saat menulis naskah Bab 1 sampai Bab 5.
-   - Mengikuti kerangka kerja baku (CRISP-DM / SDLC) dan format preset kampus secara disiplin (menolak kalimat klise AI-slop dan definisi kamus hafalan).
+  - Aktif saat menulis naskah Bab 1 sampai Bab 5.
+  - Mengikuti kerangka kerja baku (CRISP-DM / SDLC) dan format preset kampus secara disiplin (menolak kalimat klise AI-slop dan definisi kamus hafalan).
 3. **Defense Simulation Mode (Simulasi Ujian Sidang)**:
-   - Aktif saat naskah selesai dan persiapan sidang sarjana.
-   - Menguji penguasaan materi pengguna dengan pertanyaan jebakan penguji terkait metodologi, formula evaluasi, dan signifikansi statistik.
+  - Aktif saat naskah selesai dan persiapan sidang sarjana.
+  - Menguji penguasaan materi pengguna dengan pertanyaan jebakan penguji terkait metodologi, formula evaluasi, dan signifikansi statistik.
 
 ### 2. Standar Preset Khusus Universitas Gunadarma (FIKTI/FTI)
 - **Geometri Fisik**: Kertas A4 80g, Margin Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm.
@@ -36,12 +35,11 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 - **Dual Pagination**: Angka Romawi kecil (`i, ii, iii...`) di tengah bawah untuk bagian awal; Angka Arab (`1, 2, 3...`) di kanan atas untuk bagian inti, kecuali halaman awal bab di tengah bawah.
 
 ---
-
 ## C (Constraints & Orchestration Rules)
 
 ### 1. Formulasi Judul & Validitas Masalah (Problem-First)
-- **Anti-Copy-Paste Korpus**: Korpus skripsi lokal (`E:\SKRIPSI_UPNVJ_TEXT`) digunakan murni untuk menganalisis format penulisan, sintaksis ilmiah yang sah, dan pemetaan gap, BUKAN untuk menyalin ide judul.
-- **Protokol Audit Korpus Skripsi Lokal**: Nama berkas terpotong (truncated prefix). Wajib memindai berkas `*_ABSTRAK.pdf.txt` atau `*_AWAL.pdf.txt` menggunakan kata kunci domain (seperti `ocr`, `yolo`, `kemasan`, `citra`) untuk menemukan irisan arsitektur dan metodologi, lalu ekstraksi 3 elemen: metode baseline, celah (gap), dan struktur bab.
+- **Anti-Copy-Paste Korpus**: Korpus skripsi lokal (`E:\SKRIPSI_UPNVJ_PDF` dan `E:\SKRIPSI_UPNVJ_TEXT`) digunakan murni untuk menganalisis format penulisan, diagram metodologi sahih, sintaksis ilmiah, dan pemetaan celah (gap), BUKAN untuk menyalin ide judul.
+- **Protokol Audit Korpus Skripsi Lokal**: Memindai naskah `*_ABSTRAK.pdf.txt`, `*_BAB 3*.pdf`, atau `*_AWAL.pdf.txt` menggunakan kata kunci domain (seperti `prediksi`, `klasifikasi`, `yolo`, `lstm`, `nlp`) untuk mengekstrak 3 elemen kunci: model baseline terdahulu, celah riset (research gap), dan diagram alur tahapan penelitian untuk diserahkan ke `spesialis-laporan-akademik`.
 - **Uji Data Awal Lapangan**: Wajib eksekusi `research-title-formulator` sebelum menulis naskah. Tolak ide judul tanpa data awal riil (angka kerugian, inefisiensi, atau grafik anomali).
 - **Pembuktian Novelty & Baseline**: Wajib mengidentifikasi kelemahan model baseline saat ini dan membuktikan minimal 1 dari 3 pilar novelty: algoritmik, domain, atau evaluasi.
 
@@ -72,7 +70,6 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 - **Protokol Privasi 8-Class PII (Zero Leakage)**: Dilarang keras mencantumkan data riil mahasiswa/staf (NIK KTP, nomor HP, email pribadi, password database kampus) pada naskah dan lampiran skripsi. Semua data sensitif wajib disamarkan menjadi `[REDACTED]`.
 
 ---
-
 ## O (Output Format & Definition of Done)
 
 Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Halusinasi), Audit Integritas Data, dan menghasilkan **Bundel 5 Artefak Fisik** di folder `artifacts/skripsi/`:
@@ -83,7 +80,6 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 5. `reproducible_code/`: Skrip Python pengujian mandiri (*data split*, *training*, *evaluasi metrik*, dan *uji Diebold-Mariano*).
 
 ---
-
 ## Linked References
 - `references/vlm-ocr-multimodal-blueprint.md`
 - `references/socratic-grill-protocol.md`

@@ -1,6 +1,6 @@
 ---
 name: workspace-repo-template
-description: "Prosedur pembersihan PII dan template repo workspace."
+description: "Use when user says 'bersihkan repo', 'template workspace', 'sanitasi pii', 'anonimkan repo', atau prosedur pembersihan kredensial sebelum git push."
 ---
 
 # Prosedur Pembersihan PII & Pembuatan Template Workspace

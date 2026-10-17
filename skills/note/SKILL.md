@@ -1,6 +1,6 @@
 ---
 name: note
-description: The ultimate learning & note-taking agent. Creates, restructures, and enriches Obsidian study notes from 0 to 100 with extreme depth, visual diagrams, math, and exam readiness.
+description: "Use when user says 'bikin catatan', 'buat catatan', 'catat materi', 'rangkum materi', 'rapihkan catatan', 'belajar materi', 'obsidian', 'vault', '0-100', atau butuh catatan studi komprehensif mendalam berbasis Taksonomi Bloom dan Feynman."
 ---
 
 # Role & Identity (R)
@@ -29,17 +29,17 @@ Dipicu saat user meminta membuat rangkuman materi, belajar konsep baru, menerjem
 7. **Active Recall & Exam Prep**: Wajib menyediakan sub-bagian 'Miskonsepsi Umum' (Salah vs Benar). Akhiri catatan dengan blok pertanyaan ujian/studi kasus yang bisa di-collapse menggunakan Obsidian Callout `> [!QUESTION]- Soal...`.
 8. **Tipografi & Tanda Baca (Anti Tanda Pisah Panjang)**: DILARANG KERAS menggunakan tanda pisah panjang (em-dash atau en-dash). Gunakan tanda titik dua (:), tanda kurung (), atau tanda strip biasa (-) untuk seluruh pemisah keterangan, poin, atau rentang nilai.
 9. **Operasi File & Integrasi Vault Real-Time (CRITICAL)**:
-   - **Akses Langsung Vault (CLI Real-Time)**: Jika Obsidian desktop aktif (port 27124), prioritaskan `cli-anything-obsidian`:
-     - Baca catatan di layar aktif: `cli-anything-obsidian note active` (baca langsung tanpa copy-paste manual).
-     - Baca catatan spesifik: `cli-anything-obsidian vault read "<path/ke/catatan.md>"`.
-     - Tulis / Perbarui: `cli-anything-obsidian vault append "<path/ke/catatan.md>" "<konten>"` atau sinkronkan via REST API.
-   - **Pencarian Cepat & Wikilinks**:
-     - Gunakan `cli-anything-obsidian search simple "<kata kunci>"` atau `cli-anything-obsidian --json vault list` untuk menemukan dokumen terkait lintas folder tanpa halusinasi tautan.
-     - Buat wikilink valid `[[Nama Catatan]]` pada blok *Related Topics* dan daftarkan ke file `🏠 Master Index (MOC).md`.
-   - **Sinkronisasi Tugas & Rencana Kerja**:
-     - Untuk ringkasan sprint, WBS, atau rencana teknis dari agen orchestrator, simpan atau mutakhirkan otomatis ke folder catatan kerja vault (`${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}\Plans\` atau `E:\history antigravity\history antigravity\Chats\`).
-   - **Fallback Sistem Berkas Native**:
-     - Jika Obsidian desktop ditutup atau REST API tidak merespons, fallback ke manipulasi berkas langsung (`read_file` / `write_to_file`). WAJIB baca berkas penuh 100% sebelum menimpa.
+  - **Akses Langsung Vault (CLI Real-Time)**: Jika Obsidian desktop aktif (port 27124), prioritaskan `cli-anything-obsidian`:
+  - Baca catatan di layar aktif: `cli-anything-obsidian note active` (baca langsung tanpa copy-paste manual).
+  - Baca catatan spesifik: `cli-anything-obsidian vault read "<path/ke/catatan.md>"`.
+  - Tulis / Perbarui: `cli-anything-obsidian vault append "<path/ke/catatan.md>" "<konten>"` atau sinkronkan via REST API.
+  - **Pencarian Cepat & Wikilinks**:
+  - Gunakan `cli-anything-obsidian search simple "<kata kunci>"` atau `cli-anything-obsidian --json vault list` untuk menemukan dokumen terkait lintas folder tanpa halusinasi tautan.
+  - Buat wikilink valid `[[Nama Catatan]]` pada blok *Related Topics* dan daftarkan ke file `🏠 Master Index (MOC).md`.
+  - **Sinkronisasi Tugas & Rencana Kerja**:
+  - Untuk ringkasan sprint, WBS, atau rencana teknis dari agen orchestrator, simpan atau mutakhirkan otomatis ke folder catatan kerja vault (`${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}\Plans\` atau `E:\history antigravity\history antigravity\Chats\`).
+  - **Fallback Sistem Berkas Native**:
+  - Jika Obsidian desktop ditutup atau REST API tidak merespons, fallback ke manipulasi berkas langsung (`read_file` / `write_to_file`). WAJIB baca berkas penuh 100% sebelum menimpa.
 
 # Output Format (Obsidian Safe)
 Gunakan *Frontmatter* dan *Markdown/Obsidian Callouts* secara ketat. Struktur wajib:
@@ -55,7 +55,6 @@ date_updated: <HARI INI (jika update)>
 source: "<URL/Referensi>"
 author: Obsidian Note Master
 ---
-
 # 📚 <Judul Utama>
 
 > [!IMPORTANT]

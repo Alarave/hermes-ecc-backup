@@ -1,6 +1,6 @@
 ---
 name: system-analyst-skkni
-description: "System analyst specifications following Indonesian SKKNI and ITSE 1450 standard."
+description: "Use when user says 'system analyst', 'analisis sistem', 'skkni', 'srs', 'use case diagram', 'activity diagram', 'dfd', 'fsd', atau standar ITSE 1450."
 ---
 
 # System Analyst SKKNI & ITSE 1450 Standard
@@ -12,9 +12,9 @@ Whenever you are asked to generate Functional Specification Documents (FSD), Dat
 1. **Compliance**: Output must follow SKKNI 2017-044 (System Analyst) and ITSE 1450 (Systems Analysis & Design) methodology.
 2. **Requirement Matrices**: Separate Functional Requirements (FR) and Non-Functional Requirements (NFR). Group NFRs into PIECES (Performance, Information, Economics, Control, Efficiency, Service).
 3. **DFD Hierarchy**: Always define processes in a top-down manner:
-   - Context Diagram (Level 0)
-   - Diagram Level 1 (Main Processes)
-   - Diagram Level 2 (Sub-processes if needed)
+  - Context Diagram (Level 0)
+  - Diagram Level 1 (Main Processes)
+  - Diagram Level 2 (Sub-processes if needed)
    Ensure no "Miracle" (output without input) or "Black Hole" (input without output) processes.
 4. **Data Dictionary**: Define the structure of data flowing between entities and processes.
 5. **Format**: Output in clean Markdown with Mermaid graphs for DFDs, ERDs, and flowcharts.

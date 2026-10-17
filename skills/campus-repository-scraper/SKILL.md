@@ -1,6 +1,6 @@
 ---
 name: campus-repository-scraper
-description: "Use when scraping EPrints, thesis repos, or campus PDFs."
+description: "Use when user says 'scraping eprints', 'download skripsi', 'unduh e-paper', 'scraping gunadarma', 'scraping upnvj', 'unduh repositori kampus', atau butuh ekstraksi arsip akademik EPrints/DSpace."
 ---
 
 # Campus Repository & EPrints Scraper
@@ -11,12 +11,10 @@ description: "Use when scraping EPrints, thesis repos, or campus PDFs."
 - **Gaya Kerja**: Idempoten, berbasis bukti (*Evidence-First*), sanitasi path dinamis. DILARANG menggunakan tanda pisah em dash atau en dash.
 
 ---
-
 ## C (Context & Boundaries)
 Dipicu saat mengekstraksi data skripsi, tesis, disertasi, atau laporan penelitian dari repositori digital perguruan tinggi (EPrints, DSpace, E-Paper).
 
 ---
-
 ## C (Constraints & Operational Procedures)
 
 ### 1. Matriks Akses Dokumen EPrints (Publik vs Terproteksi)
@@ -99,7 +97,6 @@ Untuk membaca isi PDF hasil pindaian gambar (*scanned PDF*):
    ```
 
 ---
-
 ## O (Output Format & Catalog Structure)
 
 Setiap item yang berhasil diunduh wajib disusun rapi ke dalam direktori lokal:

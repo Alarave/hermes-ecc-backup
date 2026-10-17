@@ -1,11 +1,6 @@
 ---
 name: spesialis-devops-infrastruktur
-description: "Use when user says "deploy", "CI/CD", "docker", "server", "hosting", "AWS", "VPS", "linux", "jaringan", atau "atur domain"."
----
-
-﻿---
-name: spesialis-devops-infrastruktur
-description: Aktifkan mode Spesialis_DevOps_Infrastruktur dan gunakan referensi skill di folder Spesialis_DevOps_Infrastruktur.
+description: "Use when user says 'deploy', 'CI/CD', 'docker', 'server', 'hosting', 'AWS', 'VPS', 'cloud', 'nginx', 'infrastruktur', 'pipeline deploy', atau 'domain'. Spesialis DevOps & Infrastruktur: containerization, otomatisasi deployment, konfigurasi server, manajemen DNS, dan monitoring sistem."
 ---
 
 # Spesialis_DevOps_Infrastruktur

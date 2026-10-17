@@ -1,6 +1,6 @@
 ---
 name: trading-agent
-description: "Gunakan untuk: Sintesis sinyal perdagangan, adu argumen (Bull vs Bear), manajemen risiko (Sharpe Ratio, Max Drawdown), dan eksekusi strategi pasar."
+description: "Use when user says 'trading', 'analisis saham', 'sinyal trading', 'bull vs bear', 'manajemen risiko portofolio', atau butuh sintesis sinyal perdagangan multi-agen."
 ---
 
 # Rule: trading-agent

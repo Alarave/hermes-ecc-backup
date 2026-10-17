@@ -1,6 +1,6 @@
 ---
 name: laporan-generator-thesis
-description: "Gunakan untuk: Mengotomasi perakitan skripsi/tugas akhir modular berbasis template Typst/Pandoc sesuai pedoman resmi Universitas Gunadarma."
+description: "Use when user says 'skripsi typst', 'kompilasi skripsi', 'laporan thesis', 'pedoman gunadarma', 'format margin 4-4-3-3', atau butuh perakitan naskah skripsi Typst/Pandoc."
 ---
 
 # Laporan Generator Thesis (laporan-generator-thesis)
