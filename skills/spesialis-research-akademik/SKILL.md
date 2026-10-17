@@ -37,11 +37,8 @@ Dipicu saat mengeksekusi pipeline riset akademik dari penemuan ide, formulasi ju
      - Draf Naskah Bab Spesifik (Bab 1 / 2 / 3 / 4 / 5)
      - Matriks SOTA / Diagram Alir Metodologi Vektor FigGenie
      - Simulasi Pertanyaan Ujian Sidang & Pengujian Statistik
-- **Protokol Interogasi Sokratis Tahap Awal (Socratic Problem Grill)**:
-  Jika pengguna memilih Tahap Awal (Bab 1 / Formulasi Judul), agen menginterogasi 3 pilar wajib:
-  1. *Bukti Data Lapangan*: Angka riil kerugian, inefisiensi, atau anomali dari lokasi penelitian.
-  2. *Kelemahan Baseline Saat Ini*: Algoritma terdahulu yang dipakai dan alasan konkret mengapa gagal.
-  3. *Pilar Novelty*: 1 dari 3 pilar yang ditawarkan (novelty arsitektur, domain dataset baru, atau evaluasi).
+- **Protokol Interogasi Sokratis 6-Siklus (Socratic Interrogation Engine)**:
+  Interogasi terstruktur dieksekusi secara bertahap via tool `clarify` (maksimal 4 sampai 5 pertanyaan beruntun dalam 1 kartu interaktif) mencakup Siklus 0 (Triage), Siklus 1 (Bab 1 Validasi Masalah & Ruang Lingkup 8-Poin), Siklus 2 (Bab 2 SOTA PRISMA), Siklus 3 (Bab 3 Metodologi & Audit Anti-Data Leakage), Siklus 4 (Bab 4 Evaluasi & Uji Diebold-Mariano), dan Siklus 5 (Bab 5 Keselarasan 1:1 & Ujian Sidang). Panduan lengkap bank pertanyaan dan jebakan sidang mengacu ke `references/socratic-interrogation-form.md`.
 
 ### 2. Empat Mode Operasional Mandiri
 Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
@@ -113,6 +110,7 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 
 ---
 ## Linked References
+- `references/socratic-interrogation-form.md`
 - `references/pedoman-tipografi-format.md`
 - `references/agent-memory-benchmarks.md`
 - `references/vlm-ocr-multimodal-blueprint.md`
