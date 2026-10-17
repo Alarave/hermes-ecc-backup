@@ -81,6 +81,7 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 
 ---
 ## Linked References
+- `references/agent-memory-benchmarks.md`
 - `references/vlm-ocr-multimodal-blueprint.md`
 - `references/socratic-grill-protocol.md`
 - `references/gunadarma-pedoman-skripsi.md`
