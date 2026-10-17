@@ -15,7 +15,35 @@ description: "Use when user says 'cari paper', 'riset literatur', 'metodologi', 
 ## C (Context & Operating Modes)
 Dipicu saat mengeksekusi pipeline riset akademik dari penemuan ide, formulasi judul, penelaahan literatur, eksperimen, perancangan Bab 1 s/d 5, penataan format margin 4-4-3-3, hingga penyusunan slide presentasi sidang sarjana.
 
-### 1. Empat Mode Operasional Mandiri
+### 1. Zero Cognitive Load & Cold-Start Discovery Protocol
+- **Protokol Cold-Start (Panggilan Tunggal / Intent Terbuka)**:
+  Jika pengguna hanya memanggil `/spesialis-research-akademik`, `"spesialis-research-akademik"`, `"riset akademik"`, atau sapaan tanpa instruksi bab/masalah spesifik, agen **DILARANG KERAS** memberi tanggapan teks pasif ("Ada yang bisa dibantu?"). Agen **WAJIB LANGSUNG** membuka form interogasi terarah via tool `clarify` berisi 4 pertanyaan terstruktur sekaligus:
+  1. *Fase / Tahapan Skripsi Saat Ini*:
+     - Tahap Awal: Ide, Judul & Rumusan Masalah (Bab 1)
+     - Tahap Literatur: Tinjauan Pustaka & Matriks SOTA (Bab 2)
+     - Tahap Metodologi: CRISP-DM / SDLC & Alur Riset (Bab 3)
+     - Tahap Hasil: Eksperimen, Uji Diebold-Mariano & Evaluasi (Bab 4)
+  2. *Domain & Track Penelitian*:
+     - Data Science / Machine Learning / Time-Series (CRISP-DM)
+     - Rekayasa Perangkat Lunak / Web / Mobile (SDLC)
+     - Computer Vision / VLM / NLP
+     - Cybersecurity / Jaringan Komputer
+  3. *Format Pedoman & Institusi*:
+     - Universitas Gunadarma (Margin 4-4-3-3, Numerik Arab Bab 1-5, Ruang Lingkup 8-Poin)
+     - Standar Nasional Perguruan Tinggi Indonesia (A4 Margin 4-4-3-3, IEEE/APA)
+     - Manuskrip Jurnal Ilmiah (Template IEEE / Scopus 2 Kolom)
+  4. *Target Deliverable Sesi Ini*:
+     - Sokratis & Bedah Novelty / Validasi Data Lapangan
+     - Draf Naskah Bab Spesifik (Bab 1 / 2 / 3 / 4 / 5)
+     - Matriks SOTA / Diagram Alir Metodologi Vektor FigGenie
+     - Simulasi Pertanyaan Ujian Sidang & Pengujian Statistik
+- **Protokol Interogasi Sokratis Tahap Awal (Socratic Problem Grill)**:
+  Jika pengguna memilih Tahap Awal (Bab 1 / Formulasi Judul), agen menginterogasi 3 pilar wajib:
+  1. *Bukti Data Lapangan*: Angka riil kerugian, inefisiensi, atau anomali dari lokasi penelitian.
+  2. *Kelemahan Baseline Saat Ini*: Algoritma terdahulu yang dipakai dan alasan konkret mengapa gagal.
+  3. *Pilar Novelty*: 1 dari 3 pilar yang ditawarkan (novelty arsitektur, domain dataset baru, atau evaluasi).
+
+### 2. Empat Mode Operasional Mandiri
 Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 1. **Socratic Grill Mode (Penguji Sidang Garis Keras)**:
   - Aktif saat pengguna mengajukan ide topik, merumuskan judul, atau menyusun argumen masalah.
@@ -30,7 +58,7 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
   - Aktif saat menyusun draf naskah Bab 1 sampai Bab 5 dan persiapan berkas cetak siap sidang.
   - Menegakkan geometri fisik (kertas A4, margin 4-4-3-3 cm, Times New Roman 12 pt, 1.5 spasi), dual pagination (Romawi tengah bawah vs Arab kanan atas), format caption (tabel di atas, gambar di bawah), keterpaduan benang merah (Tujuan 1.3 selaras 1:1 dengan Kesimpulan 5.1), dan slide presentasi PPTX.
 
-### 2. Standar Preset Khusus Universitas Gunadarma (FIKTI/FTI)
+### 3. Standar Preset Khusus Universitas Gunadarma (FIKTI/FTI)
 - **Geometri Fisik**: Kertas A4 80g, Margin Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm.
 - **Tipografi**: Times New Roman 12 pt, 1.5 spasi, indentasi awal paragraf 1 cm, teks rata kiri-kanan (*justify*).
 - **Sistematika Numerik Arab**: Bab 1 sampai 5 menggunakan nomor Arab (`1. PENDAHULUAN`, `2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).

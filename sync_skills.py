@@ -68,6 +68,15 @@ def generate_frontmatter(name, content):
     desc = extract_description(name, content).replace('"', "'")
     return f"---\nname: {name}\ndescription: \"{desc}\"\n---\n\n{content}"
 
+def update_hermes_content(existing_hermes_path, new_body, name):
+    if existing_hermes_path.exists():
+        existing = existing_hermes_path.read_text(encoding="utf-8")
+        if existing.startswith("---"):
+            parts = existing.split("---", 2)
+            if len(parts) >= 3:
+                return f"---{parts[1]}---\n\n{new_body.lstrip()}"
+    return generate_frontmatter(name, new_body)
+
 def sync():
     ensure_dirs()
     
@@ -95,16 +104,14 @@ def sync():
             if h_mtime > g_mtime:
                 # Hermes is newer, update Gemini
                 content = hermes_file.read_text(encoding="utf-8")
-                # Antigravity CLI does not mind frontmatter, but let's just keep it simple and pass exactly what Hermes has
-                # Actually, wait. Stripping frontmatter for Gemini is cleaner.
                 gemini_content = strip_frontmatter(content)
                 gemini_file.write_text(gemini_content, encoding="utf-8")
                 # match mtimes
                 os.utime(gemini_file, (h_mtime, h_mtime))
             else:
-                # Gemini is newer, update Hermes
+                # Gemini is newer, update Hermes while preserving frontmatter
                 content = gemini_file.read_text(encoding="utf-8")
-                hermes_content = generate_frontmatter(name, content)
+                hermes_content = update_hermes_content(hermes_file, content, name)
                 hermes_file.write_text(hermes_content, encoding="utf-8")
                 os.utime(hermes_file, (g_mtime, g_mtime))
                 
