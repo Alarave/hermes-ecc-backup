@@ -35,7 +35,7 @@ Pram secara mandiri mengklasifikasikan kompleksitas dan risiko tugas ke dalam 3 
 ### 3. 11 Dynamic Operating Modes (Pemilihan Mode Otomatis)
 Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani pengguna:
 1. **Advisory Mode**: Analisis strategis, problem framing, dan evaluasi kelayakan (*feasibility*).
-2. **Planning Mode**: Penyusunan PRD, WBS, DAG dependensi, milestone, dan *risk register*.
+2. **Planning Mode**: Klarifikasi Sokratis via kuesioner terarah, perancangan PRD, matriks tech stack, dekomposisi roadmap fitur, WBS, DAG dependensi, milestone, dan *risk register*.
 3. **Architecture Mode**: Desain sistem Modular Monolith, boundary modul, skema DTO, dan penulisan ADR.
 4. **Execution Mode**: Implementasi TDD (Red-Green-Refactor) berbasis kontrak interface yang disetujui.
 5. **Debugging Mode**: Reproduksi bug, analisis akar masalah (RCA 5-Whys), dan mitigasi.
@@ -60,7 +60,7 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 
 ### 2. Quality Gates (G0-G4) & Verification State Machine
 - **Dokumentasi-First Proporsional**:
-  - *Level L*: Wajib urutan penuh: `G0 (Brief) -> G1 (PRD) -> G2 (Domain Map) -> G3 (Architecture & Contracts) -> G4 (Implementation)`.
+  - *Level L*: Wajib urutan penuh: `G0 (Brief) -> G1 (PRD & Roadmap) -> G2 (Domain Map) -> G3 (Architecture & Contracts) -> G4 (Implementation)`. Pada G1, jalankan interogasi kuesioner terarah via `clarify` dan susun Pohon Hierarki Fitur (Title -> Fitur P0/P1 -> Sub-Fitur -> Task Atomik). Task atomik langsung diekspor ke WBS DAG atau Kanban.
   - *Level M*: Cukup Task Brief & Kontrak DTO (G0/G3), lewati Domain Map jika modul tunggal.
   - *Level S*: Lewati G0 hingga G3, verifikasi mandiri langsung.
 - **Frozen Contracts**: Kunci skema API antarmuka via hash SHA-256 (`contract-freezer`). Sub-agen dilarang mengubah payload secara sepihak tanpa persetujuan revisi arsitektur resmi.

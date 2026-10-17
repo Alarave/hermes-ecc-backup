@@ -30,6 +30,19 @@ Sebelum diserahkan ke tim engineering, PRD wajib dinilai berdasarkan 4 pilar:
 - **Secondary Metrics**: [Contoh: Rata-rata waktu penyelesaian transaksi < 45 detik]
 - **Guardrail Metric**: [Contoh: Crash-free sessions tetap >= 99.9%, CS ticket tidak naik > 5%]
 
+## 2.1 Tech Stack Matrix & Feature Roadmap Tree
+- **Matriks Tech Stack**:
+  - *Frontend*: [Contoh: Next.js 15 App Router / Tailwind CSS]
+  - *Backend*: [Contoh: Go Gin / Node.js Express / Python FastAPI]
+  - *Database*: [Contoh: PostgreSQL + Prisma / Drizzle]
+  - *Deployment*: [Contoh: Docker / Vercel / VPS Linux]
+- **Pohon Hierarki Fitur (Roadmap)**:
+  1. **[Fitur P0 - Core System]**:
+     - *Sub-Fitur 1.1*: Deskripsi fungsi, input/output, dan user journey.
+     - *Sub-Fitur 1.2*: Deskripsi fungsi, validasi, dan integrasi data.
+  2. **[Fitur P1 - Advanced / Secondary]**:
+     - *Sub-Fitur 2.1*: Deskripsi optimasi atau automasi pendukung.
+
 ## 3. Scope & Prioritas (RICE Scoring)
 | Fitur / Komponen | Reach | Impact | Confidence | Effort | RICE Score | Status |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -57,7 +70,14 @@ Sebelum diserahkan ke tim engineering, PRD wajib dinilai berdasarkan 4 pilar:
 - **Security**: Validasi input boundaries (Zod/Pydantic), enkripsi field sensitif via AES-256, proteksi CSRF/XSS.
 - **Observability**: Structured JSON logging, OpenTelemetry tracing, dan error tracking via Sentry.
 
-## 6. Open Questions & Dependencies
+## 6. Actionable Atomic Tasks (WBS & Kanban Handoff)
+| Task ID | Fitur / Komponen Induk | Deskripsi Implementasi | PIC | Dependensi | Kriteria Akseptansi (DoD) |
+|---|---|---|---|---|---|
+| TSK-01 | Fitur 1 (Sub 1.1) | Setup skema database dan migrasi awal | Backend | - | Migrasi sukses tanpa error |
+| TSK-02 | Fitur 1 (Sub 1.1) | Implementasi API endpoint dengan validasi | Backend | TSK-01 | Test coverage >= 80% |
+| TSK-03 | Fitur 1 (Sub 1.2) | Slicing UI dan integrasi state client | Frontend | TSK-02 | Lolos verifikasi visual dan E2E |
+
+## 7. Open Questions & Dependencies
 - [ ] Apakah tim legal sudah menyetujui pembaruan Terms of Service untuk fitur ini?
 - [ ] Ketergantungan API pihak ketiga: Menunggu rilis endpoint sandbox v2 dari partner.
 ```
