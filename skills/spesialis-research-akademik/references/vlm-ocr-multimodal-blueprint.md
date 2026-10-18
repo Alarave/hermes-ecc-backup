@@ -78,6 +78,9 @@ Sebagai bahan argumen penguat di Bab 1 dan Bab 2:
   - *Celah/Kelemahan*: Mengandalkan API komersial pihak ketiga (risiko biaya per token, privasi, latensi tidak terjamin), memproses citra objek dan dokumen secara terpisah tanpa visual grounding terpadu, dan tidak menyertakan uji signifikansi statistik formal (McNemar).
   - *Posisi Riset Ini*: Membangun arsitektur hibrida end-to-end berbasis model *open-weights* lokal (Florence-2 / Qwen2-VL dipadu PaddleOCR) pada citra tunggal produk kemasan e-commerce tanpa dependensi API eksternal, divalidasi dengan uji McNemar ($p < 0.05$).
 
+> **Catatan Korpus Literatur Lengkap**:
+> Untuk sintesis mendalam 35 jurnal internasional (ArXiv/Q1 2021-2026), 6 skripsi dan jurnal nasional Indonesia (LayoutLM Unsri 2025, PaddleOCR UIN Ar-Raniry 2026, YOLOv8+PaddleOCR Unpas 2024, Sainstek Undana 2026, UMG Indexia 2024, Unisla Teknika 2024), taksonomi 3 klaster model, komparasi platform deployment, dan kerangka storytelling sidang, lihat dokumen rujukan lengkap: `references/vlm-ocr-literature-corpus.md`.
+
 ---
 
 ## 3. Metodologi Penelitian CRISP-DM Multimodal (Bab 3)
