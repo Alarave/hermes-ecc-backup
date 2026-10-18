@@ -51,8 +51,49 @@ Agen mengeksekusi form interogasi menggunakan tool `clarify` (maksimal 4 sampai 
 
 ---
 
-### SIKLUS 1: Formulasi Judul & Validitas Masalah (Bab 1)
-*Dipicu saat merumuskan ide, judul, atau latar belakang.*
+### SIKLUS 1: Eksplorasi Fenomena, Objek Riset & Masalah Lapangan (Grounded Discovery)
+*Dipicu setelah Siklus 0 untuk menggali konteks penelitian dari umum ke khusus secara bersahabat.*
+
+1. **Pertanyaan 1 (Topik Umum & Objek/Lokasi Penelitian)**:
+   - *Teks*: "Apa topik umum dan objek atau lokasi studi kasus yang ingin Anda teliti?"
+   - *Pilihan*:
+     1. Objek spesifik di lapangan/organisasi nyata (misal: RS, UMKM, instansi pemerintah, e-commerce) (Recommended)
+     2. Dataset publik/repositori riset (Kaggle, UCI, Hugging Face, EPrints kampus)
+     3. Masih mencari ide objek penelitian yang menarik (butuh saran eksplorasi)
+2. **Pertanyaan 2 (Draf Judul Kasar atau Ide Solusi Awal)**:
+   - *Teks*: "Apakah Anda sudah memiliki draf judul kasar atau gambaran solusi yang terpikirkan?"
+   - *Pilihan*:
+     1. Sudah punya judul kasar atau kata kunci utama (akan saya ketik) (Recommended)
+     2. Sudah ada ide solusi atau metode, tetapi bingung merangkai judul skripsinya
+     3. Belum ada judul sama sekali, butuh rekomendasi 3-5 opsi judul berbasis tren
+3. **Pertanyaan 3 (Kendala atau Masalah Riil yang Dihadapi)**:
+   - *Teks*: "Kendala atau masalah riil apa yang dihadapi pada objek penelitian tersebut?"
+   - *Pilihan*:
+     1. Proses manual lambat, tidak efisien, atau menghasilkan error tinggi (Recommended)
+     2. Data historis ada tetapi belum dimanfaatkan untuk prediksi/klasifikasi otomatis
+     3. Model atau sistem saat ini akurasinya rendah atau sering salah deteksi
+     4. Belum punya data konkret di lapangan (bantu carikan masalah dan dataset pendukung)
+4. **Pertanyaan 4 (Arah Pilihan Metode & Batasan Awal)**:
+   - *Teks*: "Pendekatan atau metode apa yang ingin Anda eksplorasi, serta batasan awalnya?"
+   - *Pilihan*:
+     1. Machine Learning / Deep Learning (bantu rekomendasikan algoritma baseline & pembanding) (Recommended)
+     2. Pengembangan Aplikasi Sistem Informasi / Web / Mobile (SDLC)
+     3. Kombinasi Hibrida (misal: Text Mining + VLM/OCR, atau Dekomposisi Sinyal + LSTM)
+     4. Fleksibel, rekomendasikan metode terbaik yang paling aman untuk sidang
+
+### Pedoman Khusus Agen (Prinsip Grounded First & Anti-Intimidasi):
+1. **Dilarang Langsung Menginterogasi Keras di Awal**: Setelah Siklus 0 (Triage), agen DILARANG LANGSUNG menembak pengguna dengan pertanyaan sidang yang agresif (*preliminary data*, *baseline failure*, *novelty proof*).
+2. **Alur Transisi Bertahap**: Wajib menuntun pengguna dari ranah umum ke khusus melalui alur: `Judul Kasar / Topik -> Objek & Lokasi -> Kendala Lapangan -> Pilihan Metode & Batasan Awal`.
+3. **Respon Otomatis Saat Pengguna Memilih Opsi Eksplorasi atau Skip**:
+   Jika pengguna memilih opsi "Belum punya data konkret (bantu carikan masalah dan dataset)" atau men-skip pertanyaan teknis, agen TIDAK BOLEH memojokkan atau menolak pengguna. Agen wajib otomatis mengaktifkan **Mode Bantuan Eksplorasi**:
+   - Menyarankan 3 studi kasus nyata dari repositori kampus lokal.
+   - Menyediakan tautan dataset publik yang sudah bersih (*clean*).
+   - Membantu merumuskan draf judul formula 4-elemen via `research-title-formulator`.
+
+---
+
+### SIKLUS 1B: Validasi Kritis & Stress-Test Judul (Setelah Draf Disepakati)
+*Dipicu setelah draf judul, objek, dan masalah awal disepakati, atau saat pengguna meminta evaluasi kritis / simulasi sidang Bab 1.*
 
 1. **Pertanyaan 1 (Bukti Data Awal Lapangan)**:
    - *Teks*: "Apa bukti data konkret di lokasi penelitian yang membuktikan masalah ini mendesak untuk diteliti?"
@@ -60,18 +101,21 @@ Agen mengeksekusi form interogasi menggunakan tool `clarify` (maksimal 4 sampai 
      1. Tersedia angka kerugian finansial / persentase kegagalan operasional (Recommended)
      2. Tersedia catatan log sistem / durasi latensi inefisiensi
      3. Tersedia grafik tren anomali / fluktuasi data historis
+     4. Belum ada data konkret (aktifkan mode bantuan eksplorasi data/studi kasus)
 2. **Pertanyaan 2 (Identifikasi Model Baseline & Research Gap)**:
    - *Teks*: "Metode atau algoritma apa yang menjadi baseline pembanding saat ini, dan di mana titik kegagalannya?"
    - *Pilihan*:
      1. Baseline konvensional (ARIMA / SVR / Random Forest) gagal menangani non-linearitas (Recommended)
      2. Sistem manual / aturan bisnis saat ini lambat dan menghasilkan error tinggi
      3. Model deep learning standar mengalami vanishing gradient / overfitting
+     4. Belum tahu baseline pembanding (bantu carikan 3 model pembanding dari paper rujukan)
 3. **Pertanyaan 3 (Pembuktian Novelty Riset)**:
    - *Teks*: "Pilar novelty apa yang ingin Anda buktikan di hadapan dewan penguji sidang?"
    - *Pilihan*:
      1. Novelty Algoritmik: Arsitektur Hibrida (Dekomposisi Sinyal + Deep Learning) (Recommended)
      2. Novelty Domain: Karakteristik dataset lokal spesifik yang belum pernah diteliti
      3. Novelty Evaluasi: Penerapan metrik ketat dan uji signifikansi statistik formal
+     4. Butuh arahan perumusan novelty yang realistis dan aman diuji
 4. **Pertanyaan 4 (Penegasan 8 Aspek Ruang Lingkup)**:
    - *Teks*: "Apakah batasan ruang lingkup 8-poin sudah siap dikunci agar tidak melebar saat sidang?"
    - *Pilihan*:
