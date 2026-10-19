@@ -199,6 +199,7 @@ above does not depend on it.
 | numbers while drawing | `references/style-rules.md` "Quick checklist" + "Figure size table" (lines 375-457); `references/parts-styles.md` §8 defaults | 100 |
 | before declaring done | `references/anti-patterns.md` §3 linter checklist; §1-2 when a figure feels off | 40-400 |
 | formulas in the figure (only when it needs them) | `references/formulas.md`; `scripts/tex_measure.py`, `scripts/tex_fill.py` | 90 |
+| vision-language & OCR models (SigLIP 2, PaddleOCR, hybrid pipeline) | `references/vlm-ocr-architecture-patterns.md` | 130 |
 | a bitmap in the figure (sample, photo, screenshot, rendered result, icon) | `references/spec-guide.md` §4 "Bitmaps"; `references/encoding.md` A13 | 30 |
 | an editable PowerPoint copy (optional, after delivery) | `references/pptx-export.md`; `scripts/svg2pptx.py`, `scripts/pptx_check.py` | 80 |
 | parts | `assets/symbols/README.md`, `index.json` (search by name / tags / depicts; mechanism parts also by `family`, `theme`, `figure_kinds`, filter `subtype`), `catalog-icon|motif|shape.png` (architecture parts), `catalog-mech-<theme>.png` (mechanism parts by theme) | - |
@@ -261,7 +262,7 @@ Setiap pembuatan diagram menghasilkan paket deliverable terverifikasi di folder 
 
 ## Files
 
-- `references/` - the distilled knowledge (all numbers come from the corpus; each file says how it was derived).
+- `references/` - the distilled knowledge (all numbers come from the corpus; includes `references/vlm-ocr-architecture-patterns.md` for SigLIP 2 and PaddleOCR multimodal architectures).
 - `assets/exemplars/` - 485 published figures: 339 architecture figures filling 486 slots across the 20
   templates, and 146 mechanism figures filling 175 slots across the 5 groups (`mechanism/<group>/index.json`),
   chosen from the corpus and reviewed by hand; each figure stored once under `figures/<id>/` (author SVG, or the
