@@ -53,6 +53,7 @@ Agen memuat berkas referensi dari engine inti `specialist-skill-architect` secar
 - `skills/specialist-skill-architect/references/testing-framework.md` (18 skenario regresi)
 - `skills/specialist-skill-architect/references/eval-driven-benchmarking.md` (Pengujian empiris A/B & evaluasi pemicu)
 - `skills/specialist-skill-architect/references/memory-eval-benchmarks.md` (Tolok ukur pengujian memori agen multi-sesi)
+- `skills/specialist-skill-architect/references/recursive-harness-engineering.md` (Rekayasa harness rekursif 8-komponen Google Harness2)
 - `skills/specialist-skill-architect/references/security-governance.md` (Tata kelola keamanan & anti-leak)
 - `skills/specialist-skill-architect/references/versioning-evolution.md` (Semver & migrasi)
 - `skills/specialist-skill-architect/references/implementation-workflows.md` (Alur kerja operasional)

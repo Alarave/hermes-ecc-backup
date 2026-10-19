@@ -135,6 +135,7 @@ Modul referensi operasional dimuat bertahap sesuai kebutuhan fase:
 - `references/testing-framework.md` (18 skenario regresi)
 - `references/eval-driven-benchmarking.md` (Pengujian empiris A/B dan evaluasi pemicu)
 - `references/memory-eval-benchmarks.md` (Tolok ukur pengujian memori agen multi-sesi)
+- `references/recursive-harness-engineering.md` (Rekayasa harness rekursif 8-komponen Google Harness2)
 - `references/security-governance.md` (Tata kelola keamanan dan anti-leak)
 - `references/versioning-evolution.md` (Semver dan migrasi)
 - `references/implementation-workflows.md` (Alur kerja operasional)
