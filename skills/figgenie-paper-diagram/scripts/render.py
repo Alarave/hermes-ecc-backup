@@ -6,7 +6,7 @@ linked by a relative path are loaded from the SVG's folder, URLs are never fetch
 
 --scale   pixels per pt (3 = 216 dpi, good for looking at the figure; use 6 for zooming into details)
 --crop    keep only the region x0,y0,x1,y1 (pt, viewBox units): the way to LOOK closely at one crossing or one
-          label without the whole figure — e.g. `--scale 6 --crop 220,110,296,176` around a divider
+          label without the whole figure  -  e.g. `--scale 6 --crop 220,110,296,176` around a divider
 --bbox    also write the per-element geometry Chromium measured (what lint.py uses)
 Exit code 0 on success. The PNG is what the agent LOOKS AT during self-check: open it with your image-viewing tool.
 """
@@ -30,7 +30,7 @@ def main():
         crop = tuple(v)
     K.render_png(svg, out, scale=a.scale, embed_fonts=not a.no_fonts, crop=crop, base_dir=Path(a.svg).resolve().parent)
     vb = K.parse_viewbox(svg)
-    what = f'{crop[0]:g},{crop[1]:g}–{crop[2]:g},{crop[3]:g} pt of ' if crop else ''
+    what = f'{crop[0]:g},{crop[1]:g}-{crop[2]:g},{crop[3]:g} pt of ' if crop else ''
     print(f'wrote {out}  ({what}{vb[2]:.1f} x {vb[3]:.1f} pt at {a.scale} px/pt)' if vb else f'wrote {out}')
     if a.bbox:
         data = K.measure(svg, embed_fonts=not a.no_fonts, base_dir=Path(a.svg).resolve().parent)

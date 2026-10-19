@@ -15,7 +15,7 @@ and writes:
   rejected.jsonl    the dropped parts with the reason
   families.json     the consolidated families with per-family counts (when the mapping exists)
   stats.md          counts, drops, fixes, renames, the family table
-  tiles/<name>.png and sheets/<theme>/<family>_N.png (+ .json) — one contact sheet per family for the review
+  tiles/<name>.png and sheets/<theme>/<family>_N.png (+ .json)  -  one contact sheet per family for the review
 Nothing here writes into the skill; build_symbols.py imports parts.jsonl after the review.
 """
 import argparse, collections, json, os, sys, time
@@ -192,7 +192,7 @@ def main():
                 n_sheets += 1
 
     # ---- stats.md ----------------------------------------------------------------------------------
-    L = ['# Final assembly — %s' % ', '.join(a.packages), '', 'generated in %.1f min' % ((time.time() - t0) / 60), '',
+    L = ['# Final assembly  -  %s' % ', '.join(a.packages), '', 'generated in %.1f min' % ((time.time() - t0) / 60), '',
          '| stage | count |', '|---|---|', '| kept over the packages | %d |' % len(rows), '| dropped (human pass) | %d |' % len(rejected),
          '| final | %d |' % len(kept), '| renamed for a cross-package clash | %d |' % len(renamed),
          '| parts with corrected text | %d (%d leaves) |' % (n_fixed_parts, n_fixed_leaves), '']

@@ -289,7 +289,7 @@ def main():
 
     # stats
     cnt = lambda key: collections.Counter(key(r) for r in final)
-    L = ['# Merge report — %s' % pkg.name, '', 'generated in %.1f min' % ((time.time() - t0) / 60), '',
+    L = ['# Merge report  -  %s' % pkg.name, '', 'generated in %.1f min' % ((time.time() - t0) / 60), '',
          '| stage | count |', '|---|---|', '| review lines | %d |' % len(lines), '| kept by agents | %d |' % (len(kept) + len(dropped)),
          '| dropped after review (--drop) | %d |' % len(dropped),
          '| after geometry dedupe | %d |' % len(survivors), '| final | %d |' % len(final),

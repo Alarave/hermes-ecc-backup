@@ -198,7 +198,7 @@ EMPHASIS_RULES = [
     ("gray / white / plain background for existing parts", F_EMPH,
      r"(gray|grey|white|uncolou?red|transparent|plain|neutral|otherwise)[^.;|]{0,70}(existing|baseline|unmodified|reused|conventional|generic|prior|background|uniform)"),
     ("numbered walkthrough (circled steps)", F_EMPH,
-     r"circled (step )?(number|digit|letter)|numbered (step|walkthrough|arrow|circle)|(steps?|numbers?) \d+ ?[-–] ?\d+|①|\bnumbered\b"),
+     r"circled (step )?(number|digit|letter)|numbered (step|walkthrough|arrow|circle)|(steps?|numbers?) \d+ ?[--] ?\d+|①|\bnumbered\b"),
     ("bounding box marks 'this is our system'", F_EMPH,
      r"(dashed|solid|bold|thick|red|orange|green|outer)[^.;|]{0,40}(box|boundar|border|outline|bracket|rectangle)[^.;|]{0,70}(our|system|contribution|novel|separat|isolat|singl|group|mark)"),
     ("side-by-side comparison / before-after panels", F_EMPH,

@@ -15,13 +15,13 @@ Measures the SVG in headless Chromium (exact boxes in pt), then checks, in this 
              below it only as far as its descenders reach (0.25 em for g/p/y, a comma less, none for 'Attention') -- not on
              Chromium's line box; step-badge digits are exempt from the text-on-line check)
   contain    node not inside its container (spec parent, or c:* box it visually sits in) error
-  align      edges or centres of boxes within 0.3–2 pt of each other but not equal    warn
+  align      edges or centres of boxes within 0.3-2 pt of each other but not equal    warn
              (only boxes of the same panel are compared; text-only nodes and anything inside data-scale="data" --
              bars, Gantt rows drawn to scale -- are skipped; a row whose gaps differ by 2x or more, or that another
              box interrupts, is read as deliberate grouping)
   centre     label centre off the box centre by > 1 pt                                warn
   edges      dangling end (> 3 pt from any box), missing arrowhead, line crossing a box it does not connect  warn
-  colour     > 12 distinct fills, > 2 saturated fills, > 3 stroke widths, width outside 0.3–2.5 pt  warn
+  colour     > 12 distinct fills, > 2 saturated fills, > 3 stroke widths, width outside 0.3-2.5 pt  warn
   style      (spec meta.style set, references/styles/<style>.json): labels bold, every box outlined in dark ink,
              box stroke band; the style may raise the saturated-fill ceiling                           warn / info
   density    more labelled boxes than the column budget (q3 warn, p90 error-ish -> warn+); in a composite figure
@@ -270,7 +270,7 @@ class Lint:
         if not col: col = 'double' if W >= 380 else 'single'
         band = cols.get(col, {}).get('width_p5_p95'); target = cols.get(col, {}).get('width_target')
         if band and not (band[0] - 2 <= W <= band[1] + 2):
-            self.add('error', 'canvas.width', f'width {W:.0f} pt is outside the {col}-column band {band[0]:.0f}–{band[1]:.0f} pt (target {target} pt)')
+            self.add('error', 'canvas.width', f'width {W:.0f} pt is outside the {col}-column band {band[0]:.0f}-{band[1]:.0f} pt (target {target} pt)')
         hmax = cols.get(col, {}).get('height_max_p95')
         if hmax and vb[3] > hmax * 1.15: self.add('warn', 'canvas.height', f'height {vb[3]:.0f} pt exceeds the {col}-column p95 height {hmax:.0f} pt; consider a wider, flatter layout')
 
@@ -280,7 +280,9 @@ class Lint:
             if e['tag'] in ('g', 'svg') or (e['w'] == 0 and e['h'] == 0): continue
             b = box(e)
             if b[0] < page[0] - 0.5 or b[1] < page[1] - 0.5 or b[2] > page[2] + 0.5 or b[3] > page[3] + 0.5:
-                self.add('error', 'bleed', f'<{e["tag"]}> {e.get("id") or e.get("text") or ""!s} extends outside the canvas ({b[0]:.1f},{b[1]:.1f})–({b[2]:.1f},{b[3]:.1f})', [e.get('id') or e.get('parentGroup')], b)
+                self.add('error', 'bleed', f'<{e["tag"]}> {e.get("id") or e.get("text") or ""!s} extends outside the canvas ({b[0]:.1f},{b[1]:.1f})-({b[2]:.1f},{b[3]:.1f})', [e.get('id') or e.get('parentGroup')], b)
+            elif b[0] < page[0] + 6.0 or b[1] < page[1] + 6.0 or b[2] > page[2] - 6.0 or b[3] > page[3] - 6.0:
+                self.add('warn', 'bleed.margin', f'<{e["tag"]}> {e.get("id") or e.get("text") or ""!s} is within 6 pt of canvas edge; reserve at least 15-20 pt margin to prevent preview clipping', [e.get('id') or e.get('parentGroup')], b)
 
     def check_fonts(self):
         for fam, ok in (self.d.get('fonts') or {}).items():
@@ -342,7 +344,7 @@ class Lint:
         for i in range(len(T)):
             for j in range(i + 1, len(T)):
                 a, b = self.tbox(T[i]), self.tbox(T[j])
-                if inter(a, b) and overlap_area(a, b) > 0.3:
+                if inter(a, b) and overlap_area(a, b) > 0.05:
                     self.add('error', 'overlap.text', f'"{T[i]["text"][:30]}" overlaps "{T[j]["text"][:30]}"', [T[i].get('parentGroup'), T[j].get('parentGroup')], a)
         # text vs lines it does not belong to
         lines = [e for e in self.els if e['tag'] in LINES and e.get('points') and e['stroke'] != 'none' and (e['tag'] in ('line', 'polyline') or e['fill'] in ('none', 'rgba(0, 0, 0, 0)'))]
@@ -354,7 +356,7 @@ class Lint:
                 if kind_of(self.groups.get(t.get('parentGroup'), {})) == 'node' and ln.get('parentGroup') == t.get('parentGroup'): continue
                 hits = sum(1 for p in ln['points'] if tb2[0] <= p[0] <= tb2[2] and tb2[1] <= p[1] <= tb2[3])
                 if hits >= 2:
-                    self.add('warn', 'overlap.text-line', f'line {ln.get("parentGroup") or ln.get("id") or "(unnamed)"} runs through "{t["text"][:30]}"', [ln.get('parentGroup'), t.get('parentGroup')], tb)
+                    self.add('warn', 'overlap.text-line', f'line {ln.get("parentGroup") or ln.get("id") or "(unnamed)"} runs through "{t["text"][:30]}" without backdrop rect; add <rect fill="#fff"> or place_text.py --backdrop', [ln.get('parentGroup'), t.get('parentGroup')], tb)
                     break
 
     def check_contain(self):
@@ -480,7 +482,7 @@ class Lint:
         sat = [c for c in colours if saturated(c)]
         msat = self.thr.get('lint', {}).get('max_saturated_fills', 2)       # a named style may allow more (references/styles/)
         if len(sat) > msat: self.add('warn', 'colour.saturated', f'{len(sat)} saturated fills {["#%02x%02x%02x" % c for c in sat]}; keep saturated colour for the accent only (≤ {msat})')
-        if len(widths) > 3: self.add('warn', 'stroke.widths', f'{len(widths)} distinct stroke widths {sorted(widths)}; use 2 (box 0.5–0.75, main path 1–1.5)')
+        if len(widths) > 3: self.add('warn', 'stroke.widths', f'{len(widths)} distinct stroke widths {sorted(widths)}; use 2 (box 0.5-0.75, main path 1-1.5)')
         for w in widths:
             if w < 0.3: self.add('warn', 'stroke.thin', f'stroke width {w} pt is hairline-thin (< 0.3 pt) and may vanish in print')
             if w > 2.5: self.add('warn', 'stroke.thick', f'stroke width {w} pt is heavy (> 2.5 pt)')
@@ -519,7 +521,7 @@ class Lint:
                          f'outlines every box in ink (palette stroke)', bare[:8])
         lo, hi = t.get('stroke_box_pt', (0, 99))
         odd = sorted({round(e['strokeWidth'], 2) for g, e in shapes if e['stroke'] != 'none' and not lo <= e['strokeWidth'] <= hi})
-        if odd: self.add('info', 'style.stroke', f'box outlines {odd} pt; style {name} uses {lo}–{hi} pt (frames {t.get("stroke_frame_pt")})')
+        if odd: self.add('info', 'style.stroke', f'box outlines {odd} pt; style {name} uses {lo}-{hi} pt (frames {t.get("stroke_frame_pt")})')
         # always say that the style was checked, so a clean run is visibly a checked one (check.py repeats it)
         self.add('info', 'style.checked', f'style {name}: ' + ('; '.join(summary) or 'nothing to check'))
 
@@ -616,7 +618,7 @@ class Lint:
         if unc:
             shown = ' '.join(f'{c}(U+{ord(c):04X})' for c in unc[:8]) + (' …' if len(unc) > 8 else '')
             self.add('warn', 'font.glyph', f'{len(unc)} character(s) are in no shipped/embedded face: {shown}; they fall back to a system font '
-                     f'(different or missing elsewhere) — draw them as shapes (dots, arrows) or pick a face that has them')
+                     f'(different or missing elsewhere)  -  draw them as shapes (dots, arrows) or pick a face that has them')
 
     def check_heads(self):
         t = self.thr.get('lint', {}); clear = t.get('head_clear_pt', 0.4); tail_clear = t.get('tail_clear_pt', 3.0)
@@ -639,7 +641,7 @@ class Lint:
                         f = (hl - acc) / d if d else 0.0; base = (a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f); break
                     acc += d; base = b
                 # the head is a triangle from tip to base: a foreign line "overlaps" it when a sample point lies between
-                # tip and base along the axis (5–97 %) and within the triangle's half-width there (+ clearance);
+                # tip and base along the axis (5-97 %) and within the triangle's half-width there (+ clearance);
                 # a line tangent to the base or beyond it is not a collision
                 ax, ay = base[0] - tip[0], base[1] - tip[1]; L2 = ax * ax + ay * ay or 1e-9
                 def in_head(q):
@@ -711,13 +713,13 @@ class Lint:
                     else: continue
                     mid = (lo + hi) / 2; c = (tb[0] + tb[2]) / 2
                     if hi - lo >= 6 and abs(c - mid) > gtol:
-                        self.add('warn', 'gutter.centre', f'rotated label "{tx["text"][:20]}" of {gid} sits {c - mid:+.1f} pt off the centre of its gutter ({lo:.0f}–{hi:.0f}); shift it by {mid - c:+.1f} pt', [gid], tb)
+                        self.add('warn', 'gutter.centre', f'rotated label "{tx["text"][:20]}" of {gid} sits {c - mid:+.1f} pt off the centre of its gutter ({lo:.0f}-{hi:.0f}); shift it by {mid - c:+.1f} pt', [gid], tb)
                 else:
                     below = [b for b in kids if b[1] >= tb[3] - 0.5]
                     if below and len(below) == len(kids) and tb[1] >= cb[1] - 0.5:
                         lo, hi = cb[1], min(b[1] for b in below); mid = (lo + hi) / 2; c = (tb[1] + tb[3]) / 2
                         if hi - lo >= 6 and abs(c - mid) > ttol:
-                            self.add('warn', 'title.centre', f'title "{tx["text"][:20]}" of {gid} sits {c - mid:+.1f} pt off the centre of its headroom ({lo:.0f}–{hi:.0f}); shift it by {mid - c:+.1f} pt', [gid], tb)
+                            self.add('warn', 'title.centre', f'title "{tx["text"][:20]}" of {gid} sits {c - mid:+.1f} pt off the centre of its headroom ({lo:.0f}-{hi:.0f}); shift it by {mid - c:+.1f} pt', [gid], tb)
 
     # ---- 2026-09-28 bitmaps: allowed (a sample, photo, screenshot, rendered result, icon); the link must be local
     #      (embed_fonts.py inlines it at delivery) and the picture print-ready
@@ -915,7 +917,7 @@ def main():
     if a.report: Path(a.report).write_text(json.dumps(rep, indent=1, ensure_ascii=False), encoding='utf-8')
     if a.annotate: annotate(svg, findings, a.annotate)
     if not a.quiet:
-        print(f'{a.svg}: {data["W"]:.0f}×{data["H"]:.0f} pt, {len(data["elements"])} elements — {ne} error(s), {nw} warning(s)')
+        print(f'{a.svg}: {data["W"]:.0f}×{data["H"]:.0f} pt, {len(data["elements"])} elements  -  {ne} error(s), {nw} warning(s)')
         for f in findings:
             if f['severity'] == 'info' and ne + nw > 25: continue
             print(f'  [{f["severity"]:5s}] {f["code"]:18s} {f["message"]}')

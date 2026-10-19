@@ -5,8 +5,8 @@
 
 The page shows one tab per template, a thumbnail grid (print-size PNG from the PDF, or the author
 preview PNG when the figure only exists as a source file), and two toggles per figure:
-  ✗ drop   — exclude this figure from the template's exemplars
-  ★ star   — mark it as a must-see exemplar (goes into the layouts.md exemplar table)
+  ✗ drop    -  exclude this figure from the template's exemplars
+  ★ star    -  mark it as a must-see exemplar (goes into the layouts.md exemplar table)
 State is kept in localStorage; the text box at the bottom always holds the current decisions as JSON
 ({"drop": {template: [ids]}, "star": {template: [ids]}}) so it can be copied back to the assistant.
 Image paths are absolute file:// paths into lab/extracted/, so the page only works on this machine.

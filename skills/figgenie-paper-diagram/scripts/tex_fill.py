@@ -122,7 +122,7 @@ def main():
                 x0, y0, x1, y1 = rect
                 if box[0] < x0 - 0.5 or box[1] < y0 - 0.5 or box[2] > x1 + 0.5 or box[3] > y1 + 0.5:
                     errors += 1; print(f'  [error] tex.overflow  {p["tex"][:40]!r} leaves the box of {gid} '
-                                       f'(formula {box[0]:.1f}–{box[2]:.1f} × {box[1]:.1f}–{box[3]:.1f}, box {x0:.0f}–{x1:.0f} × {y0:.0f}–{y1:.0f})')
+                                       f'(formula {box[0]:.1f}-{box[2]:.1f} × {box[1]:.1f}-{box[3]:.1f}, box {x0:.0f}-{x1:.0f} × {y0:.0f}-{y1:.0f})')
                 elif box[0] < x0 + 1.5 or box[1] < y0 + 1.5 or box[2] > x1 - 1.5 or box[3] > y1 - 1.5:
                     warns += 1; print(f'  [warn ] tex.padding   {p["tex"][:40]!r} has < 1.5 pt padding inside {gid}')
             for s, tb in text_boxes(cg, root, fkey, ckey):

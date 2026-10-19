@@ -131,7 +131,7 @@ def main():
 
     # report.md: one table per field, groups as columns
     cols = ["all"] + GROUPS
-    md = [f"# Mechanism semantic records — {len(recs)} records", "",
+    md = [f"# Mechanism semantic records  -  {len(recs)} records", "",
           "| group | " + " | ".join(cols) + " |", "|---|" + "---|" * len(cols),
           "| n | " + " | ".join(str(stats[c]["n"]) for c in cols) + " |", ""]
     def is_dist(d):
@@ -142,13 +142,13 @@ def main():
         md += [f"## {key}", "", "| value | " + " | ".join(cols) + " |", "|---|" + "---|" * len(cols)]
         for v in values[:20]:
             md.append(f"| {v} | " + " | ".join(
-                (f"{stats[c][key][v]['n']} ({stats[c][key][v]['share']*100:.0f}%)" if v in stats[c][key] else "–") for c in cols) + " |")
+                (f"{stats[c][key][v]['n']} ({stats[c][key][v]['share']*100:.0f}%)" if v in stats[c][key] else "-") for c in cols) + " |")
         md.append("")
     md += ["## counts per record (median / q3 / p90 / max)", "", "| measure | " + " | ".join(cols) + " |", "|---|" + "---|" * len(cols)]
     for key in [k for k in stats["all"] if isinstance(stats["all"][k], dict) and "median" in stats["all"][k]]:
         md.append(f"| {key} | " + " | ".join(
             (f"{stats[c][key]['median']} / {stats[c][key]['q3']} / {stats[c][key]['p90']} / {stats[c][key]['max']} (n={stats[c][key]['n']})"
-             if stats[c][key]["n"] else "–") for c in cols) + " |")
+             if stats[c][key]["n"] else "-") for c in cols) + " |")
     md += ["", "## shares", "", "| measure | " + " | ".join(cols) + " |", "|---|" + "---|" * len(cols)]
     for key in [k for k in stats["all"] if isinstance(stats["all"][k], (int, float))]:
         md.append(f"| {key} | " + " | ".join(str(stats[c][key]) for c in cols) + " |")

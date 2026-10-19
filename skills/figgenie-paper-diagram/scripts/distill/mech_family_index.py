@@ -68,7 +68,7 @@ def main():
     text_w, gap = 420, 8
     row_h = T + 2 * gap + 12
     W = 20 + text_w + a.samples * (T + gap) + 20
-    md = ['# Family index — %d families, %d parts' % (len(fams), len(parts)), '',
+    md = ['# Family index  -  %d families, %d parts' % (len(fams), len(parts)), '',
           '| page | family | theme | est. | parts | raw slugs | definition |', '|---|---|---|---|---|---|---|']
     n_pages = 0
     for theme in THEME_ORDER + sorted(set(f['theme'] for f in fams.values()) - set(THEME_ORDER)):
@@ -78,7 +78,7 @@ def main():
             page = names[p:p + a.rows]; pg = p // a.rows + 1
             H = 50 + len(page) * row_h + 10
             img = Image.new('RGB', (W, H), '#ffffff'); dr = ImageDraw.Draw(img)
-            dr.text((20, 14), '%s  —  families %d-%d of %d' % (theme, p + 1, p + len(page), len(names)), fill='#111111', font=F['hdr'])
+            dr.text((20, 14), '%s   -   families %d-%d of %d' % (theme, p + 1, p + len(page), len(names)), fill='#111111', font=F['hdr'])
             for k, name in enumerate(page):
                 f = fams[name]; rows = by_fam.get(name, [])
                 y = 50 + k * row_h

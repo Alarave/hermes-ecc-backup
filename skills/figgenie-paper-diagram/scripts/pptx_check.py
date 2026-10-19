@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""pptx_check.py — sanity checks on a deck made by svg2pptx.py (or hand-edited afterwards).
+"""pptx_check.py  -  sanity checks on a deck made by svg2pptx.py (or hand-edited afterwards).
 
   python3 scripts/pptx_check.py fig.pptx [--svg fig.svg] [--scale 1]
 
 Reports, and exits 1 on errors:
   * paint order: every connector / freeform line that a later, opaque shape covers (the classic
-    "background over the arrows" mistake — groups appended on top of the containers);
+    "background over the arrows" mistake  -  groups appended on top of the containers);
   * inventory: shapes, connectors, text boxes, native equations, pictures, groups, typefaces, slide size;
   * with --svg: text elements vs text boxes, formula placeholders vs equations, primitives vs shapes,
-    <image> elements vs pictures, slide size vs viewBox × scale — anything the export dropped.
+    <image> elements vs pictures, slide size vs viewBox × scale  -  anything the export dropped.
 A picture counts as opaque for the covering check (a bitmap hides what is under it).
 Reads the slide XML directly, so it also understands decks PowerPoint has re-saved (equations hoisted
 into mc:AlternateContent) and groups PowerPoint has resized (chOff/chExt mapping).

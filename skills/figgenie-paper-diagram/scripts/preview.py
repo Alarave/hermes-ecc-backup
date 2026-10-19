@@ -5,7 +5,7 @@ a pt ruler/grid, element inspector (hover shows id, kind, box in pt) and the lin
   python3 scripts/preview.py fig.svg [--lint fig.lint.json] [--spec fig.json] [-o fig.preview.html]
 
 Open the HTML in any browser (no server needed; fonts from assets/fonts and the figure's local bitmaps are
-embedded, so the page works wherever it is written). Use it when the PNG self-check is not enough — e.g. to hover
+embedded, so the page works wherever it is written). Use it when the PNG self-check is not enough  -  e.g. to hover
 an element and read its exact coordinates.
 """
 import argparse, html, json, sys

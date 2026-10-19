@@ -12,7 +12,7 @@
   SVG's folder (URLs are never fetched); each lands in the PDF as an image at its full pixel size.
 * --check (default) reopens the PDF and reports page size and the font types found (PyMuPDF `fitz` or pypdf;
   skipped when neither is installed). A font that is none of the figure's families is a system fallback for a
-  glyph no embedded face has — fix it with embed_fonts.py / lint.py's font.glyph finding, not in the PDF.
+  glyph no embedded face has  -  fix it with embed_fonts.py / lint.py's font.glyph finding, not in the PDF.
 Use the PDF for LaTeX (\\includegraphics) or Pages; Word takes the embedded SVG directly.
 """
 import argparse, re, sys
@@ -83,7 +83,7 @@ def main():
             print(f'note: {len(type3)} font(s) are Type3 glyph programs (pip install fonttools to embed CFF faces as TrueType); '
                   f'fine for LaTeX, but some publishers\' font checks reject Type3', file=sys.stderr)
         alien = [f for f in fonts if f[1] != 'Type3' and fams and not any(norm(re.sub(r'^[A-Z]{6}\+', '', f[0])).startswith(x) for x in fams)]
-        if alien: print(f'note: {len(alien)} font(s) are none of the figure\'s families: {alien} — a system fallback for glyphs no embedded face covers; run lint.py / embed_fonts.py for the culprit characters', file=sys.stderr)
+        if alien: print(f'note: {len(alien)} font(s) are none of the figure\'s families: {alien}  -  a system fallback for glyphs no embedded face covers; run lint.py / embed_fonts.py for the culprit characters', file=sys.stderr)
 
 
 if __name__ == '__main__':

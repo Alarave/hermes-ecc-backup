@@ -281,7 +281,7 @@ def _to_truetype(data):
 def font_face_css(keys, text=None, weights=('regular', 'bold', 'italic', 'bolditalic'), truetype=False):
     """@font-face rules (data URIs) for the given font keys; css_family names are used as the family.
     Shipped faces are embedded whole when `text` is None. System-resolved faces (CJK) are only ever embedded
-    subsetted (a full CJK face is 10–20 MB) and only when the family is marked `embeddable`; without fonttools
+    subsetted (a full CJK face is 10-20 MB) and only when the family is marked `embeddable`; without fonttools
     they are skipped with a note on stderr (Chromium then uses the installed system font, which is fine for
     rendering and linting locally but not portable). `truetype` converts CFF faces to TrueType outlines first
     (_to_truetype; export_pdf.py uses it so the PDF embeds real fonts instead of Type3 glyph programs)."""
@@ -360,7 +360,7 @@ class ImageError(Exception):
 
 
 def href_kind(href):
-    """'none' | 'data' (a data: URI) | 'external' (http(s), ftp, //host … — never allowed) | 'local' (a path or file: URL)."""
+    """'none' | 'data' (a data: URI) | 'external' (http(s), ftp, //host …  -  never allowed) | 'local' (a path or file: URL)."""
     h = (href or '').strip()
     if not h: return 'none'
     if h[:5].lower() == 'data:': return 'data'

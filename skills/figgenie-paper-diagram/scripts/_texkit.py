@@ -6,7 +6,7 @@ A formula in a figure is a placeholder group that the author writes by hand:
     <g data-symbol="tex" data-tex="\\hat{J}(\\theta)" data-x="54" data-y="24"
        data-size="6.5" data-anchor="middle" data-fill="#0d0d0d"/>
 
-    data-tex     the TeX (MathJax syntax, AMS packages available); keep it — it is the editable source
+    data-tex     the TeX (MathJax syntax, AMS packages available); keep it  -  it is the editable source
     data-x       anchor x in pt; data-anchor = start | middle | end (default start), like text-anchor
     data-y       baseline y in pt (with data-valign="middle": the vertical ink centre instead)
     data-size    font size in pt (default: the root font-size); the em of the formula

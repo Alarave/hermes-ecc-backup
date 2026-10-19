@@ -39,11 +39,36 @@ def width_of(text, key, size, bold=False, italic=False, cjk_key=None):
     return total, estimated
 
 
+def wrap_lines(text, max_w, key, size, bold=False, italic=False, cjk_key=None):
+    """Wrap words so each line fits within max_w pt."""
+    raw_lines = str(text).replace('\\n', '\n').split('\n')
+    wrapped = []
+    for rl in raw_lines:
+        words = rl.split(' ')
+        if len(words) <= 1:
+            wrapped.append(rl)
+            continue
+        cur = []
+        for w in words:
+            trial = ' '.join(cur + [w])
+            wd = width_of(trial, key, size, bold, italic, cjk_key)[0]
+            if wd <= max_w or not cur:
+                cur.append(w)
+            else:
+                wrapped.append(' '.join(cur))
+                cur = [w]
+        if cur:
+            wrapped.append(' '.join(cur))
+    return wrapped
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('text', nargs='*'); ap.add_argument('--font', default=None); ap.add_argument('--size', type=float, default=7.0)
     ap.add_argument('--bold', action='store_true'); ap.add_argument('--json'); ap.add_argument('--cjk', default=None, help='font key for CJK runs (default: fonts.json cjk_default)')
     ap.add_argument('--no-cjk', action='store_true', help='measure CJK runs with --font too'); ap.add_argument('--box', action='store_true', help='also print the suggested box size')
+    ap.add_argument('--safe-box', action='store_true', help='print box size with safe padding (16 pt width, 12 pt height padding)')
+    ap.add_argument('--wrap', type=float, default=None, help='target max width in pt to automatically wrap long labels')
     a = ap.parse_args()
     fonts = K.load_fonts(); key = a.font or fonts['default']
     if key not in fonts['families']: key = K.resolve_font(key)
@@ -55,13 +80,23 @@ def main():
     for it in items:
         k = it.get('font') or key
         if k not in fonts['families']: k = K.resolve_font(k)
-        lines = it['text'].split('\n'); size = it.get('size', a.size)
+        size = it.get('size', a.size)
+        if a.wrap:
+            lines = wrap_lines(it['text'], a.wrap, k, size, it.get('bold', False), it.get('italic', False), cjk)
+        else:
+            lines = it['text'].split('\n')
         ws = [width_of(l, k, size, it.get('bold', False), it.get('italic', False), cjk) for l in lines]
         w = max(x[0] for x in ws); est = any(x[1] for x in ws); any_est |= est
         h = 1.2 * size * len(lines)
         tag = f'{k}{"+" + cjk if cjk and K.has_cjk(it["text"]) else ""} {size}pt{" bold" if it.get("bold") else ""}'
-        extra = f'  box ≥ {w + 8:.0f}×{1.4 * size * len(lines) + 6:.0f}' if a.box else ''
-        print(f'{w:7.2f}{"~" if est else " "}{h:6.2f}  {it["text"]!r}  [{tag}]{extra}')
+        if a.safe_box:
+            extra = f'  safe_box ≥ {w + 16:.0f}×{1.3 * size * len(lines) + 12:.0f}'
+        elif a.box:
+            extra = f'  box ≥ {w + 8:.0f}×{1.4 * size * len(lines) + 6:.0f}'
+        else:
+            extra = ''
+        display_text = '\n'.join(lines) if a.wrap else it['text']
+        print(f'{w:7.2f}{"~" if est else " "}{h:6.2f}  {display_text!r}  [{tag}]{extra}')
     if any_est:
         print('~ = estimated (font file not found: CJK 1 em/char, Latin 0.52 em/char); install the font or pick another key', file=sys.stderr)
 

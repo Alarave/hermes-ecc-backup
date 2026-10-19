@@ -61,7 +61,30 @@ def _key(font):
     return key if key in fonts['families'] else K.resolve_font(key)
 
 
-def place(text, box, size=6.5, font=None, bold=False, rotate=0, leading=1.2, cjk=None, pad=1.5):
+def wrap_lines(text, max_w, key, size, bold=False, cjk_key=None):
+    """Wrap words so each line fits within max_w pt without overflowing box width."""
+    raw_lines = str(text).replace('\\n', '\n').split('\n')
+    wrapped = []
+    for rl in raw_lines:
+        words = rl.split(' ')
+        if len(words) <= 1:
+            wrapped.append(rl)
+            continue
+        cur = []
+        for w in words:
+            trial = ' '.join(cur + [w])
+            wd = width_of(trial, key, size, bold, cjk_key=cjk_key)[0]
+            if wd <= max_w or not cur:
+                cur.append(w)
+            else:
+                wrapped.append(' '.join(cur))
+                cur = [w]
+        if cur:
+            wrapped.append(' '.join(cur))
+    return wrapped
+
+
+def place(text, box, size=6.5, font=None, bold=False, rotate=0, leading=1.2, cjk=None, pad=1.5, wrap=False, backdrop=False):
     """Centre `text` ('\\n' separates lines) in `box` = (x, y, w, h) pt, level or turned by rotate = ±90. Returns a dict:
     x, y (first baseline; text-anchor middle), lines, pitch (pt between baselines), transform ('' or a rotate()),
     above / below (ink around the first / last baseline), widths, fits (bool) and short (what is missing for `pad` pt)."""
@@ -69,19 +92,28 @@ def place(text, box, size=6.5, font=None, bold=False, rotate=0, leading=1.2, cjk
     if cjk is None: cjk = K.cjk_default_key()
     x, y, w, h = (float(v) for v in box)
     cx, cy = x + w / 2, y + h / 2
-    lines = str(text).replace('\\n', '\n').split('\n')
+    along, across = (h, w) if rotate else (w, h)
+    
+    if wrap:
+        max_line_w = along - 2 * pad
+        if max_line_w < 10.0:
+            max_line_w = 10.0
+        lines = wrap_lines(text, max_line_w, key, size, bold, cjk_key=cjk)
+    else:
+        lines = str(text).replace('\\n', '\n').split('\n')
+        
     pitch = leading * size
     up = K.ink_band(lines[0], size, key, bold)[0]; down = K.ink_band(lines[-1], size, key, bold)[1]
     ink = up + (len(lines) - 1) * pitch + down                    # first line's ink top to last line's ink bottom
     b1 = cy - ink / 2 + up                                        # first baseline: the ink block centred on cy
     widths = [width_of(l, key, size, bold, cjk_key=cjk)[0] for l in lines]
-    along, across = (h, w) if rotate else (w, h)
     need_along, need_across = max(widths) + 2 * pad, ink + 2 * pad
     short = []
     if along < need_along: short.append(f'{"length" if rotate else "width"} {along:g} < {need_along:.1f} pt')
     if across < need_across: short.append(f'{"thickness" if rotate else "height"} {across:g} < {need_across:.1f} pt')
     return dict(x=cx, y=b1, cx=cx, cy=cy, lines=lines, pitch=pitch, size=size, above=up, below=down, widths=widths,
-                transform=f'rotate({rotate:g} {cx:.2f} {cy:.2f})' if rotate else '', rotate=rotate, fits=not short, short=short)
+                transform=f'rotate({rotate:g} {cx:.2f} {cy:.2f})' if rotate else '', rotate=rotate, fits=not short, short=short,
+                backdrop=backdrop, box=(x, y, w, h))
 
 
 def svg_text(p, attrs=''):
@@ -89,17 +121,27 @@ def svg_text(p, attrs=''):
     rot = f' transform="{p["transform"]}"' if p['transform'] else ''
     extra = f' {attrs.strip()}' if attrs.strip() else ''
     if len(p['lines']) == 1:
-        return f'<text x="{p["x"]:.2f}" y="{p["y"]:.2f}" font-size="{p["size"]:g}" text-anchor="middle"{rot}{extra}>{esc(p["lines"][0])}</text>'
-    spans = ''.join(f'<tspan x="{p["x"]:.2f}" y="{p["y"] + i * p["pitch"]:.2f}">{esc(l)}</tspan>' for i, l in enumerate(p['lines']))
-    return f'<text font-size="{p["size"]:g}" text-anchor="middle"{rot}{extra}>{spans}</text>'
+        text_el = f'<text x="{p["x"]:.2f}" y="{p["y"]:.2f}" font-size="{p["size"]:g}" text-anchor="middle"{rot}{extra}>{esc(p["lines"][0])}</text>'
+    else:
+        spans = ''.join(f'<tspan x="{p["x"]:.2f}" y="{p["y"] + i * p["pitch"]:.2f}">{esc(l)}</tspan>' for i, l in enumerate(p['lines']))
+        text_el = f'<text x="{p["x"]:.2f}" y="{p["y"]:.2f}" font-size="{p["size"]:g}" text-anchor="middle"{rot}{extra}>{spans}</text>'
+    
+    if p.get('backdrop'):
+        max_w = max(p['widths']) + 6.0
+        total_h = (len(p['lines']) - 1) * p['pitch'] + p['above'] + p['below'] + 4.0
+        bx = p['cx'] - max_w / 2.0
+        by = p['cy'] - total_h / 2.0
+        bg_rect = f'<rect class="label-backdrop" x="{bx:.2f}" y="{by:.2f}" width="{max_w:.2f}" height="{total_h:.2f}" fill="#ffffff" fill-opacity="0.9" rx="2" ry="2"/>'
+        return f'<g class="label-group">{bg_rect}{text_el}</g>'
+    return text_el
 
 
 def center(a, key, cjk):
-    p = place(a.text, a.box.split(','), a.size, key, a.bold, a.rotate, a.leading, cjk)
+    p = place(a.text, a.box.split(','), a.size, key, a.bold, a.rotate, a.leading, cjk, wrap=getattr(a, 'wrap', False), backdrop=getattr(a, 'backdrop', False))
     print(svg_text(p))
     print(f'# centre ({p["cx"]:.2f}, {p["cy"]:.2f}); ink {p["above"]:.2f} above / {p["below"]:.2f} below the baseline; '
           f'first baseline {p["y"]:.2f}' + (f' in the turned frame (rotate {a.rotate:g} about the centre)' if a.rotate else '')
-          + f'; widest line {max(p["widths"]):.2f} pt', file=sys.stderr)
+          + f'; widest line {max(p["widths"]):.2f} pt' + (' [auto-wrapped]' if getattr(a, 'wrap', False) else ''), file=sys.stderr)
     if p['short']:
         print(f'# box too small for 1.5 pt padding (lint text.padding): {"; ".join(p["short"])}', file=sys.stderr)
 
@@ -142,6 +184,8 @@ def main():
     c = sub.add_parser('center', help='a label centred in a box, level or turned')
     c.add_argument('--box', required=True, help='x,y,w,h in pt'); c.add_argument('--rotate', type=float, default=0, choices=[0, 90, -90])
     c.add_argument('--leading', type=float, default=1.2, help='line pitch in em (default 1.2)'); c.add_argument('text')
+    c.add_argument('--wrap', action='store_true', help='automatically wrap long text to fit inside box width')
+    c.add_argument('--backdrop', action='store_true', help='add an opaque white backdrop rectangle behind the text (anti-line strike)')
     l = sub.add_parser('line', help='text pieces and inline badges on one baseline')
     l.add_argument('--at', required=True, help='x,baseline in pt'); l.add_argument('--anchor', choices=['start', 'middle', 'end'], default='start')
     l.add_argument('--gap', type=float, default=1.2, help='space on each side of a badge, pt'); l.add_argument('--badge', type=float, default=1.0, help='badge diameter, em')

@@ -43,7 +43,7 @@ def main():
         rc2, out2 = run([str(HERE / 'preview.py'), str(svg), '--lint', str(lint_json)] + (['--spec', a.spec] if a.spec else []) + ['-o', f'{stem}.preview.html']); print(out2)
     rep = json.loads(lint_json.read_text()) if lint_json.exists() else {}
     styled = [f['message'] for f in rep.get('findings', []) if f.get('code') == 'style.checked']   # named style (meta.style)
-    print(f'RESULT: {"PASS" if ok else "FAIL"} — {rep.get("errors", "?")} error(s), {rep.get("warnings", "?")} warning(s)'
+    print(f'RESULT: {"PASS" if ok else "FAIL"}  -  {rep.get("errors", "?")} error(s), {rep.get("warnings", "?")} warning(s)'
           + (f'; {styled[0]}' if styled else '') + f'. Now LOOK at {stem}.png (and {stem}.lint.png) before deciding it is done.')
     sys.exit(0 if ok else 1)
 

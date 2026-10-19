@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""svg2pptx.py — turn a finished figure (an SVG that follows the contract of references/spec-guide.md §4)
+"""svg2pptx.py  -  turn a finished figure (an SVG that follows the contract of references/spec-guide.md §4)
 into an editable PowerPoint deck: one native shape per SVG primitive, grouped per spec element.
 
   python3 scripts/svg2pptx.py fig.svg                        # → fig.pptx (refuses to overwrite; --force)
@@ -749,7 +749,7 @@ def main():
     a = ap.parse_args()
     out = Path(a.out) if a.out else Path(a.svg).with_suffix('.pptx')
     if out.exists() and not a.force:
-        sys.exit(f'{out} exists — it may contain hand edits; pass --force to overwrite or -o for another name')
+        sys.exit(f'{out} exists  -  it may contain hand edits; pass --force to overwrite or -o for another name')
     spec = None
     if a.spec:
         import json
@@ -762,7 +762,7 @@ def main():
     cv.prs.save(str(out))
     c = cv.counts
     n_groups = 0 if a.no_group else sum(1 for gid, bag in cv.made if len(bag) > 1)
-    print(f'wrote {out} — slide {cv.W * a.scale:g}×{cv.H * a.scale:g} pt; {c["shape"]} shapes, {c["line"]} connectors, '
+    print(f'wrote {out}  -  slide {cv.W * a.scale:g}×{cv.H * a.scale:g} pt; {c["shape"]} shapes, {c["line"]} connectors, '
           f'{c["freeform"]} freeforms, {c["text"]} text boxes, {c["math"]} equations' + (f', {c["picture"]} pictures' if c['picture'] else '')
           + (f' (+{c["math_text"]} as plain text)' if c['math_text'] else '') + f'; {n_groups} groups; fonts {cv.latin} / {cv.cjk}'
           + (f'; OMML via {os.path.basename(cv.xsl_path)}' if cv.xslt is not None else ''))

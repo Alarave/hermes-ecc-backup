@@ -52,7 +52,7 @@ def fid(r):
 
 
 def svg_status(r):
-    """('author'|'pdf'|'none', text_ok) — which SVG an exemplar would ship and whether its text is <text>."""
+    """('author'|'pdf'|'none', text_ok)  -  which SVG an exemplar would ship and whether its text is <text>."""
     row = r["_idx"]
     pid = row["paper_id"]
     src = (row.get("src_svgs") or "").split("|")[0].strip()

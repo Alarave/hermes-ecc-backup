@@ -2,14 +2,14 @@
 """Rewrite the **Exemplars** block of every template section in references/layouts.md from the
 built assets/exemplars/<template>/index.json files (v2 layout).
 
-Each block becomes a table of the starred (must-see) exemplars — id + what_to_learn — followed by a
+Each block becomes a table of the starred (must-see) exemplars  -  id + what_to_learn  -  followed by a
 pointer to the template's index.json for the rest. Blocks are located as the paragraph that starts
 with "**Exemplars**" inside each "### <n>. `<template>`" section and ends at the next blank line.
 
     python3 update_exemplar_tables.py [--layouts FILE] [--exemplars DIR] [--max-rows 12] [--dry-run]
     python3 update_exemplar_tables.py --kind mechanism [--max-rows 12]
 
---kind mechanism rewrites the "### Exemplars" subsection of every "## <group> — ..." section in
+--kind mechanism rewrites the "### Exemplars" subsection of every "## <group>  -  ..." section in
 references/mechanism/layouts.md from assets/exemplars/mechanism/<group>/index.json: a table of the
 starred figures (id | base | arrangement | what to learn) whose paths point into assets/exemplars/figures/,
 then a pointer to the group's index.json for the rest.
@@ -35,7 +35,7 @@ def mech_block(g, idx, max_rows, figs):
     n_rest = len(ex) - len(rows)
     lines = ["### Exemplars", "",
              f"`assets/exemplars/mechanism/{g}/index.json` lists all {len(ex)} (starred first, one-line notes); each figure "
-             f"lives in `assets/exemplars/figures/<id>/` — look at `print.png` (the figure as printed; `preview.png` is the "
+             f"lives in `assets/exemplars/figures/<id>/`  -  look at `print.png` (the figure as printed; `preview.png` is the "
              f"author render when there is one), then `manifest.json` and `semantics.json`. They are reference and "
              f"reinforcement: borrow the device that serves your figure; the layout itself follows what this mechanism has to "
              f"show, and may look like none of them.", "",

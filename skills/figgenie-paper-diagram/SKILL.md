@@ -69,10 +69,9 @@ Work in a folder per figure: `brief.md`, `spec.json`, `plan.md`, `fig.svg`, and 
    framing; the template, the content search and every print floor (type ≥ 6 pt included) stay as above.
 4. **Drawing plan.** Write `plan.md` (`references/drawing-plan.md`): canvas and grid, regions, per-node
    placement and size, routes, emphasis, legend, and a 4-6 item check list for the PNG. Size boxes from
-   measured labels: `python3 scripts/measure_text.py --font <key> --size 7 "Label" …` (CJK runs are measured with the
-   companion `--cjk` key; `--box` prints the box size; width + 8 pt,
-   1.4 × size per line + 6 pt). Place labels with `python3 scripts/place_text.py --font <key> --size 6.5 center --box
-   x,y,w,h [--rotate -90] "Label"` (baseline from the font, the linter's own centring model; `line` for text with an
+   measured labels: `python3 scripts/measure_text.py --font <key> --size 7 [--wrap <max_w>] [--safe-box] "Label"` (CJK runs are measured with the
+   companion `--cjk` key; `--safe-box` prints safe box sizing with 16 pt width and 12 pt height padding; `--box` prints minimal box size). Place labels with `python3 scripts/place_text.py --font <key> --size 6.5 center --box
+   x,y,w,h [--wrap] [--backdrop] [--rotate -90] "Label"` (baseline from the font, the linter's own centring model; `--wrap` auto-wraps words to prevent box overflow; `--backdrop` emits an opaque white rectangle behind text to prevent connector line collisions; `line` for text with an
    inline ① disc). If the plan does not fit at these numbers, the content is too much - go back to
    the brief and merge or split; never shrink type below 6 pt. Formulas, only when the figure carries the paper's
    symbols: measure them the same way with `python3 scripts/tex_measure.py --size 6.5 --box '<tex>'` (`--mixed '… $tex$ …'
@@ -83,11 +82,12 @@ Work in a folder per figure: `brief.md`, `spec.json`, `plan.md`, `fig.svg`, and 
    badges, `a:` annotations, `legend`. Text stays `<text>`; a formula is the one exception - a `<g data-symbol="tex" data-tex="..." data-x data-y data-size data-anchor/>`
    placeholder that `tex_fill.py` renders to paths (`references/formulas.md`); no gradients, filters or external refs.
    **Anti-Clipping & Anti-Overlap Rules (MANDATORY)**:
-  - Canvas Padding: Reserve at least 15-20 pt margin on all 4 sides inside `viewBox` (elements must never touch x=0, y=0, W, or H).
-  - Box Sizing: Ensure `box_width >= text_width + 16 pt` and `box_height >= (line_count * size * 1.3) + 12 pt`.
+  - Canvas Padding: Reserve at least 15-20 pt margin on all 4 sides inside `viewBox` (elements must never touch x=0, y=0, W, or H; linter warns on <6 pt margin).
+  - Box Sizing: Use `measure_text.py --safe-box` or ensure `box_width >= text_width + 16 pt` and `box_height >= (line_count * size * 1.3) + 12 pt`.
+  - Auto-Wrapping: Use `place_text.py --wrap` or `measure_text.py --wrap <pt>` when text exceeds single-line box width.
   - Multi-line `<text>`: Explicitly define `x` and `y` on EVERY `<tspan>` (`<tspan x="..." y="...">`). Never omit `x` on subsequent tspans.
-  - Edge Labels: Place an opaque backdrop `<rect fill="#fff" ...>` behind every line label so connectors never strike through or collide with text.
-  - Node Spacing: Maintain minimum 14-16 pt distance between adjacent boxes to prevent overlap collisions.
+  - Edge Labels: Pass `--backdrop` to `place_text.py` or place an opaque backdrop `<rect class="label-backdrop" fill="#fff" ...>` behind every line label so connectors never strike through or collide with text.
+  - Node Spacing: Maintain minimum 14-16 pt distance between adjacent boxes to prevent overlap collisions (linter strictly flags overlap > 0.05 pt).
    Mark a group drawn to scale from numbers (bars, Gantt rows) `data-scale="data"` and a label set beside its box on
    purpose `data-label="outside"` (spec-guide §4): the linter then stops asking you to snap data or centre that label.
    A bitmap - a sample input or output, a photo, a screenshot, a rendered result, an icon - is an `<image>` in its
