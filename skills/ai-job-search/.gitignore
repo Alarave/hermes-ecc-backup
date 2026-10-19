@@ -48,6 +48,9 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Local personalized profile with real contact details
+CLAUDE.local.md
+
 # Memory files (Claude Code user-specific)
 .claude/projects/
 

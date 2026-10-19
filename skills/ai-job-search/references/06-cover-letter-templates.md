@@ -40,7 +40,7 @@ The `\lettercontent{}` macro appends `\\` to its argument. This breaks when the 
 \end{itemize}}
 ```
 
-**Correct — close `\lettercontent{}` before the list and wrap the list in the matching Raleway-Medium font so typography stays consistent:**
+**Correct  -  close `\lettercontent{}` before the list and wrap the list in the matching Raleway-Medium font so typography stays consistent:**
 ```latex
 \lettercontent{Here is how my experience maps:}
 
@@ -53,7 +53,7 @@ The `\lettercontent{}` macro appends `\\` to its argument. This breaks when the 
 \lettercontent{[next paragraph]}
 ```
 
-The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\lettercontent{}` without the `\fontspec` block, bullets render in the default body font (Lato) and visually mismatch the rest of the letter.
+The font wrapper is mandatory  -  if you just move `\begin{itemize}` outside `\lettercontent{}` without the `\fontspec` block, bullets render in the default body font (Lato) and visually mismatch the rest of the letter.
 
 ## Document Structure
 

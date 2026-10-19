@@ -139,6 +139,7 @@ Setiap penyelesaian milestone wajib menyajikan 4 pilar ringkas:
 ---
 ## Linked References
 - `skills/spesialis-copywriter/SKILL.md`
+- `skills/ai-job-search/SKILL.md`
 - `references/career-job-orchestration.md`
 - `references/kamus-istilah-rekayasa-dan-tpm.md`
 - `references/agent-orchestration.md`

@@ -125,3 +125,8 @@ Setiap lamaran dicatat dalam format status terstruktur untuk memantau kemajuan:
 | JOB-03 | [Perusahaan C] | ML Specialist | 92% | CV Tailored | `TECH_ROUND` | Simulasi System Design dengan Pram |
 
 Taksonomi Status: `WISHLIST -> EVALUATED -> TAILORED -> APPLIED -> SCREENING -> TECH_ROUND -> OFFER -> ACCEPTED/REJECTED`.
+
+---
+
+## 7. Eksekutor Berkas Teknis (Engine AI Job Search)
+Untuk kompilasi dokumen fisik LaTeX (CV 2-halaman via `lualatex` dan Cover Letter 1-halaman via `xelatex`), pemeriksaan ekstraksi teks ATS via `pdftotext`, serta pencarian lowongan via CLI portal internasional (`linkedin-search` dan `freehire-search`), delegasikan eksekusi teknis ke modul spesialis `skills/ai-job-search/SKILL.md`.
