@@ -17,14 +17,14 @@
   - `academic-researcher`, `accessibility`, `adaptyv`, `agency-grade-ui`, `agent-architecture-audit`, `agent-harness-construction`, `agent-merge-conflict-arbiter`, `agent-sort`
   - `agentic-os`, `ai-regression-testing`, `android-clean-architecture`, `angular-developer`, `anti-ui-slop`, `api-connector-builder`, `api-design`, `architecture-decision-records`
   - `architecture-design`, `architecture-patterns`, `article-writing`, `astropy`, `autonomous-agent-harness`, `autonomous-builder`, `autonomous-loops`, `backend-patterns`
-  - `benchmark`, `bio-database-evidence`, `biopython`, `brainstorming`, `brand-voice`, `browser-agent`, `browser-qa`, `bun-runtime`
+  - `benchmark`, `better-auth-best-practices`, `bio-database-evidence`, `biopython`, `brainstorming`, `brand-voice`, `browser-agent`, `browser-qa`, `bun-runtime`
   - `campus-repository-scraper`, `chembl-database`, `cisco-ios-patterns`, `ck`, `claude-template-importer`, `clickhouse-io`, `clinicaltrials-database`, `clinpgx-database`
   - `code-reviewer`, `codebase-graph-audit`, `codebase-onboarding`, `codehealth-mcp`, `coding-standards`, `coding-tutor`, `commit-with-reflection`, `competitive-platform-analysis`
   - `compose-multiplatform-patterns`, `content-engine`, `context-fundamentals`, `context-hunter`, `continuous-agent-loop`, `contract-freezer`, `cost-aware-llm-pipeline`, `cpp-coding-standards`
   - `cpp-testing`, `crisp-dm-dgx-notebook`, `crosspost`, `cs-foundations`, `csharp-testing`, `dart-flutter-patterns`, `dashboard-builder`, `data-quality-frameworks`
   - `data-scraper-agent`, `data-storytelling`, `database-migrations`, `datacommons-client`, `defi-amm-security`, `delivery-gate`, `dependency-management`, `deployment-patterns`
   - `deslop`, `detecting-performance-regressions`, `diagnosing-bugs`, `digital-brain`, `django-celery`, `django-patterns`, `django-security`, `django-tdd`
-  - `django-verification`, `dmux-workflows`, `dnanexus-integration`, `docker-patterns`, `documentation-lookup`, `docx`, `dotnet-patterns`, `e2e-testing`
+  - `django-verification`, `dmux-workflows`, `dnanexus-integration`, `docker-patterns`, `documentation-lookup`, `docx`, `dotnet-patterns`, `deploy-to-vercel`, `e2e-testing`
   - `edgartools`, `ena-database`, `enterprise-agent-ops`, `error-handling`, `eval-harness`, `everything-claude-code`, `exploratory-data-analysis`, `fastapi-patterns`
   - `fda-database`, `flox-environments`, `fluidsim`, `flutter-dart-code-review`, `fred-economic-data`, `frontend-a11y`, `frontend-design`, `frontend-design-direction`, `frontend-patterns`
   - `frontend-slides`, `fsharp-testing`, `g2-legend-expert`, `gan-style-harness`, `generating-python-installer`, `geo-database`, `geopandas`, `gh-address-comments`
@@ -51,7 +51,7 @@
   - `security-ownership-map`, `security-review`, `security-reviewer`, `security-scan`, `security-threat-model`, `senior-data-scientist`, `senior-ml-engineer`, `senior-prompt-engineer`
   - `similarity-search-patterns`, `simpy`, `slides-as-code`, `social-publisher`, `speckit-analyze`, `speckit-implement`, `speckit-taskstoissues`, `spesialis`
   - `spesialis-backend`, `spesialis-devops-infrastruktur`, `spesialis-frontend`, `spesialis-mobile`, `spesialis-produktivitas-workspace`, `spesialis-research-akademik`, `spesialis-security-qa`, `spesialis-ui-templates`
-  - `springboot-patterns`, `springboot-security`, `springboot-tdd`, `springboot-verification`, `stable-baselines3`, `swift-actor-persistence`, `swift-concurrency-6-2`, `swift-protocol-di-testing`
+  - `springboot-patterns`, `springboot-security`, `springboot-tdd`, `springboot-verification`, `stable-baselines3`, `supabase-postgres-best-practices`, `swift-actor-persistence`, `swift-concurrency-6-2`, `swift-protocol-di-testing`
   - `swiftui-patterns`, `sympy`, `systematic-debugging`, `taste`, `tdd-guide`, `tdd-workflow`, `team-builder`, `tensorboard`
   - `tinystruct-patterns`, `transformer-lens-interpretability`, `transformers`, `treatment-plans`, `ui-design`, `ui-to-vue`, `unified-notifications-ops`, `uniprot-database`
   - `usfiscaldata`, `uspto-database`, `venue-templates`, `vite-patterns`, `vue-patterns`, `windows-desktop-e2e`, `windows-hook-debugging`, `x-api`
