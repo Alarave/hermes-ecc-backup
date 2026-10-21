@@ -39,9 +39,11 @@ Red Flags — pikiran di bawah ini adalah tanda rasionalisasi, HARUS DITOLAK:
 | "Saya ingat prosedurnya" | Memori rentan halusinasi. Buka dan baca skill. |
 | "Langsung tanya clarify saja" | Pram yang memandu clarify. Panggil Pram dulu. |
 
-Cara memanggil skill:
+Cara memanggil skill & bundle domain:
 - skill_view("pram-orchestrator") -- untuk semua tugas teknis & proyek
 - skill_view("spesialis-skills")  -- untuk rekayasa dan audit skill
+- Navigasi 720+ skill atomik: baca references/skill-registry.md di dalam Pram
+- Shortcut Bundle Domain: /backend, /frontend, /ml, /research, /devops, /security, /pm, /skill-arch
 </SANGAT_PENTING>
 """.format(marker=BOOTSTRAP_MARKER)
 
