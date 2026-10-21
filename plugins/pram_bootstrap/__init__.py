@@ -43,7 +43,9 @@ Cara memanggil skill & bundle domain:
 - skill_view("pram-orchestrator") -- untuk semua tugas teknis & proyek
 - skill_view("spesialis-skills")  -- untuk rekayasa dan audit skill
 - Navigasi 720+ skill atomik: baca references/skill-registry.md di dalam Pram
-- Shortcut Bundle Domain: /backend, /frontend, /ml, /research, /devops, /security, /pm, /skill-arch
+- Shortcut Bundle Domain (12 Klaster):
+  /backend, /frontend, /mobile, /ml, /devops, /security,
+  /pm, /research, /workspace, /scraper, /creative, /skill-arch
 </SANGAT_PENTING>
 """.format(marker=BOOTSTRAP_MARKER)
 
