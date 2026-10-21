@@ -61,6 +61,13 @@ laporan/
 - Format rujukan Pandoc/BibTeX: `[@citekey]` atau `@citekey menyatakan bahwa...`. Minimal 80% rujukan berasal dari jurnal/prosiding bereputasi 5 tahun terakhir.
 - Sensor mutlak seluruh 8 kategori data pribadi dan kredensial sensitif mahasiswa/dosen menjadi label `[REDACTED]`.
 
+### 5. Aturan Anti-AI Slop Mutlak (Adopsi Korpus Empiris UPNVJ)
+- Wajib mematuhi `references/pedoman-penulisan-skripsi-anti-ai-slop.md`.
+- Latar Belakang wajib 5 paragraf piramida terbalik mengalir (Data Makro Faktual -> Landasan Yuridis/Objek -> Masalah Lapangan Riil -> Kebutuhan Komputasi -> Usulan Algoritma).
+- Dilarang keras menggunakan daftar berbutir (*bullet-pointitis*) di Latar Belakang dan Pembahasan.
+- Seluruh tabel dan gambar wajib memiliki kalimat narasi pengantar sebelum elemen muncul ("disajikan pada Tabel X.X").
+- Sensor kata klise AI: krusial, esensial, holistik, komprehensif, menjembatani, lanskap, paradigma, sangat luar biasa/optimal.
+
 ---
 ## O (Output Format & Deliverables)
 
@@ -79,6 +86,7 @@ Setiap sesi perakitan dokumen menghasilkan artefak fisik tervalidasi:
 
 ---
 ## Linked References
+- `references/pedoman-penulisan-skripsi-anti-ai-slop.md`
 - `references/gunadarma-pedoman-skripsi.md`
 - `references/gunadarma-rag-blueprint.md`
 - `references/bab1-pendahuluan.md`

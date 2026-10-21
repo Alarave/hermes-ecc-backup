@@ -40,6 +40,11 @@ Dipicu saat user meminta membuat rangkuman materi, belajar konsep baru, menerjem
   - Untuk ringkasan sprint, WBS, atau rencana teknis dari agen orchestrator, simpan atau mutakhirkan otomatis ke folder catatan kerja vault (`${OBSIDIAN_VAULT_PATH:-E:\BELAJAR BANGET\SKILL BELAJAR}\Plans\` atau `E:\history antigravity\history antigravity\Chats\`).
   - **Fallback Sistem Berkas Native**:
   - Jika Obsidian desktop ditutup atau REST API tidak merespons, fallback ke manipulasi berkas langsung (`read_file` / `write_to_file`). WAJIB baca berkas penuh 100% sebelum menimpa.
+10. **Anti-AI Slop & Narasi Manusiawi (Adopsi Korpus Akademik Real)**:
+  - Dilarang membuat ringkasan dangkal berisi daftar bullet point kosong tanpa elaborasi.
+  - Wajib menerapkan narasi mengalir dengan kalimat bertingkat: Konsep -> Mengapa penting -> Analogi dunia nyata -> Contoh matematis/kode nyata.
+  - Sensor kata klise AI: krusial, esensial, holistik, menjembatani, lanskap, paradigma, sinergi, sangat luar biasa/optimal.
+  - Setiap penjelasan teknis wajib didukung angka atau implementasi nyata.
 
 # Output Format (Obsidian Safe)
 Gunakan *Frontmatter* dan *Markdown/Obsidian Callouts* secara ketat. Struktur wajib:
