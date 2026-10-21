@@ -27,7 +27,7 @@ Dipicu saat merancang, menyusun, memformat, atau mengompilasi naskah skripsi, te
 - **Tipografi Resmi**: Times New Roman 12 pt, spasi 1.5, indentasi awal paragraf 1 cm, perataan teks rata kiri-kanan (*justify*).
 - **Sistematika Numerik Arab**: Bab 1 sampai 5 menggunakan penomoran Arab bertingkat (`1. PENDAHULUAN`, `1.1 Latar Belakang`, `1.2 Ruang Lingkup`, `2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).
 - **Ruang Lingkup 8-Poin**: Sub-bab 1.2 wajib menggunakan istilah baku *"Ruang Lingkup"* (bukan "Batasan Masalah").
-- **Diagram Alir Vektor FigGenie**: Seluruh diagram alur dan arsitektur wajib menggunakan format vektor tajam dari engine `figgenie-paper-diagram`.
+- **Diagram Alir Vektor FigGenie (Wajib Berkas Nyata)**: Dilarang keras menggunakan teks placeholder (`[Gambar ...]`) atau blok ASCII. Seluruh diagram kerangka pikir (Bab 3.1) dan diagram alur/arsitektur (Bab 3.2 / Bab 4) WAJIB dieksekusi menghasilkan berkas fisik di `laporan/figures/` via `figgenie-paper-diagram` (SVG + PNG 300 DPI dengan font Times New Roman). Setiap gambar wajib diawali kalimat pengantar naratif di paragraf sebelumnya.
 
 ---
 ## C (Constraints & Production Guardrails)

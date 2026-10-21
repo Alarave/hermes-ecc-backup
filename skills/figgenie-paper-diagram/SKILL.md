@@ -23,6 +23,14 @@ Everything is in **pt at print size**: a single-column figure is ≈ 240 pt wide
 
 Two figure kinds share this workflow: **architecture** (the whole system, `meta.kind: architecture`, 20 layout templates) and **mechanism** (how one part works, `meta.kind: mechanism`).
 
+### Skripsi & Academic Thesis Constraint (Khusus Dokumen Skripsi Indonesia)
+Untuk permintaan naskah skripsi/tesis (Bab 3/4):
+- Wajib mematuhi `references/preset-skripsi-indonesia.md`.
+- Font wajib Times New Roman (10-11 pt bold untuk blok, 8.5-9.5 pt regular untuk sub-label).
+- Latar belakang wajib putih solid `#FFFFFF` (dilarang transparan).
+- Palet warna formal: abu-abu lembut `#F8F9FA`, biru formal `#E7F5FF`, hijau lembut `#E6FCF5`. Dilarang warna neon AI.
+- Simpan berkas fisik di folder `figures/` (SVG + PNG 300 DPI).
+
 ## Workflow (gates in bold)
 
 Work in a folder per figure: `brief.md`, `spec.json`, `plan.md`, `fig.svg`, and the outputs of `check.py`.
@@ -262,7 +270,7 @@ Setiap pembuatan diagram menghasilkan paket deliverable terverifikasi di folder 
 
 ## Files
 
-- `references/` - the distilled knowledge (all numbers come from the corpus; includes `references/vlm-ocr-architecture-patterns.md` for SigLIP 2 and PaddleOCR multimodal architectures).
+- `references/` - the distilled knowledge (all numbers come from the corpus; includes `references/preset-skripsi-indonesia.md` for Indonesian academic thesis standards, and `references/vlm-ocr-architecture-patterns.md` for SigLIP 2 and PaddleOCR multimodal architectures).
 - `assets/exemplars/` - 485 published figures: 339 architecture figures filling 486 slots across the 20
   templates, and 146 mechanism figures filling 175 slots across the 5 groups (`mechanism/<group>/index.json`),
   chosen from the corpus and reviewed by hand; each figure stored once under `figures/<id>/` (author SVG, or the
