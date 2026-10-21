@@ -1,0 +1,6 @@
+name: pram_bootstrap
+version: 1.0.0
+description: Deterministik bootstrap hook untuk Pram Orchestrator dan Asep
+author: private
+provides_hooks:
+  - pre_llm_call
