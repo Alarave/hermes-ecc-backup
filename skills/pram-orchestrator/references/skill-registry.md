@@ -75,16 +75,16 @@
   - `spesialis-data-ai-agentic`, `splitting-datasets`, `statistics-math`, `structured-content-storage`, `submission-checklist`, `theme-factory`, `tiledbvcf`, `timesfm-forecasting`
   - `torch-geometric`, `torchdrug`, `ultra-think`, `umap-learn`, `unsloth`, `ux-researcher-designer`, `vaex`, `weights-and-biases`
 
-### Domain: Research, Academic, Bio & Scientific Computing (52 Skills)
+### Domain: Research, Academic, Bio & Scientific Computing (55 Skills)
 - **Lead PIC Spesialis**: `spesialis-research-akademik`
 - **Daftar Lengkap Skill**:
-  - `academic-note-coach`, `ai-first-engineering`, `clinical-decision-support`, `comprehensive-research-agent`, `content-research-writer`, `deep-research`, `design-system`, `designing-experiments`
-  - `etetoolkit`, `exa-search`, `excalidraw-diagram`, `figgenie-paper-diagram`, `generate-image`, `generating-test-reports`, `geomaster`, `get-available-resources`
-  - `gstack-design-shotgun`, `gstack-diagram`, `gstack-make-pdf`, `homelab-wireguard-vpn`, `ito-basket-compare`, `ito-market-intelligence`, `laporan-generator`, `latex-posters`
-  - `market-research`, `market-research-reports`, `marketing-campaign`, `math`, `math-model-selector`, `math-tools`, `orch-fix-defect`, `paper-2-web`
-  - `pm-ab-test-design`, `pm-churn-retention`, `pm-file-ops`, `pm-interview-synthesis`, `pm-lightweight-spec`, `pm-weekly-digest`, `prd`, `propositional-logic`
-  - `pymc-bayesian-modeling`, `report-generator`, `research-ops`, `scientific-schematics`, `scientific-thinking-literature-review`, `speckit-checklist`, `speckit-plan`, `speech`
-  - `statistical-analysis`, `statsmodels`, `ui-radar`, `webthinker-deep-research`
+  - `academic-note-coach`, `ai-first-engineering`, `arxiv`, `clinical-decision-support`, `comprehensive-research-agent`, `content-research-writer`, `deep-research`, `design-system`
+  - `designing-experiments`, `etetoolkit`, `exa-search`, `excalidraw-diagram`, `figgenie-paper-diagram`, `generate-image`, `generating-test-reports`, `geomaster`
+  - `get-available-resources`, `gstack-design-shotgun`, `gstack-diagram`, `gstack-make-pdf`, `homelab-wireguard-vpn`, `ito-basket-compare`, `ito-market-intelligence`, `laporan-generator`
+  - `latex-posters`, `market-research`, `market-research-reports`, `marketing-campaign`, `math`, `math-model-selector`, `math-tools`, `orch-fix-defect`
+  - `paper-2-web`, `pm-ab-test-design`, `pm-churn-retention`, `pm-file-ops`, `pm-interview-synthesis`, `pm-lightweight-spec`, `pm-weekly-digest`, `prd`
+  - `propositional-logic`, `pymc-bayesian-modeling`, `pyzotero`, `report-generator`, `research-ops`, `scientific-schematics`, `scientific-thinking-literature-review`, `semantic-scholar`
+  - `speckit-checklist`, `speckit-plan`, `speech`, `statistical-analysis`, `statsmodels`, `ui-radar`, `webthinker-deep-research`
 
 ### Domain: DevOps, Cloud, Network & Infrastructure (41 Skills)
 - **Lead PIC Spesialis**: `spesialis-devops-infrastruktur`
