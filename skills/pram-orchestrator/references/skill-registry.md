@@ -26,7 +26,7 @@
   - `deslop`, `detecting-performance-regressions`, `diagnosing-bugs`, `digital-brain`, `django-celery`, `django-patterns`, `django-security`, `django-tdd`
   - `django-verification`, `dmux-workflows`, `dnanexus-integration`, `docker-patterns`, `documentation-lookup`, `docx`, `dotnet-patterns`, `e2e-testing`
   - `edgartools`, `ena-database`, `enterprise-agent-ops`, `error-handling`, `eval-harness`, `everything-claude-code`, `exploratory-data-analysis`, `fastapi-patterns`
-  - `fda-database`, `flox-environments`, `fluidsim`, `flutter-dart-code-review`, `fred-economic-data`, `frontend-a11y`, `frontend-design-direction`, `frontend-patterns`
+  - `fda-database`, `flox-environments`, `fluidsim`, `flutter-dart-code-review`, `fred-economic-data`, `frontend-a11y`, `frontend-design`, `frontend-design-direction`, `frontend-patterns`
   - `frontend-slides`, `fsharp-testing`, `g2-legend-expert`, `gan-style-harness`, `generating-python-installer`, `geo-database`, `geopandas`, `gh-address-comments`
   - `gh-fix-ci`, `git-workflow`, `github-ops`, `github-repo-safety-audit`, `golang-patterns`, `golang-testing`, `growth-log`, `gstack-benchmark`
   - `gstack-codex`, `gstack-context-restore`, `gstack-cso`, `gstack-deslop-shared-libs`, `gstack-devex-review`, `gstack-document-generate`, `gstack-freeze`, `gstack-ios-clean`
@@ -44,7 +44,7 @@
   - `playwright`, `plotly`, `pm-decision-log`, `pm-vault-manager`, `postgres-patterns`, `prisma-patterns`, `product-lens`, `project-flow-ops`
   - `project-guidelines-example`, `property-based-testing`, `providing-performance-optimization-advice`, `pubmed-database`, `pufferlib`, `pydeseq2`, `pydicom`, `pyhealth`
   - `pymatgen`, `pymc`, `pyopenms`, `python-patterns`, `python-testing`, `pytorch-patterns`, `pyzotero`, `quality-nonconformance`
-  - `quarkus-patterns`, `quarkus-security`, `quarkus-tdd`, `quarkus-verification`, `ralph-loop`, `rdkit`, `react-native-patterns`, `react-patterns`
+  - `quarkus-patterns`, `quarkus-security`, `quarkus-tdd`, `quarkus-verification`, `ralph-loop`, `rdkit`, `react-best-practices`, `react-native-patterns`, `react-patterns`
   - `react-performance`, `react-testing`, `receiving-code-review`, `redis-patterns`, `remotion-video-creation`, `requesting-code-review`, `research-grants`, `research-lookup`
   - `research-title-formulator`, `rowan`, `rust-patterns`, `rust-testing`, `scientific-brainstorming`, `scientific-db-pubmed-database`, `scientific-db-uspto-database`, `scientific-pkg-gget`
   - `scientific-slides`, `scikit-learn`, `scikit-survival`, `scrapling`, `scrapling-official`, `search-first`, `security-best-practices`, `security-bounty-hunter`
