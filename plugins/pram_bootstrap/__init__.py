@@ -50,6 +50,83 @@ Cara memanggil skill & bundle domain:
 """.format(marker=BOOTSTRAP_MARKER)
 
 
+def hydrate_anchors(text: str) -> str:
+    """
+    Noēsis Two-Tier Context Hydration (arXiv:2609.07663):
+    Mendeteksi path lokal dan URL secara deterministik dan menghidrasi
+    fakta struktural tanpa biaya token LLM sebelum proses generasi dimulai.
+    """
+    if not text:
+        return ""
+
+    import re
+    from pathlib import Path
+
+    # 1. Deteksi path Windows dan POSIX
+    paths = re.findall(r'(?<![A-Za-z0-9])[A-Za-z]:[\\/][^\s"\'<>|]+', text)
+    posix_paths = re.findall(r'(?:^|\s)(\./[^\s"\'<>|]+|\.\./[^\s"\'<>|]+|/c/[^\s"\'<>|]+)', text)
+    all_paths = list(dict.fromkeys(paths + [p.strip() for p in posix_paths]))
+
+    # 2. Deteksi URL
+    urls = list(dict.fromkeys(re.findall(r'https?://[^\s"\'<>]+', text)))
+
+    if not all_paths and not urls:
+        return ""
+
+    sections = ["<AUTONOMOUS_ANCHOR_INGESTION>"]
+    sections.append("Sistem mendeteksi referensi jangkar fisik dalam instruksi pengguna (Noēsis Two-Tier Context):")
+
+    if all_paths:
+        sections.append("\n[JANGKAR PATH LOKAL]:")
+        for p_str in all_paths:
+            try:
+                p = Path(p_str)
+                if not p.exists():
+                    sections.append(f"- ❌ [TIDAK DITEMUKAN PADA DISK]: `{p_str}`")
+                elif p.is_dir():
+                    items = list(p.iterdir())
+                    files = [i.name for i in items if i.is_file()][:10]
+                    dirs = [i.name for i in items if i.is_dir()][:6]
+                    sections.append(
+                        f"- 📁 [DIREKTORI TERVERIFIKASI]: `{p_str}`\n"
+                        f"  - Total: {len(items)} item ({len(files)} files, {len(dirs)} subfolder)\n"
+                        f"  - Sampel Berkas: {files}\n"
+                        f"  - Sampel Subfolder: {dirs}"
+                    )
+                elif p.is_file():
+                    size_kb = p.stat().st_size / 1024
+                    preview = []
+                    with open(p, "r", encoding="utf-8", errors="ignore") as f:
+                        for _ in range(12):
+                            line = f.readline()
+                            if not line:
+                                break
+                            preview.append(line.rstrip())
+                    snippet = "\n    ".join(preview[:8])
+                    sections.append(
+                        f"- 📄 [BERKAS FISIK TERVERIFIKASI]: `{p_str}` ({size_kb:.1f} KB)\n"
+                        f"  - Cuplikan Konten Awal:\n    {snippet}"
+                    )
+            except Exception as e:
+                sections.append(f"- ⚠️ [GAGAL MEMERIKSA PATH]: `{p_str}` ({e})")
+
+    if urls:
+        sections.append("\n[JANGKAR TAUTAN WEB/URL]:")
+        for u in urls:
+            if "youtube.com" in u or "youtu.be" in u:
+                sections.append(f"- 🎥 [YOUTUBE RESOURCE]: `{u}` (Ekstrak transkrip/informasi langsung via transcribe/web_extract)")
+            elif "github.com" in u:
+                sections.append(f"- 🐙 [GITHUB REPOSITORY]: `{u}` (Pindai repositori/struktur kode)")
+            elif "arxiv.org" in u:
+                sections.append(f"- 📚 [ARXIV PAPER]: `{u}` (Ekstrak metadata/PDF via skill arxiv)")
+            else:
+                sections.append(f"- 🌐 [WEB RESOURCE]: `{u}` (Ambil konten bersih via web_extract)")
+
+    sections.append("\nINSTRUKSI PRAM: Gunakan konteks fisik nyata di atas secara langsung. Jangan tanyakan ulang keberadaan berkas/folder yang sudah terverifikasi.")
+    sections.append("</AUTONOMOUS_ANCHOR_INGESTION>")
+    return "\n".join(sections)
+
+
 def register(ctx):
     def pre_llm_call(
         session_id=None,
@@ -60,8 +137,18 @@ def register(ctx):
         platform=None,
         **kwargs,
     ):
+        context_parts = []
         if is_first_turn:
-            return {"context": BOOTSTRAP_TEXT}
+            context_parts.append(BOOTSTRAP_TEXT)
+
+        # Autonomous Anchor Ingestion pada setiap giliran prompt pengguna
+        if user_message:
+            anchor_ctx = hydrate_anchors(user_message)
+            if anchor_ctx:
+                context_parts.append(anchor_ctx)
+
+        if context_parts:
+            return {"context": "\n\n".join(context_parts)}
         return None
 
     ctx.register_hook("pre_llm_call", pre_llm_call)
