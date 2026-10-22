@@ -7,6 +7,11 @@ Pola diadaptasi dari obra/superpowers MIT License.
 Tidak memerlukan koneksi jaringan.
 """
 
+import os
+import re
+from pathlib import Path
+from typing import Any
+
 BOOTSTRAP_MARKER = "pram_bootstrap:injected"
 
 BOOTSTRAP_TEXT = """\
@@ -50,11 +55,61 @@ Cara memanggil skill & bundle domain:
 """.format(marker=BOOTSTRAP_MARKER)
 
 
+def extract_code_symbols(p: Path, max_symbols=8):
+    try:
+        suffix = p.suffix.lower()
+        content = p.read_text(encoding="utf-8", errors="ignore")
+        symbols = []
+        if suffix == ".py":
+            import ast
+            tree = ast.parse(content)
+            for node in ast.walk(tree):
+                if isinstance(node, ast.ClassDef):
+                    methods = [n.name for n in node.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+                    m_str = f"({', '.join(methods[:3])})" if methods else ""
+                    symbols.append(f"class {node.name}{m_str}")
+                elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                    args = [a.arg for a in node.args.args][:3]
+                    symbols.append(f"def {node.name}({', '.join(args)})")
+        elif suffix in [".ts", ".tsx", ".js", ".jsx"]:
+            import re
+            for m in re.finditer(r'(export\s+)?(class|interface|type)\s+([A-Za-z0-9_]+)', content):
+                symbols.append(f"{m.group(2)} {m.group(3)}")
+            for m in re.finditer(r'(export\s+)?(async\s+)?function\s+([A-Za-z0-9_]+)', content):
+                symbols.append(f"fn {m.group(3)}()")
+        elif suffix in [".md", ".markdown"]:
+            import re
+            for m in re.finditer(r'^(#{1,3})\s+(.+)$', content, re.MULTILINE):
+                symbols.append(f"{m.group(1)} {m.group(2).strip()[:40]}")
+        return list(dict.fromkeys(symbols))[:max_symbols]
+    except Exception:
+        return []
+
+
+def get_youtube_transcript_snippet(url: str, timeout_sec=3) -> str:
+    try:
+        import re
+        import socket
+        from youtube_transcript_api import YouTubeTranscriptApi
+        m = re.search(r'(?:v=|\/)([0-9A-Za-z_-]{11})', url)
+        if not m:
+            return ""
+        v_id = m.group(1)
+        socket.setdefaulttimeout(timeout_sec)
+        yt = YouTubeTranscriptApi()
+        transcript: Any = yt.fetch(v_id, languages=['en', 'id'])
+        snippets: Any = getattr(transcript, 'snippets', transcript)
+        words = [getattr(s, 'text', str(s)) for s in snippets[:35]]
+        return " ".join(words)
+    except Exception as e:
+        return ""
+
+
 def hydrate_anchors(text: str) -> str:
     """
-    Noēsis Two-Tier Context Hydration (arXiv:2609.07663):
-    Mendeteksi path lokal dan URL secara deterministik dan menghidrasi
-    fakta struktural tanpa biaya token LLM sebelum proses generasi dimulai.
+    Noēsis Two-Tier Context Hydration (arXiv:2609.07663) + Aider RepoMap Pattern:
+    Mendeteksi path lokal, simbol AST, dan URL YouTube/Web secara deterministik
+    tanpa biaya token LLM sebelum proses generasi dimulai.
     """
     if not text:
         return ""
@@ -74,7 +129,7 @@ def hydrate_anchors(text: str) -> str:
         return ""
 
     sections = ["<AUTONOMOUS_ANCHOR_INGESTION>"]
-    sections.append("Sistem mendeteksi referensi jangkar fisik dalam instruksi pengguna (Noēsis Two-Tier Context):")
+    sections.append("Sistem mendeteksi referensi jangkar fisik dalam instruksi pengguna (Noēsis Two-Tier Context + AST RepoMap):")
 
     if all_paths:
         sections.append("\n[JANGKAR PATH LOKAL]:")
@@ -95,6 +150,8 @@ def hydrate_anchors(text: str) -> str:
                     )
                 elif p.is_file():
                     size_kb = p.stat().st_size / 1024
+                    symbols = extract_code_symbols(p)
+                    sym_info = f"\n  - AST Symbols / Struktur: {symbols}" if symbols else ""
                     preview = []
                     with open(p, "r", encoding="utf-8", errors="ignore") as f:
                         for _ in range(12):
@@ -104,7 +161,7 @@ def hydrate_anchors(text: str) -> str:
                             preview.append(line.rstrip())
                     snippet = "\n    ".join(preview[:8])
                     sections.append(
-                        f"- 📄 [BERKAS FISIK TERVERIFIKASI]: `{p_str}` ({size_kb:.1f} KB)\n"
+                        f"- 📄 [BERKAS FISIK TERVERIFIKASI]: `{p_str}` ({size_kb:.1f} KB){sym_info}\n"
                         f"  - Cuplikan Konten Awal:\n    {snippet}"
                     )
             except Exception as e:
@@ -114,7 +171,9 @@ def hydrate_anchors(text: str) -> str:
         sections.append("\n[JANGKAR TAUTAN WEB/URL]:")
         for u in urls:
             if "youtube.com" in u or "youtu.be" in u:
-                sections.append(f"- 🎥 [YOUTUBE RESOURCE]: `{u}` (Ekstrak transkrip/informasi langsung via transcribe/web_extract)")
+                yt_transcript = get_youtube_transcript_snippet(u)
+                snippet_text = f"\n  - Spoken Transcript Snippet: \"{yt_transcript}\"" if yt_transcript else ""
+                sections.append(f"- 🎥 [YOUTUBE RESOURCE]: `{u}`{snippet_text}")
             elif "github.com" in u:
                 sections.append(f"- 🐙 [GITHUB REPOSITORY]: `{u}` (Pindai repositori/struktur kode)")
             elif "arxiv.org" in u:
