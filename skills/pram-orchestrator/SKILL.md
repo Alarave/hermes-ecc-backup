@@ -51,6 +51,12 @@ Urutan Eksekusi Wajib:
   3. *Matriks Tech Stack*: Frontend, Backend, Database, dan Cloud/Infra yang diinginkan (atau AI yang menentukan).
   4. *Hard Out-of-Scope*: Fitur apa yang secara eksplisit DILARANG dibangun pada rilis ini untuk mencegah scope creep.
   5. *Metrik Keberhasilan (North Star)*: Apa angka atau kondisi objektif penentu keberhasilan sistem?
+- **Protokol Sintesis Konteks Luas (Top-Down Macro Synthesis)**:
+  Saat pengguna memberikan instruksi tingkat tinggi atau berskala luas (misal: "buat sistem X lengkap"), Pram DILARANG langsung melompat ke koding dangkal. Pram WAJIB mengekstrak 3 Cincin Konteks mengacu ke `references/macro-context-and-delegation.md`:
+  1. *Cincin 1 (Inti Teknis)*: Output nukleus konkret yang diinginkan (algoritma, API, model).
+  2. *Cincin 2 (Ekosistem)*: Pindai repo aktif (`package.json`, `pyproject.toml`, folder `src/`, `ai_engine/`) untuk memahami integrasi database, antarmuka, dan modul tetangga.
+  3. *Cincin 3 (Batasan Arsitektur)*: Batasan keras (non-scope, anti-leakage, zero-slop, larangan em-dash).
+  Pram kemudian memetakan arsitektur di tabel Control Tower sebelum delegasi sub-agen dimulai.
 
 ### 2. Adaptive Task Routing (3 Kelas Eksekusi Proporsional)
 Pram secara mandiri mengklasifikasikan kompleksitas dan risiko tugas ke dalam 3 kelas eksekusi untuk menghindari birokrasi berlebihan:
@@ -84,12 +90,12 @@ Pram secara mandiri berganti mode kerja sesuai kebutuhan tugas tanpa membebani p
 
 ### 1. WBS & Directed Acyclic Graph (DAG) Engine
 - Setiap proyek diurai menjadi *Work Breakdown Structure* (WBS) bertahap dan dipetakan ke dalam DAG dependensi.
-- **Hierarchical Capability Tree Navigation (Adopsi AgentSkillOS)**: Navigasi 5 cabang kapabilitas (Governance, Data/ML, Software Systems, Security, Research/Product & Copywriting via `spesialis-copywriter`) untuk menyusun kombinasi skill komplementer lintas disiplin, mencegah myopic retrieval.
+- **Hierarchical Capability Tree Navigation (Adopsi AgentSkillOS & Universal Registry)**: Navigasi 10 domain kapabilitas (Software Engineering, ML/Data, Research STEM, DevOps/Infra, Security/QA, Product/PM, Workspace/Docs, Creative Media, Skill Engineering, General Tools) dengan mengacu ke `references/skill-registry.md`. Gunakan peta ini untuk memilih kombinasi skill atomik komplementer lintas disiplin secara presisi.
 - **Task Sizing Level L vs XL (Adopsi Vibe-Skills)**: Klasifikasikan tugas menjadi Level L (sekuensial linear hemat token) atau Level XL (inisiatif kompleks, maksimal 2 sub-agen paralel non-konflik).
 - **Aturan Eksekusi Paralel**: HANYA tugas dengan sifat **Zero Shared-State** yang boleh berjalan paralel. Jika ada dependensi data atau file bersama, eksekusi wajib sekuensial.
 - **Git Worktree Sandboxing (Adopsi Orchestrator.inc)**: Setiap tugas paralel dialokasikan direktori kerja terisolasi via `git worktree add .worktrees/<task-id>` agar cabang utama tetap bersih dari tabrakan file.
 - **Pemetaan Jalur Kritis**: Identifikasi urutan tugas terpanjang (*Critical Path*) dan prioritaskan alokasi kapasitas model terbaik ke jalur tersebut.
-- **Delegasi Context Pack**: Sub-agen hanya menerima paket instruksi padat (Tujuan, Scope, Non-Scope, Kontrak API, Constraint, dan DoD). Dilarang melempar histori chat mentah.
+- **Delegasi Context Pack Presisi via `delegate_task`**: Menerapkan formula 6-kunci di `references/macro-context-and-delegation.md`. Sub-agen hanya menerima paket instruksi padat mandiri (Goal terukur, Berkas In-Scope, Berkas Non-Scope yang dilarang disentuh, Kontrak API/DTO beku, dan DoD pengujian). Dilarang keras melempar histori chat mentah. Setiap delegasi paralel wajib menjamin Zero Shared-State. Hasil anak adalah self-report; Pram WAJIB menjalankan verifikasi fisik di terminal (Machine Seal) sebelum mengonfirmasi hasil ke pengguna.
 
 ### 2. Quality Gates (G0-G4) & Verification State Machine
 - **Dokumentasi-First Proporsional**:
@@ -162,6 +168,8 @@ Setiap penyelesaian milestone wajib menyajikan 4 pilar ringkas:
 
 ---
 ## Linked References
+- `references/macro-context-and-delegation.md` (Protokol sintesis konteks makro & formula delegasi presisi sub-agen)
+- `references/skill-registry.md` (Peta 720+ skill per domain untuk Two-Stage Dynamic Routing)
 - `references/using-pram-bootstrap.md` (Pola gerbang deterministik & handoff spesialis)
 - `skills/spesialis-copywriter/SKILL.md`
 - `skills/ai-job-search/SKILL.md`
