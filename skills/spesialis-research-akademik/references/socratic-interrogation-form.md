@@ -11,6 +11,7 @@ Berdasarkan audit komparasi 205 naskah skripsi komputasi dan kecerdasan buatan p
 3. **Penentuan Hyperparameter Spekulatif**: Lag window time-series dipilih secara coba-coba (*trial and error*) tanpa justifikasi statistik formal (PACF / Autokorelasi Parsial).
 4. **Klaim Keunggulan Semu Tanpa Uji Signifikansi**: Model usulan diklaim lebih unggul hanya karena perbedaan metrik tipis (misal RMSE 0.02) tanpa pembuktian formal Uji Diebold-Mariano atau Wilcoxon ($p < 0.05$).
 5. **Patahnya Benang Merah Bab 1 dan Bab 5**: Poin kesimpulan (5.1) tidak menjawab butir rumusan masalah (1.2) atau tujuan penelitian (1.3), serta hanya berupa ringkasan kualitatif tanpa angka metrik penutup.
+6. **Penyalahgunaan AI Tanpa Integritas & Verifikasi**: Mengambil teks atau sitasi luaran AI mentah-mentah tanpa validasi primer dan menyembunyikan penggunaannya dari dosen pembimbing/promotor (dimitigasi melalui penegakan 15 pilar prinsip "Bukan, Melainkan" mengacu ke `references/prinsip-bukan-melainkan-etika-ai.md`).
 
 Form Interogasi Sokratis dirancang untuk membedah dan memitigasi seluruh kelemahan di atas sebelum naskah ditulis.
 
