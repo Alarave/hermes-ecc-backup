@@ -11,7 +11,7 @@
 ---
 ## 2. Taksonomi 10 Domain Kapabilitas Utama
 
-### Domain: Software Engineering & Architecture (332 Skills)
+### Domain: Software Engineering & Architecture (333 Skills)
 - **Lead PIC Spesialis**: `spesialis-backend / spesialis-frontend`
 - **Daftar Lengkap Skill**:
   - `academic-researcher`, `accessibility`, `adaptyv`, `agency-grade-ui`, `agent-architecture-audit`, `agent-harness-construction`, `agent-merge-conflict-arbiter`, `agent-sort`
@@ -34,7 +34,7 @@
   - `healthcare-cdss-patterns`, `healthcare-emr-patterns`, `healthcare-phi-compliance`, `hedgefundmonitor`, `hexagonal-architecture`, `hipaa-compliance`, `histolab`, `homelab-vlan-segmentation`
   - `hypothesis-generation`, `hypothesis-testing`, `imagegen`, `ios-icon-gen`, `ito-compute`, `ito-trade-planner`, `java-coding-standards`, `jpa-patterns`
   - `jupyter-notebook`, `knowledge-ops`, `kotlin-coroutines-flows`, `kotlin-exposed-patterns`, `kotlin-ktor-patterns`, `kotlin-patterns`, `kotlin-testing`, `kubernetes-patterns`
-  - `laporan-generator-thesis`, `laravel-patterns`, `laravel-plugin-discovery`, `laravel-security`, `laravel-tdd`, `laravel-verification`, `latchbio-integration`, `latex-submission-pipeline`
+  - `landing-page-design`, `laporan-generator-thesis`, `laravel-patterns`, `laravel-plugin-discovery`, `laravel-security`, `laravel-tdd`, `laravel-verification`, `latchbio-integration`, `latex-submission-pipeline`
   - `liquid-glass-design`, `literature-review`, `llm-trading-agent-security`, `mailtrap-email-integration`, `manim-video`, `manuscript-as-code`, `mathematical-logic-expert`, `mcp-server-patterns`
   - `mermaid-expert`, `mermaid-visualizer`, `metabolomics-workbench-database`, `ml-pipeline-workflow`, `mlops-zoomcamp-scaffold`, `motion-advanced`, `motion-foundations`, `motion-patterns`
   - `motion-ui`, `multi-platform-scraper`, `mysql-patterns`, `nestjs-patterns`, `netmiko-ssh-automation`, `network-bgp-diagnostics`, `networkx`, `nextjs-turbopack`
