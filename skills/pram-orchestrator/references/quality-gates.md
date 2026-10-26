@@ -197,7 +197,7 @@ Pram membagi pengujian independen pada gerbang Gate G4 ke dalam dua jalur audit 
   1. *Kesesuaian Spesifikasi PRD*: Apakah fungsi yang dibangun benar-benar menyelesaikan masalah bisnis yang tertuang di PRD, atau agen hanya membangun fitur dummy yang tampak selesai di permukaan?
   2. *Deteksi Jalan Pintas (Anti-Specification Gaming)*: Memeriksa apakah ada penghapusan kasus uji sulit, penambahan data palsu yang di-hardcode (*mock data disguised as real feature*), atau pelemahan asumsi validasi.
   3. *Integritas Batas Bounded Context*: Memastikan kode modul tidak melakukan pelanggaran arsitektur, seperti mengimpor modul internal domain lain atau menjalankan cross-domain SQL joins.
-  4. *Audit Kebersihan Bahasa*: Memverifikasi dokumentasi dan teks antarmuka bebas dari kalimat klise AI-slop, hiperbola kosong, dan bebas dari tanda pisah em dash atau en dash.
+  4. *Audit Anti-Slop 3-Pilar*: Memverifikasi deliverable mematuhi `anti-ai-slop-standard.md` (Kode: bebas komentar AI naratif dan any casts; UI: kelengkapan status komponen dan kontras WCAG; Naskah: bebas 294 pola klise dan leksikon 96 istilah). Bebas dari karakter tanda pisah em dash atau en dash.
 
 ### Jalur 2: Machine Seal (Audit Eksekusi Mesin, Kompilasi & Keamanan)
 - **Penanggung Jawab**: Test Runner Terminal, Compiler Otomatis, Linter Statis, dan Security Scanner.

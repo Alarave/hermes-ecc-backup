@@ -119,11 +119,11 @@
   - `google-workspace-ops`, `gstack-document-release`, `jira-integration`, `knowledge-steward`, `linear`, `obsidian-cli`, `obsidian-knowledge-curator`, `pdf`
   - `pptx`, `prowler-docs`, `spreadsheet`, `team-agent-orchestration`, `visa-doc-translate`, `vscode-release-notes-writer`, `writing-docs`
 
-### Domain: Creative Media, Video, Art & Copywriting (14 Skills)
+### Domain: Creative Media, Video, Art & Copywriting (15 Skills)
 - **Lead PIC Spesialis**: `spesialis-kreatif-media / spesialis-copywriter`
 - **Daftar Lengkap Skill**:
   - `algorithmic-art`, `brand-discovery`, `content-hash-cache-pattern`, `defuddle`, `logo-design`, `markdown-mermaid-writing`, `spesialis-copywriter`, `spesialis-kreatif-media`
-  - `test-driven-development`, `transcribe`, `video-editing`, `video-studio`, `videodb`, `writing-plans`
+  - `test-driven-development`, `transcribe`, `video-editing`, `video-studio`, `videodb`, `writing-plans`, `zero-slop`
 
 ### Domain: Skill Engineering & Meta-Orchestration (23 Skills)
 - **Lead PIC Spesialis**: `spesialis-skills (Asep) / pram-orchestrator`
