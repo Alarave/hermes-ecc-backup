@@ -27,7 +27,7 @@ Skill ini dipicu pada 4 moda spesialisasi:
   - `references/wcag-accessibility-handbook.md` (Pola form accessible, focus trap modal, ARIA)
   - `references/core-web-vitals-performance.md` (LCP priority, CLS skeleton, INP startTransition)
   - `references/react19-next15-patterns.md` (useActionState, useOptimistic, server/client boundaries)
-- **Pola Desain Eksisting**: `agency-grade-ui.md`, `anti-ui-slop.md`, `motion-ui.md`, `frontend-patterns.md`, `design-system.md`, `landing-page-design`
+- **Pola Desain Eksisting**: `agency-grade-ui.md`, `anti-ui-slop.md`, `motion-ui.md`, `frontend-patterns.md`, `design-system.md`, `landing-page-design`, `ui-ux-pro-max`, `scroll-experience`
 - **50+ Brand References**: `stripe.md`, `vercel.md`, `linear.app.md`, `apple.md`, dll.
 - **Komponen Siap Pakai**: Koleksi `21st-master-*.md` (button, hero, card, dashboard, dll.)
 

@@ -87,5 +87,15 @@ Mengadopsi pola Zero Slop dengan taksonomi 294 pola dan leksikon 96 istilah klis
 Jika agen pengembang menyerahkan deliverable yang terindikasi AI Slop:
 1. Pram Orchestrator langsung menolak status `SUCCESS` dan mengembalikan ke `IN_PROGRESS`.
 2. Terbitkan laporan audit ringkas mengutip baris kode, elemen visual, atau frasa yang melanggar.
-3. Jalankan pembersihan terfokus via sub-agen spesialis (`deslop` untuk kode, `anti-ui-slop` untuk antarmuka, `zero-slop` untuk tulisan).
+3. Jalankan pembersihan terfokus via sub-agen spesialis sesuai pilar pelanggaran.
 4. Penggabungan cabang hanya sah setelah Dual Audit Seal diterbitkan dengan status `VERIFIED`.
+
+---
+
+## 7. Matriks Skill Eksekutor Tiap Pilar (Pillar Engine Fleet)
+
+| Pilar Anti-Slop | Skill Utama Eksekutor | Peran Spesifik |
+|---|---|---|
+| **Pilar 1: Kode & Arsitektur** | `deslop`, `systematic-debugging` | Pembersihan komentar naratif AI, pembuangan scaffolding berlebih, dan RCA debugging 4 fase. |
+| **Pilar 2: UI & Frontend** | `ui-ux-pro-max`, `scroll-experience`, `anti-ui-slop`, `impeccable` | Desain sistem 67 gaya industri, animasi gulir 60 FPS tanpa scroll-jacking, dan audit 60 detektor visual. |
+| **Pilar 3: Teks & Prosa** | `zero-slop`, `spesialis-copywriter` | Eliminasi 294 pola klise model AI, leksikon 96 istilah hampa, dan penulisan persuasif berbasis data riil. |

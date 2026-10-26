@@ -11,7 +11,7 @@
 ---
 ## 2. Taksonomi 10 Domain Kapabilitas Utama
 
-### Domain: Software Engineering & Architecture (333 Skills)
+### Domain: Software Engineering & Architecture (335 Skills)
 - **Lead PIC Spesialis**: `spesialis-backend / spesialis-frontend`
 - **Daftar Lengkap Skill**:
   - `academic-researcher`, `accessibility`, `adaptyv`, `agency-grade-ui`, `agent-architecture-audit`, `agent-harness-construction`, `agent-merge-conflict-arbiter`, `agent-sort`
@@ -47,13 +47,13 @@
   - `quarkus-patterns`, `quarkus-security`, `quarkus-tdd`, `quarkus-verification`, `ralph-loop`, `rdkit`, `react-best-practices`, `react-native-patterns`, `react-patterns`
   - `react-performance`, `react-testing`, `receiving-code-review`, `redis-patterns`, `remotion-video-creation`, `requesting-code-review`, `research-grants`, `research-lookup`
   - `research-title-formulator`, `rowan`, `rust-patterns`, `rust-testing`, `scientific-brainstorming`, `scientific-db-pubmed-database`, `scientific-db-uspto-database`, `scientific-pkg-gget`
-  - `scientific-slides`, `scikit-learn`, `scikit-survival`, `scrapling`, `scrapling-official`, `search-first`, `security-best-practices`, `security-bounty-hunter`
+  - `scientific-slides`, `scikit-learn`, `scikit-survival`, `scrapling`, `scrapling-official`, `scroll-experience`, `search-first`, `security-best-practices`, `security-bounty-hunter`
   - `security-ownership-map`, `security-review`, `security-reviewer`, `security-scan`, `security-threat-model`, `senior-data-scientist`, `senior-ml-engineer`, `senior-prompt-engineer`
   - `similarity-search-patterns`, `simpy`, `slides-as-code`, `social-publisher`, `speckit-analyze`, `speckit-implement`, `speckit-taskstoissues`, `spesialis`
   - `spesialis-backend`, `spesialis-devops-infrastruktur`, `spesialis-frontend`, `spesialis-mobile`, `spesialis-produktivitas-workspace`, `spesialis-research-akademik`, `spesialis-security-qa`, `spesialis-ui-templates`
   - `springboot-patterns`, `springboot-security`, `springboot-tdd`, `springboot-verification`, `stable-baselines3`, `supabase-postgres-best-practices`, `swift-actor-persistence`, `swift-concurrency-6-2`, `swift-protocol-di-testing`
   - `swiftui-patterns`, `sympy`, `systematic-debugging`, `taste`, `tdd-guide`, `tdd-workflow`, `team-builder`, `tensorboard`
-  - `tinystruct-patterns`, `transformer-lens-interpretability`, `transformers`, `treatment-plans`, `ui-design`, `ui-to-vue`, `unified-notifications-ops`, `uniprot-database`
+  - `tinystruct-patterns`, `transformer-lens-interpretability`, `transformers`, `treatment-plans`, `ui-design`, `ui-to-vue`, `ui-ux-pro-max`, `unified-notifications-ops`, `uniprot-database`
   - `usfiscaldata`, `uspto-database`, `venue-templates`, `vite-patterns`, `vue-patterns`, `windows-desktop-e2e`, `windows-hook-debugging`, `x-api`
   - `xan`, `xlsx`, `yeet`, `zarr-python`
 
