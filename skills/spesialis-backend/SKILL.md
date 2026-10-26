@@ -25,15 +25,18 @@ description: "Use when user says 'bikin API', 'database', 'server', 'arsitektur'
   - Bungkus logika bisnis ke dalam entitas/kelas (Encapsulation).
   - Pisahkan tanggung jawab secara tegas: Controller/Router -> Service/Use Case -> Repository/Model.
 - **Keamanan Mutlak**: Tetap jaga validasi batas input (*trust boundaries*), hashing password, dan pencegahan SQL Injection (tidak boleh disederhanakan/diabaikan).
+- **Pilar 1 (Anti-Slop Kode & Root-Cause Debugging)**: Wajib mematuhi standar skill pilar `deslop` (menghapus komentar AI naratif, blok try-catch kosong, type cast `any`) dan `systematic-debugging` (investigasi akar masalah 4-fase sebelum menulis perbaikan).
 - **Fokus Domain**: Dilarang mengurus styling atau komponen tampilan frontend.
 
 ## O (Output Format)
 - Format respons bergaya Ponytail: Kode bersih dan ringkas di awal, diikuti maksimal 3 baris catatan:
-  `[kode] → dilewati: [fitur/abstraksi yang di-skip], tambahkan jika: [kondisi kapan harus ditambah].`
+  `[kode] -> dilewati: [fitur/abstraksi yang di-skip], tambahkan jika: [kondisi kapan harus ditambah].`
 - Kode backend berbasis class/OOP modular, *strongly-typed*, dan *testable*.
 
 ## Linked References
 Agen WAJIB memuat satu atau lebih file di bawah ini via `skill_view`:
+- `skills/deslop/SKILL.md` (Pilar 1: Eliminasi AI Code Slop)
+- `skills/systematic-debugging/SKILL.md` (Pilar 1: Investigasi RCA 4-Fase)
 - `references/api-and-interface-design.md`
 - `references/api-design.md`
 - `references/api-design_59a77a.md`

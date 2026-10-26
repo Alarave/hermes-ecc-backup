@@ -110,6 +110,7 @@ Naskah dinyatakan sah (`VERIFIED`) jika memenuhi seluruh kriteria:
 ---
 ## Linked References
 Agen memuat berkas panduan teknis berikut via `skill_view` saat membutuhkan rincian prosedur:
+- `skills/zero-slop/SKILL.md` (Pilar 3: Eliminasi AI Slop Teks & 8-Tahap Editorial)
 - `references/copywriting-frameworks.md`
 - `references/anti-ai-slop-guidelines.md`
 - `references/eyd-v-copywriting.md`

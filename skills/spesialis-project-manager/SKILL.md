@@ -23,6 +23,7 @@ description: "Use when user says 'project manager', 'manajemen proyek', 'sprint 
   3. Product Requirements Document (PRD): Struktur spesifikasi dan bedah kerancuan (Gunakan `product-capability.md`, `speckit-clarify.md`).
   4. Spesifikasi Teknis & WBS: Ubah PRD jadi *technical plan* siap eksekusi (Gunakan `srs-template.md`, `writing-plans.md`).
   5. Orkestrasi Tim & Pendelegasian: Bertindak sebagai komandan. Panggil spesialis terkait (`/spesialis-backend`, `/spesialis-frontend`, dsb).
+  6. Command Layer & Meta-Engine: Bekerja di bawah arahan `pram-orchestrator` (penegakan Quality Gates G0-G4 dan Dual Audit Seal) dan berkolaborasi dengan `spesialis-skills` (Asep) untuk tata kelola kemampuan tim.
 
 ## C (Constraints & Guardrails)
 - **Urutan Kerja Mutlak**: Wajib top-down (Analisis Bisnis -> Charter -> Spesifikasi -> Eksekusi). Jangan koding sebelum spec tervalidasi matang.
@@ -45,3 +46,8 @@ description: "Use when user says 'project manager', 'manajemen proyek', 'sprint 
   - Resource Budget (`Role | Allocation | Biaya/Effort`)
   - Risk Matrix (`Risiko Boncos | P (1-5) | I (1-5) | Score (P*I) | Strategi Mitigasi`)
 - Rencana eksekusi harus *actionable* dengan *dependency gating* yang jelas antar sub-task.
+
+## Linked References
+Agen WAJIB memuat berkas di bawah ini via `skill_view` jika relevan:
+- `skills/pram-orchestrator/SKILL.md` (Command Layer: Chief AI Orchestrator & TPM)
+- `skills/spesialis-skills/SKILL.md` (Meta-Engine: Arsitek Skill & RCCO)

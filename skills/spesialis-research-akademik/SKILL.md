@@ -42,9 +42,9 @@ Dipicu saat mengeksekusi pipeline riset akademik dari penemuan ide, formulasi ju
 
 ### 2. Empat Mode Operasional Mandiri
 Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
-1. **Socratic Grill Mode (Penguji Sidang Garis Keras)**:
-  - Aktif saat pengguna mengajukan ide topik, merumuskan judul, atau menyusun argumen masalah.
-  - Agen bertindak skeptis, menantang validitas data awal lapangan, menguji kelemahan baseline, dan mengejar pembuktian novelty sebelum naskah diizinkan ditulis.
+1. **Socratic Grill Mode (Penguji Sidang Garis Keras & Grounded Intake)**:
+  - Pada intake awal (Siklus 1), gunakan Grounded Discovery: tuntun dari topik umum, objek riset, kendala riil lapangan, hingga pilihan metode tanpa menghakimi.
+  - Uji skeptis garis keras (Siklus 1B) hanya aktif setelah draf awal disepakati bersama atau saat pengguna meminta simulasi sidang/uji ketajaman novelty.
 2. **Literature & Methodology Mode (Penyusunan Metodologi & SOTA)**:
   - Aktif saat merancang Bab 2 dan Bab 3.
   - Menegakkan protokol PRISMA untuk literatur (minimal 80% jurnal 5 tahun terakhir), kerangka baku CRISP-DM / SDLC, protokol Anti-Data Leakage mutlak (split train/test sebelum scaling/dekomposisi), dan visualisasi vektor FigGenie.
@@ -53,13 +53,17 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
   - Menghitung metrik performa multivariat (RMSE, MAE, MAPE, R2, MDA, F1) dan WAJIB membuktikan keunggulan model via uji signifikansi statistik formal (Diebold-Mariano / Wilcoxon p < 0.05).
 4. **Drafting, Typesetting Fisik & Slide Sidang Mode (Perakitan Naskah Siap Sidang)**:
   - Aktif saat menyusun draf naskah Bab 1 sampai Bab 5 dan persiapan berkas cetak siap sidang.
-  - Menegakkan geometri fisik (kertas A4, margin 4-4-3-3 cm, Times New Roman 12 pt, 1.5 spasi), dual pagination (Romawi tengah bawah vs Arab kanan atas), format caption (tabel di atas, gambar di bawah), keterpaduan benang merah (Tujuan 1.3 selaras 1:1 dengan Kesimpulan 5.1), dan slide presentasi PPTX.
+  - Menggunakan **WordCraft MCP (`mcp__wordcraft__*`)** serta CLI `wordcraft-cli` sebagai engine utama penyusunan dokumen interaktif/headless (`.docx` & `.pdf`), berdampingan dengan Typst/Pandoc (`laporan-generator`).
+  - Menegakkan geometri fisik (kertas A4, margin 4-4-3-3 cm = `top: 113.39, left: 113.39, bottom: 85.04, right: 85.04` pt pada `layout.margins`, Times New Roman 12 pt, 1.5 spasi, indentasi `firstLine: 28.35` pt), dual pagination (Romawi tengah bawah vs Arab kanan atas via `layout.differentFirstPage` & `layout.pageNumberFormat`), format caption (`references.caption`: tabel di atas, gambar di bawah), sitasi Zotero (`wordcraft-cli zotero`), audit visual halaman (`mcp__wordcraft__render_page`), keterpaduan benang merah (Tujuan 1.3 selaras 1:1 dengan Kesimpulan 5.1), dan slide presentasi PPTX. Panduan teknis lengkap mengacu ke `references/wordcraft-mcp-typesetting.md`.
 
 ### 3. Standar Preset Khusus Universitas Gunadarma (FIKTI/FTI)
 - **Geometri Fisik**: Kertas A4 80g, Margin Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm.
 - **Tipografi**: Times New Roman 12 pt, 1.5 spasi, indentasi awal paragraf 1 cm, teks rata kiri-kanan (*justify*).
 - **Sistematika Numerik Arab**: Bab 1 sampai 5 menggunakan nomor Arab (`1. PENDAHULUAN`, `2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).
-- **Ruang Lingkup 8-Poin**: Sub-bab 1.2 wajib menggunakan istilah *"Ruang Lingkup"* dan merinci 8 aspek pembatas secara tegas.
+- **Ruang Lingkup 8-Poin Natural**: Sub-bab 1.2 wajib menggunakan istilah *"Ruang Lingkup"* dan merinci 8 aspek pembatas dalam bentuk kalimat bernomor yang mengalir alami, DILARANG menggunakan format key-value tebal kaku seperti `**Objek**: ...`.
+- **Aturan Hemat Tanda Kurung (Parenthesis Economy)**: Kepadatan tanda kurung dibatasi maksimal 10 pasang per 1.000 kata. DILARANG KERAS menyisipkan istilah asing di dalam kurung setelah terjemahannya. Istilah asing langsung ditulis miring (*italic*) mengalir di dalam kalimat tanpa kurung. Tanda kurung hanya untuk singkatan pertama kali, tahun sitasi, dan nomor pasal.
+- **Prinsip Atribut Statis vs Dinamis (Anti-Mismatch Sidang)**: Verifikasi kemasan e-commerce wajib difokuskan pada atribut legal permanen (Merek, Netto/Volume, Nomor Izin Edar BPOM/P-IRT). DILARANG memasukkan atribut dinamis per-batch pengiriman seperti tanggal kedaluwarsa ke dalam pencocokan citra katalog statis karena foto seller bersifat generik/lama sehingga menimbulkan false mismatch yang mematikan saat sidang.
+- **Sistematika Penulisan Natural (Anti-AI-Slop)**: Sub-bab 1.4 wajib disusun dalam 5 paragraf terpisah yang runtut dan menggunakan sintaksis akademik baku berbasis bukti korpus `E:\SKRIPSI_UPNVJ_TEXT`. DILARANG KERAS menggunakan kata klise AI seperti *"membedah"*, *"saling berkesinambungan"*, *"memetakan 1:1"*, atau meta-prompting yang bocor.
 - **Dual Pagination**: Angka Romawi kecil (`i, ii, iii...`) di tengah bawah untuk bagian awal; Angka Arab (`1, 2, 3...`) di kanan atas untuk bagian inti, kecuali halaman awal bab di tengah bawah.
 
 ---
@@ -68,8 +72,9 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 ### 1. Formulasi Judul & Validitas Masalah (Problem-First)
 - **Anti-Copy-Paste Korpus**: Korpus skripsi lokal (`E:\SKRIPSI_UPNVJ_PDF` dan `E:\SKRIPSI_UPNVJ_TEXT`) digunakan murni untuk menganalisis format penulisan, diagram metodologi sahih, sintaksis ilmiah, dan pemetaan celah (gap), BUKAN untuk menyalin ide judul.
 - **Protokol Audit Korpus Skripsi Lokal**: Memindai naskah `*_ABSTRAK.pdf.txt`, `*_BAB 3*.pdf`, atau `*_AWAL.pdf.txt` menggunakan kata kunci domain (seperti `prediksi`, `klasifikasi`, `yolo`, `lstm`, `nlp`) untuk mengekstrak 3 elemen kunci: model baseline terdahulu, celah riset (research gap), dan diagram alur tahapan penelitian untuk dieksekusi langsung pada Mode 4.
-- **Uji Data Awal Lapangan**: Wajib eksekusi `research-title-formulator` sebelum menulis naskah. Tolak ide judul tanpa data awal riil (angka kerugian, inefisiensi, atau grafik anomali).
-- **Pembuktian Novelty & Baseline**: Wajib mengidentifikasi kelemahan model baseline saat ini dan membuktikan minimal 1 dari 3 pilar novelty: algoritmik, domain, atau evaluasi.
+- **Uji Data Awal Lapangan & Mode Bantuan Eksplorasi**: Wajib eksekusi `research-title-formulator` sebelum menulis naskah. Jika pengguna belum memiliki data konkret lapangan atau men-skip detail teknis, DILARANG menolak atau memojokkan; agen wajib otomatis mengaktifkan Mode Bantuan Eksplorasi (merekomendasikan dataset publik bersih dan studi kasus kampus lokal) sebelum masuk ke validasi kritis.
+- **Pembuktian Novelty & Baseline Bertahap**: Identifikasi kelemahan baseline dan pembuktian novelty (algoritmik, domain, evaluasi) dilakukan setelah objek dan kendala riil lapangan terkunci, bukan di awal interaksi.
+- **Framing Bebas Kontroversi Komoditas Sensitif**: Untuk riset komoditas agro-industri (seperti kelapa sawit), pisahkan secara tegas aspek teknis dari isu sosial/ekologi (seperti deforestasi atau alih fungsi lahan). Kunci rumusan masalah murni pada kendali mutu pascapanen (penekanan kadar asam lemak bebas / ALB / FFA, maksimasi rendemen CPO), konsistensi otomatisasi sortasi di pabrik (menggantikan kelelahan visual manusia), dan keselamatan kerja (K3) buruh pemanen.
 
 ### 2. Pencarian Literatur & Matriks SOTA (Bab 2)
 - **Database Utama**: Wajib memvalidasi klaim ke ArXiv, PubMed, Semantic Scholar (via MCP), atau Google Scholar/Perplexity. DILARANG menggunakan pengetahuan internal tanpa flag `[Butuh Sitasi]`.
@@ -82,6 +87,7 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 - **Anti-Data Leakage Mutlak**: Pemisahan data latih dan uji (*Train/Test Split*) WAJIB dilakukan sebelum operasi penskalaan (*scaling*), imputasi, atau dekomposisi sinyal (CEEMDAN).
 - **Time-Series Guard**: Khusus data deret waktu, dilarang melakukan random shuffle (*temporal order preserved*). Penentuan lag lookback wajib berbasis analisis statistik formal (PACF/korelasi).
 - **Visualisasi Alir Metodologi (FigGenie)**: Diagram alir penelitian wajib menggunakan engine vektor `figgenie-paper-diagram` (format SVG 240pt/504pt dan PDF tight-box untuk naskah skripsi).
+- **Benchmarking Komparasi Vision (CNN vs Transformer/RT-DETR)**: Ketika membandingkan model deteksi objek modern (misal lini YOLO vs RT-DETR/RT-DETRv2), jadikan perbedaan eliminasi NMS (komputasi post-processing konvensional vs arsitektur transformer end-to-end NMS-free) sebagai pisau analisis pembeda. Waspadai inkonsistensi format dataset: YOLO memerlukan format file txt normalisasi terpisah, sedangkan RT-DETRv2 pada ekosistem Hugging Face memerlukan format COCO JSON.
 
 ### 4. Pengujian Sistem, Evaluasi & Signifikansi Statistik (Bab 4)
 - **Pengujian Ganda**:
@@ -101,15 +107,17 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 ---
 ## O (Output Format & Definition of Done)
 
-Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Halusinasi), Audit Integritas Data, dan menghasilkan **Bundel 5 Artefak Fisik** di folder `artifacts/skripsi/`:
-1. `naskah_skripsi.pdf`: Dokumen A4 lengkap dengan batas margin 4-4-3-3 dan Dual Pagination sempurna.
-2. `naskah_skripsi.docx`: Berkas Word hasil kompilasi Pandoc dengan sitasi otomatis BibTeX/IEEE.
-3. `slide_sidang_skripsi.pptx`: Slide presentasi sidang sarjana lengkap dengan diagram vektor native FigGenie.
-4. `figures/`: Kumpulan berkas sumber diagram vektor `.svg` dan formula `.tex`.
-5. `reproducible_code/`: Skrip Python pengujian mandiri (*data split*, *training*, *evaluasi metrik*, dan *uji Diebold-Mariano*).
+Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Halusinasi), Audit Integritas Data, mematuhi batas tanda kurung (maksimal 10 pasang per 1.000 kata), bebas format key-value kaku, dan menghasilkan **Bundel Artefak Fisik Terstruktur**:
+1. `docs/naskah_skripsi_gunadarma.pdf`: Dokumen A4 lengkap dengan batas margin 4-4-3-3 cm, Times New Roman 12 pt, 1.5 spasi, dan Dual Pagination sempurna (dihasilkan via WordCraft MCP `mcp__wordcraft__save_document` atau Typst, serta diverifikasi bebas potong via `mcp__wordcraft__render_page`).
+2. `docs/naskah_skripsi_gunadarma.docx`: Berkas Word native hasil perakitan WordCraft MCP (`mcp__wordcraft__*` / `wordcraft-cli`) atau kompilasi Pandoc.
+3. `docs/slide_sidang_skripsi.pptx`: Slide presentasi sidang sarjana lengkap dengan diagram vektor native FigGenie.
+4. `src/`: Skrip Python pengujian mandiri (*data split*, *training*, *evaluasi metrik*, dan *uji Diebold-Mariano/McNemar*).
+5. `tools/generators/`: Tempat isolasi seluruh skrip generator sementara dan data JSON mentah agar root direktori tetap steril.
 
 ---
 ## Linked References
+- `skills/zero-slop/SKILL.md` (Pilar 3: Eliminasi AI Slop Naskah Ilmiah & 100% Fidelitas Fakta)
+- `references/wordcraft-mcp-typesetting.md`
 - `references/socratic-interrogation-form.md`
 - `references/pedoman-tipografi-format.md`
 - `references/agent-memory-benchmarks.md`

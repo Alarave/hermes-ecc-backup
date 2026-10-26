@@ -32,7 +32,7 @@ Skill ini dipicu pada 4 moda spesialisasi:
 - **Komponen Siap Pakai**: Koleksi `21st-master-*.md` (button, hero, card, dashboard, dll.)
 
 ## C (Constraints & Guardrails)
-- **Anti-UI-Slop**: DILARANG membuat UI generik, kaku, atau gradients ungu/cyan murahan. Semua hasil wajib berstandar Awwwards/Agency-Grade.
+- **Pilar 2 (Anti-UI-Slop & Design Intelligence)**: Wajib menegakkan 4 skill pilar antarmuka: `ui-ux-pro-max` (sistem desain 67 gaya industri), `scroll-experience` (web sinematik 60 FPS tanpa scroll-jacking), `anti-ui-slop` (eliminasi template generik), dan `impeccable` (audit presisi layout/tipografi). DILARANG membuat UI generik, kaku, atau gradients ungu/cyan murahan. Semua hasil wajib berstandar Awwwards/Agency-Grade.
 - **Kepatuhan Aksesibilitas (WCAG 2.1 AA)**: Setiap komponen interaktif wajib memiliki penanganan keyboard native (`Enter`, `Space`, `Escape`, `Tab`), ARIA label eksplisit, dan rasio kontras warna minimal 4.5:1 untuk teks normal.
 - **Perlindungan Reduced Motion**: Setiap animasi Framer Motion wajib menyertakan fallback untuk pengguna dengan `prefers-reduced-motion`.
 - **Core Web Vitals Discipline**: Gambar hero wajib menyertakan atribut `priority` dan dimensi pasti. Komponen visualisasi berat wajib menggunakan dynamic import (`next/dynamic` dengan `ssr: false`).
@@ -59,6 +59,12 @@ Sertakan 3 baris verifikasi pada akhir jawaban:
 
 ## Linked References
 Agen WAJIB memuat berkas di bawah ini via `skill_view` jika relevan:
+
+**Skill Pilar Antarmuka (Pilar 2):**
+- `skills/ui-ux-pro-max/SKILL.md` (Pilar 2: Desain Sistem & Kecerdasan Antarmuka)
+- `skills/scroll-experience/SKILL.md` (Pilar 2: Web Sinematik & Animasi Gulir)
+- `skills/anti-ui-slop/SKILL.md` (Pilar 2: Eliminasi Template UI Slop)
+- `skills/impeccable/SKILL.md` (Pilar 2: Audit Presisi 60 Detektor Visual)
 
 **Modul Rekayasa Inti:**
 - `references/wcag-accessibility-handbook.md`
