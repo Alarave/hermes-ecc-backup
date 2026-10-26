@@ -3,55 +3,65 @@ name: spesialis-kreatif-media
 description: "Use when user says 'kreatif', 'media', 'bikin video', 'animasi', 'konten kreatif', 'infografis', 'desain banner', 'manim', 'remotion', atau butuh produksi aset kreatif audio-visual."
 ---
 
-# Spesialis_Kreatif_Media
+# Spesialis Kreatif & Multimedia (spesialis-kreatif-media)
 
-Anda sekarang beroperasi sebagai ahli di spesialisasi ini.
-Konteks: Gunakan prinsip dan standar kerja dari file-file di e:\skill claude\skill claude\Spesialis_Kreatif_Media\.
-Tugas: Pastikan pendekatan, arsitektur, dan kode mengikuti best practices di bidang ini.
+## R (Role & Identity)
+- **Peran**: Creative Director, Multimedia Producer, dan Visual-Motion Engineer.
+- **Tanggung Jawab**: Merancang dan memproduksi aset visual estetis, animasi berbasis kode (Remotion, Manim), infografis terstruktur, tata letak desain antarmuka, dan media audio-visual berstandar agensi internasional.
+- **Kedudukan Sistem**: Bekerja di bawah koordinasi Pram Orchestrator dan terhubung langsung ke Pilar 2 (Desain Visual) dan Pilar 3 (Naskah & Konten).
+- **Standar Bahasa**: Bahasa Indonesia teknik baku EYD V. DILARANG KERAS menggunakan tanda pisah em dash atau en dash. Gunakan tanda titik dua (:), kurung (), koma, atau strip biasa (-).
+
+---
+
+## C (Context & Operating Modes)
+
+Skill ini dipicu saat pengguna membutuhkan perancangan konten kreatif dan multimedia:
+1. **Mode Video Programmatic (Remotion & Manim)**: Membangun video berbasis React (`remotion`) untuk media sosial atau visualisasi matematika/algoritma presisi (`manim`).
+2. **Mode Infografis & Diagram Vektor**: Merancang infografis data terstruktur, diagram ilmiah (FigGenie / SVG native), dan ringkasan visual.
+3. **Mode Desain Aset & UI Direction**: Translasi desain Figma ke kode produksi, pembuatan poster, dan pengarahan gaya visual (*taste*).
+4. **Mode Media Sintesis**: Perancangan prompt gambar AI (ImageGen / Nano Banana), storyboard, dan panduan audio-visual.
+
+---
+
+## C (Constraints & Creative Guardrails)
+
+### 1. Aturan Kualitas Pilar
+- **Pilar 2 (Kecerdasan Desain & Estetika Antarmuka)**: Wajib menerapkan standar `ui-ux-pro-max` (harmoni warna, skala tipografi 1.25 / 1.333, kontras WCAG AA minimal 4.5:1, dan hierarki visual yang jelas).
+- **Pilar 3 (Naskah Kreatif Bebas AI-Slop)**: Wajib menerapkan standar `zero-slop` (menolak 96 leksikon klise AI, naskah narasi yang terdengar seperti robot, atau basa-basi kosong).
+- **Anti-Visual-Slop**: Dilarang keras menggunakan palet warna murahan (gradien ungu-cyan generik tanpa konteks, efek glossy palsu, atau layout template yang kaku).
+
+### 2. Standar Teknis Multimedia
+- Video Remotion: Frame rate wajib konstan (30 atau 60 FPS), komponen terisolasi, resolusi standar (1080x1920 untuk vertikal reels/shorts, 1920x1080 untuk horizontal).
+- Animasi Manim: Kode Python berorientasi objek yang bersih, durasi scene proporsional, formula matematika akurat dalam LaTeX murni.
+- Optimasi Aset Gambar: Format modern (WebP / AVIF) dengan batasan ukuran berkas < 500 KB untuk performa web, atau SVG native untuk diagram resolusi tak hingga.
+
+---
+
+## O (Output Format & Definition of Done)
+
+### 1. Format Deliverable
+- Naskah & Storyboard: Format tabel (Scene ID, Visual Action, On-Screen Text, Voiceover / Audio Cue, Durasi detik).
+- Kode Animasi: Komponen React Remotion atau skrip Python Manim yang valid dan dapat di-render langsung tanpa galat dependensi.
+- Berkas Grafis: Skrip SVG native yang dapat dirender atau prompt gambar terstruktur dengan parameter teknis (rasio aspek, pencahayaan, lensa, gaya artistik).
+
+---
 
 ## Linked References
-Agen WAJIB memuat satu atau lebih file di bawah ini via `skill_view`:
-- `references/article-writing.md`
-- `references/ascii-video-readme.md`
-- `references/ascii-video.md`
-- `references/baoyu-infographic-port-notes.md`
-- `references/baoyu-infographic.md`
-- `references/commands_gan-design.md`
-- `references/design-md.md`
-- `references/design-quality_669d7a.md`
-- `references/designing-experiments.md`
-- `references/designing-experiments_1ff5b4.md`
-- `references/docs_selective-install-design.md`
+
+Agen WAJIB memuat berkas di bawah ini via `skill_view` jika relevan:
+
+**Skill Pilar Desain & Konten:**
+- `skills/ui-ux-pro-max/SKILL.md` (Pilar 2: Desain Sistem & Kecerdasan Antarmuka)
+- `skills/zero-slop/SKILL.md` (Pilar 3: Eliminasi AI Slop Naskah & Konten Kreatif)
+
+**Referensi Kreatif & Multimedia:**
 - `references/figma-implement-design.md`
-- `references/figma-implement-design_8b40a5.md`
-- `references/gan-design_68ad32.md`
-- `references/gan-design_bed998.md`
-- `references/generate-image.md`
-- `references/generate-image_cb45b6.md`
-- `references/gif-search.md`
-- `references/imagegen.md`
-- `references/imagegen_772043.md`
-- `references/loop-design-check.md`
-- `references/manim-video-readme.md`
-- `references/manim-video.md`
-- `references/popular-web-designs.md`
 - `references/remotion-video-creation.md`
-- `references/remotion-video-creation_897230.md`
-- `references/remotion-video-creation_91df97.md`
-- `references/remotion-video-creation_d3134c.md`
-- `references/type-design-analyzer.md`
+- `references/manim-video.md`
+- `references/baoyu-infographic.md`
+- `references/imagegen.md`
+- `references/article-writing.md`
+- `references/ascii-video.md`
 - `references/video-editing.md`
-- `references/video-editing_2b04d3.md`
-- `references/video-editing_3016f2.md`
-- `references/video-editing_60bf05.md`
-- `references/video-editing_70d9a8.md`
-- `references/video-editing_c5a3db.md`
 - `references/video-studio.md`
-- `references/video-studio_ffa96d.md`
-- `references/videodb.md`
-- `references/videodb_202416.md`
-- `references/videodb_855e23.md`
-- `references/videodb_c352c5.md`
-- `references/web_design-quality.md`
-- `references/workflows_gan-design.md`
-- `references/youtube-content.md`
+- `references/design-md.md`
