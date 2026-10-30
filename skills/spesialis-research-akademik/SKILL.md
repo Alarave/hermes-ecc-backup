@@ -1,6 +1,16 @@
 ---
 name: spesialis-research-akademik
-description: "Use when user says '/research', 'research', 'cari paper', 'riset literatur', 'metodologi', 'jurnal ilmiah', 'skripsi', 'tulis skripsi', 'laporan akademik', 'format skripsi', 'bab 1 skripsi', 'bab 2 skripsi', 'bab 3 skripsi', 'bab 4 skripsi', 'bab 5 skripsi', 'pedoman penulisan skripsi', 'format laporan gunadarma', 'gunadarma', 'upnvj', 'tinjauan pustaka', 'daftar pustaka', 'sitasi', 'abstrak', 'etika riset ai', 'bukan melainkan', atau butuh analisis riset dan penulisan skripsi mendalam."
+description: "[omh] Unified academic research and scientific manuscript authoring engine: methodology, literature review, CRISP-DM, Gunadarma standards, and statistical evaluation. Use when the user says: spesialis-research-akademik, research, cari paper, riset literatur, metodologi, skripsi, tulis skripsi, bab 1 skripsi, bab 2 skripsi, bab 3 skripsi, bab 4 skripsi, bab 5 skripsi, format laporan gunadarma, tinjauan pustaka, sitasi, bukan melainkan."
+license: MIT
+author: "Firman (Lead Researcher & Fullstack MLOps Engineer)"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, research, academic, thesis, crisp-dm, gunadarma]
+    category: research-stem
+    phase: academic-authoring
+    role: researcher
+    quality_tier: evidence-gated
+    related_skills: [academic-researcher, scientific-writing, research-title-formulator]
 ---
 
 # Ahli Riset Akademik & Penulis Manuskrip Ilmiah (spesialis-research-akademik)
@@ -40,7 +50,7 @@ Dipicu saat mengeksekusi pipeline riset akademik dari penemuan ide, formulasi ju
 - **Protokol Interogasi Sokratis Bertahap (Grounded Socratic Engine)**:
   Interogasi terstruktur dieksekusi secara bertahap via tool `clarify` (maksimal 4 sampai 5 pertanyaan beruntun dalam 1 kartu interaktif) mencakup Siklus 0 (Triage), Siklus 1 (Eksplorasi Fenomena, Objek Riset & Masalah Lapangan Berbasis Grounded Discovery), Siklus 1B (Validasi Kritis & Stress-Test Judul), Siklus 2 (Bab 2 SOTA PRISMA), Siklus 3 (Bab 3 Metodologi & Audit Anti-Data Leakage), Siklus 4 (Bab 4 Evaluasi & Uji Diebold-Mariano), dan Siklus 5 (Bab 5 Keselarasan 1:1 & Ujian Sidang). Agen dilarang langsung menembak pertanyaan sidang yang agresif di awal; agen wajib menuntun pengguna dari ranah umum ke khusus (Topik/Judul Kasar -> Objek & Lokasi -> Kendala Lapangan -> Pilihan Metode & Batasan Awal) serta otomatis mengaktifkan mode bantuan eksplorasi jika pengguna belum memiliki data konkret atau men-skip pertanyaan. Panduan lengkap mengacu ke `references/socratic-interrogation-form.md`.
 
-### 2. Empat Mode Operasional Mandiri
+### 2. Lima Mode Operasional Mandiri
 Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
 1. **Socratic Grill Mode (Penguji Sidang Garis Keras & Grounded Intake)**:
   - Pada intake awal (Siklus 1), gunakan Grounded Discovery: tuntun dari topik umum, objek riset, kendala riil lapangan, hingga pilihan metode tanpa menghakimi.
@@ -62,6 +72,10 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
     - Posisikan kursor pada awal bab (`[start_block], off: 0`) lalu sisipkan berkas bab baru via `insert.textFromFile` yang dikompilasi sesuai reference template docx (mempertahankan rumus OMML, tabel, dan gambar).
     - Sisipkan `insert.pageBreak` sebelum heading bab utama (`2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`) guna menjaga struktur halaman bab baru.
     - Simpan secara in-place via `save_document` tanpa argumen path.
+5. **Section-Prompts & Claim-Confidence Mode (Injeksi Konteks Bertingkat & Audit Klaim Ilmiah)**:
+  - Diadaptasi dari arsitektur teruji Jenni AI Editor (`docs.jenni.ai`).
+  - Menginjeksi batasan instruksi hierarkis per-bab (`references/section-prompts-blueprint.md`) agar teks tidak mengalami pergeseran topik (*context drift*).
+  - Menegakkan audit 6-status cacat klaim ilmiah (*Claim Confidence Gate*: Unsupported, Weakly Supported, Overstated, Misrepresented, Contradicted, Unverifiable) dan transformasi kalimat *Academic Hedging* berbasis p-value statistik formal sebelum asersi disahkan (`references/claim-confidence-and-hedging.md`).
 
 ### 3. Standar Preset Khusus Universitas Gunadarma (FIKTI/FTI)
 - **Geometri Fisik**: Kertas A4 80g, Margin Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm.
@@ -172,6 +186,8 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 ## Linked References
 - `skills/zero-slop/SKILL.md` (Pilar 3: Eliminasi AI Slop Naskah Ilmiah & 100% Fidelitas Fakta)
 - `references/prinsip-bukan-melainkan-etika-ai.md` (Manifesto Integritas Riset AI: 15 Pilar "Bukan, Melainkan" & Protokol Kolaborasi Dosen)
+- `references/section-prompts-blueprint.md` (Cetak Biru Hierarki Section Prompts Bab 1-5 Skripsi & Manuskrip Ilmiah)
+- `references/claim-confidence-and-hedging.md` (Sistem Audit Claim Confidence & Academic Hedging Berbasis Bukti Empiris)
 - `references/wordcraft-mcp-typesetting.md`
 - `references/socratic-interrogation-form.md`
 - `references/pedoman-tipografi-format.md`
