@@ -1,6 +1,6 @@
 ---
 name: doc
-description: "Read and review DOCX documents with complex layout, tables, diagrams, and pagination."
+description: "Gunakan untuk: DOCX Skill"
 ---
 
 # DOCX Skill

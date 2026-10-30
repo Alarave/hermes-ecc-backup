@@ -19,7 +19,7 @@ Dipicu ketika Project Owner ingin membuat aplikasi yang merupakan kompetitor ata
 - **Quality Gate G1:** Hasilkan `docs/01-prd-replica.md`. Harus berisi *Feature Parity List* dan *Differentiator* (Inovasi kita).
 
 ## Fase 2: ARCHITECT & DESIGN SYSTEM (Blueprint)
-- **Delegasi Ke:** Paralel ke `spesialis-backend` dan `spesialis-ui-templates`
+- **Delegasi Ke:** Paralel ke `spesialis-backend` dan `spesialis-frontend` (Design System mode)
 - **Instruksi Backend:** Rancang arsitektur Modular Monolith, skema *Database*, dan API Contract dari hasil Recon.
 - **Instruksi UI/UX:** Ekstrak pola UI kompetitor menjadi *Design Tokens* (Warna, Spasi, Tipografi) yang netral.
 - **Quality Gate G2:** Hasilkan `docs/03-architecture.md` dan kontrak DTO. Wajib jalankan `contract-freezer`.

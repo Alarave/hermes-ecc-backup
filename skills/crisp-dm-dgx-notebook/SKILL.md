@@ -18,6 +18,7 @@ Whenever the user asks you to create, refactor, or structure a Jupyter Notebook 
    - Deployment
 2. **Super Atomic Cells**: EVERY single action must be in its own isolated cell. NEVER bundle multiple tasks.
    - 1 cell for library imports.
+   - 1 cell for dynamic base dir detection (`resolve_base_dir()`).
    - 1 cell for loading data (`read_csv`).
    - 1 cell for `df.head()`.
    - 1 cell for `df.shape`.
@@ -32,7 +33,18 @@ Whenever the user asks you to create, refactor, or structure a Jupyter Notebook 
    - 1 cell for scaling (StandardScaler/MinMaxScaler).
    - 1 cell for model initialization and fitting.
    - 1 cell for prediction (`y_pred`).
-   - 1 cell for metrics calculation (MAE, MSE, RMSE, R2).
-   - 1 cell for evaluation plot (Actual vs Predicted).
-   - 1 cell for deployment dump (e.g., `joblib.dump`).
-3. **Markdown Commentary**: Every step MUST be preceded or followed by a Markdown cell explaining what the code does or interpreting the results.
+   - 1 cell for metrics calculation (MAE, MSE, RMSE, R2, CER, WER, McNemar).
+   - 1 cell for evaluation plot (Actual vs Predicted / Confusion Matrix).
+   - 1 cell for deployment dump (e.g., `joblib.dump` or structured JSON).
+3. **Markdown Commentary (Tripartite Pattern)**:
+   - Pre-code Markdown: States the theoretical rationale and specific objective of the step.
+   - Code Cell: Clean, focused execution.
+   - Post-code Markdown: Interprets the numerical facts and empirical findings (never just restating the code).
+4. **Zero-Slop Key-Value Logging Format**:
+   - Standard output pattern: `print(f"[{Category}] {Key}: {Value} | {Key}: {Value}")`.
+   - Prohibited: decorative line banners (`print("="*80)`), decorative emojis (`🚀`, `✨`, `🎉`, `🔥`, `🤖`, `✅`), and chatty robotic filler phrases. Maximum allowed divider: one single ASCII line `print("-" * 50)`.
+   - Loop hygiene: NEVER print per row inside loops over hundreds/thousands of samples; use `tqdm` or periodic interval logging (`if idx % 500 == 0:`).
+5. **Ponytail Pattern for Deliberate Simplifications**:
+   - If an intentional shortcut or device fallback is applied, mark it with `# ponytail: [current boundary], upgrade when [future condition]`.
+6. **Dynamic Path Resolution**:
+   - Never hardcode absolute host paths (`E:\...`, `/content/...`). Use an upward-traversal `resolve_base_dir()` helper function.

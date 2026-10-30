@@ -124,11 +124,17 @@ This skill should be used when:
 
 ## How to Use This Skill
 
-**Simply describe your diagram in natural language.** Nano Banana Pro generates it automatically:
-
+**1. AI Generation Mode (Remote):**
 ```bash
 python scripts/generate_schematic.py "your diagram description" -o output.png
 ```
+
+**2. Local Deterministic Mode (Matplotlib / SVG / UV):**
+When `OPENROUTER_API_KEY` is not set or local raster/vector diagrams (Ishikawa, architecture DAGs) are needed:
+- Run locally with on-demand dependencies: `uv run --with pillow,matplotlib python script.py`.
+- Transliterate non-Latin/CJK terms or configure explicit system fonts to prevent tofu glyphs (`□`) in DejaVu Sans.
+- Audit output image via `vision_analyze(image_url=...)` for text overlap, font rendering, and contrast before final delivery.
+- On Hermes Desktop, deliver high-res raster via `MEDIA:/absolute/path.png` and inline vector widget via `::preview{file="path.html"}`.
 
 **That's it!** The AI handles:
 - ✓ Layout and composition
@@ -447,6 +453,11 @@ python scripts/generate_schematic.py "diagram" -o out.png -v
 5. **Version control** - Keep prompts and generated images in repository
 
 ## Troubleshooting Common Issues
+
+### Local Matplotlib & Vector Fallback
+- **Problem**: CJK / foreign characters render as squares (`□`) -> Transliterate to Latin or set font family to an installed CJK font (e.g. SimHei, Noto Sans CJK).
+- **Problem**: Labels overlapping category boxes -> Increase figure dimensions (e.g. 22x12 inches) and tighten bounding box offsets.
+- **Problem**: Missing API keys -> Execute local generation via `uv run --with pillow,matplotlib` and deliver via `MEDIA:` and `::preview`.
 
 ### AI Generation Issues
 

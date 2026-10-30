@@ -17,7 +17,9 @@ Google Drive operations across MCP clients (Hermes, Claude Desktop), third-party
 - **OAuth Desktop Type Requirement:** Google Cloud OAuth 2.0 Client IDs for local scripts or MCP servers MUST be created as **Desktop app**. Web Application clients reject dynamic localhost ports with `Error 400: redirect_uri_mismatch`.
 - **Testing User Gate:** If the Google Cloud project OAuth consent screen is in "Testing" mode, user email addresses must be explicitly added to **Test users** or access fails with `Error 403: access_denied`.
 - **No Background Subprocess OAuth:** Never run interactive OAuth flows (`run_local_server()`) inside unattended agent background subprocesses. Always provide a standalone `.bat` or terminal command so the user authenticates interactively in their console.
-- **Idempotency Gate:** Bulk upload scripts must always query existing remote files in the target folder before uploading, skipping duplicates to ensure resume safety.
+- **Folder Race Condition Gate:** Pre-create and resolve the full remote folder tree hierarchy sequentially (parent first, child second) before dispatching worker threads. Concurrent folder lookups and creations across parallel worker threads create duplicate remote folders with identical names.
+- **Batch Remote Indexing:** Query and index existing remote files per folder once in batch (`pageSize=1000`) before file dispatch rather than querying file existence per item inside worker threads. Per-file existence queries quickly exhaust Google Drive's 1,000 queries per 100 seconds quota.
+- **Reference Code & Heavy Tree Isolation:** Cloned reference repositories, vendor libraries, or virtual environments (>10,000 files, >2,000 directories) must be excluded by default or compressed into archives. Always isolate core project assets (source code, docs, configs, dataset manifests, notebooks, research papers) for fast sync, keeping vendor trees as an explicit opt-in (`--all`).
 
 ## Workflows
 
@@ -49,10 +51,13 @@ For full Drive + Docs + Sheets + Calendar access in one MCP server:
 - **Path A (Native Desktop Sync - Fastest & Resilient):**
   If `GoogleDriveFS.exe` (`C:\Program Files\Google\Drive File Stream`) is present:
   Use File Explorer right-click -> "Sync with Google Drive", or sync to virtual drive (`G:\My Drive\<Folder>`) using `robocopy /MT:8`.
-- **Path B (Programmatic Python Script):**
-  Run using `uv run --with google-api-python-client --with google-auth-oauthlib python upload_script.py`.
-  - Parallel workers: `ThreadPoolExecutor(max_workers=4)`.
-  - Resumable uploads: `MediaFileUpload(resumable=True)` for files > 5 MB.
+- **Path B (Programmatic Python Script + Real-Time Watcher):**
+  Run using `uv run --with google-api-python-client --with google-auth-oauthlib --with watchdog python sync_script.py`.
+  - Sequential folder pre-creation: Recursively create missing remote folders before launching file threads.
+  - Upfront file indexing: Build `{folder_id: {filename: file_meta}}` map to skip unchanged files by size (`SKIP`), update changed files (`UPDATE`), and create new files (`UPLOAD`).
+  - Resumable uploads: `MediaFileUpload(resumable=True)` for files > 5 MB with exponential backoff on retry.
+  - Real-time watcher: Use `watchdog.observers.Observer` + `FileSystemEventHandler` with 2-second debounce to auto-sync files immediately upon local save.
+  - Standalone Windows Runner: Always generate a `.bat` file (e.g., `start_sync.bat`) so the user can launch and monitor sync without agent interaction.
   - Browser prompt resolution: explain that *"Google hasn't verified this app"* is resolved by clicking *Advanced -> Go to [App] (unsafe)*.
 
 ## Output Format

@@ -1,6 +1,6 @@
 ---
 name: spreadsheet
-description: "Use when user says 'spreadsheet', 'excel', 'bikin excel', 'edit spreadsheet', 'olah xlsx', 'analisis csv', atau butuh manipulasi rumus/tabel workbook."
+description: "Gunakan untuk: Spreadsheet Skill (Create, Edit, Analyze, Visualize)"
 ---
 
 # Spreadsheet Skill (Create, Edit, Analyze, Visualize)

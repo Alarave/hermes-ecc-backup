@@ -103,6 +103,14 @@ Unacceptable:
 
 ## Error Paths
 
+**Local Chrome profile locked (`browser_exec` with `local=True`):**
+When `browser_exec(..., local=True)` fails with `chrome is running and has its profile locked, so its login data can't be copied`, ask the user via `clarify` to choose between two paths:
+1. Close Chrome temporarily (`hermes browser close-profile` after explicit user approval) so `browser_exec(local=True)` can copy the logged-in profile and run headlessly.
+2. Keep Chrome open and drive the active Chrome window via `computer_use`:
+   - Open the target URL in the running Chrome instance via `cmd.exe /c start "" "<url>"`.
+   - Find the `chrome.exe` `pid` and `window_id` with `computer_use(action="list_windows")`, then inspect with `computer_use(action="capture", app="chrome.exe", pid=..., window_id=..., mode="som")`.
+   - *Pitfall*: Windows `Chrome_WidgetWin_1` drops background mouse-wheel scroll events (`code: "background_unavailable"`). Escalate `scroll` actions on Chrome to `delivery_mode="foreground"`.
+
 **Extension not installed:**
 > "Browser agent setup required. Open Agent Manager → click the Chrome icon → install the extension → retry."
 > Do NOT proceed. The browser agent cannot function without it.

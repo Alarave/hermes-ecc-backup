@@ -40,11 +40,24 @@ Observability & Drift Monitoring ──(DRIFT DETECTED)──► Trigger Review 
 ## 2. Definisi Tahapan & Quality Gates Pipeline
 
 ### Tahap 1: Data Ingestion & Schema Validation (Gate 1)
-- **Input**: Sumber data mentah (PostgreSQL, ClickHouse, Parquet Lakehouse, S3/GCS).
+- **Input**: Sumber data mentah (PostgreSQL, ClickHouse, Parquet Lakehouse, S3/GCS, CSV/JSON scraper).
+- **Tata Kelola Direktori Dataset Bersih (Clean Dataset Discipline)**:
+  - Direktori `raw/` wajib fokus 100% pada data mentah sebelum pembersihan (hanya 1 berkas sumber terpusat, read-only/immutable). Dilarang menempatkan berkas hasil pembersihan (seperti `*-clean.csv`) di dalam `raw/`.
+  - Berkas historis, subset coba-coba, atau varian eksperimen wajib diisolasi ke `archive/` disertai `README.md` penjelas agar tidak mengotori alur pipeline utama.
+  - Setiap perubahan lokasi dataset wajib diverifikasi terhadap pengujian regresi (`pytest tests/`) untuk menjamin tidak ada alur yang terputus.
 - **Quality Gate 1 (Pandera / Great Expectations)**:
   - Validasi tipe kolom, rentang nilai (min/max), dan ambang batas nilai kosong (*missing values* <= 5%).
   - Anomali format langsung dikarantina ke *Dead Letter Queue (DLQ)*. Dilarang meneruskan data kotor ke training.
-- **Output Terverifikasi**: Dataset terverifikasi dalam format biner kolom efisien (**Apache Arrow / Parquet**).
+- **Output Terverifikasi**: Dataset terverifikasi dalam format biner kolom efisien (**Apache Arrow / Parquet**) atau CSV terstandardisasi pada `processed/`.
+
+### Tahap 1B: Multimodal Visual Curation & Metadata Parity Protocol
+- **Model-Agnostic Preprocessing Invariant (Anti-Selection-Bias)**: Dalam riset komparasi visi-bahasa atau OCR (misalnya Florence-2 + PaddleOCR vs Agentic MLLM Qwen2-VL), tahap prapemrosesan (Task 02) DILARANG menggunakan OCR atau model yang berkerabat dengan model yang diuji untuk memfilter/menyeleksi sampel kemasan. Hal ini menimbulkan bias seleksi (selection bias) dan sirkularitas data yang merusak validitas ilmiah. Prapemrosesan wajib murni agnostik (filter resolusi >= 640px, kanonisasi teks katalog, letterbox, CLAHE, dan split anti-leakage). Tugas mengidentifikasi keberadaan atribut fisik kemasan adalah tugas murni dari model yang diuji (menguji apakah model mampu mendeteksi MATCH, MISMATCH, atau UNVERIFIED secara objektif tanpa berhalusinasi).
+- **Zero Data Loss via Quarantine Move**: Saat memfilter dataset multimodal berdasarkan kriteria teknis citra, DILARANG melakukan penghapusan fisik permanen (`os.remove` / `rm`). Pindahkan berkas citra yang tereksklusi ke direktori karantina (`dataset/archive/excluded_images/`) dan terbitkan audit log lengkap (`logs/visual_filtering_audit.csv`) yang mencatat alasan kegagalan per sampel.
+- **Strict 1:1 Image-to-Metadata Parity**: Setiap eliminasi citra wajib memperbarui data tabular master secara atomik untuk mencegah *dangling references* (citra tanpa metadata atau metadata tanpa citra fisik).
+- **Post-Filter Split Recomputation**: Setiap perubahan kardinalitas dataset membatalkan partisi data latih dan uji sebelumnya. Wajib melakukan komputasi ulang partisi (*Stratified Group Split by Brand* 70:15:15) agar pembagian data tetap bebas bocor (*anti-data leakage*).
+- **Two-Tier Multimodal Evaluation Architecture**:
+  * *Tier-1 (Core Benchmark)*: Dievaluasi pada subset kemasan yang terverifikasi memuat atribut lengkap (merek, netto, tipe produk, nama produk) guna menguji kemampuan murni model dalam pelokalan spasial, pembacaan OCR (CER/WER), dan penalaran atribut tanpa bias ketiadaan data fisik.
+  * *Tier-2 (Robustness & Anti-Hallucination Audit)*: Menguji sampel kemasan yang dikarantina (noise visual) secara terpisah untuk memvalidasi ketahanan model dalam menolak klaim (`UNVERIFIED`) tanpa berhalusinasi (*zero false positive hallucination*).
 
 ### Tahap 2: Preprocessing & Anti-Leakage Guard (Gate 2)
 - **Aturan Mutlak Anti-Leakage**:
@@ -112,5 +125,7 @@ Pram memilih tumpukan alat MLOps berdasarkan kompleksitas sistem aktual:
 |---|---|---|
 | **GPU Out of Memory (OOM)** | Ukuran batch terlalu besar / memory leak | Kurangi batch size 50%, aktifkan gradient accumulation, atau beralih ke mixed-precision (FP16/BF16). |
 | **Data Schema Mismatch** | Perubahan upstream API / data kotor | Karantina data anomali ke DLQ, kirim notifikasi alert, gunakan checkpoint data valid terakhir. |
+| **Dangling Multimodal References** | Penghapusan parsial (citra dihapus tapi CSV tertinggal atau sebaliknya) | Terapkan atomic synchronization: update master CSV bersamaan dengan perpindahan citra ke karantina, lalu verifikasi paritas 1:1. |
+| **Python Toolchain Package Mismatch** | Python default shell tidak memiliki dependensi ML/OCR | Auto-detect executable Python yang memuat modul kritis (misalnya RapidOCR/PyTorch) sebelum eksekusi pipeline atau runner test suite. |
 | **Model Underperforming Gate** | Hyperparameter sub-optimal / overfitting | Bounded Retry maks 3x dengan tuning regularisasi (Dropout/L2) atau kembali ke model baseline. |
 | **Inference Latency Spike** | Beban concurrent tinggi / cold start | Skalakan container instance atau terapkan model quantization (INT8). |

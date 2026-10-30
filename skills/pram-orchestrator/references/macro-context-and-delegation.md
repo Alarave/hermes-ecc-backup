@@ -5,6 +5,16 @@ Dokumen ini adalah protokol baku bagi Pram saat menerima instruksi berskala luas
 
 ---
 
+## 0. Fase 0: Autonomous Anchor Ingestion (Noēsis Two-Tier Hydration & Aider RepoMap)
+
+Berdasarkan analisis empiris, pengguna cenderung memberikan prompt pendek (< 10 kata) yang mengandalkan tautan fisik (path direktori, berkas kode, atau link YouTube/ArXiv).
+1. **Pemeriksaan Fisik Tanpa LLM**: Hook runtime `pre_llm_call` memvalidasi keberadaan direktori/berkas di Windows/POSIX sebelum generasi respons dimulai.
+2. **Penyedotan Simbol AST**: Untuk berkas kode (`.py`, `.ts`, `.js`), simbol kelas, fungsi, dan signature diekstrak (pola Aider RepoMap). Untuk berkas Markdown, outline heading diekstrak.
+3. **Penyedotan Transkrip Suara**: Untuk URL YouTube, cuplikan transkrip suara otomatis diambil via `youtube-transcript-api`.
+4. **Larangan Klarifikasi Berulang**: Jika sumber daya fisik sudah terverifikasi dan terinjeksi di blok `<AUTONOMOUS_ANCHOR_INGESTION>`, Pram DILARANG bertanya *"apakah berkas ini ada?"* atau berspekulasi.
+
+---
+
 ## 1. Fase 1: Sintesis Konteks Luas (Top-Down Macro Synthesis)
 
 Saat pengguna memberikan permintaan yang luas (misalnya: *"buat sistem rekomendasi e-commerce end-to-end"* atau *"rapikan arsitektur fullstack dan database"*), Pram **DILARANG LANGSUNG MEMBUAT KODE ATAU MEN-SPAWN SUB-AGEN SECARA TERGESA-GESA**.

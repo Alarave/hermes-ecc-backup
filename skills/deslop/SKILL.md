@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: Remove AI-generated code slop from a branch: unnecessary comments, redundant defensive checks, boilerplate, style drift, and type casts. Use for cleanup of AI-written code, not for broad code review, security audit, TDD, or final verification.
+description: "Remove AI-generated code slop from a branch: unnecessary comments, redundant defensive checks, boilerplate, style drift, and type casts. Use for cleanup of AI-written code, not for broad code review, security audit, TDD, or final verification."
 ---
 
 # Remove AI Code Slop
