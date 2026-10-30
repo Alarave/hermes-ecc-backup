@@ -1,8 +1,16 @@
 ---
 name: opensource-pipeline
-description: "Open-source pipeline: fork, sanitize, and package private projects for safe public release. Chains 3 agents (forker, sanitizer, packager). Triggers: '/opensource', 'open source this', 'make this public', 'prepare for open source'."
+description: "[omh] Open-source pipeline: fork, sanitize, and package private projects for safe public release. Use when the user says: opensource-pipeline, opensource, make public, open source this."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, opensource, packaging, security]
+    category: software-engineering
+    phase: release-prep
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [security-review, spesialis-devops-infrastruktur]
 ---
 
 # Open-Source Pipeline Skill
@@ -30,7 +38,7 @@ Safely open-source any project through a 3-stage pipeline: **Fork** (strip secre
 
 ### /opensource fork PROJECT
 
-**Full pipeline — the main workflow.**
+**Full pipeline: the main workflow.**
 
 #### Step 1: Gather Parameters
 
@@ -112,7 +120,7 @@ Generate SANITIZATION_REPORT.md inside {STAGING_PATH}/ with PASS/FAIL verdict.
 Wait for completion. Read `{STAGING_PATH}/SANITIZATION_REPORT.md`.
 
 **If FAIL:** Show findings to user. Ask: "Fix these and re-scan, or abort?"
-- If fix: Apply fixes, re-run sanitizer (maximum 3 retry attempts — after 3 FAILs, present all findings and ask user to fix manually)
+- If fix: Apply fixes, re-run sanitizer (maximum 3 retry attempts: after 3 FAILs, present all findings and ask user to fix manually)
 - If abort: Clean up staging directory
 
 **If PASS or PASS WITH WARNINGS:** Continue to Step 5.
@@ -240,16 +248,16 @@ $HOME/opensource-staging/
 ## Anti-Patterns
 
 - **Never** push to GitHub without user approval
-- **Never** skip the sanitizer — it is the safety gate
+- **Never** skip the sanitizer: it is the safety gate
 - **Never** proceed after a sanitizer FAIL without fixing all critical findings
 - **Never** leave `.env`, `*.pem`, or `credentials.json` in the staging directory
 
 ## Best Practices
 
 - Always run the full pipeline (fork → sanitize → package) for new releases
-- The staging directory persists until explicitly cleaned up — use it for review
+- The staging directory persists until explicitly cleaned up: use it for review
 - Re-run the sanitizer after any manual fixes before publishing
-- Parameterize secrets rather than deleting them — preserve project functionality
+- Parameterize secrets rather than deleting them: preserve project functionality
 
 ## Related Skills
 

@@ -1,8 +1,16 @@
 ---
 name: orch-add-feature
-description: Orchestrate building a brand-new feature end to end — research, plan, TDD implementation, review, and gated commit — by delegating each phase to the matching ECC agent. Use when adding a capability that does not exist yet.
+description: "[omh] Orchestrate building a brand-new feature end to end: research, plan, TDD implementation, review, and gated commit. Use when the user says: orch-add-feature, add feature, build feature, orchestrate feature."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, feature-development, orchestration, tdd]
+    category: software-engineering
+    phase: feature-build
+    role: planner
+    quality_tier: evidence-gated
+    related_skills: [orch-pipeline, orch-change-feature, tdd-workflow]
 ---
 
 # orch-add-feature
@@ -14,12 +22,12 @@ engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 
 - The user wants a capability that does **not exist yet** ("add", "build",
   "implement", "support …").
-- It is net-new behavior — not a correction (`orch-fix-defect`) and not an
+- It is net-new behavior: not a correction (`orch-fix-defect`) and not an
   alteration of existing behavior (`orch-change-feature`).
 
 ## Operation settings
 
-- **Default size floor:** standard — run Research + Plan unless clearly small.
+- **Default size floor:** standard: run Research + Plan unless clearly small.
 - **Phase mask:** 0 → 1 → 2 → 4 → 5 → 6 (skip 3 Scaffold; that is MVP-only).
 - **First move (phase 4):** write *new* failing tests for the new behavior, then
   implement to green.
@@ -32,8 +40,8 @@ engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 4. Add `security-reviewer` if the feature touches a security trigger.
 
 > Related: `/feature-dev` is a standalone version of this flow. `orch-add-feature`
-> differs by sharing the `orch-pipeline` engine — the size classifier and the two
-> gates — with the rest of the family, so it right-sizes trivial features to 4 → 5 → 6.
+> differs by sharing the `orch-pipeline` engine (the size classifier and the two
+> gates) with the rest of the family, so it right-sizes trivial features to 4 → 5 → 6.
 
 ## Example
 

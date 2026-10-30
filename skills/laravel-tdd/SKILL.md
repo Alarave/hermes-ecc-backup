@@ -1,8 +1,16 @@
 ---
 name: laravel-tdd
-description: Laravel testing strategies with PHPUnit, Pest, model factories, HTTP tests, Sanctum authentication testing, mocking, and coverage.
+description: "[omh] Laravel testing strategies with PHPUnit, Pest, model factories, HTTP tests, and Sanctum auth. Use when the user says: laravel-tdd, test laravel, laravel tests, laravel tdd."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, laravel, php, testing, tdd]
+    category: backend
+    phase: tdd-cycle
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [laravel-patterns, laravel-security, tdd-workflow, spesialis-backend]
 ---
 
 # Laravel Testing with TDD
@@ -23,15 +31,15 @@ Test-driven development for Laravel applications using PHPUnit, Pest, Laravel fa
 ### Red-Green-Refactor Cycle
 
 ```php
-// Step 1: RED — Write a failing test
+// Step 1: RED: Write a failing test
 public function test_a_product_can_be_created(): void
 {
     $product = Product::factory()->create(['name' => 'Test Product']);
     $this->assertDatabaseHas('products', ['name' => 'Test Product']);
 }
 
-// Step 2: GREEN — Write the migration, model, and factory
-// Step 3: REFACTOR — Improve while keeping tests green
+// Step 2: GREEN: Write the migration, model, and factory
+// Step 3: REFACTOR: Improve while keeping tests green
 ```
 
 ## Setup
@@ -643,8 +651,8 @@ vendor/bin/pest --coverage --min=80
 
 - Don't test Laravel internals (trust the framework)
 - Don't make tests dependent on each other
-- Don't over-mock — mock only service boundaries
-- Don't test private methods — test through the public interface
+- Don't over-mock: mock only service boundaries
+- Don't test private methods: test through the public interface
 - Don't couple tests to HTML structure
 
 ## Quick Reference
@@ -669,7 +677,7 @@ vendor/bin/pest --coverage --min=80
 
 ## Related Skills
 
-- `laravel-patterns` — Laravel architecture, Eloquent, routing, and API patterns
-- `laravel-security` — Laravel authentication, authorization, and secure coding
-- `tdd-workflow` — The repo-wide RED -> GREEN -> REFACTOR loop
-- `backend-patterns` — General backend API and database patterns
+- `laravel-patterns`: Laravel architecture, Eloquent, routing, and API patterns
+- `laravel-security`: Laravel authentication, authorization, and secure coding
+- `tdd-workflow`: The repo-wide RED -> GREEN -> REFACTOR loop
+- `backend-patterns`: General backend API and database patterns

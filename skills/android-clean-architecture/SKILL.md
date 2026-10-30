@@ -1,8 +1,16 @@
 ---
 name: android-clean-architecture
-description: Clean Architecture patterns for Android and Kotlin Multiplatform projects — module structure, dependency rules, UseCases, Repositories, and data layer patterns.
+description: "[omh] Clean Architecture patterns for Android and Kotlin Multiplatform projects: module structure, dependency rules, UseCases, Repositories, and data layer patterns. Use when the user says: android-clean-architecture, android clean architecture, kmp clean architecture, android architecture."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, android, kmp, architecture]
+    category: mobile
+    phase: mobile-architecture
+    role: guide
+    quality_tier: evidence-gated
+    related_skills: [compose-multiplatform-patterns, kotlin-coroutines-flows, spesialis-mobile]
 ---
 
 # Android Clean Architecture
@@ -74,7 +82,7 @@ class ObserveUserProgressUseCase(
 
 ### Domain Models
 
-Domain models are plain Kotlin data classes — no framework annotations:
+Domain models are plain Kotlin data classes: no framework annotations:
 
 ```kotlin
 data class Item(
@@ -289,7 +297,7 @@ sealed interface AppError {
     data object Unauthorized : AppError
 }
 
-// In ViewModel — map to UI state
+// In ViewModel: map to UI state
 viewModelScope.launch {
     when (val result = getItems(category)) {
         is Try.Success -> _state.update { it.copy(items = result.value, isLoading = false) }
@@ -327,12 +335,12 @@ plugins { id("kmp-library") }
 
 ## Anti-Patterns to Avoid
 
-- Importing Android framework classes in `domain` — keep it pure Kotlin
-- Exposing database entities or DTOs to the UI layer — always map to domain models
-- Putting business logic in ViewModels — extract to UseCases
-- Using `GlobalScope` or unstructured coroutines — use `viewModelScope` or structured concurrency
-- Fat repository implementations — split into focused DataSources
-- Circular module dependencies — if A depends on B, B must not depend on A
+- Importing Android framework classes in `domain`: keep it pure Kotlin
+- Exposing database entities or DTOs to the UI layer: always map to domain models
+- Putting business logic in ViewModels: extract to UseCases
+- Using `GlobalScope` or unstructured coroutines: use `viewModelScope` or structured concurrency
+- Fat repository implementations: split into focused DataSources
+- Circular module dependencies: if A depends on B, B must not depend on A
 
 ## References
 

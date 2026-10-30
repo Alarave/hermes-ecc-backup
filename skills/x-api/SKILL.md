@@ -1,7 +1,16 @@
 ---
 name: x-api
-description: ツイートの投稿、スレッド、タイムラインの読み取り、検索、分析のためのX/Twitter API統合。OAuth認証パターン、レートリミット、プラットフォームネイティブなコンテンツ投稿をカバーする。ユーザーがプログラムでXと対話したい場合に使用する。
-origin: ECC
+description: "[omh] X/Twitter API integration for posting tweets, threads, reading timelines, search, and analytics. Use when the user says: x-api, x api, twitter api, post to x, tweet."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, x-api, twitter, social-media, api]
+    category: software-engineering
+    phase: social-integration
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [content-engine, crosspost]
 ---
 
 # X API
@@ -49,7 +58,7 @@ tweets = resp.json()
 以下に必要：ツイートの投稿、アカウント管理、DM。
 
 ```bash
-# Environment setup — source before use
+# Environment setup: source before use
 export X_API_KEY="your-api-key"
 export X_API_SECRET="your-api-secret"
 export X_ACCESS_TOKEN="your-access-token"
@@ -193,7 +202,7 @@ else:
 * **`.env` ファイルをコミットしない。** `.gitignore` に追加する。
 * **トークンが漏洩した場合はローテーションする。** developer.x.comで再生成する。
 * **書き込み権限が不要な場合は読み取り専用トークンを使用する。**
-* **OAuthシークレットを安全に保管する** — ソースコードやログに保存しない。
+* **OAuthシークレットを安全に保管する**: ソースコードやログに保存しない。
 
 ## コンテンツエンジンとの統合
 
@@ -206,5 +215,5 @@ else:
 
 ## 関連スキル
 
-* `content-engine` — X向けのプラットフォームネイティブコンテンツを生成する
-* `crosspost` — X、LinkedIn、その他のプラットフォームでコンテンツを配信する
+* `content-engine`: X向けのプラットフォームネイティブコンテンツを生成する
+* `crosspost`: X、LinkedIn、その他のプラットフォームでコンテンツを配信する

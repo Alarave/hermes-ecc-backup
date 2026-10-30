@@ -1,9 +1,17 @@
 ---
 name: usfiscaldata
-description: Query the U.S. Treasury Fiscal Data API for federal financial data including national debt, government spending, revenue, interest rates, exchange rates, and savings bonds. Access 54 datasets and 182 data tables with no API key required. Use when working with U.S. federal fiscal data, national debt tracking (Debt to the Penny), Daily Treasury Statements, Monthly Treasury Statements, Treasury securities auctions, interest rates on Treasury securities, foreign exchange rates, savings bonds, or any U.S. government financial statistics.
+description: "[omh] Query the U.S. Treasury Fiscal Data API for federal financial data: debt, spending, revenue, and rates. Use when the user says: usfiscaldata, us fiscal data, treasury data, national debt data."
 license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-    skill-author: K-Dense Inc.
+  hermes:
+    tags: [workflow, oh-my-hermes, finance, treasury, fiscal-data, api]
+    category: data-ai
+    phase: financial-data
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [fred-economic-data, spesialis-data-ai-agentic]
+  skill-author: K-Dense Inc.
 ---
 
 # U.S. Treasury Fiscal Data API
@@ -149,14 +157,14 @@ resp = requests.get(f"{BASE_URL}/v1/accounting/dts/deposits_withdrawals_operatin
 
 ## Reference Files
 
-- **[api-basics.md](references/api-basics.md)** — URL structure, HTTP methods, versioning, data types
-- **[parameters.md](references/parameters.md)** — All parameters with detailed examples and edge cases
-- **[datasets-debt.md](references/datasets-debt.md)** — Debt datasets: Debt to the Penny, Historical Debt, Schedules of Federal Debt, TROR
-- **[datasets-fiscal.md](references/datasets-fiscal.md)** — Daily Treasury Statement, Monthly Treasury Statement, revenue, spending
-- **[datasets-interest-rates.md](references/datasets-interest-rates.md)** — Average interest rates, exchange rates, TIPS/CPI, certified interest rates
-- **[datasets-securities.md](references/datasets-securities.md)** — Treasury auctions, savings bonds, SLGS, buybacks
-- **[response-format.md](references/response-format.md)** — Response objects, error handling, pagination, response codes
-- **[examples.md](references/examples.md)** — Python, R, and pandas code examples for common use cases
+- **[api-basics.md](references/api-basics.md)**: URL structure, HTTP methods, versioning, data types
+- **[parameters.md](references/parameters.md)**: All parameters with detailed examples and edge cases
+- **[datasets-debt.md](references/datasets-debt.md)**: Debt datasets: Debt to the Penny, Historical Debt, Schedules of Federal Debt, TROR
+- **[datasets-fiscal.md](references/datasets-fiscal.md)**: Daily Treasury Statement, Monthly Treasury Statement, revenue, spending
+- **[datasets-interest-rates.md](references/datasets-interest-rates.md)**: Average interest rates, exchange rates, TIPS/CPI, certified interest rates
+- **[datasets-securities.md](references/datasets-securities.md)**: Treasury auctions, savings bonds, SLGS, buybacks
+- **[response-format.md](references/response-format.md)**: Response objects, error handling, pagination, response codes
+- **[examples.md](references/examples.md)**: Python, R, and pandas code examples for common use cases
 
 
 

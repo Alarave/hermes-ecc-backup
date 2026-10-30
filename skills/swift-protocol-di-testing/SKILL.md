@@ -1,7 +1,16 @@
 ---
 name: swift-protocol-di-testing
-description: テスト可能なSwiftコードのためのプロトコルベースの依存性注入——焦点を絞ったプロトコルとSwift Testingを使用してファイルシステム、ネットワーク、外部APIをモックする。
-origin: ECC
+description: "[omh] Protocol-based dependency injection for testable Swift code with mocks and Swift Testing. Use when the user says: swift-protocol-di-testing, swift di testing, swift dependency injection, mock swift protocols."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, swift, testing, dependency-injection]
+    category: mobile
+    phase: mobile-testing
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [swift-actor-persistence, swift-concurrency-6-2, spesialis-mobile]
 ---
 
 # プロトコルベースのSwift依存性注入テスト
@@ -168,7 +177,7 @@ func testReadError() async {
 
 ## ベストプラクティス
 
-* **単一責任**：各プロトコルは1つの関心事を処理する——多くのメソッドを持つ「ゴッドプロトコル」を作らない
+* **単一責任**：各プロトコルは1つの関心事を処理する: 多くのメソッドを持つ「ゴッドプロトコル」を作らない
 * **Sendable 一貫性**：プロトコルがActor境界をまたいで使用される場合に必要
 * **デフォルトパラメーター**：本番コードは実際の実装をデフォルトで使用する。テストだけがモックを指定する必要がある
 * **エラーのモック**：障害パスをテストするために設定可能なエラープロパティを持つモックを設計する

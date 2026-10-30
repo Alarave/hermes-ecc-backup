@@ -1,8 +1,16 @@
 ---
 name: laravel-security
-description: Laravel security best practices — authentication, authorization, Eloquent safety, CSRF, XSS prevention, API security, and secure deployment configurations.
+description: "[omh] Laravel security best practices: authentication, authorization, Eloquent safety, CSRF, and XSS prevention. Use when the user says: laravel-security, laravel security, secure laravel, laravel auth."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, laravel, php, security]
+    category: backend
+    phase: security-review
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [laravel-patterns, laravel-tdd, security-review, spesialis-backend]
 ---
 
 # Laravel Security Best Practices
@@ -71,7 +79,7 @@ if (app()->environment('production')) {
 }
 
 // config/app.php for trusted proxies (load balancers)
-// Use specific IP ranges — * trusts all, allowing X-Forwarded-* spoofing
+// Use specific IP ranges: * trusts all, allowing X-Forwarded-* spoofing
 // AWS: '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'
 'trusted_proxies' => ['10.0.0.0/8', '172.16.0.0/12'],
 
@@ -459,7 +467,7 @@ class VerifyCsrfToken extends Middleware
     // Only exclude routes that have external CSRF protection (webhooks, etc.)
     protected $except = [
         'stripe/*', // Stripe webhooks use their own signature verification
-        // Avoid blanket 'api/*' — stateful Sanctum routes need CSRF.
+        // Avoid blanket 'api/*' (stateful Sanctum routes need CSRF).
         // Exclude only specific stateless webhook/endpoint routes.
     ];
 }
@@ -496,7 +504,7 @@ fetch('/posts', {
 {{-- SAFE: Auto-escaped by Blade --}}
 {{ $userInput }}
 
-{{-- DANGEROUS: Raw output — NEVER use with user input --}}
+{{-- DANGEROUS: Raw output (NEVER use with user input) --}}
 {!! $userInput !!}
 
 {{-- SAFE: Only use {!! !!} with trusted content you control --}}
@@ -694,10 +702,10 @@ Route::post('/login', [AuthController::class, 'login'])
     ->middleware('throttle:auth');
 ```
 
-### API Authentication — Sanctum vs Passport
+### API Authentication: Sanctum vs Passport
 
 ```php
-// Sanctum (recommended for most apps — simple, first-party, SPA)
+// Sanctum (recommended for most apps: simple, first-party, SPA)
 // config/sanctum.php
 'expiration' => 60 * 24, // Tokens expire after 24 hours
 'model' => User::class,
@@ -717,7 +725,7 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('abilities:posts:write');
 });
 
-// Passport (OAuth2 — for third-party clients or complex auth flows)
+// Passport (OAuth2: for third-party clients or complex auth flows)
 // Install: composer require laravel/passport
 Passport::tokensExpireIn(now()->addDays(15));
 Passport::refreshTokensExpireIn(now()->addDays(30));
@@ -943,6 +951,6 @@ SecurityLogger::log('suspicious_activity', ['reason' => 'multiple_attempts_from_
 
 ## Related Skills
 
-- `laravel-patterns` — Laravel architecture, routing, Eloquent, and API patterns
-- `backend-patterns` — General backend API and database patterns
-- `laravel-tdd` — Laravel testing with PHPUnit and Pest
+- `laravel-patterns`: Laravel architecture, routing, Eloquent, and API patterns
+- `backend-patterns`: General backend API and database patterns
+- `laravel-tdd`: Laravel testing with PHPUnit and Pest

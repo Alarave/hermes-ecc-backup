@@ -1,8 +1,16 @@
 ---
 name: quarkus-verification
-description: "Verification loop for Quarkus projects: build, static analysis, tests with coverage, security scans, native compilation, and diff review before release or PR."
+description: "[omh] Verification loop for Quarkus projects: build, static analysis, test coverage, security scan, and native image compilation. Use when the user says: quarkus-verification, verify quarkus, quarkus tests, test quarkus service."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, quarkus, java, testing, verification]
+    category: backend
+    phase: verification-gate
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [quarkus-security, quarkus-tdd, verification-loop, spesialis-backend]
 ---
 
 # Quarkus Verification Loop
@@ -85,7 +93,7 @@ class UserServiceTest {
   void createUser_validInput_returnsUser() {
     var dto = new CreateUserDto("Alice", "alice@example.com");
 
-    // Panache persist() is void — use doNothing + verify
+    // Panache persist() is void: use doNothing + verify
     doNothing().when(userRepository).persist(any(User.class));
 
     User result = userService.create(dto);

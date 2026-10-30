@@ -1,8 +1,16 @@
 ---
 name: django-celery
-description: Django + Celery async task patterns — configuration, task design, beat scheduling, retries, canvas workflows, monitoring, and testing. Use when adding background jobs, scheduled tasks, or async processing to a Django app.
+description: "[omh] Django and Celery async task patterns: configuration, task design, beat scheduling, retries, and testing. Use when the user says: django-celery, celery django, celery tasks, background tasks django."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, django, celery, backend, python]
+    category: backend
+    phase: async-tasks
+    role: guide
+    quality_tier: evidence-gated
+    related_skills: [django-patterns, django-tdd, python-testing, spesialis-backend]
 ---
 
 # Django + Celery Async Task Patterns
@@ -26,7 +34,7 @@ Production-grade patterns for background task processing in Django using Celery 
 pip install 'celery[redis]' django-celery-results django-celery-beat
 ```
 
-### `celery.py` — App Entrypoint
+### `celery.py`: App Entrypoint
 
 ```python
 # config/celery.py
@@ -122,7 +130,7 @@ def send_welcome_email(user_id: int) -> None:
         user = User.objects.get(pk=user_id)
     except User.DoesNotExist:
         logger.warning('send_welcome_email: user %s not found', user_id)
-        return  # Idempotent — do not raise, task already impossible to complete
+        return  # Idempotent: do not raise, task already impossible to complete
 
     EmailService.send_welcome(user)
     logger.info('Welcome email sent to user %s', user_id)
@@ -160,7 +168,7 @@ Design tasks so they can safely run multiple times with the same inputs:
 ```python
 @shared_task(name='orders.mark_shipped')
 def mark_order_shipped(order_id: int, tracking_number: str) -> None:
-    """Mark order as shipped — safe to run multiple times."""
+    """Mark order as shipped: safe to run multiple times."""
     from apps.orders.models import Order
 
     updated = Order.objects.filter(
@@ -334,7 +342,7 @@ def charge_card(self, order_id: int) -> None:
                 error=str(exc),
                 task_id=self.request.id,
             )
-            return  # Don't raise — task is permanently failed
+            return  # Don't raise: task is permanently failed
         raise self.retry(exc=exc)
 ```
 
@@ -359,7 +367,7 @@ class TestSendWelcomeEmail:
     @pytest.mark.django_db
     def test_skips_missing_user_gracefully(self):
         """Should not raise when user is deleted between enqueue and execute."""
-        send_welcome_email(99999)  # Non-existent user — must not raise
+        send_welcome_email(99999)  # Non-existent user: must not raise
 ```
 
 ### Integration Testing with CELERY_TASK_ALWAYS_EAGER
@@ -415,7 +423,7 @@ celery -A config flower --port=5555
 ## Anti-Patterns
 
 ```python
-# BAD: Passing model instances — they may be stale by execution time
+# BAD: Passing model instances: they may be stale by execution time
 send_welcome_email.delay(user)        # Never pass ORM objects
 send_welcome_email.delay(user.pk)     # Always pass PKs
 
@@ -453,6 +461,6 @@ def charge_and_fulfill(order_id):
 
 ## Related Skills
 
-- `django-patterns` — ORM, service layer, and project structure
-- `django-tdd` — Testing Django models, views, and services
-- `python-testing` — pytest configuration and fixtures
+- `django-patterns`: ORM, service layer, and project structure
+- `django-tdd`: Testing Django models, views, and services
+- `python-testing`: pytest configuration and fixtures

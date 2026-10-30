@@ -1,8 +1,16 @@
 ---
 name: kotlin-ktor-patterns
-description: Ktor server patterns including routing DSL, plugins, authentication, Koin DI, kotlinx.serialization, WebSockets, and testApplication testing.
+description: "[omh] Ktor server patterns: routing DSL, plugins, authentication, Koin DI, serialization, and WebSockets. Use when the user says: kotlin-ktor-patterns, ktor, ktor server, kotlin ktor."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, kotlin, ktor, backend, api]
+    category: backend
+    phase: backend-patterns
+    role: guide
+    quality_tier: evidence-gated
+    related_skills: [kotlin-coroutines-flows, kotlin-exposed-patterns, spesialis-backend]
 ---
 
 # Ktor Server Patterns
@@ -476,7 +484,7 @@ fun Application.configureWebSockets() {
     install(WebSockets) {
         pingPeriod = 15.seconds
         timeout = 15.seconds
-        maxFrameSize = 64 * 1024 // 64 KiB — increase only if your protocol requires larger frames
+        maxFrameSize = 64 * 1024 // 64 KiB: increase only if your protocol requires larger frames
         masking = false // Server-to-client frames are unmasked per RFC 6455; client-to-server are always masked by Ktor
     }
 }

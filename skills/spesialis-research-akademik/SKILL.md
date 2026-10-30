@@ -114,6 +114,12 @@ Setiap interaksi riset, formulasi naskah, dan evaluasi WAJIB berlandaskan 15 pil
 - **Validasi Tautan Digital & Pengenal Objek (DOI/URL)**: Setiap studi rujukan dalam tabel matriks SOTA wajib dilengkapi tautan digital aktif langsung pada nama peneliti dan daftar pustaka lengkap bernomor di bawah tabel dengan tautan DOI resmi (`https://doi.org/...`) atau arsip akses terbuka (`https://arxiv.org/abs/...`).
 - **Verifikasi Silang DOI (Crossref / arXiv API)**: Sebelum menaruh tautan DOI ke dalam draf atau daftar pustaka, nomor DOI wajib divalidasi ke Crossref API atau repositori resmi. Dilarang mengasumsikan nomor DOI hasil tebakan atau halusinasi untuk menghindari kesalahan atribusi artikel dan kegagalan verifikasi saat sidang skripsi.
 - **Anti-Sindrom Kamus**: Menolak penjejeran definisi umum hafalan. Setiap teori wajib memuat penurunan rumus matematis, fungsi objektif, dan sintesis kritis perannya dalam memecahkan masalah.
+- **Protokol Bedah Metodologi Makalah Terkompresi (Deepening Compressed Methodology)**:
+  Saat membedah artikel jurnal atau prosiding yang memadatkan bagian metodologi atau preprocessing secara ringkas:
+  1. *Audit Diskrepansi Metodologis*: Cek silang seluruh angka kuantitatif antara Abstrak, Metodologi, dan Evaluasi (seperti diskrepansi jumlah sampel uji riil vs data sintetis pelatihan).
+  2. *Penelusuran Garis Keturunan Pustaka Primer (Primary Lineage Tracing)*: Lacak dataset atau framework primer rujukan (misal dataset ExpDate oleh Seker & Ahn 2022) pada repositori publik (GitHub/HuggingFace) untuk membongkar taksonomi kelas lengkap, variasi citra, dan struktur partisi asli.
+  3. *Rekonstruksi Formulasi Matematis*: Ubah penjelasan deskriptif singkat menjadi rumus transformasi koordinat eksplisit (misal konversi bounding box piksel absolut JSON $[x_{\min}, y_{\min}, x_{\max}, y_{\max}]$ ke koordinat relatif titik pusat ternormalisasi YOLO $[x_c, y_c, w, h]$).
+  4. *Dekomposisi Pipeline Hulu-Hilir*: Urai alur implisit menjadi 4 tahap terpisah: prapemrosesan citra detektor (letterboxing, penskalaan, augmentasi), ekstraksi RoI ber-margin aman, prapemrosesan masukan OCR (aspek rasio, normalisasi mean/std, klasifikasi orientasi sudut), dan pascapemrosesan teks (confusion matrix character substitution, resolusi hierarki multi-date, serta regex matching).
 
 ### 3. Metodologi Penelitian & Integritas AI (Bab 3)
 - **Kerangka Kerja Baku**: Wajib **CRISP-DM** untuk riset Data Science/AI dan **SDLC (Waterfall/Agile)** untuk Rekayasa Perangkat Lunak.

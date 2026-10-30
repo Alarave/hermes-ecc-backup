@@ -1,12 +1,18 @@
 ---
 name: splitting-datasets
-description: |
-  Split datasets into training, validation, and test partitions with the right stratification and temporal rules.
-  Use as a narrow preprocessing helper once the broader ML workflow is already chosen, not as the main route owner for an end-to-end ML task.
+description: "[omh] Split datasets into training, validation, and test partitions with stratification and anti-leakage rules. Use when the user says: splitting-datasets, split dataset, train test split, dataset partition."
+license: MIT
+author: "Jeremy Longshore <jeremy@intentsolutions.io>"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, dataset-split, train-test, validation, ml]
+    category: data-ai
+    phase: dataset-preparation
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [ml-data-leakage-guard, preprocessing-data-with-automated-pipelines, spesialis-data-ai-agentic]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash(cmd:*)
 version: 1.0.0
-author: Jeremy Longshore <jeremy@intentsolutions.io>
-license: MIT
 ---
 # Dataset Splitter
 

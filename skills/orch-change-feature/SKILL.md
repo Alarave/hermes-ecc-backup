@@ -1,8 +1,16 @@
 ---
 name: orch-change-feature
-description: Orchestrate altering an existing, working feature to new desired behavior — update its tests to the new spec, change the implementation to match, review, and gated commit. Use when behavior is not broken but should be different.
+description: "[omh] Orchestrate altering an existing feature to new desired behavior: update tests, adapt implementation, review, and commit. Use when the user says: orch-change-feature, change feature, modify feature, update feature behavior."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, feature-change, orchestration, tdd]
+    category: software-engineering
+    phase: feature-modification
+    role: planner
+    quality_tier: evidence-gated
+    related_skills: [orch-pipeline, orch-add-feature, tdd-workflow]
 ---
 
 # orch-change-feature
@@ -20,7 +28,7 @@ shared engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 
 ## Operation settings
 
-- **Default size floor:** small — most tweaks are a function or two.
+- **Default size floor:** small: most tweaks are a function or two.
 - **Phase mask:** 0 → (1 only if the new behavior needs research) → light 2 →
   4 → 5 → 6.
 - **First move (phase 4):** update the *existing* tests to express the new
@@ -30,7 +38,7 @@ shared engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 ## How It Works
 
 1. Run the `orch-pipeline` engine with the settings above.
-2. Keep the plan light — only `standard`+ size warrants the full `planner` pass.
+2. Keep the plan light: only `standard`+ size warrants the full `planner` pass.
 3. Stop at **Gate 1** (plan / changed-test approval) and **Gate 2** (pre-commit).
 4. Add `security-reviewer` if the change touches a security trigger.
 

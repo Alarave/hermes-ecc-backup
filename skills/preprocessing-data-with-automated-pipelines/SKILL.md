@@ -1,11 +1,18 @@
 ---
 name: preprocessing-data-with-automated-pipelines
-description: |
-  Design and implement repeatable preprocessing pipelines for cleaning, encoding, transforming, and validating ML input data.
+description: "[omh] Design and implement repeatable preprocessing pipelines for cleaning, encoding, transforming, and validating ML input data. Use when the user says: preprocessing-data-with-automated-pipelines, preprocess data, data pipeline, feature preprocessing."
+license: MIT
+author: "Jeremy Longshore <jeremy@intentsolutions.io>"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, preprocessing, feature-engineering, pipeline, ml]
+    category: data-ai
+    phase: data-preprocessing
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [ml-data-leakage-guard, mle-workflow, spesialis-data-ai-agentic]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash(cmd:*)
 version: 1.0.0
-author: Jeremy Longshore <jeremy@intentsolutions.io>
-license: MIT
 ---
 # Data Preprocessing Pipeline
 

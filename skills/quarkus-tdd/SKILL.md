@@ -1,8 +1,16 @@
 ---
 name: quarkus-tdd
-description: Test-driven development for Quarkus 3.x LTS using JUnit 5, Mockito, REST Assured, Camel testing, and JaCoCo. Use when adding features, fixing bugs, or refactoring event-driven services.
+description: "[omh] Test-driven development for Quarkus 3.x using JUnit 5, Mockito, REST Assured, and JaCoCo. Use when the user says: quarkus-tdd, test quarkus, quarkus tests, quarkus tdd."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, quarkus, java, tdd, testing]
+    category: backend
+    phase: tdd-cycle
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [quarkus-security, quarkus-verification, tdd-workflow, spesialis-backend]
 ---
 
 # Quarkus TDD Workflow
@@ -197,7 +205,7 @@ class BusinessRulesRouteTest {
       // ACT
       producerTemplate.sendBody("direct:business-rules-publisher", testPayload);
 
-      // ASSERT — body is a JSON String after .marshal().json(JsonLibrary.Jackson)
+      // ASSERT: body is a JSON String after .marshal().json(JsonLibrary.Jackson)
       mockRabbitMQ.assertIsSatisfied(5000);
 
       assertThat(mockRabbitMQ.getExchanges()).hasSize(1);
@@ -454,7 +462,7 @@ class FileStorageServiceTest {
     @Test
     @DisplayName("Should handle S3 upload failure")
     void givenS3Failure_whenUpload_thenCompletableFutureFails() {
-      // ARRANGE — run synchronously so exception propagates through the future
+      // ARRANGE: run synchronously so exception propagates through the future
       doAnswer(invocation -> {
         ((Runnable) invocation.getArgument(0)).run();
         return null;

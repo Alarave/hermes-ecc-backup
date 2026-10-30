@@ -1,7 +1,16 @@
 ---
 name: springboot-patterns
-description: Patrones de arquitectura Spring Boot, diseño de API REST, servicios en capas, acceso a datos, caché, procesamiento asíncrono y logging. Usar para trabajo de backend en Java con Spring Boot.
-origin: ECC
+description: "[omh] Spring Boot architecture patterns: REST API design, layered services, data access, caching, and async. Use when the user says: springboot-patterns, spring boot, spring patterns, spring architecture."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, springboot, java, backend, architecture]
+    category: backend
+    phase: backend-architecture
+    role: guide
+    quality_tier: evidence-gated
+    related_skills: [springboot-security, springboot-tdd, springboot-verification, spesialis-backend]
 ---
 
 # Patrones de Desarrollo Spring Boot
@@ -242,7 +251,7 @@ Solo usar cabeceras reenviadas cuando:
 
 Cuando `ForwardedHeaderFilter` está correctamente configurado, `request.getRemoteAddr()` retornará
 automáticamente la IP correcta del cliente desde las cabeceras reenviadas. Sin esta configuración, usar
-`request.getRemoteAddr()` directamente — retorna la IP de la conexión inmediata, que es el único
+`request.getRemoteAddr()` directamente: retorna la IP de la conexión inmediata, que es el único
 valor confiable.
 
 ```java
@@ -271,7 +280,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
    * 4. Configurar server.tomcat.remoteip.trusted-proxies o equivalente para el contenedor
    *
    * Sin esta configuración, request.getRemoteAddr() retorna la IP del proxy, no del cliente.
-   * NO leer X-Forwarded-For directamente — es trivialmente falsificable sin manejo de proxy confiable.
+   * NO leer X-Forwarded-For directamente: es trivialmente falsificable sin manejo de proxy confiable.
    */
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,

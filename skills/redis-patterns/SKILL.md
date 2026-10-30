@@ -1,8 +1,16 @@
 ---
 name: redis-patterns
-description: Redis data structure patterns, caching strategies, distributed locks, rate limiting, pub/sub, and connection management for production applications.
+description: "[omh] Redis data structure patterns, caching strategies, distributed locks, rate limiting, and pub/sub. Use when the user says: redis-patterns, redis cache, redis locks, redis rate limit."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, redis, cache, backend, database]
+    category: backend
+    phase: caching-patterns
+    role: guide
+    quality_tier: evidence-gated
+    related_skills: [database-migrations, postgres-patterns, spesialis-backend]
 ---
 
 # Redis Patterns
@@ -72,7 +80,7 @@ def update_product(product_id: int, data: dict):
 ### Cache Invalidation
 
 ```python
-# Tag-based invalidation — group related keys under a set
+# Tag-based invalidation: group related keys under a set
 def cache_product(product_id: int, category_id: int, data: dict):
     key = f"product:{product_id}"
     tag = f"tag:category:{category_id}"
@@ -130,7 +138,7 @@ def is_rate_limited(user_id: int, limit: int = 100, window: int = 60) -> bool:
     return count > limit
 ```
 
-### Sliding Window (Lua — Atomic)
+### Sliding Window (Lua: Atomic)
 
 ```lua
 -- sliding_window.lua
@@ -165,7 +173,7 @@ def allow_request(user_id: int) -> bool:
 
 ## Distributed Locks
 
-### Distributed Lock (Single Node — SET NX PX)
+### Distributed Lock (Single Node: SET NX PX)
 
 ```python
 import uuid
@@ -207,7 +215,7 @@ if token:
 def publish_event(channel: str, payload: dict):
     r.publish(channel, json.dumps(payload))
 
-# Subscriber (blocking — run in separate thread/process)
+# Subscriber (blocking: run in separate thread/process)
 def subscribe_events(channel: str):
     pubsub = r.pubsub()
     pubsub.subscribe(channel)
@@ -223,7 +231,7 @@ def subscribe_events(channel: str):
 def emit(stream: str, event: dict):
     r.xadd(stream, event, maxlen=10000)  # Cap stream length
 
-# Consumer group — guarantees at-least-once delivery
+# Consumer group: guarantees at-least-once delivery
 try:
     r.xgroup_create('events:orders', 'processor', id='0', mkstream=True)
 except Exception:
@@ -263,11 +271,11 @@ stats:pageviews:2024-01-01
 | Data Type | Suggested TTL |
 |-----------|--------------|
 | User session | 24h (`86400`) |
-| API response cache | 5–15 min |
+| API response cache | 5-15 min |
 | Rate limit window | Match window size |
-| Short-lived tokens | 5–10 min |
-| Leaderboard | 1h–24h |
-| Static/reference data | 1h–1 week |
+| Short-lived tokens | 5-10 min |
+| Leaderboard | 1h-24h |
+| Static/reference data | 1h-1 week |
 
 Always set a TTL. Keys without TTL accumulate indefinitely and cause memory pressure.
 
@@ -397,8 +405,8 @@ Use Pub/Sub for fire-and-forget. Switch to Streams if you need guaranteed delive
 
 ## Related
 
-- Skill: `postgres-patterns` — relational data patterns
-- Skill: `backend-patterns` — API and service layer patterns
-- Skill: `database-migrations` — schema versioning
-- Skill: `django-patterns` — Django cache framework integration
-- Agent: `database-reviewer` — full database review workflow
+- Skill: `postgres-patterns`: relational data patterns
+- Skill: `backend-patterns`: API and service layer patterns
+- Skill: `database-migrations`: schema versioning
+- Skill: `django-patterns`: Django cache framework integration
+- Agent: `database-reviewer`: full database review workflow

@@ -75,6 +75,7 @@ Skill ini dipicu saat pengguna memanggil `/spesialis-skills`, `/specialist-skill
 
 ## Linked References
 Agen memuat berkas referensi dari engine inti `specialist-skill-architect` secara bertahap sesuai kebutuhan fase:
+- `references/omh-skill-standardization.md` (Standar baku metadata OMH, seksi deterministik, sanitasi tipografi, dan partisi gelombang)
 - `skills/pram-orchestrator/references/anti-ai-slop-standard.md` (Standar operasional Anti-AI Slop terpadu 3-pilar)
 - `skills/specialist-skill-architect/references/strategy-selection.md` (Pemilihan strategi 7 matriks)
 - `skills/specialist-skill-architect/references/skill-discovery.md` (Riset lokal & marketplace - serapan skill-scout)
@@ -101,3 +102,4 @@ Agen memuat berkas referensi dari engine inti `specialist-skill-architect` secar
 2. Lolos pengujian validator resmi `python skills/specialist-skill-architect/scripts/validate_skill.py <path> --strict`.
 3. Bebas dari karakter tanda pisah em dash atau en dash.
 4. Laporan deliverable menyajikan status pengujian eksplisit (VERIFIED, SIMULATED, atau BLOCKED).
+5. Kepatuhan mutlak standar Oh My Hermes (OMH) metadata dan format deskripsi pemicu.

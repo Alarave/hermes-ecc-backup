@@ -1,12 +1,18 @@
 ---
 name: explaining-machine-learning-models
-description: |
-  Explain trained machine learning models through feature attribution, local explanations, and behavior summaries.
-  Use as an explicit/manual helper once a model already exists, not for training ownership, leakage auditing, or general ML strategy selection.
+description: "[omh] Explain trained machine learning models through feature attribution, SHAP/LIME, and behavior summaries. Use when the user says: explaining-machine-learning-models, explain model, model interpretability, feature attribution."
+license: MIT
+author: "Jeremy Longshore <jeremy@intentsolutions.io>"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, model-explainability, shap, interpretability, ml]
+    category: data-ai
+    phase: model-explainability
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [shap, evaluating-machine-learning-models, spesialis-data-ai-agentic]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash(cmd:*)
 version: 1.0.0
-author: Jeremy Longshore <jeremy@intentsolutions.io>
-license: MIT
 ---
 # Model Explainability Tool
 

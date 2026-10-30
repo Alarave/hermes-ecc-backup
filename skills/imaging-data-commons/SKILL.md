@@ -1,13 +1,20 @@
 ---
 name: imaging-data-commons
-description: Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for accessing large-scale radiology (CT, MR, PET) and pathology datasets for AI training or research. No authentication required. Query by metadata, visualize in browser, check licenses.
+description: "[omh] Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use when the user says: imaging-data-commons, cancer imaging, idc data, dicom cancer data, nci imaging."
 license: This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data.
 metadata:
-    version: 1.3.1
-    skill-author: Andrey Fedorov, @fedorov
-    idc-index: "0.11.9"
-    idc-data-version: "v23"
-    repository: https://github.com/ImagingDataCommons/idc-claude-skill
+  hermes:
+    tags: [workflow, oh-my-hermes, cancer-imaging, dicom, medical, data]
+    category: data-ai
+    phase: data-query
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [pydicom, spesialis-data-ai-agentic]
+  version: 1.3.1
+  skill-author: Andrey Fedorov, @fedorov
+  idc-index: "0.11.9"
+  idc-data-version: "v23"
+  repository: https://github.com/ImagingDataCommons/idc-claude-skill
 ---
 
 # Imaging Data Commons
@@ -125,7 +132,7 @@ The `idc-index` package provides multiple metadata index tables, accessible via 
 
 **Complete index table documentation:** Use https://idc-index.readthedocs.io/en/latest/indices_reference.html for quick check of available tables and columns without executing any code.
 
-**Important:** Use `client.indices_overview` to get current table descriptions and column schemas. This is the authoritative source for available columns and their types — always query it when writing SQL or exploring data structure.
+**Important:** Use `client.indices_overview` to get current table descriptions and column schemas. This is the authoritative source for available columns and their types: always query it when writing SQL or exploring data structure.
 
 ### Available Tables
 
@@ -279,7 +286,7 @@ analysis_info = client.sql_query("""
 """)
 ```
 
-**`collections_index`** provides curated metadata per collection: cancer types, tumor locations, species, subject counts, and supporting data types — without needing to aggregate from the primary index.
+**`collections_index`** provides curated metadata per collection: cancer types, tumor locations, species, subject counts, and supporting data types (without needing to aggregate from the primary index).
 
 **`analysis_results_index`** lists derived datasets (AI segmentations, expert annotations, radiomics features) with their source collections and modalities.
 

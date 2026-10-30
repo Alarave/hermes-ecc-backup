@@ -1,9 +1,17 @@
 ---
 name: tiledbvcf
-description: Efficient storage and retrieval of genomic variant data using TileDB. Scalable VCF/BCF ingestion, incremental sample addition, compressed storage, parallel queries, and export capabilities for population genomics.
+description: "[omh] Efficient storage and retrieval of genomic variant data using TileDB-VCF. Use when the user says: tiledbvcf, tiledb vcf, genomic variant storage, vcf dataset."
 license: MIT license
+author: "oh-my-hermes maintainers"
 metadata:
-    skill-author: Jeremy Leipzig
+  hermes:
+    tags: [workflow, oh-my-hermes, genomics, vcf, tiledb, data]
+    category: data-ai
+    phase: genomics-data
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [spesialis-data-ai-agentic]
+  skill-author: Jeremy Leipzig
 ---
 
 # TileDB-VCF
@@ -233,7 +241,7 @@ ds = tiledbvcf.Dataset(uri="gcs://bucket/dataset", mode="r")
 4. **Coordinate system confusion:** Remember TileDB-VCF uses 1-based coordinates like VCF standard
 5. **Large result sets:** Use streaming or pagination for queries returning millions of variants
 6. **Cloud permissions:** Ensure proper authentication for cloud storage access
-7. **Concurrent access:** Multiple writers to the same dataset can cause corruption—use appropriate locking
+7. **Concurrent access:** Multiple writers to the same dataset can cause corruption: use appropriate locking
 
 ## CLI Usage
 

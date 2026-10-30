@@ -1,12 +1,18 @@
 ---
 name: evaluating-machine-learning-models
-description: |
-  Evaluate trained machine learning models with the right metrics and comparison logic.
-  Use for benchmark review, threshold selection, calibration, validation, and model comparison; not for feature engineering or leakage auditing.
+description: "[omh] Evaluate trained machine learning models with the right metrics, validation, and comparison logic. Use when the user says: evaluating-machine-learning-models, evaluate model, model metrics, model evaluation."
+license: MIT
+author: "Jeremy Longshore <jeremy@intentsolutions.io>"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, model-evaluation, metrics, validation, ml]
+    category: data-ai
+    phase: model-evaluation
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [explaining-machine-learning-models, scikit-learn, spesialis-data-ai-agentic]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash(cmd:*)
 version: 1.0.0
-author: Jeremy Longshore <jeremy@intentsolutions.io>
-license: MIT
 ---
 # Model Evaluation Suite
 

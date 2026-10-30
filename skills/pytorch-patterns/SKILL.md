@@ -1,8 +1,16 @@
 ---
 name: pytorch-patterns
-description: PyTorch deep learning patterns and best practices for building robust, efficient, and reproducible training pipelines, model architectures, and data loading.
+description: "[omh] PyTorch deep learning patterns and best practices for training pipelines, architectures, and data loading. Use when the user says: pytorch-patterns, pytorch, deep learning, torch training."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, pytorch, deep-learning, machine-learning, ai]
+    category: data-ai
+    phase: model-development
+    role: guide
+    quality_tier: evidence-gated
+    related_skills: [mle-workflow, spesialis-data-ai-agentic]
 ---
 
 # PyTorch Development Patterns
@@ -181,7 +189,7 @@ def evaluate(
     criterion: nn.Module,
     device: torch.device,
 ) -> tuple[float, float]:
-    model.eval()  # Always set eval mode — disables dropout, uses running BN stats
+    model.eval()  # Always set eval mode: disables dropout, uses running BN stats
     total_loss = 0.0
     correct = 0
     total = 0

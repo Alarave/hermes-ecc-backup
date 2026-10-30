@@ -1,12 +1,18 @@
 ---
 name: detecting-data-anomalies
-description: |
-  Investigate outliers, rare events, spikes, and suspicious records in datasets.
-  Use as an explicit anomaly-analysis helper when you want concrete anomaly-detection workflow guidance, not generic data validation or end-to-end ML ownership.
+description: "[omh] Investigate outliers, rare events, spikes, and suspicious records in datasets. Use when the user says: detecting-data-anomalies, detect anomalies, find outliers, anomaly detection data."
+license: MIT
+author: "Jeremy Longshore <jeremy@intentsolutions.io>"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, data-anomalies, outliers, data-quality]
+    category: data-ai
+    phase: anomaly-detection
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [scikit-learn, exploratory-data-analysis, spesialis-data-ai-agentic]
 allowed-tools: Read, Bash(python:*), Grep, Glob
 version: 1.0.0
-author: Jeremy Longshore <jeremy@intentsolutions.io>
-license: MIT
 ---
 
 # Detecting Data Anomalies

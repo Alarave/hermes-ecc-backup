@@ -1,7 +1,16 @@
 ---
 name: videodb
-description: ビデオとオーディオの表示、理解、アクション。表示：ローカルファイル、URL、RTSP/ライブストリーム、またはリアルタイムのデスクトップ録画からコンテンツを取得し、リアルタイムコンテキストと再生可能なストリームリンクを返す。理解：フレームを抽出し、ビジュアル/セマンティック/時間的インデックスを構築し、タイムスタンプと自動クリップでモーメントを検索する。アクション：トランスコードと正規化（コーデック、フレームレート、解像度、アスペクト比）、タイムライン編集（字幕、テキスト/画像オーバーレイ、ブランディング、オーディオオーバーレイ、吹き替え、翻訳）、メディアアセットの生成（画像、オーディオ、ビデオ）、ライブストリームまたはデスクトップキャプチャされたイベントのリアルタイムアラートを実行する。
-origin: ECC
+description: "[omh] Video and audio indexing, semantic search, timeline editing, and streaming via VideoDB. Use when the user says: videodb, video search, video indexing, video editing videodb."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, videodb, video, audio, media, ai]
+    category: data-ai
+    phase: video-processing
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [video-editing, video-studio, spesialis-data-ai-agentic]
 allowed-tools: Read Grep Glob Bash(python:*)
 argument-hint: "[task description]"
 ---
@@ -79,7 +88,7 @@ conn = videodb.connect()
 
 短いインラインコマンドで十分な場合はスクリプトファイルを書かない。
 
-インラインPython (`python -c "..."`) を書く場合は、常に適切にフォーマットされたコードを使用する——セミコロンで文を区切り、読みやすくする。約3文以上の場合はheredocを使用する：
+インラインPython (`python -c "..."`) を書く場合は、常に適切にフォーマットされたコードを使用する: セミコロンで文を区切り、読みやすくする。約3文以上の場合はheredocを使用する：
 
 ```bash
 python << 'EOF'
@@ -171,7 +180,7 @@ import re
 from videodb import SearchType, IndexType, SceneExtractionType
 from videodb.exceptions import InvalidRequestError
 
-# index_scenes() has no force parameter — it raises an error if a scene
+# index_scenes() has no force parameter: it raises an error if a scene
 # index already exists. Extract the existing index ID from the error.
 try:
     scene_index_id = video.index_scenes(
@@ -294,7 +303,7 @@ except InvalidRequestError as e:
 | 検索結果なし | `InvalidRequestError: No results found` | 例外をキャッチして空の結果として扱う (`shots = []`) |
 | アスペクト比調整タイムアウト | 長いビデオで無期限にブロック | `start`/`end` でセグメントを制限するか、非同期処理のために `callback_url` を渡す |
 | タイムライン上の負のタイムスタンプ | 破損したストリームを静かに生成 | `VideoAsset` を作成する前に常に `start >= 0` を検証する |
-| `generate_video()` / `create_collection()` の失敗 | `Operation not allowed` または `maximum limit` | プラン制限された機能——ユーザーにプラン制限を通知する |
+| `generate_video()` / `create_collection()` の失敗 | `Operation not allowed` または `maximum limit` | プラン制限された機能: ユーザーにプラン制限を通知する |
 
 ## 例
 
@@ -364,7 +373,7 @@ recent_visual = [
 * [reference/capture-reference.md](reference/capture-reference.md) - Capture SDKとWebSocketイベント
 * [reference/use-cases.md](reference/use-cases.md) - 一般的なビデオ処理パターンと例
 
-**VideoDBがその操作をサポートする場合、ffmpeg、moviepy、またはローカルエンコーディングツールを使用しない。** 以下のすべての操作はVideoDBによってサーバーサイドで処理される——トリミング、クリップのマージ、オーディオや音楽のオーバーレイ、字幕の追加、テキスト/画像オーバーレイ、トランスコード、解像度変更、アスペクト比変換、プラットフォーム要件へのリサイズ、転写、メディア生成。reference/editor.mdの「制限」セクションに記載されている操作（トランジション、速度変更、クロップ/ズーム、カラーグレーディング、音量ミキシング）の場合のみローカルツールにフォールバックする。
+**VideoDBがその操作をサポートする場合、ffmpeg、moviepy、またはローカルエンコーディングツールを使用しない。** 以下のすべての操作はVideoDBによってサーバーサイドで処理される: トリミング、クリップのマージ、オーディオや音楽のオーバーレイ、字幕の追加、テキスト/画像オーバーレイ、トランスコード、解像度変更、アスペクト比変換、プラットフォーム要件へのリサイズ、転写、メディア生成。reference/editor.mdの「制限」セクションに記載されている操作（トランジション、速度変更、クロップ/ズーム、カラーグレーディング、音量ミキシング）の場合のみローカルツールにフォールバックする。
 
 ### 何を使うべきか
 

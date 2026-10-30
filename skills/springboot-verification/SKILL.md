@@ -1,7 +1,16 @@
 ---
 name: springboot-verification
-description: "Bucle de verificación para proyectos Spring Boot: build, análisis estático, pruebas con cobertura, escaneos de seguridad y revisión de diff antes del lanzamiento o PR."
-origin: ECC
+description: "[omh] Spring Boot verification loop: build, static analysis, test coverage, security scan, and diff review. Use when the user says: springboot-verification, verify spring, spring boot tests, test spring boot."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, springboot, java, testing, verification]
+    category: backend
+    phase: verification-gate
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [springboot-patterns, springboot-tdd, springboot-security, verification-loop]
 ---
 
 # Bucle de Verificación Spring Boot
@@ -225,7 +234,7 @@ Problemas a Corregir:
 
 ## Modo Continuo
 
-- Volver a ejecutar las fases ante cambios significativos o cada 30–60 minutos en sesiones largas
+- Volver a ejecutar las fases ante cambios significativos o cada 30-60 minutos en sesiones largas
 - Mantener un bucle corto: `mvn -T 4 test` + spotbugs para retroalimentación rápida
 
-**Recuerda**: La retroalimentación rápida supera las sorpresas tardías. Mantener la compuerta estricta — tratar las advertencias como defectos en sistemas de producción.
+**Recuerda**: La retroalimentación rápida supera las sorpresas tardías. Mantener la compuerta estricta: tratar las advertencias como defectos en sistemas de producción.

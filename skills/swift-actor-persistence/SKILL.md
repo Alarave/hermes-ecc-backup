@@ -1,7 +1,16 @@
 ---
 name: swift-actor-persistence
-description: Swiftでactorを使用してスレッドセーフなデータ永続化を実装する——メモリキャッシュとファイルバックドストレージを組み合わせ、設計によってデータ競合を排除する。
-origin: ECC
+description: "[omh] Thread-safe data persistence using Swift actors with memory cache and file-backed storage. Use when the user says: swift-actor-persistence, swift actor persistence, swift thread safe storage, ios actor repository."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, swift, ios, concurrency]
+    category: mobile
+    phase: mobile-patterns
+    role: guide
+    quality_tier: evidence-gated
+    related_skills: [swift-concurrency-6-2, swift-protocol-di-testing, spesialis-mobile]
 ---
 
 # スレッドセーフな永続化のための Swift Actor
@@ -19,7 +28,7 @@ Swiftのactorを使用してスレッドセーフなデータ永続化レイヤ�
 
 ### Actorベースのリポジトリ
 
-Actorモデルはシリアライズされたアクセスを保証する——コンパイラによって強制されるデータ競合なし。
+Actorモデルはシリアライズされたアクセスを保証する: コンパイラによって強制されるデータ競合なし。
 
 ```swift
 public actor LocalRepository<T: Codable & Identifiable> where T.ID == String {
@@ -90,11 +99,11 @@ Actorの分離により、すべての呼び出しは自動的に非同期にな
 ```swift
 let repository = LocalRepository<Question>()
 
-// Read — fast O(1) lookup from in-memory cache
+// Read: fast O(1) lookup from in-memory cache
 let question = await repository.find(by: "q-001")
 let allQuestions = await repository.loadAll()
 
-// Write — updates cache and persists to file atomically
+// Write: updates cache and persists to file atomically
 try await repository.save(newQuestion)
 try await repository.delete("q-001")
 ```
@@ -136,17 +145,17 @@ final class QuestionListViewModel {
 ## ベストプラクティス
 
 * **Actorの境界を越えるすべてのデータに `Sendable` 型を使用する**
-* **Actorのパブリックなアビリティを最小化する** —— 永続化の詳細ではなく、ドメイン操作のみを公開する
-* **`.atomic` 書き込みを使用する** —— 書き込み中のアプリクラッシュによるデータ破損を防ぐ
-* **`init` で同期的にロードする** —— 非同期イニシャライザはローカルファイルに対するわずかな利点のために複雑さが増す
-* **`@Observable` ViewModelと組み合わせる** —— リアクティブなUI更新を実現する
+* **Actorのパブリックなアビリティを最小化する**: 永続化の詳細ではなく、ドメイン操作のみを公開する
+* **`.atomic` 書き込みを使用する**: 書き込み中のアプリクラッシュによるデータ破損を防ぐ
+* **`init` で同期的にロードする**: 非同期イニシャライザはローカルファイルに対するわずかな利点のために複雑さが増す
+* **`@Observable` ViewModelと組み合わせる**: リアクティブなUI更新を実現する
 
 ## 避けるべきアンチパターン
 
 * Swiftの新しい並行処理コードでActorの代わりに `DispatchQueue` または `NSLock` を使用する
 * 内部のキャッシュ辞書を外部の呼び出し元に公開する
 * 初期化後にファイルURLを外部から変更可能にする（初期化時のみ設定を許可すること）
-* すべてのActor メソッド呼び出しが `await` であることを忘れる——呼び出し元は非同期コンテキストを処理する必要がある
+* すべてのActor メソッド呼び出しが `await` であることを忘れる: 呼び出し元は非同期コンテキストを処理する必要がある
 * Actor の分離をバイパスするために `nonisolated` を使用する（本末転倒）
 
 ## 使用場面

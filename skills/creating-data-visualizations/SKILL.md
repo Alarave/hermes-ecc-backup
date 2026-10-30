@@ -1,12 +1,18 @@
 ---
 name: creating-data-visualizations
-description: |
-  Create analytical charts and plots from existing data.
-  Use for exploratory or reporting visuals such as bars, lines, scatters, and dashboards; not for publication-grade scientific figures or AI-generated schematics.
+description: "[omh] Create analytical charts and plots from existing data: bars, lines, scatters, and dashboards. Use when the user says: creating-data-visualizations, create chart, plot data, data visualization."
+license: MIT
+author: "Jeremy Longshore <jeremy@intentsolutions.io>"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, data-visualization, charts, analytics]
+    category: data-ai
+    phase: visualization
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [datavis, matplotlib, seaborn, spesialis-data-ai-agentic]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash(cmd:*)
 version: 1.0.0
-author: Jeremy Longshore <jeremy@intentsolutions.io>
-license: MIT
 ---
 # Data Visualization Creator
 

@@ -1,7 +1,16 @@
 ---
 name: springboot-security
-description: Buenas prácticas de Spring Security para autenticación/autorización, validación, CSRF, secretos, cabeceras, limitación de velocidad y seguridad de dependencias en servicios Java Spring Boot.
-origin: ECC
+description: "[omh] Spring Boot security best practices: authentication, authorization, validation, CSRF, secrets, and rate limiting. Use when the user says: springboot-security, spring security, spring auth, spring boot security."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, springboot, java, security]
+    category: backend
+    phase: security-review
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [springboot-patterns, springboot-tdd, springboot-verification, security-review]
 ---
 
 # Revisión de Seguridad Spring Boot
@@ -119,7 +128,7 @@ List<User> findByEmailAndActiveTrue(String email);
 
 ## Codificación de Contraseñas
 
-- Siempre hashear contraseñas con BCrypt o Argon2 — nunca almacenar en texto plano
+- Siempre hashear contraseñas con BCrypt o Argon2: nunca almacenar en texto plano
 - Usar el bean `PasswordEncoder`, no hashing manual
 
 ```java
@@ -186,7 +195,7 @@ http
 ## Configuración de CORS
 
 - Configurar CORS a nivel del filtro de seguridad, no por controller
-- Restringir orígenes permitidos — nunca usar `*` en producción
+- Restringir orígenes permitidos: nunca usar `*` en producción
 
 ```java
 @Bean

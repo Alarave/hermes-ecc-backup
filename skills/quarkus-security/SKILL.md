@@ -1,8 +1,16 @@
 ---
 name: quarkus-security
-description: Quarkus Security best practices for authentication, authorization, JWT/OIDC, RBAC, input validation, CSRF, secrets management, and dependency security.
+description: "[omh] Quarkus Security best practices: authentication, authorization, JWT/OIDC, RBAC, input validation, and secrets. Use when the user says: quarkus-security, quarkus auth, quarkus security, secure quarkus."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, quarkus, java, security]
+    category: backend
+    phase: security-review
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [quarkus-tdd, quarkus-verification, security-review, spesialis-backend]
 ---
 
 # Quarkus Security Review
@@ -337,7 +345,7 @@ public class SecretService {
 
 ## Rate Limiting
 
-**Security Note**: Never use `X-Forwarded-For` directly — clients can spoof it.
+**Security Note**: Never use `X-Forwarded-For` directly: clients can spoof it.
 Use the actual remote address from the servlet request, or an authenticated
 identity (API key, JWT subject) when available.
 
@@ -393,7 +401,7 @@ public class SecurityHeadersFilter implements ContainerResponseFilter {
     // HSTS
     headers.putSingle("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
 
-    // CSP — avoid 'unsafe-inline' for script-src as it negates XSS protection;
+    // CSP: avoid 'unsafe-inline' for script-src as it negates XSS protection;
     // use nonces or hashes instead. 'unsafe-inline' for style-src is acceptable
     // when CSS frameworks require it, but prefer nonces where possible.
     headers.putSingle("Content-Security-Policy",

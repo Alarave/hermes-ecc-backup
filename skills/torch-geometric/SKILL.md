@@ -1,6 +1,16 @@
 ---
 name: torch-geometric
-description: "Graph Neural Networks (PyG). Node/graph classification, link prediction, GCN, GAT, GraphSAGE, heterogeneous graphs, molecular property prediction, for geometric deep learning."
+description: "[omh] Graph Neural Networks with PyTorch Geometric (PyG): node/graph classification, link prediction, GCN, GAT, and GraphSAGE. Use when the user says: torch-geometric, pyg, graph neural networks, gnn pytorch."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, gnn, pytorch, graph, deep-learning, ai]
+    category: data-ai
+    phase: graph-learning
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [pytorch-patterns, spesialis-data-ai-agentic]
 ---
 
 # PyTorch Geometric (PyG)
@@ -85,7 +95,7 @@ PyG represents graphs using the `torch_geometric.data.Data` class with these key
 - **`data.pos`**: Node spatial positions `[num_nodes, num_dimensions]` (optional)
 - **Custom attributes**: Can add any attribute (e.g., `data.train_mask`, `data.batch`)
 
-**Important**: These attributes are not mandatory—extend Data objects with custom attributes as needed.
+**Important**: These attributes are not mandatory: extend Data objects with custom attributes as needed.
 
 ### Edge Index Format
 
@@ -106,7 +116,7 @@ PyG handles batching by creating block-diagonal adjacency matrices, concatenatin
 - Adjacency matrices are stacked diagonally
 - Node features are concatenated along the node dimension
 - A `batch` vector maps each node to its source graph
-- No padding needed—computationally efficient
+- No padding needed: computationally efficient
 
 ```python
 from torch_geometric.loader import DataLoader
@@ -227,7 +237,7 @@ class CustomConv(MessagePassing):
 Key methods:
 - **`forward()`**: Main entry point
 - **`message()`**: Constructs messages from source to target nodes
-- **`aggregate()`**: Aggregates messages (usually don't override—set `aggr` parameter)
+- **`aggregate()`**: Aggregates messages (usually don't override: set `aggr` parameter)
 - **`update()`**: Updates node embeddings after aggregation
 
 **Variable naming convention**: Appending `_i` or `_j` to tensor names automatically maps them to target or source nodes.
