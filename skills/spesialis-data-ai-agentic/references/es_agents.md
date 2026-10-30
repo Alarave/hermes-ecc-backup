@@ -1,4 +1,4 @@
-# Everything Claude Code (ECC) — Instrucciones para Agentes
+# Everything Claude Code (ECC) - Instrucciones para Agentes
 
 Este es un **plugin de IA para codificación listo para producción** que proporciona 63 agentes especializados, 249 skills, 79 comandos y flujos de trabajo de hooks automatizados para el desarrollo de software.
 
@@ -6,11 +6,11 @@ Este es un **plugin de IA para codificación listo para producción** que propor
 
 ## Principios Fundamentales
 
-1. **Primero los Agentes** — Delega a agentes especializados para tareas de dominio
-2. **Guiado por Pruebas** — Escribe pruebas antes de la implementación, se requiere 80%+ de cobertura
-3. **Seguridad Primero** — Nunca comprometer la seguridad; valida todas las entradas
-4. **Inmutabilidad** — Siempre crea nuevos objetos, nunca mutes los existentes
-5. **Planifica Antes de Ejecutar** — Planifica features complejas antes de escribir código
+1. **Primero los Agentes** - Delega a agentes especializados para tareas de dominio
+2. **Guiado por Pruebas** - Escribe pruebas antes de la implementación, se requiere 80%+ de cobertura
+3. **Seguridad Primero** - Nunca comprometer la seguridad; valida todas las entradas
+4. **Inmutabilidad** - Siempre crea nuevos objetos, nunca mutes los existentes
+5. **Planifica Antes de Ejecutar** - Planifica features complejas antes de escribir código
 
 ## Agentes Disponibles
 
@@ -58,7 +58,7 @@ Usa agentes proactivamente sin prompt del usuario:
 - Bucles autónomos / monitoreo de bucles → **loop-operator**
 - Confiabilidad y costo de la configuración del harness → **harness-optimizer**
 
-Usa ejecución paralela para operaciones independientes — lanza múltiples agentes simultáneamente.
+Usa ejecución paralela para operaciones independientes - lanza múltiples agentes simultáneamente.
 
 ## Directrices de Seguridad
 
@@ -97,28 +97,28 @@ Usa ejecución paralela para operaciones independientes — lanza múltiples age
 **Cobertura mínima: 80%**
 
 Tipos de prueba (todos requeridos):
-1. **Pruebas unitarias** — Funciones individuales, utilidades, componentes
-2. **Pruebas de integración** — Endpoints de API, operaciones de base de datos
-3. **Pruebas E2E** — Flujos de usuario críticos
+1. **Pruebas unitarias** - Funciones individuales, utilidades, componentes
+2. **Pruebas de integración** - Endpoints de API, operaciones de base de datos
+3. **Pruebas E2E** - Flujos de usuario críticos
 
 **Flujo de trabajo TDD (obligatorio):**
-1. Escribe la prueba primero (ROJO) — la prueba debe FALLAR
-2. Escribe la implementación mínima (VERDE) — la prueba debe PASAR
-3. Refactoriza (MEJORAR) — verifica cobertura 80%+
+1. Escribe la prueba primero (ROJO) - la prueba debe FALLAR
+2. Escribe la implementación mínima (VERDE) - la prueba debe PASAR
+3. Refactoriza (MEJORAR) - verifica cobertura 80%+
 
 Soluciona fallos: verifica aislamiento de pruebas → verifica mocks → corrige la implementación (no las pruebas, a menos que las pruebas estén equivocadas).
 
 ## Flujo de Trabajo de Desarrollo
 
-1. **Planificar** — Usa el agente planner, identifica dependencias y riesgos, divide en fases
-2. **TDD** — Usa el agente tdd-guide, escribe pruebas primero, implementa, refactoriza
-3. **Revisar** — Usa el agente code-reviewer de inmediato, atiende los problemas CRÍTICOS/ALTOS
+1. **Planificar** - Usa el agente planner, identifica dependencias y riesgos, divide en fases
+2. **TDD** - Usa el agente tdd-guide, escribe pruebas primero, implementa, refactoriza
+3. **Revisar** - Usa el agente code-reviewer de inmediato, atiende los problemas CRÍTICOS/ALTOS
 4. **Captura el conocimiento en el lugar correcto**
    - Notas de depuración personal, preferencias y contexto temporal → auto memoria
    - Conocimiento del equipo/proyecto (decisiones de arquitectura, cambios de API, runbooks) → la estructura de documentos existente del proyecto
    - Si la tarea actual ya produce los documentos o comentarios de código relevantes, no dupliques la misma información en otro lugar
    - Si no hay una ubicación obvia en los documentos del proyecto, pregunta antes de crear un nuevo archivo de nivel superior
-5. **Commit** — Formato de commits convencionales, resúmenes completos en el PR
+5. **Commit** - Formato de commits convencionales, resúmenes completos en el PR
 
 ## Política de Superficie de Flujo de Trabajo
 
@@ -128,7 +128,7 @@ Soluciona fallos: verifica aislamiento de pruebas → verifica mocks → corrige
 
 ## Flujo de Trabajo de Git
 
-**Formato de commit:** `<tipo>: <descripción>` — Tipos: feat, fix, refactor, docs, test, chore, perf, ci
+**Formato de commit:** `<tipo>: <descripción>` - Tipos: feat, fix, refactor, docs, test, chore, perf, ci
 
 **Flujo de trabajo de PR:** Analiza el historial completo de commits → redacta un resumen completo → incluye plan de pruebas → push con flag `-u`.
 
@@ -149,14 +149,14 @@ Soluciona fallos: verifica aislamiento de pruebas → verifica mocks → corrige
 ## Estructura del Proyecto
 
 ```
-agents/          — 63 subagentes especializados
-skills/          — 249 skills de flujo de trabajo y conocimiento de dominio
-commands/        — 79 comandos slash
-hooks/           — Automatizaciones basadas en eventos
-rules/           — Directrices de cumplimiento obligatorio (comunes + por lenguaje)
-scripts/         — Utilidades Node.js multiplataforma
-mcp-configs/     — 14 configuraciones de servidores MCP
-tests/           — Suite de pruebas
+agents/          - 63 subagentes especializados
+skills/          - 249 skills de flujo de trabajo y conocimiento de dominio
+commands/        - 79 comandos slash
+hooks/           - Automatizaciones basadas en eventos
+rules/           - Directrices de cumplimiento obligatorio (comunes + por lenguaje)
+scripts/         - Utilidades Node.js multiplataforma
+mcp-configs/     - 14 configuraciones de servidores MCP
+tests/           - Suite de pruebas
 ```
 
 `commands/` permanece en el repo por compatibilidad, pero la dirección a largo plazo es skills primero.

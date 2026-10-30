@@ -1,13 +1,13 @@
 # React Native / Expo Patterns
 
 > This file extends [common/patterns.md](common-patterns.md) with React Native / Expo specific patterns.
-> Note: Do NOT install the `web/` ruleset in a React Native project — those patterns assume the DOM (e.g. URL-as-state) and do not apply here.
+> Note: Do NOT install the `web/` ruleset in a React Native project - those patterns assume the DOM (e.g. URL-as-state) and do not apply here.
 
 ## Navigation (Expo Router)
 
 Expo Router is Expo's built-in, file-based router (`app/` directory); React Navigation is the established alternative. The examples below use Expo Router; the principles apply either way.
 
-- Keep route files (`app/**`) thin — they wire params + hooks to a screen component that lives in `components/` or `features/`.
+- Keep route files (`app/**`) thin - they wire params + hooks to a screen component that lives in `components/` or `features/`.
 - Type route params; validate untrusted params (e.g. from deep links) with Zod before use.
 - Use typed navigation helpers (`useLocalSearchParams`, `Link`, `router.push`).
 - Centralize linking config; never trust deep-link params without validation.
@@ -33,7 +33,7 @@ export default function UserScreen() {
 
 ## State Management
 
-The rule is to keep these concerns separate and not duplicate server data into client stores. The tools listed are common choices, not requirements — pick what fits your project.
+The rule is to keep these concerns separate and not duplicate server data into client stores. The tools listed are common choices, not requirements - pick what fits your project.
 
 | Concern | Common choices |
 |---------|---------|
@@ -68,7 +68,7 @@ function useUser(id: string) {
 
 ## Lists
 
-- Use `FlatList`/`SectionList` (or `FlashList` for large/heavy lists) — never `.map()` a large array inside a `ScrollView`.
+- Use `FlatList`/`SectionList` (or `FlashList` for large/heavy lists) - never `.map()` a large array inside a `ScrollView`.
 - Provide a stable `keyExtractor`; memoize `renderItem`.
 - Paginate or virtualize long data sets.
 

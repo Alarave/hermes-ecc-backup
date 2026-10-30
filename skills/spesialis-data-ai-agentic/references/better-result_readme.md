@@ -115,7 +115,7 @@ const result = await (
 
 ## Observing Results
 
-Use `tap` / `tapAsync` for success-side logging or tracing, `tapError` / `tapErrorAsync` for error-side logging or tracing, and `tapBoth` / `tapBothAsync` when you want to observe either branch with one handler object. These methods do not transform the `Result` — they always return the original value unchanged.
+Use `tap` / `tapAsync` for success-side logging or tracing, `tapError` / `tapErrorAsync` for error-side logging or tracing, and `tapBoth` / `tapBothAsync` when you want to observe either branch with one handler object. These methods do not transform the `Result` - they always return the original value unchanged.
 
 ```ts
 const result = Result.try(() => JSON.parse(input))
@@ -333,11 +333,11 @@ When `Result.try()` or `Result.tryPromise()` catches an exception without a cust
 ```ts
 import { Result, UnhandledException } from "better-result";
 
-// Automatic — error type is UnhandledException
+// Automatic - error type is UnhandledException
 const result = Result.try(() => JSON.parse(input));
 //    ^? Result<unknown, UnhandledException>
 
-// Custom handler — you control the error type
+// Custom handler - you control the error type
 const result = Result.try({
   try: () => JSON.parse(input),
   catch: (e) => new ParseError(e),
@@ -410,7 +410,7 @@ try {
 }
 ```
 
-**Why Panic?** `Err` is for recoverable domain errors. Panic is for bugs — like Rust's `panic!()`. If your `.map()` callback throws, that's not an error to handle, it's a defect to fix. Returning `Err` would collapse type safety (`Result<T, E>` becomes `Result<T, E | unknown>`).
+**Why Panic?** `Err` is for recoverable domain errors. Panic is for bugs - like Rust's `panic!()`. If your `.map()` callback throws, that's not an error to handle, it's a defect to fix. Returning `Err` would collapse type safety (`Result<T, E>` becomes `Result<T, E | unknown>`).
 
 **Panic properties:**
 
@@ -617,8 +617,8 @@ better-result ships with portable `SKILL.md` skills instead of an interactive CL
 
 ### Available skills
 
-- `better-result-adopt` — adopt `better-result` in an existing codebase
-- `better-result-migrate-v2` — migrate v1 `TaggedError` usage to the v2 API
+- `better-result-adopt` - adopt `better-result` in an existing codebase
+- `better-result-migrate-v2` - migrate v1 `TaggedError` usage to the v2 API
 
 These skills are designed to work with SKILL.md-compatible agents and skills.sh-compatible tooling.
 

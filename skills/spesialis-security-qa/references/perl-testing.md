@@ -16,7 +16,7 @@ Comprehensive testing strategies for Perl applications using Test2::V0, Test::Mo
 Always follow the RED-GREEN-REFACTOR cycle.
 
 ```perl
-# Step 1: RED — Write a failing test
+# Step 1: RED - Write a failing test
 # t/unit/calculator.t
 use v5.36;
 use Test2::V0;
@@ -32,7 +32,7 @@ subtest 'addition' => sub {
 
 done_testing;
 
-# Step 2: GREEN — Write minimal implementation
+# Step 2: GREEN - Write minimal implementation
 # lib/Calculator.pm
 package Calculator;
 use v5.36;
@@ -44,13 +44,13 @@ sub add($self, $a, $b) {
 
 1;
 
-# Step 3: REFACTOR — Improve while tests stay green
+# Step 3: REFACTOR - Improve while tests stay green
 # Run: prove -lv t/unit/calculator.t
 ```
 
 ## Test::More Fundamentals
 
-The standard Perl testing module — widely used, ships with core.
+The standard Perl testing module - widely used, ships with core.
 
 ### Basic Assertions
 
@@ -113,7 +113,7 @@ done_testing;
 
 ## Test2::V0 Modern Framework
 
-Test2::V0 is the modern replacement for Test::More — richer assertions, better diagnostics, and extensible.
+Test2::V0 is the modern replacement for Test::More - richer assertions, better diagnostics, and extensible.
 
 ### Why Test2?
 
@@ -129,7 +129,7 @@ Test2::V0 is the modern replacement for Test::More — richer assertions, better
 use v5.36;
 use Test2::V0;
 
-# Hash builder — check partial structure
+# Hash builder - check partial structure
 is(
     $user->to_hash,
     hash {
@@ -148,12 +148,12 @@ is(
     array {
         item 'first';
         item match(qr/^second/);
-        item DNE();  # Does Not Exist — verify no extra items
+        item DNE();  # Does Not Exist - verify no extra items
     },
     'result matches expected list'
 );
 
-# Bag — order-independent comparison
+# Bag - order-independent comparison
 is(
     $tags,
     bag {
@@ -338,7 +338,7 @@ subtest 'mock external API' => sub {
 };
 
 # Bad: Monkey-patching without restoration
-# *MyApp::API::fetch_user = sub { ... };  # NEVER — leaks across tests
+# *MyApp::API::fetch_user = sub { ... };  # NEVER - leaks across tests
 ```
 
 For lightweight mock objects, use `Test::MockObject` to create injectable test doubles with `->mock()` and verify calls with `->called_ok()`.
@@ -439,7 +439,7 @@ done_testing;
 # Bad: Test file runs but doesn't verify all tests executed
 use Test2::V0;
 is(1, 1, 'works');
-# Missing done_testing — silent bugs if test code is skipped
+# Missing done_testing - silent bugs if test code is skipped
 
 # Good: Always end with done_testing
 use Test2::V0;
@@ -464,6 +464,6 @@ Mock the *dependency*, not the code under test. If your test only verifies that 
 
 ### Test Pollution
 
-Use `my` variables inside subtests — never `our` — to prevent state leaking between tests.
+Use `my` variables inside subtests - never `our` - to prevent state leaking between tests.
 
 **Remember**: Tests are your safety net. Keep them fast, focused, and independent. Use Test2::V0 for new projects, prove for running, and Devel::Cover for accountability.

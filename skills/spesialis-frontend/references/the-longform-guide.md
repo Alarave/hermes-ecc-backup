@@ -323,7 +323,7 @@ alias q='cd ~/Desktop/projects'
 
 **Agent Orchestration:**
 
-- claude-flow — Community-built enterprise orchestration platform with 54+ specialized agents
+- claude-flow - Community-built enterprise orchestration platform with 54+ specialized agents
 
 **Self-Improving Memory:**
 
@@ -332,7 +332,7 @@ alias q='cd ~/Desktop/projects'
 
 **System Prompts Reference:**
 
-- system-prompts-and-models-of-ai-tools — Community collection of AI system prompts (110k+ stars)
+- system-prompts-and-models-of-ai-tools - Community collection of AI system prompts (110k+ stars)
 
 **Official:**
 

@@ -13,7 +13,7 @@ Intercept the response flow to offer the user a choice about response depth **be
 
 ## How It Works
 
-### Step 1 — Estimate input tokens
+### Step 1 - Estimate input tokens
 
 Use the repository's canonical context-budget heuristics to estimate the prompt's token count mentally.
 
@@ -24,21 +24,21 @@ Use the same calibration guidance as [context-budget](../context-budget/SKILL.md
 
 For mixed content, use the dominant content type and keep the estimate heuristic.
 
-### Step 2 — Estimate response size by complexity
+### Step 2 - Estimate response size by complexity
 
 Classify the prompt, then apply the multiplier range to get the full response window:
 
 | Complexity   | Multiplier range | Example prompts                                      |
 |--------------|------------------|------------------------------------------------------|
-| Simple       | 3× – 8×          | "What is X?", yes/no, single fact                   |
-| Medium       | 8× – 20×         | "How does X work?"                                  |
-| Medium-High  | 10× – 25×        | Code request with context                           |
-| Complex      | 15× – 40×        | Multi-part analysis, comparisons, architecture      |
-| Creative     | 10× – 30×        | Stories, essays, narrative writing                  |
+| Simple       | 3× - 8×          | "What is X?", yes/no, single fact                   |
+| Medium       | 8× - 20×         | "How does X work?"                                  |
+| Medium-High  | 10× - 25×        | Code request with context                           |
+| Complex      | 15× - 40×        | Multi-part analysis, comparisons, architecture      |
+| Creative     | 10× - 30×        | Stories, essays, narrative writing                  |
 
 Response window = `input_tokens × mult_min` to `input_tokens × mult_max` (but don’t exceed your model’s configured output-token limit).
 
-### Step 3 — Present depth options
+### Step 3 - Present depth options
 
 Present this block **before** answering, using the actual estimated numbers:
 
@@ -65,16 +65,16 @@ Level token estimates (within the response window):
 - 75%  → `min + (max - min) × 0.75`
 - 100% → `max`
 
-### Step 4 — Respond at the chosen level
+### Step 4 - Respond at the chosen level
 
 | Level            | Target length       | Include                                             | Omit                                              |
 |------------------|---------------------|-----------------------------------------------------|---------------------------------------------------|
 | 25% Essential    | 2-4 sentences max   | Direct answer, key conclusion                       | Context, examples, nuance, alternatives           |
 | 50% Moderate     | 1-3 paragraphs      | Answer + necessary context + 1 example              | Deep analysis, edge cases, references             |
 | 75% Detailed     | Structured response | Multiple examples, pros/cons, alternatives          | Extreme edge cases, exhaustive references         |
-| 100% Exhaustive  | No restriction      | Everything — full analysis, all code, all perspectives | Nothing                                        |
+| 100% Exhaustive  | No restriction      | Everything - full analysis, all code, all perspectives | Nothing                                        |
 
-## Shortcuts — skip the question
+## Shortcuts - skip the question
 
 If the user already signals a level, respond at that level immediately without asking:
 
@@ -89,7 +89,7 @@ If the user set a level earlier in the session, **maintain it silently** for sub
 
 ## Precision note
 
-This skill uses heuristic estimation — no real tokenizer. Accuracy ~85-90%, variance ±15%. Always show the disclaimer.
+This skill uses heuristic estimation - no real tokenizer. Accuracy ~85-90%, variance ±15%. Always show the disclaimer.
 
 ## Examples
 
@@ -111,5 +111,5 @@ This skill uses heuristic estimation — no real tokenizer. Accuracy ~85-90%, va
 
 ## Source
 
-Standalone skill from [TBA — Token Budget Advisor for Claude Code](https://github.com/Xabilimon1/Token-Budget-Advisor-Claude-Code-).
+Standalone skill from [TBA - Token Budget Advisor for Claude Code](https://github.com/Xabilimon1/Token-Budget-Advisor-Claude-Code-).
 Original project also ships a Python estimator script, but this repository keeps the skill self-contained and heuristic-only.

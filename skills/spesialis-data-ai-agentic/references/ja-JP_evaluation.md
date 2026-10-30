@@ -19,10 +19,10 @@
 | MCP設定 | 0 |
 
 **インストール済みフック：**
-- `Stop` → `stop-hook-git-check.sh` — コミットされていない変更やプッシュされていないコミットがある場合にセッション終了をブロック
+- `Stop` → `stop-hook-git-check.sh` - コミットされていない変更やプッシュされていないコミットがある場合にセッション終了をブロック
 
 **インストール済みパーミッション：**
-- `Skill` — スキルの呼び出しを許可
+- `Skill` - スキルの呼び出しを許可
 
 **プラグイン：** `blocklist.json`のみ（アクティブなプラグインなし）
 
@@ -74,11 +74,11 @@
 - ビジネスワークフロー（投資家向け資料、市場調査、コンテンツエンジン）
 
 ### コマンド（59個不足）
-- `/tdd`、`/plan`、`/e2e`、`/code-review` — コア開発ワークフロー
-- `/sessions`、`/save-session`、`/resume-session` — セッション永続化
-- `/orchestrate`、`/multi-plan`、`/multi-execute` — マルチエージェント協調
-- `/learn`、`/skill-create`、`/evolve` — 継続的改善
-- `/build-fix`、`/verify`、`/quality-gate` — ビルド/品質自動化
+- `/tdd`、`/plan`、`/e2e`、`/code-review` - コア開発ワークフロー
+- `/sessions`、`/save-session`、`/resume-session` - セッション永続化
+- `/orchestrate`、`/multi-plan`、`/multi-execute` - マルチエージェント協調
+- `/learn`、`/skill-create`、`/evolve` - 継続的改善
+- `/build-fix`、`/verify`、`/quality-gate` - ビルド/品質自動化
 
 ### ルール（60以上のファイルが不足）
 以下の言語固有のコーディングスタイル、パターン、テスト、セキュリティガイドライン：

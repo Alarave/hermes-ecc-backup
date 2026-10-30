@@ -13,7 +13,7 @@
 
 The Standard Schema project is a set of interfaces that standardize the provision and consumption of shared functionality in the TypeScript ecosystem.
 
-Its goal is to allow tools to accept a single input that includes all the types and capabilities they need— no library-specific adapters, no extra dependencies. The result is an ecosystem that's fair for implementers, friendly for consumers, and open for end users.
+Its goal is to allow tools to accept a single input that includes all the types and capabilities they need- no library-specific adapters, no extra dependencies. The result is an ecosystem that's fair for implementers, friendly for consumers, and open for end users.
 
 ## The specifications
 

@@ -1,4 +1,4 @@
-# PR 399 Review — March 12, 2026
+# PR 399 Review - March 12, 2026
 
 ## Scope
 

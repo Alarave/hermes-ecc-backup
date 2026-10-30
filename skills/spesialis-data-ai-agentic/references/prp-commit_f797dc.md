@@ -6,7 +6,7 @@
 
 ---
 
-## フェーズ 1 — ASSESS
+## フェーズ 1 - ASSESS
 
 ```bash
 git status --short
@@ -18,7 +18,7 @@ git status --short
 
 ---
 
-## フェーズ 2 — INTERPRET & STAGE
+## フェーズ 2 - INTERPRET & STAGE
 
 `$ARGUMENTS`を解釈してステージング対象を決定:
 
@@ -29,7 +29,7 @@ git status --short
 | `*.ts`や`*.py`など | マッチするglobをステージ | `git add '*.ts'` |
 | `except tests` | すべてステージ後、テストをアンステージ | `git add -A && git reset -- '**/*.test.*' '**/*.spec.*' '**/test_*' 2>/dev/null \|\| true` |
 | `only new files` | 未追跡ファイルのみステージ | `git ls-files --others --exclude-standard \| grep . && git ls-files --others --exclude-standard \| xargs git add` |
-| `the auth changes` | status/diffから解釈 — auth関連ファイルを検出 | `git add <matched files>` |
+| `the auth changes` | status/diffから解釈 - auth関連ファイルを検出 | `git add <matched files>` |
 | 特定のファイル名 | それらのファイルをステージ | `git add <files>` |
 
 自然言語入力（"the auth changes"など）の場合、`git status`出力と`git diff`を相互参照して関連ファイルを特定。どのファイルをなぜステージングするかをユーザーに表示。
@@ -47,7 +47,7 @@ git diff --cached --stat
 
 ---
 
-## フェーズ 3 — COMMIT
+## フェーズ 3 - COMMIT
 
 命令形で単一行のコミットメッセージを作成:
 
@@ -56,14 +56,14 @@ git diff --cached --stat
 ```
 
 タイプ:
-- `feat` — 新機能または能力
-- `fix` — バグ修正
-- `refactor` — 動作を変えないコード再構築
-- `docs` — ドキュメント変更
-- `test` — テストの追加または更新
-- `chore` — ビルド、設定、依存関係
-- `perf` — パフォーマンス改善
-- `ci` — CI/CD変更
+- `feat` - 新機能または能力
+- `fix` - バグ修正
+- `refactor` - 動作を変えないコード再構築
+- `docs` - ドキュメント変更
+- `test` - テストの追加または更新
+- `chore` - ビルド、設定、依存関係
+- `perf` - パフォーマンス改善
+- `ci` - CI/CD変更
 
 ルール:
 - 命令形（"added feature"ではなく"add feature"）
@@ -78,7 +78,7 @@ git commit -m "{type}: {description}"
 
 ---
 
-## フェーズ 4 — OUTPUT
+## フェーズ 4 - OUTPUT
 
 ユーザーへの報告:
 

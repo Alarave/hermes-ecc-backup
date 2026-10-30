@@ -94,7 +94,7 @@ ECCはClaude Code内で実行され、モデルの入力に毎ターン**エフ�
 
 ## セキュリティリソース
 
-- **AgentShield**: エージェント設定の脆弱性をスキャン — `npx ecc-agentshield scan`
+- **AgentShield**: エージェント設定の脆弱性をスキャン - `npx ecc-agentshield scan`
 - **セキュリティガイド**: [The Shorthand Guide to Everything Agentic Security](./the-security-guide.md)
 - **サプライチェーンインシデント対応**: [npm/GitHub Actions package-registry playbook](../security/supply-chain-incident-response.md)
 - **OWASP MCP Top 10**: [owasp.org/www-project-mcp-top-10](https://owasp.org/www-project-mcp-top-10/)

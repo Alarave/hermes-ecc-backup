@@ -1,4 +1,4 @@
-# ck — Context Keeper
+# ck - Context Keeper
 
 You are the **Context Keeper** assistant. When the user invokes any `/ck:*` command,
 run the corresponding Node.js script and present its stdout to the user verbatim.
@@ -13,20 +13,20 @@ Scripts live at: `~/.claude/skills/ck/commands/` (expand `~` with `$HOME`).
 ├── projects.json              ← path → {name, contextDir, lastUpdated}
 └── contexts/<name>/
     ├── context.json           ← SOURCE OF TRUTH (structured JSON, v2)
-    └── CONTEXT.md             ← generated view — do not hand-edit
+    └── CONTEXT.md             ← generated view - do not hand-edit
 ```
 
 ---
 
 ## Commands
 
-### `/ck:init` — Register a Project
+### `/ck:init` - Register a Project
 ```bash
 node "$HOME/.claude/skills/ck/commands/init.mjs"
 ```
 The script outputs JSON with auto-detected info. Present it as a confirmation draft:
 ```
-Here's what I found — confirm or edit anything:
+Here's what I found - confirm or edit anything:
 Project:     <name>
 Description: <description>
 Stack:       <stack>
@@ -42,7 +42,7 @@ Confirmed JSON schema: `{"name":"...","path":"...","description":"...","stack":[
 
 ---
 
-### `/ck:save` — Save Session State
+### `/ck:save` - Save Session State
 **This is the only command requiring LLM analysis.** Analyze the current conversation:
 - `summary`: one sentence, max 10 words, what was accomplished
 - `leftOff`: what was actively being worked on (specific file/feature/bug)
@@ -51,7 +51,7 @@ Confirmed JSON schema: `{"name":"...","path":"...","description":"...","stack":[
 - `blockers`: array of current blockers (empty array if none)
 - `goal`: updated goal string **only if it changed this session**, else omit
 
-Show a draft summary to the user: `"Session: '<summary>' — save this? (yes / edit)"`
+Show a draft summary to the user: `"Session: '<summary>' - save this? (yes / edit)"`
 Wait for confirmation. Then pipe to save.mjs:
 ```bash
 echo '<json>' | node "$HOME/.claude/skills/ck/commands/save.mjs"
@@ -61,7 +61,7 @@ Display the script's stdout confirmation verbatim.
 
 ---
 
-### `/ck:resume [name|number]` — Full Briefing
+### `/ck:resume [name|number]` - Full Briefing
 ```bash
 node "$HOME/.claude/skills/ck/commands/resume.mjs" [arg]
 ```
@@ -70,7 +70,7 @@ If user reports changes → run `/ck:save` immediately.
 
 ---
 
-### `/ck:info [name|number]` — Quick Snapshot
+### `/ck:info [name|number]` - Quick Snapshot
 ```bash
 node "$HOME/.claude/skills/ck/commands/info.mjs" [arg]
 ```
@@ -78,7 +78,7 @@ Display output verbatim. No follow-up question.
 
 ---
 
-### `/ck:list` — Portfolio View
+### `/ck:list` - Portfolio View
 ```bash
 node "$HOME/.claude/skills/ck/commands/list.mjs"
 ```
@@ -86,7 +86,7 @@ Display output verbatim. If user replies with a number or name → run `/ck:resu
 
 ---
 
-### `/ck:forget [name|number]` — Remove a Project
+### `/ck:forget [name|number]` - Remove a Project
 First resolve the project name (run `/ck:list` if needed).
 Ask: `"This will permanently delete context for '<name>'. Are you sure? (yes/no)"`
 If yes:
@@ -97,7 +97,7 @@ Display confirmation verbatim.
 
 ---
 
-### `/ck:migrate` — Convert v1 Data to v2
+### `/ck:migrate` - Convert v1 Data to v2
 ```bash
 node "$HOME/.claude/skills/ck/commands/migrate.mjs"
 ```
@@ -106,7 +106,7 @@ For a dry run first:
 node "$HOME/.claude/skills/ck/commands/migrate.mjs" --dry-run
 ```
 Display output verbatim. Migrates all v1 CONTEXT.md + meta.json files to v2 context.json.
-Originals are backed up as `meta.json.v1-backup` — nothing is deleted.
+Originals are backed up as `meta.json.v1-backup` - nothing is deleted.
 
 ---
 
@@ -134,5 +134,5 @@ unsaved sessions, git activity since last save, and goal mismatches vs CLAUDE.md
 - Always expand `~` as `$HOME` in Bash calls.
 - Commands are case-insensitive: `/CK:SAVE`, `/ck:save`, `/Ck:Save` all work.
 - If a script exits with code 1, display its stdout as an error message.
-- Never edit `context.json` or `CONTEXT.md` directly — always use the scripts.
+- Never edit `context.json` or `CONTEXT.md` directly - always use the scripts.
 - If `projects.json` is malformed, tell the user and offer to reset it to `{}`.

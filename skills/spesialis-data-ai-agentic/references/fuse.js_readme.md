@@ -11,7 +11,7 @@ Fuse.js is a lightweight, zero-dependency fuzzy-search library written in TypeSc
 
 ## ✨ What's New: Token Search
 
-Multi-word fuzzy search with relevance ranking. Type `"javascrpt paterns"` and find `"JavaScript Patterns"` — typo tolerance, multiple words, and smart ranking all at once.
+Multi-word fuzzy search with relevance ranking. Type `"javascrpt paterns"` and find `"JavaScript Patterns"` - typo tolerance, multiple words, and smart ranking all at once.
 
 ```js
 const fuse = new Fuse(docs, {
@@ -27,7 +27,7 @@ See [Token Search](#token-search) below for details.
 
 ## Web Workers
 
-Search large datasets without freezing the UI. `FuseWorker` splits your data across multiple Web Workers and searches in parallel — ~5x faster on 100K documents.
+Search large datasets without freezing the UI. `FuseWorker` splits your data across multiple Web Workers and searches in parallel - ~5x faster on 100K documents.
 
 ```js
 import { FuseWorker } from 'fuse.js/worker'
@@ -40,7 +40,7 @@ const results = await fuse.search('query')
 fuse.terminate()
 ```
 
-Same options and results as `Fuse` — just async. Function-valued options (`sortFn`, `getFn`, `keys[].getFn`) aren't supported because functions can't be transferred to a worker; everything else carries over. See the [Web Workers docs](https://fusejs.io/web-workers.html) for the interactive demo and full API.
+Same options and results as `Fuse` - just async. Function-valued options (`sortFn`, `getFn`, `keys[].getFn`) aren't supported because functions can't be transferred to a worker; everything else carries over. See the [Web Workers docs](https://fusejs.io/web-workers.html) for the interactive demo and full API.
 
 ## Installation
 
@@ -82,7 +82,7 @@ fuse.search('javscript')
 
 ### Fuzzy Search
 
-The core of Fuse.js. Uses the [Bitap algorithm](https://en.wikipedia.org/wiki/Bitap_algorithm) for approximate string matching — handles typos, misspellings, and partial matches out of the box.
+The core of Fuse.js. Uses the [Bitap algorithm](https://en.wikipedia.org/wiki/Bitap_algorithm) for approximate string matching - handles typos, misspellings, and partial matches out of the box.
 
 ```js
 fuse.search('javscript')
@@ -131,12 +131,12 @@ fuse.search('express midleware rout')
 // Finds "Express Middleware" and "Express Routing Guide" despite typos
 ```
 
-- **Typo tolerance per word** — each term is fuzzy-matched independently
-- **Relevance ranking** — rare terms are weighted higher than common ones
-- **Word order independent** — `"patterns javascript"` and `"javascript patterns"` return identical results
-- **No query length limit** — long multi-word queries work naturally since each term is searched separately
-- **AND or OR** — `tokenMatch: 'all'` returns only records matching *every* word (filtering); the default `'any'` matches any word
-- **Custom tokenizer** — pass a regex or function via `tokenize` for tokens with internal punctuation (`node.js`, `c++`), or use `Intl.Segmenter` for CJK / Thai word segmentation. Unicode-aware by default
+- **Typo tolerance per word** - each term is fuzzy-matched independently
+- **Relevance ranking** - rare terms are weighted higher than common ones
+- **Word order independent** - `"patterns javascript"` and `"javascript patterns"` return identical results
+- **No query length limit** - long multi-word queries work naturally since each term is searched separately
+- **AND or OR** - `tokenMatch: 'all'` returns only records matching *every* word (filtering); the default `'any'` matches any word
+- **Custom tokenizer** - pass a regex or function via `tokenize` for tokens with internal punctuation (`node.js`, `c++`), or use `Intl.Segmenter` for CJK / Thai word segmentation. Unicode-aware by default
 
 Available in the full build. See [the Token Search docs](https://fusejs.io/token-search) for details and performance benchmarks.
 
@@ -176,7 +176,7 @@ const result = Fuse.match('javscript', 'JavaScript: The Good Parts')
 // → { isMatch: true, score: 0.04, indices: [[0, 9]] }
 ```
 
-`Fuse.match()` does **not** support `useTokenSearch` — token search requires corpus-level statistics (`df`, `fieldCount`) that a one-off string comparison can't provide. Passing `useTokenSearch: true` throws an explicit error. Use `new Fuse(docs, { useTokenSearch: true }).search(query)` for token-search behavior.
+`Fuse.match()` does **not** support `useTokenSearch` - token search requires corpus-level statistics (`df`, `fieldCount`) that a one-off string comparison can't provide. Passing `useTokenSearch: true` throws an explicit error. Use `new Fuse(docs, { useTokenSearch: true }).search(query)` for token-search behavior.
 
 ### Dynamic Collections
 

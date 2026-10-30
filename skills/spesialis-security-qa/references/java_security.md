@@ -13,28 +13,28 @@
 // BAD
 private static final String API_KEY = "sk-abc123...";
 
-// GOOD — 環境変数
+// GOOD - 環境変数
 String apiKey = System.getenv("PAYMENT_API_KEY");
 Objects.requireNonNull(apiKey, "PAYMENT_API_KEY must be set");
 ```
 
 ## SQL インジェクション防止
 
-- 常にパラメータ化クエリを使用する — ユーザー入力を SQL に連結しない
+- 常にパラメータ化クエリを使用する - ユーザー入力を SQL に連結しない
 - `PreparedStatement` またはフレームワークのパラメータ化クエリ API を使用する
 - ネイティブクエリで使用される入力はすべて検証・サニタイズする
 
 ```java
-// BAD — 文字列連結による SQL インジェクション
+// BAD - 文字列連結による SQL インジェクション
 Statement stmt = conn.createStatement();
 String sql = "SELECT * FROM orders WHERE name = '" + name + "'";
 stmt.executeQuery(sql);
 
-// GOOD — パラメータ化クエリの PreparedStatement
+// GOOD - パラメータ化クエリの PreparedStatement
 PreparedStatement ps = conn.prepareStatement("SELECT * FROM orders WHERE name = ?");
 ps.setString(1, name);
 
-// GOOD — JDBC テンプレート
+// GOOD - JDBC テンプレート
 jdbcTemplate.query("SELECT * FROM orders WHERE name = ?", mapper, name);
 ```
 
@@ -60,16 +60,16 @@ public Order createOrder(String customerName, BigDecimal amount) {
 
 ## 認証と認可
 
-- 独自の暗号化を実装しない — 確立されたライブラリを使用する
+- 独自の暗号化を実装しない - 確立されたライブラリを使用する
 - パスワードは bcrypt または Argon2 で保存する、MD5/SHA1 は使用しない
 - サービス境界で認可チェックを強制する
-- ログから機密データを消去する — パスワード、トークン、PII をログに記録しない
+- ログから機密データを消去する - パスワード、トークン、PII をログに記録しない
 
 ## 依存関係のセキュリティ
 
 - `mvn dependency:tree` または `./gradlew dependencies` で推移的依存関係を監査する
 - OWASP Dependency-Check または Snyk を使用して既知の CVE をスキャンする
-- 依存関係を最新に保つ — Dependabot または Renovate を設定する
+- 依存関係を最新に保つ - Dependabot または Renovate を設定する
 
 ## エラーメッセージ
 

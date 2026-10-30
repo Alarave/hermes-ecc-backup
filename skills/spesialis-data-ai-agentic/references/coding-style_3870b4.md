@@ -11,7 +11,7 @@
 
 ## Resource Management
 
-- **RAII everywhere** — no manual `new`/`delete`
+- **RAII everywhere** - no manual `new`/`delete`
 - Use `std::unique_ptr` for exclusive ownership
 - Use `std::shared_ptr` only when shared ownership is truly needed
 - Use `std::make_unique` / `std::make_shared` over raw `new`
@@ -26,7 +26,7 @@
 
 ## Formatting
 
-- Use **clang-format** — no style debates
+- Use **clang-format** - no style debates
 - Run `clang-format -i <file>` before committing
 
 ## Reference

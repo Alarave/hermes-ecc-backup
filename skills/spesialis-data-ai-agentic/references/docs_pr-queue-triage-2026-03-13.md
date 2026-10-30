@@ -1,4 +1,4 @@
-# PR Review And Queue Triage — March 13, 2026
+# PR Review And Queue Triage - March 13, 2026
 
 ## Snapshot
 
@@ -20,7 +20,7 @@ Stale threshold used for this pass:
 
 PR:
 
-- `#399` — `fix(observe): 5-layer automated session guard to prevent self-loop observations`
+- `#399` - `fix(observe): 5-layer automated session guard to prevent self-loop observations`
 - state: `MERGED`
 - merged at: `2026-03-13T06:40:03Z`
 - merge commit: `c52a28ace9e7e84c00309fc7b629955dfc46ecf9`
@@ -86,7 +86,7 @@ No currently open PR is stale by the `>30 days since last update` rule.
 
 ## Per-PR Assessment
 
-### `#292` — Governance / Config Foundation
+### `#292` - Governance / Config Foundation
 
 Live state:
 
@@ -123,7 +123,7 @@ Current recommendation:
 - If you want a conservative path, do one quick human review of the remaining
   `.env.example`, PR-template, and `.tool-versions` nitpicks before merge.
 
-### `#298` — Large Multi-Domain Content Expansion
+### `#298` - Large Multi-Domain Content Expansion
 
 Live state:
 
@@ -159,7 +159,7 @@ Current recommendation:
 - Rebase or restack first, then resolve the substantive example-quality issues.
 - If momentum matters, split by domain rather than carrying one very large PR.
 
-### `#336` — Codex CLI Customization
+### `#336` - Codex CLI Customization
 
 Live state:
 
@@ -198,7 +198,7 @@ Current recommendation:
   - run or confirm validation on the global-state scripts
   - take it out of draft only after that review is complete
 
-### `#420` — Laravel Skills
+### `#420` - Laravel Skills
 
 Live state:
 
@@ -287,7 +287,7 @@ Refreshed at `2026-03-13T22:11:40Z`.
 
 ### Updated Queue Read
 
-#### `#292` — Governance / Config Foundation
+#### `#292` - Governance / Config Foundation
 
 - open
 - non-draft
@@ -304,7 +304,7 @@ Current recommendation:
 - Either patch the remaining doc/config correctness issues, or do one final
   owner pass and merge if you accept the current tradeoffs.
 
-#### `#420` — Laravel Skills
+#### `#420` - Laravel Skills
 
 - open
 - draft
@@ -320,7 +320,7 @@ Current recommendation:
 - Low implementation risk, but not merge-ready while still draft and
   under-reviewed.
 
-#### `#336` — Codex CLI Customization
+#### `#336` - Codex CLI Customization
 
 - open
 - draft
@@ -335,7 +335,7 @@ Current recommendation:
 
 - `Manual-review lane, not immediate merge lane.`
 
-#### `#298` — Large Content Expansion
+#### `#298` - Large Content Expansion
 
 - open
 - non-draft

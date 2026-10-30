@@ -1,10 +1,10 @@
 # jobbank-cli
 
-CLI for [Akademikernes Jobbank](https://jobbank.dk) — Denmark's job portal for highly educated candidates.
+CLI for [Akademikernes Jobbank](https://jobbank.dk) - Denmark's job portal for highly educated candidates.
 
 **Data sources:**
-- **RSS feed**: `https://jobbank.dk/job/rss?{params}` — 100 items max, all search filters work
-- **Job detail**: `https://jobbank.dk/job/{id}/` — JSON-LD (`Schema.org JobPosting`) embedded in page HTML
+- **RSS feed**: `https://jobbank.dk/job/rss?{params}` - 100 items max, all search filters work
+- **Job detail**: `https://jobbank.dk/job/{id}/` - JSON-LD (`Schema.org JobPosting`) embedded in page HTML
 
 **Authentication**: None required. A browser User-Agent header is sent, but Jobbank may still block automated requests with Cloudflare bot protection. In that case the CLI exits with a clear error and callers should use a WebSearch fallback rather than retrying.
 **Format**: RSS XML (search), HTML with embedded JSON-LD (detail).
@@ -181,7 +181,7 @@ All errors are written to **stderr** as `{ "error": "...", "code": "..." }` and 
 
 ---
 
-## `search` — Search job listings
+## `search` - Search job listings
 
 **Endpoint**: `GET https://jobbank.dk/job/rss?{params}`
 
@@ -193,21 +193,21 @@ bun run src/cli.ts search [flags]
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--key` | string | — | Keyword search (title, company, keyword) |
-| `--exclude` | string | — | Exclude keywords (`antikey`) |
-| `--type` | number | — | Job type code (`cvtype`). Repeatable for multiple: `--type 3 --type 6` |
-| `--education` | number | — | Education field code (`udd`). Repeatable. |
-| `--location` | number | — | Region code (`amt`). Repeatable. |
-| `--work-area` | number | — | Work area / function code (`erf`). Repeatable. |
-| `--industry` | number | — | Industry code (`branche`). Repeatable. |
-| `--suitable-for` | number | — | Suitable-for code (`andet`). Repeatable. |
-| `--company` | number | — | Company ID (`virk`) |
-| `--remote` | string | — | Remote work: `helt` or `delvist` |
-| `--since` | string | — | Posted on or after date, format `YYYY-MM-DD` (`oprettet`) |
-| `--limit` | number | — | Cap total results returned by CLI (client-side) |
+| `--key` | string | - | Keyword search (title, company, keyword) |
+| `--exclude` | string | - | Exclude keywords (`antikey`) |
+| `--type` | number | - | Job type code (`cvtype`). Repeatable for multiple: `--type 3 --type 6` |
+| `--education` | number | - | Education field code (`udd`). Repeatable. |
+| `--location` | number | - | Region code (`amt`). Repeatable. |
+| `--work-area` | number | - | Work area / function code (`erf`). Repeatable. |
+| `--industry` | number | - | Industry code (`branche`). Repeatable. |
+| `--suitable-for` | number | - | Suitable-for code (`andet`). Repeatable. |
+| `--company` | number | - | Company ID (`virk`) |
+| `--remote` | string | - | Remote work: `helt` or `delvist` |
+| `--since` | string | - | Posted on or after date, format `YYYY-MM-DD` (`oprettet`) |
+| `--limit` | number | - | Cap total results returned by CLI (client-side) |
 | `--format` | string | `json` | Output format: `json`, `table`, `plain` |
 
-> **Important limitation:** The RSS feed returns a maximum of **100 items** per request. There is no pagination via RSS — the `page=` parameter has no effect on the RSS endpoint. If your query matches more than 100 jobs, only the first 100 are returned. The `meta.total` field reflects the true total count (fetched separately from the HTML search page title), while `results` is capped at 100.
+> **Important limitation:** The RSS feed returns a maximum of **100 items** per request. There is no pagination via RSS - the `page=` parameter has no effect on the RSS endpoint. If your query matches more than 100 jobs, only the first 100 are returned. The `meta.total` field reflects the true total count (fetched separately from the HTML search page title), while `results` is capped at 100.
 
 > **Multi-value flags**: Flags marked "Repeatable" map to params that accept multiple values in the API (repeated query params). Pass them multiple times: `--type 3 --type 6` sends `cvtype=3&cvtype=6`.
 
@@ -215,7 +215,7 @@ bun run src/cli.ts search [flags]
 
 The CLI fetches the RSS feed and parses each `<item>` as follows:
 
-- **id**: extracted from the URL path — `/job/{id}/{company-slug}/{title-slug}` — the first numeric segment after `/job/`
+- **id**: extracted from the URL path - `/job/{id}/{company-slug}/{title-slug}` - the first numeric segment after `/job/`
 - **title**: from `<title>` (CDATA)
 - **description**, **company**, **location**, **jobType**, **deadline**: parsed from the `<description>` field, which has the format: `"JobType hos Company, Location (Ansøgningsfrist: DD.MM.YYYY)"` or `"JobType hos Company, Location (Ansøgningsfrist: løbende)"`
 - **url**: from `<link>`
@@ -271,7 +271,7 @@ bun run src/cli.ts search --education 24 --suitable-for 2 --since 2026-03-01
 
 ---
 
-## `detail` — Full job detail
+## `detail` - Full job detail
 
 **Endpoint**: `GET https://jobbank.dk/job/{id}/`
 
@@ -371,9 +371,9 @@ Fuldtidsjob hos DTU, Lyngby (Ansøgningsfrist: løbende)
 ```
 
 Parse strategy:
-1. Split on ` hos ` — left side is job type(s), right side is `Company, Location (Ansøgningsfrist: Deadline)`
+1. Split on ` hos ` - left side is job type(s), right side is `Company, Location (Ansøgningsfrist: Deadline)`
 2. From the right side, extract the parenthetical `(Ansøgningsfrist: ...)` for deadline
-3. Remaining text is `Company, Location` — split on first `, ` to separate company from location
+3. Remaining text is `Company, Location` - split on first `, ` to separate company from location
 
 ### JSON-LD extraction
 
@@ -395,4 +395,4 @@ On detail pages, find `<script type="application/ld+json">` containing `"@type":
 
 ### Rate limiting
 
-No explicit rate limits are enforced, but Cloudflare is present. Add a 300–500ms delay between sequential requests (e.g. when fetching total count from HTML in addition to the RSS feed). The `search` command makes at most 2 requests (RSS + HTML for total count).
+No explicit rate limits are enforced, but Cloudflare is present. Add a 300-500ms delay between sequential requests (e.g. when fetching total count from HTML in addition to the RSS feed). The `search` command makes at most 2 requests (RSS + HTML for total count).

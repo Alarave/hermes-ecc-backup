@@ -1,9 +1,9 @@
-<!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
+<!-- AUTO-GENERATED from SKILL.md.tmpl - do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
-> **Safety Advisory — not enforced on Hermes:** advisory, not blocked. Hermes runs no gstack safety hooks, so nothing stops a command automatically. On Claude Code this skill's hooks verify file edits are within the allowed scope boundary before applying, and verify file writes are within the allowed scope boundary before applying; here, do those checks yourself: always pause and verify before executing potentially destructive operations. If uncertain about a command's safety, ask the user for confirmation before proceeding.
+> **Safety Advisory - not enforced on Hermes:** advisory, not blocked. Hermes runs no gstack safety hooks, so nothing stops a command automatically. On Claude Code this skill's hooks verify file edits are within the allowed scope boundary before applying, and verify file writes are within the allowed scope boundary before applying; here, do those checks yourself: always pause and verify before executing potentially destructive operations. If uncertain about a command's safety, ask the user for confirmation before proceeding.
 
 
-# /freeze — Restrict Edits to a Directory
+# /freeze - Restrict Edits to a Directory
 
 Lock file edits to a specific directory. Any Edit or Write operation targeting
 a file outside the allowed path will be **blocked** (not just warned).
@@ -19,7 +19,7 @@ echo '{"skill":"freeze","ts":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","repo":"'$(basen
 Ask the user which directory to restrict edits to. Use AskUserQuestion:
 
 - Question: "Which directory should I restrict edits to? Files outside this path will be blocked from editing."
-- Text input (not multiple choice) — the user types a path.
+- Text input (not multiple choice) - the user types a path.
 
 Once the user provides a directory path:
 
@@ -37,14 +37,14 @@ again. To remove it, run `/unfreeze`."
 ## How it works
 
 The hook reads `file_path` from the Edit/Write tool input JSON (shared
-real-JSON extractor with /careful — one copy, sourced by both hooks), then
+real-JSON extractor with /careful - one copy, sourced by both hooks), then
 checks whether the path starts with the freeze directory. If not, it returns a
 `hookSpecificOutput` payload with `permissionDecision: "deny"` to block the
-operation (nested under `hookSpecificOutput` — Claude Code ignores a top-level
+operation (nested under `hookSpecificOutput` - Claude Code ignores a top-level
 `permissionDecision`).
 
 Polarity is fail-closed: a tool payload the hook cannot parse is DENIED, not
-allowed — a boundary that fails open is not a boundary. A payload that parses
+allowed - a boundary that fails open is not a boundary. A payload that parses
 but has no `file_path` (a non-file tool) is allowed. Symlinks are resolved
 through their FINAL component, so an in-boundary symlink pointing outside the
 boundary is checked against its target.
@@ -56,6 +56,6 @@ are supported.
 ## Notes
 
 - The trailing `/` on the freeze directory prevents `/src` from matching `/src-old`
-- Freeze applies to Edit and Write tools only — Read, Bash, Glob, Grep are unaffected
-- This prevents accidental edits, not a security boundary — Bash commands like `sed` can still modify files outside the boundary
+- Freeze applies to Edit and Write tools only - Read, Bash, Glob, Grep are unaffected
+- This prevents accidental edits, not a security boundary - Bash commands like `sed` can still modify files outside the boundary
 - To deactivate, run `/unfreeze`; ending or killing a conversation does not remove persisted state

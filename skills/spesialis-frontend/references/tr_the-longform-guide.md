@@ -323,7 +323,7 @@ alias q='cd ~/Desktop/projects'
 
 **Agent Orkestrasyon:**
 
-- claude-flow — 54+ özelleşmiş agent ile topluluk tarafından oluşturulmuş kurumsal orkestrasyon platformu
+- claude-flow - 54+ özelleşmiş agent ile topluluk tarafından oluşturulmuş kurumsal orkestrasyon platformu
 
 **Kendini Geliştiren Memory:**
 
@@ -332,7 +332,7 @@ alias q='cd ~/Desktop/projects'
 
 **System Prompt'ları Referansı:**
 
-- system-prompts-and-models-of-ai-tools — AI system prompt'larının topluluk koleksiyonu (110k+ yıldız)
+- system-prompts-and-models-of-ai-tools - AI system prompt'larının topluluk koleksiyonu (110k+ yıldız)
 
 **Resmi:**
 

@@ -290,11 +290,11 @@ After audit passes, report to user:
 
 ## Key Rules
 
-1. **Code Sovereignty** – All file modifications by Claude, external models have zero write access
-2. **Dirty Prototype Refactoring** – Codex/Gemini output treated as draft, must refactor
-3. **Trust Rules** – Backend follows Codex, Frontend follows Gemini
-4. **Minimal Changes** – Only modify necessary code, no side effects
-5. **Mandatory Audit** – Must perform multi-model Code Review after changes
+1. **Code Sovereignty** - All file modifications by Claude, external models have zero write access
+2. **Dirty Prototype Refactoring** - Codex/Gemini output treated as draft, must refactor
+3. **Trust Rules** - Backend follows Codex, Frontend follows Gemini
+4. **Minimal Changes** - Only modify necessary code, no side effects
+5. **Mandatory Audit** - Must perform multi-model Code Review after changes
 
 ---
 

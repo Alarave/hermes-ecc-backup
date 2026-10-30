@@ -1,10 +1,10 @@
 从 $ARGUMENTS 中解析以下内容：
 
-1. `brief` — 用户对构建内容的一行描述
-2. `--max-iterations N` — （可选，默认15）最大生成器-评估器循环次数
-3. `--pass-threshold N` — （可选，默认7.0）通过所需的加权分数
-4. `--skip-planner` — （可选）跳过规划器，假设 spec.md 已存在
-5. `--eval-mode MODE` — （可选，默认"playwright"）可选值：playwright、screenshot、code-only
+1. `brief` - 用户对构建内容的一行描述
+2. `--max-iterations N` - （可选，默认15）最大生成器-评估器循环次数
+3. `--pass-threshold N` - （可选，默认7.0）通过所需的加权分数
+4. `--skip-planner` - （可选）跳过规划器，假设 spec.md 已存在
+5. `--eval-mode MODE` - （可选，默认"playwright"）可选值：playwright、screenshot、code-only
 
 ## GAN 风格构建框架
 
@@ -60,7 +60,7 @@ while iteration <= max_iterations:
         跳出循环
 
     if iteration >= 3 且最近 2 次迭代分数未提升:
-        记录 "检测到平台期 — 提前停止"
+        记录 "检测到平台期 - 提前停止"
         跳出循环
 
     iteration += 1

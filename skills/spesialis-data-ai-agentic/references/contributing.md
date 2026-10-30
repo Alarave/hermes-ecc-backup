@@ -168,7 +168,7 @@ Short version:
 - [ ] Links to related skills
 - [ ] No sensitive data (API keys, tokens, paths)
 - [ ] Frontmatter declares `name:` matching the directory name
-- [ ] Frontmatter `description:` is an inline string or folded (`>`) scalar — not a literal block (`|`, `|-`, or `|+`), which preserves internal newlines and breaks flat-table renderers
+- [ ] Frontmatter `description:` is an inline string or folded (`>`) scalar - not a literal block (`|`, `|-`, or `|+`), which preserves internal newlines and breaks flat-table renderers
 
 ### Example Skills
 
@@ -413,8 +413,8 @@ Skills and agents can use **MCP (Model Context Protocol)** tools to pull in up-t
 
 ECC ships skill subsets for other harnesses:
 
-- **Codex:** `.agents/skills/` — skills listed in `agents/openai.yaml` are loaded by Codex.
-- **Cursor:** `.cursor/skills/` — a subset of skills is bundled for Cursor.
+- **Codex:** `.agents/skills/` - skills listed in `agents/openai.yaml` are loaded by Codex.
+- **Cursor:** `.cursor/skills/` - a subset of skills is bundled for Cursor.
 
 When you **add a new skill** that should be available on Codex or Cursor:
 

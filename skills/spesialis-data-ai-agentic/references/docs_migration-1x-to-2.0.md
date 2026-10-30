@@ -27,7 +27,7 @@ Safe to delete after the old plugin no longer appears in `/plugin` list:
 
 - The old plugin folder under the Claude plugins directory (e.g. `~/.claude/plugins/...everything-claude-code...`)
 - A 1.x manual install in your home folder (a cloned `everything-claude-code/` directory), **if** you are not using it as a working checkout
-- Old manually-copied surfaces under `~/.claude/` (`skills/`, `commands/`, `agents/` entries that came from 1.x) — the 2.0 plugin provides current versions
+- Old manually-copied surfaces under `~/.claude/` (`skills/`, `commands/`, `agents/` entries that came from 1.x) - the 2.0 plugin provides current versions
 
 Do NOT delete `~/.claude/rules/` content you copied intentionally, or personal memory/state files.
 

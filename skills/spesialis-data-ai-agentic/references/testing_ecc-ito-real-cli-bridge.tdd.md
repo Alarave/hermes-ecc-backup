@@ -1,4 +1,4 @@
-# ECC × Itô Real CLI Bridge — TDD Evidence
+# ECC × Itô Real CLI Bridge - TDD Evidence
 
 Date: 2026-07-23
 

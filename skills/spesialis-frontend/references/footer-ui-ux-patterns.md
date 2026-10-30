@@ -7,7 +7,7 @@ Panduan referensi komprehensif tipe, fungsi, dan anatomi footer modern (berdasar
 ## 1. Doormat / Multi-Column Mega Footer (Standar SaaS & E-Commerce)
 - **Fungsi**: Navigasi lengkap untuk pengguna yang sudah mencapai akhir halaman dan mencari informasi spesifik.
 - **Anatomi**:
-  - 4–6 kolom kategori (Product, Solutions, Resources, Company, Legal).
+  - 4-6 kolom kategori (Product, Solutions, Resources, Company, Legal).
   - Newsletter subscription box di sudut atas/samping.
   - Social media icons, copyright, status operational badge (e.g. "All systems operational").
   - Country/Language selector.
@@ -45,7 +45,7 @@ Panduan referensi komprehensif tipe, fungsi, dan anatomi footer modern (berdasar
 - **Anatomi**:
   - Baris tunggal horizontal (flex row wrap).
   - Hak cipta (Copyright), tautan Privacy Policy, Terms of Service.
-  - 3–4 icon media sosial di sisi kanan.
+  - 3-4 icon media sosial di sisi kanan.
 - **Kapan Digunakan**: Halaman checkout, portal login/auth, form multi-step, tool fungsional satu halaman.
 - **Contoh Ref**: Notion app view, Apple checkout, Stripe Checkout.
 
@@ -56,7 +56,7 @@ Panduan referensi komprehensif tipe, fungsi, dan anatomi footer modern (berdasar
 - **Anatomi**:
   - Bar melayang (floating pill dock) dengan backdrop-blur/liquid glass.
   - Tombol CTA utama (e.g., "Order Now", "Book a Demo", "Quick Menu").
-  - Navigasi tab 4–5 icon utama.
+  - Navigasi tab 4-5 icon utama.
 - **Kapan Digunakan**: Mobile web, dashboard mobile, platform F&B / e-commerce checkout.
 - **Contoh Ref**: Airbnb mobile web, Raycast web tools.
 

@@ -121,7 +121,7 @@ class OrderRepositoryIT {
 
 * 目标为 80%+ 的行覆盖率
 * 使用 JaCoCo 生成覆盖率报告
-* 重点关注服务和领域逻辑 — 跳过简单的 getter/配置类
+* 重点关注服务和领域逻辑 - 跳过简单的 getter/配置类
 
 ## 参考
 

@@ -55,16 +55,16 @@ npx ecc-agentshield scan --min-severity medium
 ### Output Formats
 
 ```bash
-# Terminal output (default) — colored report with grade
+# Terminal output (default) - colored report with grade
 npx ecc-agentshield scan
 
-# JSON — for CI/CD integration
+# JSON - for CI/CD integration
 npx ecc-agentshield scan --format json
 
-# Markdown — for documentation
+# Markdown - for documentation
 npx ecc-agentshield scan --format markdown
 
-# HTML — self-contained dark-theme report
+# HTML - self-contained dark-theme report
 npx ecc-agentshield scan --format html > security-report.html
 ```
 
@@ -92,9 +92,9 @@ npx ecc-agentshield scan --opus --stream
 ```
 
 This runs:
-1. **Attacker (Red Team)** — finds attack vectors
-2. **Defender (Blue Team)** — recommends hardening
-3. **Auditor (Final Verdict)** — synthesizes both perspectives
+1. **Attacker (Red Team)** - finds attack vectors
+2. **Defender (Blue Team)** - recommends hardening
+3. **Auditor (Final Verdict)** - synthesizes both perspectives
 
 ### Initialize Secure Config
 

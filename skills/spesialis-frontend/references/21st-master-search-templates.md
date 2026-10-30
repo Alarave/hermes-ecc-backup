@@ -34,7 +34,7 @@ Analisis pola dan blueprint komponen Search Bar & Command Menu berdasarkan 218+ 
 ---
 
 ## 2. Standar Aksesibilitas & Performa Search (UX Rules)
-1. **Debounce Input**: Untuk pencarian yang memanggil API eksternal, wajib gunakan *debounce* (minimal 250ms–300ms) agar tidak membanjiri server dengan request di setiap huruf yang diketik.
+1. **Debounce Input**: Untuk pencarian yang memanggil API eksternal, wajib gunakan *debounce* (minimal 250ms-300ms) agar tidak membanjiri server dengan request di setiap huruf yang diketik.
 2. **Keyboard Roving Focus**: Pengguna harus bisa menjelajahi daftar hasil pencarian menggunakan tombol panah tanpa kehilangan fokus pada input teks.
 3. **Empty / No Results State**: Tampilkan teks dan ilustrasi yang jelas ("Tidak ada hasil untuk kata kunci '...'") jika query tidak menghasilkan data, bukan sekadar membiarkan layar kosong.
 

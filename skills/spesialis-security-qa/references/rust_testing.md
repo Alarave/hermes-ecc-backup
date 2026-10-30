@@ -83,7 +83,7 @@ async fn fetches_data_successfully() {
 本番コードでトレイトを定義し、テストモジュールでモックを生成する:
 
 ```rust
-// 本番トレイト — 統合テストがインポートできるように pub にする
+// 本番トレイト - 統合テストがインポートできるように pub にする
 pub trait UserRepository {
     fn find_by_id(&self, id: u64) -> Option<User>;
 }
@@ -126,7 +126,7 @@ mod tests {
 
 - 80%以上の行カバレッジを目標にする
 - カバレッジレポートには **cargo-llvm-cov** を使用する
-- ビジネスロジックに集中する — 生成コードと FFI バインディングは除外する
+- ビジネスロジックに集中する - 生成コードと FFI バインディングは除外する
 
 ```bash
 cargo llvm-cov                       # サマリー

@@ -1,4 +1,4 @@
-# Aplicação SaaS — CLAUDE.md de Projeto
+# Aplicação SaaS - CLAUDE.md de Projeto
 
 > Exemplo real para uma aplicação SaaS com Next.js + Supabase + Stripe.
 > Copie para a raiz do seu projeto e customize para sua stack.
@@ -13,8 +13,8 @@
 
 ### Banco de Dados
 
-- Todas as queries usam cliente Supabase com RLS habilitado — nunca bypass de RLS
-- Migrations em `supabase/migrations/` — nunca modificar banco diretamente
+- Todas as queries usam cliente Supabase com RLS habilitado - nunca bypass de RLS
+- Migrations em `supabase/migrations/` - nunca modificar banco diretamente
 - Use `select()` com lista explícita de colunas, não `select('*')`
 - Todas as queries user-facing devem incluir `.limit()` para evitar resultados sem limite
 
@@ -22,22 +22,22 @@
 
 - Use `createServerClient()` de `@supabase/ssr` em Server Components
 - Use `createBrowserClient()` de `@supabase/ssr` em Client Components
-- Rotas protegidas checam `getUser()` — nunca confiar só em `getSession()` para auth
+- Rotas protegidas checam `getUser()` - nunca confiar só em `getSession()` para auth
 - Middleware em `middleware.ts` renova tokens de auth em toda requisição
 
 ### Billing
 
 - Handler de webhook Stripe em `app/api/webhooks/stripe/route.ts`
-- Nunca confiar em preço do cliente — sempre buscar do Stripe server-side
+- Nunca confiar em preço do cliente - sempre buscar do Stripe server-side
 - Status da assinatura checado via coluna `subscription_status`, sincronizada por webhook
 - Usuários free tier: 3 projetos, 100 chamadas de API/dia
 
 ### Estilo de Código
 
 - Sem emojis em código ou comentários
-- Apenas padrões imutáveis — spread operator, nunca mutar
+- Apenas padrões imutáveis - spread operator, nunca mutar
 - Server Components: sem diretiva `'use client'`, sem `useState`/`useEffect`
-- Client Components: `'use client'` no topo, mínimo possível — extraia lógica para hooks
+- Client Components: `'use client'` no topo, mínimo possível - extraia lógica para hooks
 - Prefira schemas Zod para toda validação de entrada (API routes, formulários, env vars)
 
 ## Estrutura de Arquivos

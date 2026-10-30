@@ -12,7 +12,7 @@ An interactive, step-by-step installation wizard for the Everything Claude Code 
 ## Prerequisites
 
 This skill must be accessible to Claude Code before activation. Two ways to bootstrap:
-1. **Via Plugin**: `/plugin install ecc@ecc` — the plugin loads this skill automatically
+1. **Via Plugin**: `/plugin install ecc@ecc` - the plugin loads this skill automatically
 2. **Manual**: Copy only this skill to `~/.claude/skills/configure-ecc/SKILL.md`, then activate by saying "configure ecc"
 
 ---
@@ -39,9 +39,9 @@ Use `AskUserQuestion` to ask the user where to install:
 ```
 Question: "Where should ECC components be installed?"
 Options:
-  - "User-level (~/.claude/)" — "Applies to all your Claude Code projects"
-  - "Project-level (.claude/)" — "Applies only to the current project"
-  - "Both" — "Common/shared items user-level, project-specific items project-level"
+  - "User-level (~/.claude/)" - "Applies to all your Claude Code projects"
+  - "Project-level (.claude/)" - "Applies only to the current project"
+  - "Both" - "Common/shared items user-level, project-specific items project-level"
 ```
 
 Store the choice as `INSTALL_LEVEL`. Set the target directory:
@@ -60,15 +60,15 @@ mkdir -p $TARGET/skills $TARGET/rules
 
 ### 2a: Choose Scope (Core vs Niche)
 
-Default to **Core (recommended for new users)** — copy `.agents/skills/*` plus `skills/search-first/` for research-first workflows. This bundle covers engineering, evals, verification, security, strategic compaction, frontend design, and Anthropic cross-functional skills (article-writing, content-engine, market-research, frontend-slides).
+Default to **Core (recommended for new users)** - copy `.agents/skills/*` plus `skills/search-first/` for research-first workflows. This bundle covers engineering, evals, verification, security, strategic compaction, frontend design, and Anthropic cross-functional skills (article-writing, content-engine, market-research, frontend-slides).
 
 Use `AskUserQuestion` (single select):
 ```
 Question: "Install core skills only, or include niche/framework packs?"
 Options:
-  - "Core only (recommended)" — "tdd, e2e, evals, verification, research-first, security, frontend patterns, compacting, cross-functional Anthropic skills"
-  - "Core + selected niche" — "Add framework/domain-specific skills after core"
-  - "Niche only" — "Skip core, install specific framework/domain skills"
+  - "Core only (recommended)" - "tdd, e2e, evals, verification, research-first, security, frontend patterns, compacting, cross-functional Anthropic skills"
+  - "Core + selected niche" - "Add framework/domain-specific skills after core"
+  - "Niche only" - "Skip core, install specific framework/domain skills"
 Default: Core only
 ```
 
@@ -81,14 +81,14 @@ There are 7 selectable category groups below. The detailed confirmation lists th
 ```
 Question: "Which skill categories do you want to install?"
 Options:
-  - "Framework & Language" — "Django, Laravel, Spring Boot, Quarkus, Go, Python, Java, Frontend, Backend patterns"
-  - "Database" — "PostgreSQL, ClickHouse, JPA/Hibernate patterns"
-  - "Workflow & Quality" — "TDD, verification, learning, security review, compaction"
-  - "Research & APIs" — "Deep research, Exa search, Claude API patterns"
-  - "Social & Content Distribution" — "X/Twitter API, crossposting alongside content-engine"
-  - "Media Generation" — "fal.ai image/video/audio alongside VideoDB"
-  - "Orchestration" — "dmux multi-agent workflows"
-  - "All skills" — "Install every available skill"
+  - "Framework & Language" - "Django, Laravel, Spring Boot, Quarkus, Go, Python, Java, Frontend, Backend patterns"
+  - "Database" - "PostgreSQL, ClickHouse, JPA/Hibernate patterns"
+  - "Workflow & Quality" - "TDD, verification, learning, security review, compaction"
+  - "Research & APIs" - "Deep research, Exa search, Claude API patterns"
+  - "Social & Content Distribution" - "X/Twitter API, crossposting alongside content-engine"
+  - "Media Generation" - "fal.ai image/video/audio alongside VideoDB"
+  - "Orchestration" - "dmux multi-agent workflows"
+  - "All skills" - "Install every available skill"
 ```
 
 ### 2c: Confirm Individual Skills
@@ -209,7 +209,7 @@ When iterating over globbed source directories, never pass a trailing-slash sour
 cp -R "${src%/}" "$TARGET/skills/$(basename "${src%/}")"
 ```
 
-Note: `continuous-learning` and `continuous-learning-v2` have extra files (config.json, hooks, scripts) — ensure the entire directory is copied, not just SKILL.md.
+Note: `continuous-learning` and `continuous-learning-v2` have extra files (config.json, hooks, scripts) - ensure the entire directory is copied, not just SKILL.md.
 
 ---
 
@@ -220,10 +220,10 @@ Use `AskUserQuestion` with `multiSelect: true`:
 ```
 Question: "Which rule sets do you want to install?"
 Options:
-  - "Common rules (Recommended)" — "Language-agnostic principles: coding style, git workflow, testing, security, etc. (8 files)"
-  - "TypeScript/JavaScript" — "TS/JS patterns, hooks, testing with Playwright (5 files)"
-  - "Python" — "Python patterns, pytest, black/ruff formatting (5 files)"
-  - "Go" — "Go patterns, table-driven tests, gofmt/staticcheck (5 files)"
+  - "Common rules (Recommended)" - "Language-agnostic principles: coding style, git workflow, testing, security, etc. (8 files)"
+  - "TypeScript/JavaScript" - "TS/JS patterns, hooks, testing with Playwright (5 files)"
+  - "Python" - "Python patterns, pytest, black/ruff formatting (5 files)"
+  - "Go" - "Go patterns, table-driven tests, gofmt/staticcheck (5 files)"
 ```
 
 Execute installation:
@@ -264,9 +264,9 @@ grep -rn "skills/" $TARGET/skills/
 ```
 
 **For project-level installs**, flag any references to `~/.claude/` paths:
-- If a skill references `~/.claude/settings.json` — this is usually fine (settings are always user-level)
-- If a skill references `~/.claude/skills/` or `~/.claude/rules/` — this may be broken if installed only at project level
-- If a skill references another skill by name — check that the referenced skill was also installed
+- If a skill references `~/.claude/settings.json` - this is usually fine (settings are always user-level)
+- If a skill references `~/.claude/skills/` or `~/.claude/rules/` - this may be broken if installed only at project level
+- If a skill references another skill by name - check that the referenced skill was also installed
 
 ### 4c: Check Cross-References Between Skills
 
@@ -301,10 +301,10 @@ Use `AskUserQuestion`:
 ```
 Question: "Would you like to optimize the installed files for your project?"
 Options:
-  - "Optimize skills" — "Remove irrelevant sections, adjust paths, tailor to your tech stack"
-  - "Optimize rules" — "Adjust coverage targets, add project-specific patterns, customize tool configs"
-  - "Optimize both" — "Full optimization of all installed files"
-  - "Skip" — "Keep everything as-is"
+  - "Optimize skills" - "Remove irrelevant sections, adjust paths, tailor to your tech stack"
+  - "Optimize rules" - "Adjust coverage targets, add project-specific patterns, customize tool configs"
+  - "Optimize both" - "Full optimization of all installed files"
+  - "Skip" - "Keep everything as-is"
 ```
 
 ### If optimizing skills:
@@ -375,4 +375,4 @@ Then print a summary report:
 
 ### "Path reference errors after project-level install"
 - Some skills assume `~/.claude/` paths. Run Step 4 verification to find and fix these.
-- For `continuous-learning-v2`, the `~/.claude/homunculus/` directory is always user-level — this is expected and not an error.
+- For `continuous-learning-v2`, the `~/.claude/homunculus/` directory is always user-level - this is expected and not an error.

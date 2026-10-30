@@ -20,7 +20,7 @@
 
 | 钩子 | 匹配器 | 行为 | 退出码 |
 |------|---------|----------|-----------|
-| **开发服务器拦截器** | `Bash` | 在 tmux 外阻止 `npm run dev` 等命令 — 确保日志可访问 | 2 (拦截) |
+| **开发服务器拦截器** | `Bash` | 在 tmux 外阻止 `npm run dev` 等命令 - 确保日志可访问 | 2 (拦截) |
 | **Tmux 提醒器** | `Bash` | 对长时间运行命令（npm test、cargo build、docker）建议使用 tmux | 0 (警告) |
 | **Git 推送提醒器** | `Bash` | 在 `git push` 前提醒检查变更 | 0 (警告) |
 | **文档文件警告器** | `Write` | 对非标准 `.md`/`.txt` 文件发出警告（允许 README、CLAUDE、CONTRIBUTING、CHANGELOG、LICENSE、SKILL、docs/、skills/）；跨平台路径处理 | 0 (警告) |
@@ -83,9 +83,9 @@ export ECC_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 
 配置文件：
 
-* `minimal` —— 仅保留必要的生命周期和安全钩子。
-* `standard` —— 默认；平衡的质量 + 安全检查。
-* `strict` —— 启用额外的提醒和更严格的防护措施。
+* `minimal` -- 仅保留必要的生命周期和安全钩子。
+* `standard` -- 默认；平衡的质量 + 安全检查。
+* `strict` -- 启用额外的提醒和更严格的防护措施。
 
 ### 编写你自己的钩子
 
@@ -118,9 +118,9 @@ process.stdin.on('end', () => {
 
 **退出码：**
 
-* `0` —— 成功（继续执行）
-* `2` —— 阻止工具调用（仅限 PreToolUse）
-* 其他非零值 —— 错误（记录日志但不阻止）
+* `0` -- 成功（继续执行）
+* `2` -- 阻止工具调用（仅限 PreToolUse）
+* 其他非零值 -- 错误（记录日志但不阻止）
 
 ### 钩子输入模式
 
@@ -215,6 +215,6 @@ interface HookInput {
 
 ## 相关
 
-* [rules/common/hooks.md](../rules/common/hooks.md) —— 钩子架构指南
-* [skills/strategic-compact/](../../../skills/strategic-compact) —— 策略性压缩技能
-* [scripts/hooks/](../../../scripts/hooks) —— 钩子脚本实现
+* [rules/common/hooks.md](../rules/common/hooks.md) -- 钩子架构指南
+* [skills/strategic-compact/](../../../skills/strategic-compact) -- 策略性压缩技能
+* [scripts/hooks/](../../../scripts/hooks) -- 钩子脚本实现

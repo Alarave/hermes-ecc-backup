@@ -39,7 +39,7 @@ pwsh -File .\install.ps1 --target claude --modules hooks-runtime
 
 | フック | マッチャー | 動作 | 終了コード |
 |------|---------|----------|-----------|
-| **開発サーバーブロッカー** | `Bash` | tmux外での `npm run dev` などをブロック — ログアクセスを確保 | 2（ブロック） |
+| **開発サーバーブロッカー** | `Bash` | tmux外での `npm run dev` などをブロック - ログアクセスを確保 | 2（ブロック） |
 | **Tmuxリマインダー** | `Bash` | 長時間実行コマンド（npm test、cargo build、docker）にtmuxを提案 | 0（警告） |
 | **Gitプッシュリマインダー** | `Bash` | `git push` 前に変更のレビューを促す | 0（警告） |
 | **コミット前品質チェック** | `Bash` | `git commit` 前に品質チェックを実行：ステージされたファイルのリント、`-m/--message` で提供された場合のコミットメッセージ形式の検証、console.log/debugger/シークレットの検出 | 2（クリティカルをブロック） / 0（警告） |
@@ -113,9 +113,9 @@ export ECC_SESSION_START_CONTEXT=off
 ```
 
 プロファイル：
-- `minimal` — 必須のライフサイクルフックと安全フックのみを保持。
-- `standard` — デフォルト；品質と安全チェックのバランスが取れている。
-- `strict` — 追加のリマインダーとより厳格なガードレールを有効化。
+- `minimal` - 必須のライフサイクルフックと安全フックのみを保持。
+- `standard` - デフォルト；品質と安全チェックのバランスが取れている。
+- `strict` - 追加のリマインダーとより厳格なガードレールを有効化。
 
 ### 独自のフックを書く
 
@@ -147,9 +147,9 @@ process.stdin.on('end', () => {
 ```
 
 **終了コード：**
-- `0` — 成功（実行を継続）
-- `2` — ツール呼び出しをブロック（PreToolUseのみ）
-- その他の非ゼロ — エラー（ログに記録されるがブロックしない）
+- `0` - 成功（実行を継続）
+- `2` - ツール呼び出しをブロック（PreToolUseのみ）
+- その他の非ゼロ - エラー（ログに記録されるがブロックしない）
 
 ### フック入力スキーマ
 
@@ -244,6 +244,6 @@ interface HookInput {
 
 ## 関連リンク
 
-- [rules/common/hooks.md](../rules/common/hooks.md) — フックアーキテクチャのガイドライン
-- [skills/strategic-compact/](../skills/strategic-compact/) — 戦略的コンパクションのスキル
-- [scripts/hooks/](../scripts/hooks/) — フックスクリプトの実装
+- [rules/common/hooks.md](../rules/common/hooks.md) - フックアーキテクチャのガイドライン
+- [skills/strategic-compact/](../skills/strategic-compact/) - 戦略的コンパクションのスキル
+- [scripts/hooks/](../scripts/hooks/) - フックスクリプトの実装

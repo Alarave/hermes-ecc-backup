@@ -4,7 +4,7 @@
 
 ## このコマンドの動作
 
-1. **自動チェックを検証**: `cargo check`、`cargo clippy -- -D warnings`、`cargo fmt --check`、`cargo test`を実行 — いずれか失敗したら停止
+1. **自動チェックを検証**: `cargo check`、`cargo clippy -- -D warnings`、`cargo fmt --check`、`cargo test`を実行 - いずれか失敗したら停止
 2. **Rustの変更を特定**: `git diff HEAD~1`（PRの場合は`git diff main...HEAD`）で変更された`.rs`ファイルを検出
 3. **セキュリティ監査を実行**: 利用可能な場合`cargo audit`を実行
 4. **セキュリティスキャン**: unsafe使用、コマンドインジェクション、ハードコードされたシークレットを確認

@@ -1,4 +1,4 @@
-# Phase 1 Issue Bundle — March 12, 2026
+# Phase 1 Issue Bundle - March 12, 2026
 
 ## Status
 

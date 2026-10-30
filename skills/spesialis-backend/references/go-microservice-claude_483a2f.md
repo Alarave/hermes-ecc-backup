@@ -1,4 +1,4 @@
-# Go 微服务 — 项目 CLAUDE.md
+# Go 微服务 - 项目 CLAUDE.md
 
 > 一个使用 PostgreSQL、gRPC 和 Docker 的 Go 微服务真实示例。
 > 将此文件复制到您的项目根目录，并根据您的服务进行自定义。
@@ -14,33 +14,33 @@
 ### Go 规范
 
 * 遵循 Effective Go 和 Go Code Review Comments 指南
-* 使用 `errors.New` / `fmt.Errorf` 配合 `%w` 进行包装 — 绝不对错误进行字符串匹配
-* 不使用 `init()` 函数 — 在 `main()` 或构造函数中进行显式初始化
-* 没有全局可变状态 — 通过构造函数传递依赖项
+* 使用 `errors.New` / `fmt.Errorf` 配合 `%w` 进行包装 - 绝不对错误进行字符串匹配
+* 不使用 `init()` 函数 - 在 `main()` 或构造函数中进行显式初始化
+* 没有全局可变状态 - 通过构造函数传递依赖项
 * Context 必须是第一个参数，并在所有层中传播
 
 ### 数据库
 
-* `queries/` 中的所有查询都使用纯 SQL — sqlc 生成类型安全的 Go 代码
-* 在 `migrations/` 中使用 golang-migrate 进行迁移 — 绝不直接更改数据库
+* `queries/` 中的所有查询都使用纯 SQL - sqlc 生成类型安全的 Go 代码
+* 在 `migrations/` 中使用 golang-migrate 进行迁移 - 绝不直接更改数据库
 * 通过 `pgx.Tx` 为多步骤操作使用事务
-* 所有查询必须使用参数化占位符 (`$1`, `$2`) — 绝不使用字符串格式化
+* 所有查询必须使用参数化占位符 (`$1`, `$2`) - 绝不使用字符串格式化
 
 ### 错误处理
 
-* 返回错误，不要 panic — panic 仅用于真正无法恢复的情况
+* 返回错误，不要 panic - panic 仅用于真正无法恢复的情况
 * 使用上下文包装错误：`fmt.Errorf("creating user: %w", err)`
 * 在 `domain/errors.go` 中定义业务逻辑的哨兵错误
 * 在处理器层将领域错误映射到 gRPC 状态码
 
 ```go
-// Domain layer — sentinel errors
+// Domain layer - sentinel errors
 var (
     ErrUserNotFound  = errors.New("user not found")
     ErrEmailTaken    = errors.New("email already registered")
 )
 
-// Handler layer — map to gRPC status
+// Handler layer - map to gRPC status
 func toGRPCError(err error) error {
     switch {
     case errors.Is(err, domain.ErrUserNotFound):
@@ -57,7 +57,7 @@ func toGRPCError(err error) error {
 
 * 代码或注释中不使用表情符号
 * 导出的类型和函数必须有文档注释
-* 函数保持在 50 行以内 — 提取辅助函数
+* 函数保持在 50 行以内 - 提取辅助函数
 * 对所有具有多个用例的逻辑使用表格驱动测试
 * 对于信号通道，优先使用 `struct{}`，而不是 `bool`
 

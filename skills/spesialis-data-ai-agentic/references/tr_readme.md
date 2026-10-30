@@ -79,40 +79,40 @@ Bu repository yalnızca ham kodu içerir. Rehberler her şeyi açıklıyor.
 
 ## Yenilikler
 
-### v2.0.0 — Ajan Harness İşletim Sistemi (Haz 2026)
+### v2.0.0 - Ajan Harness İşletim Sistemi (Haz 2026)
 
 2.0 hattının kararlı sürümü: 261 skill, control-pane altyapısı, MCP envanteri, worktree yaşam döngüsü servisi ve [Discord topluluğu](https://discord.gg/36yGMHGFbR).
 
-### v2.0.0-rc.1 — Surface Sync, Operatör İş Akışları ve ECC 2.0 Alpha (Nis 2026)
+### v2.0.0-rc.1 - Surface Sync, Operatör İş Akışları ve ECC 2.0 Alpha (Nis 2026)
 
-- **Public surface canlı repo ile senkronlandı** — metadata, katalog sayıları, plugin manifest'leri ve kurulum odaklı dokümanlar artık gerçek OSS yüzeyiyle eşleşiyor.
-- **Operatör ve dışa dönük iş akışları büyüdü** — `brand-voice`, `social-graph-ranker`, `customer-billing-ops`, `google-workspace-ops` ve ilgili operatör skill'leri aynı sistem içinde tamamlandı.
-- **Medya ve lansman araçları** — `manim-video`, `remotion-video-creation` ve sosyal yayın yüzeyleri teknik anlatım ve duyuru akışlarını aynı repo içine taşıdı.
-- **Framework ve ürün yüzeyi genişledi** — `nestjs-patterns`, daha zengin Codex/OpenCode kurulum yüzeyleri ve çapraz harness paketleme iyileştirmeleri repo'yu Claude Code dışına da taşıdı.
-- **ECC 2.0 alpha repoda** — `ecc2/` altındaki Rust kontrol katmanı artık yerelde derleniyor ve `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` ve `daemon` komutlarını sunuyor.
-- **Ekosistem sağlamlaştırma** — AgentShield, ECC Tools maliyet kontrolleri, billing portal işleri ve web yüzeyi çekirdek plugin etrafında birlikte gelişmeye devam ediyor.
+- **Public surface canlı repo ile senkronlandı** - metadata, katalog sayıları, plugin manifest'leri ve kurulum odaklı dokümanlar artık gerçek OSS yüzeyiyle eşleşiyor.
+- **Operatör ve dışa dönük iş akışları büyüdü** - `brand-voice`, `social-graph-ranker`, `customer-billing-ops`, `google-workspace-ops` ve ilgili operatör skill'leri aynı sistem içinde tamamlandı.
+- **Medya ve lansman araçları** - `manim-video`, `remotion-video-creation` ve sosyal yayın yüzeyleri teknik anlatım ve duyuru akışlarını aynı repo içine taşıdı.
+- **Framework ve ürün yüzeyi genişledi** - `nestjs-patterns`, daha zengin Codex/OpenCode kurulum yüzeyleri ve çapraz harness paketleme iyileştirmeleri repo'yu Claude Code dışına da taşıdı.
+- **ECC 2.0 alpha repoda** - `ecc2/` altındaki Rust kontrol katmanı artık yerelde derleniyor ve `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` ve `daemon` komutlarını sunuyor.
+- **Ekosistem sağlamlaştırma** - AgentShield, ECC Tools maliyet kontrolleri, billing portal işleri ve web yüzeyi çekirdek plugin etrafında birlikte gelişmeye devam ediyor.
 
-### v1.9.0 — Seçici Kurulum & Dil Genişlemesi (Mar 2026)
+### v1.9.0 - Seçici Kurulum & Dil Genişlemesi (Mar 2026)
 
-- **Seçici kurulum mimarisi** — `install-plan.js` ve `install-apply.js` ile manifest-tabanlı kurulum pipeline'ı, hedefli component kurulumu için. State store neyin kurulu olduğunu takip eder ve artımlı güncellemelere olanak sağlar.
-- **6 yeni agent** — `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` dil desteğini 10 dile çıkarıyor.
-- **Yeni skill'ler** — Deep learning iş akışları için `pytorch-patterns`, API referans araştırması için `documentation-lookup`, modern JS toolchain'leri için `bun-runtime` ve `nextjs-turbopack`, artı 8 operasyonel domain skill ve `mcp-server-patterns`.
-- **Session & state altyapısı** — Query CLI ile SQLite state store, yapılandırılmış kayıt için session adapter'ları, kendini geliştiren skill'ler için skill evolution foundation.
-- **Orkestrasyon iyileştirmesi** — Harness audit skorlaması deterministik hale getirildi, orkestrasyon durumu ve launcher uyumluluğu sağlamlaştırıldı, 5 katmanlı koruma ile observer loop önleme.
-- **Observer güvenilirliği** — Throttling ve tail sampling ile memory patlaması düzeltmesi, sandbox erişim düzeltmesi, lazy-start mantığı ve re-entrancy koruması.
-- **12 dil ekosistemi** — Mevcut TypeScript, Python, Go ve genel rule'lara Java, PHP, Perl, Kotlin/Android/KMP, C++ ve Rust için yeni rule'lar eklendi.
-- **Topluluk katkıları** — Korece ve Çince çeviriler, security hook, biome hook optimizasyonu, video işleme skill'leri, operasyonel skill'ler, PowerShell installer, Antigravity IDE desteği.
-- **CI sağlamlaştırma** — 19 test hatası düzeltmesi, katalog sayısı zorunluluğu, kurulum manifest validasyonu ve tam test suite yeşil.
+- **Seçici kurulum mimarisi** - `install-plan.js` ve `install-apply.js` ile manifest-tabanlı kurulum pipeline'ı, hedefli component kurulumu için. State store neyin kurulu olduğunu takip eder ve artımlı güncellemelere olanak sağlar.
+- **6 yeni agent** - `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` dil desteğini 10 dile çıkarıyor.
+- **Yeni skill'ler** - Deep learning iş akışları için `pytorch-patterns`, API referans araştırması için `documentation-lookup`, modern JS toolchain'leri için `bun-runtime` ve `nextjs-turbopack`, artı 8 operasyonel domain skill ve `mcp-server-patterns`.
+- **Session & state altyapısı** - Query CLI ile SQLite state store, yapılandırılmış kayıt için session adapter'ları, kendini geliştiren skill'ler için skill evolution foundation.
+- **Orkestrasyon iyileştirmesi** - Harness audit skorlaması deterministik hale getirildi, orkestrasyon durumu ve launcher uyumluluğu sağlamlaştırıldı, 5 katmanlı koruma ile observer loop önleme.
+- **Observer güvenilirliği** - Throttling ve tail sampling ile memory patlaması düzeltmesi, sandbox erişim düzeltmesi, lazy-start mantığı ve re-entrancy koruması.
+- **12 dil ekosistemi** - Mevcut TypeScript, Python, Go ve genel rule'lara Java, PHP, Perl, Kotlin/Android/KMP, C++ ve Rust için yeni rule'lar eklendi.
+- **Topluluk katkıları** - Korece ve Çince çeviriler, security hook, biome hook optimizasyonu, video işleme skill'leri, operasyonel skill'ler, PowerShell installer, Antigravity IDE desteği.
+- **CI sağlamlaştırma** - 19 test hatası düzeltmesi, katalog sayısı zorunluluğu, kurulum manifest validasyonu ve tam test suite yeşil.
 
-### v1.8.0 — Harness Performans Sistemi (Mar 2026)
+### v1.8.0 - Harness Performans Sistemi (Mar 2026)
 
-- **Harness-first release** — ECC artık açıkça bir agent harness performans sistemi olarak çerçevelendi, sadece bir config paketi değil.
-- **Hook güvenilirlik iyileştirmesi** — SessionStart root fallback, Stop-phase session özetleri ve kırılgan inline one-liner'lar yerine script-tabanlı hook'lar.
-- **Hook runtime kontrolleri** — `ECC_HOOK_PROFILE=minimal|standard|strict` ve `ECC_DISABLED_HOOKS=...` hook dosyalarını düzenlemeden runtime gating için.
-- **Yeni harness command'ları** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
-- **NanoClaw v2** — Model routing, skill hot-load, session branch/search/export/compact/metrics.
-- **Çapraz harness paritesi** — Claude Code, Cursor, OpenCode ve Codex app/CLI arasında davranış sıkılaştırıldı.
-- **997 internal test geçiyor** — Hook/runtime refactor ve uyumluluk güncellemelerinden sonra tam suite yeşil.
+- **Harness-first release** - ECC artık açıkça bir agent harness performans sistemi olarak çerçevelendi, sadece bir config paketi değil.
+- **Hook güvenilirlik iyileştirmesi** - SessionStart root fallback, Stop-phase session özetleri ve kırılgan inline one-liner'lar yerine script-tabanlı hook'lar.
+- **Hook runtime kontrolleri** - `ECC_HOOK_PROFILE=minimal|standard|strict` ve `ECC_DISABLED_HOOKS=...` hook dosyalarını düzenlemeden runtime gating için.
+- **Yeni harness command'ları** - `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
+- **NanoClaw v2** - Model routing, skill hot-load, session branch/search/export/compact/metrics.
+- **Çapraz harness paritesi** - Claude Code, Cursor, OpenCode ve Codex app/CLI arasında davranış sıkılaştırıldı.
+- **997 internal test geçiyor** - Hook/runtime refactor ve uyumluluk güncellemelerinden sonra tam suite yeşil.
 
 [Tam değişiklik günlüğü için Releases bölümüne bakın](https://github.com/affaan-m/everything-claude-code/releases).
 
@@ -408,7 +408,7 @@ Evet. ECC çapraz platformdur:
 - **OpenCode**: `.opencode/` içinde tam plugin desteği. [OpenCode Desteği](../../README.md#opencode-support) bölümüne bakın.
 - **Codex**: macOS app ve CLI için birinci sınıf destek. PR [#257](https://github.com/affaan-m/everything-claude-code/pull/257)'ye bakın.
 - **Antigravity**: İş akışları, skill'ler ve `.agent/` içinde düzleştirilmiş rule'lar için sıkı entegre kurulum.
-- **Claude Code**: Native — bu birincil hedeftir.
+- **Claude Code**: Native - bu birincil hedeftir.
 </details>
 
 <details>
@@ -453,8 +453,8 @@ Lütfen katkıda bulunun! Rehber için [CONTRIBUTING.md](../../CONTRIBUTING.md)'
 
 ### Katkı Fikirleri
 
-- Dile özel skill'ler (Rust, C#, Kotlin, Java) — Go, Python, Perl, Swift ve TypeScript zaten dahil
-- Framework'e özel config'ler (Rails, FastAPI) — Django, NestJS, Spring Boot ve Laravel zaten dahil
+- Dile özel skill'ler (Rust, C#, Kotlin, Java) - Go, Python, Perl, Swift ve TypeScript zaten dahil
+- Framework'e özel config'ler (Rails, FastAPI) - Django, NestJS, Spring Boot ve Laravel zaten dahil
 - DevOps agent'ları (Kubernetes, Terraform, AWS, Docker)
 - Test stratejileri (farklı framework'ler, görsel regresyon)
 - Domain'e özel bilgi (ML, data engineering, mobile)

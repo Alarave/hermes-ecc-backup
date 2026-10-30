@@ -42,10 +42,10 @@ public class OrderService {
 
 ## 构造函数注入
 
-始终使用构造函数注入 —— 绝不使用字段注入：
+始终使用构造函数注入 -- 绝不使用字段注入：
 
 ```java
-// GOOD — constructor injection (testable, immutable)
+// GOOD - constructor injection (testable, immutable)
 public class NotificationService {
     private final EmailSender emailSender;
 
@@ -54,7 +54,7 @@ public class NotificationService {
     }
 }
 
-// BAD — field injection (untestable without reflection, requires framework magic)
+// BAD - field injection (untestable without reflection, requires framework magic)
 public class NotificationService {
     @Inject // or @Autowired
     private EmailSender emailSender;

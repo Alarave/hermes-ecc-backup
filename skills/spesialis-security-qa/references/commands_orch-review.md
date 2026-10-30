@@ -1,6 +1,6 @@
 # /orch-review
 
-Surface for `workflows/orch-review.workflow.js` — the native Workflow port of
+Surface for `workflows/orch-review.workflow.js` - the native Workflow port of
 orch-pipeline Phase 5 (Review). This command computes a diff, hands it to the
 workflow, and presents the result. The workflow owns the fan-out (one reviewer
 per dimension, dedup, adversarial verify); this command owns input and output.
@@ -13,12 +13,12 @@ per dimension, dedup, adversarial verify); this command owns input and output.
 
 | Input | Mode |
 |---|---|
-| Blank | **Local Mode** — review uncommitted changes |
-| Number (e.g. `42`) or PR URL | **PR Mode** — review a GitHub PR |
+| Blank | **Local Mode** - review uncommitted changes |
+| Number (e.g. `42`) or PR URL | **PR Mode** - review a GitHub PR |
 
 ---
 
-## Phase 1 — GATHER
+## Phase 1 - GATHER
 
 Build the unified diff and the metadata the workflow needs.
 
@@ -33,7 +33,7 @@ If the diff is empty, stop: "Nothing to review."
 
 **PR Mode:**
 
-First derive a **safe numeric PR id** from `$ARGUMENTS` — never pass the raw
+First derive a **safe numeric PR id** from `$ARGUMENTS` - never pass the raw
 argument to the shell. Accept either a bare integer, or the trailing number of a
 `https://github.com/<owner>/<repo>/pull/<N>` URL. Reject anything else (extra
 text, shell metacharacters, a non-PR URL) and stop with an error. Use only the
@@ -49,10 +49,10 @@ If the PR is not found, stop with an error.
 
 Then derive `language` from the dominant changed-file extension (for example
 `.ts`/`.tsx` to `typescript`, `.py` to `python`, `.go` to `go`). Leave it unset
-when the change is mixed or non-code — the workflow simply skips the
+when the change is mixed or non-code - the workflow simply skips the
 language-specific reviewer.
 
-## Phase 2 — INVOKE
+## Phase 2 - INVOKE
 
 Call the Workflow tool. The workflow validates its own input and fails closed on
 a missing or empty diff, so always pass a non-empty `diff`.
@@ -63,7 +63,7 @@ Workflow({
   args: {
     diff: "<unified diff text from Phase 1>",   // required
     language: "typescript",                      // optional
-    changedFiles: ["src/auth.ts"]                // optional — feeds the security trigger
+    changedFiles: ["src/auth.ts"]                // optional - feeds the security trigger
   }
 })
 ```
@@ -83,13 +83,13 @@ finding. It returns:
 }
 ```
 
-## Phase 3 — REPORT
+## Phase 3 - REPORT
 
 Present the result to the user (this is the human review gate; the workflow does
 not commit anything):
 
 - Lead with `verdict` and the `stats` line (dimensions, raw to unique collapse).
-- List every `blocking` finding with file, severity, and evidence — these must
+- List every `blocking` finding with file, severity, and evidence - these must
   clear before a commit. Findings tagged "could not be verified" stay in
   `blocking` by design; call them out as needing manual confirmation.
 - List `advisory` findings briefly (MEDIUM/LOW and verifier-refuted items).
@@ -99,7 +99,7 @@ not commit anything):
 ## Fail-Closed Contract
 
 This command must never present a clean APPROVE when the review could not fully
-run. If the Workflow tool itself errors, report the failure — do not fall back to
+run. If the Workflow tool itself errors, report the failure - do not fall back to
 a hand-rolled review and do not imply the diff was approved.
 
 ---
@@ -110,5 +110,5 @@ a hand-rolled review and do not imply the diff was approved.
   Local Mode against a checked-out branch instead.
 - **Large diff**: the workflow caps reviewer concurrency automatically, so a
   large diff is slower but safe; warn the user it may take longer.
-- **Binary or generated files**: drop them from `changedFiles` before invoking —
+- **Binary or generated files**: drop them from `changedFiles` before invoking -
   they add noise to the security trigger without reviewable content.

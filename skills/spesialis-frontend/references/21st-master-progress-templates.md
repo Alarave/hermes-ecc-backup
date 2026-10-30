@@ -24,7 +24,7 @@ Analisis pola dan blueprint komponen Progress Bar, Radial Progress, dan Stepper 
 ### Arketipe 3: The Scroll Reading Indicator
 - **Fungsi**: Indikator artikel/dokumentasi panjang yang diletakkan di puncak paling atas layar (`fixed top-0 left-0 right-0 z-50`).
 - **Karakteristik Visual**:
-  - Garis tipis setinggi 2px–3px berwarna terang yang memanjang dari kiri ke kanan mengikuti posisi scroll halaman pengguna (`scrollYProgress` dari Framer Motion).
+  - Garis tipis setinggi 2px-3px berwarna terang yang memanjang dari kiri ke kanan mengikuti posisi scroll halaman pengguna (`scrollYProgress` dari Framer Motion).
 - **Inspirasi**: `Scroll Progress (Ali Imam)`, `Reading Progress`.
 
 ### Arketipe 4: The Onboarding Stepper / Timeline Rail

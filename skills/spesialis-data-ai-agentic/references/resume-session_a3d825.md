@@ -114,7 +114,7 @@ Ready to continue. What would you like to do?
 SESSION LOADED: /Users/you/.claude/session-data/2024-01-15-abc123de-session.tmp
 ════════════════════════════════════════════════
 
-PROJECT: my-app — JWT Authentication
+PROJECT: my-app - JWT Authentication
 
 WHAT WE'RE BUILDING:
 User authentication with JWT tokens stored in httpOnly cookies.
@@ -127,14 +127,14 @@ PASS: Working: 3 items (register endpoint, JWT generation, password hashing)
  Not Started: middleware.ts, app/login/page.tsx
 
 WHAT NOT TO RETRY:
-FAIL: Next-Auth — conflicts with custom Prisma adapter, threw adapter error on every request
-FAIL: localStorage for JWT — causes SSR hydration mismatch, incompatible with Next.js
+FAIL: Next-Auth - conflicts with custom Prisma adapter, threw adapter error on every request
+FAIL: localStorage for JWT - causes SSR hydration mismatch, incompatible with Next.js
 
 OPEN QUESTIONS / BLOCKERS:
 - Does cookies().set() work inside a Route Handler or only Server Actions?
 
 NEXT STEP:
-In app/api/auth/login/route.ts — set the JWT as an httpOnly cookie using
+In app/api/auth/login/route.ts - set the JWT as an httpOnly cookie using
 cookies().set('token', jwt, { httpOnly: true, secure: true, sameSite: 'strict' })
 then test with Postman for a Set-Cookie header in the response.
 

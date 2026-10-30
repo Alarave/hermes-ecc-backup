@@ -1,6 +1,6 @@
 # Marketing Campaign
 
-Plan and execute launch campaigns that convert — not just campaigns that ship.
+Plan and execute launch campaigns that convert - not just campaigns that ship.
 
 ## When to Activate
 
@@ -26,7 +26,7 @@ Plan and execute launch campaigns that convert — not just campaigns that ship.
 Use `market-research` to:
 - profile the target audience (jobs-to-be-done, fears, language, alternatives they use)
 - map 3+ direct or adjacent competitors (positioning, gaps, messaging weaknesses)
-- identify 1–3 audience insights the campaign angle will exploit
+- identify 1-3 audience insights the campaign angle will exploit
 
 Deliverable: a short research brief (audience profile + competitive summary + key insights).
 
@@ -42,20 +42,20 @@ Do not write any copy until positioning and angle are approved.
 
 ### Phase 3: Content Production
 
-Produce in this order — each layer informs the next:
+Produce in this order - each layer informs the next:
 
 1. **Landing page copy** (all sections: hero, problem, solution, features, how it works, proof, CTA)
 2. **Email sequence** (each email has one purpose; follow the arc: problem → education → agitation → solution → proof → urgency → final CTA)
 3. **Social posts** (platform-native via `content-engine`; LinkedIn and X are different formats, not the same copy resized)
 4. **Short-form video scripts** (timestamp-blocked; written for screen and ear, not the page)
-5. **Ad copy variants** (3–4 variants testing different angles or audience segments)
+5. **Ad copy variants** (3-4 variants testing different angles or audience segments)
 6. **Content calendar** (day-by-day schedule with channel, type, timing, and dependencies)
 
 ### Phase 4: Review
 
 Gate every deliverable:
 - 5-second test on all hero / above-fold copy (clear who it's for, what it does, why act now)
-- CTA audit (one per piece, specific, earned — not demanded)
+- CTA audit (one per piece, specific, earned - not demanded)
 - Tone consistency check across all channels
 - Claim audit (every claim is specific and supportable)
 - Cross-channel consistency (ad claims match landing page; email body matches subject)
@@ -64,15 +64,15 @@ Gate every deliverable:
 
 A full campaign delivers:
 
-1. **Positioning brief** — angle, core benefit statement, tone profile
-2. **Landing page copy** — hero, problem, solution, features, how it works, proof, CTA
-3. **Email sequence** — subject + preview + body + CTA for each email, labelled by day and purpose
-4. **LinkedIn posts** — 3+ platform-native posts with distinct angles
-5. **X posts** — 5+ standalone posts + 1 thread
-6. **Short-form video scripts** — 2+ timestamp-blocked scripts with visual direction notes
-7. **Ad copy variants** — short headline / long headline / body per variant
-8. **Content calendar** — day-by-day schedule with channel, content type, timing, and dependencies
-9. **Copy review summary** — flagged issues and open questions before anything goes live
+1. **Positioning brief** - angle, core benefit statement, tone profile
+2. **Landing page copy** - hero, problem, solution, features, how it works, proof, CTA
+3. **Email sequence** - subject + preview + body + CTA for each email, labelled by day and purpose
+4. **LinkedIn posts** - 3+ platform-native posts with distinct angles
+5. **X posts** - 5+ standalone posts + 1 thread
+6. **Short-form video scripts** - 2+ timestamp-blocked scripts with visual direction notes
+7. **Ad copy variants** - short headline / long headline / body per variant
+8. **Content calendar** - day-by-day schedule with channel, content type, timing, and dependencies
+9. **Copy review summary** - flagged issues and open questions before anything goes live
 
 ## Quality Gate
 
@@ -100,8 +100,8 @@ Delete and rewrite any:
 
 ## Related Skills
 
-- `brand-voice` — source-derived voice capture (run before content production)
-- `content-engine` — platform-native content production
-- `crosspost` — multi-platform distribution
-- `market-research` — audience and competitive intelligence
-- `seo` — on-page optimisation for landing page copy
+- `brand-voice` - source-derived voice capture (run before content production)
+- `content-engine` - platform-native content production
+- `crosspost` - multi-platform distribution
+- `market-research` - audience and competitive intelligence
+- `seo` - on-page optimisation for landing page copy

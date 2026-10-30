@@ -25,10 +25,10 @@
 
 ### 单页就诊流程
 
-临床就诊应在单页上垂直流动——无需切换标签页：
+临床就诊应在单页上垂直流动--无需切换标签页：
 
 ```
-患者头部信息（固定显示 — 始终可见）
+患者头部信息（固定显示 - 始终可见）
 ├── 人口学信息、过敏史、当前用药
 │
 就诊流程（垂直滚动）
@@ -56,7 +56,7 @@ interface ClinicalTemplate {
 }
 ```
 
-任何模板中的危险信号必须触发可见且不可关闭的警报——而非通知提示。
+任何模板中的危险信号必须触发可见且不可关闭的警报--而非通知提示。
 
 ### 用药安全模式
 
@@ -78,7 +78,7 @@ interface ClinicalTemplate {
 
 临床就诊一旦签署：
 
-* 不允许编辑——仅可添加附录（独立的关联记录）
+* 不允许编辑--仅可添加附录（独立的关联记录）
 * 原始记录和附录均显示在患者时间线中
 * 审计追踪记录签署人、签署时间及所有附录记录
 
@@ -94,12 +94,12 @@ interface ClinicalTemplate {
 
 医疗界面的要求比典型网页应用更严格：
 
-* 最小对比度4.5:1（WCAG AA）——临床医生在不同光照条件下工作
-* 大触摸目标（最小44x44px）——适用于戴手套或快速操作
-* 键盘导航——供快速录入数据的熟练用户使用
-* 不使用纯颜色指示——始终将颜色与文字/图标配对（色盲临床医生）
+* 最小对比度4.5:1（WCAG AA）--临床医生在不同光照条件下工作
+* 大触摸目标（最小44x44px）--适用于戴手套或快速操作
+* 键盘导航--供快速录入数据的熟练用户使用
+* 不使用纯颜色指示--始终将颜色与文字/图标配对（色盲临床医生）
 * 所有表单字段带屏幕阅读器标签
-* 临床警报不使用自动消失的提示——临床医生必须主动确认
+* 临床警报不使用自动消失的提示--临床医生必须主动确认
 
 ### 反模式
 
@@ -121,7 +121,7 @@ interface ClinicalTemplate {
   → 主诉：选择"胸痛"模板
     → 点击标签："胸骨后", "向左臂放射", "压榨性"
     → 红色预警"压榨性胸骨后胸痛"触发不可关闭的警报
-  → 检查：心血管系统 — "S1 S2 正常，无杂音"
+  → 检查：心血管系统 - "S1 S2 正常，无杂音"
   → 生命体征：心率 110, 血压 90/60, 血氧饱和度 94%
     → NEWS2 自动计算：评分 8, 风险 高, 显示升级警报
   → 诊断：搜索"ACS" → 选择 ICD-10 I21.9
@@ -137,7 +137,7 @@ interface ClinicalTemplate {
   → CDSS 检测到：华法林 + 阿司匹林 = 严重相互作用
   → 用户界面：红色不可关闭的模态框阻止开药
   → 医生点击“输入理由并覆盖”
-  → 输入：“获益大于风险 — 已监测 INR 方案”
+  → 输入：“获益大于风险 - 已监测 INR 方案”
   → 覆盖理由及警报记录在审计追踪中
   → 处方在记录覆盖后继续执行
 ```
@@ -146,9 +146,9 @@ interface ClinicalTemplate {
 
 ```
 Encounter #E-2024-0891 signed by Dr. Shah at 14:30
-  → All fields locked — no edit buttons visible
+  → All fields locked - no edit buttons visible
   → "Add Addendum" button available
-  → Dr. Shah clicks addendum, adds: "Lab results received — Troponin elevated"
+  → Dr. Shah clicks addendum, adds: "Lab results received - Troponin elevated"
   → New record E-2024-0891-A1 linked to original
   → Timeline shows both: original encounter + addendum with timestamps
 ```

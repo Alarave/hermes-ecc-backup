@@ -113,7 +113,7 @@ The `idc-index` package provides multiple metadata index tables, accessible via 
 
 **Complete index table documentation:** Use https://idc-index.readthedocs.io/en/latest/indices_reference.html for quick check of available tables and columns without executing any code.
 
-**Important:** Use `client.indices_overview` to get current table descriptions and column schemas. This is the authoritative source for available columns and their types — always query it when writing SQL or exploring data structure.
+**Important:** Use `client.indices_overview` to get current table descriptions and column schemas. This is the authoritative source for available columns and their types - always query it when writing SQL or exploring data structure.
 
 ### Available Tables
 
@@ -267,7 +267,7 @@ analysis_info = client.sql_query("""
 """)
 ```
 
-**`collections_index`** provides curated metadata per collection: cancer types, tumor locations, species, subject counts, and supporting data types — without needing to aggregate from the primary index.
+**`collections_index`** provides curated metadata per collection: cancer types, tumor locations, species, subject counts, and supporting data types - without needing to aggregate from the primary index.
 
 **`analysis_results_index`** lists derived datasets (AI segmentations, expert annotations, radiomics features) with their source collections and modalities.
 

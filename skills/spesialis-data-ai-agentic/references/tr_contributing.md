@@ -367,8 +367,8 @@ Skill'ler ve agent'lar, sadece eğitim verilerine güvenmek yerine güncel veril
 
 ECC, diğer harness'ler için skill alt kümeleri içerir:
 
-- **Codex:** `.agents/skills/` — `agents/openai.yaml` içinde listelenen skill'ler Codex tarafından yüklenir.
-- **Cursor:** `.cursor/skills/` — Cursor için bir skill alt kümesi paketlenmiştir.
+- **Codex:** `.agents/skills/` - `agents/openai.yaml` içinde listelenen skill'ler Codex tarafından yüklenir.
+- **Cursor:** `.cursor/skills/` - Cursor için bir skill alt kümesi paketlenmiştir.
 
 Codex veya Cursor'da kullanılabilir olması gereken **yeni bir skill eklediğinizde**:
 

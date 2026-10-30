@@ -16,7 +16,7 @@ The user may not have read the README, so confirm the environment first:
 - `hf auth whoami` errors / "Not logged in" → ask them to run `hf auth login`
   (or set `HF_TOKEN` in `.env`); all Hub access and HF Jobs need it.
 - `gh` is only needed for GitHub code search and self-reports if absent, so
-  don't block on it here — handle it if/when a `github.py` call fails.
+  don't block on it here - handle it if/when a `github.py` call fails.
 
 Run this once per session; skip if a helper script has already succeeded.
 
@@ -24,7 +24,7 @@ Run this once per session; skip if a helper script has already succeeded.
 
 Run every helper as `uv run ${CLAUDE_PLUGIN_ROOT}/scripts/<name>.py ...`
 (`${CLAUDE_PLUGIN_ROOT}` is resolved automatically while this plugin is active;
-keep the braces — the bare `$CLAUDE_PLUGIN_ROOT` form does not expand). Each is a
+keep the braces - the bare `$CLAUDE_PLUGIN_ROOT` form does not expand). Each is a
 self-contained PEP-723 script (deps auto-provision; no venv needed):
 
 | Capability | Command |
@@ -43,7 +43,7 @@ open web. Run independent commands in parallel.
 
 `HF_TOKEN` resolves automatically (from `.env` or the `hf` CLI cache); it is
 injected into HF Jobs as a secret. The GitHub tools use the `gh` CLI's own
-login (`gh auth login`) — no token in `.env`.
+login (`gh auth login`) - no token in `.env`.
 
 ## Your knowledge of HF libraries is outdated
 
@@ -101,7 +101,7 @@ scripts directly for quick lookups. Skip research only for trivial non-code ops.
 
 Required sequence before any training/fine-tuning/inference script:
 1. Research current API patterns (researcher subagent or research scripts).
-2. Validate the dataset: `inspect_dataset.py` — confirm columns and format.
+2. Validate the dataset: `inspect_dataset.py` - confirm columns and format.
 3. Validate the model: confirm it exists, architecture/size/tokenizer.
 
 Logging: set `disable_tqdm=True`, `logging_strategy="steps"`,
@@ -119,17 +119,17 @@ columns, rows per split, sample rows. Surface class imbalance, missing values,
 unexpected formats, outliers, duplicates. Looking at data is the best way to
 boost performance and avoid failed jobs.
 
-## Monitoring — v1 is local, default to TensorBoard
+## Monitoring - v1 is local, default to TensorBoard
 
 Default to `report_to="tensorboard"` (tracing is local in v1; no Space is
 seeded) plus grep-able stdout logging (`disable_tqdm=True`,
-`logging_strategy="steps"`, `logging_first_step=True`) — the stdout loss lines
+`logging_strategy="steps"`, `logging_first_step=True`) - the stdout loss lines
 are your primary signal via `hf_jobs.py logs`.
 
 **Do NOT combine `report_to="trackio"` with `push_to_hub=True`:** on push,
 Trackio's `on_push_begin` serializes the run config to Parquet, which crashes on
 a PEFT/LoRA model's empty `rank_pattern` struct (`ArrowNotImplementedError`)
-*after* training but *before* upload — losing the model. TensorBoard avoids this.
+*after* training but *before* upload - losing the model. TensorBoard avoids this.
 
 Drive the next config from metrics read back between runs: diverged→lr×0.1,
 overfitting→weight_decay×10 or less capacity, early-stopping→lr×0.5,
@@ -148,7 +148,7 @@ Before any GPU job, output this pre-flight block and fill every line:
 - Smoke test: [local 1-step run, or a `MAX_STEPS=5` HF Jobs smoke, and result]
 - `push_to_hub=True` and `hub_model_id` set
 - `--timeout`: [value] (based on [model size] on [hardware])
-- Monitoring included (local TensorBoard for v1; not Trackio when pushing — see Monitoring)
+- Monitoring included (local TensorBoard for v1; not Trackio when pushing - see Monitoring)
 
 If you can't fill every line, stop and complete the missing steps first. For
 batch/ablation jobs: submit ONE first, confirm it trains, then submit the rest.
@@ -166,23 +166,23 @@ launching at scale via `hf_jobs.py run`.
 
 ## Authorization (before spending or writing)
 
-Before any action that spends money or mutates remote state — `hf_jobs.py run`
+Before any action that spends money or mutates remote state - `hf_jobs.py run`
 (real GPU compute, costs namespace credits), `hf_repo.py files upload` / `...
-delete` (mutates a Hub repo), or deleting/overwriting any remote resource — you
+delete` (mutates a Hub repo), or deleting/overwriting any remote resource - you
 must have **authorization**. Authorization comes from exactly one of:
 
-- **(a) Interactive confirmation** — no `program.md` budget envelope is in effect.
+- **(a) Interactive confirmation** - no `program.md` budget envelope is in effect.
   This is the default, and it is on YOU to enforce it: the hook does not gate
   interactive spend, so it will not stop you. Pause and ask the user, stating the
   exact command, hardware flavor, timeout, and a rough cost estimate; wait for
   confirmation. If the user pre-approves for the session ("go ahead", "run jobs
   without asking"), you may proceed without re-asking, but still **announce each
-  action before it runs** — its exact command, hardware flavor, timeout, and rough
-  cost — so spend stays visible. A pre-approval covers the kind of action approved;
+  action before it runs** - its exact command, hardware flavor, timeout, and rough
+  cost - so spend stays visible. A pre-approval covers the kind of action approved;
   a materially different one (new repo, bigger GPU, a delete) warrants a fresh ask.
 - **(b) A `program.md` budget envelope**, enforced by the budget hook (autonomous
   mode). The envelope pre-authorizes spend/writes within its limits, so do NOT ask
-  per action — proceed, and let the hook allow or deny. Never exceed the envelope;
+  per action - proceed, and let the hook allow or deny. Never exceed the envelope;
   escalate to the user only on a would-be breach or an unrecoverable error.
 
 If neither (a) nor (b) holds, stop and ask. Read-only research/inspection scripts

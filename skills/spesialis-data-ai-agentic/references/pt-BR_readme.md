@@ -80,40 +80,40 @@ Este repositório contém apenas o código. Os guias explicam tudo.
 
 ## O Que Há de Novo
 
-### v2.0.0 — O Sistema Operacional do Harness de Agentes (Jun 2026)
+### v2.0.0 - O Sistema Operacional do Harness de Agentes (Jun 2026)
 
 Graduação estável da linha 2.0: 261 skills, substrato de control-pane, inventário MCP, serviço de ciclo de vida de worktrees e a comunidade no [Discord](https://discord.gg/36yGMHGFbR).
 
-### v2.0.0-rc.1 — Sincronização de Superfície, Fluxos Operacionais e ECC 2.0 Alpha (Abr 2026)
+### v2.0.0-rc.1 - Sincronização de Superfície, Fluxos Operacionais e ECC 2.0 Alpha (Abr 2026)
 
-- **Superfície pública sincronizada com o repositório real** — metadados, contagens de catálogo, manifests de plugin e documentação de instalação agora refletem a superfície OSS que realmente é entregue.
-- **Expansão dos fluxos operacionais e externos** — `brand-voice`, `social-graph-ranker`, `customer-billing-ops`, `google-workspace-ops` e skills relacionadas fortalecem a trilha operacional dentro do mesmo sistema.
-- **Ferramentas de mídia e lançamento** — `manim-video`, `remotion-video-creation` e os fluxos de publicação social colocam explicadores técnicos e lançamento no mesmo repositório.
-- **Crescimento de framework e superfície de produto** — `nestjs-patterns`, superfícies de instalação mais ricas para Codex/OpenCode e melhorias de empacotamento cross-harness ampliam o uso além do Claude Code.
-- **ECC 2.0 alpha já está no repositório** — o plano de controle em Rust dentro de `ecc2/` já compila localmente e expõe `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` e `daemon`.
-- **Fortalecimento do ecossistema** — AgentShield, controles de custo do ECC Tools, trabalho no portal de billing e a renovação do site continuam sendo entregues ao redor do plugin principal.
+- **Superfície pública sincronizada com o repositório real** - metadados, contagens de catálogo, manifests de plugin e documentação de instalação agora refletem a superfície OSS que realmente é entregue.
+- **Expansão dos fluxos operacionais e externos** - `brand-voice`, `social-graph-ranker`, `customer-billing-ops`, `google-workspace-ops` e skills relacionadas fortalecem a trilha operacional dentro do mesmo sistema.
+- **Ferramentas de mídia e lançamento** - `manim-video`, `remotion-video-creation` e os fluxos de publicação social colocam explicadores técnicos e lançamento no mesmo repositório.
+- **Crescimento de framework e superfície de produto** - `nestjs-patterns`, superfícies de instalação mais ricas para Codex/OpenCode e melhorias de empacotamento cross-harness ampliam o uso além do Claude Code.
+- **ECC 2.0 alpha já está no repositório** - o plano de controle em Rust dentro de `ecc2/` já compila localmente e expõe `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` e `daemon`.
+- **Fortalecimento do ecossistema** - AgentShield, controles de custo do ECC Tools, trabalho no portal de billing e a renovação do site continuam sendo entregues ao redor do plugin principal.
 
-### v1.9.0 — Instalação Seletiva e Expansão de Idiomas (Mar 2026)
+### v1.9.0 - Instalação Seletiva e Expansão de Idiomas (Mar 2026)
 
-- **Arquitetura de instalação seletiva** — Pipeline de instalação baseado em manifesto com `install-plan.js` e `install-apply.js` para instalação de componentes direcionada. O state store rastreia o que está instalado e habilita atualizações incrementais.
-- **6 novos agentes** — `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` expandem a cobertura para 10 linguagens.
-- **Novas skills** — `pytorch-patterns` para fluxos de deep learning, `documentation-lookup` para pesquisa de referências de API, `bun-runtime` e `nextjs-turbopack` para toolchains JS modernas, além de 8 skills de domínio operacional e `mcp-server-patterns`.
-- **Infraestrutura de sessão e estado** — State store SQLite com CLI de consulta, adaptadores de sessão para gravação estruturada, fundação de evolução de skills para skills auto-aprimoráveis.
-- **Revisão de orquestração** — Pontuação de auditoria de harness tornado determinístico, status de orquestração e compatibilidade de launcher reforçados, prevenção de loop de observer com guarda de 5 camadas.
-- **Confiabilidade do observer** — Correção de explosão de memória com throttling e tail sampling, correção de acesso sandbox, lógica de início preguiçoso e guarda de reentrância.
-- **12 ecossistemas de linguagem** — Novas regras para Java, PHP, Perl, Kotlin/Android/KMP, C++ e Rust se juntam ao TypeScript, Python, Go e regras comuns existentes.
-- **Contribuições da comunidade** — Traduções para coreano e chinês, otimização de hook biome, skills VideoDB, skills operacionais Evos, instalador PowerShell, suporte ao IDE Antigravity.
-- **CI reforçado** — 19 correções de falhas de teste, aplicação de contagem de catálogo, validação de manifesto de instalação e suíte de testes completa no verde.
+- **Arquitetura de instalação seletiva** - Pipeline de instalação baseado em manifesto com `install-plan.js` e `install-apply.js` para instalação de componentes direcionada. O state store rastreia o que está instalado e habilita atualizações incrementais.
+- **6 novos agentes** - `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` expandem a cobertura para 10 linguagens.
+- **Novas skills** - `pytorch-patterns` para fluxos de deep learning, `documentation-lookup` para pesquisa de referências de API, `bun-runtime` e `nextjs-turbopack` para toolchains JS modernas, além de 8 skills de domínio operacional e `mcp-server-patterns`.
+- **Infraestrutura de sessão e estado** - State store SQLite com CLI de consulta, adaptadores de sessão para gravação estruturada, fundação de evolução de skills para skills auto-aprimoráveis.
+- **Revisão de orquestração** - Pontuação de auditoria de harness tornado determinístico, status de orquestração e compatibilidade de launcher reforçados, prevenção de loop de observer com guarda de 5 camadas.
+- **Confiabilidade do observer** - Correção de explosão de memória com throttling e tail sampling, correção de acesso sandbox, lógica de início preguiçoso e guarda de reentrância.
+- **12 ecossistemas de linguagem** - Novas regras para Java, PHP, Perl, Kotlin/Android/KMP, C++ e Rust se juntam ao TypeScript, Python, Go e regras comuns existentes.
+- **Contribuições da comunidade** - Traduções para coreano e chinês, otimização de hook biome, skills VideoDB, skills operacionais Evos, instalador PowerShell, suporte ao IDE Antigravity.
+- **CI reforçado** - 19 correções de falhas de teste, aplicação de contagem de catálogo, validação de manifesto de instalação e suíte de testes completa no verde.
 
-### v1.8.0 — Sistema de Desempenho de Harness (Mar 2026)
+### v1.8.0 - Sistema de Desempenho de Harness (Mar 2026)
 
-- **Lançamento focado em harness** — O ECC agora é explicitamente enquadrado como um sistema de desempenho de harness de agentes, não apenas um pacote de configurações.
-- **Revisão de confiabilidade de hooks** — Fallback de raiz SessionStart, resumos de sessão na fase Stop e hooks baseados em scripts substituindo frágeis one-liners inline.
-- **Controles de runtime de hooks** — `ECC_HOOK_PROFILE=minimal|standard|strict` e `ECC_DISABLED_HOOKS=...` para controle em tempo de execução sem editar arquivos de hook.
-- **Novos comandos de harness** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
-- **NanoClaw v2** — roteamento de modelo, carregamento a quente de skill, ramificação/busca/exportação/compactação/métricas de sessão.
-- **Paridade entre harnesses** — comportamento unificado em Claude Code, Cursor, OpenCode e Codex app/CLI.
-- **997 testes internos passando** — suíte completa no verde após refatoração de hook/runtime e atualizações de compatibilidade.
+- **Lançamento focado em harness** - O ECC agora é explicitamente enquadrado como um sistema de desempenho de harness de agentes, não apenas um pacote de configurações.
+- **Revisão de confiabilidade de hooks** - Fallback de raiz SessionStart, resumos de sessão na fase Stop e hooks baseados em scripts substituindo frágeis one-liners inline.
+- **Controles de runtime de hooks** - `ECC_HOOK_PROFILE=minimal|standard|strict` e `ECC_DISABLED_HOOKS=...` para controle em tempo de execução sem editar arquivos de hook.
+- **Novos comandos de harness** - `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
+- **NanoClaw v2** - roteamento de modelo, carregamento a quente de skill, ramificação/busca/exportação/compactação/métricas de sessão.
+- **Paridade entre harnesses** - comportamento unificado em Claude Code, Cursor, OpenCode e Codex app/CLI.
+- **997 testes internos passando** - suíte completa no verde após refatoração de hook/runtime e atualizações de compatibilidade.
 
 ---
 
@@ -264,7 +264,7 @@ Para recursos avançados (10k+ commits, PRs automáticos, compartilhamento em eq
 
 [Instalar GitHub App](https://github.com/apps/skill-creator) | [ecc.tools](https://ecc.tools)
 
-### AgentShield — Auditor de Segurança
+### AgentShield - Auditor de Segurança
 
 > Construído no Claude Code Hackathon (Cerebral Valley x Anthropic, Fev 2026). 1282 testes, 98% de cobertura, 102 regras de análise estática.
 
@@ -390,7 +390,7 @@ Skills são definições de fluxo de trabalho invocadas por comandos ou agentes.
 
 ### Hooks
 
-Hooks disparam em eventos de ferramenta. Exemplo — avisar sobre console.log:
+Hooks disparam em eventos de ferramenta. Exemplo - avisar sobre console.log:
 
 ```json
 {
@@ -474,7 +474,7 @@ Sim. O ECC é multiplataforma:
 - **OpenCode**: Suporte completo a plugins em `.opencode/`
 - **Codex**: Suporte de primeira classe para app macOS e CLI
 - **Antigravity**: Configuração integrada em `.agent/`
-- **Claude Code**: Nativo — este é o alvo principal
+- **Claude Code**: Nativo - este é o alvo principal
 </details>
 
 <details>
@@ -519,4 +519,4 @@ Por favor contribua! Veja [CONTRIBUTING.md](CONTRIBUTING.md) para diretrizes.
 
 ## Licença
 
-MIT — consulte o [arquivo LICENSE](../../LICENSE) para detalhes.
+MIT - consulte o [arquivo LICENSE](../../LICENSE) para detalhes.

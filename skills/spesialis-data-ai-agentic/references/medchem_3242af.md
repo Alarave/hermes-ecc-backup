@@ -2,7 +2,7 @@
 
 ## Overview
 
-Medchem is a Python library for molecular filtering and prioritization in drug discovery workflows. Apply hundreds of well-established and novel molecular filters, structural alerts, and medicinal chemistry rules to efficiently triage and prioritize compound libraries at scale. Rules and filters are context-specific—use as guidelines combined with domain expertise.
+Medchem is a Python library for molecular filtering and prioritization in drug discovery workflows. Apply hundreds of well-established and novel molecular filters, structural alerts, and medicinal chemistry rules to efficiently triage and prioritize compound libraries at scale. Rules and filters are context-specific-use as guidelines combined with domain expertise.
 
 ## When to Use This Skill
 
@@ -369,7 +369,7 @@ mol_with_groups = [mol for mol, match in zip(mol_list, matches) if match]
 
 5. **Document Filtering Decisions**: Track which molecules were filtered out and why for reproducibility.
 
-6. **Validate Results**: Remember that marketed drugs often fail standard filters—use these as guidelines, not absolute rules.
+6. **Validate Results**: Remember that marketed drugs often fail standard filters-use these as guidelines, not absolute rules.
 
 7. **Consider Prodrugs**: Molecules designed as prodrugs may intentionally violate standard medicinal chemistry rules.
 

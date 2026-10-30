@@ -43,13 +43,13 @@ test -f webpack.config.js -o -f webpack.config.ts                   # webpack
 ## Diagnostic Commands
 
 ```bash
-# Run the project's build script first — respect what's configured
+# Run the project's build script first - respect what's configured
 npm run build --if-present
 pnpm build 2>/dev/null
 yarn build 2>/dev/null
 bun run build 2>/dev/null
 
-# Typecheck independently of the bundler — only when TypeScript is configured
+# Typecheck independently of the bundler - only when TypeScript is configured
 # (skips cleanly for JavaScript-only projects)
 # Uses `npx --no-install` to honor the project's pinned TypeScript version;
 # never auto-install an unpinned compiler, which would produce non-reproducible
@@ -112,9 +112,9 @@ bun build ./src/index.tsx --outdir=dist
 | Error | Fix |
 |---|---|
 | `You're importing a component that needs useState` | Add `"use client"` to the file's first line OR move the hook to a Client Component child |
-| `Module not found: Can't resolve 'fs'` in a client file | The file is being bundled for the client; `fs` is server-only — REMOVE the `fs` import or move the logic into a Server Component / API route |
+| `Module not found: Can't resolve 'fs'` in a client file | The file is being bundled for the client; `fs` is server-only - REMOVE the `fs` import or move the logic into a Server Component / API route |
 | `Error: Functions cannot be passed directly to Client Components` | Wrap the function in a Server Action (`"use server"`) and pass that |
-| `Hydration failed because the initial UI does not match` | Server render and client render diverge — usually `Date.now()`, `Math.random()`, `typeof window`, `localStorage` access during render. Move to `useEffect`. |
+| `Hydration failed because the initial UI does not match` | Server render and client render diverge - usually `Date.now()`, `Math.random()`, `typeof window`, `localStorage` access during render. Move to `useEffect`. |
 
 #### webpack
 
@@ -125,7 +125,7 @@ bun build ./src/index.tsx --outdir=dist
 
 #### CRA (Create React App)
 
-CRA is unmaintained — recommend migrating to Vite or Next.js for new projects. For existing CRA:
+CRA is unmaintained - recommend migrating to Vite or Next.js for new projects. For existing CRA:
 
 - `react-scripts` version drift vs `react` major version
 - Missing `BROWSERSLIST` env or `package.json` `browserslist` field
@@ -147,7 +147,7 @@ Common triggers:
 
 | Error | Fix |
 |---|---|
-| `Invalid hook call. Hooks can only be called inside of the body of a function component` | Multiple React copies in `node_modules`. Run `npm ls react` — should show exactly one. Use `resolutions`/`overrides` in `package.json` to dedupe. |
+| `Invalid hook call. Hooks can only be called inside of the body of a function component` | Multiple React copies in `node_modules`. Run `npm ls react` - should show exactly one. Use `resolutions`/`overrides` in `package.json` to dedupe. |
 | `Element type is invalid: expected a string or class/function but got: undefined` | Default vs named import mismatch. Check the component's export style. |
 | `Functions are not valid as a React child` | A function reference is passed where a component or value is expected. Add `()` or wrap in JSX. |
 
@@ -158,7 +158,7 @@ npm ls react                       # check for duplicates
 npm ls @types/react                # check version alignment
 npm dedupe                         # consolidate duplicates
 # Only when `npm ls react` reports duplicates or a version mismatch with `@types/react`.
-# Upgrade react and react-dom as a pair (matching the major already in use) — never independently.
+# Upgrade react and react-dom as a pair (matching the major already in use) - never independently.
 # Replace <major> with the project's React major (17 / 18 / 19); jumping majors is a separate, deliberate change.
 # npm i react@^<major> react-dom@^<major>
 ```
@@ -176,9 +176,9 @@ When a library throws on hook usage, it almost always means React is duplicated.
 - **Surgical fixes only** -- don't refactor, just fix the error
 - **Never** disable type-checking or lint rules to "make it green"
 - **Never** add `// @ts-ignore` without an inline explanation and a TODO
-- **Always** re-run the build after each fix — do not stack changes
+- **Always** re-run the build after each fix - do not stack changes
 - Fix root cause over suppressing symptoms
-- If the error indicates a real architectural problem (e.g., DB client imported into a Client Component), stop and report — do not paper over
+- If the error indicates a real architectural problem (e.g., DB client imported into a Client Component), stop and report - do not paper over
 
 ## Stop Conditions
 

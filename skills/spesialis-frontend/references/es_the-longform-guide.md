@@ -7,7 +7,7 @@
 > **Prerequisito**: Esta guía se basa en [La Guía Breve de Everything Claude Code](./the-shortform-guide.md). Lee esa primero si aún no has configurado skills, hooks, subagentes, MCPs y plugins.
 
 ![Referencia a la Guía Breve](../../assets/images/longform/02-shortform-reference.png)
-*La Guía Breve — léela primero*
+*La Guía Breve - léela primero*
 
 En la guía breve cubrí la configuración fundamental: skills y comandos, hooks, subagentes, MCPs, plugins y los patrones de configuración que forman la columna vertebral de un flujo de trabajo efectivo en Claude Code. Eso era la guía de configuración y la infraestructura base.
 
@@ -23,7 +23,7 @@ Todo lo cubierto en las guías breve y extendida está disponible en GitHub: `gi
 
 ### Algunos MCPs Son Reemplazables y Liberarán Tu Ventana de Contexto
 
-Para MCPs como control de versiones (GitHub), bases de datos (Supabase), despliegue (Vercel, Railway), etc. — la mayoría de estas plataformas ya tienen CLIs robustas que el MCP básicamente solo envuelve. El MCP es un buen wrapper pero tiene un costo.
+Para MCPs como control de versiones (GitHub), bases de datos (Supabase), despliegue (Vercel, Railway), etc. - la mayoría de estas plataformas ya tienen CLIs robustas que el MCP básicamente solo envuelve. El MCP es un buen wrapper pero tiene un costo.
 
 Para que la CLI funcione más como un MCP sin realmente usar el MCP (y la reducción de la ventana de contexto que conlleva), considera agrupar la funcionalidad en skills y comandos. Extrae las herramientas que el MCP expone para facilitar las cosas y conviértelas en comandos.
 
@@ -88,17 +88,17 @@ He construido estos hooks y están en el repositorio en `github.com/affaan-m/eve
 
 ### Aprendizaje Continuo / Memoria
 
-Si has tenido que repetir un prompt varias veces y Claude se encontró con el mismo problema o te dio una respuesta que ya habías escuchado antes — esos patrones deben añadirse a las skills.
+Si has tenido que repetir un prompt varias veces y Claude se encontró con el mismo problema o te dio una respuesta que ya habías escuchado antes - esos patrones deben añadirse a las skills.
 
 **El Problema:** Tokens desperdiciados, contexto desperdiciado, tiempo desperdiciado.
 
-**La Solución:** Cuando Claude Code descubre algo que no es trivial — una técnica de depuración, una solución alternativa, algún patrón específico del proyecto — guarda ese conocimiento como una nueva skill. La próxima vez que aparezca un problema similar, la skill se carga automáticamente.
+**La Solución:** Cuando Claude Code descubre algo que no es trivial - una técnica de depuración, una solución alternativa, algún patrón específico del proyecto - guarda ese conocimiento como una nueva skill. La próxima vez que aparezca un problema similar, la skill se carga automáticamente.
 
 He construido una skill de aprendizaje continuo que hace esto: `github.com/affaan-m/everything-claude-code/tree/main/skills/continuous-learning`
 
 **Por Qué Hook Stop (No UserPromptSubmit):**
 
-La decisión de diseño clave es usar un **hook Stop** en lugar de UserPromptSubmit. UserPromptSubmit se ejecuta en cada mensaje — añade latencia a cada prompt. Stop se ejecuta una vez al final de la sesión — es ligero, no te ralentiza durante la sesión.
+La decisión de diseño clave es usar un **hook Stop** en lugar de UserPromptSubmit. UserPromptSubmit se ejecuta en cada mensaje - añade latencia a cada prompt. Stop se ejecuta una vez al final de la sesión - es ligero, no te ralentiza durante la sesión.
 
 ---
 
@@ -133,7 +133,7 @@ Usa Sonnet de manera predeterminada para el 90% de las tareas de codificación. 
 
 **Optimizaciones Específicas de Herramientas:**
 
-Reemplaza grep con mgrep — ~50% de reducción de tokens en promedio comparado con grep o ripgrep tradicionales:
+Reemplaza grep con mgrep - ~50% de reducción de tokens en promedio comparado con grep o ripgrep tradicionales:
 
 ![Benchmark de mgrep](../../assets/images/longform/06-mgrep-benchmark.png)
 *En nuestro benchmark de 50 tareas, mgrep + Claude Code usó ~2x menos tokens que los flujos de trabajo basados en grep con calidad similar o mejor. Fuente: mgrep by @mixedbread-ai*
@@ -203,7 +203,7 @@ cd ../project-feature-a && claude
 SI vas a escalar tus instancias Y tienes múltiples instancias de Claude trabajando en código que se superpone entre sí, es imprescindible que uses git worktrees y tengas un plan muy bien definido para cada uno. Usa `/rename <nombre>` para nombrar todos tus chats.
 
 ![Configuración de Dos Terminales](../../assets/images/longform/08-two-terminals.png)
-*Configuración Inicial: Terminal Izquierda para Codificar, Terminal Derecha para Preguntas — usa /rename y /fork*
+*Configuración Inicial: Terminal Izquierda para Codificar, Terminal Derecha para Preguntas - usa /rename y /fork*
 
 **El Método Cascada:**
 
@@ -290,7 +290,7 @@ Fase 5: VERIFICACIÓN (usa build-error-resolver si es necesario) → terminado o
 
 ### Línea de Estado Personalizada
 
-Puedes configurarla usando `/statusline` — luego Claude dirá que no tienes una pero puede configurarla por ti y te preguntará qué quieres en ella.
+Puedes configurarla usando `/statusline` - luego Claude dirá que no tienes una pero puede configurarla por ti y te preguntará qué quieres en ella.
 
 Ver también: ccstatusline (proyecto comunitario para líneas de estado personalizadas de Claude Code)
 
@@ -323,16 +323,16 @@ alias q='cd ~/Desktop/projects'
 
 **Orquestación de Agentes:**
 
-- claude-flow — Plataforma de orquestación empresarial construida por la comunidad con 54+ agentes especializados
+- claude-flow - Plataforma de orquestación empresarial construida por la comunidad con 54+ agentes especializados
 
 **Memoria Auto-Mejorable:**
 
 - Ver `skills/continuous-learning/` en este repositorio
-- rlancemartin.github.io/2025/12/01/claude_diary/ — Patrón de reflexión de sesión
+- rlancemartin.github.io/2025/12/01/claude_diary/ - Patrón de reflexión de sesión
 
 **Referencia de System Prompts:**
 
-- system-prompts-and-models-of-ai-tools — Colección comunitaria de system prompts de IA (110k+ estrellas)
+- system-prompts-and-models-of-ai-tools - Colección comunitaria de system prompts de IA (110k+ estrellas)
 
 **Oficial:**
 

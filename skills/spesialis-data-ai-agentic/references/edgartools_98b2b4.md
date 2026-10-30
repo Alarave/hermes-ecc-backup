@@ -1,4 +1,4 @@
-# edgartools — SEC EDGAR Data
+# edgartools - SEC EDGAR Data
 
 Python library for accessing all SEC filings since 1994 with structured data extraction.
 
@@ -116,11 +116,11 @@ company.exchange                 # "Nasdaq"
 
 Load these when you need detailed information:
 
-- **[companies.md](references/companies.md)** — Finding companies, screening, batch lookups, Company API
-- **[filings.md](references/filings.md)** — Working with filings, attachments, exhibits, Filings collection API
-- **[financial-data.md](references/financial-data.md)** — Financial statements, convenience methods, DataFrame export, multi-period analysis
-- **[xbrl.md](references/xbrl.md)** — XBRL parsing, fact querying, multi-period stitching, standardization
-- **[data-objects.md](references/data-objects.md)** — All supported form types and their structured objects
-- **[entity-facts.md](references/entity-facts.md)** — EntityFacts API, FactQuery, FinancialStatement, FinancialFact
-- **[ai-integration.md](references/ai-integration.md)** — MCP server setup, Skills installation, `.docs` and `.to_context()` properties
+- **[companies.md](references/companies.md)** - Finding companies, screening, batch lookups, Company API
+- **[filings.md](references/filings.md)** - Working with filings, attachments, exhibits, Filings collection API
+- **[financial-data.md](references/financial-data.md)** - Financial statements, convenience methods, DataFrame export, multi-period analysis
+- **[xbrl.md](references/xbrl.md)** - XBRL parsing, fact querying, multi-period stitching, standardization
+- **[data-objects.md](references/data-objects.md)** - All supported form types and their structured objects
+- **[entity-facts.md](references/entity-facts.md)** - EntityFacts API, FactQuery, FinancialStatement, FinancialFact
+- **[ai-integration.md](references/ai-integration.md)** - MCP server setup, Skills installation, `.docs` and `.to_context()` properties
 

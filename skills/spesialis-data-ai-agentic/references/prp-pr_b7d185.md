@@ -2,7 +2,7 @@
 
 > 改编自 Wirasm 的 PRPs-agentic-eng。属于 PRP 工作流系列的一部分。
 
-**输入**：`$ARGUMENTS` — 可选，可包含基础分支名称和/或标志（例如 `--draft`）。
+**输入**：`$ARGUMENTS` - 可选，可包含基础分支名称和/或标志（例如 `--draft`）。
 
 **解析 `$ARGUMENTS`**：
 
@@ -12,7 +12,7 @@
 
 ***
 
-## 阶段 1 — 验证
+## 阶段 1 - 验证
 
 检查前置条件：
 
@@ -33,13 +33,13 @@ git log origin/<base>..HEAD --oneline
 
 ***
 
-## 阶段 2 — 发现
+## 阶段 2 - 发现
 
 ### PR 模板
 
 按顺序搜索 PR 模板：
 
-1. `.github/PULL_REQUEST_TEMPLATE/` 目录 — 若存在，列出文件并让用户选择（或使用 `default.md`）
+1. `.github/PULL_REQUEST_TEMPLATE/` 目录 - 若存在，列出文件并让用户选择（或使用 `default.md`）
 2. `.github/PULL_REQUEST_TEMPLATE.md`
 3. `.github/pull_request_template.md`
 4. `docs/pull_request_template.md`
@@ -54,7 +54,7 @@ git log origin/<base>..HEAD --format="%h %s" --reverse
 
 分析提交以确定：
 
-* **PR 标题**：使用带类型前缀的常规提交格式 — `feat: ...`、`fix: ...` 等。
+* **PR 标题**：使用带类型前缀的常规提交格式 - `feat: ...`、`fix: ...` 等。
   * 若存在多种类型，使用主导类型
   * 若为单个提交，直接使用其消息
 * **变更摘要**：按类型/领域对提交进行分组
@@ -72,15 +72,15 @@ git diff origin/<base>..HEAD --name-only
 
 检查相关的 PRP 工件：
 
-* `.claude/PRPs/reports/` — 实现报告
-* `.claude/PRPs/plans/` — 已执行的计划
-* `.claude/PRPs/prds/` — 相关 PRD
+* `.claude/PRPs/reports/` - 实现报告
+* `.claude/PRPs/plans/` - 已执行的计划
+* `.claude/PRPs/prds/` - 相关 PRD
 
 若存在，在 PR 正文中引用它们。
 
 ***
 
-## 阶段 3 — 推送
+## 阶段 3 - 推送
 
 ```bash
 git push -u origin HEAD
@@ -98,11 +98,11 @@ git push -u origin HEAD
 
 ***
 
-## 阶段 4 — 创建
+## 阶段 4 - 创建
 
 ### 使用模板
 
-若在阶段 2 中找到 PR 模板，使用提交和文件分析填充每个部分。保留所有模板部分 — 若不适用，将部分留为"不适用"而非删除。
+若在阶段 2 中找到 PR 模板，使用提交和文件分析填充每个部分。保留所有模板部分 - 若不适用，将部分留为"不适用"而非删除。
 
 ### 无模板
 
@@ -142,7 +142,7 @@ gh pr create \
 
 ***
 
-## 阶段 5 — 验证
+## 阶段 5 - 验证
 
 ```bash
 gh pr view --json number,url,title,state,baseRefName,headRefName,additions,deletions,changedFiles
@@ -151,7 +151,7 @@ gh pr checks --json name,status,conclusion 2>/dev/null || true
 
 ***
 
-## 阶段 6 — 输出
+## 阶段 6 - 输出
 
 向用户报告：
 

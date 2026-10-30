@@ -17,7 +17,7 @@ func userCreationValidatesEmail() throws {
 
 ## 测试隔离
 
-每个测试都会获得一个全新的实例 —— 在 `init` 中设置，在 `deinit` 中拆卸。测试之间没有共享的可变状态。
+每个测试都会获得一个全新的实例 -- 在 `init` 中设置，在 `deinit` 中拆卸。测试之间没有共享的可变状态。
 
 ## 参数化测试
 

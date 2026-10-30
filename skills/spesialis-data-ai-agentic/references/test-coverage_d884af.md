@@ -27,23 +27,23 @@ Test coverage'ını analiz et, eksiklikleri tanımla ve 80%+ coverage'a ulaşmak
 
 Her yetersiz coverage'lı dosya için, bu önceliği takip ederek test'ler oluştur:
 
-1. **Happy path** — Geçerli input'larla temel fonksiyonalite
-2. **Hata işleme** — Geçersiz input'lar, eksik veri, network hataları
-3. **Edge case'ler** — Boş diziler, null/undefined, sınır değerleri (0, -1, MAX_INT)
-4. **Branch coverage** — Her if/else, switch case, ternary
+1. **Happy path** - Geçerli input'larla temel fonksiyonalite
+2. **Hata işleme** - Geçersiz input'lar, eksik veri, network hataları
+3. **Edge case'ler** - Boş diziler, null/undefined, sınır değerleri (0, -1, MAX_INT)
+4. **Branch coverage** - Her if/else, switch case, ternary
 
 ### Test Oluşturma Kuralları
 
 - Test'leri kaynak kodun yanına yerleştir: `foo.ts` → `foo.test.ts` (veya proje konvansiyonu)
 - Projeden mevcut test pattern'lerini kullan (import stili, assertion kütüphanesi, mocking yaklaşımı)
 - Harici bağımlılıkları mock'la (veritabanı, API'ler, dosya sistemi)
-- Her test bağımsız olmalı — test'ler arasında paylaşılan değişken state olmamalı
+- Her test bağımsız olmalı - test'ler arasında paylaşılan değişken state olmamalı
 - Test'leri açıklayıcı isimlendirin: `test_create_user_with_duplicate_email_returns_409`
 
 ## Adım 4: Doğrula
 
-1. Tam test suite'ini çalıştır — tüm test'ler geçmeli
-2. Coverage'ı yeniden çalıştır — iyileşmeyi doğrula
+1. Tam test suite'ini çalıştır - tüm test'ler geçmeli
+2. Coverage'ı yeniden çalıştır - iyileşmeyi doğrula
 3. Hala 80%'in altındaysa, kalan boşluklar için Adım 3'ü tekrarla
 
 ## Adım 5: Raporla

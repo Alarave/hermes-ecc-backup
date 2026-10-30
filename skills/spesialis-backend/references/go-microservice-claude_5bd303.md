@@ -1,4 +1,4 @@
-# Go Microservice — CLAUDE.md de Projeto
+# Go Microservice - CLAUDE.md de Projeto
 
 > Exemplo real para um microserviço Go com PostgreSQL, gRPC e Docker.
 > Copie para a raiz do seu projeto e customize para seu serviço.
@@ -14,33 +14,33 @@
 ### Convenções Go
 
 - Siga Effective Go e o guia Go Code Review Comments
-- Use `errors.New` / `fmt.Errorf` com `%w` para wrapping — nunca string matching em erros
-- Sem funções `init()` — inicialização explícita em `main()` ou construtores
-- Sem estado global mutável — passe dependências via construtores
+- Use `errors.New` / `fmt.Errorf` com `%w` para wrapping - nunca string matching em erros
+- Sem funções `init()` - inicialização explícita em `main()` ou construtores
+- Sem estado global mutável - passe dependências via construtores
 - Context deve ser o primeiro parâmetro e propagado por todas as camadas
 
 ### Banco de Dados
 
-- Todas as queries em `queries/` como SQL puro — sqlc gera código Go type-safe
-- Migrations em `migrations/` com golang-migrate — nunca alterar banco diretamente
+- Todas as queries em `queries/` como SQL puro - sqlc gera código Go type-safe
+- Migrations em `migrations/` com golang-migrate - nunca alterar banco diretamente
 - Use transações para operações multi-etapa via `pgx.Tx`
-- Todas as queries devem usar placeholders parametrizados (`$1`, `$2`) — nunca string formatting
+- Todas as queries devem usar placeholders parametrizados (`$1`, `$2`) - nunca string formatting
 
 ### Tratamento de Erro
 
-- Retorne erros, não use panic — panic só para casos realmente irrecuperáveis
+- Retorne erros, não use panic - panic só para casos realmente irrecuperáveis
 - Faça wrap de erros com contexto: `fmt.Errorf("creating user: %w", err)`
 - Defina sentinel errors em `domain/errors.go` para lógica de negócio
 - Mapeie erros de domínio para gRPC status codes na camada de handler
 
 ```go
-// Domain layer — sentinel errors
+// Domain layer - sentinel errors
 var (
     ErrUserNotFound  = errors.New("user not found")
     ErrEmailTaken    = errors.New("email already registered")
 )
 
-// Handler layer — map to gRPC status
+// Handler layer - map to gRPC status
 func toGRPCError(err error) error {
     switch {
     case errors.Is(err, domain.ErrUserNotFound):
@@ -57,7 +57,7 @@ func toGRPCError(err error) error {
 
 - Sem emojis em código ou comentários
 - Tipos e funções exportados devem ter doc comments
-- Mantenha funções abaixo de 50 linhas — extraia helpers
+- Mantenha funções abaixo de 50 linhas - extraia helpers
 - Use table-driven tests para toda lógica com múltiplos casos
 - Prefira `struct{}` para canais de sinal, não `bool`
 

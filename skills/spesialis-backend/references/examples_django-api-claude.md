@@ -1,4 +1,4 @@
-# Django REST API — プロジェクト CLAUDE.md
+# Django REST API - プロジェクト CLAUDE.md
 
 > PostgreSQL と Celery を使用した Django REST Framework API の実世界サンプル。
 > これをプロジェクトのルートにコピーしてサービスに合わせてカスタマイズしてください。
@@ -7,22 +7,22 @@
 
 **スタック:** Python 3.12+, Django 5.x, Django REST Framework, PostgreSQL, Celery + Redis, pytest, Docker Compose
 
-**アーキテクチャ:** ビジネスドメインごとにアプリを持つドメイン駆動設計。APIレイヤーにDRF、非同期タスクにCelery、テストにpytestを使用。すべてのエンドポイントはJSONを返す — テンプレートレンダリングなし。
+**アーキテクチャ:** ビジネスドメインごとにアプリを持つドメイン駆動設計。APIレイヤーにDRF、非同期タスクにCelery、テストにpytestを使用。すべてのエンドポイントはJSONを返す - テンプレートレンダリングなし。
 
 ## 重要なルール
 
 ### Python の規約
 
-- すべての関数シグネチャに型ヒントを付ける — `from __future__ import annotations` を使用
-- `print()` 文は使用しない — `logging.getLogger(__name__)` を使用
+- すべての関数シグネチャに型ヒントを付ける - `from __future__ import annotations` を使用
+- `print()` 文は使用しない - `logging.getLogger(__name__)` を使用
 - 文字列フォーマットにはf-stringを使用し、`%` や `.format()` は使用しない
 - ファイル操作には `os.path` ではなく `pathlib.Path` を使用
 - isortでインポートをソートする: stdlib、サードパーティ、ローカル（ruffにより強制）
 
 ### データベース
 
-- すべてのクエリはDjango ORMを使用 — 生SQLは `.raw()` とパラメータ化クエリのみ
-- マイグレーションはgitにコミットする — 本番環境では `--fake` を絶対に使用しない
+- すべてのクエリはDjango ORMを使用 - 生SQLは `.raw()` とパラメータ化クエリのみ
+- マイグレーションはgitにコミットする - 本番環境では `--fake` を絶対に使用しない
 - N+1クエリを防ぐために `select_related()` と `prefetch_related()` を使用する
 - すべてのモデルには `created_at` と `updated_at` の自動フィールドが必要
 - `filter()`, `order_by()`, または `WHERE` 句で使用されるフィールドにはインデックスを付ける
@@ -39,8 +39,8 @@ orders = Order.objects.select_related("customer").all()
 
 ### 認証
 
-- `djangorestframework-simplejwt` によるJWT — アクセストークン（15分）+ リフレッシュトークン（7日）
-- すべてのビューにパーミッションクラスを設定 — デフォルトに依存しない
+- `djangorestframework-simplejwt` によるJWT - アクセストークン（15分）+ リフレッシュトークン（7日）
+- すべてのビューにパーミッションクラスを設定 - デフォルトに依存しない
 - `IsAuthenticated` をベースとして使用し、オブジェクトレベルのアクセスにはカスタムパーミッションを追加
 - ログアウト用のトークンブラックリストを有効にする
 
@@ -48,7 +48,7 @@ orders = Order.objects.select_related("customer").all()
 
 - シンプルなCRUDには `ModelSerializer` を、複雑なバリデーションには `Serializer` を使用
 - 入出力の形状が異なる場合は読み取りと書き込みのシリアライザーを分ける
-- バリデーションはシリアライザーレベルで行い、ビューでは行わない — ビューは薄くするべき
+- バリデーションはシリアライザーレベルで行い、ビューでは行わない - ビューは薄くするべき
 
 ```python
 class CreateOrderSerializer(serializers.Serializer):
@@ -90,7 +90,7 @@ class InsufficientStockError(APIException):
 - コードやコメントに絵文字を使用しない
 - 最大行長: 120文字（ruffにより強制）
 - クラス: PascalCase、関数/変数: snake_case、定数: UPPER_SNAKE_CASE
-- ビューは薄く — ビジネスロジックはサービス関数またはモデルメソッドに置く
+- ビューは薄く - ビジネスロジックはサービス関数またはモデルメソッドに置く
 
 ## ファイル構成
 

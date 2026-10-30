@@ -2,7 +2,7 @@
 
 Access live Danish job listings from the Jobnet.dk public API. No authentication needed.
 Jobnet is operated by STAR (Styrelsen for Arbejdsmarked og Rekruttering) and is Denmark's
-official government job portal — covering public sector positions as well as many private
+official government job portal - covering public sector positions as well as many private
 sector listings. Approximately 21,000+ active jobs at any time.
 
 ## When to use this skill
@@ -26,16 +26,16 @@ bun run .agents/skills/jobnet-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
-- `--search-string <text>` — keyword search, e.g. `sygeplejerske`, `ingeniør`, `pædagog`
-- `--region <region>` — `HovedstadenOgBornholm`, `Midtjylland`, `Syddanmark`, `OevrigeSjaelland`, `Nordjylland`
-- `--postal-code <code>` — postal code for radius-based search, e.g. `2100`
-- `--radius <km>` — radius in km from postal code (default: `50`)
-- `--work-hours <type>` — `FullTime` or `PartTime`
-- `--duration <type>` — `Permanent` or `Temporary`
-- `--job-type <type>` — `Ordinaert`, `Efterloenner`, `Foertidspension`
-- `--occupation-area <id>` — occupation area identifier, e.g. `10000`
-- `--occupation-group <id>` — occupation group identifier, e.g. `10060`
-- `--order <type>` — `PublicationDate` (default), `BestMatch`, `ApplicationDate`
+- `--search-string <text>` - keyword search, e.g. `sygeplejerske`, `ingeniør`, `pædagog`
+- `--region <region>` - `HovedstadenOgBornholm`, `Midtjylland`, `Syddanmark`, `OevrigeSjaelland`, `Nordjylland`
+- `--postal-code <code>` - postal code for radius-based search, e.g. `2100`
+- `--radius <km>` - radius in km from postal code (default: `50`)
+- `--work-hours <type>` - `FullTime` or `PartTime`
+- `--duration <type>` - `Permanent` or `Temporary`
+- `--job-type <type>` - `Ordinaert`, `Efterloenner`, `Foertidspension`
+- `--occupation-area <id>` - occupation area identifier, e.g. `10000`
+- `--occupation-group <id>` - occupation group identifier, e.g. `10060`
+- `--order <type>` - `PublicationDate` (default), `BestMatch`, `ApplicationDate`
 - `--page / --per-page / --limit`
 - `--format json|table|plain`
 
@@ -94,9 +94,9 @@ CLI outputs. Use `--page` + `--per-page` to iterate through large result sets.
 - Do not combine `--region` and `--postal-code` in the same query
 
 **Order matters for intent:**
-- `PublicationDate` — newest postings first (default, good for "what's new")
-- `BestMatch` — relevance score (best when `--search-string` is provided)
-- `ApplicationDate` — earliest deadline first (good for urgent applications)
+- `PublicationDate` - newest postings first (default, good for "what's new")
+- `BestMatch` - relevance score (best when `--search-string` is provided)
+- `ApplicationDate` - earliest deadline first (good for urgent applications)
 
 ---
 
@@ -163,7 +163,7 @@ bun run .agents/skills/jobnet-search/cli/src/cli.ts occupations --search-string 
 
 | Format | Best for |
 |--------|----------|
-| `json` | Default — programmatic use, data processing, passing IDs between commands |
+| `json` | Default - programmatic use, data processing, passing IDs between commands |
 | `table` | Quick human-readable overviews and comparisons |
 | `plain` | Single-record detail views (`detail`), strips HTML from job descriptions |
 
@@ -173,10 +173,10 @@ All errors are written to **stderr** as `{ "error": "...", "code": "..." }` and 
 
 ## Notes
 
-- All data is from the public `jobnet.dk/bff` REST API — no credentials required.
+- All data is from the public `jobnet.dk/bff` REST API - no credentials required.
 - The API requires the `x-csrf: 1` header; the CLI adds this automatically.
 - Pagination is 1-indexed (`--page 1` is the first page).
-- `search` results omit the HTML job description — use `detail` to get it.
+- `search` results omit the HTML job description - use `detail` to get it.
 - `detail --format plain` strips HTML tags for readable text output.
 - Job ad detail pages on jobnet.dk: `https://jobnet.dk/job/{jobAdId}`
-- `suggestions` is tuned for Danish job titles — English terms may return empty results.
+- `suggestions` is tuned for Danish job titles - English terms may return empty results.

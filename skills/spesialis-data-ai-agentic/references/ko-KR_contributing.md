@@ -354,8 +354,8 @@ description: /help에 표시되는 간단한 설명
 
 ECC는 다른 하네스를 위한 스킬 서브셋도 제공합니다:
 
-- **Codex:** `.agents/skills/` — `agents/openai.yaml`에 나열된 스킬이 Codex에서 로드됩니다.
-- **Cursor:** `.cursor/skills/` — Cursor용 스킬 서브셋이 별도로 포함됩니다.
+- **Codex:** `.agents/skills/` - `agents/openai.yaml`에 나열된 스킬이 Codex에서 로드됩니다.
+- **Cursor:** `.cursor/skills/` - Cursor용 스킬 서브셋이 별도로 포함됩니다.
 
 Codex 또는 Cursor에서도 제공해야 하는 **새 스킬**을 추가한다면:
 

@@ -332,8 +332,8 @@ Skills e agentes podem usar ferramentas **MCP (Model Context Protocol)** para ob
 
 O ECC vem com subconjuntos de skills para outros harnesses:
 
-- **Codex:** `.agents/skills/` — skills listadas em `agents/openai.yaml` são carregadas pelo Codex.
-- **Cursor:** `.cursor/skills/` — um subconjunto de skills é incluído para Cursor.
+- **Codex:** `.agents/skills/` - skills listadas em `agents/openai.yaml` são carregadas pelo Codex.
+- **Cursor:** `.cursor/skills/` - um subconjunto de skills é incluído para Cursor.
 
 Ao **adicionar uma nova skill** que deve estar disponível no Codex ou Cursor:
 

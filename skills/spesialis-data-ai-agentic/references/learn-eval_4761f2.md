@@ -6,10 +6,10 @@ Herhangi bir skill dosyası yazmadan önce kalite kontrolü, kayıt konumu karar
 
 Şunları arayın:
 
-1. **Hata Çözüm Desenleri** — kök neden + düzeltme + yeniden kullanılabilirlik
-2. **Hata Ayıklama Teknikleri** — bariz olmayan adımlar, araç kombinasyonları
-3. **Geçici Çözümler** — kütüphane gariplikleri, API sınırlamaları, versiyona özel düzeltmeler
-4. **Projeye Özgü Desenler** — kurallar, mimari kararlar, entegrasyon desenleri
+1. **Hata Çözüm Desenleri** - kök neden + düzeltme + yeniden kullanılabilirlik
+2. **Hata Ayıklama Teknikleri** - bariz olmayan adımlar, araç kombinasyonları
+3. **Geçici Çözümler** - kütüphane gariplikleri, API sınırlamaları, versiyona özel düzeltmeler
+4. **Projeye Özgü Desenler** - kurallar, mimari kararlar, entegrasyon desenleri
 
 ## Süreç
 
@@ -47,7 +47,7 @@ origin: auto-extracted
 [Tetikleyici koşullar]
 ```
 
-5. **Kalite kontrolü — Kontrol listesi + Bütünsel karar**
+5. **Kalite kontrolü - Kontrol listesi + Bütünsel karar**
 
    ### 5a. Gerekli kontrol listesi (dosyaları gerçekten okuyarak doğrula)
 
@@ -101,12 +101,12 @@ origin: auto-extracted
 
 ## Tasarım Gerekçesi
 
-Bu versiyon, önceki 5 boyutlu sayısal puanlama rubriğini (Spesifiklik, Uygulanabilirlik, Kapsam Uyumu, Gereksizlik Olmama, Kapsama 1-5 arası puanlanıyor) kontrol listesi tabanlı bütünsel karar sistemiyle değiştirir. Modern frontier modeller (Opus 4.6+) güçlü bağlamsal yargıya sahiptir — zengin niteliksel sinyalleri sayısal skorlara zorlamak nüans kaybettirir ve yanıltıcı toplamlar üretebilir. Bütünsel yaklaşım, modelin tüm faktörleri doğal olarak tartmasına izin vererek daha doğru kaydet/düşür kararları üretirken, açık kontrol listesi kritik hiçbir kontrolün atlanmamasını sağlar.
+Bu versiyon, önceki 5 boyutlu sayısal puanlama rubriğini (Spesifiklik, Uygulanabilirlik, Kapsam Uyumu, Gereksizlik Olmama, Kapsama 1-5 arası puanlanıyor) kontrol listesi tabanlı bütünsel karar sistemiyle değiştirir. Modern frontier modeller (Opus 4.6+) güçlü bağlamsal yargıya sahiptir - zengin niteliksel sinyalleri sayısal skorlara zorlamak nüans kaybettirir ve yanıltıcı toplamlar üretebilir. Bütünsel yaklaşım, modelin tüm faktörleri doğal olarak tartmasına izin vererek daha doğru kaydet/düşür kararları üretirken, açık kontrol listesi kritik hiçbir kontrolün atlanmamasını sağlar.
 
 ## Notlar
 
 - Önemsiz düzeltmeleri çıkarmayın (yazım hataları, basit sözdizimi hataları)
 - Tek seferlik sorunları çıkarmayın (belirli API kesintileri, vb.)
 - Gelecekteki oturumlarda zaman kazandıracak desenlere odaklanın
-- Skill'leri odaklı tutun — skill başına bir desen
+- Skill'leri odaklı tutun - skill başına bir desen
 - Karar Ekle olduğunda, yeni dosya oluşturmak yerine mevcut skill'e ekleyin

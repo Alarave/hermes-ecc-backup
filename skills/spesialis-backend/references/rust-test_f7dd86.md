@@ -117,7 +117,7 @@ mod tests {
 }
 ```
 
-## ステップ 3: テストの実行 — 失敗を確認
+## ステップ 3: テストの実行 - 失敗を確認
 
 ```bash
 $ cargo test
@@ -154,7 +154,7 @@ pub fn validate_registration(request: &RegistrationRequest) -> ValidationResult 
 }
 ```
 
-## ステップ 5: テストの実行 — 成功を確認
+## ステップ 5: テストの実行 - 成功を確認
 
 ```bash
 $ cargo test
@@ -289,8 +289,8 @@ cargo test --no-fail-fast
 - テストの前に実装を書く
 - RED フェーズをスキップする
 - `Result::is_err()` で対応できる場合に `#[should_panic]` を使用する
-- テストで `sleep()` を使用する — チャネルまたは `tokio::time::pause()` を使用する
-- すべてをモック化する — 可能な場合は統合テストを優先する
+- テストで `sleep()` を使用する - チャネルまたは `tokio::time::pause()` を使用する
+- すべてをモック化する - 可能な場合は統合テストを優先する
 
 ## 関連コマンド
 

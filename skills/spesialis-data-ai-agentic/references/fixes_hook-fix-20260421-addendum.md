@@ -1,4 +1,4 @@
-# HOOK-FIX-20260421 Addendum — v2.1.116 argv 重複バグ
+# HOOK-FIX-20260421 Addendum - v2.1.116 argv 重複バグ
 
 朝セッションで commit 527c18b として修正済み。夜セッションで追加検証と、
 朝fix でカバーしきれない Claude Code 固有のバグを特定したので補遺を記録する。
@@ -87,9 +87,9 @@ hook command が `"C:\Program Files\Git\bin\bash.exe" "C:\Users\...\wrapper.sh"`
 ### 回避策
 
 第1トークンを bash.exe のフルパス＋スペース付きパスにしないこと：
-1. `OK:` `bash` （PATH 解決の単一トークン）— 夜fix / hooks.json パターン
-2. `OK:` `.sh` 直接パス（Claude Code の .sh ハンドリングに依存）— 朝fix
-3. `BAD:` `"C:\Program Files\Git\bin\bash.exe" "<path>"` — 1トークン目が quoted で空白込み
+1. `OK:` `bash` （PATH 解決の単一トークン）- 夜fix / hooks.json パターン
+2. `OK:` `.sh` 直接パス（Claude Code の .sh ハンドリングに依存）- 朝fix
+3. `BAD:` `"C:\Program Files\Git\bin\bash.exe" "<path>"` - 1トークン目が quoted で空白込み
 
 ## 結論
 

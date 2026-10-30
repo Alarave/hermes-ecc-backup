@@ -151,7 +151,7 @@ python3 ./ecc_dashboard.py
 
 ## اندر کیا ہے
 
-یہ ریپو ایک **Claude Code plugin** ہے — براہ راست انسٹال کریں یا اجزاء دستی طور پر کاپی کریں۔
+یہ ریپو ایک **Claude Code plugin** ہے - براہ راست انسٹال کریں یا اجزاء دستی طور پر کاپی کریں۔
 
 ```
 ECC/
@@ -182,7 +182,7 @@ ECC/
 
 ---
 
-## AgentShield — سیکیورٹی آڈیٹر
+## AgentShield - سیکیورٹی آڈیٹر
 
 Claude Code Hackathon (Cerebral Valley x Anthropic) میں بنایا گیا۔ 1282 ٹیسٹ، 98% کوریج، 102 static analysis rules۔
 
@@ -197,7 +197,7 @@ npx ecc-agentshield scan --fix
 npx ecc-agentshield scan --opus --stream
 ```
 
-**یہ کیا اسکین کرتا ہے:** CLAUDE.md، settings.json، MCP configs، hooks، agent تعریفیں، اور skills — 5 زمروں میں: secrets detection (14 patterns)، permission آڈیٹنگ، hook injection تجزیہ، MCP server risk profiling، اور agent config جائزہ۔
+**یہ کیا اسکین کرتا ہے:** CLAUDE.md، settings.json، MCP configs، hooks، agent تعریفیں، اور skills - 5 زمروں میں: secrets detection (14 patterns)، permission آڈیٹنگ، hook injection تجزیہ، MCP server risk profiling، اور agent config جائزہ۔
 
 ---
 
@@ -292,10 +292,10 @@ cp -r rules/common ~/.claude/rules/ecc/
 
 **کیا یہ Cursor / OpenCode / Codex کے ساتھ کام کرتا ہے؟**
 
-ہاں۔ ECC کراس-پلیٹ فارم ہے — Claude Code، Cursor، OpenCode، Codex، GitHub Copilot، Gemini، Zed، اور مزید کے ساتھ۔
+ہاں۔ ECC کراس-پلیٹ فارم ہے - Claude Code، Cursor، OpenCode، Codex، GitHub Copilot، Gemini، Zed، اور مزید کے ساتھ۔
 
 ---
 
 ## لائسنس
 
-MIT لائسنس — دیکھیں [LICENSE](../../LICENSE)
+MIT لائسنس - دیکھیں [LICENSE](../../LICENSE)

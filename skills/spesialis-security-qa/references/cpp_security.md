@@ -4,16 +4,16 @@
 
 ## メモリ安全性
 
-- 生の `new`/`delete` は絶対に使用しない — スマートポインタを使用する
-- C スタイルの配列は絶対に使用しない — `std::array` または `std::vector` を使用する
-- `malloc`/`free` は絶対に使用しない — C++ のアロケーションを使用する
+- 生の `new`/`delete` は絶対に使用しない - スマートポインタを使用する
+- C スタイルの配列は絶対に使用しない - `std::array` または `std::vector` を使用する
+- `malloc`/`free` は絶対に使用しない - C++ のアロケーションを使用する
 - 絶対に必要な場合を除き `reinterpret_cast` を避ける
 
 ## バッファオーバーフロー
 
 - `char*` の代わりに `std::string` を使用する
 - 安全性が重要な場合の境界チェック付きアクセスには `.at()` を使用する
-- `strcpy`、`strcat`、`sprintf` は絶対に使用しない — `std::string` または `fmt::format` を使用する
+- `strcpy`、`strcat`、`sprintf` は絶対に使用しない - `std::string` または `fmt::format` を使用する
 
 ## 未定義動作
 

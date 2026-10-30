@@ -1,4 +1,4 @@
-# Serviço de API Rust — CLAUDE.md de Projeto
+# Serviço de API Rust - CLAUDE.md de Projeto
 
 > Exemplo real para um serviço de API Rust com Axum, PostgreSQL e Docker.
 > Copie para a raiz do seu projeto e customize para seu serviço.
@@ -14,18 +14,18 @@
 ### Convenções Rust
 
 - Use `thiserror` para erros de library, `anyhow` apenas em crates binários ou testes
-- Sem `.unwrap()` ou `.expect()` em código de produção — propague erros com `?`
+- Sem `.unwrap()` ou `.expect()` em código de produção - propague erros com `?`
 - Prefira `&str` a `String` em parâmetros de função; retorne `String` quando houver transferência de ownership
-- Use `clippy` com `#![deny(clippy::all, clippy::pedantic)]` — corrija todos os warnings
+- Use `clippy` com `#![deny(clippy::all, clippy::pedantic)]` - corrija todos os warnings
 - Derive `Debug` em todos os tipos públicos; derive `Clone`, `PartialEq` só quando necessário
 - Sem blocos `unsafe` sem justificativa com comentário `// SAFETY:`
 
 ### Banco de Dados
 
-- Todas as queries usam macros SQLx `query!` ou `query_as!` — verificadas em compile time contra o schema
-- Migrations em `migrations/` com `sqlx migrate` — nunca alterar banco diretamente
-- Use `sqlx::Pool<Postgres>` como estado compartilhado — nunca criar conexão por requisição
-- Todas as queries usam placeholders parametrizados (`$1`, `$2`) — nunca string formatting
+- Todas as queries usam macros SQLx `query!` ou `query_as!` - verificadas em compile time contra o schema
+- Migrations em `migrations/` com `sqlx migrate` - nunca alterar banco diretamente
+- Use `sqlx::Pool<Postgres>` como estado compartilhado - nunca criar conexão por requisição
+- Todas as queries usam placeholders parametrizados (`$1`, `$2`) - nunca string formatting
 
 ```rust
 // BAD: String interpolation (SQL injection risk)
@@ -40,8 +40,8 @@ let user = sqlx::query_as!(User, "SELECT * FROM users WHERE id = $1", id)
 ### Tratamento de Erro
 
 - Defina enum de erro de domínio por módulo com `thiserror`
-- Mapeie erros para respostas HTTP via `IntoResponse` — nunca exponha detalhes internos
-- Use `tracing` para logs estruturados — nunca `println!` ou `eprintln!`
+- Mapeie erros para respostas HTTP via `IntoResponse` - nunca exponha detalhes internos
+- Use `tracing` para logs estruturados - nunca `println!` ou `eprintln!`
 
 ```rust
 use thiserror::Error;
@@ -84,7 +84,7 @@ impl IntoResponse for AppError {
 ### Estilo de Código
 
 - Tamanho máximo de linha: 100 caracteres (enforced by rustfmt)
-- Agrupe imports: `std`, crates externas, `crate`/`super` — separados por linha em branco
+- Agrupe imports: `std`, crates externas, `crate`/`super` - separados por linha em branco
 - Módulos: um arquivo por módulo, `mod.rs` só para re-exports
 - Tipos: PascalCase, funções/variáveis: snake_case, constantes: UPPER_SNAKE_CASE
 
@@ -100,7 +100,7 @@ src/
     auth.rs            # JWT extraction and validation
     logging.rs         # Request/response tracing
   handlers/
-    mod.rs             # Route handlers (thin — delegate to services)
+    mod.rs             # Route handlers (thin - delegate to services)
     users.rs
     orders.rs
   services/

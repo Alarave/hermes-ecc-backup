@@ -63,7 +63,7 @@ error[E0425]: cannot find value `db` in this scope
 ## 修正 1: ボローチェッカーエラー
 
 File: src/service/cache.rs:25
-Error: E0502 — イミュータブルとしてもボローされているため、`map`をミュータブルとしてボローできない
+Error: E0502 - イミュータブルとしてもボローされているため、`map`をミュータブルとしてボローできない
 Cause: ミュータブルなinsert中にイミュータブルなボローがまだアクティブ
 
 ```rust
@@ -81,7 +81,7 @@ $ cargo check
 ## 修正 2: 型の不一致
 
 File: src/handler/api.rs:42
-Error: E0308 — mismatched types: expected `usize`, found `&str`
+Error: E0308 - mismatched types: expected `usize`, found `&str`
 
 ```rust
 // 変更前
@@ -100,7 +100,7 @@ $ cargo check
 ## 修正 3: 未解決の名前
 
 File: src/handler/api.rs:58
-Error: E0425 — cannot find value `db` in this scope
+Error: E0425 - cannot find value `db` in this scope
 Cause: importの欠落
 
 ```rust
@@ -157,11 +157,11 @@ test result: ok. 6 passed; 0 failed; 0 ignored
 
 ## 修正戦略
 
-1. **ビルドエラーを最初に** — コードがコンパイルされなければならない
-2. **Clippy警告を次に** — 疑わしい構造を修正
-3. **フォーマットを3番目に** — `cargo fmt`準拠
-4. **一度に1つの修正** — 各変更を検証
-5. **最小限の変更** — リファクタリングせず、修正のみ
+1. **ビルドエラーを最初に** - コードがコンパイルされなければならない
+2. **Clippy警告を次に** - 疑わしい構造を修正
+3. **フォーマットを3番目に** - `cargo fmt`準拠
+4. **一度に1つの修正** - 各変更を検証
+5. **最小限の変更** - リファクタリングせず、修正のみ
 
 ## 停止条件
 
@@ -173,9 +173,9 @@ test result: ok. 6 passed; 0 failed; 0 ignored
 
 ## 関連コマンド
 
-- `/rust-test` — ビルド成功後にテストを実行
-- `/rust-review` — コード品質をレビュー
-- `verification-loop`スキル — 完全な検証ループ
+- `/rust-test` - ビルド成功後にテストを実行
+- `/rust-review` - コード品質をレビュー
+- `verification-loop`スキル - 完全な検証ループ
 
 ## 関連
 

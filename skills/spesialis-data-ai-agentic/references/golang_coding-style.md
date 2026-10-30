@@ -4,7 +4,7 @@
 
 ## Formateo
 
-- **gofmt** y **goimports** son obligatorios — sin debates de estilo
+- **gofmt** y **goimports** son obligatorios - sin debates de estilo
 
 ## Principios de Diseño
 

@@ -2,7 +2,7 @@
 
 # Everything Claude Code
 
-![Everything Claude Code — ระบบเพิ่มประสิทธิภาพสำหรับ AI agent harness](../../assets/hero.png)
+![Everything Claude Code - ระบบเพิ่มประสิทธิภาพสำหรับ AI agent harness](../../assets/hero.png)
 
 [![Stars](https://img.shields.io/github/stars/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/stargazers)
 [![Forks](https://img.shields.io/github/forks/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/network/members)
@@ -160,7 +160,7 @@ ECC จะลบเฉพาะไฟล์ที่อยู่ใน install-s
 
 | คู่มือ | สิ่งที่คุณจะได้เรียนรู้ |
 |--------|-------------------------|
-| **Shorthand Guide** | การติดตั้ง พื้นฐาน และปรัชญา — อ่านก่อน |
+| **Shorthand Guide** | การติดตั้ง พื้นฐาน และปรัชญา - อ่านก่อน |
 | **Longform Guide** | การประหยัด token, การคงสภาพ memory, evals, การทำงานแบบขนาน |
 | **Security Guide** | ช่องโหว่ของ agent, sandboxing, sanitization, CVE, AgentShield |
 
@@ -177,7 +177,7 @@ ECC จะลบเฉพาะไฟล์ที่อยู่ใน install-s
 
 ## เอกสารสำคัญ
 
-- [README ภาษาอังกฤษ](../../README.md) — แหล่งข้อมูลหลักที่อัปเดตล่าสุดเสมอ
+- [README ภาษาอังกฤษ](../../README.md) - แหล่งข้อมูลหลักที่อัปเดตล่าสุดเสมอ
 - [คู่มือติดตั้ง Hermes](../HERMES-SETUP.md)
 - [Release notes v2.0.0-rc.1](../releases/2.0.0-rc.1/release-notes.md)
 - [สถาปัตยกรรม cross-harness](../architecture/cross-harness.md)
@@ -202,13 +202,13 @@ ECC จะลบเฉพาะไฟล์ที่อยู่ใน install-s
 
 คำสั่งหลักที่ใช้บ่อย:
 
-- `/tdd` — workflow แบบ Test-Driven Development
-- `/plan` — วางแผนการ implement
-- `/e2e` — สร้างและรัน E2E tests
-- `/code-review` — ตรวจคุณภาพโค้ด
-- `/build-fix` — แก้ปัญหา build
-- `/learn` — ดึง pattern จาก session
-- `/skill-create` — สร้าง skill จาก git history
+- `/tdd` - workflow แบบ Test-Driven Development
+- `/plan` - วางแผนการ implement
+- `/e2e` - สร้างและรัน E2E tests
+- `/code-review` - ตรวจคุณภาพโค้ด
+- `/build-fix` - แก้ปัญหา build
+- `/learn` - ดึง pattern จาก session
+- `/skill-create` - สร้าง skill จาก git history
 
 ปัจจุบัน ECC มี agent หลายสิบตัว, skill มากกว่า 200 ชุด และ legacy command shim สำหรับ workflow ต่าง ๆ ดูรายการเต็มและคำแนะนำล่าสุดได้ใน [README ภาษาอังกฤษ](../../README.md)
 
@@ -220,11 +220,11 @@ ECC จะลบเฉพาะไฟล์ที่อยู่ใน install-s
 
 หมวดที่กำลังต้องการการ contribute:
 
-- **Agents** — agent เฉพาะภาษา (Python, Go, Rust), เฉพาะ framework (Django, Rails, Laravel, Spring), DevOps (Kubernetes, Terraform), domain expert (ML, data engineering, mobile)
-- **Skills** — แนวปฏิบัติเฉพาะภาษา, pattern ของ framework, กลยุทธ์การทดสอบ, คู่มือสถาปัตยกรรม
-- **Hooks** — automation, linting, security checks, validation, notification
-- **Commands** — slash command สำหรับ deployment, testing, code generation
-- **คำแปลภาษาอื่น ๆ** — ดูโครงสร้างใน `docs/` (เช่น `docs/zh-CN`, `docs/ja-JP`, `docs/th`)
+- **Agents** - agent เฉพาะภาษา (Python, Go, Rust), เฉพาะ framework (Django, Rails, Laravel, Spring), DevOps (Kubernetes, Terraform), domain expert (ML, data engineering, mobile)
+- **Skills** - แนวปฏิบัติเฉพาะภาษา, pattern ของ framework, กลยุทธ์การทดสอบ, คู่มือสถาปัตยกรรม
+- **Hooks** - automation, linting, security checks, validation, notification
+- **Commands** - slash command สำหรับ deployment, testing, code generation
+- **คำแปลภาษาอื่น ๆ** - ดูโครงสร้างใน `docs/` (เช่น `docs/zh-CN`, `docs/ja-JP`, `docs/th`)
 
 ### ขั้นตอนเริ่มต้นอย่างย่อ
 
@@ -249,10 +249,10 @@ git add . && git commit -m "feat: add my-skill" && git push -u origin feat/my-co
 
 ## ชุมชน & สนับสนุน
 
-- [GitHub Discussions](https://github.com/affaan-m/everything-claude-code/discussions) — ถาม-ตอบ, โชว์ผลงาน
-- [GitHub Sponsors](https://github.com/sponsors/affaan-m) — สนับสนุน OSS เริ่มที่ $5/เดือน
-- [ECC Pro](https://ecc.tools/pricing) — private repo + GitHub App ($19/seat/เดือน)
-- [ECC Tools GitHub App](https://github.com/marketplace/ecc-tools) — ติดตั้ง, PR audit, มี free tier
+- [GitHub Discussions](https://github.com/affaan-m/everything-claude-code/discussions) - ถาม-ตอบ, โชว์ผลงาน
+- [GitHub Sponsors](https://github.com/sponsors/affaan-m) - สนับสนุน OSS เริ่มที่ $5/เดือน
+- [ECC Pro](https://ecc.tools/pricing) - private repo + GitHub App ($19/seat/เดือน)
+- [ECC Tools GitHub App](https://github.com/marketplace/ecc-tools) - ติดตั้ง, PR audit, มี free tier
 
 **OSS ยังคงฟรีตลอดไป** Repo นี้ใช้สัญญาอนุญาต MIT ตลอดกาล ECC Pro คือ GitHub App ที่ host ไว้สำหรับ private repo ส่วน Sponsors และ Pro subscribers ช่วยสนับสนุนให้ maintainer คนเดียวสามารถส่งงานข้าม 7 harness ได้ทุกสัปดาห์
 

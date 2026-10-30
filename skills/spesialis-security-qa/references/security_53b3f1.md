@@ -4,16 +4,16 @@
 
 ## 内存安全
 
-* 绝不使用原始的 `new`/`delete` — 使用智能指针
-* 绝不使用 C 风格数组 — 使用 `std::array` 或 `std::vector`
-* 绝不使用 `malloc`/`free` — 使用 C++ 分配方式
+* 绝不使用原始的 `new`/`delete` - 使用智能指针
+* 绝不使用 C 风格数组 - 使用 `std::array` 或 `std::vector`
+* 绝不使用 `malloc`/`free` - 使用 C++ 分配方式
 * 除非绝对必要，避免使用 `reinterpret_cast`
 
 ## 缓冲区溢出
 
 * 使用 `std::string` 而非 `char*`
 * 当安全性重要时，使用 `.at()` 进行边界检查访问
-* 绝不使用 `strcpy`、`strcat`、`sprintf` — 使用 `std::string` 或 `fmt::format`
+* 绝不使用 `strcpy`、`strcat`、`sprintf` - 使用 `std::string` 或 `fmt::format`
 
 ## 未定义行为
 

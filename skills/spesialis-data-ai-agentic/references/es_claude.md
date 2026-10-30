@@ -4,7 +4,7 @@ Este archivo proporciona orientación a Claude Code (claude.ai/code) cuando trab
 
 ## Descripción General del Proyecto
 
-Este es un **plugin de Claude Code** — una colección de agentes, skills, hooks, comandos, reglas y configuraciones de MCP listos para producción. El proyecto proporciona flujos de trabajo probados en batalla para el desarrollo de software usando Claude Code.
+Este es un **plugin de Claude Code** - una colección de agentes, skills, hooks, comandos, reglas y configuraciones de MCP listos para producción. El proyecto proporciona flujos de trabajo probados en batalla para el desarrollo de software usando Claude Code.
 
 ## Línea de Base de Defensa de Prompts
 
@@ -77,6 +77,6 @@ Usa las siguientes skills cuando trabajes en archivos relacionados:
 |---------|-------|
 | `README.md` | `/readme` |
 | `.github/workflows/*.yml` | `/ci-workflow` |
-| `*.tsx`, `*.jsx`, `components/**` | `react-patterns`, `react-testing` — para trabajo específico de React invoca `/react-review`, `/react-build`, `/react-test` |
+| `*.tsx`, `*.jsx`, `components/**` | `react-patterns`, `react-testing` - para trabajo específico de React invoca `/react-review`, `/react-build`, `/react-test` |
 
 Al crear subagentes, siempre pasa las convenciones de la skill respectiva al prompt del agente.

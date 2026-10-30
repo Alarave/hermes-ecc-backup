@@ -24,15 +24,15 @@ bun run .agents/skills/jobdanmark-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
-- `--text <keyword>` — free-text search, e.g. `elektriker`, `sygeplejerske`, `softwareudvikler`
-- `--category <id>` — category ID (see Categories table below)
-- `--jobtitle-id <id>` — job title ID from `autocomplete` results
-- `--municipality <name>` — e.g. `Odense`, `København`, `Aarhus`
-- `--zip <code>` — zip code, e.g. `5000`, `8000`, `2100`
-- `--region <name>` — region name, e.g. `Midtjylland`, `Sjælland`
-- `--job-type <types>` — comma-separated: `fuldtid`, `deltid`, `fleksjob`, `elev`, `studiejob`, `praktik`
-- `--page <n>` — page number (30 items per page, server-enforced)
-- `--limit <n>` — cap total results returned by CLI
+- `--text <keyword>` - free-text search, e.g. `elektriker`, `sygeplejerske`, `softwareudvikler`
+- `--category <id>` - category ID (see Categories table below)
+- `--jobtitle-id <id>` - job title ID from `autocomplete` results
+- `--municipality <name>` - e.g. `Odense`, `København`, `Aarhus`
+- `--zip <code>` - zip code, e.g. `5000`, `8000`, `2100`
+- `--region <name>` - region name, e.g. `Midtjylland`, `Sjælland`
+- `--job-type <types>` - comma-separated: `fuldtid`, `deltid`, `fleksjob`, `elev`, `studiejob`, `praktik`
+- `--page <n>` - page number (30 items per page, server-enforced)
+- `--limit <n>` - cap total results returned by CLI
 - `--format json|table|plain`
 
 > Per-page is fixed at 30 by the API. Use `--page` to paginate.
@@ -111,7 +111,7 @@ bun run .agents/skills/jobdanmark-search/cli/src/cli.ts autocomplete --query "sy
 
 **Pagination**: The API returns 30 items per page (server-enforced). Use `--page` to navigate through results. Use `--limit` to cap CLI output regardless of page size.
 
-**Combine filters** for precise results — e.g. `--text` + `--job-type` + `--municipality` all work together in a single search request.
+**Combine filters** for precise results - e.g. `--text` + `--job-type` + `--municipality` all work together in a single search request.
 
 ---
 
@@ -188,7 +188,7 @@ bun run .agents/skills/jobdanmark-search/cli/src/cli.ts search \
 
 | Format | Best for |
 |--------|----------|
-| `json` | Default — programmatic use, data processing, passing IDs between commands |
+| `json` | Default - programmatic use, data processing, passing IDs between commands |
 | `table` | Quick human-readable overviews and comparisons |
 | `plain` | Single-record detail views (`detail`) |
 
@@ -198,7 +198,7 @@ All errors are written to **stderr** as `{ "error": "...", "code": "..." }` and 
 
 ## Notes
 
-- All data is from the public Jobdanmark.dk API — no credentials required.
+- All data is from the public Jobdanmark.dk API - no credentials required.
 - Pagination is 1-indexed (`--page 1` is the first page). 30 items per page, server-enforced.
 - The `detail` command fetches the HTML job page and parses embedded JSON-LD when available, with a rendered-HTML fallback for pages that omit structured data. It does not use a separate JSON API.
 - `slug` in search results is extracted from the API's relative `url` field (the path after `/job/`).

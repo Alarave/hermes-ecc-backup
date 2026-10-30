@@ -1,6 +1,6 @@
 # Agent Self-Evaluation
 
-After completing a complex task, the agent pauses to rate its own output against a structured 5-axis rubric. This is NOT a pass/fail gate — it's a deliberate reflection step that catches omissions, flags overconfidence, and surface areas for improvement before the user has to.
+After completing a complex task, the agent pauses to rate its own output against a structured 5-axis rubric. This is NOT a pass/fail gate - it's a deliberate reflection step that catches omissions, flags overconfidence, and surface areas for improvement before the user has to.
 
 ## When to Activate
 
@@ -9,7 +9,7 @@ After completing a complex task, the agent pauses to rate its own output against
 - After a debugging session that involved 3+ attempts
 - After producing a design document, architecture decision, or written analysis
 - When the user asks "how good was that?" or "rate yourself"
-- At the end of any session Stop hook (if configured — see `references/hook-integration.md`)
+- At the end of any session Stop hook (if configured - see `references/hook-integration.md`)
 
 ## Core Concepts
 
@@ -26,16 +26,16 @@ After completing a complex task, the agent pauses to rate its own output against
 ### Scoring Scale
 
 ```
-5 — Exceptional: no reasonable improvement possible
-4 — Good: minor nits only, no substantive gaps
-3 — Adequate: meets the request but has a notable weakness on at least one axis
-2 — Weak: has a clear gap that affects usability or correctness
-1 — Poor: fundamentally misses the request or contains significant errors
+5 - Exceptional: no reasonable improvement possible
+4 - Good: minor nits only, no substantive gaps
+3 - Adequate: meets the request but has a notable weakness on at least one axis
+2 - Weak: has a clear gap that affects usability or correctness
+1 - Poor: fundamentally misses the request or contains significant errors
 ```
 
 ### The Evidence Rule
 
-Every score below 5 MUST cite specific evidence. A score of 3 cannot just say "could be better" — it must say exactly what is missing or wrong. The mantra: **"Show the gap, don't just name it."**
+Every score below 5 MUST cite specific evidence. A score of 3 cannot just say "could be better" - it must say exactly what is missing or wrong. The mantra: **"Show the gap, don't just name it."**
 
 ## Workflow
 
@@ -89,17 +89,17 @@ If any axis scored 3 or below:
 Task: Add retry logic to HTTP client
 
 Scorecard:
-  Accuracy:    5 — All API calls correct. Verified: retries use
+  Accuracy:    5 - All API calls correct. Verified: retries use
                   exponential backoff. No hallucinated methods.
-  Completeness: 4 — Covered happy path + 3 error cases. Missing:
+  Completeness: 4 - Covered happy path + 3 error cases. Missing:
                   timeout handling for hung connections.
-  Clarity:      5 — Code comments explain backoff formula.
+  Clarity:      5 - Code comments explain backoff formula.
                   PR description links to incident that motivated this.
-  Actionability:5 — Single merge. No follow-up tasks. Tests pass.
-  Conciseness:  4 — 47 lines total. The retry loop could be extracted
+  Actionability:5 - Single merge. No follow-up tasks. Tests pass.
+  Conciseness:  4 - 47 lines total. The retry loop could be extracted
                   into a helper to drop ~8 lines.
 
-Overall: 4.6 — One gap (timeout handling). Fix before merging.
+Overall: 4.6 - One gap (timeout handling). Fix before merging.
 ```
 
 ### Example: Weak Evaluation (Score 2-3)
@@ -108,17 +108,17 @@ Overall: 4.6 — One gap (timeout handling). Fix before merging.
 Task: Add retry logic to HTTP client
 
 Scorecard:
-  Accuracy:    2 — Used urllib3 which doesn't match our
+  Accuracy:    2 - Used urllib3 which doesn't match our
                   httpx-based codebase. Wrong library.
-  Completeness: 3 — Works for GET. POST/PUT not handled (user
+  Completeness: 3 - Works for GET. POST/PUT not handled (user
                   said "all HTTP requests").
-  Clarity:      4 — Code is readable. Good variable names.
-  Actionability:2 — "Add tests" mentioned but no test file created.
+  Clarity:      4 - Code is readable. Good variable names.
+  Actionability:2 - "Add tests" mentioned but no test file created.
                   User has to write tests before merging.
-  Conciseness:  3 — 120 lines. The retry config is duplicated in
+  Conciseness:  3 - 120 lines. The retry config is duplicated in
                   3 places instead of one shared RetryConfig object.
 
-Overall: 2.8 — Wrong library used. Needs httpx rewrite.
+Overall: 2.8 - Wrong library used. Needs httpx rewrite.
   Fix accuracy first (switch to httpx), then extend to all
   HTTP methods, then consolidate config.
 ```
@@ -128,9 +128,9 @@ Overall: 2.8 — Wrong library used. Needs httpx rewrite.
 ### "Everything is a 5"
 
 ```
-FAIL: Accuracy:    5 — All good.
-   Completeness: 5 — Everything covered.
-   Clarity:      5 — Clear.
+FAIL: Accuracy:    5 - All good.
+   Completeness: 5 - Everything covered.
+   Clarity:      5 - Clear.
 ```
 
 No evidence cited. This is self-congratulation, not evaluation. A real 5 requires proving there's nothing to improve.
@@ -138,7 +138,7 @@ No evidence cited. This is self-congratulation, not evaluation. A real 5 require
 ### Over-penalizing for scope creep
 
 ```
-FAIL: Completeness: 2 — Didn't handle WebSocket connections or
+FAIL: Completeness: 2 - Didn't handle WebSocket connections or
    gRPC streaming (user didn't ask for these)
 ```
 
@@ -163,14 +163,14 @@ FAIL: "Score: 3. I don't like Python decorators."
 ## Best Practices
 
 - **Evaluate the output, not the process.** The user cares about what you delivered, not how many iterations you took.
-- **One improvement per weak axis.** Don't list 5 things for one axis — pick the highest-impact gap.
+- **One improvement per weak axis.** Don't list 5 things for one axis - pick the highest-impact gap.
 - **Tie improvements to user impact.** "Missing error handling means the user's API call will crash silently" beats "add error handling."
 - **Be specific about what 'fixed' looks like.** "Re-run with httpx transport configured for retries" beats "fix the library issue."
-- **Use tool outputs as evidence.** If tests passed, cite them. If lint is clean, cite it. Don't guess — grep for the proof.
+- **Use tool outputs as evidence.** If tests passed, cite them. If lint is clean, cite it. Don't guess - grep for the proof.
 - **If you can't find any gaps, try harder.** A perfect score across all 5 axes is rare. Ask: "If I were the user, what would annoy me about this output?"
 
 ## Related Skills
 
-- `agent-eval` — Head-to-head comparison of different coding agents on benchmark tasks
-- `verification-loop` — Systematic verification of outputs against expected results
-- `security-review` — Security-focused code review checklist
+- `agent-eval` - Head-to-head comparison of different coding agents on benchmark tasks
+- `verification-loop` - Systematic verification of outputs against expected results
+- `security-review` - Security-focused code review checklist

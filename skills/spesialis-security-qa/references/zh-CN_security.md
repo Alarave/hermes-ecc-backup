@@ -47,7 +47,7 @@
 
 ## 安全资源
 
-* **AgentShield**：扫描您的代理配置以查找漏洞 — `npx ecc-agentshield scan`
+* **AgentShield**：扫描您的代理配置以查找漏洞 - `npx ecc-agentshield scan`
 * **安全指南**：[The Shorthand Guide to Everything Agentic Security](the-security-guide.md)
 * **OWASP MCP Top 10**：[owasp.org/www-project-mcp-top-10](https://owasp.org/www-project-mcp-top-10/)
 * **OWASP Agentic Applications Top 10**：[genai.owasp.org](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)

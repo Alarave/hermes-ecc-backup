@@ -74,7 +74,7 @@ ECC v2.0.0-rc.1 ergänzt diese wiederverwendbare Schicht um die öffentliche Her
 </tr>
 </table>
 
-<sub>**OSS bleibt kostenlos.** Dieses Repo ist für immer MIT-lizenziert. ECC Pro ist die gehostete GitHub App für private Repos. <a href="https://github.com/sponsors/affaan-m">Sponsoren</a> und <a href="https://ecc.tools/pricing">Pro-Abonnenten</a> finanzieren die Arbeit — deshalb liefert ein einzelner Maintainer wöchentlich über 7 Harnesses hinweg aus.</sub>
+<sub>**OSS bleibt kostenlos.** Dieses Repo ist für immer MIT-lizenziert. ECC Pro ist die gehostete GitHub App für private Repos. <a href="https://github.com/sponsors/affaan-m">Sponsoren</a> und <a href="https://ecc.tools/pricing">Pro-Abonnenten</a> finanzieren die Arbeit - deshalb liefert ein einzelner Maintainer wöchentlich über 7 Harnesses hinweg aus.</sub>
 
 ---
 
@@ -120,81 +120,81 @@ Dieses Repo enthält ausschließlich den rohen Code. Die Leitfäden erklären al
 
 ## Was ist neu
 
-### v2.0.0-rc.1 — Oberflächen-Refresh, Operator-Workflows und ECC 2.0 Alpha (April 2026)
+### v2.0.0-rc.1 - Oberflächen-Refresh, Operator-Workflows und ECC 2.0 Alpha (April 2026)
 
-- **Dashboard-GUI** — Neue Tkinter-basierte Desktop-Anwendung (`ecc_dashboard.py` oder `npm run dashboard`) mit Umschalter für dunkles/helles Theme, Schriftanpassung und Projektlogo in Kopfzeile und Taskleiste.
-- **Öffentliche Oberfläche mit dem Live-Repo synchronisiert** — Metadaten, Katalogzahlen, Plugin-Manifeste und Install-bezogene Dokumentation entsprechen jetzt der tatsächlichen OSS-Oberfläche: 60 Agents, 232 Skills und 75 Legacy-Command-Shims.
-- **Erweiterung von Operator- und Outbound-Workflows** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `ecc-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` und `workspace-surface-audit` runden die Operator-Spur ab.
-- **Medien- und Launch-Tooling** — `manim-video`, `remotion-video-creation` und verbesserte Social-Publishing-Oberflächen machen technische Erklärinhalte und Launch-Content zum Teil desselben Systems.
-- **Wachstum der Framework- und Produktoberfläche** — `nestjs-patterns`, reichhaltigere Codex/OpenCode-Install-Oberflächen und erweitertes Cross-Harness-Packaging halten das Repo auch über Claude Code allein hinaus nutzbar.
-- **ECC 2.0 Alpha ist im Tree** — der Rust-Control-Plane-Prototyp in `ecc2/` baut jetzt lokal und stellt die Befehle `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` und `daemon` bereit. Er ist als Alpha nutzbar, aber noch kein allgemeines Release.
-- **Operator-Status-Snapshots** — `ecc status --markdown --write status.md` verwandelt den lokalen State Store in eine portable Übergabe, die Bereitschaft, aktive Sessions, Skill-Run-Gesundheit, Install-Gesundheit, ausstehende Governance-Events und verknüpfte Arbeitselemente aus Linear/GitHub/Handovers abdeckt. Nutze `ecc work-items upsert ...` für manuelle Einträge, `ecc work-items sync-github --repo owner/repo` für den Queue-Status von PRs/Issues und `ecc status --exit-code`, um Automatisierung scheitern zu lassen, wenn die Bereitschaft Aufmerksamkeit erfordert.
-- **Ökosystem-Härtung** — AgentShield, ECC-Tools-Kostenkontrollen, Arbeiten am Billing-Portal und Website-Refreshes werden weiterhin rund um das Kern-Plugin ausgeliefert, statt in separate Silos abzudriften.
+- **Dashboard-GUI** - Neue Tkinter-basierte Desktop-Anwendung (`ecc_dashboard.py` oder `npm run dashboard`) mit Umschalter für dunkles/helles Theme, Schriftanpassung und Projektlogo in Kopfzeile und Taskleiste.
+- **Öffentliche Oberfläche mit dem Live-Repo synchronisiert** - Metadaten, Katalogzahlen, Plugin-Manifeste und Install-bezogene Dokumentation entsprechen jetzt der tatsächlichen OSS-Oberfläche: 60 Agents, 232 Skills und 75 Legacy-Command-Shims.
+- **Erweiterung von Operator- und Outbound-Workflows** - `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `ecc-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` und `workspace-surface-audit` runden die Operator-Spur ab.
+- **Medien- und Launch-Tooling** - `manim-video`, `remotion-video-creation` und verbesserte Social-Publishing-Oberflächen machen technische Erklärinhalte und Launch-Content zum Teil desselben Systems.
+- **Wachstum der Framework- und Produktoberfläche** - `nestjs-patterns`, reichhaltigere Codex/OpenCode-Install-Oberflächen und erweitertes Cross-Harness-Packaging halten das Repo auch über Claude Code allein hinaus nutzbar.
+- **ECC 2.0 Alpha ist im Tree** - der Rust-Control-Plane-Prototyp in `ecc2/` baut jetzt lokal und stellt die Befehle `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` und `daemon` bereit. Er ist als Alpha nutzbar, aber noch kein allgemeines Release.
+- **Operator-Status-Snapshots** - `ecc status --markdown --write status.md` verwandelt den lokalen State Store in eine portable Übergabe, die Bereitschaft, aktive Sessions, Skill-Run-Gesundheit, Install-Gesundheit, ausstehende Governance-Events und verknüpfte Arbeitselemente aus Linear/GitHub/Handovers abdeckt. Nutze `ecc work-items upsert ...` für manuelle Einträge, `ecc work-items sync-github --repo owner/repo` für den Queue-Status von PRs/Issues und `ecc status --exit-code`, um Automatisierung scheitern zu lassen, wenn die Bereitschaft Aufmerksamkeit erfordert.
+- **Ökosystem-Härtung** - AgentShield, ECC-Tools-Kostenkontrollen, Arbeiten am Billing-Portal und Website-Refreshes werden weiterhin rund um das Kern-Plugin ausgeliefert, statt in separate Silos abzudriften.
 
-### v1.9.0 — Selektive Installation & Spracherweiterung (März 2026)
+### v1.9.0 - Selektive Installation & Spracherweiterung (März 2026)
 
-- **Architektur für selektive Installation** — Manifest-gesteuerte Install-Pipeline mit `install-plan.js` und `install-apply.js` für gezielte Komponenteninstallation. Der State Store verfolgt, was installiert ist, und ermöglicht inkrementelle Updates.
-- **6 neue Agents** — `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` erweitern die Sprachabdeckung auf 10 Sprachen.
-- **Neue Skills** — `pytorch-patterns` für Deep-Learning-Workflows, `documentation-lookup` für API-Referenzrecherche, `bun-runtime` und `nextjs-turbopack` für moderne JS-Toolchains sowie 8 operative Domänen-Skills und `mcp-server-patterns`.
-- **Session- & State-Infrastruktur** — SQLite-State-Store mit Query-CLI, Session-Adapter für strukturierte Aufzeichnung, Grundlage für Skill-Evolution für sich selbst verbessernde Skills.
-- **Orchestrierungsüberarbeitung** — Harness-Audit-Scoring deterministisch gemacht, Orchestrierungsstatus und Launcher-Kompatibilität gehärtet, Verhinderung von Observer-Loops mit 5-Schichten-Schutz.
-- **Observer-Zuverlässigkeit** — Fix für Memory-Explosion mit Throttling und Tail-Sampling, Fix für Sandbox-Zugriff, Lazy-Start-Logik und Re-Entrancy-Guard.
-- **12 Sprach-Ökosysteme** — Neue Rules für Java, PHP, Perl, Kotlin/Android/KMP, C++ und Rust treten zu den bestehenden Rules für TypeScript, Python, Go und den common-Rules hinzu.
-- **Community-Beiträge** — Koreanische und chinesische Übersetzungen, Optimierung des biome-Hooks, Skills zur Videoverarbeitung, operative Skills, PowerShell-Installer, Antigravity-IDE-Unterstützung.
-- **CI-Härtung** — 19 Fixes für Testfehler, Durchsetzung der Katalogzahlen, Validierung des Install-Manifests und vollständige Test-Suite grün.
+- **Architektur für selektive Installation** - Manifest-gesteuerte Install-Pipeline mit `install-plan.js` und `install-apply.js` für gezielte Komponenteninstallation. Der State Store verfolgt, was installiert ist, und ermöglicht inkrementelle Updates.
+- **6 neue Agents** - `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` erweitern die Sprachabdeckung auf 10 Sprachen.
+- **Neue Skills** - `pytorch-patterns` für Deep-Learning-Workflows, `documentation-lookup` für API-Referenzrecherche, `bun-runtime` und `nextjs-turbopack` für moderne JS-Toolchains sowie 8 operative Domänen-Skills und `mcp-server-patterns`.
+- **Session- & State-Infrastruktur** - SQLite-State-Store mit Query-CLI, Session-Adapter für strukturierte Aufzeichnung, Grundlage für Skill-Evolution für sich selbst verbessernde Skills.
+- **Orchestrierungsüberarbeitung** - Harness-Audit-Scoring deterministisch gemacht, Orchestrierungsstatus und Launcher-Kompatibilität gehärtet, Verhinderung von Observer-Loops mit 5-Schichten-Schutz.
+- **Observer-Zuverlässigkeit** - Fix für Memory-Explosion mit Throttling und Tail-Sampling, Fix für Sandbox-Zugriff, Lazy-Start-Logik und Re-Entrancy-Guard.
+- **12 Sprach-Ökosysteme** - Neue Rules für Java, PHP, Perl, Kotlin/Android/KMP, C++ und Rust treten zu den bestehenden Rules für TypeScript, Python, Go und den common-Rules hinzu.
+- **Community-Beiträge** - Koreanische und chinesische Übersetzungen, Optimierung des biome-Hooks, Skills zur Videoverarbeitung, operative Skills, PowerShell-Installer, Antigravity-IDE-Unterstützung.
+- **CI-Härtung** - 19 Fixes für Testfehler, Durchsetzung der Katalogzahlen, Validierung des Install-Manifests und vollständige Test-Suite grün.
 
-### v1.8.0 — Harness-Performance-System (März 2026)
+### v1.8.0 - Harness-Performance-System (März 2026)
 
-- **Harness-First-Release** — ECC ist nun ausdrücklich als Performance-System für Agent-Harnesses positioniert, nicht nur als Config-Paket.
-- **Überarbeitung der Hook-Zuverlässigkeit** — SessionStart-Root-Fallback, Session-Zusammenfassungen in der Stop-Phase und skriptbasierte Hooks, die fragile Inline-Einzeiler ersetzen.
-- **Hook-Laufzeitsteuerung** — `ECC_HOOK_PROFILE=minimal|standard|strict` und `ECC_DISABLED_HOOKS=...` für Laufzeit-Gating ohne Bearbeitung von Hook-Dateien.
-- **Neue Harness-Befehle** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
-- **NanoClaw v2** — Modell-Routing, Skill-Hot-Load, Session-Branch/-Search/-Export/-Compact/-Metriken.
-- **Cross-Harness-Parität** — Verhalten über Claude Code, Cursor, OpenCode und Codex-App/-CLI hinweg verschärft.
-- **997 interne Tests bestanden** — vollständige Suite grün nach Hook-/Laufzeit-Refactoring und Kompatibilitätsupdates.
+- **Harness-First-Release** - ECC ist nun ausdrücklich als Performance-System für Agent-Harnesses positioniert, nicht nur als Config-Paket.
+- **Überarbeitung der Hook-Zuverlässigkeit** - SessionStart-Root-Fallback, Session-Zusammenfassungen in der Stop-Phase und skriptbasierte Hooks, die fragile Inline-Einzeiler ersetzen.
+- **Hook-Laufzeitsteuerung** - `ECC_HOOK_PROFILE=minimal|standard|strict` und `ECC_DISABLED_HOOKS=...` für Laufzeit-Gating ohne Bearbeitung von Hook-Dateien.
+- **Neue Harness-Befehle** - `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
+- **NanoClaw v2** - Modell-Routing, Skill-Hot-Load, Session-Branch/-Search/-Export/-Compact/-Metriken.
+- **Cross-Harness-Parität** - Verhalten über Claude Code, Cursor, OpenCode und Codex-App/-CLI hinweg verschärft.
+- **997 interne Tests bestanden** - vollständige Suite grün nach Hook-/Laufzeit-Refactoring und Kompatibilitätsupdates.
 
-### v1.7.0 — Cross-Platform-Erweiterung & Präsentations-Builder (Februar 2026)
+### v1.7.0 - Cross-Platform-Erweiterung & Präsentations-Builder (Februar 2026)
 
-- **Codex-App- + CLI-Unterstützung** — Direkte `AGENTS.md`-basierte Codex-Unterstützung, Installer-Targeting und Codex-Dokumentation
-- **`frontend-slides`-Skill** — Abhängigkeitsfreier HTML-Präsentations-Builder mit Anleitung zur PPTX-Konvertierung und strengen Viewport-Fit-Regeln
-- **5 neue generische Business-/Content-Skills** — `article-writing`, `content-engine`, `market-research`, `investor-materials`, `investor-outreach`
-- **Breitere Tool-Abdeckung** — Cursor-, Codex- und OpenCode-Unterstützung verschärft, sodass dasselbe Repo sauber über alle großen Harnesses hinweg ausgeliefert wird
-- **992 interne Tests** — Erweiterte Validierung und Regressionsabdeckung über Plugin, Hooks, Skills und Packaging
+- **Codex-App- + CLI-Unterstützung** - Direkte `AGENTS.md`-basierte Codex-Unterstützung, Installer-Targeting und Codex-Dokumentation
+- **`frontend-slides`-Skill** - Abhängigkeitsfreier HTML-Präsentations-Builder mit Anleitung zur PPTX-Konvertierung und strengen Viewport-Fit-Regeln
+- **5 neue generische Business-/Content-Skills** - `article-writing`, `content-engine`, `market-research`, `investor-materials`, `investor-outreach`
+- **Breitere Tool-Abdeckung** - Cursor-, Codex- und OpenCode-Unterstützung verschärft, sodass dasselbe Repo sauber über alle großen Harnesses hinweg ausgeliefert wird
+- **992 interne Tests** - Erweiterte Validierung und Regressionsabdeckung über Plugin, Hooks, Skills und Packaging
 
-### v1.6.0 — Codex CLI, AgentShield & Marketplace (Februar 2026)
+### v1.6.0 - Codex CLI, AgentShield & Marketplace (Februar 2026)
 
-- **Codex-CLI-Unterstützung** — Neuer Befehl `/codex-setup` erzeugt `codex.md` für die Kompatibilität mit der OpenAI Codex CLI
-- **7 neue Skills** — `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing`, `regex-vs-llm-structured-text`, `content-hash-cache-pattern`, `cost-aware-llm-pipeline`, `skill-stocktake`
-- **AgentShield-Integration** — Der `/security-scan`-Skill führt AgentShield direkt aus Claude Code aus; 1282 Tests, 102 Rules
-- **GitHub Marketplace** — ECC-Tools-GitHub-App live unter [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) mit Free-/Pro-/Enterprise-Stufen
-- **30+ Community-PRs gemergt** — Beiträge von 30 Contributors über 6 Sprachen hinweg
-- **978 interne Tests** — Erweiterte Validierungs-Suite über Agents, Skills, Commands, Hooks und Rules
+- **Codex-CLI-Unterstützung** - Neuer Befehl `/codex-setup` erzeugt `codex.md` für die Kompatibilität mit der OpenAI Codex CLI
+- **7 neue Skills** - `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing`, `regex-vs-llm-structured-text`, `content-hash-cache-pattern`, `cost-aware-llm-pipeline`, `skill-stocktake`
+- **AgentShield-Integration** - Der `/security-scan`-Skill führt AgentShield direkt aus Claude Code aus; 1282 Tests, 102 Rules
+- **GitHub Marketplace** - ECC-Tools-GitHub-App live unter [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) mit Free-/Pro-/Enterprise-Stufen
+- **30+ Community-PRs gemergt** - Beiträge von 30 Contributors über 6 Sprachen hinweg
+- **978 interne Tests** - Erweiterte Validierungs-Suite über Agents, Skills, Commands, Hooks und Rules
 
-### v1.4.1 — Bugfix (Februar 2026)
+### v1.4.1 - Bugfix (Februar 2026)
 
-- **Inhaltsverlust beim Instinct-Import behoben** — `parse_instinct_file()` verwarf während `/instinct-import` stillschweigend sämtlichen Inhalt nach dem Frontmatter (Abschnitte Action, Evidence, Examples). ([#148](https://github.com/affaan-m/ECC/issues/148), [#161](https://github.com/affaan-m/ECC/pull/161))
+- **Inhaltsverlust beim Instinct-Import behoben** - `parse_instinct_file()` verwarf während `/instinct-import` stillschweigend sämtlichen Inhalt nach dem Frontmatter (Abschnitte Action, Evidence, Examples). ([#148](https://github.com/affaan-m/ECC/issues/148), [#161](https://github.com/affaan-m/ECC/pull/161))
 
-### v1.4.0 — Mehrsprachige Rules, Installationsassistent & PM2 (Februar 2026)
+### v1.4.0 - Mehrsprachige Rules, Installationsassistent & PM2 (Februar 2026)
 
-- **Interaktiver Installationsassistent** — Der neue `configure-ecc`-Skill bietet ein geführtes Setup mit Merge-/Überschreiben-Erkennung
-- **PM2 & Multi-Agent-Orchestrierung** — 6 neue Befehle (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) zur Verwaltung komplexer Multi-Service-Workflows
-- **Architektur für mehrsprachige Rules** — Rules von Flat-Dateien in die Verzeichnisse `common/` + `typescript/` + `python/` + `golang/` umstrukturiert. Installiere nur die Sprachen, die du brauchst
-- **Chinesische (zh-CN) Übersetzungen** — Vollständige Übersetzung aller Agents, Commands, Skills und Rules (80+ Dateien)
-- **GitHub-Sponsors-Unterstützung** — Unterstütze das Projekt über GitHub Sponsors
-- **Erweiterte CONTRIBUTING.md** — Detaillierte PR-Vorlagen für jeden Beitragstyp
+- **Interaktiver Installationsassistent** - Der neue `configure-ecc`-Skill bietet ein geführtes Setup mit Merge-/Überschreiben-Erkennung
+- **PM2 & Multi-Agent-Orchestrierung** - 6 neue Befehle (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) zur Verwaltung komplexer Multi-Service-Workflows
+- **Architektur für mehrsprachige Rules** - Rules von Flat-Dateien in die Verzeichnisse `common/` + `typescript/` + `python/` + `golang/` umstrukturiert. Installiere nur die Sprachen, die du brauchst
+- **Chinesische (zh-CN) Übersetzungen** - Vollständige Übersetzung aller Agents, Commands, Skills und Rules (80+ Dateien)
+- **GitHub-Sponsors-Unterstützung** - Unterstütze das Projekt über GitHub Sponsors
+- **Erweiterte CONTRIBUTING.md** - Detaillierte PR-Vorlagen für jeden Beitragstyp
 
-### v1.3.0 — OpenCode-Plugin-Unterstützung (Februar 2026)
+### v1.3.0 - OpenCode-Plugin-Unterstützung (Februar 2026)
 
-- **Vollständige OpenCode-Integration** — 12 Agents, 24 Commands, 16 Skills mit Hook-Unterstützung über das Plugin-System von OpenCode (20+ Event-Typen)
-- **3 native Custom Tools** — run-tests, check-coverage, security-audit
-- **LLM-Dokumentation** — `llms.txt` für umfassende OpenCode-Dokumentation
+- **Vollständige OpenCode-Integration** - 12 Agents, 24 Commands, 16 Skills mit Hook-Unterstützung über das Plugin-System von OpenCode (20+ Event-Typen)
+- **3 native Custom Tools** - run-tests, check-coverage, security-audit
+- **LLM-Dokumentation** - `llms.txt` für umfassende OpenCode-Dokumentation
 
-### v1.2.0 — Vereinheitlichte Commands & Skills (Februar 2026)
+### v1.2.0 - Vereinheitlichte Commands & Skills (Februar 2026)
 
-- **Python/Django-Unterstützung** — Skills für Django-Patterns, Sicherheit, TDD und Verifikation
-- **Java-Spring-Boot-Skills** — Patterns, Sicherheit, TDD und Verifikation für Spring Boot
-- **Session-Verwaltung** — `/sessions`-Befehl für den Session-Verlauf
-- **Continuous Learning v2** — Instinct-basiertes Lernen mit Konfidenz-Scoring, Import/Export, Evolution
+- **Python/Django-Unterstützung** - Skills für Django-Patterns, Sicherheit, TDD und Verifikation
+- **Java-Spring-Boot-Skills** - Patterns, Sicherheit, TDD und Verifikation für Spring Boot
+- **Session-Verwaltung** - `/sessions`-Befehl für den Session-Verlauf
+- **Continuous Learning v2** - Instinct-basiertes Lernen mit Konfidenz-Scoring, Import/Export, Evolution
 
 Den vollständigen Changelog findest du unter [Releases](https://github.com/affaan-m/ECC/releases).
 
@@ -743,7 +743,7 @@ Beide Optionen erzeugen:
 - **Instinct-Sammlungen** - für continuous-learning-v2
 - **Musterextraktion** - lernt aus deiner Commit-Historie
 
-### AgentShield — Security-Auditor
+### AgentShield - Security-Auditor
 
 > Gebaut beim Claude Code Hackathon (Cerebral Valley x Anthropic, Februar 2026). 1282 Tests, 98 % Coverage, 102 statische Analyse-Rules.
 
@@ -763,7 +763,7 @@ npx ecc-agentshield scan --opus --stream
 npx ecc-agentshield init
 ```
 
-**Was es scannt:** CLAUDE.md, settings.json, MCP-Konfigurationen, Hooks, Agent-Definitionen und Skills über 5 Kategorien — Secrets-Erkennung (14 Muster), Berechtigungs-Audit, Analyse von Hook-Injection, Risikoprofilierung von MCP-Servern und Review der Agent-Konfiguration.
+**Was es scannt:** CLAUDE.md, settings.json, MCP-Konfigurationen, Hooks, Agent-Definitionen und Skills über 5 Kategorien - Secrets-Erkennung (14 Muster), Berechtigungs-Audit, Analyse von Hook-Injection, Risikoprofilierung von MCP-Servern und Review der Agent-Konfiguration.
 
 **Das `--opus`-Flag** führt drei Claude-Opus-4.6-Agents in einer Red-Team-/Blue-Team-/Auditor-Pipeline aus. Der Angreifer findet Exploit-Ketten, der Verteidiger bewertet die Schutzmaßnahmen, und der Auditor synthetisiert beides zu einer priorisierten Risikobewertung. Adversariales Schlussfolgern, nicht nur Mustererkennung.
 
@@ -1156,7 +1156,7 @@ Ja. ECC ist Cross-Platform:
 - **Qwen CLI**: Adapter für selektive Installation im Home-Verzeichnis für Commands, Agents, Skills, Rules und Qwen-Konfiguration. Siehe [Qwen-CLI-Adapter-Leitfaden](../../docs/QWEN-GUIDE.md).
 - **Zed**: Projektlokaler Adapter für selektive Installation von `.zed/settings.json`, abgeflachten Rules, Commands, Agents und Skills.
 - **Nicht-native Harnesses**: Manueller Fallback-Pfad für Grok und ähnliche Oberflächen. Siehe [Leitfaden zur manuellen Anpassung](../../docs/MANUAL-ADAPTATION-GUIDE.md).
-- **Claude Code**: Nativ — dies ist das primäre Ziel.
+- **Claude Code**: Nativ - dies ist das primäre Ziel.
 </details>
 
 <details>
@@ -1201,8 +1201,8 @@ Bitte trage bei! Richtlinien findest du in [CONTRIBUTING.md](../../CONTRIBUTING.
 
 ### Ideen für Beiträge
 
-- Sprachspezifische Skills (Rust, C#, Kotlin, Java) — Go, Python, Perl, Swift, TypeScript und HarmonyOS/ArkTS sind bereits enthalten
-- Framework-spezifische Konfigurationen (Rails, FastAPI) — Django, NestJS, Spring Boot und Laravel sind bereits enthalten
+- Sprachspezifische Skills (Rust, C#, Kotlin, Java) - Go, Python, Perl, Swift, TypeScript und HarmonyOS/ArkTS sind bereits enthalten
+- Framework-spezifische Konfigurationen (Rails, FastAPI) - Django, NestJS, Spring Boot und Laravel sind bereits enthalten
 - DevOps-Agents (Kubernetes, Terraform, AWS, Docker)
 - Teststrategien (verschiedene Frameworks, visuelle Regression)
 - Domänenspezifisches Wissen (ML, Data Engineering, Mobile)
@@ -1211,9 +1211,9 @@ Bitte trage bei! Richtlinien findest du in [CONTRIBUTING.md](../../CONTRIBUTING.
 
 Diese werden nicht mit ECC mitgeliefert und nicht von diesem Repo auditiert, aber sie sind wissenswert, falls du das breitere Claude-Code-Skills-Ökosystem erkundest:
 
-- [claude-seo](https://github.com/AgriciDaniel/claude-seo) — SEO-fokussierte Skill- und Agent-Sammlung
-- [claude-ads](https://github.com/AgriciDaniel/claude-ads) — Sammlung von Ad-Audit- und Paid-Growth-Workflows
-- [claude-cybersecurity](https://github.com/AgriciDaniel/claude-cybersecurity) — sicherheitsorientierte Skill- und Agent-Sammlung
+- [claude-seo](https://github.com/AgriciDaniel/claude-seo) - SEO-fokussierte Skill- und Agent-Sammlung
+- [claude-ads](https://github.com/AgriciDaniel/claude-ads) - Sammlung von Ad-Audit- und Paid-Growth-Workflows
+- [claude-cybersecurity](https://github.com/AgriciDaniel/claude-cybersecurity) - sicherheitsorientierte Skill- und Agent-Sammlung
 
 ---
 
@@ -1263,11 +1263,11 @@ Cursor stdin JSON → adapter.js → transforms → scripts/hooks/*.js
 ```
 
 Wichtige Hooks:
-- **beforeShellExecution** — Blockiert Dev-Server außerhalb von tmux (exit 2), git-push-Review
-- **afterFileEdit** — Auto-Formatierung + TypeScript-Prüfung + console.log-Warnung
-- **beforeSubmitPrompt** — Erkennt Secrets (sk-, ghp_, AKIA-Muster) in Prompts
-- **beforeTabFileRead** — Blockiert, dass Tab .env-, .key-, .pem-Dateien liest (exit 2)
-- **beforeMCPExecution / afterMCPExecution** — MCP-Audit-Logging
+- **beforeShellExecution** - Blockiert Dev-Server außerhalb von tmux (exit 2), git-push-Review
+- **afterFileEdit** - Auto-Formatierung + TypeScript-Prüfung + console.log-Warnung
+- **beforeSubmitPrompt** - Erkennt Secrets (sk-, ghp_, AKIA-Muster) in Prompts
+- **beforeTabFileRead** - Blockiert, dass Tab .env-, .key-, .pem-Dateien liest (exit 2)
+- **beforeMCPExecution / afterMCPExecution** - MCP-Audit-Logging
 
 ### Rules-Format
 
@@ -1290,7 +1290,7 @@ ECC bietet **erstklassige Codex-Unterstützung** sowohl für die macOS-App als a
 ### Schnellstart (Codex-App + CLI)
 
 ```bash
-# Codex CLI im Repo ausführen — AGENTS.md und .codex/ werden automatisch erkannt
+# Codex CLI im Repo ausführen - AGENTS.md und .codex/ werden automatisch erkannt
 codex
 
 # Automatisches Setup: ECC-Assets (AGENTS.md, Skills, MCP-Server) nach ~/.codex synchronisieren
@@ -1303,7 +1303,7 @@ npm install && bash scripts/sync-ecc-to-codex.sh
 cp .codex/config.toml ~/.codex/config.toml
 ```
 
-Das Sync-Skript merged ECC-MCP-Server sicher in deine bestehende `~/.codex/config.toml` mit einer **add-only**-Strategie — es entfernt oder verändert deine bestehenden Server nie. Führe es mit `--dry-run` aus, um Änderungen in der Vorschau zu sehen, oder mit `--update-mcp`, um ein erzwungenes Refresh der ECC-Server auf die neueste empfohlene Konfiguration zu erzwingen.
+Das Sync-Skript merged ECC-MCP-Server sicher in deine bestehende `~/.codex/config.toml` mit einer **add-only**-Strategie - es entfernt oder verändert deine bestehenden Server nie. Führe es mit `--dry-run` aus, um Änderungen in der Vorschau zu sehen, oder mit `--update-mcp`, um ein erzwungenes Refresh der ECC-Server auf die neueste empfohlene Konfiguration zu erzwingen.
 
 Für Context7 verwendet ECC den kanonischen Codex-Abschnittsnamen `[mcp_servers.context7]`, startet aber weiterhin das Paket `@upstash/context7-mcp`. Falls du bereits einen veralteten `[mcp_servers.context7-mcp]`-Eintrag hast, migriert `--update-mcp` ihn auf den kanonischen Abschnittsnamen.
 
@@ -1318,12 +1318,12 @@ Codex-macOS-App:
 
 | Komponente | Anzahl | Details |
 |-----------|-------|---------|
-| Konfiguration | 1 | `.codex/config.toml` — Top-Level-Approvals/-Sandbox/-web_search, MCP-Server, Benachrichtigungen, Profile |
+| Konfiguration | 1 | `.codex/config.toml` - Top-Level-Approvals/-Sandbox/-web_search, MCP-Server, Benachrichtigungen, Profile |
 | AGENTS.md | 2 | Root (universell) + `.codex/AGENTS.md` (Codex-spezifischer Zusatz) |
-| Skills | 32 | `.agents/skills/` — SKILL.md + agents/openai.yaml pro Skill |
+| Skills | 32 | `.agents/skills/` - SKILL.md + agents/openai.yaml pro Skill |
 | MCP-Server | 6 | GitHub, Context7, Exa, Memory, Playwright, Sequential Thinking (7 mit Supabase über `--update-mcp`-Sync) |
 | Profile | 2 | `strict` (read-only-Sandbox) und `yolo` (vollständiges Auto-Approve) |
-| Agent-Rollen | 3 | `.codex/agents/` — explorer, reviewer, docs-researcher |
+| Agent-Rollen | 3 | `.codex/agents/` - explorer, reviewer, docs-researcher |
 
 ### Skills
 
@@ -1526,7 +1526,7 @@ Für das vollständige ECC-OpenCode-Setup entweder:
 
 ## GitHub-Copilot-Unterstützung
 
-ECC bietet **GitHub-Copilot-Unterstützung** für VS Code über das native Instruction- und Prompt-Datei-System von Copilot Chat — kein zusätzliches Tooling erforderlich.
+ECC bietet **GitHub-Copilot-Unterstützung** für VS Code über das native Instruction- und Prompt-Datei-System von Copilot Chat - kein zusätzliches Tooling erforderlich.
 
 ### Was ist enthalten
 
@@ -1542,7 +1542,7 @@ ECC bietet **GitHub-Copilot-Unterstützung** für VS Code über das native Instr
 
 ### Schnellstart (GitHub Copilot)
 
-Die Dateien sind bereits vorhanden — öffne ein beliebiges Repo, das dieses Projekt enthält, und GitHub Copilot Chat nimmt `.github/copilot-instructions.md` automatisch auf.
+Die Dateien sind bereits vorhanden - öffne ein beliebiges Repo, das dieses Projekt enthält, und GitHub Copilot Chat nimmt `.github/copilot-instructions.md` automatisch auf.
 Die eingecheckte `.vscode/settings.json` aktiviert `chat.promptFiles`, sodass VS Code die wiederverwendbaren Prompts aus `.github/prompts/` laden kann.
 
 So verwendest du die Workflow-Prompts in Copilot Chat:
@@ -1554,8 +1554,8 @@ So verwendest du die Workflow-Prompts in Copilot Chat:
 
 GitHub Copilot in VS Code liest zwei Dateitypen automatisch:
 
-- **`.github/copilot-instructions.md`** — Instructions auf Repository-Ebene, die in jede Copilot-Chat-Anfrage injiziert werden. Enthält ECCs Kern-Coding-Standards, Sicherheits-Checkliste, Testanforderungen und Git-Workflow.
-- **`.github/prompts/*.prompt.md`** — wiederverwendbare Prompt-Dateien, die Nutzer bei Bedarf aufrufen. Jeder Prompt führt Copilot durch einen bestimmten ECC-Workflow wie Planung, TDD, Security-Review, Build-Fix oder Refactor.
+- **`.github/copilot-instructions.md`** - Instructions auf Repository-Ebene, die in jede Copilot-Chat-Anfrage injiziert werden. Enthält ECCs Kern-Coding-Standards, Sicherheits-Checkliste, Testanforderungen und Git-Workflow.
+- **`.github/prompts/*.prompt.md`** - wiederverwendbare Prompt-Dateien, die Nutzer bei Bedarf aufrufen. Jeder Prompt führt Copilot durch einen bestimmten ECC-Workflow wie Planung, TDD, Security-Review, Build-Fix oder Refactor.
 
 Die **`.vscode/settings.json`** fügt aufgabenspezifische Instruction-Overlays hinzu, sodass Copilot für Codegenerierung, Testgenerierung und Commit-Nachrichten den richtigen Kontext erhält.
 
@@ -1576,7 +1576,7 @@ Die **`.vscode/settings.json`** fügt aufgabenspezifische Instruction-Overlays h
 
 ### Einschränkungen
 
-GitHub Copilot hat kein Hook-System und keine Subagent-API, daher sind ECCs Hook-Automatisierungen (Auto-Formatierung, TypeScript-Prüfung, Session-Persistenz, Dev-Server-Guard) sowie die Agent-Delegation nicht verfügbar. Die Instruction- und Prompt-Schicht bringt dennoch die vollständige ECC-Coding-Philosophie — Standards, Sicherheit, TDD und Workflow — in jede Copilot-Chat-Session.
+GitHub Copilot hat kein Hook-System und keine Subagent-API, daher sind ECCs Hook-Automatisierungen (Auto-Formatierung, TypeScript-Prüfung, Session-Persistenz, Dev-Server-Guard) sowie die Agent-Delegation nicht verfügbar. Die Instruction- und Prompt-Schicht bringt dennoch die vollständige ECC-Coding-Philosophie - Standards, Sicherheit, TDD und Workflow - in jede Copilot-Chat-Session.
 
 ---
 
@@ -1601,7 +1601,7 @@ ECC ist das **erste Plugin, das jedes große KI-Coding-Tool ausreizt**. So vergl
 | **Version** | Plugin | Plugin | Referenzkonfiguration | 2.0.0-rc.1 | Instruction-Schicht |
 
 **Wesentliche architektonische Entscheidungen:**
-- **AGENTS.md** im Root ist die universelle Cross-Tool-Datei (gelesen von Claude Code, Cursor, Codex und OpenCode — GitHub Copilot verwendet stattdessen `.github/copilot-instructions.md`)
+- **AGENTS.md** im Root ist die universelle Cross-Tool-Datei (gelesen von Claude Code, Cursor, Codex und OpenCode - GitHub Copilot verwendet stattdessen `.github/copilot-instructions.md`)
 - Das **DRY-Adapter-Muster** lässt Cursor die Hook-Skripte von Claude Code ohne Duplizierung wiederverwenden
 - Das **Skills-Format** (SKILL.md mit YAML-Frontmatter) funktioniert über Claude Code, Codex und OpenCode hinweg
 - Codex' fehlende Hooks werden durch `AGENTS.md`, optionale `model_instructions_file`-Overrides und Sandbox-Berechtigungen kompensiert
@@ -1610,7 +1610,7 @@ ECC ist das **erste Plugin, das jedes große KI-Coding-Tool ausreizt**. So vergl
 
 ## Hintergrund
 
-Ich nutze Claude Code seit dem experimentellen Rollout. Habe im September 2025 den Anthropic-x-Forum-Ventures-Hackathon mit [@DRodriguezFX](https://x.com/DRodriguezFX) gewonnen — [zenith.chat](https://zenith.chat) wurde vollständig mit Claude Code gebaut.
+Ich nutze Claude Code seit dem experimentellen Rollout. Habe im September 2025 den Anthropic-x-Forum-Ventures-Hackathon mit [@DRodriguezFX](https://x.com/DRodriguezFX) gewonnen - [zenith.chat](https://zenith.chat) wurde vollständig mit Claude Code gebaut.
 
 Diese Konfigurationen sind über mehrere produktive Anwendungen hinweg im Praxiseinsatz erprobt.
 
@@ -1638,7 +1638,7 @@ Füge zu `~/.claude/settings.json` hinzu:
 |---------|---------|-------------|--------|
 | `model` | opus | **sonnet** | ~60 % Kostensenkung; bewältigt 80 %+ der Coding-Aufgaben |
 | `MAX_THINKING_TOKENS` | 31.999 | **10.000** | ~70 % Reduktion der versteckten Thinking-Kosten pro Anfrage |
-| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | Kompaktiert früher — bessere Qualität in langen Sessions |
+| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | Kompaktiert früher - bessere Qualität in langen Sessions |
 | `ECC_CONTEXT_MONITOR_COST_WARNINGS` | on | **off für Abonnement-Nutzer** | Unterdrückt agentenseitige API-Rate-Schätzwarnungen, behält aber Kontext-/Scope-/Loop-Warnungen |
 
 Wechsle nur dann zu Opus, wenn du tiefes architektonisches Schlussfolgern brauchst:
@@ -1724,7 +1724,7 @@ Projekte, die auf ECC aufbauen oder davon inspiriert sind:
 
 | Projekt | Beschreibung |
 |---------|-------------|
-| [EVC](https://github.com/SaigonXIII/evc) | Marketing-Agent-Workspace — 42 Commands für Content-Operatoren, Brand-Governance und Multi-Channel-Publishing. [Visuelle Übersicht](https://saigonxiii.github.io/evc). |
+| [EVC](https://github.com/SaigonXIII/evc) | Marketing-Agent-Workspace - 42 Commands für Content-Operatoren, Brand-Governance und Multi-Channel-Publishing. [Visuelle Übersicht](https://saigonxiii.github.io/evc). |
 | [trading-skills](https://github.com/VictorVVedtion/trading-skills) | 68 trading-thematische Claude-Code-Skills mit Pre-Trade-Review-Prompts und Risiko-Gates, inspiriert von Marktteilnehmern. |
 
 Etwas mit ECC gebaut? Öffne einen PR, um es hier hinzuzufügen.

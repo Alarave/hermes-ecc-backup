@@ -17,16 +17,16 @@ code review requests, or implementation requests whose acceptance conditions are
 
 ## How It Works
 
-1. **Inspect context first** — reads the repository, docs, schemas, and test infrastructure for technical facts before asking any question, while treating product/business constraints as something only the user or a product artifact can supply
-2. **Choose depth** — selects Quick Capture (3-7 criteria, low/moderate risk) or Full Acceptance Brief (security, data, migration, cross-system changes) based on the risk profile
-3. **Ask minimally** — only asks questions whose answers cannot be inferred and that materially change scope or behavior
-4. **Write observable criteria** — each AC-NNN describes a starting condition, trigger, expected outcome, prohibited side effect, verification method, and priority; no vague words like "correctly" or "securely" without evidence
-5. **Proceed or hand off** — for clear requests with no blocking risks, records criteria and continues; for risky changes, presents blockers and waits for confirmation
-6. **Handle revision** — if an AC fails mid-implementation due to architectural constraints, marks it `[revised]`, updates scope or verification method, increments the revision number, and re-presents only the changed criteria
+1. **Inspect context first** - reads the repository, docs, schemas, and test infrastructure for technical facts before asking any question, while treating product/business constraints as something only the user or a product artifact can supply
+2. **Choose depth** - selects Quick Capture (3-7 criteria, low/moderate risk) or Full Acceptance Brief (security, data, migration, cross-system changes) based on the risk profile
+3. **Ask minimally** - only asks questions whose answers cannot be inferred and that materially change scope or behavior
+4. **Write observable criteria** - each AC-NNN describes a starting condition, trigger, expected outcome, prohibited side effect, verification method, and priority; no vague words like "correctly" or "securely" without evidence
+5. **Proceed or hand off** - for clear requests with no blocking risks, records criteria and continues; for risky changes, presents blockers and waits for confirmation
+6. **Handle revision** - if an AC fails mid-implementation due to architectural constraints, marks it `[revised]`, updates scope or verification method, increments the revision number, and re-presents only the changed criteria
 
 ## Examples
 
-**Quick Capture — "Add CSV export to the dashboard"**
+**Quick Capture - "Add CSV export to the dashboard"**
 
 ```
 Goal: Authenticated users can download dashboard data as a CSV file.
@@ -43,12 +43,12 @@ AC-001: Export generates file with correct headers
 - Priority: Required
 ```
 
-**Full Acceptance Brief trigger — "Migrate user auth to OAuth"**
+**Full Acceptance Brief trigger - "Migrate user auth to OAuth"**
 
 Auth change + external dependency + existing session data → Full Brief with Risk Review table,
 blocking decisions on session invalidation strategy, and explicit rollback AC.
 
-**Existing spec review — user pastes a PRD**
+**Existing spec review - user pastes a PRD**
 
 Skill reviews it for missing scope boundaries, unverifiable requirements ("the system shall be fast"),
 and silent assumptions, then returns corrected or supplemental criteria without restarting discovery.
@@ -148,7 +148,7 @@ When local or connected artifacts are available, inspect only what is needed:
 Record discovered facts separately from user-provided assumptions. If context cannot be
 inspected, say what is unknown and ask focused questions.
 
-The repository reveals technical facts — how the system behaves today, its conventions, and
+The repository reveals technical facts - how the system behaves today, its conventions, and
 its contracts. It does not reveal product or business constraints: business rules, compliance
 and regulatory obligations, contractual SLAs, pricing, data-retention policy, prioritization,
 and target users. Never reconstruct these from code or naming. Capture them only from the user
@@ -226,7 +226,7 @@ Use this template for a Full Acceptance Brief. Omit irrelevant sections for Quic
 
 | Rev | Date | Changed criteria | Reason |
 | --- | --- | --- | --- |
-| 1 | <date> | — | Initial draft |
+| 1 | <date> | - | Initial draft |
 
 ## Goal
 
@@ -246,7 +246,7 @@ Use this template for a Full Acceptance Brief. Omit irrelevant sections for Quic
 - <how the system behaves today, conventions, contracts>
 
 **Product/business constraints** (supplied by user or product artifact, never inferred from code)
-- <business rule, compliance/SLA obligation, retention policy, priority, target user — or "none supplied yet">
+- <business rule, compliance/SLA obligation, retention policy, priority, target user - or "none supplied yet">
 
 **Assumptions**
 - <unverified claim to confirm or validate>
@@ -296,7 +296,7 @@ Use these to judge whether the skill actually produced a verifiable brief, not p
 AC-001: The export works correctly and is secure.
 ```
 
-Fails — "works correctly" and "secure" are not observable, there is no scenario, trigger,
+Fails - "works correctly" and "secure" are not observable, there is no scenario, trigger,
 expected result, or verification method, and nothing states what must not happen. A reader
 cannot tell whether the implementation satisfied it.
 
@@ -312,7 +312,7 @@ AC-001: Export generates file with correct headers
 - Priority: Required
 ```
 
-Passes — a concrete observable outcome, a prohibited side effect, and a named verification
+Passes - a concrete observable outcome, a prohibited side effect, and a named verification
 method. Two people would agree on whether it was met.
 
 **A failing context entry**
@@ -321,7 +321,7 @@ method. Two people would agree on whether it was met.
 Discovered facts: Users on the free tier are limited to 100 exports per month.
 ```
 
-Fails — a per-tier limit is a business rule. It must not appear under discovered facts inferred
+Fails - a per-tier limit is a business rule. It must not appear under discovered facts inferred
 from code; it belongs under Product/business constraints, supplied by the user, or be listed as
 an assumption to confirm.
 

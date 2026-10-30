@@ -1,7 +1,7 @@
 # Homelab Pi-hole DNS
 
 Pi-hole is a network-wide DNS ad blocker that runs on a Raspberry Pi or any Linux host.
-Every device on your network gets ad and malware domain blocking automatically — no browser
+Every device on your network gets ad and malware domain blocking automatically - no browser
 extension needed.
 
 ## When to Use
@@ -25,7 +25,7 @@ With Pi-hole:
 
 All DNS queries go through Pi-hole first.
 Pi-hole checks against blocklists.
-Blocked domains return a null response — the ad/tracker never loads.
+Blocked domains return a null response - the ad/tracker never loads.
 Allowed domains get forwarded to your upstream resolver (Cloudflare, Google, etc.).
 ```
 
@@ -64,7 +64,7 @@ Avoid `latest` for long-lived DNS infrastructure so upgrades are deliberate and
 reviewable.
 
 Set `PIHOLE_WEBPASSWORD` in a `.env` file next to `docker-compose.yml`, chmod it to
-`600`, and keep it out of git — do not put the password directly in the compose file.
+`600`, and keep it out of git - do not put the password directly in the compose file.
 
 Access web admin at: `http://<pi-ip>/admin`
 
@@ -90,8 +90,8 @@ less pi-hole-install.sh   # review before proceeding
 bash pi-hole-install.sh
 
 # Follow the interactive installer:
-# 1. Select network interface (eth0 for wired — recommended)
-# 2. Select upstream DNS (Cloudflare or leave default — can change later)
+# 1. Select network interface (eth0 for wired - recommended)
+# 2. Select upstream DNS (Cloudflare or leave default - can change later)
 # 3. Confirm static IP
 # 4. Install the web admin interface (recommended)
 # 5. Note the admin password shown at the end
@@ -117,7 +117,7 @@ bash pi-hole-install.sh
 
 # Method 3: Pi-hole as DHCP server (replaces router DHCP)
   Pi-hole admin → Settings → DHCP → Enable
-  Disable DHCP on your router first — two DHCP servers on the same network cause conflicts
+  Disable DHCP on your router first - two DHCP servers on the same network cause conflicts
   Advantage: hostname resolution works automatically (devices register their names)
 ```
 
@@ -128,7 +128,7 @@ bash pi-hole-install.sh
 
 # Recommended blocklists:
   https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-  # default — 200k+ domains
+  # default - 200k+ domains
 
   https://blocklistproject.github.io/Lists/malware.txt
   # malware domains
@@ -187,7 +187,7 @@ sudo systemctl enable cloudflared
 Make your services reachable by name (e.g. `nas.home.lan`, `grafana.home.lan`).
 
 > **Domain name note:** `.home.lan` is widely used in homelabs and works in practice.
-> The IETF-reserved suffix for local use is `.home.arpa` (RFC 8375) — use that to
+> The IETF-reserved suffix for local use is `.home.arpa` (RFC 8375) - use that to
 > follow the standard. Avoid `.local` for Pi-hole DNS records as it conflicts with
 > mDNS/Bonjour.
 
@@ -248,7 +248,7 @@ pihole -g
 # GOOD: Disable router DHCP, then enable Pi-hole DHCP
 
 # BAD: Never updating gravity (blocklists)
-# New ad and malware domains accumulate — stale lists miss them
+# New ad and malware domains accumulate - stale lists miss them
 # GOOD: Schedule weekly gravity update: pihole -g (or enable in Settings → API)
 ```
 
@@ -259,7 +259,7 @@ pihole -g
   public resolver if you need strict blocking
 - Enable DoH (DNS-over-HTTPS) with cloudflared for encrypted upstream queries
 - Set `home.lan` as your local domain and create DNS records for all your services
-- Review the Query Log occasionally — blocked queries show you what devices are doing
+- Review the Query Log occasionally - blocked queries show you what devices are doing
 
 ## Related Skills
 

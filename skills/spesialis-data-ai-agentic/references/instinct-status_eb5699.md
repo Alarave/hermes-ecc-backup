@@ -6,7 +6,7 @@ Shows learned instincts for the current project plus global instincts, grouped b
 
 Run the instinct CLI, resolving the active ECC plugin root the same way
 `hooks/hooks.json` and the other slash commands (`/sessions`, `/skill-health`)
-do — env var → standard install → known plugin roots → plugin cache → fallback.
+do - env var → standard install → known plugin roots → plugin cache → fallback.
 This avoids the divergence that happens when `CLAUDE_PLUGIN_ROOT` is unset
 while a legacy `~/.claude/skills/continuous-learning-v2/` directory still
 exists (#2037).

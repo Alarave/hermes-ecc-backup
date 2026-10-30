@@ -1,6 +1,6 @@
 # simplify-ignore hook
 
-Block-level protection for `/code-simplify`. Mark code that should never be simplified — the model won't see it.
+Block-level protection for `/code-simplify`. Mark code that should never be simplified - the model won't see it.
 
 ## Setup
 
@@ -8,7 +8,7 @@ Block-level protection for `/code-simplify`. Mark code that should never be simp
 
 ```js
 /* simplify-ignore-start: perf-critical */
-// manually unrolled XOR — 3x faster than a loop
+// manually unrolled XOR - 3x faster than a loop
 result[0] = buf[0] ^ key[0];
 result[1] = buf[1] ^ key[1];
 result[2] = buf[2] ^ key[2];
@@ -42,7 +42,7 @@ result[3] = buf[3] ^ key[3];
 }
 ```
 
-3. Run `/code-simplify` — protected blocks become `/* BLOCK_de115a1d: perf-critical */` placeholders. The model reasons about surrounding code without seeing the protected implementation.
+3. Run `/code-simplify` - protected blocks become `/* BLOCK_de115a1d: perf-critical */` placeholders. The model reasons about surrounding code without seeing the protected implementation.
 
 > **Note:** The hook stores temporary backups in `.claude/.simplify-ignore-cache/`. Make sure this path is in your `.gitignore`.
 
@@ -61,8 +61,8 @@ Each block is content-hashed (8 hex chars via `shasum`/`sha1sum`) so the round-t
 ## Annotation syntax
 
 ```js
-/* simplify-ignore-start */           // basic — hides the block
-/* simplify-ignore-start: reason */   // with reason — appears in placeholder
+/* simplify-ignore-start */           // basic - hides the block
+/* simplify-ignore-start: reason */   // with reason - appears in placeholder
 /* simplify-ignore-end */
 ```
 
@@ -83,7 +83,7 @@ Backups are stored in `.claude/.simplify-ignore-cache/` within your project dire
 - **Single-line blocks hide the entire line.** If `simplify-ignore-start` and `simplify-ignore-end` appear on the same line as other code, the whole line is hidden from the model, not just the annotated portion. Use dedicated lines for annotations.
 - **Comment suffix detection covers `*/` and `-->` only.** Template engines with non-standard comment closers (ERB `%>`, Blade `--}}`) may produce unbalanced placeholders. Use `#` or `//` style comments instead.
 - **Fallback expansion is progressive, not exact.** If the model alters a placeholder's formatting (e.g. changes the reason text), the hook tries progressively simpler matches: full placeholder → prefix+hash+suffix → hash-only. The hash-only fallback may leave cosmetic debris (e.g. stray `:` or reason text). A warning is printed to stderr when this happens.
-- **A wholesale rewrite falls back to the backup.** If something replaces a filtered file's entire contents and removes every `BLOCK_<hash>` placeholder, the hook can no longer tell where the protected block belongs. At `Stop` it restores the backup and prints a warning; the rewrite is not lost but is kept in the cache as `.claude/.simplify-ignore-cache/<id>.recovered`, whose path the warning prints, and you merge it back by hand. Changes that leave the placeholders in place — a `Bash` edit, a formatter, an external editor — are kept in the file itself.
+- **A wholesale rewrite falls back to the backup.** If something replaces a filtered file's entire contents and removes every `BLOCK_<hash>` placeholder, the hook can no longer tell where the protected block belongs. At `Stop` it restores the backup and prints a warning; the rewrite is not lost but is kept in the cache as `.claude/.simplify-ignore-cache/<id>.recovered`, whose path the warning prints, and you merge it back by hand. Changes that leave the placeholders in place - a `Bash` edit, a formatter, an external editor - are kept in the file itself.
 - **File renaming leaves placeholders.** If the model renames or moves a file via a shell command, the new file will retain `BLOCK_<hash>` placeholders. The original code is saved as `<old-filename>.recovered` when the session stops. You must manually restore the recovered code into the new file.
 
 ## Requirements

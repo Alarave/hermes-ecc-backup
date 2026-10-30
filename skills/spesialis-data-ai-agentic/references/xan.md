@@ -10,8 +10,8 @@ Use this skill when tabular work involves large CSV-like files and shell-oriente
 
 ## Boundaries
 
-- Not for workbook semantics (`.xlsx` formula/layout preservation) — use `xlsx` or `excel-analysis`.
-- Not for ML model training pipelines — use `data-ml` skills.
+- Not for workbook semantics (`.xlsx` formula/layout preservation) - use `xlsx` or `excel-analysis`.
+- Not for ML model training pipelines - use `data-ml` skills.
 - This skill is a thin CLI wrapper; it does not implement custom parsing logic itself.
 
 ## Script

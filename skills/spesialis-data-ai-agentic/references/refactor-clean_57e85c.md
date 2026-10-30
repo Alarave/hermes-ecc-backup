@@ -31,11 +31,11 @@ Ordenar los hallazgos en niveles de seguridad:
 
 Para cada elemento SEGURO:
 
-1. **Ejecutar la suite de pruebas completa** — Establecer línea base (todo verde)
-2. **Eliminar el código muerto** — Usar la herramienta Edit para eliminación quirúrgica
-3. **Re-ejecutar la suite de pruebas** — Verificar que nada se rompió
-4. **Si las pruebas fallan** — Revertir inmediatamente con `git checkout -- <archivo>` y omitir este elemento
-5. **Si las pruebas pasan** — Continuar con el siguiente elemento
+1. **Ejecutar la suite de pruebas completa** - Establecer línea base (todo verde)
+2. **Eliminar el código muerto** - Usar la herramienta Edit para eliminación quirúrgica
+3. **Re-ejecutar la suite de pruebas** - Verificar que nada se rompió
+4. **Si las pruebas fallan** - Revertir inmediatamente con `git checkout -- <archivo>` y omitir este elemento
+5. **Si las pruebas pasan** - Continuar con el siguiente elemento
 
 ## Paso 4: Manejar Elementos de PRECAUCIÓN
 
@@ -48,10 +48,10 @@ Antes de eliminar elementos de PRECAUCIÓN:
 ## Paso 5: Consolidar Duplicados
 
 Después de eliminar código muerto, buscar:
-- Funciones casi duplicadas (>80% similares) — fusionar en una
-- Definiciones de tipo redundantes — consolidar
-- Funciones wrapper que no añaden valor — inline
-- Re-exports que no tienen propósito — eliminar la indirección
+- Funciones casi duplicadas (>80% similares) - fusionar en una
+- Definiciones de tipo redundantes - consolidar
+- Funciones wrapper que no añaden valor - inline
+- Re-exports que no tienen propósito - eliminar la indirección
 
 ## Paso 6: Resumen
 
@@ -72,6 +72,6 @@ Todas las pruebas pasando ✓
 ## Reglas
 
 - **Nunca eliminar sin ejecutar las pruebas primero**
-- **Una eliminación a la vez** — Los cambios atómicos facilitan el rollback
-- **Omitir si hay incertidumbre** — Mejor conservar código muerto que romper producción
-- **No refactorizar mientras se limpia** — Separar las preocupaciones (limpiar primero, refactorizar después)
+- **Una eliminación a la vez** - Los cambios atómicos facilitan el rollback
+- **Omitir si hay incertidumbre** - Mejor conservar código muerto que romper producción
+- **No refactorizar mientras se limpia** - Separar las preocupaciones (limpiar primero, refactorizar después)

@@ -1,6 +1,6 @@
 # Vue Code Review
 
-This command invokes the **vue-reviewer** agent for Vue-specific code review. For pull requests touching `.vue` files or Vue-containing `.ts`/`.js` files, both `vue-reviewer` and `typescript-reviewer` should run — each owns a distinct lane.
+This command invokes the **vue-reviewer** agent for Vue-specific code review. For pull requests touching `.vue` files or Vue-containing `.ts`/`.js` files, both `vue-reviewer` and `typescript-reviewer` should run - each owns a distinct lane.
 
 ## What This Command Does
 
@@ -29,7 +29,7 @@ For pure `.ts`/`.js` changes with no Vue imports, use `/code-review` (general) o
 | Tool | Scope |
 |---|---|
 | `vue-reviewer` (this command) | Reactivity, composables, template security, a11y, Vue performance, Pinia/Router |
-| `typescript-reviewer` | Generic TS/JS — `any` abuse, async correctness, Node security |
+| `typescript-reviewer` | Generic TS/JS - `any` abuse, async correctness, Node security |
 | `security-reviewer` | Project-wide security audit |
 | `/code-review` | Generic uncommitted-changes or PR review |
 

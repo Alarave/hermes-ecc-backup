@@ -4,7 +4,7 @@ Pyzotero is a Python wrapper for the [Zotero API v3](https://www.zotero.org/supp
 
 ## Authentication Setup
 
-**Required credentials** — get from https://www.zotero.org/settings/keys:
+**Required credentials** - get from https://www.zotero.org/settings/keys:
 - **User ID**: shown as "Your userID for use in API calls"
 - **API Key**: create at https://www.zotero.org/settings/keys/new
 - **Library ID**: for group libraries, the integer after `/groups/` in the group URL

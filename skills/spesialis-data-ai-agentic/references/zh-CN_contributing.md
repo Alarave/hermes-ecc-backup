@@ -368,8 +368,8 @@ description: 在 /help 中显示的简要描述
 
 ECC 为其他平台提供了技能子集：
 
-* **Codex:** `.agents/skills/` — `agents/openai.yaml` 中列出的技能会被 Codex 加载。
-* **Cursor:** `.cursor/skills/` — 为 Cursor 打包了一个技能子集。
+* **Codex:** `.agents/skills/` - `agents/openai.yaml` 中列出的技能会被 Codex 加载。
+* **Cursor:** `.cursor/skills/` - 为 Cursor 打包了一个技能子集。
 
 当您**添加一个新技能**，并且希望它在 Codex 或 Cursor 上可用时：
 

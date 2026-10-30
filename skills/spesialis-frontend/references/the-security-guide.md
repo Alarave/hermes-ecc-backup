@@ -24,7 +24,7 @@ E.g., my agent is connected via a gateway layer to WhatsApp. An adversary knows 
 
 Even this Good Rudi jailbreak clips people laugh at (its funny ngl) point at the same class of problem: repeated attempts, eventually a sensitive reveal, humorous on the surface but the underlying failure is serious - I mean the thing is meant for kids after all, extrapolate a bit from this and you'll quickly come to the conclusion on why this could be catastrophic. The same pattern goes a lot further when the model is attached to real tools and real permissions.
 
-[Video: Bad Rudi Exploit](./assets/images/security/badrudi-exploit.mp4) — good rudi (grok animated AI character for children) gets exploited with a prompt jailbreak after repeated attempts in order to reveal sensitive information. its a humorous example but nonetheless the possibilities go a lot further.
+[Video: Bad Rudi Exploit](./assets/images/security/badrudi-exploit.mp4) - good rudi (grok animated AI character for children) gets exploited with a prompt jailbreak after repeated attempts in order to reveal sensitive information. its a humorous example but nonetheless the possibilities go a lot further.
 
 WhatsApp is just one example. Email attachments are a massive vector. An attacker sends a PDF with an embedded prompt; your agent reads the attachment as part of the job, and now text that should have stayed helpful data has become malicious instruction. Screenshots and scans are just as bad if you are doing OCR on them. Anthropic's own prompt injection work explicitly calls out hidden text and manipulated images as real attack material.
 
@@ -195,7 +195,7 @@ If a workflow only needs to read a repo and run tests, do not let it read your h
 
 Everything an LLM reads is executable context. There is no meaningful distinction between "data" and "instructions" once text enters the context window. Sanitization is not cosmetic; it is part of the runtime boundary.
 
-![LGTM comparison — The file looks clean to a human. The model still sees the hidden instructions](./assets/images/security/sanitization.png)
+![LGTM comparison - The file looks clean to a human. The model still sees the hidden instructions](./assets/images/security/sanitization.png)
 
 ### Hidden Unicode and Comment Payloads
 
@@ -311,7 +311,7 @@ Know the difference between graceful and hard kills. `SIGTERM` gives the process
 
 Also, kill the process group, not just the parent. If you only kill the parent, the children can keep running. (this is also why sometimes you take a look at your ghostty tab in the morning to see somehow you consumed 100GB of RAM and the process is paused when you've only got 64GB on your computer, a bunch of children processes running wild when you thought they were shut down)
 
-![woke up to ts one day — guess what the culprit was](./assets/images/security/ghostyy-overflow.jpeg)
+![woke up to ts one day - guess what the culprit was](./assets/images/security/ghostyy-overflow.jpeg)
 
 Node example:
 

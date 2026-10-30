@@ -1,4 +1,4 @@
-# Go Microservice — 프로젝트 CLAUDE.md
+# Go Microservice - 프로젝트 CLAUDE.md
 
 > PostgreSQL, gRPC, Docker를 사용하는 Go 마이크로서비스의 실전 예시입니다.
 > 프로젝트 루트에 복사하여 서비스에 맞게 커스터마이즈하세요.
@@ -14,33 +14,33 @@
 ### Go 규칙
 
 - Effective Go와 Go Code Review Comments 가이드를 따를 것
-- 오류 래핑에 `errors.New` / `fmt.Errorf`와 `%w` 사용 — 오류를 문자열 매칭하지 않기
-- `init()` 함수 사용 금지 — `main()`이나 생성자에서 명시적으로 초기화
-- 전역 가변 상태 금지 — 생성자를 통해 의존성 전달
+- 오류 래핑에 `errors.New` / `fmt.Errorf`와 `%w` 사용 - 오류를 문자열 매칭하지 않기
+- `init()` 함수 사용 금지 - `main()`이나 생성자에서 명시적으로 초기화
+- 전역 가변 상태 금지 - 생성자를 통해 의존성 전달
 - Context는 반드시 첫 번째 매개변수이며 모든 레이어를 통해 전파
 
 ### 데이터베이스
 
-- 모든 쿼리는 `queries/`에 순수 SQL로 작성 — sqlc가 타입 안전한 Go 코드를 생성
-- 마이그레이션은 `migrations/`에 golang-migrate 사용 — 데이터베이스를 직접 변경하지 않기
+- 모든 쿼리는 `queries/`에 순수 SQL로 작성 - sqlc가 타입 안전한 Go 코드를 생성
+- 마이그레이션은 `migrations/`에 golang-migrate 사용 - 데이터베이스를 직접 변경하지 않기
 - 다중 단계 작업에는 `pgx.Tx`를 통한 트랜잭션 사용
-- 모든 쿼리에 parameterized placeholder (`$1`, `$2`) 사용 — 문자열 포매팅 사용 금지
+- 모든 쿼리에 parameterized placeholder (`$1`, `$2`) 사용 - 문자열 포매팅 사용 금지
 
 ### 오류 처리
 
-- 오류를 반환하고, panic하지 않기 — panic은 진정으로 복구 불가능한 상황에만 사용
+- 오류를 반환하고, panic하지 않기 - panic은 진정으로 복구 불가능한 상황에만 사용
 - 컨텍스트와 함께 오류 래핑: `fmt.Errorf("creating user: %w", err)`
 - 비즈니스 로직을 위한 sentinel 오류는 `domain/errors.go`에 정의
 - handler 레이어에서 도메인 오류를 gRPC status 코드로 매핑
 
 ```go
-// 도메인 레이어 — sentinel 오류
+// 도메인 레이어 - sentinel 오류
 var (
     ErrUserNotFound  = errors.New("user not found")
     ErrEmailTaken    = errors.New("email already registered")
 )
 
-// Handler 레이어 — gRPC status로 매핑
+// Handler 레이어 - gRPC status로 매핑
 func toGRPCError(err error) error {
     switch {
     case errors.Is(err, domain.ErrUserNotFound):
@@ -57,7 +57,7 @@ func toGRPCError(err error) error {
 
 - 코드나 주석에 이모지 사용 금지
 - 외부로 공개되는 타입과 함수에는 반드시 doc 주석 작성
-- 함수는 50줄 이하로 유지 — 헬퍼 함수로 분리
+- 함수는 50줄 이하로 유지 - 헬퍼 함수로 분리
 - 여러 케이스가 있는 모든 로직에 table-driven 테스트 사용
 - signal 채널에는 `bool`이 아닌 `struct{}` 사용
 

@@ -25,7 +25,7 @@ prove -lr -j8 t/         # recursive, 8 parallel jobs
 
 ## 覆盖率
 
-使用 **Devel::Cover** —— 目标覆盖率 80%+：
+使用 **Devel::Cover** -- 目标覆盖率 80%+：
 
 ```bash
 cover -test
@@ -33,8 +33,8 @@ cover -test
 
 ## 模拟
 
-* **Test::MockModule** —— 模拟现有模块上的方法
-* **Test::MockObject** —— 从头创建测试替身
+* **Test::MockModule** -- 模拟现有模块上的方法
+* **Test::MockObject** -- 从头创建测试替身
 
 ## 常见陷阱
 

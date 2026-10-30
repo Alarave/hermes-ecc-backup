@@ -133,16 +133,16 @@ Angular ツール作成で作業するときは、次のリファレンスを参
 
 ## アンチパターン
 
-- シグナル フォーム フィールド値として `null` または `undefined` を使用する — 代わりに `''`、`0`、または `[]` を使用してください。
-- フィールドを呼び出さずにフォーム フィールド状態フラグにアクセスする：`form.field.valid()` — 代わりに `form.field().valid()` を使用してください。
+- シグナル フォーム フィールド値として `null` または `undefined` を使用する - 代わりに `''`、`0`、または `[]` を使用してください。
+- フィールドを呼び出さずにフォーム フィールド状態フラグにアクセスする：`form.field.valid()` - 代わりに `form.field().valid()` を使用してください。
 - 対象の Angular バージョンがシグナル フォームをサポートしているときに古いフォーム API で新しいフォームを開始する。
-- `[formField]` 入力に `min`、`max`、`value`、`disabled`、または `readonly` HTML アトリビュートを設定する — 代わりにこれらをスキーマ ルールとして定義してください。
-- 注入コンテキストの外で `inject()` を呼び出す — 必要な場合は `runInInjectionContext` を使用してください。
-- 派生状態に `effect()` を使用する — 代わりに `computed()` を使用してください。
-- ネストされた `@for` ループで `$parent.$index` を参照する — Angular は `$parent` をサポートしていません。代わりに `let outerIdx = $index` を使用してください。
+- `[formField]` 入力に `min`、`max`、`value`、`disabled`、または `readonly` HTML アトリビュートを設定する - 代わりにこれらをスキーマ ルールとして定義してください。
+- 注入コンテキストの外で `inject()` を呼び出す - 必要な場合は `runInInjectionContext` を使用してください。
+- 派生状態に `effect()` を使用する - 代わりに `computed()` を使用してください。
+- ネストされた `@for` ループで `$parent.$index` を参照する - Angular は `$parent` をサポートしていません。代わりに `let outerIdx = $index` を使用してください。
 
 ## 関連スキル
 
-- `tdd-workflow` — Angular コンポーネントおよびサービスに適用可能なテスト駆動開発ワークフロー。
-- `security-review` — Angular 固有の懸念を含む Web アプリケーションのセキュリティ チェックリスト。
-- `frontend-patterns` — React/Next.js アプローチのコンテキスト用の一般的なフロントエンド パターン。
+- `tdd-workflow` - Angular コンポーネントおよびサービスに適用可能なテスト駆動開発ワークフロー。
+- `security-review` - Angular 固有の懸念を含む Web アプリケーションのセキュリティ チェックリスト。
+- `frontend-patterns` - React/Next.js アプローチのコンテキスト用の一般的なフロントエンド パターン。

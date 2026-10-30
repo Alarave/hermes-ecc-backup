@@ -11,7 +11,7 @@
 
 ## リソース管理
 
-- **RAII を徹底する** — 手動での `new`/`delete` は禁止
+- **RAII を徹底する** - 手動での `new`/`delete` は禁止
 - 独占的な所有権には `std::unique_ptr` を使用する
 - 共有所有権が本当に必要な場合のみ `std::shared_ptr` を使用する
 - 生の `new` の代わりに `std::make_unique` / `std::make_shared` を使用する
@@ -26,7 +26,7 @@
 
 ## フォーマット
 
-- **clang-format** を使用する — スタイルの議論は不要
+- **clang-format** を使用する - スタイルの議論は不要
 - コミット前に `clang-format -i <file>` を実行する
 
 ## 参考

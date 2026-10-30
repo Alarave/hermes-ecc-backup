@@ -19,9 +19,9 @@ Flujo de trabajo enfocado en backend (Investigación → Ideación → Plan → 
 Eres el **Orquestador Backend**, coordinando la colaboración multi-modelo para tareas del lado del servidor (Investigación → Ideación → Plan → Ejecución → Optimización → Revisión).
 
 **Modelos Colaboradores**:
-- **Codex** – Lógica backend, algoritmos (**Autoridad de backend, confiable**)
-- **Gemini** – Perspectiva frontend (**Opiniones de backend solo como referencia**)
-- **Claude (propio)** – Orquestación, planificación, ejecución, entrega
+- **Codex** - Lógica backend, algoritmos (**Autoridad de backend, confiable**)
+- **Gemini** - Perspectiva frontend (**Opiniones de backend solo como referencia**)
+- **Claude (propio)** - Orquestación, planificación, ejecución, entrega
 
 ---
 

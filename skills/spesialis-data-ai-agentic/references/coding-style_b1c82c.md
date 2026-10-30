@@ -9,7 +9,7 @@
 
 ## 不可变性
 
-* 优先使用 `val` 而非 `var` — 默认使用 `val`，仅在需要可变性时使用 `var`
+* 优先使用 `val` 而非 `var` - 默认使用 `val`，仅在需要可变性时使用 `var`
 * 对值类型使用 `data class`；在公共 API 中使用不可变集合 (`List`, `Map`, `Set`)
 * 状态更新使用写时复制：`state.copy(field = newValue)`
 
@@ -24,7 +24,7 @@
 
 ## 空安全
 
-* 绝不使用 `!!` — 优先使用 `?.`, `?:`, `requireNotNull()` 或 `checkNotNull()`
+* 绝不使用 `!!` - 优先使用 `?.`, `?:`, `requireNotNull()` 或 `checkNotNull()`
 * 使用 `?.let {}` 进行作用域内的空安全操作
 * 对于确实可能没有结果的函数，返回可为空的类型
 
@@ -49,36 +49,36 @@ sealed interface UiState<out T> {
 }
 ```
 
-对密封类型始终使用详尽的 `when` — 不要使用 `else` 分支。
+对密封类型始终使用详尽的 `when` - 不要使用 `else` 分支。
 
 ## 扩展函数
 
 使用扩展函数实现工具操作，但要确保其可发现性：
 
 * 放在以接收者类型命名的文件中 (`StringExt.kt`, `FlowExt.kt`)
-* 限制作用域 — 不要向 `Any` 或过于泛化的类型添加扩展
+* 限制作用域 - 不要向 `Any` 或过于泛化的类型添加扩展
 
 ## 作用域函数
 
 使用合适的作用域函数：
 
-* `let` — 空检查并转换：`user?.let { greet(it) }`
-* `run` — 使用接收者计算结果：`service.run { fetch(config) }`
-* `apply` — 配置对象：`builder.apply { timeout = 30 }`
-* `also` — 副作用：`result.also { log(it) }`
+* `let` - 空检查并转换：`user?.let { greet(it) }`
+* `run` - 使用接收者计算结果：`service.run { fetch(config) }`
+* `apply` - 配置对象：`builder.apply { timeout = 30 }`
+* `also` - 副作用：`result.also { log(it) }`
 * 避免深度嵌套作用域函数（最多 2 层）
 
 ## 错误处理
 
 * 使用 `Result<T>` 或自定义密封类型
 * 使用 `runCatching {}` 包装可能抛出异常的代码
-* 绝不捕获 `CancellationException` — 始终重新抛出它
+* 绝不捕获 `CancellationException` - 始终重新抛出它
 * 避免使用 `try-catch` 进行控制流
 
 ```kotlin
-// BAD — using exceptions for control flow
+// BAD - using exceptions for control flow
 val user = try { repository.getUser(id) } catch (e: NotFoundException) { null }
 
-// GOOD — nullable return
+// GOOD - nullable return
 val user: User? = repository.findUser(id)
 ```

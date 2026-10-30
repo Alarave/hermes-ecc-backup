@@ -27,7 +27,7 @@ the two hook phases need distinct entries.
 - The settings file is written UTF-8 (no BOM) with CRLF normalized to LF
   so downstream JSON parsers never see mixed line endings.
 - Existing hooks (including legacy `observe.sh` entries and unrelated
-  third-party hooks) are preserved — the script only appends the new
+  third-party hooks) are preserved - the script only appends the new
   wrapper entries when they are not already registered.
 - Idempotent on re-runs: a second invocation recognizes the canonical
   command strings and logs `[SKIP]` instead of duplicating entries.
@@ -62,8 +62,8 @@ objects.
 
 ## Verified cases (dry-run)
 
-1. Fresh install — no existing settings → creates canonical file.
-2. Idempotent re-run — existing canonical file → `[SKIP]` both phases,
+1. Fresh install - no existing settings → creates canonical file.
+2. Idempotent re-run - existing canonical file → `[SKIP]` both phases,
    file contents unchanged apart from the pre-write backup.
 3. Legacy `observe.sh` present → preserves the legacy entries and
    appends the new `observe-wrapper.sh` entries alongside them.
@@ -73,6 +73,6 @@ PR #1524's manual fix to `settings.local.json`.
 
 ## Related
 
-- PR #1524 — settings.local.json shape fix (same argv-dup root cause)
-- PR #1539 — locale-independent `detect-project.sh`
-- PR #1540 — `install_hook_wrapper.ps1` argv-dup fix (companion script)
+- PR #1524 - settings.local.json shape fix (same argv-dup root cause)
+- PR #1539 - locale-independent `detect-project.sh`
+- PR #1540 - `install_hook_wrapper.ps1` argv-dup fix (companion script)

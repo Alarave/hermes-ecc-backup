@@ -34,11 +34,11 @@ Bulguları güvenlik katmanlarına göre sırala:
 
 Her GÜVENLİ öğe için:
 
-1. **Tam test paketini çalıştır** — Baseline oluştur (tümü yeşil)
-2. **Ölü kodu sil** — Cerrahi kaldırma için Edit aracını kullan
-3. **Test paketini yeniden çalıştır** — Hiçbir şeyin bozulmadığını doğrula
-4. **Testler başarısız olursa** — Hemen `git checkout -- <file>` ile geri al ve bu öğeyi atla
-5. **Testler geçerse** — Sonraki öğeye geç
+1. **Tam test paketini çalıştır** - Baseline oluştur (tümü yeşil)
+2. **Ölü kodu sil** - Cerrahi kaldırma için Edit aracını kullan
+3. **Test paketini yeniden çalıştır** - Hiçbir şeyin bozulmadığını doğrula
+4. **Testler başarısız olursa** - Hemen `git checkout -- <file>` ile geri al ve bu öğeyi atla
+5. **Testler geçerse** - Sonraki öğeye geç
 
 ## Adım 4: DİKKAT Öğelerini İdare Et
 
@@ -51,10 +51,10 @@ DİKKAT öğelerini silmeden önce:
 ## Adım 5: Duplikatları Birleştir
 
 Ölü kodu kaldırdıktan sonra şunları ara:
-- Neredeyse aynı fonksiyonlar (%80'den fazla benzer) — birinde birleştir
-- Gereksiz tip tanımları — birleştir
-- Değer eklemeyen wrapper fonksiyonlar — inline yap
-- Amacı olmayan re-export'lar — yönlendirmeyi kaldır
+- Neredeyse aynı fonksiyonlar (%80'den fazla benzer) - birinde birleştir
+- Gereksiz tip tanımları - birleştir
+- Değer eklemeyen wrapper fonksiyonlar - inline yap
+- Amacı olmayan re-export'lar - yönlendirmeyi kaldır
 
 ## Adım 6: Özet
 
@@ -75,6 +75,6 @@ Tüm testler geçiyor PASS:
 ## Kurallar
 
 - **Önce testleri çalıştırmadan asla silmeyin**
-- **Bir seferde bir silme** — Atomik değişiklikler geri almayı kolaylaştırır
-- **Emin değilseniz atlayın** — Üretimi bozmaktansa ölü kodu tutmak daha iyidir
-- **Temizlerken refactor etmeyin** — Endişeleri ayırın (önce temizle, sonra refactor et)
+- **Bir seferde bir silme** - Atomik değişiklikler geri almayı kolaylaştırır
+- **Emin değilseniz atlayın** - Üretimi bozmaktansa ölü kodu tutmak daha iyidir
+- **Temizlerken refactor etmeyin** - Endişeleri ayırın (önce temizle, sonra refactor et)

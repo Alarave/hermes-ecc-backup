@@ -47,7 +47,7 @@ my $content = path('config.json')->slurp_utf8;
 
 ## モジュールインターフェース
 
-`Exporter 'import'` と `@EXPORT_OK` を使用する — `@EXPORT` は使用しない:
+`Exporter 'import'` と `@EXPORT_OK` を使用する - `@EXPORT` は使用しない:
 
 ```perl
 use Exporter 'import';

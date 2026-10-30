@@ -8,11 +8,11 @@
 
 | Command | What it does |
 |---------|-------------|
-| `/plan` | Restate requirements, assess risks, write step-by-step implementation plan — **waits for your confirm before touching code** |
-| `/plan-canvas` | Open a plan or HTML artifact in the browser Plan Canvas — annotate elements, chat with the agent, approve or request changes in place |
+| `/plan` | Restate requirements, assess risks, write step-by-step implementation plan - **waits for your confirm before touching code** |
+| `/plan-canvas` | Open a plan or HTML artifact in the browser Plan Canvas - annotate elements, chat with the agent, approve or request changes in place |
 | `/tdd` | Enforce test-driven development: scaffold interface → write failing test → implement → verify 80%+ coverage |
 | `/code-review` | Full code quality, security, and maintainability review of changed files |
-| `/build-fix` | Detect and fix build errors — delegates to the right build-resolver agent automatically |
+| `/build-fix` | Detect and fix build errors - delegates to the right build-resolver agent automatically |
 | `/verify` | Run the full verification loop: build → lint → test → type-check |
 | `/quality-gate` | Quality gate check against project standards |
 
@@ -37,11 +37,11 @@
 | Command | What it does |
 |---------|-------------|
 | `/code-review` | Universal code review |
-| `/python-review` | Python — PEP 8, type hints, security, idiomatic patterns |
-| `/go-review` | Go — idiomatic patterns, concurrency safety, error handling |
-| `/kotlin-review` | Kotlin — null safety, coroutine safety, clean architecture |
-| `/rust-review` | Rust — ownership, lifetimes, unsafe usage |
-| `/cpp-review` | C++ — memory safety, modern idioms, concurrency |
+| `/python-review` | Python - PEP 8, type hints, security, idiomatic patterns |
+| `/go-review` | Go - idiomatic patterns, concurrency safety, error handling |
+| `/kotlin-review` | Kotlin - null safety, coroutine safety, clean architecture |
+| `/rust-review` | Rust - ownership, lifetimes, unsafe usage |
+| `/cpp-review` | C++ - memory safety, modern idioms, concurrency |
 
 ---
 
@@ -82,7 +82,7 @@
 | `/sessions` | Browse, search, and manage session history with aliases from `~/.claude/session-data/` (with legacy reads from `~/.claude/sessions/`) |
 | `/checkpoint` | Mark a checkpoint in the current session |
 | `/aside` | Answer a quick side question without losing current task context |
-| `/context-budget` | Analyse context window usage — find token overhead, optimise |
+| `/context-budget` | Analyse context window usage - find token overhead, optimise |
 
 ---
 
@@ -128,7 +128,7 @@
 |---------|-------------|
 | `/loop-start` | Start a recurring agent loop on an interval |
 | `/loop-status` | Check status of running loops |
-| `/claw` | Start NanoClaw v2 — persistent REPL with model routing, skill hot-load, branching, and metrics |
+| `/claw` | Start NanoClaw v2 - persistent REPL with model routing, skill hot-load, branching, and metrics |
 
 ---
 

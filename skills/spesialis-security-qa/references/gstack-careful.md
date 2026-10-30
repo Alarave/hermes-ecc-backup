@@ -1,9 +1,9 @@
-<!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
+<!-- AUTO-GENERATED from SKILL.md.tmpl - do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
-> **Safety Advisory — not enforced on Hermes:** advisory, not blocked. Hermes runs no gstack safety hooks, so nothing stops a command automatically. On Claude Code this skill's hooks check bash commands for destructive operations (rm -rf, DROP TABLE, force-push, git reset --hard, etc.) before execution; here, do those checks yourself: always pause and verify before executing potentially destructive operations. If uncertain about a command's safety, ask the user for confirmation before proceeding.
+> **Safety Advisory - not enforced on Hermes:** advisory, not blocked. Hermes runs no gstack safety hooks, so nothing stops a command automatically. On Claude Code this skill's hooks check bash commands for destructive operations (rm -rf, DROP TABLE, force-push, git reset --hard, etc.) before execution; here, do those checks yourself: always pause and verify before executing potentially destructive operations. If uncertain about a command's safety, ask the user for confirmation before proceeding.
 
 
-# /careful — Destructive Command Guardrails
+# /careful - Destructive Command Guardrails
 
 Safety mode is now **active**. Every bash command will be checked for destructive
 patterns before running. If a destructive command is detected, you'll be warned
@@ -38,7 +38,7 @@ These patterns are allowed without warning:
 The hook reads the command from the tool input JSON, checks it against the
 patterns above, and returns a `hookSpecificOutput` payload with
 `permissionDecision: "ask"` and a warning reason if a match is found (the
-decision must be nested under `hookSpecificOutput` — Claude Code ignores a
+decision must be nested under `hookSpecificOutput` - Claude Code ignores a
 top-level `permissionDecision`). You can always override a MEDIUM warning and
 proceed.
 
@@ -46,14 +46,14 @@ proceed.
 
 Two catastrophic shapes are **denied**, not asked: `rm -r`/`-R` of exactly
 `/`, `~`, or `$HOME`, and force-push to the repo's **default branch**. SIMPLE
-commands only (no `;`, `&&`, `||`, `|`, newline) — compound shapes fall
+commands only (no `;`, `&&`, `||`, `|`, newline) - compound shapes fall
 through to the MEDIUM ask; `--force-with-lease` is never HIGH. A best-effort
 advisory hard-stop, not a policy boundary: the escape hatch is ending the
 opt-in, session-scoped /careful session.
 
 ## Project patterns (additive only)
 
-Add warn rules — one POSIX ERE per line, `#` comments OK — in
+Add warn rules - one POSIX ERE per line, `#` comments OK - in
 `~/.gstack/careful-patterns.txt` (global) or
 `~/.gstack/projects/<slug>/careful-patterns.txt` (per-project). Consulted
 after the built-in families, so config can only ADD rules, never suppress a

@@ -11,7 +11,7 @@
 
 ## 资源管理
 
-* **处处使用 RAII** — 避免手动 `new`/`delete`
+* **处处使用 RAII** - 避免手动 `new`/`delete`
 * 使用 `std::unique_ptr` 表示独占所有权
 * 仅在确实需要共享所有权时使用 `std::shared_ptr`
 * 使用 `std::make_unique` / `std::make_shared` 替代原始 `new`
@@ -26,7 +26,7 @@
 
 ## 格式化
 
-* 使用 **clang-format** — 避免风格争论
+* 使用 **clang-format** - 避免风格争论
 * 提交前运行 `clang-format -i <file>`
 
 ## 参考

@@ -12,7 +12,7 @@ Reference architecture for generating slide presentations. Every presentation fo
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Presentation Title</title>
 
-    <!-- Fonts: use Fontshare or Google Fonts — never system fonts -->
+    <!-- Fonts: use Fontshare or Google Fonts - never system fonts -->
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=..." />
 
     <style>
@@ -21,7 +21,7 @@ Reference architecture for generating slide presentations. Every presentation fo
            Change these to change the whole look
            =========================================== */
       :root {
-        /* Colors — from chosen style preset */
+        /* Colors - from chosen style preset */
         --bg-primary: #0a0f1c;
         --bg-secondary: #111827;
         --text-primary: #ffffff;
@@ -29,14 +29,14 @@ Reference architecture for generating slide presentations. Every presentation fo
         --accent: #00ffcc;
         --accent-glow: rgba(0, 255, 204, 0.3);
 
-        /* Typography — MUST use clamp() */
+        /* Typography - MUST use clamp() */
         --font-display: "Clash Display", sans-serif;
         --font-body: "Satoshi", sans-serif;
         --title-size: clamp(2rem, 6vw, 5rem);
         --subtitle-size: clamp(0.875rem, 2vw, 1.25rem);
         --body-size: clamp(0.75rem, 1.2vw, 1rem);
 
-        /* Spacing — MUST use clamp() */
+        /* Spacing - MUST use clamp() */
         --slide-padding: clamp(1.5rem, 4vw, 4rem);
         --content-gap: clamp(1rem, 2vw, 2rem);
 
@@ -145,7 +145,7 @@ Reference architecture for generating slide presentations. Every presentation fo
         }
 
         setupNavDots() {
-          // IMPORTANT: Always clear before building — if outerHTML was
+          // IMPORTANT: Always clear before building - if outerHTML was
           // captured while dots were rendered, re-opening the file would
           // append a duplicate set on top of the existing ones.
           this.navDotsContainer.innerHTML = "";
@@ -163,14 +163,14 @@ Reference architecture for generating slide presentations. Every presentation fo
 
 Every presentation must include:
 
-1. **SlidePresentation Class** — Main controller with:
+1. **SlidePresentation Class** - Main controller with:
    - Keyboard navigation (arrows, space, page up/down)
    - Touch/swipe support
    - Mouse wheel navigation
    - Progress bar updates
    - Navigation dots
 
-2. **Intersection Observer** — For scroll-triggered animations:
+2. **Intersection Observer** - For scroll-triggered animations:
    - Add `.visible` class when slides enter viewport
    - Trigger CSS transitions efficiently
 
@@ -182,7 +182,7 @@ Every presentation must include:
    - Magnetic buttons
    - Counter animations
 
-4. **Inline Editing** (only if user opted in during Phase 1 — skip entirely if they said No):
+4. **Inline Editing** (only if user opted in during Phase 1 - skip entirely if they said No):
    - Edit toggle button (hidden by default, revealed via hover hotzone or `E` key)
    - Auto-save to localStorage
    - Export/save file functionality
@@ -280,7 +280,7 @@ document.addEventListener("keydown", (e) => {
 
 **CRITICAL: `exportFile()` must strip edit state before capturing outerHTML.**
 
-When the user presses Ctrl+S in edit mode, `document.documentElement.outerHTML` captures the live DOM —
+When the user presses Ctrl+S in edit mode, `document.documentElement.outerHTML` captures the live DOM -
 including `body.edit-active`, `contenteditable="true"` on every text element, and `.active`/`.show` classes on
 the toggle button and banner. Anyone opening the saved file sees dashed outlines, a checkmark button, and an
 edit banner, as if permanently stuck in edit mode.
@@ -357,7 +357,7 @@ Save processed images with `_processed` suffix. Never overwrite originals.
 
 ### Image Placement
 
-**Use direct file paths** (not base64) — presentations are viewed locally:
+**Use direct file paths** (not base64) - presentations are viewed locally:
 
 ```html
 <img src="assets/logo_round.png" alt="Logo" class="slide-image logo" />

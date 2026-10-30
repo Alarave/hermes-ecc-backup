@@ -330,7 +330,7 @@ Detect and name logical errors in scientific arguments and claims.
 - Name the specific fallacy
 - Explain why the reasoning is flawed
 - Identify what evidence would be needed for valid inference
-- Note that fallacious reasoning doesn't prove the conclusion false—just that this argument doesn't support it
+- Note that fallacious reasoning doesn't prove the conclusion false-just that this argument doesn't support it
 
 **Reference:** See `references/logical_fallacies.md` for comprehensive fallacy catalog with examples and detection strategies.
 

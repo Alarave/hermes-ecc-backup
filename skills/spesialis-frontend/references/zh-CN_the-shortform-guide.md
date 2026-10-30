@@ -4,7 +4,7 @@
 
 ***
 
-**自 2 月实验性推出以来，我一直是 Claude Code 的忠实用户，并凭借 [zenith.chat](https://zenith.chat) 与 [@DRodriguezFX](https://x.com/DRodriguezFX) 一起赢得了 Anthropic x Forum Ventures 的黑客马拉松——完全使用 Claude Code。**
+**自 2 月实验性推出以来，我一直是 Claude Code 的忠实用户，并凭借 [zenith.chat](https://zenith.chat) 与 [@DRodriguezFX](https://x.com/DRodriguezFX) 一起赢得了 Anthropic x Forum Ventures 的黑客马拉松--完全使用 Claude Code。**
 
 经过 10 个月的日常使用，以下是我的完整设置：技能、钩子、子代理、MCP、插件以及实际有效的方法。
 
@@ -14,7 +14,7 @@
 
 技能就像规则，受限于特定的范围和流程。当你需要执行特定工作流时，它们是提示词的简写。
 
-在使用 Opus 4.5 长时间编码后，你想清理死代码和松散的 .md 文件吗？运行 `/refactor-clean`。需要测试吗？`/tdd`、`/e2e`、`/test-coverage`。技能也可以包含代码地图——一种让 Claude 快速浏览你的代码库而无需消耗上下文进行探索的方式。
+在使用 Opus 4.5 长时间编码后，你想清理死代码和松散的 .md 文件吗？运行 `/refactor-clean`。需要测试吗？`/tdd`、`/e2e`、`/test-coverage`。技能也可以包含代码地图--一种让 Claude 快速浏览你的代码库而无需消耗上下文进行探索的方式。
 
 ![显示链式命令的终端](../../assets/images/shortform/02-chaining-commands.jpeg)
 *将命令链接在一起*
@@ -77,7 +77,7 @@
 
 子代理是你的编排器（主 Claude）可以委托任务给它的、具有有限范围的进程。它们可以在后台或前台运行，为主代理释放上下文。
 
-子代理与技能配合得很好——一个能够执行你技能子集的子代理可以被委托任务并自主使用这些技能。它们也可以用特定的工具权限进行沙盒化。
+子代理与技能配合得很好--一个能够执行你技能子集的子代理可以被委托任务并自主使用这些技能。它们也可以用特定的工具权限进行沙盒化。
 
 ```bash
 # Example subagent structure
@@ -125,14 +125,14 @@
 
 ## MCP（模型上下文协议）
 
-MCP 将 Claude 直接连接到外部服务。它不是 API 的替代品——而是围绕 API 的提示驱动包装器，允许在导航信息时具有更大的灵活性。
+MCP 将 Claude 直接连接到外部服务。它不是 API 的替代品--而是围绕 API 的提示驱动包装器，允许在导航信息时具有更大的灵活性。
 
 **示例：** Supabase MCP 允许 Claude 提取特定数据，直接在上游运行 SQL 而无需复制粘贴。数据库、部署平台等也是如此。
 
 ![Supabase MCP 列出表](../../assets/images/shortform/04-supabase-mcp.jpeg)
 *Supabase MCP 列出公共模式内表的示例*
 
-**Claude 中的 Chrome：** 是一个内置的插件 MCP，允许 Claude 自主控制你的浏览器——点击查看事物如何工作。
+**Claude 中的 Chrome：** 是一个内置的插件 MCP，允许 Claude 自主控制你的浏览器--点击查看事物如何工作。
 
 **关键：上下文窗口管理**
 
@@ -181,7 +181,7 @@ hookify@claude-plugins-official         # Create hooks conversationally
 mgrep@Mixedbread-Grep                   # Better search than ripgrep
 ```
 
-与 MCP 相同的警告——注意你的上下文窗口。
+与 MCP 相同的警告--注意你的上下文窗口。
 
 ***
 
@@ -244,7 +244,7 @@ mgrep --web "Next.js 15 app router changes"  # Web search
 
 ### 沙盒化
 
-对风险操作使用沙盒模式——Claude 在受限环境中运行，不影响你的实际系统。
+对风险操作使用沙盒模式--Claude 在受限环境中运行，不影响你的实际系统。
 
 ***
 
@@ -254,7 +254,7 @@ mgrep --web "Next.js 15 app router changes"  # Web search
 
 ### Zed（我的偏好）
 
-我使用 [Zed](https://zed.dev) —— 用 Rust 编写，所以它真的很快。立即打开，轻松处理大型代码库，几乎不占用系统资源。
+我使用 [Zed](https://zed.dev) -- 用 Rust 编写，所以它真的很快。立即打开，轻松处理大型代码库，几乎不占用系统资源。
 
 **为什么 Zed + Claude Code 是绝佳组合：**
 
@@ -338,7 +338,7 @@ mgrep@Mixedbread-Grep                  # 更好的搜索
 }
 ```
 
-这是关键——我配置了 14 个 MCP，但每个项目只启用约 5-6 个。保持上下文窗口健康。
+这是关键--我配置了 14 个 MCP，但每个项目只启用约 5-6 个。保持上下文窗口健康。
 
 ### 关键钩子
 

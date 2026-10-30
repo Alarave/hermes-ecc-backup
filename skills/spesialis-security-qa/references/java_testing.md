@@ -5,9 +5,9 @@
 ## テストフレームワーク
 
 - **JUnit 5**（`@Test`、`@ParameterizedTest`、`@Nested`、`@DisplayName`）
-- **AssertJ** — 流暢なアサーション（`assertThat(result).isEqualTo(expected)`）
-- **Mockito** — 依存関係のモック
-- **Testcontainers** — データベースやサービスを必要とする統合テスト
+- **AssertJ** - 流暢なアサーション（`assertThat(result).isEqualTo(expected)`）
+- **Mockito** - 依存関係のモック
+- **Testcontainers** - データベースやサービスを必要とする統合テスト
 
 ## テストの構成
 
@@ -120,7 +120,7 @@ Quarkus 統合テストについては、スキル: `quarkus-tdd` を参照し�
 
 - 行カバレッジ 80% 以上を目標
 - カバレッジレポートには JaCoCo を使用
-- サービスとドメインロジックに集中する — 自明な getter/設定クラスはスキップ
+- サービスとドメインロジックに集中する - 自明な getter/設定クラスはスキップ
 
 ## リファレンス
 

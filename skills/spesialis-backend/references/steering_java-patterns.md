@@ -5,7 +5,7 @@
 ## Immutability
 
 - Prefer `record` for value types (Java 16+)
-- Mark fields `final` by default — use mutable state only when required
+- Mark fields `final` by default - use mutable state only when required
 - Return defensive copies: `List.copyOf()`, `Map.copyOf()`
 
 ```java
@@ -27,7 +27,7 @@ record PaymentFailure(String errorCode, String message) implements PaymentResult
 
 ## Constructor Injection
 
-Always use constructor injection — never field injection:
+Always use constructor injection - never field injection:
 
 ```java
 // GOOD
@@ -38,7 +38,7 @@ public class NotificationService {
     }
 }
 
-// BAD — field injection
+// BAD - field injection
 @Inject private EmailSender emailSender;
 ```
 
@@ -56,7 +56,7 @@ public interface OrderRepository {
 ## Optional Usage
 
 - Return `Optional<T>` from finder methods that may have no result
-- Use `map()`, `flatMap()`, `orElseThrow()` — never call `get()` without `isPresent()`
+- Use `map()`, `flatMap()`, `orElseThrow()` - never call `get()` without `isPresent()`
 - Never use `Optional` as a field type or method parameter
 
 ## Error Handling
@@ -75,7 +75,7 @@ public class OrderNotFoundException extends RuntimeException {
 
 ## Security
 
-- Never hardcode secrets — use `System.getenv("API_KEY")`
+- Never hardcode secrets - use `System.getenv("API_KEY")`
 - Always use parameterized queries (`PreparedStatement`, JPA, JDBC template)
 - Use Bean Validation (`@NotNull`, `@NotBlank`, `@Size`) on DTOs
 - Store passwords with bcrypt or Argon2

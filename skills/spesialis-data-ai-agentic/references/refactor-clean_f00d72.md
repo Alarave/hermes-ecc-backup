@@ -34,11 +34,11 @@ Classifique os achados em níveis de segurança:
 
 Para cada item SAFE:
 
-1. **Rode a suíte completa de testes** — Estabeleça baseline (tudo verde)
-2. **Delete o código morto** — Use a ferramenta Edit para remoção cirúrgica
-3. **Rode a suíte de testes novamente** — Verifique se nada quebrou
-4. **Se testes falharem** — Reverta imediatamente com `git checkout -- <file>` e pule este item
-5. **Se testes passarem** — Vá para o próximo item
+1. **Rode a suíte completa de testes** - Estabeleça baseline (tudo verde)
+2. **Delete o código morto** - Use a ferramenta Edit para remoção cirúrgica
+3. **Rode a suíte de testes novamente** - Verifique se nada quebrou
+4. **Se testes falharem** - Reverta imediatamente com `git checkout -- <file>` e pule este item
+5. **Se testes passarem** - Vá para o próximo item
 
 ## Passo 4: Tratar Itens CAUTION
 
@@ -51,10 +51,10 @@ Antes de deletar itens CAUTION:
 ## Passo 5: Consolidar Duplicatas
 
 Depois de remover código morto, procure:
-- Funções quase duplicadas (>80% similares) — mesclar em uma
-- Definições de tipo redundantes — consolidar
-- Funções wrapper sem valor — inline
-- Re-exports sem propósito — remover indireção
+- Funções quase duplicadas (>80% similares) - mesclar em uma
+- Definições de tipo redundantes - consolidar
+- Funções wrapper sem valor - inline
+- Re-exports sem propósito - remover indireção
 
 ## Passo 6: Resumo
 
@@ -75,6 +75,6 @@ All tests passing PASS:
 ## Regras
 
 - **Nunca delete sem rodar testes antes**
-- **Uma remoção por vez** — Mudanças atômicas facilitam rollback
-- **Se houver dúvida, pule** — Melhor manter código morto do que quebrar produção
-- **Não refatore durante limpeza** — Separe responsabilidades (limpar primeiro, refatorar depois)
+- **Uma remoção por vez** - Mudanças atômicas facilitam rollback
+- **Se houver dúvida, pule** - Melhor manter código morto do que quebrar produção
+- **Não refatore durante limpeza** - Separe responsabilidades (limpar primeiro, refatorar depois)

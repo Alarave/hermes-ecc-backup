@@ -1,4 +1,4 @@
-# Alpha Vantage — Financial Market Data
+# Alpha Vantage - Financial Market Data
 
 Access 20+ years of global financial data: equities, options, forex, crypto, commodities, economic indicators, and 50+ technical indicators.
 
@@ -120,12 +120,12 @@ if "Information" in data:
 
 Load these for detailed endpoint documentation:
 
-- **[time-series.md](references/time-series.md)** — Stock OHLCV data, quotes, bulk quotes, market status
-- **[fundamentals.md](references/fundamentals.md)** — Company overview, financial statements, earnings, dividends, splits
-- **[options.md](references/options.md)** — Realtime and historical options chain data
-- **[intelligence.md](references/intelligence.md)** — News/sentiment, earnings transcripts, insider transactions, analytics
-- **[forex-crypto.md](references/forex-crypto.md)** — Forex exchange rates and cryptocurrency prices
-- **[commodities.md](references/commodities.md)** — Gold, silver, oil, natural gas, agricultural commodities
-- **[economic-indicators.md](references/economic-indicators.md)** — GDP, CPI, interest rates, employment data
-- **[technical-indicators.md](references/technical-indicators.md)** — 50+ technical analysis indicators (SMA, EMA, MACD, RSI, etc.)
+- **[time-series.md](references/time-series.md)** - Stock OHLCV data, quotes, bulk quotes, market status
+- **[fundamentals.md](references/fundamentals.md)** - Company overview, financial statements, earnings, dividends, splits
+- **[options.md](references/options.md)** - Realtime and historical options chain data
+- **[intelligence.md](references/intelligence.md)** - News/sentiment, earnings transcripts, insider transactions, analytics
+- **[forex-crypto.md](references/forex-crypto.md)** - Forex exchange rates and cryptocurrency prices
+- **[commodities.md](references/commodities.md)** - Gold, silver, oil, natural gas, agricultural commodities
+- **[economic-indicators.md](references/economic-indicators.md)** - GDP, CPI, interest rates, employment data
+- **[technical-indicators.md](references/technical-indicators.md)** - 50+ technical analysis indicators (SMA, EMA, MACD, RSI, etc.)
 

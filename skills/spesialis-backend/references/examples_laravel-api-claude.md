@@ -1,4 +1,4 @@
-# Laravel API — プロジェクト CLAUDE.md
+# Laravel API - プロジェクト CLAUDE.md
 
 > PostgreSQL、Redis、キューを使用したLaravel APIの実世界サンプル。
 > これをプロジェクトのルートにコピーしてサービスに合わせてカスタマイズしてください。

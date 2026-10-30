@@ -54,7 +54,7 @@ class UserRepositoryImpl implements UserRepository {
 ## ステート管理: BLoC/Cubit
 
 ```dart
-// Cubit — シンプルなステート遷移
+// Cubit - シンプルなステート遷移
 class CounterCubit extends Cubit<int> {
   CounterCubit() : super(0);
 
@@ -62,7 +62,7 @@ class CounterCubit extends Cubit<int> {
   void decrement() => emit(state - 1);
 }
 
-// BLoC — イベント駆動
+// BLoC - イベント駆動
 @immutable
 sealed class CartEvent {}
 class CartItemAdded extends CartEvent { CartItemAdded(this.item); final Item item; }
@@ -176,7 +176,7 @@ class GetUserUseCase {
 class CreateUserUseCase {
   const CreateUserUseCase(this._repository, this._idGenerator);
   final UserRepository _repository;
-  final IdGenerator _idGenerator; // 注入 — ドメイン層は uuid パッケージに直接依存してはならない
+  final IdGenerator _idGenerator; // 注入 - ドメイン層は uuid パッケージに直接依存してはならない
 
   Future<void> call(CreateUserInput input) async {
     // バリデーション、ビジネスルールの適用、その後永続化
@@ -203,7 +203,7 @@ class UserState with _$UserState {
 
 ```
 lib/
-├── domain/              # 純粋な Dart — Flutter なし、外部パッケージなし
+├── domain/              # 純粋な Dart - Flutter なし、外部パッケージなし
 │   ├── entities/
 │   ├── repositories/    # 抽象インターフェース
 │   └── usecases/

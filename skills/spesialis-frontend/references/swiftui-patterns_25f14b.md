@@ -27,7 +27,7 @@
 
 ### @Observable ViewModel
 
-使用 `@Observable`（而非 `ObservableObject`）—— 它跟踪属性级别的变更，因此 SwiftUI 只会重新渲染读取了已变更属性的视图：
+使用 `@Observable`（而非 `ObservableObject`）-- 它跟踪属性级别的变更，因此 SwiftUI 只会重新渲染读取了已变更属性的视图：
 
 ```swift
 @Observable
@@ -192,7 +192,7 @@ ScrollView {
 
 ### 稳定的标识符
 
-在 `ForEach` 中始终使用稳定、唯一的 ID —— 避免使用数组索引：
+在 `ForEach` 中始终使用稳定、唯一的 ID -- 避免使用数组索引：
 
 ```swift
 // Use Identifiable conformance or explicit id
@@ -204,9 +204,9 @@ ForEach(items, id: \.stableID) { item in
 ### 避免在 body 中进行昂贵操作
 
 * 切勿在 `body` 内执行 I/O、网络调用或繁重计算
-* 使用 `.task {}` 处理异步工作 —— 当视图消失时它会自动取消
+* 使用 `.task {}` 处理异步工作 -- 当视图消失时它会自动取消
 * 在滚动视图中谨慎使用 `.sensoryFeedback()` 和 `.geometryGroup()`
-* 在列表中最小化使用 `.shadow()`、`.blur()` 和 `.mask()` —— 它们会触发屏幕外渲染
+* 在列表中最小化使用 `.shadow()`、`.blur()` 和 `.mask()` -- 它们会触发屏幕外渲染
 
 ### 遵循 Equatable
 
@@ -242,10 +242,10 @@ struct ExpensiveChartView: View, Equatable {
 
 ## 应避免的反模式
 
-* 在新代码中使用 `ObservableObject` / `@Published` / `@StateObject` / `@EnvironmentObject` —— 迁移到 `@Observable`
-* 将异步工作直接放在 `body` 或 `init` 中 —— 使用 `.task {}` 或显式的加载方法
-* 在不拥有数据的子视图中将视图模型创建为 `@State` —— 改为从父视图传递
-* 使用 `AnyView` 类型擦除 —— 对于条件视图，优先选择 `@ViewBuilder` 或 `Group`
+* 在新代码中使用 `ObservableObject` / `@Published` / `@StateObject` / `@EnvironmentObject` -- 迁移到 `@Observable`
+* 将异步工作直接放在 `body` 或 `init` 中 -- 使用 `.task {}` 或显式的加载方法
+* 在不拥有数据的子视图中将视图模型创建为 `@State` -- 改为从父视图传递
+* 使用 `AnyView` 类型擦除 -- 对于条件视图，优先选择 `@ViewBuilder` 或 `Group`
 * 在向 Actor 传递数据或从 Actor 接收数据时忽略 `Sendable` 要求
 
 ## 参考

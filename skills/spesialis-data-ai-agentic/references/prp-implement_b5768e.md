@@ -2,7 +2,7 @@
 
 # PRP 实施
 
-按步骤执行计划文件，并进行持续验证。每次更改后立即验证——绝不累积损坏状态。
+按步骤执行计划文件，并进行持续验证。每次更改后立即验证--绝不累积损坏状态。
 
 **核心理念**：验证循环能及早发现错误。每次更改后都运行检查。立即修复问题。
 
@@ -10,7 +10,7 @@
 
 ***
 
-## 阶段 0 — 检测
+## 阶段 0 - 检测
 
 ### 包管理器检测
 
@@ -37,7 +37,7 @@ cat package.json | grep -A 20 '"scripts"'
 
 ***
 
-## 阶段 1 — 加载
+## 阶段 1 - 加载
 
 读取计划文件：
 
@@ -47,12 +47,12 @@ cat "$ARGUMENTS"
 
 从计划中提取以下部分：
 
-* **摘要** — 正在构建什么
-* **要镜像的模式** — 要遵循的代码约定
-* **要更改的文件** — 要创建或修改的内容
-* **逐步任务** — 实施顺序
-* **验证命令** — 如何验证正确性
-* **验收标准** — 完成的定义
+* **摘要** - 正在构建什么
+* **要镜像的模式** - 要遵循的代码约定
+* **要更改的文件** - 要创建或修改的内容
+* **逐步任务** - 实施顺序
+* **验证命令** - 如何验证正确性
+* **验收标准** - 完成的定义
 
 如果文件不存在或不是有效的计划：
 
@@ -65,7 +65,7 @@ cat "$ARGUMENTS"
 
 ***
 
-## 阶段 2 — 准备
+## 阶段 2 - 准备
 
 ### Git 状态
 
@@ -80,7 +80,7 @@ git status --porcelain
 |---|---|
 | 在功能分支上 | 使用当前分支 |
 | 在主分支上，工作区干净 | 创建功能分支：`git checkout -b feat/{plan-name}` |
-| 在主分支上，工作区有未暂存更改 | **停止** — 要求用户先暂存或提交 |
+| 在主分支上，工作区有未暂存更改 | **停止** - 要求用户先暂存或提交 |
 | 在此功能的 git 工作树中 | 使用该工作树 |
 
 ### 同步远程
@@ -93,7 +93,7 @@ git pull --rebase origin $(git branch --show-current) 2>/dev/null || true
 
 ***
 
-## 阶段 3 — 执行
+## 阶段 3 - 执行
 
 按顺序处理计划中的每个任务。
 
@@ -101,18 +101,18 @@ git pull --rebase origin $(git branch --show-current) 2>/dev/null || true
 
 对于**逐步任务**中的每个任务：
 
-1. **读取 MIRROR 参考** — 打开任务 MIRROR 字段中引用的模式文件。在编写代码前理解约定。
+1. **读取 MIRROR 参考** - 打开任务 MIRROR 字段中引用的模式文件。在编写代码前理解约定。
 
-2. **实施** — 严格按照模式编写代码。应用 GOTCHA 警告。使用指定的 IMPORTS。
+2. **实施** - 严格按照模式编写代码。应用 GOTCHA 警告。使用指定的 IMPORTS。
 
-3. **立即验证** — 每次文件更改后：
+3. **立即验证** - 每次文件更改后：
    ```bash
    # 运行类型检查（根据项目调整命令）
    [阶段 0 中的类型检查命令]
    ```
    如果类型检查失败 → 在移动到下一个文件之前修复错误。
 
-4. **跟踪进度** — 记录：`[done] Task N: [task name] — complete`
+4. **跟踪进度** - 记录：`[done] Task N: [task name] - complete`
 
 ### 处理偏差
 
@@ -127,17 +127,17 @@ git pull --rebase origin $(git branch --show-current) 2>/dev/null || true
 
 ***
 
-## 阶段 4 — 验证
+## 阶段 4 - 验证
 
 运行计划中的所有验证级别。在继续之前修复每个级别的问题。
 
 ### 级别 1：静态分析
 
 ```bash
-# Type checking — zero errors required
+# Type checking - zero errors required
 [project type-check command]
 
-# Linting — fix automatically where possible
+# Linting - fix automatically where possible
 [project lint command]
 [project lint-fix command]
 ```
@@ -204,7 +204,7 @@ exit "$TEST_EXIT"
 
 ***
 
-## 阶段 5 — 报告
+## 阶段 5 - 报告
 
 ### 创建实施报告
 
@@ -233,7 +233,7 @@ mkdir -p .claude/PRPs/reports
 | # | 任务 | 状态 | 备注 |
 |---|---|---|---|
 | 1 | [任务名称] | [已完成] 完成 | |
-| 2 | [任务名称] | [已完成] 完成 | 存在偏差 — [原因] |
+| 2 | [任务名称] | [已完成] 完成 | 存在偏差 - [原因] |
 
 ## 验证结果
 
@@ -287,7 +287,7 @@ mv "$ARGUMENTS" .claude/PRPs/plans/completed/
 
 ***
 
-## 阶段 6 — 输出
+## 阶段 6 - 输出
 
 向用户报告：
 
@@ -312,7 +312,7 @@ mv "$ARGUMENTS" .claude/PRPs/plans/completed/
 - 创建了 [N] 个文件，更新了 [M] 个文件
 
 ### 偏差
-[摘要 或 "无 — 完全按计划执行"]
+[摘要 或 "无 - 完全按计划执行"]
 
 ### 产物
 - 报告: `.claude/PRPs/reports/{名称}-report.md`
@@ -355,7 +355,7 @@ mv "$ARGUMENTS" .claude/PRPs/plans/completed/
 
 ### 构建失败
 
-1. 通常是类型或导入问题 — 检查错误信息
+1. 通常是类型或导入问题 - 检查错误信息
 2. 修复有问题的文件
 3. 重新运行构建
 4. 仅在成功后继续

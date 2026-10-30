@@ -27,23 +27,23 @@ Analise cobertura de testes, identifique lacunas e gere testes faltantes para al
 
 Para cada arquivo abaixo da meta, gere testes seguindo esta prioridade:
 
-1. **Happy path** — Funcionalidade principal com entradas válidas
-2. **Tratamento de erro** — Entradas inválidas, dados ausentes, falhas de rede
-3. **Casos de borda** — Arrays vazios, null/undefined, valores de fronteira (0, -1, MAX_INT)
-4. **Cobertura de branch** — Cada if/else, caso de switch, ternário
+1. **Happy path** - Funcionalidade principal com entradas válidas
+2. **Tratamento de erro** - Entradas inválidas, dados ausentes, falhas de rede
+3. **Casos de borda** - Arrays vazios, null/undefined, valores de fronteira (0, -1, MAX_INT)
+4. **Cobertura de branch** - Cada if/else, caso de switch, ternário
 
 ### Regras para Geração de Testes
 
 - Coloque testes adjacentes ao código-fonte: `foo.ts` → `foo.test.ts` (ou convenção do projeto)
 - Use padrões de teste existentes do projeto (estilo de import, biblioteca de asserção, abordagem de mocking)
 - Faça mock de dependências externas (banco, APIs, sistema de arquivos)
-- Cada teste deve ser independente — sem estado mutável compartilhado entre testes
+- Cada teste deve ser independente - sem estado mutável compartilhado entre testes
 - Nomeie testes de forma descritiva: `test_create_user_with_duplicate_email_returns_409`
 
 ## Passo 4: Verificar
 
-1. Rode a suíte completa de testes — todos os testes devem passar
-2. Rode cobertura novamente — confirme a melhoria
+1. Rode a suíte completa de testes - todos os testes devem passar
+2. Rode cobertura novamente - confirme a melhoria
 3. Se ainda estiver abaixo de 80%, repita o Passo 3 para as lacunas restantes
 
 ## Passo 5: Reportar

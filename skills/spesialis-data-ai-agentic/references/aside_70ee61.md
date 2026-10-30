@@ -1,6 +1,6 @@
 # 旁述指令
 
-在任务进行中提问，获得即时、聚焦的回答——然后立即从暂停处继续。当前任务、文件和上下文绝不会被修改。
+在任务进行中提问，获得即时、聚焦的回答--然后立即从暂停处继续。当前任务、文件和上下文绝不会被修改。
 
 ## 何时使用
 
@@ -38,9 +38,9 @@
 以最简洁但仍完整有用的形式回答问题。
 
 * 先说答案，再说推理过程
-* 保持简短——如果需要完整解释，请在任务结束后再提供
+* 保持简短--如果需要完整解释，请在任务结束后再提供
 * 如果问题涉及当前正在处理的文件或代码，请精确引用（相关时包括文件路径和行号）
-* 如果回答问题需要读取文件，就读它——但只读不写
+* 如果回答问题需要读取文件，就读它--但只读不写
 
 将响应格式化为：
 
@@ -49,7 +49,7 @@ ASIDE: [restate the question briefly]
 
 [Your answer here]
 
-— Back to task: [one-line description of what was being done]
+- Back to task: [one-line description of what was being done]
 ```
 
 ### 步骤 3：恢复主任务
@@ -68,7 +68,7 @@ ASIDE: no question provided
 
 What would you like to know? (ask your question and I'll answer without losing the current task context)
 
-— Back to task: [one-line description of what was being done]
+- Back to task: [one-line description of what was being done]
 ```
 
 **问题揭示了当前任务的潜在问题：**
@@ -92,7 +92,7 @@ Do you want to:
   (b) Pause the current task and change approach
 ```
 
-等待用户的回答——不要自行假设。
+等待用户的回答--不要自行假设。
 
 **问题涉及当前打开的文件或代码：**
 根据实时上下文回答。如果该文件在会话早期已被读取，直接引用它。如果尚未读取，现在读取它（只读）并在回答时附带文件:行号引用。
@@ -105,7 +105,7 @@ ASIDE: [restate the question briefly]
 
 [Your answer here]
 
-— Back to task: no active task to resume
+- Back to task: no active task to resume
 ```
 
 **问题需要长篇回答：**
@@ -128,7 +128,7 @@ ASIDE: [answer]
 ```
 
 **问题含糊不清或过于笼统：**
-提出一个澄清性问题——一个能获取回答所需信息的最简短问题。不要提出多个问题。
+提出一个澄清性问题--一个能获取回答所需信息的最简短问题。不要提出多个问题。
 
 ***
 
@@ -141,9 +141,9 @@ ASIDE: what does fetchWithRetry() do?
 
 fetchWithRetry() (src/api/retry.ts:12) attempts the request up to 3 times with
 exponential backoff (250ms → 500ms → 1s). It only retries on 5xx responses and
-network errors — 4xx errors are treated as final and not retried.
+network errors - 4xx errors are treated as final and not retried.
 
-— Back to task: refactoring the auth middleware in src/middleware/auth.ts
+- Back to task: refactoring the auth middleware in src/middleware/auth.ts
 ```
 
 ```
@@ -151,7 +151,7 @@ User: /aside is the approach we're taking thread-safe?
 
 ASIDE: is the current approach thread-safe?
 
-No — the shared cache object in src/cache/store.ts:34 is mutated without locking.
+No - the shared cache object in src/cache/store.ts:34 is mutated without locking.
 Under concurrent requests this is a race condition. It's low risk in a single-process
 Node.js server but would be a real problem with worker threads or clustering.
 
@@ -162,8 +162,8 @@ WARNING: Note: This could affect the feature we're building. Want to address thi
 
 ## 注意事项
 
-* 在旁述期间**绝不**修改文件——仅限只读访问
-* 旁述是对话暂停，不是新任务——必须始终恢复原始任务
+* 在旁述期间**绝不**修改文件--仅限只读访问
+* 旁述是对话暂停，不是新任务--必须始终恢复原始任务
 * 保持回答聚焦：目标是快速为用户扫清障碍，而不是进行长篇大论
 * 如果旁述引发了更广泛的讨论，请先完成当前任务，除非旁述揭示了阻碍
 * 除非明确与任务结果相关，否则旁述内容不会保存到会话文件中

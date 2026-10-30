@@ -18,7 +18,7 @@ Perform a thorough security analysis of the selected code or current branch chan
 - [ ] Command inputs sanitized (command injection prevention)
 
 ### Authentication & Authorization
-- [ ] Auth checks enforced server-side — never trust client-supplied user IDs or roles
+- [ ] Auth checks enforced server-side - never trust client-supplied user IDs or roles
 - [ ] Session tokens are sufficiently random and expire appropriately
 - [ ] Sensitive operations protected by authz checks, not just authn
 - [ ] CSRF protection enabled for state-changing endpoints
@@ -52,7 +52,7 @@ If a **CRITICAL** issue is found:
 ```
 ## Findings
 
-**[CRITICAL|HIGH|MEDIUM|LOW]** — [category]
+**[CRITICAL|HIGH|MEDIUM|LOW]** - [category]
 Location: [file:line if known]
 Issue: [what is wrong and why it is dangerous]
 Fix: [concrete remediation]

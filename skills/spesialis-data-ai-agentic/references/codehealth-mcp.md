@@ -20,12 +20,12 @@ Structural maintainability feedback for AI-assisted coding. Complements style/li
 - User asks to **review code quality**, **refactor** a file, or check if **AI changes degraded** maintainability
 - Before editing a **hotspot**, legacy module, or unfamiliar file
 - Before **commit** or **pull request** when you need a maintainability safeguard
-- After a large agent-written diff — verify Code Health did not regress
+- After a large agent-written diff - verify Code Health did not regress
 - Pair with `verification-loop`, `tdd-workflow`, or `/quality-gate` as a structural check (not a replacement for tests/lint)
 
 ## When to Activate
 
-Same triggers as **When to Use** above — this heading is what ECC uses for skill auto-activation.
+Same triggers as **When to Use** above - this heading is what ECC uses for skill auto-activation.
 
 ## How It Works
 
@@ -58,15 +58,15 @@ Token setup is documented in the upstream repo (link above). Standalone mode doe
 | `pre_commit_code_health_safeguard` | Block commits that introduce Code Health regressions |
 | `analyze_change_set` | Branch-level check **before** opening a PR |
 
-Do **not** call platform-only tools (e.g. repository-wide technical debt hotspot lists). Do **not** reference `delta_analysis` — not available on standalone.
+Do **not** call platform-only tools (e.g. repository-wide technical debt hotspot lists). Do **not** reference `delta_analysis` - not available on standalone.
 
-### 3. Interpret scores (1–10)
+### 3. Interpret scores (1-10)
 
 | Range | Meaning | Agent behavior |
 |-------|---------|----------------|
-| **9.0–10.0** | Green — healthy | Safer to extend; still prefer vertical slices |
-| **4.0–8.9** | Yellow — debt | Tread carefully; no drive-by refactors |
-| **1.0–3.9** | Red — severe debt | Narrow scope only |
+| **9.0-10.0** | Green - healthy | Safer to extend; still prefer vertical slices |
+| **4.0-8.9** | Yellow - debt | Tread carefully; no drive-by refactors |
+| **1.0-3.9** | Red - severe debt | Narrow scope only |
 
 ### 4. Run the feedback loop
 
@@ -76,7 +76,7 @@ Do **not** call platform-only tools (e.g. repository-wide technical debt hotspot
 2. Record baseline score and listed code smells.
 3. Plan the smallest change that addresses the task.
 
-Scope by score: **below 5** — minimal diff only; **5–7** — no broad refactors; **above 7** — safer to refactor, still verify after each edit.
+Scope by score: **below 5** - minimal diff only; **5-7** - no broad refactors; **above 7** - safer to refactor, still verify after each edit.
 
 **After each change**
 
@@ -84,9 +84,9 @@ Scope by score: **below 5** — minimal diff only; **5–7** — no broad refact
 2. Compare to the baseline from `code_health_review`.
 3. If the score **regressed**, fix before continuing. Never mark the task done while the score is lower than when you started.
 
-**Before every commit** — run `pre_commit_code_health_safeguard` on the repository path.
+**Before every commit** - run `pre_commit_code_health_safeguard` on the repository path.
 
-**Before a PR** — run `analyze_change_set` against the base branch (e.g. `main`).
+**Before a PR** - run `analyze_change_set` against the base branch (e.g. `main`).
 
 ## Examples
 
@@ -111,8 +111,8 @@ Paste into the project `AGENTS.md` or `CLAUDE.md`:
 
 Before modifying any file: run `code_health_review`, note score and issues.
 
-- Score below 5: problematic range — scope changes narrowly.
-- Score 5–7: warning range — no broad refactors.
+- Score below 5: problematic range - scope changes narrowly.
+- Score 5-7: warning range - no broad refactors.
 
 After each change: run `code_health_score` to verify delta.
 
@@ -145,16 +145,16 @@ Drive-by cleanup across the module
 | `coding-standards` | Style/naming; Code Health = structure/complexity |
 | `plankton-code-quality` | Write-time lint/format; Code Health = pre/post edit structural gate |
 | `verification-loop` / `/quality-gate` | Add structural regression check before "done" |
-| `security-review` | Security vs maintainability — use both when relevant |
-| `tdd-workflow` | Tests pass ≠ healthy design — check score after refactors |
+| `security-review` | Security vs maintainability - use both when relevant |
+| `tdd-workflow` | Tests pass ≠ healthy design - check score after refactors |
 
 **Context tip:** ECC recommends keeping MCP count low. Enable `codescene` when doing substantive edits; disable when not needed.
 
 ## Related Skills
 
-- `coding-standards` — baseline conventions
-- `plankton-code-quality` — write-time lint/format hooks
-- `verification-loop` — build/test/lint gate
-- `tdd-workflow` — test-first development
-- `security-review` — security checklist
-- `documentation-lookup` — library docs via Context7 (orthogonal)
+- `coding-standards` - baseline conventions
+- `plankton-code-quality` - write-time lint/format hooks
+- `verification-loop` - build/test/lint gate
+- `tdd-workflow` - test-first development
+- `security-review` - security checklist
+- `documentation-lookup` - library docs via Context7 (orthogonal)

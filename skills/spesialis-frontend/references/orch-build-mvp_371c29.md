@@ -11,7 +11,7 @@ engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 
 ## Operation settings
 
-- **Default size floor:** large — this is the full pipeline including Scaffold.
+- **Default size floor:** large - this is the full pipeline including Scaffold.
 - **Phase mask:** 0 (read the spec) → 1 → 2 (heavy) → 3 (scaffold) → 4 → 5 → 6.
 - **First move (phase 0 → 2):** read the doc; extract scope, locked decisions,
   and the feature list; order it into **thin vertical slices** (one end-to-end
@@ -22,7 +22,7 @@ engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 1. Run the `orch-pipeline` engine with the settings above.
 2. **Reuse the existing GAN harness** instead of hand-rolling an iterate loop:
    - Translate the SDD into `gan-harness/spec.md` + `gan-harness/eval-rubric.md`
-     (this stands in for what `gan-planner` would generate — you already have the spec).
+     (this stands in for what `gan-planner` would generate - you already have the spec).
    - Drive the build with `/gan-build "<one-line brief>" --skip-planner`
      (defaults: `--max-iterations 15`, `--pass-threshold 7.0`,
      `--eval-mode playwright`; use `--eval-mode code-only` for non-UI slices).

@@ -24,7 +24,7 @@ Analisis pola dan blueprint komponen Menu berdasarkan 59+ komponen modern di 21s
 ### Arketipe 3: The Floating Radial / FAB Speed Dial Menu
 - **Fungsi**: Aksi cepat pada aplikasi mobile atau aplikasi papan tulis / editor kanvas.
 - **Karakteristik Visual**:
-  - Tombol bulat utama di pojok kanan bawah. Saat ditekan, 3–5 sub-tombol mekar memancar keluar seperti busur lingkaran dengan animasi pegas (*spring physics*).
+  - Tombol bulat utama di pojok kanan bawah. Saat ditekan, 3-5 sub-tombol mekar memancar keluar seperti busur lingkaran dengan animasi pegas (*spring physics*).
 
 ### Arketipe 4: The Mega Menu (Navigation Flyout)
 - **Fungsi**: Menu navigasi utama di bilah header situs web produk atau SaaS besar (kategori Produk, Sumber Daya, Perusahaan).

@@ -74,7 +74,7 @@ File: test/unit/data/user_repository_test.dart
 失敗: `getById`が欠落IDに対してnullを返すべきところでユーザーを返す
 
 根本原因: テストセットアップがID 'test-id' のユーザーを追加するが、'missing-id' でクエリしている。
-修正: 'missing-id' でクエリするようテストを更新 — セットアップは正しく、クエリが間違っていた。
+修正: 'missing-id' でクエリするようテストを更新 - セットアップは正しく、クエリが間違っていた。
 
 ```
 $ flutter test test/unit/data/user_repository_test.dart
@@ -128,9 +128,9 @@ Coverage: 84.2% (target: 80%)
 
 ## 関連コマンド
 
-- `/flutter-build` — テスト実行前にビルドエラーを修正
-- `/flutter-review` — テスト通過後にコードをレビュー
-- `tdd-workflow`スキル — テスト駆動開発ワークフロー
+- `/flutter-build` - テスト実行前にビルドエラーを修正
+- `/flutter-review` - テスト通過後にコードをレビュー
+- `tdd-workflow`スキル - テスト駆動開発ワークフロー
 
 ## 関連
 

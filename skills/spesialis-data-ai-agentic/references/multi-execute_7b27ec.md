@@ -290,11 +290,11 @@ Audit geçtikten sonra, kullanıcıya rapor et:
 
 ## Ana Kurallar
 
-1. **Kod Egemenliği** – Tüm dosya değişiklikleri Claude tarafından, harici modellerin sıfır yazma erişimi
-2. **Dirty Prototype Refactoring** – Codex/Gemini çıktısı taslak olarak değerlendirilir, refactor edilmeli
-3. **Güven Kuralları** – Backend Codex'i takip eder, Frontend Gemini'yi takip eder
-4. **Minimal Değişiklikler** – Sadece gerekli kodu değiştir, yan etki yok
-5. **Zorunlu Audit** – Değişikliklerden sonra multi-model Code Review yapılmalı
+1. **Kod Egemenliği** - Tüm dosya değişiklikleri Claude tarafından, harici modellerin sıfır yazma erişimi
+2. **Dirty Prototype Refactoring** - Codex/Gemini çıktısı taslak olarak değerlendirilir, refactor edilmeli
+3. **Güven Kuralları** - Backend Codex'i takip eder, Frontend Gemini'yi takip eder
+4. **Minimal Değişiklikler** - Sadece gerekli kodu değiştir, yan etki yok
+5. **Zorunlu Audit** - Değişikliklerden sonra multi-model Code Review yapılmalı
 
 ---
 

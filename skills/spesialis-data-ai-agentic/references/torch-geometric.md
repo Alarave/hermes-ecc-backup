@@ -80,7 +80,7 @@ PyG represents graphs using the `torch_geometric.data.Data` class with these key
 - **`data.pos`**: Node spatial positions `[num_nodes, num_dimensions]` (optional)
 - **Custom attributes**: Can add any attribute (e.g., `data.train_mask`, `data.batch`)
 
-**Important**: These attributes are not mandatory—extend Data objects with custom attributes as needed.
+**Important**: These attributes are not mandatory-extend Data objects with custom attributes as needed.
 
 ### Edge Index Format
 
@@ -101,7 +101,7 @@ PyG handles batching by creating block-diagonal adjacency matrices, concatenatin
 - Adjacency matrices are stacked diagonally
 - Node features are concatenated along the node dimension
 - A `batch` vector maps each node to its source graph
-- No padding needed—computationally efficient
+- No padding needed-computationally efficient
 
 ```python
 from torch_geometric.loader import DataLoader
@@ -222,7 +222,7 @@ class CustomConv(MessagePassing):
 Key methods:
 - **`forward()`**: Main entry point
 - **`message()`**: Constructs messages from source to target nodes
-- **`aggregate()`**: Aggregates messages (usually don't override—set `aggr` parameter)
+- **`aggregate()`**: Aggregates messages (usually don't override-set `aggr` parameter)
 - **`update()`**: Updates node embeddings after aggregation
 
 **Variable naming convention**: Appending `_i` or `_j` to tensor names automatically maps them to target or source nodes.

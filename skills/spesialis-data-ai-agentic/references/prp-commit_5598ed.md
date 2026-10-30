@@ -6,7 +6,7 @@
 
 ***
 
-## 阶段 1 — 评估
+## 阶段 1 - 评估
 
 ```bash
 git status --short
@@ -18,7 +18,7 @@ git status --short
 
 ***
 
-## 阶段 2 — 解析与暂存
+## 阶段 2 - 解析与暂存
 
 解析 `$ARGUMENTS` 以确定暂存内容：
 
@@ -29,7 +29,7 @@ git status --short
 | `*.ts` 或 `*.py` 等 | 暂存匹配的 glob 模式 | `git add '*.ts'` |
 | `except tests` | 暂存所有内容，然后取消暂存测试文件 | `git add -A && git reset -- '**/*.test.*' '**/*.spec.*' '**/test_*' 2>/dev/null \|\| true` |
 | `only new files` | 仅暂存未跟踪文件 | `git ls-files --others --exclude-standard \| grep . && git ls-files --others --exclude-standard \| xargs git add` |
-| `the auth changes` | 从状态/差异中解析 — 查找与认证相关的文件 | `git add <matched files>` |
+| `the auth changes` | 从状态/差异中解析 - 查找与认证相关的文件 | `git add <matched files>` |
 | 具体文件名 | 暂存这些文件 | `git add <files>` |
 
 对于自然语言输入（如"认证相关的变更"），交叉引用 `git status` 输出和 `git diff` 以识别相关文件。向用户展示你暂存了哪些文件及其原因。
@@ -48,7 +48,7 @@ git diff --cached --stat
 
 ***
 
-## 阶段 3 — 提交
+## 阶段 3 - 提交
 
 使用祈使语气编写单行提交信息：
 
@@ -58,14 +58,14 @@ git diff --cached --stat
 
 类型：
 
-* `feat` — 新功能或能力
-* `fix` — 错误修复
-* `refactor` — 代码重构，行为不变
-* `docs` — 文档变更
-* `test` — 添加或更新测试
-* `chore` — 构建、配置、依赖项
-* `perf` — 性能改进
-* `ci` — CI/CD 变更
+* `feat` - 新功能或能力
+* `fix` - 错误修复
+* `refactor` - 代码重构，行为不变
+* `docs` - 文档变更
+* `test` - 添加或更新测试
+* `chore` - 构建、配置、依赖项
+* `perf` - 性能改进
+* `ci` - CI/CD 变更
 
 规则：
 
@@ -81,7 +81,7 @@ git commit -m "{type}: {description}"
 
 ***
 
-## 阶段 4 — 输出
+## 阶段 4 - 输出
 
 向用户报告：
 

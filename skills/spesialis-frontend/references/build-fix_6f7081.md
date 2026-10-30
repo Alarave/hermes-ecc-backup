@@ -27,11 +27,11 @@ Identificar la herramienta de build del proyecto y ejecutar el build:
 
 Para cada error:
 
-1. **Leer el archivo** — Usar la herramienta Read para ver el contexto del error (10 líneas alrededor del error)
-2. **Diagnosticar** — Identificar la causa raíz (import faltante, tipo incorrecto, error de sintaxis)
-3. **Corregir mínimamente** — Usar la herramienta Edit para el cambio más pequeño que resuelva el error
-4. **Re-ejecutar el build** — Verificar que el error desapareció y que no se introdujeron nuevos errores
-5. **Continuar** — Seguir con los errores restantes
+1. **Leer el archivo** - Usar la herramienta Read para ver el contexto del error (10 líneas alrededor del error)
+2. **Diagnosticar** - Identificar la causa raíz (import faltante, tipo incorrecto, error de sintaxis)
+3. **Corregir mínimamente** - Usar la herramienta Edit para el cambio más pequeño que resuelva el error
+4. **Re-ejecutar el build** - Verificar que el error desapareció y que no se introdujeron nuevos errores
+5. **Continuar** - Seguir con los errores restantes
 
 ## Paso 4: Salvaguardas
 

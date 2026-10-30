@@ -4,7 +4,7 @@
 
 ## 测试框架
 
-* **kotlin.test** 用于跨平台 (KMP) — `@Test`, `assertEquals`, `assertTrue`
+* **kotlin.test** 用于跨平台 (KMP) - `@Test`, `assertEquals`, `assertTrue`
 * **JUnit 4/5** 用于 Android 特定测试
 * **Turbine** 用于测试 Flow 和 StateFlow
 * **kotlinx-coroutines-test** 用于协程测试 (`runTest`, `TestDispatcher`)
@@ -60,7 +60,7 @@ fun `parallel operations complete`() = runTest {
 }
 ```
 
-使用 `runTest` — 它会自动推进虚拟时间并提供 `TestScope`。
+使用 `runTest` - 它会自动推进虚拟时间并提供 `TestScope`。
 
 ## Ktor MockEngine
 

@@ -255,7 +255,7 @@ OpenClaw ユーザーがエージェントを個人アカウントに接続し�
 
 防御は集中化されている（少数のラボがセキュリティ研究に専念）。攻撃は分散化されている（グローバルなコミュニティが 24 時間体制で反復する）。チャネルが多いほどインジェクションポイントが増え、攻撃が成功する機会が増える。モデルは一度だけ失敗すればいい。攻撃者は各接続チャネルで無限の試行機会を得る。
 
-> **\[DIAGRAM: "The Adversarial Pipeline" — left-to-right flow: "Abliterated Model (HuggingFace)" -> "Jailbreak Development" -> "Technique Refinement" -> "Production Model Exploit" -> "Delivery via OpenClaw Channel". Each stage labeled with its tooling.]**
+> **\[DIAGRAM: "The Adversarial Pipeline" - left-to-right flow: "Abliterated Model (HuggingFace)" -> "Jailbreak Development" -> "Technique Refinement" -> "Production Model Exploit" -> "Delivery via OpenClaw Channel". Each stage labeled with its tooling.]**
 > *攻撃フロー：ブロック解除されたモデルから本番環境の悪用へ、そしてエージェントの接続チャネルを通じた配布へ。*
 
 ***
@@ -330,12 +330,12 @@ OpenClaw が提供するすべての機能は、スキルとツール――[速�
 
 **複数のアクセスポイントは機能ではなく、脆弱性だ。**
 
-> **\[SPLIT IMAGE: Left — "Locked Door" showing a single SSH terminal with key-based auth. Right — "Open House" showing the multi-channel OpenClaw dashboard with 7+ connected services. Visual contrast between minimal and maximal attack surfaces.]**
+> **\[SPLIT IMAGE: Left - "Locked Door" showing a single SSH terminal with key-based auth. Right - "Open House" showing the multi-channel OpenClaw dashboard with 7+ connected services. Visual contrast between minimal and maximal attack surfaces.]**
 > *左：1 つのアクセスポイント、1 つの錠前。右：7 つのドア、どれも鍵がかかっていない。*
 
 退屈な方が良いこともある。
 
-> **\[SCREENSHOT: Author's actual terminal — tmux session with Claude Code running on Mac Mini over SSH. Clean, minimal, no dashboard. Annotations: "SSH only", "No exposed ports", "Scoped permissions".]**
+> **\[SCREENSHOT: Author's actual terminal - tmux session with Claude Code running on Mac Mini over SSH. Clean, minimal, no dashboard. Annotations: "SSH only", "No exposed ports", "Scoped permissions".]**
 > *私の実際のセットアップ。マルチチャネルダッシュボードなし。ターミナルと SSH と Claude Code だけ。*
 
 ### 利便性のコスト
@@ -378,7 +378,7 @@ OpenClaw はこのように進化できる。基盤は存在する。コミュ�
 
 ここで反対の議論について正直に言いたい。なぜなら些細な問題ではないから。AI 自動化を本当に必要とする非技術系ユーザーにとって、私が説明する代替案――ヘッドレスサーバー、SSH、tmux――は手が届かない。マーケティングマネージャーに「Mac Mini に SSH するだけ」と言うのは解決策ではない。責任放棄だ。非技術系ユーザーへの正しい答えは「再帰エージェントを使うな」ではない。「サンドボックス化された、ホスト型の、プロが管理する環境で使え、そこにはセキュリティを担当する専任者がいる」だ。サブスクリプション料金を払い、その代わりに安心を得る。このモデルはやってくる。それが来るまで、セルフホスト型マルチチャネルエージェントのリスク計算は「割に合わない」に大きく傾いている。
 
-> **\[DIAGRAM: "The Winning Architecture" — a layered stack showing: Hosted Infrastructure (bottom) -> Sandboxed Containers (middle) -> Audited Skills + Minimal Permissions (upper) -> Clean Dashboard (top). Each layer labeled with its security property. Contrast with OpenClaw's flat architecture where everything runs on the user's machine.]**
+> **\[DIAGRAM: "The Winning Architecture" - a layered stack showing: Hosted Infrastructure (bottom) -> Sandboxed Containers (middle) -> Audited Skills + Minimal Permissions (upper) -> Clean Dashboard (top). Each layer labeled with its security property. Contrast with OpenClaw's flat architecture where everything runs on the user's machine.]**
 > *再帰エージェントの勝利するアーキテクチャの姿。*
 
 ***
@@ -448,23 +448,23 @@ Andrej Karpathy が何かを「惨事」と呼び、コンピューターでそ�
 
 ## 参考資料
 
-* [OWASP エージェントアプリケーションのトップ 10 セキュリティリスク (2026)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — Palo Alto が OpenClaw をすべてのカテゴリにマッピング
+* [OWASP エージェントアプリケーションのトップ 10 セキュリティリスク (2026)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) - Palo Alto が OpenClaw をすべてのカテゴリにマッピング
 * [CrowdStrike：セキュリティチームが OpenClaw について知る必要があること](https://www.crowdstrike.com/en-us/blog/what-security-teams-need-to-know-about-openclaw-ai-super-agent/)
-* [Palo Alto Networks：Moltbot が AI 危機を示唆する理由](https://www.paloaltonetworks.com/blog/network-security/why-moltbot-may-signal-ai-crisis/) — 「致命的三要素」+ メモリ汚染
+* [Palo Alto Networks：Moltbot が AI 危機を示唆する理由](https://www.paloaltonetworks.com/blog/network-security/why-moltbot-may-signal-ai-crisis/) - 「致命的三要素」+ メモリ汚染
 * [カスペルスキー：新たな OpenClaw AI エージェントの安全でない点を発見](https://www.kaspersky.com/blog/openclaw-vulnerabilities-exposed/55263/)
 * [Wiz：Moltbook のハッキング――150 万件の API キーが露出](https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys)
 * [Trend Micro：Atomic macOS スティーラーを配布する悪意ある OpenClaw スキル](https://www.trendmicro.com/en_us/research/26/b/openclaw-skills-used-to-distribute-atomic-macos-stealer.html)
 * [Adversa AI：OpenClaw セキュリティガイド 2026](https://adversa.ai/blog/openclaw-security-101-vulnerabilities-hardening-2026/)
 * [Cisco：OpenClaw のような個人 AI エージェントはセキュリティの悪夢](https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare)
-* [エージェント保護の簡明ガイド](the-security-guide.md) — 実践的な防御ガイド
-* [AgentShield on npm](https://www.npmjs.com/package/ecc-agentshield) — ゼロインストールのエージェントセキュリティスキャン
+* [エージェント保護の簡明ガイド](the-security-guide.md) - 実践的な防御ガイド
+* [AgentShield on npm](https://www.npmjs.com/package/ecc-agentshield) - ゼロインストールのエージェントセキュリティスキャン
 
 > **シリーズナビゲーション：**
 >
-> * 第 1 部：[Claude Code についてのすべて 速習ガイド](the-shortform-guide.md) — セットアップと設定
-> * 第 2 部：[Claude Code についてのすべて 詳細ガイド](the-longform-guide.md) — 高度なパターンとワークフロー
-> * 第 3 部：OpenClaw の隠れた危険（本文） — エージェント最前線からのセキュリティ教訓
-> * 第 4 部：[エージェント保護の簡明ガイド](the-security-guide.md) — 実践的なエージェントセキュリティ
+> * 第 1 部：[Claude Code についてのすべて 速習ガイド](the-shortform-guide.md) - セットアップと設定
+> * 第 2 部：[Claude Code についてのすべて 詳細ガイド](the-longform-guide.md) - 高度なパターンとワークフロー
+> * 第 3 部：OpenClaw の隠れた危険（本文） - エージェント最前線からのセキュリティ教訓
+> * 第 4 部：[エージェント保護の簡明ガイド](the-security-guide.md) - 実践的なエージェントセキュリティ
 
 ***
 

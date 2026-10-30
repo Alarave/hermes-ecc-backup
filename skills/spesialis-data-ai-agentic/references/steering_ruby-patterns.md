@@ -45,8 +45,8 @@ bundle exec rubocop -A
 
 - Keep CSRF protection enabled for state-changing browser requests
 - Use strong parameters or typed boundary objects before mass assignment
-- Store secrets in Rails credentials or environment variables — never commit plaintext keys
-- Prefer Active Record query APIs and parameterized SQL — never interpolate user input into SQL
+- Store secrets in Rails credentials or environment variables - never commit plaintext keys
+- Prefer Active Record query APIs and parameterized SQL - never interpolate user input into SQL
 
 ```bash
 bundle exec bundle-audit check --update

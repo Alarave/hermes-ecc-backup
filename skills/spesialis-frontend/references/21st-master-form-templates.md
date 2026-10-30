@@ -32,7 +32,7 @@ Analisis pola dan blueprint komponen Form & Multi-Step Wizard berdasarkan 1.5K+ 
 - **Fungsi**: Halaman preferensi akun, integrasi domain, atau konfigurasi profil pengguna.
 - **Karakteristik Visual**:
   - Bidang isian terbagi dalam kartu-kartu grup logis yang rapi.
-  - Saat ada perubahan data yang belum tersimpan, muncul bilah aksi melayang di bagian bawah layar (*Sticky Floating Save Bar*: "Perubahan belum disimpan — Simpan / Batal").
+  - Saat ada perubahan data yang belum tersimpan, muncul bilah aksi melayang di bagian bawah layar (*Sticky Floating Save Bar*: "Perubahan belum disimpan - Simpan / Batal").
 
 ---
 

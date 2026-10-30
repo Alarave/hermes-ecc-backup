@@ -1,4 +1,4 @@
-# Rust API サービス — プロジェクト CLAUDE.md
+# Rust API サービス - プロジェクト CLAUDE.md
 
 > Axum、PostgreSQL、Dockerを使用したRust APIサービスの実世界サンプル。
 > これをプロジェクトのルートにコピーしてサービスに合わせてカスタマイズしてください。
@@ -14,18 +14,18 @@
 ### Rust の規約
 
 - ライブラリエラーには `thiserror` を使用し、`anyhow` はバイナリクレートまたはテストのみ
-- 本番コードで `.unwrap()` や `.expect()` を使用しない — `?` でエラーを伝播させる
+- 本番コードで `.unwrap()` や `.expect()` を使用しない - `?` でエラーを伝播させる
 - 関数パラメーターでは `String` より `&str` を優先し、所有権が移転するときは `String` を返す
-- `#![deny(clippy::all, clippy::pedantic)]` で `clippy` を使用 — すべての警告を修正する
+- `#![deny(clippy::all, clippy::pedantic)]` で `clippy` を使用 - すべての警告を修正する
 - すべての公開型に `Debug` を導出し、`Clone`、`PartialEq` は必要な場合のみ導出する
 - `// SAFETY:` コメントによる正当化がない限り `unsafe` ブロックは使用しない
 
 ### データベース
 
-- すべてのクエリはSQLxの `query!` または `query_as!` マクロを使用 — スキーマに対してコンパイル時に検証される
-- `migrations/` のマイグレーションは `sqlx migrate` を使用 — データベースを直接変更しない
-- 共有状態として `sqlx::Pool<Postgres>` を使用 — リクエストごとにコネクションを作成しない
-- すべてのクエリはパラメータ化プレースホルダー（`$1`, `$2`）を使用 — 文字列フォーマットは禁止
+- すべてのクエリはSQLxの `query!` または `query_as!` マクロを使用 - スキーマに対してコンパイル時に検証される
+- `migrations/` のマイグレーションは `sqlx migrate` を使用 - データベースを直接変更しない
+- 共有状態として `sqlx::Pool<Postgres>` を使用 - リクエストごとにコネクションを作成しない
+- すべてのクエリはパラメータ化プレースホルダー（`$1`, `$2`）を使用 - 文字列フォーマットは禁止
 
 ```rust
 // 悪い例: 文字列補間（SQLインジェクションリスク）
@@ -40,8 +40,8 @@ let user = sqlx::query_as!(User, "SELECT * FROM users WHERE id = $1", id)
 ### エラーハンドリング
 
 - `thiserror` でモジュールごとにドメインエラーenumを定義する
-- `IntoResponse` でエラーをHTTPレスポンスにマップ — 内部詳細を公開しない
-- 構造化ロギングには `tracing` を使用 — `println!` や `eprintln!` は使用しない
+- `IntoResponse` でエラーをHTTPレスポンスにマップ - 内部詳細を公開しない
+- 構造化ロギングには `tracing` を使用 - `println!` や `eprintln!` は使用しない
 
 ```rust
 use thiserror::Error;
@@ -84,7 +84,7 @@ impl IntoResponse for AppError {
 ### コードスタイル
 
 - 最大行長: 100文字（rustfmtにより強制）
-- インポートのグループ化: `std`、外部クレート、`crate`/`super` — 空白行で区切る
+- インポートのグループ化: `std`、外部クレート、`crate`/`super` - 空白行で区切る
 - モジュール: モジュールごとに1ファイル、`mod.rs` は再エクスポートのみ
 - 型: PascalCase、関数/変数: snake_case、定数: UPPER_SNAKE_CASE
 
@@ -100,7 +100,7 @@ src/
     auth.rs            # JWT抽出とバリデーション
     logging.rs         # リクエスト/レスポンスのトレーシング
   handlers/
-    mod.rs             # ルートハンドラー（薄く — サービスに委任）
+    mod.rs             # ルートハンドラー（薄く - サービスに委任）
     users.rs
     orders.rs
   services/

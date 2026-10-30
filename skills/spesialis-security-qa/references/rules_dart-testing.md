@@ -4,7 +4,7 @@
 
 ## Test Framework
 
-- **flutter_test** / **dart:test** — built-in test runner
+- **flutter_test** / **dart:test** - built-in test runner
 - **mockito** (with `@GenerateMocks`) or **mocktail** (no codegen) for mocking
 - **bloc_test** for BLoC/Cubit unit tests
 - **fake_async** for controlling time in unit tests

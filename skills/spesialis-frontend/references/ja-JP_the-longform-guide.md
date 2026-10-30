@@ -23,7 +23,7 @@
 
 ### 一部のMCPは代替可能で、コンテキストウィンドウを解放できる
 
-バージョン管理（GitHub）、データベース（Supabase）、デプロイメント（Vercel、Railway）などのMCPについて — これらのプラットフォームのほとんどは、MCPが本質的にラップしているだけの堅牢なCLIを既に持っています。MCPは便利なラッパーですが、コストが伴います。
+バージョン管理（GitHub）、データベース（Supabase）、デプロイメント（Vercel、Railway）などのMCPについて - これらのプラットフォームのほとんどは、MCPが本質的にラップしているだけの堅牢なCLIを既に持っています。MCPは便利なラッパーですが、コストが伴います。
 
 MCPを実際に使用せずにCLIをMCPのように機能させるには（それに伴うコンテキストウィンドウの縮小なしに）、機能をスキルとコマンドにバンドルすることを検討してください。MCPが公開する便利なツールを取り出して、コマンドに変換してください。
 
@@ -53,7 +53,7 @@ Claudeが現在の状態を要約するファイルを作成します。レビ�
 
 **上級：動的システムプロンプト注入**
 
-私が身につけたパターン：CLAUDE.md（ユーザースコープ）や`.claude/rules/`（プロジェクトスコープ）にすべてを入れる代わりに — 毎セッション読み込まれる — CLIフラグを使ってコンテキストを動的に注入。
+私が身につけたパターン：CLAUDE.md（ユーザースコープ）や`.claude/rules/`（プロジェクトスコープ）にすべてを入れる代わりに - 毎セッション読み込まれる - CLIフラグを使ってコンテキストを動的に注入。
 
 ```bash
 claude --system-prompt "$(cat memory.md)"
@@ -88,17 +88,17 @@ alias claude-research='claude --system-prompt "$(cat ~/.claude/contexts/research
 
 ### 継続学習 / メモリ
 
-プロンプトを複数回繰り返す必要があり、Claudeが同じ問題に遭遇したり以前聞いた回答を返す場合 — そのパターンはスキルに追加すべきです。
+プロンプトを複数回繰り返す必要があり、Claudeが同じ問題に遭遇したり以前聞いた回答を返す場合 - そのパターンはスキルに追加すべきです。
 
 **問題：** トークンの浪費、コンテキストの浪費、時間の浪費。
 
-**解決策：** Claude Codeが自明でないことを発見した場合 — デバッグ技術、回避策、プロジェクト固有のパターンなど — その知識を新しいスキルとして保存。次回同様の問題が発生した際、スキルが自動的に読み込まれます。
+**解決策：** Claude Codeが自明でないことを発見した場合 - デバッグ技術、回避策、プロジェクト固有のパターンなど - その知識を新しいスキルとして保存。次回同様の問題が発生した際、スキルが自動的に読み込まれます。
 
 この機能を実現する継続学習スキルを構築しました：`github.com/affaan-m/everything-claude-code/tree/main/skills/continuous-learning`
 
 **なぜStopフック（UserPromptSubmitではなく）：**
 
-重要な設計判断は、UserPromptSubmitではなく**Stopフック**を使用すること。UserPromptSubmitはすべてのメッセージで実行され、すべてのプロンプトにレイテンシーを追加します。Stopはセッション終了時に1回実行 — 軽量で、セッション中の速度を落としません。
+重要な設計判断は、UserPromptSubmitではなく**Stopフック**を使用すること。UserPromptSubmitはすべてのメッセージで実行され、すべてのプロンプトにレイテンシーを追加します。Stopはセッション終了時に1回実行 - 軽量で、セッション中の速度を落としません。
 
 ---
 
@@ -133,7 +133,7 @@ alias claude-research='claude --system-prompt "$(cat ~/.claude/contexts/research
 
 **ツール固有の最適化：**
 
-grepをmgrepに置き換え — 従来のgrepやripgrepと比較して平均約50%のトークン削減：
+grepをmgrepに置き換え - 従来のgrepやripgrepと比較して平均約50%のトークン削減：
 
 ![mgrep Benchmark](./assets/images/longform/06-mgrep-benchmark.png)
 *50タスクのベンチマークで、mgrep + Claude Codeはgrepベースのワークフローと同等以上の品質で約2倍少ないトークンを使用。出典：@mixedbread-aiによるmgrep*
@@ -290,7 +290,7 @@ cd ../project-feature-a && claude
 
 ### カスタムステータスライン
 
-`/statusline` を使って設定できます — Claudeが「まだないけど設定できます」と言い、何を入れたいか聞いてきます。
+`/statusline` を使って設定できます - Claudeが「まだないけど設定できます」と言い、何を入れたいか聞いてきます。
 
 参照：ccstatusline（カスタムClaude Codeステータスラインのコミュニティプロジェクト）
 
@@ -323,7 +323,7 @@ alias q='cd ~/Desktop/projects'
 
 **エージェントオーケストレーション：**
 
-- claude-flow — 54以上の専門エージェントを持つコミュニティ構築のエンタープライズオーケストレーションプラットフォーム
+- claude-flow - 54以上の専門エージェントを持つコミュニティ構築のエンタープライズオーケストレーションプラットフォーム
 
 **自己改善メモリ：**
 
@@ -332,7 +332,7 @@ alias q='cd ~/Desktop/projects'
 
 **システムプロンプトリファレンス：**
 
-- system-prompts-and-models-of-ai-tools — AIシステムプロンプトのコミュニティコレクション（110k+スター）
+- system-prompts-and-models-of-ai-tools - AIシステムプロンプトのコミュニティコレクション（110k+スター）
 
 **公式：**
 

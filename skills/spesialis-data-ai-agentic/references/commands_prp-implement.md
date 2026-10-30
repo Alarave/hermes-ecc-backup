@@ -2,7 +2,7 @@
 
 # PRP Implement
 
-Execute a plan file step-by-step with continuous validation. Every change is verified immediately — never accumulate broken state.
+Execute a plan file step-by-step with continuous validation. Every change is verified immediately - never accumulate broken state.
 
 **Core Philosophy**: Validation loops catch mistakes early. Run checks after every change. Fix issues immediately.
 
@@ -10,7 +10,7 @@ Execute a plan file step-by-step with continuous validation. Every change is ver
 
 ---
 
-## Phase 0 — DETECT
+## Phase 0 - DETECT
 
 ### Package Manager Detection
 
@@ -37,7 +37,7 @@ Note available commands for: type-check, lint, test, build.
 
 ---
 
-## Phase 1 — LOAD
+## Phase 1 - LOAD
 
 Read the plan file:
 
@@ -46,12 +46,12 @@ cat "$ARGUMENTS"
 ```
 
 Extract these sections from the plan:
-- **Summary** — What is being built
-- **Patterns to Mirror** — Code conventions to follow
-- **Files to Change** — What to create or modify
-- **Step-by-Step Tasks** — Implementation sequence
-- **Validation Commands** — How to verify correctness
-- **Acceptance Criteria** — Definition of done
+- **Summary** - What is being built
+- **Patterns to Mirror** - Code conventions to follow
+- **Files to Change** - What to create or modify
+- **Step-by-Step Tasks** - Implementation sequence
+- **Validation Commands** - How to verify correctness
+- **Acceptance Criteria** - Definition of done
 
 If the file doesn't exist or isn't a valid plan:
 ```
@@ -63,7 +63,7 @@ Run /prp-plan <feature-description> to create a plan first.
 
 ---
 
-## Phase 2 — PREPARE
+## Phase 2 - PREPARE
 
 ### Git State
 
@@ -78,7 +78,7 @@ git status --porcelain
 |---|---|
 | On feature branch | Use current branch |
 | On main, clean working tree | Create feature branch: `git checkout -b feat/{plan-name}` |
-| On main, dirty working tree | **STOP** — Ask user to stash or commit first |
+| On main, dirty working tree | **STOP** - Ask user to stash or commit first |
 | In a git worktree for this feature | Use the worktree |
 
 ### Sync Remote
@@ -91,7 +91,7 @@ git pull --rebase origin $(git branch --show-current) 2>/dev/null || true
 
 ---
 
-## Phase 3 — EXECUTE
+## Phase 3 - EXECUTE
 
 Process each task from the plan sequentially.
 
@@ -99,18 +99,18 @@ Process each task from the plan sequentially.
 
 For each task in **Step-by-Step Tasks**:
 
-1. **Read MIRROR reference** — Open the pattern file referenced in the task's MIRROR field. Understand the convention before writing code.
+1. **Read MIRROR reference** - Open the pattern file referenced in the task's MIRROR field. Understand the convention before writing code.
 
-2. **Implement** — Write the code following the pattern exactly. Apply GOTCHA warnings. Use specified IMPORTS.
+2. **Implement** - Write the code following the pattern exactly. Apply GOTCHA warnings. Use specified IMPORTS.
 
-3. **Validate immediately** — After EVERY file change:
+3. **Validate immediately** - After EVERY file change:
    ```bash
    # Run type-check (adjust command per project)
    [type-check command from Phase 0]
    ```
    If type-check fails → fix the error before moving to the next file.
 
-4. **Track progress** — Log: `[done] Task N: [task name] — complete`
+4. **Track progress** - Log: `[done] Task N: [task name] - complete`
 
 ### Handling Deviations
 
@@ -124,17 +124,17 @@ If implementation must deviate from the plan:
 
 ---
 
-## Phase 4 — VALIDATE
+## Phase 4 - VALIDATE
 
 Run all validation levels from the plan. Fix issues at each level before proceeding.
 
 ### Level 1: Static Analysis
 
 ```bash
-# Type checking — zero errors required
+# Type checking - zero errors required
 [project type-check command]
 
-# Linting — fix automatically where possible
+# Linting - fix automatically where possible
 [project lint command]
 [project lint-fix command]
 ```
@@ -201,7 +201,7 @@ Run through edge cases from the plan's Testing Strategy checklist.
 
 ---
 
-## Phase 5 — REPORT
+## Phase 5 - REPORT
 
 ### Create Implementation Report
 
@@ -230,7 +230,7 @@ Write report to `.claude/PRPs/reports/{plan-name}-report.md`:
 | # | Task | Status | Notes |
 |---|---|---|---|
 | 1 | [task name] | [done] Complete | |
-| 2 | [task name] | [done] Complete | Deviated — [reason] |
+| 2 | [task name] | [done] Complete | Deviated - [reason] |
 
 ## Validation Results
 
@@ -283,7 +283,7 @@ mv "$ARGUMENTS" .claude/PRPs/plans/completed/
 
 ---
 
-## Phase 6 — OUTPUT
+## Phase 6 - OUTPUT
 
 Report to user:
 
@@ -308,7 +308,7 @@ Report to user:
 - [N] files created, [M] files updated
 
 ### Deviations
-[Summary or "None — implemented exactly as planned"]
+[Summary or "None - implemented exactly as planned"]
 
 ### Artifacts
 - Report: `.claude/PRPs/reports/{name}-report.md`
@@ -347,7 +347,7 @@ Report to user:
 4. Continue only when clean
 
 ### Build Fails
-1. Usually a type or import issue — check error message
+1. Usually a type or import issue - check error message
 2. Fix the offending file
 3. Re-run build
 4. Continue only when successful

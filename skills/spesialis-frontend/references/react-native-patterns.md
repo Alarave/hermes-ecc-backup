@@ -2,9 +2,9 @@
 
 Practical patterns for building production React Native apps with Expo. Covers navigation, state, data fetching, lists, styling, and native APIs. Pairs with the `rules/react-native/` ruleset: rules say *what* to enforce, this skill shows *how*.
 
-Libraries named below (NativeWind, Zustand/Jotai, TanStack Query) are common, well-established options shown for illustration — the patterns matter more than the specific package, and any equivalent works. Zod is used for validation to stay consistent with ECC's existing `typescript/` rules.
+Libraries named below (NativeWind, Zustand/Jotai, TanStack Query) are common, well-established options shown for illustration - the patterns matter more than the specific package, and any equivalent works. Zod is used for validation to stay consistent with ECC's existing `typescript/` rules.
 
-These patterns assume the managed Expo workflow (Expo Router, EAS, `expo-*` modules) on the New Architecture (the default in recent Expo SDKs, mandatory from SDK 55+). They do NOT assume the browser DOM — React Native has no `<div>`, no URL bar, and no web data-fetching defaults.
+These patterns assume the managed Expo workflow (Expo Router, EAS, `expo-*` modules) on the New Architecture (the default in recent Expo SDKs, mandatory from SDK 55+). They do NOT assume the browser DOM - React Native has no `<div>`, no URL bar, and no web data-fetching defaults.
 
 ## When to Activate
 
@@ -19,7 +19,7 @@ Use this skill when:
 - Accessing native device APIs (camera, location, notifications) or secure storage
 - Reviewing RN code for mobile-specific issues
 
-Do NOT use the web/React-DOM patterns here — URL-as-state, `<div>`, and SWR-for-browser do not apply to React Native.
+Do NOT use the web/React-DOM patterns here - URL-as-state, `<div>`, and SWR-for-browser do not apply to React Native.
 
 ## Core Concepts
 
@@ -148,7 +148,7 @@ type LocationState =
   | { status: 'granted'; coords: Location.LocationObjectCoords }
 
 export function useCurrentLocation() {
-  // Track status, not just coords — so the UI can tell "still loading" apart
+  // Track status, not just coords - so the UI can tell "still loading" apart
   // from "permission denied" and show an actionable message.
   const [state, setState] = useState<LocationState>({ status: 'loading' })
 
@@ -305,7 +305,7 @@ const STRIPE_SECRET = 'sk_live_...'
 - Keep route files thin; put logic in screen components and `use*` hooks.
 - Validate every external input (API responses, route params, push payloads) with Zod.
 - Let TanStack Query own server state; keep client stores small.
-- Always render loading, error, and empty states — never just a spinner with no fallback.
+- Always render loading, error, and empty states - never just a spinner with no fallback.
 - Virtualize lists; memoize `renderItem`; provide a stable `keyExtractor`.
 - Use `react-native-reanimated` for animation (UI thread); avoid heavy work on the JS thread.
 - Store tokens in `expo-secure-store`; never trust the client for authorization.
@@ -314,7 +314,7 @@ const STRIPE_SECRET = 'sk_live_...'
 
 ## Related Skills
 
-- `frontend-patterns` — React/Next.js (web) patterns; useful for shared React concepts, but DOM-specific.
-- `coding-standards` — TypeScript/JavaScript idioms that apply to RN code.
-- `tdd-workflow`, `e2e-testing` — testing process (use Jest + React Native Testing Library, Maestro/Detox for RN).
-- `security-review` — general security checklist that complements the RN bundle/secret guidance above.
+- `frontend-patterns` - React/Next.js (web) patterns; useful for shared React concepts, but DOM-specific.
+- `coding-standards` - TypeScript/JavaScript idioms that apply to RN code.
+- `tdd-workflow`, `e2e-testing` - testing process (use Jest + React Native Testing Library, Maestro/Detox for RN).
+- `security-review` - general security checklist that complements the RN bundle/secret guidance above.

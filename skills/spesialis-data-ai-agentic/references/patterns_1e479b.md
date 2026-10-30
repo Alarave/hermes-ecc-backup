@@ -7,14 +7,14 @@
 首选构造函数注入。使用 Koin（KMP）或 Hilt（仅限 Android）：
 
 ```kotlin
-// Koin — declare modules
+// Koin - declare modules
 val dataModule = module {
     single<ItemRepository> { ItemRepositoryImpl(get(), get()) }
     factory { GetItemsUseCase(get()) }
     viewModelOf(::ItemListViewModel)
 }
 
-// Hilt — annotations
+// Hilt - annotations
 @HiltViewModel
 class ItemListViewModel @Inject constructor(
     private val getItems: GetItemsUseCase

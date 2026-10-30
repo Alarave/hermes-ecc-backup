@@ -65,7 +65,7 @@ private fun ItemListContent(
     state: ItemListState,
     onSearch: (String) -> Unit
 ) {
-    // Stateless composable — easy to preview and test
+    // Stateless composable - easy to preview and test
 }
 ```
 
@@ -89,7 +89,7 @@ fun onEvent(event: ItemListEvent) {
     }
 }
 
-// In Composable — single lambda instead of many
+// In Composable - single lambda instead of many
 ItemListContent(
     state = state,
     onEvent = viewModel::onEvent
@@ -166,7 +166,7 @@ fun AppCard(
 
 ### Modifier Ordering
 
-Modifier order matters — apply in this sequence:
+Modifier order matters - apply in this sequence:
 
 ```kotlin
 Text(
@@ -243,10 +243,10 @@ val showScrollToTop by remember {
 ### Avoid Allocations in Recomposition
 
 ```kotlin
-// BAD — new lambda and list every recomposition
+// BAD - new lambda and list every recomposition
 items.filter { it.isActive }.forEach { ActiveItem(it, onClick = { handle(it) }) }
 
-// GOOD — key each item so callbacks stay attached to the right row
+// GOOD - key each item so callbacks stay attached to the right row
 val activeItems = remember(items) { items.filter { it.isActive } }
 activeItems.forEach { item ->
     key(item.id) {
@@ -282,10 +282,10 @@ fun AppTheme(
 ## Anti-Patterns to Avoid
 
 - Using `mutableStateOf` in ViewModels when `MutableStateFlow` with `collectAsStateWithLifecycle` is safer for lifecycle
-- Passing `NavController` deep into composables — pass lambda callbacks instead
-- Heavy computation inside `@Composable` functions — move to ViewModel or `remember {}`
-- Using `LaunchedEffect(Unit)` as a substitute for ViewModel init — it re-runs on configuration change in some setups
-- Creating new object instances in composable parameters — causes unnecessary recomposition
+- Passing `NavController` deep into composables - pass lambda callbacks instead
+- Heavy computation inside `@Composable` functions - move to ViewModel or `remember {}`
+- Using `LaunchedEffect(Unit)` as a substitute for ViewModel init - it re-runs on configuration change in some setups
+- Creating new object instances in composable parameters - causes unnecessary recomposition
 
 ## References
 

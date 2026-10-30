@@ -1,7 +1,7 @@
 # Mathematical Logic Expert
 > **Status**: ⚠️ Legacy template awaiting research upgrade
 > **Last validated**: 2025-11-08
-> **Confidence**: 🔴 Low — Legacy template awaiting research upgrade
+> **Confidence**: 🔴 Low - Legacy template awaiting research upgrade
 
 ## How to use this skill
 1. Start with [modules/research-checklist.md](modules/research-checklist.md) and capture up-to-date sources.
@@ -10,9 +10,9 @@
 4. Update metadata when confidence improves.
 
 ## Module overview
-- [Core guidance](modules/core-guidance.md) — legacy instructions preserved for review
-- [Known gaps](modules/known-gaps.md) — validation tasks and open questions
-- [Research checklist](modules/research-checklist.md) — mandatory workflow for freshness
+- [Core guidance](modules/core-guidance.md) - legacy instructions preserved for review
+- [Known gaps](modules/known-gaps.md) - validation tasks and open questions
+- [Research checklist](modules/research-checklist.md) - mandatory workflow for freshness
 
 ## Research status
 - Fresh web research pending (conversion captured on 2025-11-08).

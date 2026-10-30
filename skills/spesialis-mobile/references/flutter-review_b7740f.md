@@ -13,10 +13,10 @@
 ## 前提条件
 
 `/flutter-review`を実行する前に、以下を確認してください:
-1. **ビルドが通る** — まず`/flutter-build`を実行。壊れたコードのレビューは不完全です
-2. **テストが通る** — `/flutter-test`を実行してリグレッションがないことを確認
-3. **マージコンフリクトがない** — すべてのコンフリクトを解決し、diffが意図的な変更のみを反映するようにする
-4. **`flutter analyze`がクリーン** — レビュー前にアナライザーの警告を修正
+1. **ビルドが通る** - まず`/flutter-build`を実行。壊れたコードのレビューは不完全です
+2. **テストが通る** - `/flutter-test`を実行してリグレッションがないことを確認
+3. **マージコンフリクトがない** - すべてのコンフリクトを解決し、diffが意図的な変更のみを反映するようにする
+4. **`flutter analyze`がクリーン** - レビュー前にアナライザーの警告を修正
 
 ## 使用するタイミング
 
@@ -79,7 +79,7 @@ Fix: switch式または`when()`コールにerrorケースを追加してユー�
 
 [MEDIUM] ハードコードされた文字列がローカライズされていない
 File: lib/features/auth/presentation/login_page.dart:89
-Issue: `Text('Login')` — ユーザーに表示される文字列がローカライゼーションシステムを使用していない。
+Issue: `Text('Login')` - ユーザーに表示される文字列がローカライゼーションシステムを使用していない。
 Fix: プロジェクトのl10nアクセサを使用: `Text(context.l10n.loginButton)`。
 
 ## レビューサマリー
@@ -91,7 +91,7 @@ Fix: プロジェクトのl10nアクセサを使用: `Text(context.l10n.loginBut
 | MEDIUM   | 1     | info   |
 | LOW      | 0     | note   |
 
-判定: BLOCK — HIGH問題はマージ前に修正が必要です。
+判定: BLOCK - HIGH問題はマージ前に修正が必要です。
 ````
 
 ## 承認基準
@@ -101,9 +101,9 @@ Fix: プロジェクトのl10nアクセサを使用: `Text(context.l10n.loginBut
 
 ## 関連コマンド
 
-- `/flutter-build` — まずビルドエラーを修正
-- `/flutter-test` — レビュー前にテストを実行
-- `/code-review` — 一般的なコードレビュー（言語非依存）
+- `/flutter-build` - まずビルドエラーを修正
+- `/flutter-test` - レビュー前にテストを実行
+- `/code-review` - 一般的なコードレビュー（言語非依存）
 
 ## 関連
 

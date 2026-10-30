@@ -3,22 +3,22 @@
 Einheitliches Terminologie-Glossar für die deutsche (de-DE) Übersetzung von ECC.
 
 Leitlinie: Etablierte englische Fachbegriffe und ECC-Oberflächennamen (`agents/`, `skills/`,
-`commands/`, `hooks/`, `rules/`) bleiben **englisch** — sie sind im deutschsprachigen
+`commands/`, `hooks/`, `rules/`) bleiben **englisch** - sie sind im deutschsprachigen
 Entwickleralltag Standard und entsprechen Verzeichnis-/Befehlsnamen im Repo. Begriffe mit
 einer klaren, gebräuchlichen deutschen Entsprechung werden **übersetzt**.
 
 | English | Deutsch | Notiz |
 |---------|---------|-------|
-| Agent | Agent | bleibt englisch — ECC-Oberfläche (`agents/`) |
-| Skill | Skill | bleibt englisch — ECC-Oberfläche (`skills/`) |
-| Hook | Hook | bleibt englisch — ECC-Oberfläche (`hooks/`) |
+| Agent | Agent | bleibt englisch - ECC-Oberfläche (`agents/`) |
+| Skill | Skill | bleibt englisch - ECC-Oberfläche (`skills/`) |
+| Hook | Hook | bleibt englisch - ECC-Oberfläche (`hooks/`) |
 | Command | Command | bleibt englisch als ECC-Oberfläche (`commands/`); generisch sonst „Befehl“ |
 | Rule | Rule | bleibt englisch als ECC-Oberfläche (`rules/`); generisch sonst „Regel“ |
-| Harness | Harness | bleibt englisch — keine etablierte deutsche Entsprechung |
-| Instinct | Instinct | bleibt englisch — ECC-Begriff aus Continuous Learning |
+| Harness | Harness | bleibt englisch - keine etablierte deutsche Entsprechung |
+| Instinct | Instinct | bleibt englisch - ECC-Begriff aus Continuous Learning |
 | Plugin | Plugin | bleibt englisch |
-| Marketplace | Marketplace | bleibt englisch — Anthropic-Produktbegriff |
-| Worktree | Worktree | bleibt englisch — Git-Fachbegriff |
+| Marketplace | Marketplace | bleibt englisch - Anthropic-Produktbegriff |
+| Worktree | Worktree | bleibt englisch - Git-Fachbegriff |
 | Subagent | Subagent | bleibt englisch |
 | Frontmatter | Frontmatter | bleibt englisch; YAML-Feldnamen bleiben englisch |
 | Continuous Learning | Continuous Learning | ECC-Feature-Name bleibt englisch; beschreibend „kontinuierliches Lernen“ |

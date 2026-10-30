@@ -1,6 +1,6 @@
 # React Code Review
 
-This command invokes the **react-reviewer** agent for React-specific code review. For pull requests touching `.tsx`/`.jsx` files, both `react-reviewer` and `typescript-reviewer` should run — each owns a distinct lane.
+This command invokes the **react-reviewer** agent for React-specific code review. For pull requests touching `.tsx`/`.jsx` files, both `react-reviewer` and `typescript-reviewer` should run - each owns a distinct lane.
 
 ## What This Command Does
 
@@ -28,7 +28,7 @@ For pure `.ts`/`.js` changes with no React imports, use `/code-review` (general)
 | Tool | Scope |
 |---|---|
 | `react-reviewer` (this command) | Hooks rules, JSX, RSC, a11y, React-specific security, render perf |
-| `typescript-reviewer` | Generic TS/JS — `any` abuse, async correctness, Node security |
+| `typescript-reviewer` | Generic TS/JS - `any` abuse, async correctness, Node security |
 | `security-reviewer` | Project-wide security audit |
 | `/code-review` | Generic uncommitted-changes or PR review |
 

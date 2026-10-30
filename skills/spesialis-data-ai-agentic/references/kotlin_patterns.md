@@ -7,14 +7,14 @@
 コンストラクタインジェクションを優先する。Koin（KMP）または Hilt（Android のみ）を使用:
 
 ```kotlin
-// Koin — モジュール宣言
+// Koin - モジュール宣言
 val dataModule = module {
     single<ItemRepository> { ItemRepositoryImpl(get(), get()) }
     factory { GetItemsUseCase(get()) }
     viewModelOf(::ItemListViewModel)
 }
 
-// Hilt — アノテーション
+// Hilt - アノテーション
 @HiltViewModel
 class ItemListViewModel @Inject constructor(
     private val getItems: GetItemsUseCase

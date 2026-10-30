@@ -3,14 +3,14 @@
 Opt-in, **read-only** counterparty reputation for agent hosts. One HTTP GET
 answers *"can I trust this agent before I delegate work or settle a payment?"*
 
-- **Zero dependencies** — pure Python stdlib. Vendor the `aura/` folder, no `pip install`.
-- **Read-only** — the only network call is `GET /check?did=...`. No auth, no API key.
-- **No coupling** — does not sign, hold keys, move funds, or touch your wallet.
-- **Off by default** — nothing runs until you call it. Disabled = delete the import.
+- **Zero dependencies** - pure Python stdlib. Vendor the `aura/` folder, no `pip install`.
+- **Read-only** - the only network call is `GET /check?did=...`. No auth, no API key.
+- **No coupling** - does not sign, hold keys, move funds, or touch your wallet.
+- **Off by default** - nothing runs until you call it. Disabled = delete the import.
 
 ## Enable (opt-in)
 
-It's a gate you call explicitly at a trust boundary — there is no global hook,
+It's a gate you call explicitly at a trust boundary - there is no global hook,
 no monkey-patching, no background calls. Wrap the action you want to protect:
 
 ```python
@@ -42,7 +42,7 @@ if v.dimensions and v.dimensions.get("financial_integrity", 1) < 0.4:
 ```
 
 > `v.ok` reflects the *verdict class* (True for `trusted`/`caution`), not the
-> outcome of `require_trust()` — the gate's default `allow` also lets `new`
+> outcome of `require_trust()` - the gate's default `allow` also lets `new`
 > through. Use the gate's return/raise for the decision, `v.ok` for display.
 
 ## Verdicts
@@ -61,7 +61,7 @@ if v.dimensions and v.dimensions.get("financial_integrity", 1) < 0.4:
 # Reject brand-new agents too (strict):
 before_settle(did, allow=("trusted", "caution"))
 
-# Treat an *unreachable* AURA as a pass (fail-open). Off by default —
+# Treat an *unreachable* AURA as a pass (fail-open). Off by default -
 # absence of evidence is not evidence of trust.
 before_settle(did, fail_open=True)
 
@@ -73,12 +73,12 @@ before_settle(did, base_url="https://my-aura-mirror.example", timeout=5)
 
 ## Failure behavior
 
-`aura_verdict()` **never raises on a network or parse error** — it returns an
+`aura_verdict()` **never raises on a network or parse error** - it returns an
 `unknown` verdict with the reason set. The gate then decides:
 
-- **default (`fail_open=False`)** — `unknown` is rejected → an unreachable AURA
+- **default (`fail_open=False`)** - `unknown` is rejected → an unreachable AURA
   blocks the action. *Fail-closed.*
-- **`fail_open=True`** — `unknown` from an unreachable endpoint is allowed
+- **`fail_open=True`** - `unknown` from an unreachable endpoint is allowed
   through, so AURA can never take your flow down. *Fail-open.*
 
 This keeps the trust signal **purely additive**: if you remove the adapter or
@@ -86,7 +86,7 @@ AURA is down, your existing allow/deny logic runs exactly as before.
 
 ## Tests
 
-Offline — every call replays a recorded `/check` body, no network:
+Offline - every call replays a recorded `/check` body, no network:
 
 ```bash
 python -m pytest aura/tests -q
@@ -98,12 +98,12 @@ recorded response shapes.
 
 ## Boundary & threats
 
-See [THREAT_MODEL.md](./THREAT_MODEL.md) — what the verdict does and does not
+See [THREAT_MODEL.md](./THREAT_MODEL.md) - what the verdict does and does not
 prove, and the failure modes a verifier should account for.
 
 ## Carry the AURA badge
 
-Show your live trust verdict in your own README — it updates automatically and
+Show your live trust verdict in your own README - it updates automatically and
 links back to your AURA profile:
 
 ```markdown
@@ -120,7 +120,7 @@ composite score. No DID yet? The bare badge is a generic mark:
 
 ## What's behind the verdict
 
-[AURA Open Protocol](https://auraopenprotocol.org) — W3C DID identity plus 8
+[AURA Open Protocol](https://auraopenprotocol.org) - W3C DID identity plus 8
 on-chain reputation dimensions on Base L2 (`task_completion`, `delivery_speed`,
 `output_quality`, `honesty`, `financial_integrity`, `security_compliance`,
 `collaboration`, `dispute_history`). Docs: [AURA developer docs](https://dev.auraopenprotocol.org)

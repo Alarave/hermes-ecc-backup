@@ -5,8 +5,8 @@ order, and when do I stop." Also browses every command-group recipe family.
 
 Fills the gap between two existing skills:
 
-- `ecc-guide` — lists commands and where to read docs, but as a flat catalog.
-- `prompt-optimizer` — matches a task to components, but outputs a single prompt,
+- `ecc-guide` - lists commands and where to read docs, but as a flat catalog.
+- `prompt-optimizer` - matches a task to components, but outputs a single prompt,
   not a multi-command group with run-order and stop condition.
 
 This skill adds: **family grouping + run-order + stop condition.**
@@ -21,9 +21,9 @@ This skill adds: **family grouping + run-order + stop condition.**
 
 ### Do Not Use When
 
-- User wants the task done now — route to the actual command, don't describe it.
-- User wants deep docs for ONE command — use `ecc-guide`.
-- User wants a draft prompt rewritten — use `prompt-optimizer`.
+- User wants the task done now - route to the actual command, don't describe it.
+- User wants deep docs for ONE command - use `ecc-guide`.
+- User wants a draft prompt rewritten - use `prompt-optimizer`.
 
 ## Core Principle
 
@@ -54,7 +54,7 @@ the smallest set of reads needed.
 ## Family Classification (by prefix)
 
 Group command names by leading prefix; map known singletons by hand. Families are
-derived live — the table below is the *classification rule*, not a frozen list.
+derived live - the table below is the *classification rule*, not a frozen list.
 
 | Family prefix | Recipe meaning | Typical run-order |
 |---|---|---|
@@ -92,26 +92,26 @@ workflow for a matched recipe.
 
 1. Restate the workflow in one sentence.
 2. Pick the best 1-2 families; say WHY in one line each.
-3. **Run-order block** — exact command sequence for the matched family.
-4. **Stop condition** — always explicit (max-runs, completion-signal,
+3. **Run-order block** - exact command sequence for the matched family.
+4. **Stop condition** - always explicit (max-runs, completion-signal,
    review-passes, or single-shot). For autonomous loops, warn about subscription
    burn and recommend a backstop bound.
-5. **Where to read** — the `commands/<name>.md` path plus `/ecc-guide <name>`.
+5. **Where to read** - the `commands/<name>.md` path plus `/ecc-guide <name>`.
 
 ## Output Template (match mode)
 
 ```
 Workflow: <one-sentence restatement>
 
-Best fit: <family> — <why>
-(Alt: <family> — <why>)
+Best fit: <family> - <why>
+(Alt: <family> - <why>)
 
 Run-order:
   /<cmd1>   # job
   /<cmd2>   # job
   /<cmd3>   # job
   STOP when: <condition>
-  WARNING (autonomous loops only): an unbounded loop burns subscription/credits —
+  WARNING (autonomous loops only): an unbounded loop burns subscription/credits -
   add a max-iteration or max-cost backstop alongside the completion signal.
 
 Read full docs:
@@ -134,7 +134,7 @@ pass review N consecutive times (add a max-iteration backstop to bound burn).
 
 ## Non-Goals
 
-- Not an executor — advisory only.
-- Not per-command deep docs — that's `ecc-guide`.
-- Not prompt rewriting — that's `prompt-optimizer`.
-- Never hardcode command counts or member lists — always live-read.
+- Not an executor - advisory only.
+- Not per-command deep docs - that's `ecc-guide`.
+- Not prompt rewriting - that's `prompt-optimizer`.
+- Never hardcode command counts or member lists - always live-read.

@@ -69,11 +69,11 @@ cp -r rules/golang ~/.claude/rules/golang
 
 1. `rules/rust/` ディレクトリを作成
 2. common ルールを拡張するファイルを追加:
-   - `coding-style.md` — フォーマットツール、イディオム、エラーハンドリングパターン
-   - `testing.md` — テストフレームワーク、カバレッジツール、テスト構成
-   - `patterns.md` — 言語固有の設計パターン
-   - `hooks.md` — フォーマッタ、リンター、型チェッカー用の PostToolUse フック
-   - `security.md` — シークレット管理、セキュリティスキャンツール
+   - `coding-style.md` - フォーマットツール、イディオム、エラーハンドリングパターン
+   - `testing.md` - テストフレームワーク、カバレッジツール、テスト構成
+   - `patterns.md` - 言語固有の設計パターン
+   - `hooks.md` - フォーマッタ、リンター、型チェッカー用の PostToolUse フック
+   - `security.md` - シークレット管理、セキュリティスキャンツール
 3. 各ファイルは次の内容で始めてください:
    ```
    > このファイルは [common/xxx.md](../common/xxx.md) を <言語> 固有のコンテンツで拡張します。

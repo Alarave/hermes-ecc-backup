@@ -8,7 +8,7 @@ Practical settings and habits to reduce token consumption, extend session qualit
 
 ## Recommended Settings
 
-These are recommended defaults for most users. Power users can tune values further based on their workload — for example, setting `MAX_THINKING_TOKENS` lower for simple tasks or higher for complex architectural work.
+These are recommended defaults for most users. Power users can tune values further based on their workload - for example, setting `MAX_THINKING_TOKENS` lower for simple tasks or higher for complex architectural work.
 
 Add to your `~/.claude/settings.json`:
 
@@ -37,8 +37,8 @@ Some recent Claude Code builds have community reports that `CLAUDE_AUTOCOMPACT_P
 
 ### Toggling extended thinking
 
-- **Alt+T** (Windows/Linux) or **Option+T** (macOS) — toggle on/off
-- **Ctrl+O** — see thinking output (verbose mode)
+- **Alt+T** (Windows/Linux) or **Option+T** (macOS) - toggle on/off
+- **Ctrl+O** - see thinking output (verbose mode)
 
 ---
 
@@ -105,7 +105,7 @@ The `strategic-compact` skill (in `skills/strategic-compact/`) suggests `/compac
 
 ### Subagents protect your context
 
-Use subagents (Task tool) for exploration instead of reading many files in your main session. The subagent reads 20 files but only returns a summary — your main context stays clean.
+Use subagents (Task tool) for exploration instead of reading many files in your main session. The subagent reads 20 files but only returns a summary - your main context stays clean.
 
 ---
 
@@ -119,7 +119,7 @@ Tips:
 - Prefer CLI tools when available (`gh` instead of GitHub MCP, `aws` instead of AWS MCP)
 - Do not rely on `.claude/settings.json` or `.claude/settings.local.json` to disable already-loaded Claude Code MCP servers; use `/mcp` for that.
 - `ECC_DISABLED_MCPS` only affects ECC-generated MCP config output during install/sync flows, such as `install.sh`, `npx ecc-install`, and Codex MCP merging. It is not a live Claude Code toggle.
-- The `memory` MCP server is configured by default but not used by any skill, agent, or hook — consider disabling it
+- The `memory` MCP server is configured by default but not used by any skill, agent, or hook - consider disabling it
 
 ---
 

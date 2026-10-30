@@ -96,7 +96,7 @@ state.items.add(item);
 ```dart
 context.read<CartCubit>().addItem(item);
 // 注意：Cubit 暴露命名方法（addItem, removeItem）；
-// .add(event) 是 BLoC 事件 API — 不要混淆使用。
+// .add(event) 是 BLoC 事件 API - 不要混淆使用。
 ```
 
 ```
@@ -135,11 +135,11 @@ $ flutter test
 
 ## 修复策略
 
-1. **优先分析错误** — 代码必须无错误
-2. **其次处理警告** — 修复可能导致运行时错误的警告
-3. **第三解决 pub 冲突** — 修复依赖解析问题
-4. **每次修复一个** — 验证每次更改
-5. **最小改动** — 仅修复，不重构
+1. **优先分析错误** - 代码必须无错误
+2. **其次处理警告** - 修复可能导致运行时错误的警告
+3. **第三解决 pub 冲突** - 修复依赖解析问题
+4. **每次修复一个** - 验证每次更改
+5. **最小改动** - 仅修复，不重构
 
 ## 停止条件
 
@@ -152,9 +152,9 @@ $ flutter test
 
 ## 相关命令
 
-* `/flutter-test` — 构建成功后运行测试
-* `/flutter-review` — 审查代码质量
-* `verification-loop` 技能 — 完整验证循环
+* `/flutter-test` - 构建成功后运行测试
+* `/flutter-review` - 审查代码质量
+* `verification-loop` 技能 - 完整验证循环
 
 ## 相关信息
 

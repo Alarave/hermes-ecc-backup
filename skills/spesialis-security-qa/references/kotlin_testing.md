@@ -4,10 +4,10 @@
 
 ## テストフレームワーク
 
-- **kotlin.test** — マルチプラットフォーム（KMP）用（`@Test`、`assertEquals`、`assertTrue`）
-- **JUnit 4/5** — Android 固有のテスト用
-- **Turbine** — Flow と StateFlow のテスト用
-- **kotlinx-coroutines-test** — コルーチンテスト用（`runTest`、`TestDispatcher`）
+- **kotlin.test** - マルチプラットフォーム（KMP）用（`@Test`、`assertEquals`、`assertTrue`）
+- **JUnit 4/5** - Android 固有のテスト用
+- **Turbine** - Flow と StateFlow のテスト用
+- **kotlinx-coroutines-test** - コルーチンテスト用（`runTest`、`TestDispatcher`）
 
 ## Turbine を使った ViewModel テスト
 
@@ -60,7 +60,7 @@ fun `parallel operations complete`() = runTest {
 }
 ```
 
-`runTest` を使用する — 仮想時間を自動的に進め、`TestScope` を提供する。
+`runTest` を使用する - 仮想時間を自動的に進め、`TestScope` を提供する。
 
 ## Ktor MockEngine
 

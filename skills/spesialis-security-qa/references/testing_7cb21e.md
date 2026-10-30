@@ -25,7 +25,7 @@ Always use `-l` to ensure `lib/` is on `@INC`.
 
 ## Coverage
 
-Use **Devel::Cover** — target 80%+:
+Use **Devel::Cover** - target 80%+:
 
 ```bash
 cover -test
@@ -33,8 +33,8 @@ cover -test
 
 ## Mocking
 
-- **Test::MockModule** — mock methods on existing modules
-- **Test::MockObject** — create test doubles from scratch
+- **Test::MockModule** - mock methods on existing modules
+- **Test::MockObject** - create test doubles from scratch
 
 ## Pitfalls
 

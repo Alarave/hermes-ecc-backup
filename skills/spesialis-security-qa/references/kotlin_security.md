@@ -13,18 +13,18 @@
 // BAD
 val apiKey = "sk-abc123..."
 
-// GOOD — BuildConfig から（ビルド時に生成）
+// GOOD - BuildConfig から（ビルド時に生成）
 val apiKey = BuildConfig.API_KEY
 
-// GOOD — ランタイム時にセキュアストレージから
+// GOOD - ランタイム時にセキュアストレージから
 val token = secureStorage.get("auth_token")
 ```
 
 ## ネットワークセキュリティ
 
-- HTTPS のみを使用する — クリアテキストをブロックするため `network_security_config.xml` を設定する
+- HTTPS のみを使用する - クリアテキストをブロックするため `network_security_config.xml` を設定する
 - 機密性の高いエンドポイントには OkHttp の `CertificatePinner` または Ktor 相当で証明書ピンニングを行う
-- すべての HTTP クライアントにタイムアウトを設定する — デフォルト（無限の場合がある）のまま放置しない
+- すべての HTTP クライアントにタイムアウトを設定する - デフォルト（無限の場合がある）のまま放置しない
 - すべてのサーバーレスポンスを使用前に検証・サニタイズする
 
 ```xml
@@ -37,14 +37,14 @@ val token = secureStorage.get("auth_token")
 ## 入力検証
 
 - 処理や API 送信前にすべてのユーザー入力を検証する
-- Room/SQLDelight にはパラメータ化クエリを使用する — ユーザー入力を SQL に連結しない
+- Room/SQLDelight にはパラメータ化クエリを使用する - ユーザー入力を SQL に連結しない
 - パストラバーサルを防ぐためユーザー入力のファイルパスをサニタイズする
 
 ```kotlin
-// BAD — SQL インジェクション
+// BAD - SQL インジェクション
 @Query("SELECT * FROM items WHERE name = '$input'")
 
-// GOOD — パラメータ化
+// GOOD - パラメータ化
 @Query("SELECT * FROM items WHERE name = :input")
 fun findByName(input: String): List<ItemEntity>
 ```
@@ -52,7 +52,7 @@ fun findByName(input: String): List<ItemEntity>
 ## データ保護
 
 - Android では機密性の高いキーバリューデータに `EncryptedSharedPreferences` を使用する
-- 明示的なフィールド名で `@Serializable` を使用する — 内部プロパティ名を漏洩させない
+- 明示的なフィールド名で `@Serializable` を使用する - 内部プロパティ名を漏洩させない
 - 不要になった機密データはメモリからクリアする
 - シリアライズされたクラスの名前マングリングを防ぐため `@Keep` または ProGuard ルールを使用する
 
@@ -67,7 +67,7 @@ fun findByName(input: String): List<ItemEntity>
 
 - すべてのシリアライズされたモデル（`@Serializable`、Gson、Moshi）の Keep ルール
 - リフレクションベースのライブラリ（Koin、Retrofit）の Keep ルール
-- リリースビルドをテストする — 難読化はシリアライズを無言で壊す可能性がある
+- リリースビルドをテストする - 難読化はシリアライズを無言で壊す可能性がある
 
 ## WebView セキュリティ
 

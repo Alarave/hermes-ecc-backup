@@ -53,7 +53,7 @@ Report back to user
 | `list_projects()` | Browse all projects |
 | `list_missions(project_id, status?)` | List missions in a project |
 
-> **Note on `wait_for_mission`:** This blocks the conversation for up to `timeout_seconds` (default 600). For long-running missions, prefer polling with `get_mission_status` every 30–60 seconds instead, so the user sees progress updates.
+> **Note on `wait_for_mission`:** This blocks the conversation for up to `timeout_seconds` (default 600). For long-running missions, prefer polling with `get_mission_status` every 30-60 seconds instead, so the user sees progress updates.
 
 ### Workflow: Plan → Dispatch → Monitor → Report
 
@@ -76,7 +76,7 @@ DevFleet runs up to 3 concurrent agents by default (configurable via `DEVFLEET_M
 3. Remaining missions auto-dispatch as dependencies resolve (they have `auto_dispatch=true`).
 4. Report back with project ID and mission count so the user knows what was launched.
 5. Poll with `get_mission_status` or `get_dashboard()` periodically until all missions reach a terminal state (`completed`, `failed`, or `cancelled`).
-6. `get_report(mission_id=...)` for each terminal mission — summarize successes and call out failures with errors and next steps.
+6. `get_report(mission_id=...)` for each terminal mission - summarize successes and call out failures with errors and next steps.
 
 ### Manual: step-by-step control
 
@@ -92,7 +92,7 @@ DevFleet runs up to 3 concurrent agents by default (configurable via `DEVFLEET_M
 2. `create_mission(project_id=project_id, title="Implement feature", prompt="...")` → get `impl_mission_id`.
 3. `dispatch_mission(mission_id=impl_mission_id)`, then poll with `get_mission_status` until complete.
 4. `get_report(mission_id=impl_mission_id)` to review results.
-5. `create_mission(project_id=project_id, title="Review", prompt="...", depends_on=[impl_mission_id], auto_dispatch=true)` — auto-starts since the dependency is already met.
+5. `create_mission(project_id=project_id, title="Review", prompt="...", depends_on=[impl_mission_id], auto_dispatch=true)` - auto-starts since the dependency is already met.
 
 ## Guidelines
 
@@ -100,6 +100,6 @@ DevFleet runs up to 3 concurrent agents by default (configurable via `DEVFLEET_M
 - Include mission titles and IDs when reporting status.
 - If a mission fails, read its report before retrying.
 - Check `get_dashboard()` for agent slot availability before bulk dispatching.
-- Mission dependencies form a DAG — do not create circular dependencies.
+- Mission dependencies form a DAG - do not create circular dependencies.
 - Each agent runs in an isolated git worktree and auto-merges on completion. If a merge conflict occurs, the changes remain on the agent's worktree branch for manual resolution.
 - When manually creating missions, always set `auto_dispatch=true` if you want them to trigger automatically when dependencies complete. Without this flag, missions stay in `draft` status.

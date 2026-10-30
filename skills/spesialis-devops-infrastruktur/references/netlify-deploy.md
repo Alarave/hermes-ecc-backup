@@ -212,7 +212,7 @@ If deployment fails due to network issues (timeouts, DNS errors, connection rese
 Example guidance to the user:
 
 ```
-The deploy needs escalated network access to deploy to Netlify. I can rerun the command with escalated permissions—want me to proceed?
+The deploy needs escalated network access to deploy to Netlify. I can rerun the command with escalated permissions-want me to proceed?
 ```
 
 ## Environment Variables

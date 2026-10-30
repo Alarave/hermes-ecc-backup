@@ -83,7 +83,7 @@ async fn fetches_data_successfully() {
 在生产代码中定义特征；在测试模块中生成模拟对象：
 
 ```rust
-// Production trait — pub so integration tests can import it
+// Production trait - pub so integration tests can import it
 pub trait UserRepository {
     fn find_by_id(&self, id: u64) -> Option<User>;
 }
@@ -127,7 +127,7 @@ mod tests {
 
 * 目标为 80%+ 的行覆盖率
 * 使用 **cargo-llvm-cov** 生成覆盖率报告
-* 关注业务逻辑 —— 排除生成的代码和 FFI 绑定
+* 关注业务逻辑 -- 排除生成的代码和 FFI 绑定
 
 ```bash
 cargo llvm-cov                       # Summary

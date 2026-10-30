@@ -47,7 +47,7 @@ Bu politika aşağıdakileri kapsar:
 
 ## Güvenlik Kaynakları
 
-- **AgentShield**: Agent konfigürasyonunuzu güvenlik açıkları için tarayın — `npx ecc-agentshield scan`
+- **AgentShield**: Agent konfigürasyonunuzu güvenlik açıkları için tarayın - `npx ecc-agentshield scan`
 - **Güvenlik Kılavuzu**: [The Shorthand Guide to Everything Agentic Security](./the-security-guide.md)
 - **OWASP MCP Top 10**: [owasp.org/www-project-mcp-top-10](https://owasp.org/www-project-mcp-top-10/)
 - **OWASP Agentic Applications Top 10**: [genai.owasp.org](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)

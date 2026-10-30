@@ -23,7 +23,7 @@
 
 ### 有些 MCP 是可替换的，可以释放你的上下文窗口
 
-对于诸如版本控制（GitHub）、数据库（Supabase）、部署（Vercel、Railway）等 MCP 来说——这些平台大多已经拥有健壮的 CLI，MCP 本质上只是对其进行包装。MCP 是一个很好的包装器，但它是有代价的。
+对于诸如版本控制（GitHub）、数据库（Supabase）、部署（Vercel、Railway）等 MCP 来说--这些平台大多已经拥有健壮的 CLI，MCP 本质上只是对其进行包装。MCP 是一个很好的包装器，但它是有代价的。
 
 要让 CLI 功能更像 MCP，而不实际使用 MCP（以及随之而来的减少的上下文窗口），可以考虑将功能打包成技能和命令。提取出 MCP 暴露的、使事情变得容易的工具，并将它们转化为命令。
 
@@ -89,17 +89,17 @@ alias claude-research='claude --system-prompt "$(cat ~/.claude/contexts/research
 
 ### 持续学习 / 记忆
 
-如果你不得不多次重复一个提示，并且 Claude 遇到了同样的问题或给出了你以前听过的回答——这些模式必须被附加到技能中。
+如果你不得不多次重复一个提示，并且 Claude 遇到了同样的问题或给出了你以前听过的回答--这些模式必须被附加到技能中。
 
 **问题：** 浪费令牌，浪费上下文，浪费时间。
 
-**解决方案：** 当 Claude Code 发现一些不平凡的事情时——调试技巧、变通方法、某些项目特定的模式——它会将该知识保存为一个新技能。下次出现类似问题时，该技能会自动加载。
+**解决方案：** 当 Claude Code 发现一些不平凡的事情时--调试技巧、变通方法、某些项目特定的模式--它会将该知识保存为一个新技能。下次出现类似问题时，该技能会自动加载。
 
 我构建了一个实现此功能的持续学习技能：`github.com/affaan-m/everything-claude-code/tree/main/skills/continuous-learning`
 
 **为什么用 Stop 钩子（而不是 UserPromptSubmit）：**
 
-关键的设计决策是使用 **Stop 钩子** 而不是 UserPromptSubmit。UserPromptSubmit 在每个消息上运行——给每个提示增加延迟。Stop 在会话结束时只运行一次——轻量级，不会在会话期间拖慢你的速度。
+关键的设计决策是使用 **Stop 钩子** 而不是 UserPromptSubmit。UserPromptSubmit 在每个消息上运行--给每个提示增加延迟。Stop 在会话结束时只运行一次--轻量级，不会在会话期间拖慢你的速度。
 
 ***
 
@@ -134,7 +134,7 @@ alias claude-research='claude --system-prompt "$(cat ~/.claude/contexts/research
 
 **工具特定优化：**
 
-用 mgrep 替换 grep——与传统 grep 或 ripgrep 相比，平均减少约 50% 的令牌：
+用 mgrep 替换 grep--与传统 grep 或 ripgrep 相比，平均减少约 50% 的令牌：
 
 ![mgrep 基准测试](../../assets/images/longform/06-mgrep-benchmark.png)
 *在我们的 50 个任务基准测试中，mgrep + Claude Code 在相似或更好的判断质量下，使用的 token 数比基于 grep 的工作流少约 2 倍。来源：@mixedbread-ai 的 mgrep*
@@ -327,7 +327,7 @@ alias q='cd ~/Desktop/projects'
 
 **智能体编排：**
 
-* claude-flow — 社区构建的企业级编排平台，包含 54+ 个专业代理
+* claude-flow - 社区构建的企业级编排平台，包含 54+ 个专业代理
 
 **自我改进记忆：**
 
@@ -336,7 +336,7 @@ alias q='cd ~/Desktop/projects'
 
 **系统提示词参考：**
 
-* system-prompts-and-models-of-ai-tools — 社区收集的 AI 系统提示（110k+ 星标）
+* system-prompts-and-models-of-ai-tools - 社区收集的 AI 系统提示（110k+ 星标）
 
 **官方：**
 

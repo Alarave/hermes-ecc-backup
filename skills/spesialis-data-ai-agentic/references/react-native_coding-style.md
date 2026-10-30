@@ -27,9 +27,9 @@ export function Avatar({ uri, size = 40, onPress }: AvatarProps) {
 
 ## Styling
 
-Pick ONE styling system per project and stay consistent. `StyleSheet.create()` is the framework-native option; utility-class libraries (e.g. NativeWind) are a common alternative. This rule is library-agnostic — what matters is consistency and avoiding inline allocations.
+Pick ONE styling system per project and stay consistent. `StyleSheet.create()` is the framework-native option; utility-class libraries (e.g. NativeWind) are a common alternative. This rule is library-agnostic - what matters is consistency and avoiding inline allocations.
 
-- StyleSheet: define styles with `StyleSheet.create()` at module scope — never build style objects inline inside `render`/JSX on hot paths (it allocates on every render).
+- StyleSheet: define styles with `StyleSheet.create()` at module scope - never build style objects inline inside `render`/JSX on hot paths (it allocates on every render).
 - Utility-class approach: extract repeated class strings into shared constants or a variant helper.
 - Never hardcode raw colors, spacing, or font sizes scattered across files. Centralize design tokens (theme file or config).
 

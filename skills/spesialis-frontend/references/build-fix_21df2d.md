@@ -27,11 +27,11 @@ Identifique a ferramenta de build do projeto e execute o build:
 
 Para cada erro:
 
-1. **Leia o arquivo** — Use a ferramenta Read para ver o contexto do erro (10 linhas ao redor do erro)
-2. **Diagnostique** — Identifique a causa raiz (import ausente, tipo errado, erro de sintaxe)
-3. **Corrija minimamente** — Use a ferramenta Edit para a menor mudança que resolve o erro
-4. **Rode o build novamente** — Verifique que o erro sumiu e que nenhum novo erro foi introduzido
-5. **Vá para o próximo** — Continue com os erros restantes
+1. **Leia o arquivo** - Use a ferramenta Read para ver o contexto do erro (10 linhas ao redor do erro)
+2. **Diagnostique** - Identifique a causa raiz (import ausente, tipo errado, erro de sintaxe)
+3. **Corrija minimamente** - Use a ferramenta Edit para a menor mudança que resolve o erro
+4. **Rode o build novamente** - Verifique que o erro sumiu e que nenhum novo erro foi introduzido
+5. **Vá para o próximo** - Continue com os erros restantes
 
 ## Passo 4: Guardrails
 

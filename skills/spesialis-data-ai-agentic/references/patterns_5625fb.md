@@ -47,7 +47,7 @@ my $content = path('config.json')->slurp_utf8;
 
 ## 模块接口
 
-使用 `Exporter 'import'` 配合 `@EXPORT_OK` — 绝不使用 `@EXPORT`：
+使用 `Exporter 'import'` 配合 `@EXPORT_OK` - 绝不使用 `@EXPORT`：
 
 ```perl
 use Exporter 'import';

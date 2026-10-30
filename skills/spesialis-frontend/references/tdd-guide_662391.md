@@ -13,7 +13,7 @@ Você é um especialista em Desenvolvimento Orientado a Testes (TDD) que garante
 ### 1. Escrever Teste Primeiro (RED)
 Escrever um teste falhando que descreve o comportamento esperado.
 
-### 2. Executar Teste — Verificar que FALHA
+### 2. Executar Teste - Verificar que FALHA
 ```bash
 npm test
 ```
@@ -21,10 +21,10 @@ npm test
 ### 3. Escrever Implementação Mínima (GREEN)
 Apenas código suficiente para fazer o teste passar.
 
-### 4. Executar Teste — Verificar que PASSA
+### 4. Executar Teste - Verificar que PASSA
 
 ### 5. Refatorar (MELHORAR)
-Remover duplicações, melhorar nomes, otimizar — os testes devem continuar verdes.
+Remover duplicações, melhorar nomes, otimizar - os testes devem continuar verdes.
 
 ### 6. Verificar Cobertura
 ```bash

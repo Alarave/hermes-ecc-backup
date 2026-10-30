@@ -2,11 +2,11 @@
 
 Gracias a todos los que financian el trabajo de código abierto de ECC. Tu patrocinio es lo que permite que la capa OSS se mantenga gratuita mientras la GitHub App, los análisis de seguridad alojados y las mejoras continuas se publican cada semana.
 
-## Patrocinadores Empresariales — $2,500/mes
+## Patrocinadores Empresariales - $2,500/mes
 
 *Conviértete en [patrocinador Empresarial](https://github.com/sponsors/affaan-m) para aparecer aquí.*
 
-## Patrocinadores Business — $500/mes
+## Patrocinadores Business - $500/mes
 
 | Patrocinador | Logo | Desde |
 |---------|------|-------|
@@ -14,7 +14,7 @@ Gracias a todos los que financian el trabajo de código abierto de ECC. Tu patro
 
 *[Conviértete en patrocinador Business](https://github.com/sponsors/affaan-m) para aparecer aquí con logo en el hero del README principal y un caso de estudio trimestral.*
 
-## Patrocinadores Team — $200/mes
+## Patrocinadores Team - $200/mes
 
 | Patrocinador | Desde |
 |---------|-------|
@@ -22,11 +22,11 @@ Gracias a todos los que financian el trabajo de código abierto de ECC. Tu patro
 
 *[Conviértete en patrocinador Team](https://github.com/sponsors/affaan-m) para obtener un logo pequeño y 5 asientos de ECC Pro.*
 
-## Patrocinadores Pro — $50/mes
+## Patrocinadores Pro - $50/mes
 
 *[Conviértete en patrocinador Pro](https://github.com/sponsors/affaan-m) para aparecer aquí con tu nombre en la fila de patrocinadores del README principal.*
 
-## Patrocinadores Builder — $25/mes
+## Patrocinadores Builder - $25/mes
 
 - @jasonwu513 (precio heredado en $10)
 - @1anter (precio heredado en $10)
@@ -35,7 +35,7 @@ Gracias a todos los que financian el trabajo de código abierto de ECC. Tu patro
 
 *[Conviértete en patrocinador Builder](https://github.com/sponsors/affaan-m) para apoyar el proyecto y aparecer en esta lista + una nota mensual privada de progreso.*
 
-## Supporters — $5/mes
+## Supporters - $5/mes
 
 *[Conviértete en Supporter](https://github.com/sponsors/affaan-m) para respaldar el proyecto con una insignia de perfil y un agradecimiento en nuestras notas de versión.*
 
@@ -54,7 +54,7 @@ Gracias a todos los que financian el trabajo de código abierto de ECC. Tu patro
 
 [**Conviértete en Patrocinador →**](https://github.com/sponsors/affaan-m)
 
-Para consultas de patrocinio corporativo, colaboraciones personalizadas o integraciones de PR, envía un correo a **[affaan@ecc.tools](mailto:affaan@ecc.tools)** con el nombre de tu empresa y el nivel deseado. Respondemos rápido — la mayoría de los acuerdos se cierran en 48 horas.
+Para consultas de patrocinio corporativo, colaboraciones personalizadas o integraciones de PR, envía un correo a **[affaan@ecc.tools](mailto:affaan@ecc.tools)** con el nombre de tu empresa y el nivel deseado. Respondemos rápido - la mayoría de los acuerdos se cierran en 48 horas.
 
 ---
 
@@ -62,10 +62,10 @@ Para consultas de patrocinio corporativo, colaboraciones personalizadas o integr
 
 Tu patrocinio financia directamente:
 
-- **Trabajo OSS que se mantiene gratuito** — el repo principal, AgentShield, los scripts de instalación y la biblioteca de skills permanecen MIT
-- **Lanzamientos semanales** — trabajo a tiempo completo en el harness, no un proyecto paralelo
-- **Mantenimiento independiente** — sin presión de adquisición, sin rug pulls, sin degradación
-- **Roadmap impulsado por sponsors** — los sponsors Pro+ votan en la dirección, los Business+ obtienen casos de estudio y soporte de integración
+- **Trabajo OSS que se mantiene gratuito** - el repo principal, AgentShield, los scripts de instalación y la biblioteca de skills permanecen MIT
+- **Lanzamientos semanales** - trabajo a tiempo completo en el harness, no un proyecto paralelo
+- **Mantenimiento independiente** - sin presión de adquisición, sin rug pulls, sin degradación
+- **Roadmap impulsado por sponsors** - los sponsors Pro+ votan en la dirección, los Business+ obtienen casos de estudio y soporte de integración
 
 ## Los Sponsors Existentes Tienen Precios Heredados
 

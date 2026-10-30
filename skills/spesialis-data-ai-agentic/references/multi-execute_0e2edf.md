@@ -116,8 +116,8 @@ Después de que pase la auditoría, reportar al usuario:
 
 ## Reglas Clave
 
-1. **Soberanía del Código** – Todas las modificaciones de archivos por Claude, los modelos externos tienen cero acceso de escritura
-2. **Refactorización del Prototipo Sucio** – La salida de Codex/Gemini tratada como borrador, debe refactorizarse
-3. **Reglas de Confianza** – Backend sigue a Codex, Frontend sigue a Gemini
-4. **Cambios Mínimos** – Solo modificar el código necesario, sin efectos secundarios
-5. **Auditoría Obligatoria** – Debe realizar revisión de código multi-modelo después de los cambios
+1. **Soberanía del Código** - Todas las modificaciones de archivos por Claude, los modelos externos tienen cero acceso de escritura
+2. **Refactorización del Prototipo Sucio** - La salida de Codex/Gemini tratada como borrador, debe refactorizarse
+3. **Reglas de Confianza** - Backend sigue a Codex, Frontend sigue a Gemini
+4. **Cambios Mínimos** - Solo modificar el código necesario, sin efectos secundarios
+5. **Auditoría Obligatoria** - Debe realizar revisión de código multi-modelo después de los cambios

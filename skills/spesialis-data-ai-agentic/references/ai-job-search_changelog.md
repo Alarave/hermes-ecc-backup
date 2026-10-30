@@ -87,9 +87,9 @@ per-file diff commands.
 
   Fix: a `## Tracker status vocabulary` block in `/outcome` (the only writer of the CSV)
   now defines the canonical set once with underscore spellings and the **Final** set by
-  explicit list — everything else, `drafted` included, is **Open**. The legacy space
+  explicit list - everything else, `drafted` included, is **Open**. The legacy space
   spellings are the same values, not separate statuses: equally **Final**, and every rule
-  that names one form applies to the other — readers must accept them on read, and never
+  that names one form applies to the other - readers must accept them on read, and never
   write them. Every reader that makes final/open decisions references that block (`/apply`
   Step 6b, `/interview` Step 0, `/gmail-sync` Step 2, `/html-report` Step 1, `/notion-sync`
   Steps 3-4). `/outcome` Step 4 writes `no_response` / `offer_declined`; `/notion-sync`
@@ -101,7 +101,7 @@ per-file diff commands.
   **Fork heads-up:** if your personalized `/outcome` adds `no response` or `offer declined`
   (space forms) to the tracker write path, swap them for the underscore forms. Existing rows
   keep working because every reader now accepts both spellings on read. If your Notion
-  database already carries space-form Status options, they simply go unused — Notion never
+  database already carries space-form Status options, they simply go unused - Notion never
   auto-removes select options.
 
 ## [1.4.0] - 2026-08-07

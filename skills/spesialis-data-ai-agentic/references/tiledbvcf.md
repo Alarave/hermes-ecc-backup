@@ -225,7 +225,7 @@ ds = tiledbvcf.Dataset(uri="gcs://bucket/dataset", mode="r")
 4. **Coordinate system confusion:** Remember TileDB-VCF uses 1-based coordinates like VCF standard
 5. **Large result sets:** Use streaming or pagination for queries returning millions of variants
 6. **Cloud permissions:** Ensure proper authentication for cloud storage access
-7. **Concurrent access:** Multiple writers to the same dataset can cause corruption—use appropriate locking
+7. **Concurrent access:** Multiple writers to the same dataset can cause corruption-use appropriate locking
 
 ## CLI Usage
 

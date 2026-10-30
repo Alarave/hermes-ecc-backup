@@ -1,4 +1,4 @@
-# Laravel API — 项目 CLAUDE.md
+# Laravel API - 项目 CLAUDE.md
 
 > 使用 PostgreSQL、Redis 和队列的 Laravel API 真实案例。
 > 复制此文件到你的项目根目录，并根据你的服务进行自定义。

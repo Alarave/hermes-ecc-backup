@@ -1,4 +1,4 @@
-# Django REST API — CLAUDE.md de Projeto
+# Django REST API - CLAUDE.md de Projeto
 
 > Exemplo real para uma API Django REST Framework com PostgreSQL e Celery.
 > Copie para a raiz do seu projeto e customize para seu serviço.
@@ -7,22 +7,22 @@
 
 **Stack:** Python 3.12+, Django 5.x, Django REST Framework, PostgreSQL, Celery + Redis, pytest, Docker Compose
 
-**Arquitetura:** Design orientado a domínio com apps por domínio de negócio. DRF para camada de API, Celery para tarefas assíncronas, pytest para testes. Todos os endpoints retornam JSON — sem renderização de templates.
+**Arquitetura:** Design orientado a domínio com apps por domínio de negócio. DRF para camada de API, Celery para tarefas assíncronas, pytest para testes. Todos os endpoints retornam JSON - sem renderização de templates.
 
 ## Regras Críticas
 
 ### Convenções Python
 
-- Type hints em todas as assinaturas de função — use `from __future__ import annotations`
-- Sem `print()` statements — use `logging.getLogger(__name__)`
+- Type hints em todas as assinaturas de função - use `from __future__ import annotations`
+- Sem `print()` statements - use `logging.getLogger(__name__)`
 - f-strings para formatação, nunca `%` ou `.format()`
 - Use `pathlib.Path` e não `os.path` para operações de arquivo
 - Imports ordenados com isort: stdlib, third-party, local (enforced by ruff)
 
 ### Banco de Dados
 
-- Todas as queries usam Django ORM — SQL bruto só com `.raw()` e queries parametrizadas
-- Migrations versionadas no git — nunca use `--fake` em produção
+- Todas as queries usam Django ORM - SQL bruto só com `.raw()` e queries parametrizadas
+- Migrations versionadas no git - nunca use `--fake` em produção
 - Use `select_related()` e `prefetch_related()` para prevenir queries N+1
 - Todos os models devem ter auto-fields `created_at` e `updated_at`
 - Índices em qualquer campo usado em `filter()`, `order_by()` ou cláusulas `WHERE`
@@ -39,8 +39,8 @@ orders = Order.objects.select_related("customer").all()
 
 ### Autenticação
 
-- JWT via `djangorestframework-simplejwt` — access token (15 min) + refresh token (7 days)
-- Permission classes em toda view — nunca confiar no padrão
+- JWT via `djangorestframework-simplejwt` - access token (15 min) + refresh token (7 days)
+- Permission classes em toda view - nunca confiar no padrão
 - Use `IsAuthenticated` como base e adicione permissões customizadas para acesso por objeto
 - Token blacklisting habilitado para logout
 
@@ -48,7 +48,7 @@ orders = Order.objects.select_related("customer").all()
 
 - Use `ModelSerializer` para CRUD simples, `Serializer` para validação complexa
 - Separe serializers de leitura e escrita quando input/output diferirem
-- Valide no nível de serializer, não na view — views devem ser enxutas
+- Valide no nível de serializer, não na view - views devem ser enxutas
 
 ```python
 class CreateOrderSerializer(serializers.Serializer):
@@ -90,7 +90,7 @@ class InsufficientStockError(APIException):
 - Sem emojis em código ou comentários
 - Tamanho máximo de linha: 120 caracteres (enforced by ruff)
 - Classes: PascalCase, funções/variáveis: snake_case, constantes: UPPER_SNAKE_CASE
-- Views enxutas — lógica de negócio em funções de serviço ou métodos do model
+- Views enxutas - lógica de negócio em funções de serviço ou métodos do model
 
 ## Estrutura de Arquivos
 

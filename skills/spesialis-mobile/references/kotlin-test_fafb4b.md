@@ -298,9 +298,9 @@ open build/reports/kover/html/index.html
 
 ## 関連コマンド
 
-- `/kotlin-build` — ビルドエラーを修正
-- `/kotlin-review` — 実装後にコードをレビュー
-- `verification-loop`スキル — 完全な検証ループを実行
+- `/kotlin-build` - ビルドエラーを修正
+- `/kotlin-review` - 実装後にコードをレビュー
+- `verification-loop`スキル - 完全な検証ループを実行
 
 ## 関連
 

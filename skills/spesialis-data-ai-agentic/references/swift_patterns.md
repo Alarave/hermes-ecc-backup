@@ -43,7 +43,7 @@ actor Cache<Key: Hashable & Sendable, Value: Sendable> {
 
 ## 依存性注入
 
-デフォルトパラメータ付きでプロトコルを注入する — 本番ではデフォルトを使用し、テストではモックを注入する:
+デフォルトパラメータ付きでプロトコルを注入する - 本番ではデフォルトを使用し、テストではモックを注入する:
 
 ```swift
 struct UserService {

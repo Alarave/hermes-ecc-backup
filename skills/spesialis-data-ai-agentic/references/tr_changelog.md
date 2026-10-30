@@ -51,40 +51,40 @@
 
 ### Yeni Ajanlar
 
-- `typescript-reviewer` — TypeScript/JavaScript kod inceleme uzmanı (#647)
-- `pytorch-build-resolver` — PyTorch runtime, CUDA ve eğitim hatası çözümü (#549)
-- `java-build-resolver` — Maven/Gradle build hatası çözümü (#538)
-- `java-reviewer` — Java ve Spring Boot kod incelemesi (#528)
-- `kotlin-reviewer` — Kotlin/Android/KMP kod incelemesi (#309)
-- `kotlin-build-resolver` — Kotlin/Gradle build hataları (#309)
-- `rust-reviewer` — Rust kod incelemesi (#523)
-- `rust-build-resolver` — Rust build hatası çözümü (#523)
-- `docs-lookup` — Dokümantasyon ve API referans araştırması (#529)
+- `typescript-reviewer` - TypeScript/JavaScript kod inceleme uzmanı (#647)
+- `pytorch-build-resolver` - PyTorch runtime, CUDA ve eğitim hatası çözümü (#549)
+- `java-build-resolver` - Maven/Gradle build hatası çözümü (#538)
+- `java-reviewer` - Java ve Spring Boot kod incelemesi (#528)
+- `kotlin-reviewer` - Kotlin/Android/KMP kod incelemesi (#309)
+- `kotlin-build-resolver` - Kotlin/Gradle build hataları (#309)
+- `rust-reviewer` - Rust kod incelemesi (#523)
+- `rust-build-resolver` - Rust build hatası çözümü (#523)
+- `docs-lookup` - Dokümantasyon ve API referans araştırması (#529)
 
 ### Yeni Beceriler
 
-- `pytorch-patterns` — PyTorch derin öğrenme iş akışları (#550)
-- `documentation-lookup` — API referans ve kütüphane dokümanı araştırması (#529)
-- `bun-runtime` — Bun runtime kalıpları (#529)
-- `nextjs-turbopack` — Next.js Turbopack iş akışları (#529)
-- `mcp-server-patterns` — MCP sunucu tasarım kalıpları (#531)
-- `data-scraper-agent` — AI destekli genel veri toplama (#503)
-- `team-builder` — Takım kompozisyon becerisi (#501)
-- `ai-regression-testing` — AI regresyon test iş akışları (#433)
-- `claude-devfleet` — Çok ajanlı orkestrasyon (#505)
-- `blueprint` — Çok oturumlu yapı planlaması
-- `everything-claude-code` — Öz-referansiyel ECC becerisi (#335)
-- `prompt-optimizer` — Prompt optimizasyon becerisi (#418)
+- `pytorch-patterns` - PyTorch derin öğrenme iş akışları (#550)
+- `documentation-lookup` - API referans ve kütüphane dokümanı araştırması (#529)
+- `bun-runtime` - Bun runtime kalıpları (#529)
+- `nextjs-turbopack` - Next.js Turbopack iş akışları (#529)
+- `mcp-server-patterns` - MCP sunucu tasarım kalıpları (#531)
+- `data-scraper-agent` - AI destekli genel veri toplama (#503)
+- `team-builder` - Takım kompozisyon becerisi (#501)
+- `ai-regression-testing` - AI regresyon test iş akışları (#433)
+- `claude-devfleet` - Çok ajanlı orkestrasyon (#505)
+- `blueprint` - Çok oturumlu yapı planlaması
+- `everything-claude-code` - Öz-referansiyel ECC becerisi (#335)
+- `prompt-optimizer` - Prompt optimizasyon becerisi (#418)
 - 8 Evos operasyonel alan becerisi (#290)
 - 3 Laravel becerisi (#420)
 - VideoDB becerileri (#301)
 
 ### Yeni Komutlar
 
-- `/docs` — Dokümantasyon arama (#530)
-- `/aside` — Yan konuşma (#407)
-- `/prompt-optimize` — Prompt optimizasyonu (#418)
-- `/resume-session`, `/save-session` — Oturum yönetimi
+- `/docs` - Dokümantasyon arama (#530)
+- `/aside` - Yan konuşma (#407)
+- `/prompt-optimize` - Prompt optimizasyonu (#418)
+- `/resume-session`, `/save-session` - Oturum yönetimi
 - Kontrol listesi tabanlı holistik karar ile `learn-eval` iyileştirmeleri
 
 ### Yeni Kurallar
@@ -119,7 +119,7 @@
 - Observer lazy-start mantığı (#508)
 - Observer 5 katmanlı döngü önleme koruması (#399)
 - Hook taşınabilirliği ve Windows .cmd desteği
-- Biome hook optimizasyonu — npx yükü elimine edildi (#359)
+- Biome hook optimizasyonu - npx yükü elimine edildi (#359)
 - InsAIts güvenlik hook'u opt-in yapıldı (#370)
 - Windows spawnSync export düzeltmesi (#431)
 - instinct CLI için UTF-8 kodlama düzeltmesi (#353)
@@ -127,21 +127,21 @@
 
 ### Çeviriler
 
-- Korece (ko-KR) çeviri — README, ajanlar, komutlar, beceriler, kurallar (#392)
+- Korece (ko-KR) çeviri - README, ajanlar, komutlar, beceriler, kurallar (#392)
 - Çince (zh-CN) dokümantasyon senkronizasyonu (#428)
 
 ### Katkıda Bulunanlar
 
-- @ymdvsymd — observer sandbox ve worktree düzeltmeleri
-- @pythonstrup — biome hook optimizasyonu
-- @Nomadu27 — InsAIts güvenlik hook'u
-- @hahmee — Korece çeviri
-- @zdocapp — Çince çeviri senkronizasyonu
-- @cookiee339 — Kotlin ekosistemi
-- @pangerlkr — CI iş akışı düzeltmeleri
-- @0xrohitgarg — VideoDB becerileri
-- @nocodemf — Evos operasyonel becerileri
-- @swarnika-cmd — topluluk katkıları
+- @ymdvsymd - observer sandbox ve worktree düzeltmeleri
+- @pythonstrup - biome hook optimizasyonu
+- @Nomadu27 - InsAIts güvenlik hook'u
+- @hahmee - Korece çeviri
+- @zdocapp - Çince çeviri senkronizasyonu
+- @cookiee339 - Kotlin ekosistemi
+- @pangerlkr - CI iş akışı düzeltmeleri
+- @0xrohitgarg - VideoDB becerileri
+- @nocodemf - Evos operasyonel becerileri
+- @swarnika-cmd - topluluk katkıları
 
 ## 1.8.0 - 2026-03-04
 

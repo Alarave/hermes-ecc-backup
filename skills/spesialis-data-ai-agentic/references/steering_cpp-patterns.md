@@ -11,7 +11,7 @@
 
 ## RAII (Resource Acquisition Is Initialization)
 
-Tie resource lifetime to object lifetime — no manual `new`/`delete`:
+Tie resource lifetime to object lifetime - no manual `new`/`delete`:
 
 ```cpp
 class FileHandle {
@@ -45,8 +45,8 @@ private:
 
 ## Memory Safety
 
-- Never use raw `new`/`delete` — use smart pointers
-- Never use C-style arrays — use `std::array` or `std::vector`
+- Never use raw `new`/`delete` - use smart pointers
+- Never use C-style arrays - use `std::array` or `std::vector`
 - Use `std::string` over `char*`
 - Use `.at()` for bounds-checked access when safety matters
 - Never use `strcpy`, `strcat`, `sprintf`

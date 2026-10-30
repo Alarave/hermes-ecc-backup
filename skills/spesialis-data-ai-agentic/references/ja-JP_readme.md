@@ -69,31 +69,31 @@
 
 ## 新機能
 
-### v1.4.1 — バグ修正（2026年2月）
+### v1.4.1 - バグ修正（2026年2月）
 
-- **instinctインポート時のコンテンツ喪失を修正** — `/instinct-import`実行時に`parse_instinct_file()`がfrontmatter後のすべてのコンテンツ（Action、Evidence、Examplesセクション）を暗黙的に削除していた問題を修正。コミュニティ貢献者@ericcai0814により解決されました（[#148](https://github.com/affaan-m/everything-claude-code/issues/148), [#161](https://github.com/affaan-m/everything-claude-code/pull/161)）
+- **instinctインポート時のコンテンツ喪失を修正** - `/instinct-import`実行時に`parse_instinct_file()`がfrontmatter後のすべてのコンテンツ（Action、Evidence、Examplesセクション）を暗黙的に削除していた問題を修正。コミュニティ貢献者@ericcai0814により解決されました（[#148](https://github.com/affaan-m/everything-claude-code/issues/148), [#161](https://github.com/affaan-m/everything-claude-code/pull/161)）
 
-### v1.4.0 — マルチ言語ルール、インストールウィザード & PM2（2026年2月）
+### v1.4.0 - マルチ言語ルール、インストールウィザード & PM2（2026年2月）
 
-- **インタラクティブインストールウィザード** — 新しい`configure-ecc`スキルがマージ/上書き検出付きガイドセットアップを提供
-- **PM2 & マルチエージェントオーケストレーション** — 複雑なマルチサービスワークフロー管理用の6つの新コマンド（`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`）
-- **マルチ言語ルールアーキテクチャ** — ルールをフラットファイルから`common/` + `typescript/` + `python/` + `golang/`ディレクトリに再構成。必要な言語のみインストール可能
-- **中国語（zh-CN）翻訳** — すべてのエージェント、コマンド、スキル、ルールの完全翻訳（80+ファイル）
-- **GitHub Sponsorsサポート** — GitHub Sponsors経由でプロジェクトをスポンサー可能
-- **強化されたCONTRIBUTING.md** — 各貢献タイプ向けの詳細なPRテンプレート
+- **インタラクティブインストールウィザード** - 新しい`configure-ecc`スキルがマージ/上書き検出付きガイドセットアップを提供
+- **PM2 & マルチエージェントオーケストレーション** - 複雑なマルチサービスワークフロー管理用の6つの新コマンド（`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`）
+- **マルチ言語ルールアーキテクチャ** - ルールをフラットファイルから`common/` + `typescript/` + `python/` + `golang/`ディレクトリに再構成。必要な言語のみインストール可能
+- **中国語（zh-CN）翻訳** - すべてのエージェント、コマンド、スキル、ルールの完全翻訳（80+ファイル）
+- **GitHub Sponsorsサポート** - GitHub Sponsors経由でプロジェクトをスポンサー可能
+- **強化されたCONTRIBUTING.md** - 各貢献タイプ向けの詳細なPRテンプレート
 
-### v1.3.0 — OpenCodeプラグイン対応（2026年2月）
+### v1.3.0 - OpenCodeプラグイン対応（2026年2月）
 
-- **フルOpenCode統合** — 20+イベントタイプを通じてOpenCodeのプラグインシステムでフック対応の12エージェント、24コマンド、16スキル
-- **3つのネイティブカスタムツール** — run-tests、check-coverage、security-audit
-- **LLMドキュメンテーション** — 包括的なOpenCodeドキュメント用の`llms.txt`
+- **フルOpenCode統合** - 20+イベントタイプを通じてOpenCodeのプラグインシステムでフック対応の12エージェント、24コマンド、16スキル
+- **3つのネイティブカスタムツール** - run-tests、check-coverage、security-audit
+- **LLMドキュメンテーション** - 包括的なOpenCodeドキュメント用の`llms.txt`
 
-### v1.2.0 — 統合コマンド & スキル（2026年2月）
+### v1.2.0 - 統合コマンド & スキル（2026年2月）
 
-- **Python/Djangoサポート** — Djangoパターン、セキュリティ、TDD、検証スキル
-- **Java Spring Bootスキル** — Spring Boot用パターン、セキュリティ、TDD、検証
-- **セッション管理** — セッション履歴用の`/sessions`コマンド
-- **継続的学習 v2** — 信頼度スコアリング、インポート/エクスポート、進化を伴うinstinctベースの学習
+- **Python/Djangoサポート** - Djangoパターン、セキュリティ、TDD、検証スキル
+- **Java Spring Bootスキル** - Spring Boot用パターン、セキュリティ、TDD、検証
+- **セッション管理** - セッション履歴用の`/sessions`コマンド
+- **継続的学習 v2** - 信頼度スコアリング、インポート/エクスポート、進化を伴うinstinctベースの学習
 
 完全なチェンジログは[Releases](https://github.com/affaan-m/everything-claude-code/releases)を参照してください。
 
@@ -354,7 +354,7 @@ everything-claude-code/
 - **instinctコレクション** - continuous-learning-v2用
 - **パターン抽出** - コミット履歴からの学習
 
-### AgentShield — セキュリティ監査ツール
+### AgentShield - セキュリティ監査ツール
 
 Claude Code 設定の脆弱性、誤設定、インジェクションリスクをスキャンします。
 
@@ -605,8 +605,8 @@ node tests/hooks/hooks.test.js
 
 ### 貢献アイデア
 
-- 言語固有のスキル（Rust、C#、Swift、Kotlin） — Go、Python、Javaは既に含まれています
-- フレームワーク固有の設定（Rails、Laravel、FastAPI） — Django、NestJS、Spring Bootは既に含まれています
+- 言語固有のスキル（Rust、C#、Swift、Kotlin） - Go、Python、Javaは既に含まれています
+- フレームワーク固有の設定（Rails、Laravel、FastAPI） - Django、NestJS、Spring Bootは既に含まれています
 - DevOpsエージェント（Kubernetes、Terraform、AWS、Docker）
 - テスト戦略（異なるフレームワーク、ビジュアルリグレッション）
 - 専門領域の知識（ML、データエンジニアリング、モバイル開発）

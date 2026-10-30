@@ -27,11 +27,11 @@ Projenin build aracını tanımla ve build'i çalıştır:
 
 Her hata için:
 
-1. **Dosyayı oku** — Hata bağlamını görmek için Read aracını kullan (hatanın etrafında 10 satır)
-2. **Teşhis et** — Kök nedeni tanımla (eksik import, yanlış tip, sözdizimi hatası)
-3. **Minimal düzelt** — Hatayı çözen en küçük değişiklik için Edit aracını kullan
-4. **Build'i yeniden çalıştır** — Hatanın gittiğini ve yeni hata oluşmadığını doğrula
-5. **Sonrakine geç** — Kalan hatalarla devam et
+1. **Dosyayı oku** - Hata bağlamını görmek için Read aracını kullan (hatanın etrafında 10 satır)
+2. **Teşhis et** - Kök nedeni tanımla (eksik import, yanlış tip, sözdizimi hatası)
+3. **Minimal düzelt** - Hatayı çözen en küçük değişiklik için Edit aracını kullan
+4. **Build'i yeniden çalıştır** - Hatanın gittiğini ve yeni hata oluşmadığını doğrula
+5. **Sonrakine geç** - Kalan hatalarla devam et
 
 ## Adım 4: Koruma Önlemleri
 

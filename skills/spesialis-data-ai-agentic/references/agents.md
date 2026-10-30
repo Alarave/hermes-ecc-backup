@@ -1,4 +1,4 @@
-# Everything Claude Code (ECC) — Agent Instructions
+# Everything Claude Code (ECC) - Agent Instructions
 
 This is a **production-ready AI coding plugin** providing 67 specialized agents, 279 skills, 94 commands, and automated hook workflows for software development.
 
@@ -6,11 +6,11 @@ This is a **production-ready AI coding plugin** providing 67 specialized agents,
 
 ## Core Principles
 
-1. **Agent-First** — Delegate to specialized agents for domain tasks
-2. **Test-Driven** — Write tests before implementation, 80%+ coverage required
-3. **Security-First** — Never compromise on security; validate all inputs
-4. **Immutability** — Always create new objects, never mutate existing ones
-5. **Plan Before Execute** — Plan complex features before writing code
+1. **Agent-First** - Delegate to specialized agents for domain tasks
+2. **Test-Driven** - Write tests before implementation, 80%+ coverage required
+3. **Security-First** - Never compromise on security; validate all inputs
+4. **Immutability** - Always create new objects, never mutate existing ones
+5. **Plan Before Execute** - Plan complex features before writing code
 
 ## Available Agents
 
@@ -60,7 +60,7 @@ Use agents proactively without user prompt:
 - Autonomous loops / loop monitoring → **loop-operator**
 - Harness config reliability and cost → **harness-optimizer**
 
-Use parallel execution for independent operations — launch multiple agents simultaneously.
+Use parallel execution for independent operations - launch multiple agents simultaneously.
 
 ## Security Guidelines
 
@@ -99,28 +99,28 @@ Use parallel execution for independent operations — launch multiple agents sim
 **Minimum coverage: 80%**
 
 Test types (all required):
-1. **Unit tests** — Individual functions, utilities, components
-2. **Integration tests** — API endpoints, database operations
-3. **E2E tests** — Critical user flows
+1. **Unit tests** - Individual functions, utilities, components
+2. **Integration tests** - API endpoints, database operations
+3. **E2E tests** - Critical user flows
 
 **TDD workflow (mandatory):**
-1. Write test first (RED) — test should FAIL
-2. Write minimal implementation (GREEN) — test should PASS
-3. Refactor (IMPROVE) — verify coverage 80%+
+1. Write test first (RED) - test should FAIL
+2. Write minimal implementation (GREEN) - test should PASS
+3. Refactor (IMPROVE) - verify coverage 80%+
 
 Troubleshoot failures: check test isolation → verify mocks → fix implementation (not tests, unless tests are wrong).
 
 ## Development Workflow
 
-1. **Plan** — Use planner agent, identify dependencies and risks, break into phases
-2. **TDD** — Use tdd-guide agent, write tests first, implement, refactor
-3. **Review** — Use code-reviewer agent immediately, address CRITICAL/HIGH issues
+1. **Plan** - Use planner agent, identify dependencies and risks, break into phases
+2. **TDD** - Use tdd-guide agent, write tests first, implement, refactor
+3. **Review** - Use code-reviewer agent immediately, address CRITICAL/HIGH issues
 4. **Capture knowledge in the right place**
    - Personal debugging notes, preferences, and temporary context → auto memory
    - Team/project knowledge (architecture decisions, API changes, runbooks) → the project's existing docs structure
    - If the current task already produces the relevant docs or code comments, do not duplicate the same information elsewhere
    - If there is no obvious project doc location, ask before creating a new top-level file
-5. **Commit** — Conventional commits format, comprehensive PR summaries
+5. **Commit** - Conventional commits format, comprehensive PR summaries
 
 ## Workflow Surface Policy
 
@@ -130,7 +130,7 @@ Troubleshoot failures: check test isolation → verify mocks → fix implementat
 
 ## Git Workflow
 
-**Commit format:** `<type>: <description>` — Types: feat, fix, refactor, docs, test, chore, perf, ci
+**Commit format:** `<type>: <description>` - Types: feat, fix, refactor, docs, test, chore, perf, ci
 
 **PR workflow:** Analyze full commit history → draft comprehensive summary → include test plan → push with `-u` flag.
 
@@ -151,14 +151,14 @@ Troubleshoot failures: check test isolation → verify mocks → fix implementat
 ## Project Structure
 
 ```
-agents/          — 67 specialized subagents
-skills/          — 279 workflow skills and domain knowledge
-commands/        — 94 slash commands
-hooks/           — Trigger-based automations
-rules/           — Always-follow guidelines (common + per-language)
-scripts/         — Cross-platform Node.js utilities
-mcp-configs/     — 14 MCP server configurations
-tests/           — Test suite
+agents/          - 67 specialized subagents
+skills/          - 279 workflow skills and domain knowledge
+commands/        - 94 slash commands
+hooks/           - Trigger-based automations
+rules/           - Always-follow guidelines (common + per-language)
+scripts/         - Cross-platform Node.js utilities
+mcp-configs/     - 14 MCP server configurations
+tests/           - Test suite
 ```
 
 `commands/` remains in the repo for compatibility, but the long-term direction is skills-first.

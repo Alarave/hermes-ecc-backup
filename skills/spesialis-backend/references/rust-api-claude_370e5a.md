@@ -1,4 +1,4 @@
-# Rust API Service — 프로젝트 CLAUDE.md
+# Rust API Service - 프로젝트 CLAUDE.md
 
 > Axum, PostgreSQL, Docker를 사용하는 Rust API 서비스의 실전 예시입니다.
 > 프로젝트 루트에 복사하여 서비스에 맞게 커스터마이즈하세요.
@@ -14,18 +14,18 @@
 ### Rust 규칙
 
 - 라이브러리 오류에 `thiserror`, 바이너리 크레이트나 테스트에서만 `anyhow` 사용
-- 프로덕션 코드에서 `.unwrap()`이나 `.expect()` 사용 금지 — `?`로 오류 전파
+- 프로덕션 코드에서 `.unwrap()`이나 `.expect()` 사용 금지 - `?`로 오류 전파
 - 함수 매개변수에 `String`보다 `&str` 선호; 소유권 이전 시 `String` 반환
-- `#![deny(clippy::all, clippy::pedantic)]`과 함께 `clippy` 사용 — 모든 경고 수정
+- `#![deny(clippy::all, clippy::pedantic)]`과 함께 `clippy` 사용 - 모든 경고 수정
 - 모든 공개 타입에 `Debug` derive; `Clone`, `PartialEq`는 필요할 때만 derive
 - `// SAFETY:` 주석으로 정당화하지 않는 한 `unsafe` 블록 사용 금지
 
 ### 데이터베이스
 
-- 모든 쿼리에 SQLx `query!` 또는 `query_as!` 매크로 사용 — 스키마에 대해 컴파일 타임에 검증
-- 마이그레이션은 `migrations/`에 `sqlx migrate` 사용 — 데이터베이스를 직접 변경하지 않기
-- 공유 상태로 `sqlx::Pool<Postgres>` 사용 — 요청마다 커넥션을 생성하지 않기
-- 모든 쿼리에 parameterized placeholder (`$1`, `$2`) 사용 — 문자열 포매팅 사용 금지
+- 모든 쿼리에 SQLx `query!` 또는 `query_as!` 매크로 사용 - 스키마에 대해 컴파일 타임에 검증
+- 마이그레이션은 `migrations/`에 `sqlx migrate` 사용 - 데이터베이스를 직접 변경하지 않기
+- 공유 상태로 `sqlx::Pool<Postgres>` 사용 - 요청마다 커넥션을 생성하지 않기
+- 모든 쿼리에 parameterized placeholder (`$1`, `$2`) 사용 - 문자열 포매팅 사용 금지
 
 ```rust
 // 나쁜 예: 문자열 보간 (SQL injection 위험)
@@ -40,8 +40,8 @@ let user = sqlx::query_as!(User, "SELECT * FROM users WHERE id = $1", id)
 ### 오류 처리
 
 - 모듈별로 `thiserror`를 사용한 도메인 오류 enum 정의
-- `IntoResponse`를 통해 오류를 HTTP 응답으로 매핑 — 내부 세부 정보를 노출하지 않기
-- 구조화된 로깅에 `tracing` 사용 — `println!`이나 `eprintln!` 사용 금지
+- `IntoResponse`를 통해 오류를 HTTP 응답으로 매핑 - 내부 세부 정보를 노출하지 않기
+- 구조화된 로깅에 `tracing` 사용 - `println!`이나 `eprintln!` 사용 금지
 
 ```rust
 use thiserror::Error;
@@ -90,7 +90,7 @@ impl IntoResponse for AppError {
 ### 코드 스타일
 
 - 최대 줄 길이: 100자 (rustfmt에 의해 강제)
-- import 그룹화: `std`, 외부 크레이트, `crate`/`super` — 빈 줄로 구분
+- import 그룹화: `std`, 외부 크레이트, `crate`/`super` - 빈 줄로 구분
 - 모듈: 모듈당 파일 하나, `mod.rs`는 re-export용으로만 사용
 - 타입: PascalCase, 함수/변수: snake_case, 상수: UPPER_SNAKE_CASE
 
@@ -106,7 +106,7 @@ src/
     auth.rs            # JWT 추출 및 검증
     logging.rs         # 요청/응답 트레이싱
   handlers/
-    mod.rs             # 라우트 핸들러 (얇게 — 서비스에 위임)
+    mod.rs             # 라우트 핸들러 (얇게 - 서비스에 위임)
     users.rs
     orders.rs
   services/

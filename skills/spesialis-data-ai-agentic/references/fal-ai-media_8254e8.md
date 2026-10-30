@@ -28,15 +28,15 @@
 
 fal.ai MCP 提供以下工具：
 
-* `search` — 通过关键词查找可用模型
-* `find` — 获取模型详情和参数
-* `generate` — 使用参数运行模型
-* `result` — 检查异步生成状态
-* `status` — 检查作业状态
-* `cancel` — 取消正在运行的作业
-* `estimate_cost` — 估算生成成本
-* `models` — 列出热门模型
-* `upload` — 上传文件用作输入
+* `search` - 通过关键词查找可用模型
+* `find` - 获取模型详情和参数
+* `generate` - 使用参数运行模型
+* `result` - 检查异步生成状态
+* `status` - 检查作业状态
+* `cancel` - 取消正在运行的作业
+* `estimate_cost` - 估算生成成本
+* `models` - 列出热门模型
+* `upload` - 上传文件用作输入
 
 ***
 
@@ -279,12 +279,12 @@ models()
 
 * 在迭代提示时，使用 `seed` 以获得可重现的结果
 * 先用低成本模型（Nano Banana 2）进行提示迭代，然后切换到 Pro 版进行最终生成
-* 对于视频，保持提示描述性但简洁——聚焦于运动和场景
+* 对于视频，保持提示描述性但简洁--聚焦于运动和场景
 * 图生视频比纯文生视频能产生更可控的结果
 * 在运行昂贵的视频生成前，检查 `estimate_cost`
 
 ## 相关技能
 
-* `videodb` — 视频处理、编辑和流媒体
-* `video-editing` — AI 驱动的视频编辑工作流
-* `content-engine` — 社交媒体平台内容创作
+* `videodb` - 视频处理、编辑和流媒体
+* `video-editing` - AI 驱动的视频编辑工作流
+* `content-engine` - 社交媒体平台内容创作

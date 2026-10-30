@@ -6,10 +6,10 @@ Extiende `/learn` con una puerta de calidad, decisión de ubicación de guardado
 
 Buscar:
 
-1. **Patrones de Resolución de Errores** — causa raíz + corrección + reutilizabilidad
-2. **Técnicas de Depuración** — pasos no obvios, combinaciones de herramientas
-3. **Soluciones Alternativas** — peculiaridades de librerías, limitaciones de API, correcciones específicas de versión
-4. **Patrones Específicos del Proyecto** — convenciones, decisiones arquitectónicas, patrones de integración
+1. **Patrones de Resolución de Errores** - causa raíz + corrección + reutilizabilidad
+2. **Técnicas de Depuración** - pasos no obvios, combinaciones de herramientas
+3. **Soluciones Alternativas** - peculiaridades de librerías, limitaciones de API, correcciones específicas de versión
+4. **Patrones Específicos del Proyecto** - convenciones, decisiones arquitectónicas, patrones de integración
 
 ## Proceso
 
@@ -47,7 +47,7 @@ origin: auto-extracted
 [Condiciones de activación]
 ```
 
-5. **Puerta de calidad — Lista de verificación + Veredicto holístico**
+5. **Puerta de calidad - Lista de verificación + Veredicto holístico**
 
    ### 5a. Lista de verificación requerida (verificar leyendo los archivos reales)
 
@@ -104,5 +104,5 @@ origin: auto-extracted
 - No extraer correcciones triviales (typos, errores de sintaxis simples)
 - No extraer problemas puntuales (interrupciones específicas de API, etc.)
 - Enfocarse en patrones que ahorrarán tiempo en sesiones futuras
-- Mantener las skills enfocadas — un patrón por skill
+- Mantener las skills enfocadas - un patrón por skill
 - Cuando el veredicto es Absorber, añadir a la skill existente en lugar de crear un archivo nuevo

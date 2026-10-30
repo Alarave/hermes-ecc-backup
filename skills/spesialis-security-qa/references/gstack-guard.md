@@ -1,9 +1,9 @@
-<!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
+<!-- AUTO-GENERATED from SKILL.md.tmpl - do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
-> **Safety Advisory — not enforced on Hermes:** advisory, not blocked. Hermes runs no gstack safety hooks, so nothing stops a command automatically. On Claude Code this skill's hooks check bash commands for destructive operations (rm -rf, DROP TABLE, force-push, git reset --hard, etc.) before execution, and verify file edits are within the allowed scope boundary before applying, and verify file writes are within the allowed scope boundary before applying; here, do those checks yourself: always pause and verify before executing potentially destructive operations. If uncertain about a command's safety, ask the user for confirmation before proceeding.
+> **Safety Advisory - not enforced on Hermes:** advisory, not blocked. Hermes runs no gstack safety hooks, so nothing stops a command automatically. On Claude Code this skill's hooks check bash commands for destructive operations (rm -rf, DROP TABLE, force-push, git reset --hard, etc.) before execution, and verify file edits are within the allowed scope boundary before applying, and verify file writes are within the allowed scope boundary before applying; here, do those checks yourself: always pause and verify before executing potentially destructive operations. If uncertain about a command's safety, ask the user for confirmation before proceeding.
 
 
-# /guard — Full Safety Mode
+# /guard - Full Safety Mode
 
 Activates both destructive command warnings and directory-scoped edit restrictions.
 This is the combination of `/careful` + `/freeze` in a single command.
@@ -23,7 +23,7 @@ echo '{"skill":"guard","ts":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","repo":"'$(basena
 Ask the user which directory to restrict edits to. Use AskUserQuestion:
 
 - Question: "Guard mode: which directory should edits be restricted to? Destructive command warnings are always on. Files outside the chosen path will be blocked from editing."
-- Text input (not multiple choice) — the user types a path.
+- Text input (not multiple choice) - the user types a path.
 
 Once the user provides a directory path:
 
@@ -36,8 +36,8 @@ On helper failure, do not claim the boundary is active. Preserve the state and r
 
 Tell the user:
 - "**Guard mode active.** Two protections are now running:"
-- "1. **Destructive command guard** — rm -rf, DROP TABLE, force-push, etc. warn before executing (overridable); catastrophic shapes (recursive delete of / or ~, force-push to the default branch) are hard-denied"
-- "2. **Edit boundary** — file edits restricted to `<path>/`. Edits outside this directory are blocked."
+- "1. **Destructive command guard** - rm -rf, DROP TABLE, force-push, etc. warn before executing (overridable); catastrophic shapes (recursive delete of / or ~, force-push to the default branch) are hard-denied"
+- "2. **Edit boundary** - file edits restricted to `<path>/`. Edits outside this directory are blocked."
 - "To remove the persistent edit boundary, run `/unfreeze`. Ending the session stops its hooks but does not delete that boundary."
 
 ## What's protected

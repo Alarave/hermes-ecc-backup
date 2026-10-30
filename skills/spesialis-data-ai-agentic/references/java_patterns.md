@@ -42,10 +42,10 @@ public class OrderService {
 
 ## コンストラクタインジェクション
 
-常にコンストラクタインジェクションを使用する — フィールドインジェクションは使用しない:
+常にコンストラクタインジェクションを使用する - フィールドインジェクションは使用しない:
 
 ```java
-// GOOD — コンストラクタインジェクション（テスト可能、不変）
+// GOOD - コンストラクタインジェクション（テスト可能、不変）
 public class NotificationService {
     private final EmailSender emailSender;
 
@@ -54,7 +54,7 @@ public class NotificationService {
     }
 }
 
-// BAD — フィールドインジェクション（リフレクションなしではテスト不可、フレームワークの魔法が必要）
+// BAD - フィールドインジェクション（リフレクションなしではテスト不可、フレームワークの魔法が必要）
 public class NotificationService {
     @Inject // or @Autowired
     private EmailSender emailSender;

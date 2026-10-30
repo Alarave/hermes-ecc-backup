@@ -183,7 +183,7 @@ struct AnimatedCard {
 - ネイティブ HarmonyOS アニメーション API と高度なテンプレートを優先する
 - 状態変数の変更でアニメーションをトリガーする状態駆動アニメーションを持つ宣言的 UI を使用する
 - 複雑なサブコンポーネントアニメーションのレンダリングバッチを削減するために `renderGroup(true)` を設定する
-- アニメーション中に `width`、`height`、`padding`、`margin` を頻繁に変更しないこと — パフォーマンスに深刻な影響
+- アニメーション中に `width`、`height`、`padding`、`margin` を頻繁に変更しないこと - パフォーマンスに深刻な影響
 - 明示的なアニメーション制御には `animateTo` を使用する
 - パフォーマンスの高いアニメーションには `transform`（translate、scale、rotate）と `opacity` を優先する
 

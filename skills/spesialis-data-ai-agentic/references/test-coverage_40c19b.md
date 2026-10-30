@@ -27,23 +27,23 @@ Analizar la cobertura de pruebas, identificar brechas y generar las pruebas falt
 
 Para cada archivo con cobertura insuficiente, generar pruebas siguiendo esta prioridad:
 
-1. **Ruta feliz** — Funcionalidad principal con entradas válidas
-2. **Manejo de errores** — Entradas inválidas, datos faltantes, fallos de red
-3. **Casos límite** — Arrays vacíos, null/undefined, valores límite (0, -1, MAX_INT)
-4. **Cobertura de ramas** — Cada if/else, case de switch, ternario
+1. **Ruta feliz** - Funcionalidad principal con entradas válidas
+2. **Manejo de errores** - Entradas inválidas, datos faltantes, fallos de red
+3. **Casos límite** - Arrays vacíos, null/undefined, valores límite (0, -1, MAX_INT)
+4. **Cobertura de ramas** - Cada if/else, case de switch, ternario
 
 ### Reglas de Generación de Pruebas
 
 - Colocar pruebas adyacentes al fuente: `foo.ts` → `foo.test.ts` (o convención del proyecto)
 - Usar patrones de prueba existentes del proyecto (estilo de import, librería de afirmaciones, enfoque de mocking)
 - Mockear dependencias externas (base de datos, APIs, sistema de archivos)
-- Cada prueba debe ser independiente — sin estado mutable compartido entre pruebas
+- Cada prueba debe ser independiente - sin estado mutable compartido entre pruebas
 - Nombrar las pruebas descriptivamente: `test_create_user_with_duplicate_email_returns_409`
 
 ## Paso 4: Verificar
 
-1. Ejecutar la suite de pruebas completa — todas las pruebas deben pasar
-2. Re-ejecutar la cobertura — verificar mejora
+1. Ejecutar la suite de pruebas completa - todas las pruebas deben pasar
+2. Re-ejecutar la cobertura - verificar mejora
 3. Si aún está por debajo del 80%, repetir el Paso 3 para las brechas restantes
 
 ## Paso 5: Reportar

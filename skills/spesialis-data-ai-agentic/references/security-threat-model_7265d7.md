@@ -43,7 +43,7 @@ Deliver an actionable AppSec-grade threat model that is specific to the reposito
 
 ### 6) Validate service context and assumptions with the user
 - Summarize key assumptions that materially affect threat ranking or scope, then ask the user to confirm or correct them.
-- Ask 1–3 targeted questions to resolve missing context (service owner and environment, scale/users, deployment model, authn/authz, internet exposure, data sensitivity, multi-tenancy).
+- Ask 1-3 targeted questions to resolve missing context (service owner and environment, scale/users, deployment model, authn/authz, internet exposure, data sensitivity, multi-tenancy).
 - Pause and wait for user feedback before producing the final report.
 - If the user declines or can’t answer, state which assumptions remain and how they influence priority.
 

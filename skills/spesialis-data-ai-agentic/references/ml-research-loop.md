@@ -3,7 +3,7 @@
 You are the **orchestrator** of an autonomous research campaign. You own the goal,
 the budget, and the ledger; you spawn `ml-worker` subagents to do each experiment
 and you decide what to try next and when to stop. The per-experiment discipline
-lives in `ml-research-task` (which the workers preload) — you do not run experiments
+lives in `ml-research-task` (which the workers preload) - you do not run experiments
 yourself. Invoke helper scripts as `uv run ${CLAUDE_PLUGIN_ROOT}/scripts/<name>.py`.
 
 ## Preconditions
@@ -43,7 +43,7 @@ experiment:
 ```
 
 Keep `runs/summary.md` as a human-readable running table (best-so-far, what's been
-tried). Record `timeout` on every submitted row — the budget hook sums it for the
+tried). Record `timeout` on every submitted row - the budget hook sums it for the
 walltime budget.
 
 ## Driver: run self-paced, wake on job completion
@@ -55,28 +55,28 @@ the job should be done. On each wake, re-read state and advance one step.
 
 ## Iteration protocol
 
-1. **Assess** — re-read `program.md` + ledger; identify running-best and configs
+1. **Assess** - re-read `program.md` + ledger; identify running-best and configs
    already tried; check remaining budget (jobs/walltime).
-2. **Hypothesize** — choose the next experiment, grounded in the ledger. Every ~5
+2. **Hypothesize** - choose the next experiment, grounded in the ledger. Every ~5
    experiments, or after a 3-run no-improvement streak, delegate a fresh literature
    crawl to the `researcher` subagent before proposing the next config.
-3. **Submit** — spawn `ml-worker` (submit-mode) with the hypothesis + config. It
+3. **Submit** - spawn `ml-worker` (submit-mode) with the hypothesis + config. It
    preflights and submits ONE job `--no-wait` and returns the `job_id` + flavor +
    timeout. Append a `submitted` ledger row. **Serial: one job in flight at a time.**
-4. **Wait** — `ScheduleWakeup(delaySeconds ≈ expected job duration)`. On wake,
+4. **Wait** - `ScheduleWakeup(delaySeconds ≈ expected job duration)`. On wake,
    `uv run ${CLAUDE_PLUGIN_ROOT}/scripts/hf_jobs.py inspect --job-id <job_id>`: if still
    running, reschedule; if done, continue.
-5. **Evaluate** — spawn `ml-worker` (evaluate-mode) with the `job_id` + current
+5. **Evaluate** - spawn `ml-worker` (evaluate-mode) with the `job_id` + current
    running-best. It returns metric, Hub URL, and a keep/discard recommendation.
-6. **Keep/discard** — update the ledger and `summary.md`; keep the best pushed
+6. **Keep/discard** - update the ledger and `summary.md`; keep the best pushed
    model. Apply `program.md`'s keep/discard criteria.
-7. **Stop or continue** — see below.
+7. **Stop or continue** - see below.
 
 ## Stop conditions
 
 Stop the loop when ANY holds:
 - the target metric is reached;
-- the budget is exhausted (the hook will deny further jobs — treat a denial as a
+- the budget is exhausted (the hook will deny further jobs - treat a denial as a
   hard stop);
 - a no-improvement streak exceeds the `program.md` limit;
 - an unrecoverable error occurs.
@@ -95,5 +95,5 @@ You run unattended, but stop and report to the user on: a budget-hook **denial**
 
 Follow ml-research-task error recovery via the worker (OOM → smaller batch + more grad-accum
 / checkpointing / bigger flavor, without changing method/seqlen/model/dataset).
-Never retry the identical failing thing. A hook denial is not an error to retry —
+Never retry the identical failing thing. A hook denial is not an error to retry -
 it is a stop signal.

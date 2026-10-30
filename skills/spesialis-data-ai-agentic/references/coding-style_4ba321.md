@@ -4,7 +4,7 @@
 
 ## Formatlama
 
-- **gofmt** ve **goimports** zorunludur — stil tartışması yok
+- **gofmt** ve **goimports** zorunludur - stil tartışması yok
 
 ## Tasarım İlkeleri
 

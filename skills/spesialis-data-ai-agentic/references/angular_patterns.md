@@ -7,7 +7,7 @@
 Smart（コンテナ）コンポーネントはデータ取得と状態を所有します。Dumb（プレゼンテーション）コンポーネントは入力の受け取りと出力の発行のみを行い、サービスの注入は行いません。
 
 ```typescript
-// Smart — データを所有
+// Smart - データを所有
 @Component({ standalone: true, changeDetection: ChangeDetectionStrategy.OnPush })
 export class UserPageComponent {
   private userService = inject(UserService);
@@ -16,13 +16,13 @@ export class UserPageComponent {
 ```
 
 ```html
-<!-- Dumb — 純粋なプレゼンテーション -->
+<!-- Dumb - 純粋なプレゼンテーション -->
 <app-user-card [user]="user()" (select)="onSelect($event)" />
 ```
 
 ## サービスレイヤー
 
-サービスがすべてのデータアクセスとビジネスロジックを所有します。コンポーネントは委譲のみ — コンポーネント内に `HttpClient` を配置しないでください。
+サービスがすべてのデータアクセスとビジネスロジックを所有します。コンポーネントは委譲のみ - コンポーネント内に `HttpClient` を配置しないでください。
 
 ```typescript
 @Injectable({ providedIn: 'root' })
@@ -69,7 +69,7 @@ selectedItem = linkedSignal(() => this.items()[0]);
 users = toSignal(this.userService.getUsers(), { initialValue: [] });
 ```
 
-派生値を別のシグナルに格納しないでください — `computed` を使用してください。シグナルの同期に `effect` を使用しないでください — `computed` または `linkedSignal` を使用してください。
+派生値を別のシグナルに格納しないでください - `computed` を使用してください。シグナルの同期に `effect` を使用しないでください - `computed` または `linkedSignal` を使用してください。
 
 ## サブスクリプションのクリーンアップ
 
@@ -191,10 +191,10 @@ provideHttpClient(withInterceptors([authInterceptor, errorInterceptor]))
 
 ## RxJS オペレータ
 
-- `switchMap` — 検索、ナビゲーション（前のリクエストをキャンセル）
-- `mergeMap` — 独立した並列リクエスト
-- `exhaustMap` — フォーム送信（完了するまで無視）
-- 常に `catchError` でエラーを処理 — ストリームを暗黙的に死なせない
+- `switchMap` - 検索、ナビゲーション（前のリクエストをキャンセル）
+- `mergeMap` - 独立した並列リクエスト
+- `exhaustMap` - フォーム送信（完了するまで無視）
+- 常に `catchError` でエラーを処理 - ストリームを暗黙的に死なせない
 
 ```typescript
 search$ = this.query$.pipe(
@@ -209,7 +209,7 @@ search$ = this.query$.pipe(
 プロジェクトの既存のフォーム戦略に合わせてください。v21+ の新規アプリにはシグナルフォームを優先してください。
 
 ```typescript
-// Reactive Forms — 複雑なフォームの標準
+// Reactive Forms - 複雑なフォームの標準
 export class UserFormComponent {
   private fb = inject(FormBuilder);
 
@@ -223,10 +223,10 @@ export class UserFormComponent {
 ## レンダリング戦略
 
 - **CSR**（デフォルト）: 標準 SPA
-- **SSR + ハイドレーション**: `ng add @angular/ssr` — FCP と SEO を改善
+- **SSR + ハイドレーション**: `ng add @angular/ssr` - FCP と SEO を改善
 - **SSG（プリレンダリング）**: コンテンツの多いルート向けにビルド時に静的ページを生成
 
-SSR を使用する場合、`window`、`document`、`localStorage` を直接使用しないでください — `isPlatformBrowser` または `DOCUMENT` トークンを使用してください。
+SSR を使用する場合、`window`、`document`、`localStorage` を直接使用しないでください - `isPlatformBrowser` または `DOCUMENT` トークンを使用してください。
 
 ## アクセシビリティ
 

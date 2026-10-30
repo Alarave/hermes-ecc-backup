@@ -62,9 +62,9 @@
 
 ### New Workflow Lanes
 
-- `brand-voice` — canonical source-derived writing-style system.
-- `social-graph-ranker` — weighted warm-intro graph ranking primitive.
-- `connections-optimizer` — network pruning/addition workflow on top of graph ranking.
+- `brand-voice` - canonical source-derived writing-style system.
+- `social-graph-ranker` - weighted warm-intro graph ranking primitive.
+- `connections-optimizer` - network pruning/addition workflow on top of graph ranking.
 - `customer-billing-ops`, `google-workspace-ops`, `project-flow-ops`, `workspace-surface-audit`.
 - `manim-video`, `remotion-video-creation`, `nestjs-patterns`.
 
@@ -90,40 +90,40 @@
 
 ### New Agents
 
-- `typescript-reviewer` — TypeScript/JavaScript code review specialist (#647)
-- `pytorch-build-resolver` — PyTorch runtime, CUDA, and training error resolution (#549)
-- `java-build-resolver` — Maven/Gradle build error resolution (#538)
-- `java-reviewer` — Java and Spring Boot code review (#528)
-- `kotlin-reviewer` — Kotlin/Android/KMP code review (#309)
-- `kotlin-build-resolver` — Kotlin/Gradle build errors (#309)
-- `rust-reviewer` — Rust code review (#523)
-- `rust-build-resolver` — Rust build error resolution (#523)
-- `docs-lookup` — Documentation and API reference research (#529)
+- `typescript-reviewer` - TypeScript/JavaScript code review specialist (#647)
+- `pytorch-build-resolver` - PyTorch runtime, CUDA, and training error resolution (#549)
+- `java-build-resolver` - Maven/Gradle build error resolution (#538)
+- `java-reviewer` - Java and Spring Boot code review (#528)
+- `kotlin-reviewer` - Kotlin/Android/KMP code review (#309)
+- `kotlin-build-resolver` - Kotlin/Gradle build errors (#309)
+- `rust-reviewer` - Rust code review (#523)
+- `rust-build-resolver` - Rust build error resolution (#523)
+- `docs-lookup` - Documentation and API reference research (#529)
 
 ### New Skills
 
-- `pytorch-patterns` — PyTorch deep learning workflows (#550)
-- `documentation-lookup` — API reference and library doc research (#529)
-- `bun-runtime` — Bun runtime patterns (#529)
-- `nextjs-turbopack` — Next.js Turbopack workflows (#529)
-- `mcp-server-patterns` — MCP server design patterns (#531)
-- `data-scraper-agent` — AI-powered public data collection (#503)
-- `team-builder` — Team composition skill (#501)
-- `ai-regression-testing` — AI regression test workflows (#433)
-- `claude-devfleet` — Multi-agent orchestration (#505)
-- `blueprint` — Multi-session construction planning
-- `everything-claude-code` — Self-referential ECC skill (#335)
-- `prompt-optimizer` — Prompt optimization skill (#418)
+- `pytorch-patterns` - PyTorch deep learning workflows (#550)
+- `documentation-lookup` - API reference and library doc research (#529)
+- `bun-runtime` - Bun runtime patterns (#529)
+- `nextjs-turbopack` - Next.js Turbopack workflows (#529)
+- `mcp-server-patterns` - MCP server design patterns (#531)
+- `data-scraper-agent` - AI-powered public data collection (#503)
+- `team-builder` - Team composition skill (#501)
+- `ai-regression-testing` - AI regression test workflows (#433)
+- `claude-devfleet` - Multi-agent orchestration (#505)
+- `blueprint` - Multi-session construction planning
+- `everything-claude-code` - Self-referential ECC skill (#335)
+- `prompt-optimizer` - Prompt optimization skill (#418)
 - 8 Evos operational domain skills (#290)
 - 3 Laravel skills (#420)
 - VideoDB skills (#301)
 
 ### New Commands
 
-- `/docs` — Documentation lookup (#530)
-- `/aside` — Side conversation (#407)
-- `/prompt-optimize` — Prompt optimization (#418)
-- `/resume-session`, `/save-session` — Session management
+- `/docs` - Documentation lookup (#530)
+- `/aside` - Side conversation (#407)
+- `/prompt-optimize` - Prompt optimization (#418)
+- `/resume-session`, `/save-session` - Session management
 - `learn-eval` improvements with checklist-based holistic verdict
 
 ### New Rules
@@ -158,7 +158,7 @@
 - Observer lazy-start logic (#508)
 - Observer 5-layer loop prevention guard (#399)
 - Hook portability and Windows .cmd support
-- Biome hook optimization — eliminated npx overhead (#359)
+- Biome hook optimization - eliminated npx overhead (#359)
 - InsAIts security hook made opt-in (#370)
 - Windows spawnSync export fix (#431)
 - UTF-8 encoding fix for instinct CLI (#353)
@@ -166,21 +166,21 @@
 
 ### Translations
 
-- Korean (ko-KR) translation — README, agents, commands, skills, rules (#392)
+- Korean (ko-KR) translation - README, agents, commands, skills, rules (#392)
 - Chinese (zh-CN) documentation sync (#428)
 
 ### Credits
 
-- @ymdvsymd — observer sandbox and worktree fixes
-- @pythonstrup — biome hook optimization
-- @Nomadu27 — InsAIts security hook
-- @hahmee — Korean translation
-- @zdocapp — Chinese translation sync
-- @cookiee339 — Kotlin ecosystem
-- @pangerlkr — CI workflow fixes
-- @0xrohitgarg — VideoDB skills
-- @nocodemf — Evos operational skills
-- @swarnika-cmd — community contributions
+- @ymdvsymd - observer sandbox and worktree fixes
+- @pythonstrup - biome hook optimization
+- @Nomadu27 - InsAIts security hook
+- @hahmee - Korean translation
+- @zdocapp - Chinese translation sync
+- @cookiee339 - Kotlin ecosystem
+- @pangerlkr - CI workflow fixes
+- @0xrohitgarg - VideoDB skills
+- @nocodemf - Evos operational skills
+- @swarnika-cmd - community contributions
 
 ## 1.8.0 - 2026-03-04
 

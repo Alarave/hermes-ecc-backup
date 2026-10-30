@@ -24,7 +24,7 @@ Saldırı vektörleri esasen herhangi bir etkileşim giriş noktasıdır. Agent'
 
 İnsanların güldüğü bu Good Rudi jailbreak klipleri bile (komik ngl) aynı sorun sınıfına işaret ediyor: tekrarlanan denemeler, sonunda hassas bir ifşa, yüzeyde eğlenceli ancak altta yatan arıza ciddi - yani sonuçta çocuklar için tasarlanmış, bundan biraz çıkarım yapın ve bunun neden felaket olabileceği sonucuna hızla varırsınız. Aynı desen, model gerçek araçlara ve gerçek izinlere bağlandığında çok daha ileri gider.
 
-[Video: Bad Rudi Exploit](../assets/images/security/badrudi-exploit.mp4) — good rudi (çocuklar için grok animasyonlu AI karakteri) hassas bilgileri ifşa etmek için tekrarlanan denemelerden sonra bir prompt jailbreak ile exploit edilir. eğlenceli bir örnek ama yine de olasılıklar çok daha ileri gider.
+[Video: Bad Rudi Exploit](../assets/images/security/badrudi-exploit.mp4) - good rudi (çocuklar için grok animasyonlu AI karakteri) hassas bilgileri ifşa etmek için tekrarlanan denemelerden sonra bir prompt jailbreak ile exploit edilir. eğlenceli bir örnek ama yine de olasılıklar çok daha ileri gider.
 
 WhatsApp sadece bir örnek. E-posta ekleri büyük bir vektör. Bir saldırgan gömülü bir prompt'lu PDF gönderiyor; agent'ınız eki işin bir parçası olarak okuyor ve şimdi yardımcı veri olarak kalması gereken metin kötü niyetli talimata dönüştü. Üzerlerinde OCR yapıyorsanız ekran görüntüleri ve taramalar da aynı derecede kötü. Anthropic'in kendi prompt injection çalışması, gizli metin ve manipüle edilmiş görüntüleri açıkça gerçek saldırı malzemesi olarak adlandırıyor.
 
@@ -195,7 +195,7 @@ Bir iş akışının sadece bir repo okuması ve testleri çalıştırması gere
 
 Bir LLM'nin okuduğu her şey çalıştırılabilir context'tir. Metin context window'a girdiğinde "veri" ve "talimatlar" arasında anlamlı bir ayrım yoktur. Sanitizasyon kozmetik değildir; runtime sınırının bir parçasıdır.
 
-![LGTM comparison — The file looks clean to a human. The model still sees the hidden instructions](../assets/images/security/sanitization.png)
+![LGTM comparison - The file looks clean to a human. The model still sees the hidden instructions](../assets/images/security/sanitization.png)
 
 ### Gizli Unicode ve Yorum Payload'ları
 
@@ -311,7 +311,7 @@ Zarif ve sert kill'ler arasındaki farkı bilin. `SIGTERM` sürecine temizlik i�
 
 Ayrıca, sadece parent'ı değil, süreç grubunu kill edin. Sadece parent'ı kill ederseniz, çocuklar çalışmaya devam edebilir. (bu aynı zamanda bazen sabah ghostty sekmelerinize baktığınızda bir şekilde 100GB RAM tükettiğinizi ve bilgisayarınızda sadece 64GB varken sürecin duraklatıldığını görmenizin nedenidir, bir sürü çocuk süreç kapandığını düşündüğünüzde kontrolden çıkmış)
 
-![woke up to ts one day — guess what the culprit was](../assets/images/security/ghostyy-overflow.jpeg)
+![woke up to ts one day - guess what the culprit was](../assets/images/security/ghostyy-overflow.jpeg)
 
 Node örneği:
 

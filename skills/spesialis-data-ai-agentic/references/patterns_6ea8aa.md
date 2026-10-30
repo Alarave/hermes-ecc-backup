@@ -43,7 +43,7 @@ actor Cache<Key: Hashable & Sendable, Value: Sendable> {
 
 ## 依赖注入
 
-使用默认参数注入协议 —— 生产环境使用默认值，测试时注入模拟对象：
+使用默认参数注入协议 -- 生产环境使用默认值，测试时注入模拟对象：
 
 ```swift
 struct UserService {

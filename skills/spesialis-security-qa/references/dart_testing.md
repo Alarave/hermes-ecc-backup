@@ -4,11 +4,11 @@
 
 ## テストフレームワーク
 
-- **flutter_test** / **dart:test** — 組み込みテストランナー
+- **flutter_test** / **dart:test** - 組み込みテストランナー
 - **mockito** (`@GenerateMocks` 付き) または **mocktail** (コード生成なし) でモック
-- **bloc_test** — BLoC/Cubit のユニットテスト
-- **fake_async** — ユニットテストでの時間制御
-- **integration_test** — エンドツーエンドのデバイステスト
+- **bloc_test** - BLoC/Cubit のユニットテスト
+- **fake_async** - ユニットテストでの時間制御
+- **integration_test** - エンドツーエンドのデバイステスト
 
 ## テストの種類
 

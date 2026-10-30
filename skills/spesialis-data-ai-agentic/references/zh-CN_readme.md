@@ -81,83 +81,83 @@
 
 ## 最新动态
 
-### v2.0.0 — 智能体 Harness 操作系统（2026年6月）
+### v2.0.0 - 智能体 Harness 操作系统（2026年6月）
 
 2.0 主线稳定版：261 个技能、control-pane 基底（会话适配器 + MCP 清单）、worktree 生命周期服务，以及 [ECC Discord 社区](https://discord.gg/36yGMHGFbR)。
 
-### v2.0.0-rc.1 — 表面同步、运营工作流与 ECC 2.0 Alpha（2026年4月）
+### v2.0.0-rc.1 - 表面同步、运营工作流与 ECC 2.0 Alpha（2026年4月）
 
-* **公共表面已与真实仓库同步** —— 元数据、目录数量、插件清单以及安装文档现在都与实际开源表面保持一致。
-* **运营与外向型工作流扩展** —— `brand-voice`、`social-graph-ranker`、`customer-billing-ops`、`google-workspace-ops` 等运营型 skill 已纳入同一系统。
-* **媒体与发布工具补齐** —— `manim-video`、`remotion-video-creation` 以及社媒发布能力让技术讲解和发布流程直接在同一仓库内完成。
-* **框架与产品表面继续扩展** —— `nestjs-patterns`、更完整的 Codex/OpenCode 安装表面，以及跨 harness 打包改进，让仓库不再局限于 Claude Code。
-* **ECC 2.0 alpha 已进入仓库** —— `ecc2/` 下的 Rust 控制层现已可在本地构建，并提供 `dashboard`、`start`、`sessions`、`status`、`stop`、`resume` 与 `daemon` 命令。
-* **生态加固持续推进** —— AgentShield、ECC Tools 成本控制、计费门户工作与网站刷新仍围绕核心插件持续交付。
+* **公共表面已与真实仓库同步** -- 元数据、目录数量、插件清单以及安装文档现在都与实际开源表面保持一致。
+* **运营与外向型工作流扩展** -- `brand-voice`、`social-graph-ranker`、`customer-billing-ops`、`google-workspace-ops` 等运营型 skill 已纳入同一系统。
+* **媒体与发布工具补齐** -- `manim-video`、`remotion-video-creation` 以及社媒发布能力让技术讲解和发布流程直接在同一仓库内完成。
+* **框架与产品表面继续扩展** -- `nestjs-patterns`、更完整的 Codex/OpenCode 安装表面，以及跨 harness 打包改进，让仓库不再局限于 Claude Code。
+* **ECC 2.0 alpha 已进入仓库** -- `ecc2/` 下的 Rust 控制层现已可在本地构建，并提供 `dashboard`、`start`、`sessions`、`status`、`stop`、`resume` 与 `daemon` 命令。
+* **生态加固持续推进** -- AgentShield、ECC Tools 成本控制、计费门户工作与网站刷新仍围绕核心插件持续交付。
 
-### v1.9.0 — 选择性安装与语言扩展 (2026年3月)
+### v1.9.0 - 选择性安装与语言扩展 (2026年3月)
 
-* **选择性安装架构** — 基于清单的安装流程，使用 `install-plan.js` 和 `install-apply.js` 进行针对性组件安装。状态存储跟踪已安装内容并支持增量更新。
-* **新增 6 个智能体** — `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` 将语言覆盖范围扩展至 10 种。
-* **新技能** — `pytorch-patterns` 用于深度学习工作流，`documentation-lookup` 用于 API 参考研究，`bun-runtime` 和 `nextjs-turbopack` 用于现代 JS 工具链，外加 8 个操作领域技能以及 `mcp-server-patterns`。
-* **会话与状态基础设施** — 带查询 CLI 的 SQLite 状态存储、用于结构化记录的会话适配器、为自进化技能奠定基础的技能演进框架。
-* **编排系统大修** — 使治理审核评分具有确定性，强化编排状态和启动器兼容性，通过 5 层防护防止观察者循环。
-* **观察者可靠性** — 通过节流和尾部采样修复内存爆炸问题，修复沙箱访问，实现延迟启动逻辑，并增加重入防护。
-* **12 个语言生态系统** — 新增 Java、PHP、Perl、Kotlin/Android/KMP、C++ 和 Rust 规则，与现有的 TypeScript、Python、Go 及通用规则并列。
-* **社区贡献** — 韩语和中文翻译，biome 钩子优化，VideoDB 技能，Evos 操作技能，PowerShell 安装程序，Antigravity IDE 支持。
-* **CI 强化** — 修复 19 个测试失败问题，强制执行目录计数，验证安装清单，并使完整测试套件通过。
+* **选择性安装架构** - 基于清单的安装流程，使用 `install-plan.js` 和 `install-apply.js` 进行针对性组件安装。状态存储跟踪已安装内容并支持增量更新。
+* **新增 6 个智能体** - `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` 将语言覆盖范围扩展至 10 种。
+* **新技能** - `pytorch-patterns` 用于深度学习工作流，`documentation-lookup` 用于 API 参考研究，`bun-runtime` 和 `nextjs-turbopack` 用于现代 JS 工具链，外加 8 个操作领域技能以及 `mcp-server-patterns`。
+* **会话与状态基础设施** - 带查询 CLI 的 SQLite 状态存储、用于结构化记录的会话适配器、为自进化技能奠定基础的技能演进框架。
+* **编排系统大修** - 使治理审核评分具有确定性，强化编排状态和启动器兼容性，通过 5 层防护防止观察者循环。
+* **观察者可靠性** - 通过节流和尾部采样修复内存爆炸问题，修复沙箱访问，实现延迟启动逻辑，并增加重入防护。
+* **12 个语言生态系统** - 新增 Java、PHP、Perl、Kotlin/Android/KMP、C++ 和 Rust 规则，与现有的 TypeScript、Python、Go 及通用规则并列。
+* **社区贡献** - 韩语和中文翻译，biome 钩子优化，VideoDB 技能，Evos 操作技能，PowerShell 安装程序，Antigravity IDE 支持。
+* **CI 强化** - 修复 19 个测试失败问题，强制执行目录计数，验证安装清单，并使完整测试套件通过。
 
-### v1.8.0 — 平台性能系统（2026 年 3 月）
+### v1.8.0 - 平台性能系统（2026 年 3 月）
 
-* **平台优先发布** — ECC 现在被明确构建为一个智能体平台性能系统，而不仅仅是一个配置包。
-* **钩子可靠性大修** — SessionStart 根回退、Stop 阶段会话摘要，以及用基于脚本的钩子替换脆弱的单行内联钩子。
-* **钩子运行时控制** — `ECC_HOOK_PROFILE=minimal|standard|strict` 和 `ECC_DISABLED_HOOKS=...` 用于运行时门控，无需编辑钩子文件。
-* **新平台命令** — `/harness-audit`、`/loop-start`、`/loop-status`、`/quality-gate`、`/model-route`。
-* **NanoClaw v2** — 模型路由、技能热加载、会话分支/搜索/导出/压缩/指标。
-* **跨平台一致性** — 在 Claude Code、Cursor、OpenCode 和 Codex 应用/CLI 中行为更加统一。
-* **997 项内部测试通过** — 钩子/运行时重构和兼容性更新后，完整套件全部通过。
+* **平台优先发布** - ECC 现在被明确构建为一个智能体平台性能系统，而不仅仅是一个配置包。
+* **钩子可靠性大修** - SessionStart 根回退、Stop 阶段会话摘要，以及用基于脚本的钩子替换脆弱的单行内联钩子。
+* **钩子运行时控制** - `ECC_HOOK_PROFILE=minimal|standard|strict` 和 `ECC_DISABLED_HOOKS=...` 用于运行时门控，无需编辑钩子文件。
+* **新平台命令** - `/harness-audit`、`/loop-start`、`/loop-status`、`/quality-gate`、`/model-route`。
+* **NanoClaw v2** - 模型路由、技能热加载、会话分支/搜索/导出/压缩/指标。
+* **跨平台一致性** - 在 Claude Code、Cursor、OpenCode 和 Codex 应用/CLI 中行为更加统一。
+* **997 项内部测试通过** - 钩子/运行时重构和兼容性更新后，完整套件全部通过。
 
-### v1.7.0 — 跨平台扩展与演示文稿生成器（2026年2月）
+### v1.7.0 - 跨平台扩展与演示文稿生成器（2026年2月）
 
-* **Codex 应用 + CLI 支持** — 基于 `AGENTS.md` 的直接 Codex 支持、安装器目标定位以及 Codex 文档
-* **`frontend-slides` 技能** — 零依赖的 HTML 演示文稿生成器，附带 PPTX 转换指导和严格的视口适配规则
-* **5个新的通用业务/内容技能** — `article-writing`、`content-engine`、`market-research`、`investor-materials`、`investor-outreach`
-* **更广泛的工具覆盖** — 加强了对 Cursor、Codex 和 OpenCode 的支持，使得同一代码仓库可以在所有主要平台上干净地部署
-* **992项内部测试** — 在插件、钩子、技能和打包方面扩展了验证和回归测试覆盖
+* **Codex 应用 + CLI 支持** - 基于 `AGENTS.md` 的直接 Codex 支持、安装器目标定位以及 Codex 文档
+* **`frontend-slides` 技能** - 零依赖的 HTML 演示文稿生成器，附带 PPTX 转换指导和严格的视口适配规则
+* **5个新的通用业务/内容技能** - `article-writing`、`content-engine`、`market-research`、`investor-materials`、`investor-outreach`
+* **更广泛的工具覆盖** - 加强了对 Cursor、Codex 和 OpenCode 的支持，使得同一代码仓库可以在所有主要平台上干净地部署
+* **992项内部测试** - 在插件、钩子、技能和打包方面扩展了验证和回归测试覆盖
 
-### v1.6.0 — Codex CLI、AgentShield 与市场（2026年2月）
+### v1.6.0 - Codex CLI、AgentShield 与市场（2026年2月）
 
-* **Codex CLI 支持** — 新的 `/codex-setup` 命令生成 `codex.md` 以实现 OpenAI Codex CLI 兼容性
-* **7个新技能** — `search-first`、`swift-actor-persistence`、`swift-protocol-di-testing`、`regex-vs-llm-structured-text`、`content-hash-cache-pattern`、`cost-aware-llm-pipeline`、`skill-stocktake`
-* **AgentShield 集成** — `/security-scan` 技能直接从 Claude Code 运行 AgentShield；1282 项测试，102 条规则
-* **GitHub 市场** — ECC Tools GitHub 应用已在 [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) 上线，提供免费/专业/企业版
-* **合并了 30+ 个社区 PR** — 来自 6 种语言的 30 位贡献者的贡献
-* **978项内部测试** — 在代理、技能、命令、钩子和规则方面扩展了验证套件
+* **Codex CLI 支持** - 新的 `/codex-setup` 命令生成 `codex.md` 以实现 OpenAI Codex CLI 兼容性
+* **7个新技能** - `search-first`、`swift-actor-persistence`、`swift-protocol-di-testing`、`regex-vs-llm-structured-text`、`content-hash-cache-pattern`、`cost-aware-llm-pipeline`、`skill-stocktake`
+* **AgentShield 集成** - `/security-scan` 技能直接从 Claude Code 运行 AgentShield；1282 项测试，102 条规则
+* **GitHub 市场** - ECC Tools GitHub 应用已在 [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) 上线，提供免费/专业/企业版
+* **合并了 30+ 个社区 PR** - 来自 6 种语言的 30 位贡献者的贡献
+* **978项内部测试** - 在代理、技能、命令、钩子和规则方面扩展了验证套件
 
-### v1.4.1 — 错误修复 (2026年2月)
+### v1.4.1 - 错误修复 (2026年2月)
 
-* **修复了直觉导入内容丢失问题** — `parse_instinct_file()` 在 `/instinct-import` 期间会静默丢弃 frontmatter 之后的所有内容（Action, Evidence, Examples 部分）。已由社区贡献者 @ericcai0814 修复 ([#148](https://github.com/affaan-m/everything-claude-code/issues/148), [#161](https://github.com/affaan-m/everything-claude-code/pull/161))
+* **修复了直觉导入内容丢失问题** - `parse_instinct_file()` 在 `/instinct-import` 期间会静默丢弃 frontmatter 之后的所有内容（Action, Evidence, Examples 部分）。已由社区贡献者 @ericcai0814 修复 ([#148](https://github.com/affaan-m/everything-claude-code/issues/148), [#161](https://github.com/affaan-m/everything-claude-code/pull/161))
 
-### v1.4.0 — 多语言规则、安装向导 & PM2 (2026年2月)
+### v1.4.0 - 多语言规则、安装向导 & PM2 (2026年2月)
 
-* **交互式安装向导** — 新的 `configure-ecc` 技能提供了带有合并/覆盖检测的引导式设置
-* **PM2 & 多智能体编排** — 6 个新命令 (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) 用于管理复杂的多服务工作流
-* **多语言规则架构** — 规则从扁平文件重组为 `common/` + `typescript/` + `python/` + `golang/` 目录。仅安装您需要的语言
-* **中文 (zh-CN) 翻译** — 所有智能体、命令、技能和规则的完整翻译 (80+ 个文件)
-* **GitHub Sponsors 支持** — 通过 GitHub Sponsors 赞助项目
-* **增强的 CONTRIBUTING.md** — 针对每种贡献类型的详细 PR 模板
+* **交互式安装向导** - 新的 `configure-ecc` 技能提供了带有合并/覆盖检测的引导式设置
+* **PM2 & 多智能体编排** - 6 个新命令 (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) 用于管理复杂的多服务工作流
+* **多语言规则架构** - 规则从扁平文件重组为 `common/` + `typescript/` + `python/` + `golang/` 目录。仅安装您需要的语言
+* **中文 (zh-CN) 翻译** - 所有智能体、命令、技能和规则的完整翻译 (80+ 个文件)
+* **GitHub Sponsors 支持** - 通过 GitHub Sponsors 赞助项目
+* **增强的 CONTRIBUTING.md** - 针对每种贡献类型的详细 PR 模板
 
-### v1.3.0 — OpenCode 插件支持 (2026年2月)
+### v1.3.0 - OpenCode 插件支持 (2026年2月)
 
-* **完整的 OpenCode 集成** — 12 个智能体，24 个命令，16 个技能，通过 OpenCode 的插件系统支持钩子 (20+ 种事件类型)
-* **3 个原生自定义工具** — run-tests, check-coverage, security-audit
-* **LLM 文档** — `llms.txt` 用于获取全面的 OpenCode 文档
+* **完整的 OpenCode 集成** - 12 个智能体，24 个命令，16 个技能，通过 OpenCode 的插件系统支持钩子 (20+ 种事件类型)
+* **3 个原生自定义工具** - run-tests, check-coverage, security-audit
+* **LLM 文档** - `llms.txt` 用于获取全面的 OpenCode 文档
 
-### v1.2.0 — 统一的命令和技能 (2026年2月)
+### v1.2.0 - 统一的命令和技能 (2026年2月)
 
-* **Python/Django 支持** — Django 模式、安全、TDD 和验证技能
-* **Java Spring Boot 技能** — Spring Boot 的模式、安全、TDD 和验证
-* **会话管理** — `/sessions` 命令用于查看会话历史
-* **持续学习 v2** — 基于直觉的学习，带有置信度评分、导入/导出、进化
+* **Python/Django 支持** - Django 模式、安全、TDD 和验证技能
+* **Java Spring Boot 技能** - Spring Boot 的模式、安全、TDD 和验证
+* **会话管理** - `/sessions` 命令用于查看会话历史
+* **持续学习 v2** - 基于直觉的学习，带有置信度评分、导入/导出、进化
 
 完整的更新日志请参见 [Releases](https://github.com/affaan-m/everything-claude-code/releases)。
 
@@ -522,7 +522,7 @@ everything-claude-code/
 * **Instinct 集合** - 用于 continuous-learning-v2
 * **模式提取** - 从您的提交历史中学习
 
-### AgentShield — 安全审计器
+### AgentShield - 安全审计器
 
 > 在 Claude Code 黑客马拉松（Cerebral Valley x Anthropic，2026年2月）上构建。1282 项测试，98% 覆盖率，102 条静态分析规则。
 
@@ -542,7 +542,7 @@ npx ecc-agentshield scan --opus --stream
 npx ecc-agentshield init
 ```
 
-**它扫描什么：** CLAUDE.md、settings.json、MCP 配置、钩子、代理定义以及 5 个类别的技能 —— 密钥检测（14 种模式）、权限审计、钩子注入分析、MCP 服务器风险剖析和代理配置审查。
+**它扫描什么：** CLAUDE.md、settings.json、MCP 配置、钩子、代理定义以及 5 个类别的技能 -- 密钥检测（14 种模式）、权限审计、钩子注入分析、MCP 服务器风险剖析和代理配置审查。
 
 **`--opus` 标志** 在红队/蓝队/审计员管道中运行三个 Claude Opus 4.6 代理。攻击者寻找利用链，防御者评估保护措施，审计员将两者综合成优先风险评估。对抗性推理，而不仅仅是模式匹配。
 
@@ -552,7 +552,7 @@ npx ecc-agentshield init
 
 [GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/ecc-agentshield)
 
-### Plankton — 编写时代码质量强制执行
+### Plankton - 编写时代码质量强制执行
 
 Plankton（致谢：@alxfazio）是用于编写时代码质量强制执行的推荐伴侣。它通过 PostToolUse 钩子在每次文件编辑时运行格式化程序和 20 多个代码检查器，然后生成 Claude 子进程（根据违规复杂度路由到 Haiku/Sonnet/Opus）来修复主智能体遗漏的问题。采用三阶段架构：静默自动格式化（解决 40-50% 的问题），将剩余的违规收集为结构化 JSON，委托给子进程修复。包含配置保护钩子，防止智能体修改检查器配置以通过检查而非修复代码。支持 Python、TypeScript、Shell、YAML、JSON、TOML、Markdown 和 Dockerfile。与 AgentShield 结合使用，实现安全 + 质量覆盖。完整集成指南请参阅 `skills/plankton-code-quality/`。
 
@@ -905,7 +905,7 @@ cp -r everything-claude-code/rules/common ~/.claude/rules/common
 * **OpenCode**: `.opencode/` 中的完整插件支持。参见 [OpenCode 支持](#opencode-支持)。
 * **Codex**: 对 macOS 应用和 CLI 的一流支持，带有适配器漂移防护和 SessionStart 回退。参见 PR [#257](https://github.com/affaan-m/everything-claude-code/pull/257)。
 * **Antigravity**: 为工作流、技能和扁平化规则紧密集成的设置，位于 `.agent/`。参见 [Antigravity 指南](../ANTIGRAVITY-GUIDE.md)。
-* **Claude Code**: 原生支持 — 这是主要目标。
+* **Claude Code**: 原生支持 - 这是主要目标。
 
 </details>
 
@@ -954,8 +954,8 @@ node tests/hooks/hooks.test.js
 
 ### 贡献想法
 
-* 特定语言技能 (Rust, C#, Kotlin, Java) — Go、Python、Perl、Swift 和 TypeScript 已包含在内
-* 特定框架配置 (Rails, FastAPI) — Django、NestJS、Spring Boot、Laravel 已包含在内
+* 特定语言技能 (Rust, C#, Kotlin, Java) - Go、Python、Perl、Swift 和 TypeScript 已包含在内
+* 特定框架配置 (Rails, FastAPI) - Django、NestJS、Spring Boot、Laravel 已包含在内
 * DevOps 智能体 (Kubernetes, Terraform, AWS, Docker)
 * 测试策略 (不同框架、视觉回归)
 * 领域特定知识 (ML, 数据工程, 移动端)
@@ -1003,11 +1003,11 @@ Cursor stdin JSON → adapter.js → transforms → scripts/hooks/*.js
 
 关键钩子：
 
-* **beforeShellExecution** — 阻止在 tmux 外启动开发服务器（退出码 2），git push 审查
-* **afterFileEdit** — 自动格式化 + TypeScript 检查 + console.log 警告
-* **beforeSubmitPrompt** — 检测提示中的密钥（sk-、ghp\_、AKIA 模式）
-* **beforeTabFileRead** — 阻止 Tab 读取 .env、.key、.pem 文件（退出码 2）
-* **beforeMCPExecution / afterMCPExecution** — MCP 审计日志记录
+* **beforeShellExecution** - 阻止在 tmux 外启动开发服务器（退出码 2），git push 审查
+* **afterFileEdit** - 自动格式化 + TypeScript 检查 + console.log 警告
+* **beforeSubmitPrompt** - 检测提示中的密钥（sk-、ghp\_、AKIA 模式）
+* **beforeTabFileRead** - 阻止 Tab 读取 .env、.key、.pem 文件（退出码 2）
+* **beforeMCPExecution / afterMCPExecution** - MCP 审计日志记录
 
 ### 规则格式
 
@@ -1030,7 +1030,7 @@ ECC 为 macOS 应用和 CLI 提供 **一流的 Codex 支持**，包括参考配�
 ### 快速开始（Codex 应用 + CLI）
 
 ```bash
-# Run Codex CLI in the repo — AGENTS.md and .codex/ are auto-detected
+# Run Codex CLI in the repo - AGENTS.md and .codex/ are auto-detected
 codex
 
 # Optional: copy the global-safe defaults to your home directory
@@ -1049,12 +1049,12 @@ Codex macOS 应用：
 
 | 组件 | 数量 | 详情 |
 |-----------|-------|---------|
-| 配置 | 1 | `.codex/config.toml` —— 顶级 approvals/sandbox/web\_search, MCP 服务器，通知，配置文件 |
+| 配置 | 1 | `.codex/config.toml` -- 顶级 approvals/sandbox/web\_search, MCP 服务器，通知，配置文件 |
 | AGENTS.md | 2 | 根目录（通用）+ `.codex/AGENTS.md`（Codex 特定补充） |
-| 技能 | 32 | `.agents/skills/` —— SKILL.md + agents/openai.yaml 每个技能 |
+| 技能 | 32 | `.agents/skills/` -- SKILL.md + agents/openai.yaml 每个技能 |
 | MCP 服务器 | 4 | GitHub, Context7, Memory, Sequential Thinking（基于命令） |
 | 配置文件 | 2 | `strict`（只读沙箱）和 `yolo`（完全自动批准） |
-| 代理角色 | 3 | `.codex/agents/` —— explorer, reviewer, docs-researcher |
+| 代理角色 | 3 | `.codex/agents/` -- explorer, reviewer, docs-researcher |
 
 ### 技能
 
@@ -1306,7 +1306,7 @@ ECC 是**第一个最大化利用每个主要 AI 编码工具的插件**。以�
 |---------|---------|-------------|--------|
 | `model` | opus | **sonnet** | 约 60% 的成本降低；处理 80%+ 的编码任务 |
 | `MAX_THINKING_TOKENS` | 31,999 | **10,000** | 每个请求的隐藏思考成本降低约 70% |
-| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | 更早压缩 —— 在长会话中质量更好 |
+| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | 更早压缩 -- 在长会话中质量更好 |
 
 仅在需要深度架构推理时切换到 Opus：
 

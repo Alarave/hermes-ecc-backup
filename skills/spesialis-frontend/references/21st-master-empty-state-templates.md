@@ -12,7 +12,7 @@ Analisis pola dan blueprint komponen Empty State berdasarkan 77+ komponen di 21s
   - Border bergaris putus-putus (*dashed border*) yang menyiratkan "ruang ini siap diisi".
   - Ikon besar berwarna pucat (abu-abu/slate) dengan judul yang jelas dan deskripsi persuasif.
   - Wajib menyertakan tombol aksi utama (CTA: "Buat Proyek Pertama").
-- **Inspirasi**: `EmptyState – Beautiful, Accessible (Sonu kumar)`, `Invoice Empty State`.
+- **Inspirasi**: `EmptyState - Beautiful, Accessible (Sonu kumar)`, `Invoice Empty State`.
 
 ### Arketipe 2: The "No Search Results" State
 - **Fungsi**: Umpan balik ketika *query* pencarian pengguna tidak membuahkan hasil (di Command Palette atau bilah pencarian).

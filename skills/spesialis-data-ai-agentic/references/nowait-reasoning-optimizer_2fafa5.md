@@ -70,7 +70,7 @@ Let      0.4     →     Let      0.4
 
 ### Why It Works
 
-- NOWAIT doesn't eliminate self-reflection entirely—it guides models to skip **unnecessary** "waiting" reasoning
+- NOWAIT doesn't eliminate self-reflection entirely-it guides models to skip **unnecessary** "waiting" reasoning
 - Models still perform essential verification at key decision points
 - Results in more linear, straightforward reasoning paths
 
@@ -81,7 +81,7 @@ Let      0.4     →     Let      0.4
 | RL-based (QwQ, Phi4, Qwen3-32B) | Stable accuracy, significant token reduction | ✅ Recommended |
 | Distilled (Qwen3-4B/8B/14B) | Accuracy degradation on hard tasks | ⚠️ Use with caution |
 
-Distilled models rely heavily on CoT structure from training data—removing reflection tokens disrupts their reasoning patterns.
+Distilled models rely heavily on CoT structure from training data-removing reflection tokens disrupts their reasoning patterns.
 
 ## Integration Examples
 

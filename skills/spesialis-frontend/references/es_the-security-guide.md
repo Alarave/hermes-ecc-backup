@@ -22,9 +22,9 @@ Los vectores de ataque son esencialmente cualquier punto de entrada de interacci
 
 Por ejemplo: mi agente está conectado mediante una capa de gateway a WhatsApp. Un adversario conoce tu número de WhatsApp. Intenta una inyección de prompt usando un jailbreak existente. Spamea jailbreaks en el chat. El agente lee el mensaje y lo toma como instrucción. Ejecuta una respuesta revelando información privada. Si tu agente tiene acceso root, o amplio acceso al sistema de archivos, o credenciales útiles cargadas, estás comprometido.
 
-Incluso el jailbreak de Good Rudi del que la gente se ríe (es gracioso, no lo niego) apunta a la misma clase de problema: intentos repetidos, eventualmente una revelación sensible, superficialmente gracioso pero el fallo subyacente es serio — digo, la cosa está pensada para niños, extrapola un poco de aquí y rápidamente llegarás a la conclusión de por qué esto podría ser catastrófico. El mismo patrón va mucho más lejos cuando el modelo está conectado a herramientas reales y permisos reales.
+Incluso el jailbreak de Good Rudi del que la gente se ríe (es gracioso, no lo niego) apunta a la misma clase de problema: intentos repetidos, eventualmente una revelación sensible, superficialmente gracioso pero el fallo subyacente es serio - digo, la cosa está pensada para niños, extrapola un poco de aquí y rápidamente llegarás a la conclusión de por qué esto podría ser catastrófico. El mismo patrón va mucho más lejos cuando el modelo está conectado a herramientas reales y permisos reales.
 
-[Video: Exploit Bad Rudi](../../assets/images/security/badrudi-exploit.mp4) — good rudi (personaje de IA animado de grok para niños) es explotado con un jailbreak de prompt después de intentos repetidos para revelar información sensible. Es un ejemplo humorístico pero las posibilidades van mucho más lejos.
+[Video: Exploit Bad Rudi](../../assets/images/security/badrudi-exploit.mp4) - good rudi (personaje de IA animado de grok para niños) es explotado con un jailbreak de prompt después de intentos repetidos para revelar información sensible. Es un ejemplo humorístico pero las posibilidades van mucho más lejos.
 
 WhatsApp es solo un ejemplo. Los adjuntos de correo electrónico son un vector enorme. Un atacante envía un PDF con un prompt incrustado; tu agente lee el adjunto como parte del trabajo, y ahora texto que debería haber permanecido como datos útiles se ha convertido en instrucción maliciosa. Las capturas de pantalla y escaneos son igual de malos si haces OCR en ellos. El propio trabajo de inyección de prompts de Anthropic menciona explícitamente texto oculto e imágenes manipuladas como material de ataque real.
 
@@ -187,7 +187,7 @@ Si tu harness admite permisos de herramientas, comienza con reglas de denegació
 }
 ```
 
-Eso no es una política completa — es una línea base bastante sólida para protegerte.
+Eso no es una política completa - es una línea base bastante sólida para protegerte.
 
 Si un flujo de trabajo solo necesita leer un repositorio y ejecutar pruebas, no le permitas leer tu directorio home. Si solo necesita un token de repositorio único, no le entregues permisos de escritura a toda la organización. Si no necesita producción, mantenlo fuera de producción.
 
@@ -195,7 +195,7 @@ Si un flujo de trabajo solo necesita leer un repositorio y ejecutar pruebas, no 
 
 Todo lo que lee un LLM es contexto ejecutable. No hay distinción significativa entre "datos" e "instrucciones" una vez que el texto entra en la ventana de contexto. La sanitización no es cosmética; es parte del límite del runtime.
 
-![Comparación LGTM — El archivo parece limpio para un humano. El modelo aún ve las instrucciones ocultas](../../assets/images/security/sanitization.png)
+![Comparación LGTM - El archivo parece limpio para un humano. El modelo aún ve las instrucciones ocultas](../../assets/images/security/sanitization.png)
 
 ### Unicode Oculto y Payloads en Comentarios
 
@@ -309,9 +309,9 @@ El trabajo de Unit 42 sobre inyección de prompt indirecta y la última guía de
 
 Conoce la diferencia entre finalizaciones elegantes y forzadas. `SIGTERM` le da al proceso una oportunidad de limpiarse. `SIGKILL` lo detiene inmediatamente. Ambos importan.
 
-Además, termina el grupo de procesos, no solo el padre. Si solo terminas el padre, los hijos pueden seguir ejecutándose. (esta es también la razón por la que a veces miras tu pestaña de ghostty por la mañana y ves que de alguna manera consumiste 100GB de RAM y el proceso está pausado cuando solo tienes 64GB en tu computadora — un montón de procesos hijos ejecutándose descontroladamente cuando creías que estaban apagados)
+Además, termina el grupo de procesos, no solo el padre. Si solo terminas el padre, los hijos pueden seguir ejecutándose. (esta es también la razón por la que a veces miras tu pestaña de ghostty por la mañana y ves que de alguna manera consumiste 100GB de RAM y el proceso está pausado cuando solo tienes 64GB en tu computadora - un montón de procesos hijos ejecutándose descontroladamente cuando creías que estaban apagados)
 
-![me desperté con esto un día — adivina cuál fue el culpable](../../assets/images/security/ghostyy-overflow.jpeg)
+![me desperté con esto un día - adivina cuál fue el culpable](../../assets/images/security/ghostyy-overflow.jpeg)
 
 Ejemplo en Node:
 
@@ -359,7 +359,7 @@ Si estás ejecutando agentes de forma autónoma en 2026, este es el mínimo indi
 - mantén la memoria persistente acotada y desechable
 - escanea skills, hooks, configuraciones MCP y descriptores de agentes como cualquier otro artefacto de cadena de suministro
 
-No te estoy sugiriendo que hagas esto, te lo estoy diciendo — por tu bien, por el mío y por el bien de tus futuros clientes.
+No te estoy sugiriendo que hagas esto, te lo estoy diciendo - por tu bien, por el mío y por el bien de tus futuros clientes.
 
 ## El Panorama de Herramientas
 
@@ -390,11 +390,11 @@ Usualmente parece trabajo normal. Un repositorio. Un PR. Un ticket. Un PDF. Una 
 
 Por eso la seguridad de los agentes debe tratarse como infraestructura.
 
-No como algo secundario, una vibra, algo de lo que la gente ama hablar pero sobre lo que no hace nada — es infraestructura requerida.
+No como algo secundario, una vibra, algo de lo que la gente ama hablar pero sobre lo que no hace nada - es infraestructura requerida.
 
 Si llegaste hasta aquí y reconoces que todo esto es verdad; luego una hora después te veo publicar alguna tontería en X, donde ejecutas 10+ agentes con --dangerously-skip-permissions con acceso root local Y haciendo push directamente a main en un repositorio público.
 
-No hay manera de salvarte — estás infectado con psicosis de IA (el tipo peligroso que nos afecta a todos porque estás poniendo software para que lo usen otras personas)
+No hay manera de salvarte - estás infectado con psicosis de IA (el tipo peligroso que nos afecta a todos porque estás poniendo software para que lo usen otras personas)
 
 ## Cierre
 

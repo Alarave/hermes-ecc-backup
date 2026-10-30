@@ -60,7 +60,7 @@ go clean -modcache && go mod download  # Corrigir problemas de checksum
 
 ## Princípios Chave
 
-- **Correções cirúrgicas apenas** — não refatorar, apenas corrigir o erro
+- **Correções cirúrgicas apenas** - não refatorar, apenas corrigir o erro
 - **Nunca** adicionar `//nolint` sem aprovação explícita
 - **Nunca** mudar assinaturas de função a menos que necessário
 - **Sempre** executar `go mod tidy` após adicionar/remover imports

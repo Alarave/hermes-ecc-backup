@@ -168,7 +168,7 @@ Versión corta:
 - [ ] Enlaza a skills relacionadas
 - [ ] Sin datos sensibles (claves de API, tokens, rutas)
 - [ ] El frontmatter declara `name:` coincidiendo con el nombre del directorio
-- [ ] El `description:` del frontmatter es una cadena en línea o escalar plegado (`>`) — no un bloque literal (`|`, `|-` o `|+`), que preserva los saltos de línea internos y rompe los renderizadores de tablas planas
+- [ ] El `description:` del frontmatter es una cadena en línea o escalar plegado (`>`) - no un bloque literal (`|`, `|-` o `|+`), que preserva los saltos de línea internos y rompe los renderizadores de tablas planas
 
 ### Skills de Ejemplo
 
@@ -379,8 +379,8 @@ Las skills y los agentes pueden usar herramientas **MCP (Model Context Protocol)
 
 ECC incluye subconjuntos de skills para otros harnesses:
 
-- **Codex:** `.agents/skills/` — las skills listadas en `agents/openai.yaml` son cargadas por Codex.
-- **Cursor:** `.cursor/skills/` — un subconjunto de skills está empaquetado para Cursor.
+- **Codex:** `.agents/skills/` - las skills listadas en `agents/openai.yaml` son cargadas por Codex.
+- **Cursor:** `.cursor/skills/` - un subconjunto de skills está empaquetado para Cursor.
 
 Cuando **añades una nueva skill** que debería estar disponible en Codex o Cursor:
 

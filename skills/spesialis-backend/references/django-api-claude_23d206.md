@@ -1,4 +1,4 @@
-# Django REST API — 프로젝트 CLAUDE.md
+# Django REST API - 프로젝트 CLAUDE.md
 
 > PostgreSQL과 Celery를 사용하는 Django REST Framework API의 실전 예시입니다.
 > 프로젝트 루트에 복사하여 서비스에 맞게 커스터마이즈하세요.
@@ -13,16 +13,16 @@
 
 ### Python 규칙
 
-- 모든 함수 시그니처에 type hints 사용 — `from __future__ import annotations` 사용
-- `print()` 문 사용 금지 — `logging.getLogger(__name__)` 사용
+- 모든 함수 시그니처에 type hints 사용 - `from __future__ import annotations` 사용
+- `print()` 문 사용 금지 - `logging.getLogger(__name__)` 사용
 - 문자열 포매팅은 f-strings 사용, `%`나 `.format()`은 사용 금지
 - 파일 작업에 `os.path` 대신 `pathlib.Path` 사용
 - isort로 import 정렬: stdlib, third-party, local 순서 (ruff에 의해 강제)
 
 ### 데이터베이스
 
-- 모든 쿼리는 Django ORM 사용 — raw SQL은 `.raw()`와 parameterized 쿼리로만 사용
-- 마이그레이션은 git에 커밋 — 프로덕션에서 `--fake` 사용 금지
+- 모든 쿼리는 Django ORM 사용 - raw SQL은 `.raw()`와 parameterized 쿼리로만 사용
+- 마이그레이션은 git에 커밋 - 프로덕션에서 `--fake` 사용 금지
 - N+1 쿼리 방지를 위해 `select_related()`와 `prefetch_related()` 사용
 - 모든 모델에 `created_at`과 `updated_at` 자동 필드 필수
 - `filter()`, `order_by()`, 또는 `WHERE` 절에 사용되는 모든 필드에 인덱스 추가
@@ -39,8 +39,8 @@ orders = Order.objects.select_related("customer").all()
 
 ### 인증
 
-- `djangorestframework-simplejwt`를 통한 JWT — access token (15분) + refresh token (7일)
-- 모든 뷰에 permission 클래스 지정 — 기본값에 의존하지 않기
+- `djangorestframework-simplejwt`를 통한 JWT - access token (15분) + refresh token (7일)
+- 모든 뷰에 permission 클래스 지정 - 기본값에 의존하지 않기
 - `IsAuthenticated`를 기본으로, 객체 수준 접근에는 커스텀 permission 추가
 - 로그아웃을 위한 token blacklisting 활성화
 
@@ -48,7 +48,7 @@ orders = Order.objects.select_related("customer").all()
 
 - 간단한 CRUD에는 `ModelSerializer`, 복잡한 유효성 검증에는 `Serializer` 사용
 - 입력/출력 형태가 다를 때는 읽기와 쓰기 serializer를 분리
-- 유효성 검증은 serializer 레벨에서 — 뷰는 얇게 유지
+- 유효성 검증은 serializer 레벨에서 - 뷰는 얇게 유지
 
 ```python
 class CreateOrderSerializer(serializers.Serializer):
@@ -90,7 +90,7 @@ class InsufficientStockError(APIException):
 - 코드나 주석에 이모지 사용 금지
 - 최대 줄 길이: 120자 (ruff에 의해 강제)
 - 클래스: PascalCase, 함수/변수: snake_case, 상수: UPPER_SNAKE_CASE
-- 뷰는 얇게 유지 — 비즈니스 로직은 서비스 함수나 모델 메서드에 배치
+- 뷰는 얇게 유지 - 비즈니스 로직은 서비스 함수나 모델 메서드에 배치
 
 ## 파일 구조
 

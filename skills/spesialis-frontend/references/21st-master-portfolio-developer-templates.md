@@ -174,7 +174,7 @@ export function DeveloperPortfolio() {
                 <h4 className="font-semibold text-white">Lead Frontend Engineer</h4>
                 <p className="text-sm text-neutral-400">Berlayar Studio Labs</p>
               </div>
-              <span className="text-xs font-mono text-neutral-500">2024 — Sekarang</span>
+              <span className="text-xs font-mono text-neutral-500">2024 - Sekarang</span>
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -182,7 +182,7 @@ export function DeveloperPortfolio() {
                 <h4 className="font-semibold text-white">Data Mining Specialist (USB Team)</h4>
                 <p className="text-sm text-neutral-400">Universitas Gunadarma</p>
               </div>
-              <span className="text-xs font-mono text-neutral-500">2025 — 2026</span>
+              <span className="text-xs font-mono text-neutral-500">2025 - 2026</span>
             </div>
           </div>
         </section>

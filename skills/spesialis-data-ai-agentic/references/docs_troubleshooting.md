@@ -79,7 +79,7 @@ exit 2
   - macOS (Homebrew): `brew install python-tk`
   - Windows: re-run the python.org installer and enable "tcl/tk and IDLE"
 - Or use the browser dashboard, which only needs Node: `npm run dashboard:web`, then open the printed localhost URL.
-- Both commands must be run from a full clone of the ECC repo (`git clone https://github.com/affaan-m/ECC`), not from inside the Claude Code plugin directory — plugin installs do not ship `package.json` scripts.
+- Both commands must be run from a full clone of the ECC repo (`git clone https://github.com/affaan-m/ECC`), not from inside the Claude Code plugin directory - plugin installs do not ship `package.json` scripts.
 
 ## Anthropic Cyber Safeguards Block Security Audits Of Your Own Code
 
@@ -88,7 +88,7 @@ exit 2
 **What helps:**
 
 - This is an upstream Anthropic model-level safeguard, not GateGuard and not an ECC block. No ECC configuration can bypass it.
-- Apply to Anthropic's [Cyber Verification Program](https://claude.com/form/cyber-use-case) — the error message includes a tokenized link for your account. Approved accounts get legitimate security workflows unblocked.
+- Apply to Anthropic's [Cyber Verification Program](https://claude.com/form/cyber-use-case) - the error message includes a tokenized link for your account. Approved accounts get legitimate security workflows unblocked.
 - Until approved, structure prompts defensively: state up front that you own the code and the goal is remediation ("review this module I own for vulnerabilities and propose fixes"), keep scope to one module at a time, and avoid exploit-generation phrasing ("write a PoC", "craft a payload").
 - Prefer remediation-oriented skills (`security-review`, `security-scan`) over offensive framing, and run static tooling (semgrep, bandit, `npm audit`) yourself, then ask the model to interpret results.
 

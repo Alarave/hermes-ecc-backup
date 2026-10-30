@@ -74,31 +74,31 @@
 
 ## 새로운 소식
 
-### v1.8.0 — 하네스 성능 시스템 (2026년 3월)
+### v1.8.0 - 하네스 성능 시스템 (2026년 3월)
 
-- **하네스 중심 릴리스** — ECC는 이제 단순 설정 모음이 아닌, 에이전트 하네스 성능 시스템으로 명시됩니다.
-- **훅 안정성 개선** — SessionStart 루트 폴백, Stop 단계 세션 요약, 취약한 인라인 원라이너를 스크립트 기반 훅으로 교체.
-- **훅 런타임 제어** — `ECC_HOOK_PROFILE=minimal|standard|strict`와 `ECC_DISABLED_HOOKS=...`로 훅 파일 수정 없이 런타임 제어.
-- **새 하네스 커맨드** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
-- **NanoClaw v2** — 모델 라우팅, 스킬 핫로드, 세션 분기/검색/내보내기/압축/메트릭.
-- **크로스 하네스 호환성** — Claude Code, Cursor, OpenCode, Codex 간 동작 일관성 강화.
-- **997개 내부 테스트 통과** — 훅/런타임 리팩토링 및 호환성 업데이트 후 전체 테스트 통과.
+- **하네스 중심 릴리스** - ECC는 이제 단순 설정 모음이 아닌, 에이전트 하네스 성능 시스템으로 명시됩니다.
+- **훅 안정성 개선** - SessionStart 루트 폴백, Stop 단계 세션 요약, 취약한 인라인 원라이너를 스크립트 기반 훅으로 교체.
+- **훅 런타임 제어** - `ECC_HOOK_PROFILE=minimal|standard|strict`와 `ECC_DISABLED_HOOKS=...`로 훅 파일 수정 없이 런타임 제어.
+- **새 하네스 커맨드** - `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
+- **NanoClaw v2** - 모델 라우팅, 스킬 핫로드, 세션 분기/검색/내보내기/압축/메트릭.
+- **크로스 하네스 호환성** - Claude Code, Cursor, OpenCode, Codex 간 동작 일관성 강화.
+- **997개 내부 테스트 통과** - 훅/런타임 리팩토링 및 호환성 업데이트 후 전체 테스트 통과.
 
-### v1.7.0 — 크로스 플랫폼 확장 & 프레젠테이션 빌더 (2026년 2월)
+### v1.7.0 - 크로스 플랫폼 확장 & 프레젠테이션 빌더 (2026년 2월)
 
-- **Codex 앱 + CLI 지원** — AGENTS.md 기반의 직접적인 Codex 지원
-- **`frontend-slides` 스킬** — 의존성 없는 HTML 프레젠테이션 빌더
-- **5개 신규 비즈니스/콘텐츠 스킬** — `article-writing`, `content-engine`, `market-research`, `investor-materials`, `investor-outreach`
-- **992개 내부 테스트** — 확장된 검증 및 회귀 테스트 범위
+- **Codex 앱 + CLI 지원** - AGENTS.md 기반의 직접적인 Codex 지원
+- **`frontend-slides` 스킬** - 의존성 없는 HTML 프레젠테이션 빌더
+- **5개 신규 비즈니스/콘텐츠 스킬** - `article-writing`, `content-engine`, `market-research`, `investor-materials`, `investor-outreach`
+- **992개 내부 테스트** - 확장된 검증 및 회귀 테스트 범위
 
-### v1.6.0 — Codex CLI, AgentShield & 마켓플레이스 (2026년 2월)
+### v1.6.0 - Codex CLI, AgentShield & 마켓플레이스 (2026년 2월)
 
-- **Codex CLI 지원** — OpenAI Codex CLI 호환성을 위한 `/codex-setup` 커맨드
-- **7개 신규 스킬** — `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing` 등
-- **AgentShield 통합** — `/security-scan`으로 Claude Code에서 직접 AgentShield 실행; 1282개 테스트, 102개 규칙
-- **GitHub 마켓플레이스** — [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools)에서 무료/프로/엔터프라이즈 티어 제공
-- **30명 이상의 커뮤니티 기여** — 6개 언어에 걸친 30명의 기여자
-- **978개 내부 테스트** — 에이전트, 스킬, 커맨드, 훅, 룰 전반에 걸친 검증
+- **Codex CLI 지원** - OpenAI Codex CLI 호환성을 위한 `/codex-setup` 커맨드
+- **7개 신규 스킬** - `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing` 등
+- **AgentShield 통합** - `/security-scan`으로 Claude Code에서 직접 AgentShield 실행; 1282개 테스트, 102개 규칙
+- **GitHub 마켓플레이스** - [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools)에서 무료/프로/엔터프라이즈 티어 제공
+- **30명 이상의 커뮤니티 기여** - 6개 언어에 걸친 30명의 기여자
+- **978개 내부 테스트** - 에이전트, 스킬, 커맨드, 훅, 룰 전반에 걸친 검증
 
 전체 변경 내역은 [Releases](https://github.com/affaan-m/everything-claude-code/releases)에서 확인하세요.
 
@@ -286,7 +286,7 @@ git 히스토리를 로컬에서 분석하여 SKILL.md 파일을 생성합니다
 
 [GitHub 앱 설치](https://github.com/apps/skill-creator) | [ecc.tools](https://ecc.tools)
 
-### AgentShield — 보안 감사 도구
+### AgentShield - 보안 감사 도구
 
 > Claude Code 해커톤(Cerebral Valley x Anthropic, 2026년 2월)에서 개발. 1282개 테스트, 98% 커버리지, 102개 정적 분석 규칙.
 
@@ -306,7 +306,7 @@ npx ecc-agentshield scan --opus --stream
 npx ecc-agentshield init
 ```
 
-**스캔 대상:** CLAUDE.md, settings.json, MCP 설정, 훅, 에이전트 정의, 스킬 — 시크릿 감지(14개 패턴), 권한 감사, 훅 인젝션 분석, MCP 서버 위험 프로파일링, 에이전트 설정 검토의 5가지 카테고리.
+**스캔 대상:** CLAUDE.md, settings.json, MCP 설정, 훅, 에이전트 정의, 스킬 - 시크릿 감지(14개 패턴), 권한 감사, 훅 인젝션 분석, MCP 서버 위험 프로파일링, 에이전트 설정 검토의 5가지 카테고리.
 
 **`--opus` 플래그**는 레드팀/블루팀/감사관 파이프라인으로 3개의 Claude Opus 4.6 에이전트를 실행합니다. 공격자가 익스플로잇 체인을 찾고, 방어자가 보호 조치를 평가하며, 감사관이 양쪽의 결과를 종합하여 우선순위가 매겨진 위험 평가를 작성합니다.
 
@@ -587,7 +587,7 @@ cp -r everything-claude-code/rules/common ~/.claude/rules/common
 - **OpenCode**: `.opencode/`에 전체 플러그인 지원
 - **Codex**: macOS 앱과 CLI 모두 퍼스트클래스 지원
 - **Antigravity**: `.agent/`에 워크플로우, 스킬, 평탄화된 룰 통합
-- **Claude Code**: 네이티브 — 이것이 주 타겟입니다
+- **Claude Code**: 네이티브 - 이것이 주 타겟입니다
 </details>
 
 <details>
@@ -630,8 +630,8 @@ node tests/hooks/hooks.test.js
 
 ### 기여 아이디어
 
-- 언어별 스킬 (Rust, C#, Swift, Kotlin) — Go, Python, Java는 이미 포함
-- 프레임워크별 설정 (Rails, Laravel, FastAPI) — Django, NestJS, Spring Boot는 이미 포함
+- 언어별 스킬 (Rust, C#, Swift, Kotlin) - Go, Python, Java는 이미 포함
+- 프레임워크별 설정 (Rails, Laravel, FastAPI) - Django, NestJS, Spring Boot는 이미 포함
 - DevOps 에이전트 (Kubernetes, Terraform, AWS, Docker)
 - 테스팅 전략 (다양한 프레임워크, 비주얼 리그레션)
 - 도메인별 지식 (ML, 데이터 엔지니어링, 모바일)
@@ -660,7 +660,7 @@ Claude Code 사용 비용이 부담된다면 토큰 소비를 관리해야 합�
 |------|--------|--------|------|
 | `model` | opus | **sonnet** | ~60% 비용 절감; 80% 이상의 코딩 작업 처리 가능 |
 | `MAX_THINKING_TOKENS` | 31,999 | **10,000** | 요청당 숨겨진 사고 비용 ~70% 절감 |
-| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | 더 일찍 압축 — 긴 세션에서 더 나은 품질 |
+| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | 더 일찍 압축 - 긴 세션에서 더 나은 품질 |
 
 깊은 아키텍처 추론이 필요할 때만 Opus로 전환:
 ```

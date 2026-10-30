@@ -4,7 +4,7 @@
 
 ## 此命令的作用
 
-1. **验证自动化检查**：运行 `cargo check`、`cargo clippy -- -D warnings`、`cargo fmt --check` 和 `cargo test` —— 任何一项失败则停止
+1. **验证自动化检查**：运行 `cargo check`、`cargo clippy -- -D warnings`、`cargo fmt --check` 和 `cargo test` -- 任何一项失败则停止
 2. **识别 Rust 变更**：通过 `git diff HEAD~1`（或针对 PR 使用 `git diff main...HEAD`）查找修改过的 `.rs` 文件
 3. **运行安全审计**：如果可用，则执行 `cargo audit`
 4. **安全扫描**：检查不安全使用、命令注入、硬编码密钥

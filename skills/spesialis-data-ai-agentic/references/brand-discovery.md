@@ -1,7 +1,7 @@
 # Brand Discovery
 
 Use this skill to conduct a structured, adaptive brand identity interview.
-The goal is a complete `90_SYNTHESIS.md` — a master brandbook the
+The goal is a complete `90_SYNTHESIS.md` - a master brandbook the
 organization can use to brief designers, writers, and external
 collaborators.
 
@@ -12,7 +12,7 @@ later session can resume from where the last one stopped.
 ## When to Activate
 
 - A brand is being created, repositioned, or needs a written identity reference to brief collaborators.
-- Multiple sessions are expected — the conversation will span days or weeks.
+- Multiple sessions are expected - the conversation will span days or weeks.
 - Multiple founders or stakeholders need individual interviews before a reconciliation pass.
 - The user wants a structured, repeatable method rather than an ad-hoc chat.
 - Existing brand documentation is scattered, implicit, or founder-dependent and needs to be made explicit.
@@ -24,7 +24,7 @@ question:
 
 1. **Check for prior progress.** Look for an existing set of module files
    and a `state.json` checkpoint in the project's brand-identity directory.
-   If none exists, this is a fresh start — confirm the brand name,
+   If none exists, this is a fresh start - confirm the brand name,
    participants, and where to save the brand-identity files, then begin at
    the first module.
 2. **Read the current module file** if one is in progress, and scan its Raw
@@ -43,7 +43,7 @@ Apply these rules throughout every module:
 3. **Laddering:** for every "what" answer, follow with "Why does that
    matter to you?" until a core value surfaces (typically two to four
    iterations).
-4. **5 Whys:** for beliefs or positioning claims — push until the root
+4. **5 Whys:** for beliefs or positioning claims - push until the root
    reason, not the surface declaration, is on the table.
 5. **Detect thin answers:** if generic, jargon-heavy, or vague, ask for
    one concrete example, a client story, or a number.
@@ -56,8 +56,8 @@ Apply these rules throughout every module:
 7. **Saturation signal:** when two consecutive probes produce no new
    information, summarise and close the module.
 8. **End of module:** write a structured module file with two sections:
-   - `## Raw` — verbatim quotes and examples.
-   - `## Synthesis` — your interpretation, three candidate formulations,
+   - `## Raw` - verbatim quotes and examples.
+   - `## Synthesis` - your interpretation, three candidate formulations,
      open questions, contradictions between participants.
    Then update the `state.json` checkpoint (see State protocol below).
 
@@ -81,9 +81,9 @@ the skip in `state.json`.
 
 After each module reaches saturation or done status, write two files:
 
-**Module file** at `modules/{moduleFile}` — full Raw and Synthesis content.
+**Module file** at `modules/{moduleFile}` - full Raw and Synthesis content.
 
-**`state.json`** — a lightweight checkpoint so a later session can resume.
+**`state.json`** - a lightweight checkpoint so a later session can resume.
 Update `completedModules`, `inProgressModule`, `nextModule`, `lastUpdated`.
 Schema:
 
@@ -104,7 +104,7 @@ After writing, confirm: "Module X saved. State updated. Next: Y."
 **Terminal module (90_SYNTHESIS.md):** when writing the final synthesis,
 set `inProgressModule` to `"90_SYNTHESIS.md"` and `nextModule` to `null`
 in `state.json`. After writing, set `completedModules` to include
-`"90_SYNTHESIS.md"`, then set `inProgressModule` to `null` — leaving it
+`"90_SYNTHESIS.md"`, then set `inProgressModule` to `null` - leaving it
 populated would cause a future resumption to treat the completed brandbook
 as still in progress. Confirm: "Brandbook complete. All modules saved."
 
@@ -116,7 +116,7 @@ When more than one founder participates, write each founder's answers to
 hyphens (e.g. `founder-a`, `anna`); reject names containing path separators
 (`/`, `\`, `..`) or special characters. Validate `moduleFile` against the
 enumerated module sequence (10 through 90 only). Validate `outputPath` to
-ensure it is an absolute path within the project directory — reject relative
+ensure it is an absolute path within the project directory - reject relative
 paths and paths that escape via `..` segments. After all founders complete a
 module, run a reconciliation pass: summarise convergences and divergences in
 the module file, flag "productive tensions" for the group alignment workshop.
@@ -124,12 +124,12 @@ the module file, flag "productive tensions" for the group alignment workshop.
 ## Anti-Patterns
 
 - **Starting without reading state first.** Every session must open by checking for existing module files and `state.json`. Skipping this loses all continuity from prior sessions.
-- **Asking multiple questions at once.** One question at a time is not optional — lists produce checklist answers, not real insight.
-- **Moving to Synthesis before saturation.** If the last two probes produced no new information, the module is done. If they did — it isn't.
+- **Asking multiple questions at once.** One question at a time is not optional - lists produce checklist answers, not real insight.
+- **Moving to Synthesis before saturation.** If the last two probes produced no new information, the module is done. If they did - it isn't.
 - **Skipping multi-founder reconciliation.** When multiple stakeholders are involved, individual interviews must complete before reconciliation. Discussing the brand collectively first introduces anchoring bias.
 - **Treating this as a one-shot session.** This skill is designed for multiple sessions. Rushing to `90_SYNTHESIS.md` in one conversation produces shallow output.
 
 ## Related Skills
 
-- `competitive-platform-analysis` — after brand-discovery establishes the positioning brief, use this to scope and categorise the competitor set.
-- `brand-voice` (ECC) — if the brand-discovery voice-and-tone module needs a separate, source-derived writing-style profile.
+- `competitive-platform-analysis` - after brand-discovery establishes the positioning brief, use this to scope and categorise the competitor set.
+- `brand-voice` (ECC) - if the brand-discovery voice-and-tone module needs a separate, source-derived writing-style profile.

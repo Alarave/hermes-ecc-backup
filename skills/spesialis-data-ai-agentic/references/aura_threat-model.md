@@ -1,4 +1,4 @@
-# Threat model — AURA trust-check adapter
+# Threat model - AURA trust-check adapter
 
 A short, honest boundary statement. The verdict is **one backward-looking
 signal**, not a security guarantee. Read this before treating `trusted` as a
@@ -27,11 +27,11 @@ green light for anything irreversible.
 | # | Threat | Mitigation in this adapter | Residual risk owned by caller |
 |---|---|---|---|
 | 1 | **Endpoint unreachable / timeout** | Returns `unknown` (never raises). Gate is fail-closed by default. | Choose `fail_open` deliberately; pick a sane `timeout`. |
-| 2 | **Spoofed DID** — caller claims a DID it doesn't control | Out of scope: adapter checks reputation, not control of the key. | Verify DID control (signature challenge / auth) **before** trusting the verdict. |
-| 3 | **Stale verdict** — score lags very recent bad behavior | Each call is live (no caching here). | If you cache the result, bound the TTL; don't reuse a verdict across sessions. |
+| 2 | **Spoofed DID** - caller claims a DID it doesn't control | Out of scope: adapter checks reputation, not control of the key. | Verify DID control (signature challenge / auth) **before** trusting the verdict. |
+| 3 | **Stale verdict** - score lags very recent bad behavior | Each call is live (no caching here). | If you cache the result, bound the TTL; don't reuse a verdict across sessions. |
 | 4 | **Endpoint MITM / response tampering** | HTTPS to a pinned host (`agent.auraopenprotocol.org`). Verdict strings are validated against a fixed allow-list; unknown values collapse to `unknown`. | Don't point `base_url` at an untrusted mirror. Consider TLS pinning if your runtime supports it. |
-| 5 | **Score gaming / Sybil** — cheap DIDs farming a `trusted` score | Inherited from AURA's on-chain cost + dispute dimension; not solvable in the adapter. | Weight `dimensions` (e.g. require non-trivial `interactions` / `dispute_history`) for high-value actions rather than trusting the aggregate alone. |
-| 6 | **Over-trust** — using the verdict as sole gate for irreversible value | `new`/`unknown` rejected by default; `dimensions` exposed. | For high-value settlement, combine with action-risk + escrow + manual review. |
+| 5 | **Score gaming / Sybil** - cheap DIDs farming a `trusted` score | Inherited from AURA's on-chain cost + dispute dimension; not solvable in the adapter. | Weight `dimensions` (e.g. require non-trivial `interactions` / `dispute_history`) for high-value actions rather than trusting the aggregate alone. |
+| 6 | **Over-trust** - using the verdict as sole gate for irreversible value | `new`/`unknown` rejected by default; `dimensions` exposed. | For high-value settlement, combine with action-risk + escrow + manual review. |
 
 ## Data handled
 

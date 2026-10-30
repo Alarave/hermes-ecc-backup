@@ -32,7 +32,7 @@
 **来自 Anthropic 黑客马拉松获胜者的完整 Claude Code 配置集合。**
 
 不止是配置文件，而是一整套完整系统：技能体系、本能行为、记忆优化、持续学习、安全扫描，以及研究优先的开发模式。
-包含可直接用于生产环境的智能体、技能模块、钩子、规则、MCP 配置，以及兼容传统命令的适配层——所有内容均经过 10 个多月高强度日常使用与真实产品开发迭代打磨而成。
+包含可直接用于生产环境的智能体、技能模块、钩子、规则、MCP 配置，以及兼容传统命令的适配层--所有内容均经过 10 个多月高强度日常使用与真实产品开发迭代打磨而成。
 
 可在 **Claude Code**、**Codex**、**Cursor**、**OpenCode**、**Gemini** 及其他 AI 智能体框架中通用。
 
@@ -80,18 +80,18 @@
 
 ## 最新动态
 
-### v2.0.0 — 智能体 Harness 操作系统（2026年6月）
+### v2.0.0 - 智能体 Harness 操作系统（2026年6月）
 
 2.0 主线稳定版：261 个技能、control-pane 基底（会话适配器 + MCP 清单）、worktree 生命周期服务，以及 [ECC Discord 社区](https://discord.gg/36yGMHGFbR)。
 
-### v2.0.0-rc.1 — 表面同步、运营工作流与 ECC 2.0 Alpha（2026年4月）
+### v2.0.0-rc.1 - 表面同步、运营工作流与 ECC 2.0 Alpha（2026年4月）
 
-- **公共表面已与真实仓库同步** —— 元数据、目录数量、插件清单以及安装文档现在都与实际开源表面保持一致。
-- **运营与外向型工作流扩展** —— `brand-voice`、`social-graph-ranker`、`customer-billing-ops`、`google-workspace-ops` 等运营型 skill 已纳入同一系统。
-- **媒体与发布工具补齐** —— `manim-video`、`remotion-video-creation` 以及社媒发布能力让技术讲解和发布流程直接在同一仓库内完成。
-- **框架与产品表面继续扩展** —— `nestjs-patterns`、更完整的 Codex/OpenCode 安装表面，以及跨 harness 打包改进，让仓库不再局限于 Claude Code。
-- **ECC 2.0 alpha 已进入仓库** —— `ecc2/` 下的 Rust 控制层现已可在本地构建，并提供 `dashboard`、`start`、`sessions`、`status`、`stop`、`resume` 与 `daemon` 命令。
-- **生态加固持续推进** —— AgentShield、ECC Tools 成本控制、计费门户工作与网站刷新仍围绕核心插件持续交付。
+- **公共表面已与真实仓库同步** -- 元数据、目录数量、插件清单以及安装文档现在都与实际开源表面保持一致。
+- **运营与外向型工作流扩展** -- `brand-voice`、`social-graph-ranker`、`customer-billing-ops`、`google-workspace-ops` 等运营型 skill 已纳入同一系统。
+- **媒体与发布工具补齐** -- `manim-video`、`remotion-video-creation` 以及社媒发布能力让技术讲解和发布流程直接在同一仓库内完成。
+- **框架与产品表面继续扩展** -- `nestjs-patterns`、更完整的 Codex/OpenCode 安装表面，以及跨 harness 打包改进，让仓库不再局限于 Claude Code。
+- **ECC 2.0 alpha 已进入仓库** -- `ecc2/` 下的 Rust 控制层现已可在本地构建，并提供 `dashboard`、`start`、`sessions`、`status`、`stop`、`resume` 与 `daemon` 命令。
+- **生态加固持续推进** -- AgentShield、ECC Tools 成本控制、计费门户工作与网站刷新仍围绕核心插件持续交付。
 
 ## 快速开始
 
@@ -472,7 +472,7 @@ everything-claude-code/
 - **直觉集合** - 用于 continuous-learning-v2
 - **模式提取** - 从你的提交历史中学习
 
-### AgentShield — 安全审计工具
+### AgentShield - 安全审计工具
 
 > 于 Claude Code 黑客松（Cerebral Valley x Anthropic，2026 年 2 月）开发完成。包含 1282 项测试、98% 覆盖率、102 条静态分析规则。
 
@@ -492,7 +492,7 @@ npx ecc-agentshield scan --opus --stream
 npx ecc-agentshield init
 ```
 
-**扫描范围：** CLAUDE.md、settings.json、MCP 配置、钩子、智能体定义与技能模块，覆盖 5 大类别 —— 密钥检测（14 种模式）、权限审计、钩子注入分析、MCP 服务风险评估、智能体配置审查。
+**扫描范围：** CLAUDE.md、settings.json、MCP 配置、钩子、智能体定义与技能模块，覆盖 5 大类别 -- 密钥检测（14 种模式）、权限审计、钩子注入分析、MCP 服务风险评估、智能体配置审查。
 
 **`--opus` 参数**：启动 3 个 Claude Opus 4.6 智能体组成红队/蓝队/审计管道。攻击者寻找利用链，防御者评估防护机制，审计者综合生成优先级风险报告。采用对抗推理，而非单纯模式匹配。
 
@@ -745,8 +745,8 @@ node tests/hooks/hooks.test.js
 
 ### 贡献想法
 
-- 特定语言技能（Rust、C#、Kotlin、Java）—— Go、Python、Perl、Swift 和 TypeScript 已内置
-- 特定框架配置（Rails、FastAPI）—— Django、NestJS、Spring Boot 和 Laravel 已内置
+- 特定语言技能（Rust、C#、Kotlin、Java）-- Go、Python、Perl、Swift 和 TypeScript 已内置
+- 特定框架配置（Rails、FastAPI）-- Django、NestJS、Spring Boot 和 Laravel 已内置
 - DevOps 智能体（Kubernetes、Terraform、AWS、Docker）
 - 测试策略（多种测试框架、视觉回归测试）
 - 领域专属知识库（机器学习、数据工程、移动端开发）
@@ -790,7 +790,7 @@ node tests/hooks/hooks.test.js
 
 | 项目 | 介绍 |
 |------|------|
-| [EVC](https://github.com/SaigonXIII/evc) | 营销智能体工作区 — 包含 42 条命令，面向内容运营、品牌管控与多渠道发布。[可视化概览](https://saigonxiii.github.io/evc)。 |
+| [EVC](https://github.com/SaigonXIII/evc) | 营销智能体工作区 - 包含 42 条命令，面向内容运营、品牌管控与多渠道发布。[可视化概览](https://saigonxiii.github.io/evc)。 |
 
 如果你用 ECC 做了项目，欢迎提交 PR 添加到这里。
 

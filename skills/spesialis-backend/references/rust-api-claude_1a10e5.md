@@ -1,4 +1,4 @@
-# Rust API 服务 — 项目 CLAUDE.md
+# Rust API 服务 - 项目 CLAUDE.md
 
 > 使用 Axum、PostgreSQL 和 Docker 构建 Rust API 服务的真实示例。
 > 将此文件复制到您的项目根目录，并根据您的服务进行自定义。
@@ -14,18 +14,18 @@
 ### Rust 约定
 
 * 库错误使用 `thiserror`，仅在二进制 crate 或测试中使用 `anyhow`
-* 生产代码中不使用 `.unwrap()` 或 `.expect()` — 使用 `?` 传播错误
+* 生产代码中不使用 `.unwrap()` 或 `.expect()` - 使用 `?` 传播错误
 * 函数参数中优先使用 `&str` 而非 `String`；所有权转移时返回 `String`
-* 使用 `clippy` 和 `#![deny(clippy::all, clippy::pedantic)]` — 修复所有警告
+* 使用 `clippy` 和 `#![deny(clippy::all, clippy::pedantic)]` - 修复所有警告
 * 在所有公共类型上派生 `Debug`；仅在需要时派生 `Clone`、`PartialEq`
 * 除非有 `// SAFETY:` 注释说明理由，否则不使用 `unsafe` 块
 
 ### 数据库
 
-* 所有查询使用 SQLx 的 `query!` 或 `query_as!` 宏 — 针对模式进行编译时验证
-* 在 `migrations/` 中使用 `sqlx migrate` 进行迁移 — 切勿直接修改数据库
-* 使用 `sqlx::Pool<Postgres>` 作为共享状态 — 切勿为每个请求创建连接
-* 所有查询使用参数化占位符 (`$1`, `$2`) — 切勿使用字符串格式化
+* 所有查询使用 SQLx 的 `query!` 或 `query_as!` 宏 - 针对模式进行编译时验证
+* 在 `migrations/` 中使用 `sqlx migrate` 进行迁移 - 切勿直接修改数据库
+* 使用 `sqlx::Pool<Postgres>` 作为共享状态 - 切勿为每个请求创建连接
+* 所有查询使用参数化占位符 (`$1`, `$2`) - 切勿使用字符串格式化
 
 ```rust
 // BAD: String interpolation (SQL injection risk)
@@ -40,8 +40,8 @@ let user = sqlx::query_as!(User, "SELECT * FROM users WHERE id = $1", id)
 ### 错误处理
 
 * 为每个模块使用 `thiserror` 定义一个领域错误枚举
-* 通过 `IntoResponse` 将错误映射到 HTTP 响应 — 切勿暴露内部细节
-* 使用 `tracing` 进行结构化日志记录 — 切勿使用 `println!` 或 `eprintln!`
+* 通过 `IntoResponse` 将错误映射到 HTTP 响应 - 切勿暴露内部细节
+* 使用 `tracing` 进行结构化日志记录 - 切勿使用 `println!` 或 `eprintln!`
 
 ```rust
 use thiserror::Error;
@@ -84,7 +84,7 @@ impl IntoResponse for AppError {
 ### 代码风格
 
 * 最大行长度：100 个字符（由 rustfmt 强制执行）
-* 导入分组：`std`、外部 crate、`crate`/`super` — 用空行分隔
+* 导入分组：`std`、外部 crate、`crate`/`super` - 用空行分隔
 * 模块：每个模块一个文件，`mod.rs` 仅用于重新导出
 * 类型：PascalCase，函数/变量：snake\_case，常量：UPPER\_SNAKE\_CASE
 
@@ -100,7 +100,7 @@ src/
     auth.rs            # JWT 提取与验证
     logging.rs         # 请求/响应追踪
   handlers/
-    mod.rs             # 路由处理器（精简版——委托给服务层）
+    mod.rs             # 路由处理器（精简版--委托给服务层）
     users.rs
     orders.rs
   services/

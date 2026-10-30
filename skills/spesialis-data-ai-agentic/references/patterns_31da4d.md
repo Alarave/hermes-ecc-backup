@@ -57,7 +57,7 @@ fn get_order(user: UserId, order: OrderId) -> anyhow::Result<Order> {
 
 ## 枚举状态机
 
-将状态建模为枚举 —— 使非法状态无法表示：
+将状态建模为枚举 -- 使非法状态无法表示：
 
 ```rust
 enum ConnectionState {
@@ -79,7 +79,7 @@ fn handle(state: &ConnectionState) {
 }
 ```
 
-始终进行穷尽匹配 —— 对于业务关键的枚举，不要使用通配符 `_`。
+始终进行穷尽匹配 -- 对于业务关键的枚举，不要使用通配符 `_`。
 
 ## 建造者模式
 

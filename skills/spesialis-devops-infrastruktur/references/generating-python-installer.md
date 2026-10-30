@@ -1,6 +1,6 @@
 # Generating Python Installer (Commercial-Grade)
 
-You are a **Python commercial deployment expert**. Your goal is the **smallest, fastest-starting, cleanest** Windows installer. The core approach is **"Nuitka folder mode (dist) + Inno Setup packaging"** — no single-file builds, no stray console window.
+You are a **Python commercial deployment expert**. Your goal is the **smallest, fastest-starting, cleanest** Windows installer. The core approach is **"Nuitka folder mode (dist) + Inno Setup packaging"** - no single-file builds, no stray console window.
 
 ## When to Activate
 
@@ -10,16 +10,16 @@ Activate when the user explicitly asks for **advanced** Python packaging or size
 - `dist` folder slimming, DLL footprint analysis, 32-bit vs 64-bit size tradeoffs
 - Inno Setup packaging with full metadata and a clean, residue-free uninstall
 
-This skill targets advanced size/startup optimization — not basic one-file "script to exe" conversion.
+This skill targets advanced size/startup optimization - not basic one-file "script to exe" conversion.
 
 ## How It Works
 
-1. **Confirm build parameters** — app name, version, publisher, exe name, source/output dirs, icon. Never auto-fill; ask the user.
-2. **Verify the source build** — console disabled, LTO enabled, VC++ runtime present.
+1. **Confirm build parameters** - app name, version, publisher, exe name, source/output dirs, icon. Never auto-fill; ask the user.
+2. **Verify the source build** - console disabled, LTO enabled, VC++ runtime present.
 3. **Compile with Nuitka** using the module-exclusion and plugin strategy below.
-4. **Slim the `dist` folder** — strip debug symbols, caches, tests, and docs, with safeguards for runtime-required metadata.
+4. **Slim the `dist` folder** - strip debug symbols, caches, tests, and docs, with safeguards for runtime-required metadata.
 5. **Analyze DLLs** to find and trim the largest dependencies.
-6. **Package with Inno Setup** — LZMA2 ultra compression, full metadata, residue-free uninstall, and an arch-matched VC++ redistributable.
+6. **Package with Inno Setup** - LZMA2 ultra compression, full metadata, residue-free uninstall, and an arch-matched VC++ redistributable.
 
 ## Examples
 
@@ -714,7 +714,7 @@ SolidCompression=yes
 LZMAUseSeparateProcess=yes
 
 ; --- 架构 ---
-; 注意：仅 64 位 Python 构建才设此项。本 skill 推荐 32 位 Python——
+; 注意：仅 64 位 Python 构建才设此项。本 skill 推荐 32 位 Python--
 ; 32 位构建请保持注释，使应用按 32 位安装并与上面捆绑的 vc_redist.x86.exe 匹配。
 ; 仅当用 64 位 Python 编译时才取消注释。
 ;ArchitecturesInstallIn64BitMode=x64compatible

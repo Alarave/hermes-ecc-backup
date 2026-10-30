@@ -24,11 +24,11 @@ ECC remaps its component structure to match Antigravity's expected layout:
 | `commands/` | `.agent/workflows/` | Slash commands become Antigravity workflows |
 | `agents/` | `.agent/skills/` | Agent definitions become Antigravity skills |
 
-> **Note on `.agents/` vs `.agent/` vs `agents/`**: The installer only handles three source paths explicitly: `rules` → `.agent/rules/`, `commands` → `.agent/workflows/`, and `agents` (no dot prefix) → `.agent/skills/`. The dot-prefixed `.agents/` directory in the ECC repo is a **static layout** for Codex/Antigravity skill definitions and `openai.yaml` configs — it is not directly mapped by the installer. Any `.agents/` path falls through to the default scaffold operation. If you want `.agents/skills/` content available in the Antigravity runtime, you must manually copy it to `.agent/skills/`.
+> **Note on `.agents/` vs `.agent/` vs `agents/`**: The installer only handles three source paths explicitly: `rules` → `.agent/rules/`, `commands` → `.agent/workflows/`, and `agents` (no dot prefix) → `.agent/skills/`. The dot-prefixed `.agents/` directory in the ECC repo is a **static layout** for Codex/Antigravity skill definitions and `openai.yaml` configs - it is not directly mapped by the installer. Any `.agents/` path falls through to the default scaffold operation. If you want `.agents/skills/` content available in the Antigravity runtime, you must manually copy it to `.agent/skills/`.
 
 ### Key Differences from Claude Code
 
-- **Rules are flattened**: Claude Code nests rules under subdirectories (`rules/common/`, `rules/typescript/`). Antigravity expects a flat `rules/` directory — the installer handles this automatically.
+- **Rules are flattened**: Claude Code nests rules under subdirectories (`rules/common/`, `rules/typescript/`). Antigravity expects a flat `rules/` directory - the installer handles this automatically.
 - **Commands become workflows**: ECC's `/command` files land in `.agent/workflows/`, which is Antigravity's equivalent of slash commands.
 - **Agents become skills**: ECC agent definitions map to `.agent/skills/`, where Antigravity looks for skill configurations.
 
@@ -103,19 +103,19 @@ node scripts/uninstall.js --target antigravity
 
 ### Install State
 
-The installer writes `.agent/ecc-install-state.json` to track which files ECC owns. This enables safe uninstall and repair — ECC will never touch files it didn't create.
+The installer writes `.agent/ecc-install-state.json` to track which files ECC owns. This enables safe uninstall and repair - ECC will never touch files it didn't create.
 
 ## Adding Custom Skills for Antigravity
 
 If you're contributing a new skill and want it available on Antigravity:
 
 1. Create the skill under `skills/your-skill-name/SKILL.md` as usual
-2. Add an agent definition at `agents/your-skill-name.md` — this is the path the installer maps to `.agent/skills/` at runtime, making your skill available in the Antigravity harness
-3. Add the Antigravity agent config at `.agents/skills/your-skill-name/agents/openai.yaml` — this is a static repo layout consumed by Codex for implicit invocation metadata
-4. Mirror the `SKILL.md` content to `.agents/skills/your-skill-name/SKILL.md` — this static copy is used by Codex and serves as a reference for Antigravity
+2. Add an agent definition at `agents/your-skill-name.md` - this is the path the installer maps to `.agent/skills/` at runtime, making your skill available in the Antigravity harness
+3. Add the Antigravity agent config at `.agents/skills/your-skill-name/agents/openai.yaml` - this is a static repo layout consumed by Codex for implicit invocation metadata
+4. Mirror the `SKILL.md` content to `.agents/skills/your-skill-name/SKILL.md` - this static copy is used by Codex and serves as a reference for Antigravity
 5. Mention in your PR that you added Antigravity support
 
-> **Key distinction**: The installer deploys `agents/` (no dot) → `.agent/skills/` — this is what makes skills available at runtime. The `.agents/` (dot-prefixed) directory is a separate static layout for Codex `openai.yaml` configs and is not auto-deployed by the installer.
+> **Key distinction**: The installer deploys `agents/` (no dot) → `.agent/skills/` - this is what makes skills available at runtime. The `.agents/` (dot-prefixed) directory is a separate static layout for Codex `openai.yaml` configs and is not auto-deployed by the installer.
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md) for the full contribution guide.
 
@@ -136,7 +136,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for the full contribution guide.
 ### Skills not loading in Antigravity
 
 - Verify the `.agent/` directory exists in your project root (not home directory)
-- Check that `ecc-install-state.json` was created — if missing, re-run the installer
+- Check that `ecc-install-state.json` was created - if missing, re-run the installer
 - Ensure files have `.md` extension and valid frontmatter
 
 ### Rules not applying
@@ -151,6 +151,6 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for the full contribution guide.
 
 ## Related Resources
 
-- [Selective Install Architecture](./SELECTIVE-INSTALL-ARCHITECTURE.md) — how the install system works under the hood
-- [Selective Install Design](./SELECTIVE-INSTALL-DESIGN.md) — design decisions and target adapter contracts
-- [CONTRIBUTING.md](../CONTRIBUTING.md) — how to contribute skills, agents, and commands
+- [Selective Install Architecture](./SELECTIVE-INSTALL-ARCHITECTURE.md) - how the install system works under the hood
+- [Selective Install Design](./SELECTIVE-INSTALL-DESIGN.md) - design decisions and target adapter contracts
+- [CONTRIBUTING.md](../CONTRIBUTING.md) - how to contribute skills, agents, and commands

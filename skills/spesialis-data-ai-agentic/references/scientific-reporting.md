@@ -45,7 +45,7 @@
 
 ## 工作流（强制顺序）
 
-### Phase 1 — 结构先行（先搭骨架）
+### Phase 1 - 结构先行（先搭骨架）
 
 报告必须包含（即使简写）：
 1) Executive Summary（结论先行）
@@ -55,13 +55,13 @@
 5) Discussion（解释意义、局限、建议）
 6) Appendix（可选但推荐：环境/补充图/表）
 
-### Phase 2 — 结果以图为锚
+### Phase 2 - 结果以图为锚
 
 - 图表走 `scientific-visualization`（publication-quality）
 - 示意图走 `scientific-schematics`（流程/机制/系统图）
 - 文本解释走 `scientific-writing`（段落化、避免 bullet 作为最终稿）
 
-### Phase 3 — 导出策略（HTML/PDF）
+### Phase 3 - 导出策略（HTML/PDF）
 
 如果要 HTML：
 - 优先：Markdown + 静态图（PDF/SVG/PNG）

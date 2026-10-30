@@ -47,7 +47,7 @@ my $content = path('config.json')->slurp_utf8;
 
 ## Module Interface
 
-Use `Exporter 'import'` with `@EXPORT_OK` — never `@EXPORT`:
+Use `Exporter 'import'` with `@EXPORT_OK` - never `@EXPORT`:
 
 ```perl
 use Exporter 'import';

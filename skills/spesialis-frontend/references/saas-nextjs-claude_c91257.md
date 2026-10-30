@@ -1,4 +1,4 @@
-# SaaS 애플리케이션 — 프로젝트 CLAUDE.md
+# SaaS 애플리케이션 - 프로젝트 CLAUDE.md
 
 > Next.js + Supabase + Stripe SaaS 애플리케이션을 위한 실제 사용 예제입니다.
 > 프로젝트 루트에 복사한 후 기술 스택에 맞게 커스터마이즈하세요.
@@ -13,8 +13,8 @@
 
 ### 데이터베이스
 
-- 모든 쿼리는 RLS가 활성화된 Supabase client 사용 — RLS를 절대 우회하지 않음
-- 마이그레이션은 `supabase/migrations/`에 저장 — 데이터베이스를 직접 수정하지 않음
+- 모든 쿼리는 RLS가 활성화된 Supabase client 사용 - RLS를 절대 우회하지 않음
+- 마이그레이션은 `supabase/migrations/`에 저장 - 데이터베이스를 직접 수정하지 않음
 - `select('*')` 대신 명시적 컬럼 목록이 포함된 `select()` 사용
 - 모든 사용자 대상 쿼리에는 무제한 결과를 방지하기 위해 `.limit()` 포함 필수
 
@@ -22,22 +22,22 @@
 
 - Server Components에서는 `@supabase/ssr`의 `createServerClient()` 사용
 - Client Components에서는 `@supabase/ssr`의 `createBrowserClient()` 사용
-- 보호된 라우트는 `getUser()`로 확인 — 인증에 `getSession()`만 단독으로 신뢰하지 않음
+- 보호된 라우트는 `getUser()`로 확인 - 인증에 `getSession()`만 단독으로 신뢰하지 않음
 - `middleware.ts`의 Middleware가 매 요청마다 인증 토큰 갱신
 
 ### 결제
 
 - Stripe webhook 핸들러는 `app/api/webhooks/stripe/route.ts`에 위치
-- 클라이언트 측 가격 데이터를 절대 신뢰하지 않음 — 항상 서버 측에서 Stripe로부터 조회
+- 클라이언트 측 가격 데이터를 절대 신뢰하지 않음 - 항상 서버 측에서 Stripe로부터 조회
 - 구독 상태는 webhook에 의해 동기화되는 `subscription_status` 컬럼으로 확인
 - 무료 플랜 사용자: 프로젝트 3개, 일일 API 호출 100회
 
 ### 코드 스타일
 
 - 코드나 주석에 이모지 사용 금지
-- 불변 패턴만 사용 — spread 연산자 사용, 직접 변경 금지
+- 불변 패턴만 사용 - spread 연산자 사용, 직접 변경 금지
 - Server Components: `'use client'` 디렉티브 없음, `useState`/`useEffect` 없음
-- Client Components: 파일 상단에 `'use client'` 작성, 최소한으로 유지 — 로직은 hooks로 분리
+- Client Components: 파일 상단에 `'use client'` 작성, 최소한으로 유지 - 로직은 hooks로 분리
 - 모든 입력 유효성 검사에 Zod 스키마 사용 선호 (API route, 폼, 환경 변수)
 
 ## 파일 구조

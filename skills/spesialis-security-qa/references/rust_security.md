@@ -13,7 +13,7 @@
 // 悪い例
 const API_KEY: &str = "sk-abc123...";
 
-// 良い例 — 早期バリデーション付きの環境変数
+// 良い例 - 早期バリデーション付きの環境変数
 fn load_api_key() -> anyhow::Result<String> {
     std::env::var("PAYMENT_API_KEY")
         .context("PAYMENT_API_KEY must be set")
@@ -22,15 +22,15 @@ fn load_api_key() -> anyhow::Result<String> {
 
 ## SQL インジェクション防止
 
-- 常にパラメータ化クエリを使用する — ユーザー入力を SQL 文字列にフォーマットしない
+- 常にパラメータ化クエリを使用する - ユーザー入力を SQL 文字列にフォーマットしない
 - バインドパラメータ付きのクエリビルダーまたは ORM（sqlx、diesel、sea-orm）を使用する
 
 ```rust
-// 悪い例 — フォーマット文字列による SQL インジェクション
+// 悪い例 - フォーマット文字列による SQL インジェクション
 let query = format!("SELECT * FROM users WHERE name = '{name}'");
 sqlx::query(&query).fetch_one(&pool).await?;
 
-// 良い例 — sqlx によるパラメータ化クエリ
+// 良い例 - sqlx によるパラメータ化クエリ
 // プレースホルダ構文はバックエンドにより異なる: Postgres: $1  |  MySQL: ?  |  SQLite: $1
 sqlx::query("SELECT * FROM users WHERE name = $1")
     .bind(&name)
@@ -42,11 +42,11 @@ sqlx::query("SELECT * FROM users WHERE name = $1")
 
 - 処理前にシステム境界ですべてのユーザー入力を検証する
 - 型システムを使用して不変条件を強制する（newtype パターン）
-- バリデーションではなくパースする — 境界で非構造化データを型付き構造体に変換する
+- バリデーションではなくパースする - 境界で非構造化データを型付き構造体に変換する
 - 無効な入力は明確なエラーメッセージで拒否する
 
 ```rust
-// バリデーションではなくパースする — 無効な状態は表現不可能
+// バリデーションではなくパースする - 無効な状態は表現不可能
 pub struct Email(String);
 
 impl Email {
@@ -71,21 +71,21 @@ impl Email {
 
 ## アンセーフコード
 
-- `unsafe` ブロックを最小限にする — 安全な抽象化を優先する
+- `unsafe` ブロックを最小限にする - 安全な抽象化を優先する
 - すべての `unsafe` ブロックには不変条件を説明する `// SAFETY:` コメントが必要
 - 利便性のためにボローチェッカーを迂回するために `unsafe` を使用しない
-- レビュー時にすべての `unsafe` コードを監査する — 正当な理由なしに使用するのは危険信号である
+- レビュー時にすべての `unsafe` コードを監査する - 正当な理由なしに使用するのは危険信号である
 - C ライブラリには `safe` な FFI ラッパーを優先する
 
 ```rust
-// 良い例 — safety コメントが必要なすべての不変条件を文書化
+// 良い例 - safety コメントが必要なすべての不変条件を文書化
 let widget: &Widget = {
     // SAFETY: `ptr` は non-null、アライン済み、初期化された Widget を指し、
     // そのライフタイム中にミュータブル参照やミューテーションは存在しない。
     unsafe { &*ptr }
 };
 
-// 悪い例 — safety の正当化がない
+// 悪い例 - safety の正当化がない
 unsafe { &*ptr }
 ```
 
@@ -94,8 +94,8 @@ unsafe { &*ptr }
 - `cargo audit` を実行して依存関係の既知の CVE をスキャンする
 - `cargo deny check` でライセンスとアドバイザリのコンプライアンスを確認する
 - `cargo tree` で推移的依存関係を監査する
-- 依存関係を最新に保つ — Dependabot または Renovate を設定する
-- 依存関係数を最小限にする — 新しいクレートを追加する前に評価する
+- 依存関係を最新に保つ - Dependabot または Renovate を設定する
+- 依存関係数を最小限にする - 新しいクレートを追加する前に評価する
 
 ```bash
 # セキュリティ監査

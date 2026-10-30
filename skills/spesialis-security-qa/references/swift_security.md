@@ -4,9 +4,9 @@
 
 ## シークレット管理
 
-- 機密データ（トークン、パスワード、キー）には **Keychain Services** を使用する — `UserDefaults` は使わない
+- 機密データ（トークン、パスワード、キー）には **Keychain Services** を使用する - `UserDefaults` は使わない
 - ビルド時のシークレットには環境変数または `.xcconfig` ファイルを使用する
-- ソースにシークレットをハードコードしない — 逆コンパイルツールで容易に抽出される
+- ソースにシークレットをハードコードしない - 逆コンパイルツールで容易に抽出される
 
 ```swift
 let apiKey = ProcessInfo.processInfo.environment["API_KEY"]
@@ -17,7 +17,7 @@ guard let apiKey, !apiKey.isEmpty else {
 
 ## トランスポートセキュリティ
 
-- App Transport Security（ATS）はデフォルトで強制される — 無効にしない
+- App Transport Security（ATS）はデフォルトで強制される - 無効にしない
 - 重要なエンドポイントには証明書ピンニングを使用する
 - すべてのサーバー証明書を検証する
 

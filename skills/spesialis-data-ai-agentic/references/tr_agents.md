@@ -1,4 +1,4 @@
-# Everything Claude Code (ECC) — Agent Talimatları
+# Everything Claude Code (ECC) - Agent Talimatları
 
 Bu, yazılım geliştirme için 28 özel agent, 116 skill, 59 command ve otomatik hook iş akışları sağlayan **üretime hazır bir AI kodlama eklentisidir**.
 
@@ -6,11 +6,11 @@ Bu, yazılım geliştirme için 28 özel agent, 116 skill, 59 command ve otomati
 
 ## Temel İlkeler
 
-1. **Agent-Öncelikli** — Alan görevleri için özel agentlara delege edin
-2. **Test-Odaklı** — Uygulamadan önce testler yazın, %80+ kapsama gereklidir
-3. **Güvenlik-Öncelikli** — Güvenlikten asla taviz vermeyin; tüm girdileri doğrulayın
-4. **Değişmezlik** — Her zaman yeni nesneler oluşturun, mevcut olanları asla değiştirmeyin
-5. **Çalıştırmadan Önce Planlayın** — Karmaşık özellikleri kod yazmadan önce planlayın
+1. **Agent-Öncelikli** - Alan görevleri için özel agentlara delege edin
+2. **Test-Odaklı** - Uygulamadan önce testler yazın, %80+ kapsama gereklidir
+3. **Güvenlik-Öncelikli** - Güvenlikten asla taviz vermeyin; tüm girdileri doğrulayın
+4. **Değişmezlik** - Her zaman yeni nesneler oluşturun, mevcut olanları asla değiştirmeyin
+5. **Çalıştırmadan Önce Planlayın** - Karmaşık özellikleri kod yazmadan önce planlayın
 
 ## Mevcut Agentlar
 
@@ -56,7 +56,7 @@ Agentları kullanıcı istemi olmadan proaktif olarak kullanın:
 - Otonom döngüler / döngü izleme → **loop-operator**
 - Harness yapılandırma güvenilirliği ve maliyeti → **harness-optimizer**
 
-Bağımsız işlemler için paralel yürütme kullanın — birden fazla agenti aynı anda başlatın.
+Bağımsız işlemler için paralel yürütme kullanın - birden fazla agenti aynı anda başlatın.
 
 ## Güvenlik Kuralları
 
@@ -95,32 +95,32 @@ Bağımsız işlemler için paralel yürütme kullanın — birden fazla agenti 
 **Minimum kapsama: %80**
 
 Test tipleri (hepsi gereklidir):
-1. **Unit testler** — Bireysel fonksiyonlar, yardımcı programlar, bileşenler
-2. **Integration testler** — API endpointleri, veritabanı işlemleri
-3. **E2E testler** — Kritik kullanıcı akışları
+1. **Unit testler** - Bireysel fonksiyonlar, yardımcı programlar, bileşenler
+2. **Integration testler** - API endpointleri, veritabanı işlemleri
+3. **E2E testler** - Kritik kullanıcı akışları
 
 **TDD iş akışı (zorunlu):**
-1. Önce test yaz (KIRMIZI) — test BAŞARISIZ olmalı
-2. Minimal uygulama yaz (YEŞİL) — test BAŞARILI olmalı
-3. Yeniden düzenle (İYİLEŞTİR) — %80+ kapsama doğrula
+1. Önce test yaz (KIRMIZI) - test BAŞARISIZ olmalı
+2. Minimal uygulama yaz (YEŞİL) - test BAŞARILI olmalı
+3. Yeniden düzenle (İYİLEŞTİR) - %80+ kapsama doğrula
 
 Başarısızlık sorunlarını giderin: test izolasyonunu kontrol edin → mocklarını doğrulayın → uygulamayı düzeltin (testleri değil, testler yanlış olmadıkça).
 
 ## Geliştirme İş Akışı
 
-1. **Planlama** — Planner agentini kullanın, bağımlılıkları ve riskleri belirleyin, aşamalara bölün
-2. **TDD** — tdd-guide agentini kullanın, önce testleri yazın, uygulayın, yeniden düzenleyin
-3. **İnceleme** — code-reviewer agentini hemen kullanın, KRİTİK/YÜKSEK sorunları ele alın
+1. **Planlama** - Planner agentini kullanın, bağımlılıkları ve riskleri belirleyin, aşamalara bölün
+2. **TDD** - tdd-guide agentini kullanın, önce testleri yazın, uygulayın, yeniden düzenleyin
+3. **İnceleme** - code-reviewer agentini hemen kullanın, KRİTİK/YÜKSEK sorunları ele alın
 4. **Bilgiyi doğru yerde yakalayın**
    - Kişisel hata ayıklama notları, tercihler ve geçici bağlam → otomatik bellek
    - Takım/proje bilgisi (mimari kararlar, API değişiklikleri, runbook'lar) → projenin mevcut doküman yapısı
    - Mevcut görev zaten ilgili dokümanları veya kod yorumlarını üretiyorsa, aynı bilgiyi başka yerde çoğaltmayın
    - Açık bir proje doküman konumu yoksa, yeni bir üst düzey dosya oluşturmadan önce sorun
-5. **Commit** — Conventional commits formatı, kapsamlı PR özetleri
+5. **Commit** - Conventional commits formatı, kapsamlı PR özetleri
 
 ## Git İş Akışı
 
-**Commit formatı:** `<type>: <description>` — Tipler: feat, fix, refactor, docs, test, chore, perf, ci
+**Commit formatı:** `<type>: <description>` - Tipler: feat, fix, refactor, docs, test, chore, perf, ci
 
 **PR iş akışı:** Tam commit geçmişini analiz edin → kapsamlı özet taslağı oluşturun → test planı ekleyin → `-u` bayrağıyla pushlayın.
 
@@ -141,14 +141,14 @@ Başarısızlık sorunlarını giderin: test izolasyonunu kontrol edin → mockl
 ## Proje Yapısı
 
 ```
-agents/          — 28 özel subagent
-skills/          — 115 iş akışı skillleri ve alan bilgisi
-commands/        — 59 slash command
-hooks/           — Tetikleyici tabanlı otomasyonlar
-rules/           — Her zaman uyulması gereken kurallar (ortak + dile özel)
-scripts/         — Platformlar arası Node.js yardımcı programları
-mcp-configs/     — 14 MCP sunucu yapılandırması
-tests/           — Test paketi
+agents/          - 28 özel subagent
+skills/          - 115 iş akışı skillleri ve alan bilgisi
+commands/        - 59 slash command
+hooks/           - Tetikleyici tabanlı otomasyonlar
+rules/           - Her zaman uyulması gereken kurallar (ortak + dile özel)
+scripts/         - Platformlar arası Node.js yardımcı programları
+mcp-configs/     - 14 MCP sunucu yapılandırması
+tests/           - Test paketi
 ```
 
 ## Başarı Metrikleri

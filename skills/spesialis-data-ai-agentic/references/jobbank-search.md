@@ -1,6 +1,6 @@
 # Jobbank Search Skill
 
-Search live Danish job listings from [Akademikernes Jobbank](https://jobbank.dk) — Denmark's primary job portal for highly educated candidates. Uses the RSS feed for search (up to 100 results) and JSON-LD parsing for detailed job information. Jobbank may block automated requests with Cloudflare bot protection; if that happens, report the portal as unavailable and use WebSearch fallback instead of retrying.
+Search live Danish job listings from [Akademikernes Jobbank](https://jobbank.dk) - Denmark's primary job portal for highly educated candidates. Uses the RSS feed for search (up to 100 results) and JSON-LD parsing for detailed job information. Jobbank may block automated requests with Cloudflare bot protection; if that happens, report the portal as unavailable and use WebSearch fallback instead of retrying.
 
 ## When to use this skill
 
@@ -23,18 +23,18 @@ bun run .agents/skills/jobbank-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
-- `--key <text>` — keyword search (title, company, keyword)
-- `--exclude <text>` — exclude keywords from results
-- `--type <code>` — job type: `3`=Fuldtidsjob, `6`=Graduate/trainee, `13`=Deltidsjob, `8`=Vikariat, `12`=Ph.d. & Postdoc, `11`=Freelance, `9`=Praktikplads, `4`=Studiejob (repeatable)
-- `--location <code>` — region: `2`=Storkøbenhavn, `8`=Østjylland (Aarhus), `7`=Midtjylland, `6`=Nordjylland, `13`=Fyn (repeatable)
-- `--work-area <code>` — function: `31`=IT-Software, `43`=Data & Analyse, `26`=Ledelse, `29`=Marketing (repeatable)
-- `--industry <code>` — sector: `10331`=IT & Tele, `10442`=Forskning & Uddannelse, `10358`=Finans (repeatable)
-- `--education <code>` — education field: `24`=IT, `21`=Økonomi & Revision, `34`=Samfundsvidenskab (repeatable)
-- `--remote <value>` — `helt` (fully remote) or `delvist` (partially remote)
-- `--suitable-for <code>` — `2`=Nyuddannede, `4`=International baggrund, `5`=Erfarne
-- `--company <id>` — filter by company ID
-- `--since <YYYY-MM-DD>` — jobs posted on or after this date
-- `--limit <n>` — cap results returned by CLI
+- `--key <text>` - keyword search (title, company, keyword)
+- `--exclude <text>` - exclude keywords from results
+- `--type <code>` - job type: `3`=Fuldtidsjob, `6`=Graduate/trainee, `13`=Deltidsjob, `8`=Vikariat, `12`=Ph.d. & Postdoc, `11`=Freelance, `9`=Praktikplads, `4`=Studiejob (repeatable)
+- `--location <code>` - region: `2`=Storkøbenhavn, `8`=Østjylland (Aarhus), `7`=Midtjylland, `6`=Nordjylland, `13`=Fyn (repeatable)
+- `--work-area <code>` - function: `31`=IT-Software, `43`=Data & Analyse, `26`=Ledelse, `29`=Marketing (repeatable)
+- `--industry <code>` - sector: `10331`=IT & Tele, `10442`=Forskning & Uddannelse, `10358`=Finans (repeatable)
+- `--education <code>` - education field: `24`=IT, `21`=Økonomi & Revision, `34`=Samfundsvidenskab (repeatable)
+- `--remote <value>` - `helt` (fully remote) or `delvist` (partially remote)
+- `--suitable-for <code>` - `2`=Nyuddannede, `4`=International baggrund, `5`=Erfarne
+- `--company <id>` - filter by company ID
+- `--since <YYYY-MM-DD>` - jobs posted on or after this date
+- `--limit <n>` - cap results returned by CLI
 - `--format json|table|plain`
 
 > **RSS limitation:** The RSS feed returns max 100 items per request. No pagination is available via RSS. `meta.total` shows the true count; `results` is capped at 100.
@@ -138,7 +138,7 @@ bun run .agents/skills/jobbank-search/cli/src/cli.ts search \
 
 | Format | Best for |
 |--------|----------|
-| `json` | Default — programmatic use, passing IDs to `detail` |
+| `json` | Default - programmatic use, passing IDs to `detail` |
 | `table` | Quick human-readable list of results |
 | `plain` | Single-job detail views (`detail` command) |
 

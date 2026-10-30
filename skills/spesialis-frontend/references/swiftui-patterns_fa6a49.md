@@ -27,7 +27,7 @@ Appleプラットフォーム向けのモダンなSwiftUIパターン。宣言�
 
 ### @Observable ViewModel
 
-`ObservableObject` ではなく `@Observable` を使用する——プロパティレベルの変更を追跡するため、SwiftUIは変更されたプロパティを読み取ったビューのみを再レンダリングする：
+`ObservableObject` ではなく `@Observable` を使用する--プロパティレベルの変更を追跡するため、SwiftUIは変更されたプロパティを読み取ったビューのみを再レンダリングする：
 
 ```swift
 @Observable
@@ -192,7 +192,7 @@ ScrollView {
 
 ### 安定した識別子
 
-`ForEach` では常に安定した一意のIDを使用する——配列インデックスは避ける：
+`ForEach` では常に安定した一意のIDを使用する--配列インデックスは避ける：
 
 ```swift
 // Use Identifiable conformance or explicit id
@@ -204,9 +204,9 @@ ForEach(items, id: \.stableID) { item in
 ### body 内での高コストな操作を避ける
 
 * `body` 内でI/O、ネットワーク呼び出し、重い計算を絶対に実行しない
-* 非同期処理には `.task {}` を使用する——ビューが消えると自動的にキャンセルされる
+* 非同期処理には `.task {}` を使用する--ビューが消えると自動的にキャンセルされる
 * スクロールビューでは `.sensoryFeedback()` と `.geometryGroup()` を慎重に使用する
-* リストでは `.shadow()`、`.blur()`、`.mask()` の使用を最小化する——画面外レンダリングを引き起こす
+* リストでは `.shadow()`、`.blur()`、`.mask()` の使用を最小化する--画面外レンダリングを引き起こす
 
 ### Equatable に準拠する
 
@@ -242,10 +242,10 @@ struct ExpensiveChartView: View, Equatable {
 
 ## 避けるべきアンチパターン
 
-* 新しいコードで `ObservableObject` / `@Published` / `@StateObject` / `@EnvironmentObject` を使用する——`@Observable` に移行する
-* `body` や `init` 内に直接非同期処理を置く——`.task {}` または明示的なロードメソッドを使用する
-* データを所有しないサブビューでViewModelを `@State` として作成する——代わりに親ビューから渡す
-* `AnyView` による型消去を使用する——条件付きビューには `@ViewBuilder` または `Group` を優先する
+* 新しいコードで `ObservableObject` / `@Published` / `@StateObject` / `@EnvironmentObject` を使用する--`@Observable` に移行する
+* `body` や `init` 内に直接非同期処理を置く--`.task {}` または明示的なロードメソッドを使用する
+* データを所有しないサブビューでViewModelを `@State` として作成する--代わりに親ビューから渡す
+* `AnyView` による型消去を使用する--条件付きビューには `@ViewBuilder` または `Group` を優先する
 * ActorとのデータのやりとりにおいてSendable要件を無視する
 
 ## 参照

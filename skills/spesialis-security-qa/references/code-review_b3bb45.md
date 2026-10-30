@@ -20,7 +20,7 @@ De lo contrario:
 
 Revisión exhaustiva de seguridad y calidad de los cambios no confirmados.
 
-### Fase 1 — RECOPILAR
+### Fase 1 - RECOPILAR
 
 ```bash
 git diff --name-only HEAD
@@ -28,7 +28,7 @@ git diff --name-only HEAD
 
 Si no hay archivos modificados, detener: "Nada que revisar."
 
-### Fase 2 — REVISAR
+### Fase 2 - REVISAR
 
 Leer cada archivo modificado completo. Verificar:
 
@@ -55,7 +55,7 @@ Leer cada archivo modificado completo. Verificar:
 - Pruebas faltantes para código nuevo
 - Problemas de accesibilidad (a11y)
 
-### Fase 3 — REPORTE
+### Fase 3 - REPORTE
 
 Generar reporte con:
 - Severidad: CRÍTICO, ALTO, MEDIO, BAJO
@@ -70,9 +70,9 @@ Nunca aprobar código con vulnerabilidades de seguridad.
 
 ## Modo de Revisión de PR
 
-Revisión exhaustiva de PR de GitHub — obtiene el diff, lee los archivos completos, ejecuta validación, publica la revisión.
+Revisión exhaustiva de PR de GitHub - obtiene el diff, lee los archivos completos, ejecuta validación, publica la revisión.
 
-### Fase 1 — OBTENER
+### Fase 1 - OBTENER
 
 Parsear la entrada para determinar el PR:
 
@@ -89,18 +89,18 @@ gh pr diff <NÚMERO>
 
 Si no se encuentra el PR, detener con error. Almacenar metadatos del PR para fases posteriores.
 
-### Fase 2 — CONTEXTO
+### Fase 2 - CONTEXTO
 
 Construir contexto de revisión:
 
-1. **Reglas del proyecto** — Leer `CLAUDE.md`, `.claude/docs/`, y cualquier guía de contribución
-2. **Artefactos de planificación** — Verificar `.claude/prds/`, `.claude/plans/`, `.claude/reviews/`, y legacy `.claude/PRPs/{prds,plans,reports,reviews}/` para contexto relacionado con este PR
-3. **Intención del PR** — Parsear la descripción del PR para objetivos, issues vinculados, planes de prueba
-4. **Archivos modificados** — Listar todos los archivos modificados y categorizar por tipo (fuente, prueba, config, docs)
+1. **Reglas del proyecto** - Leer `CLAUDE.md`, `.claude/docs/`, y cualquier guía de contribución
+2. **Artefactos de planificación** - Verificar `.claude/prds/`, `.claude/plans/`, `.claude/reviews/`, y legacy `.claude/PRPs/{prds,plans,reports,reviews}/` para contexto relacionado con este PR
+3. **Intención del PR** - Parsear la descripción del PR para objetivos, issues vinculados, planes de prueba
+4. **Archivos modificados** - Listar todos los archivos modificados y categorizar por tipo (fuente, prueba, config, docs)
 
-### Fase 3 — REVISAR
+### Fase 3 - REVISAR
 
-Leer cada archivo modificado **completo** (no solo los hunks del diff — se necesita el contexto circundante).
+Leer cada archivo modificado **completo** (no solo los hunks del diff - se necesita el contexto circundante).
 
 Para revisiones de PR, obtener el contenido completo del archivo en la revisión head del PR:
 ```bash
@@ -130,7 +130,7 @@ Asignar severidad a cada hallazgo:
 | **MEDIO** | Problema de calidad de código o buena práctica faltante | Se recomienda corregir |
 | **BAJO** | Detalle de estilo o sugerencia menor | Opcional |
 
-### Fase 4 — VALIDAR
+### Fase 4 - VALIDAR
 
 Ejecutar comandos de validación disponibles:
 
@@ -165,7 +165,7 @@ pytest  # Pruebas
 
 Ejecutar solo los comandos que apliquen al tipo de proyecto detectado. Registrar pass/fail para cada uno.
 
-### Fase 5 — DECIDIR
+### Fase 5 - DECIDIR
 
 Formular recomendación basada en los hallazgos:
 
@@ -174,19 +174,19 @@ Formular recomendación basada en los hallazgos:
 | Cero problemas CRÍTICOS/ALTOS, validación pasa | **APROBAR** |
 | Solo problemas MEDIO/BAJO, validación pasa | **APROBAR** con comentarios |
 | Cualquier problema ALTO o fallos de validación | **SOLICITAR CAMBIOS** |
-| Cualquier problema CRÍTICO | **BLOQUEAR** — debe corregirse antes del merge |
+| Cualquier problema CRÍTICO | **BLOQUEAR** - debe corregirse antes del merge |
 
 Casos especiales:
 - PR en borrador → Siempre usar **COMENTAR** (no aprobar/bloquear)
 - Solo cambios de docs/config → Revisión más ligera, enfocada en corrección
 - Flag explícito `--approve` o `--request-changes` → Anular decisión (pero reportar todos los hallazgos)
 
-### Fase 6 — REPORTE
+### Fase 6 - REPORTE
 
 Crear artefacto de revisión en `.claude/reviews/pr-<NÚMERO>-review.md` a menos que el repositorio ya use el legacy `.claude/PRPs/reviews/` para este flujo:
 
 ```markdown
-# Revisión de PR: #<NÚMERO> — <TÍTULO>
+# Revisión de PR: #<NÚMERO> - <TÍTULO>
 
 **Revisado**: <fecha>
 **Autor**: <autor>
@@ -223,7 +223,7 @@ Crear artefacto de revisión en `.claude/reviews/pr-<NÚMERO>-review.md` a menos
 <lista de archivos con tipo de cambio: Agregado/Modificado/Eliminado>
 ```
 
-### Fase 7 — PUBLICAR
+### Fase 7 - PUBLICAR
 
 Publicar la revisión en GitHub:
 
@@ -256,7 +256,7 @@ gh api "repos/{owner}/{repo}/pulls/<NÚMERO>/reviews" \
   --input comments.json  # [{"path": "archivo", "line": N, "body": "comentario"}, ...]
 ```
 
-### Fase 8 — SALIDA
+### Fase 8 - SALIDA
 
 Reportar al usuario:
 

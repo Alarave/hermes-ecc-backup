@@ -4,14 +4,14 @@
 
 ## 格式化
 
-* **rustfmt** 用于强制执行 — 提交前务必运行 `cargo fmt`
-* **clippy** 用于代码检查 — `cargo clippy -- -D warnings`（将警告视为错误）
+* **rustfmt** 用于强制执行 - 提交前务必运行 `cargo fmt`
+* **clippy** 用于代码检查 - `cargo clippy -- -D warnings`（将警告视为错误）
 * 4 空格缩进（rustfmt 默认）
 * 最大行宽：100 个字符（rustfmt 默认）
 
 ## 不可变性
 
-Rust 变量默认是不可变的 — 请遵循此原则：
+Rust 变量默认是不可变的 - 请遵循此原则：
 
 * 默认使用 `let`；仅在需要修改时才使用 `let mut`
 * 优先返回新值，而非原地修改
@@ -20,7 +20,7 @@ Rust 变量默认是不可变的 — 请遵循此原则：
 ```rust
 use std::borrow::Cow;
 
-// GOOD — immutable by default, new value returned
+// GOOD - immutable by default, new value returned
 fn normalize(input: &str) -> Cow<'_, str> {
     if input.contains(' ') {
         Cow::Owned(input.replace(' ', "_"))
@@ -29,7 +29,7 @@ fn normalize(input: &str) -> Cow<'_, str> {
     }
 }
 
-// BAD — unnecessary mutation
+// BAD - unnecessary mutation
 fn normalize_bad(input: &mut String) {
     *input = input.replace(' ', "_");
 }
@@ -42,7 +42,7 @@ fn normalize_bad(input: &mut String) {
 * `snake_case` 用于函数、方法、变量、模块、crate
 * `PascalCase`（大驼峰式）用于类型、特征、枚举、类型参数
 * `SCREAMING_SNAKE_CASE` 用于常量和静态变量
-* 生命周期：简短的小写字母（`'a`，`'de`）— 复杂情况使用描述性名称（`'input`）
+* 生命周期：简短的小写字母（`'a`，`'de`）- 复杂情况使用描述性名称（`'input`）
 
 ## 所有权与借用
 
@@ -52,17 +52,17 @@ fn normalize_bad(input: &mut String) {
 * 对于需要拥有 `String` 的构造函数，使用 `impl Into<String>`
 
 ```rust
-// GOOD — borrows when ownership isn't needed
+// GOOD - borrows when ownership isn't needed
 fn word_count(text: &str) -> usize {
     text.split_whitespace().count()
 }
 
-// GOOD — takes ownership in constructor via Into
+// GOOD - takes ownership in constructor via Into
 fn new(name: impl Into<String>) -> Self {
     Self { name: name.into() }
 }
 
-// BAD — takes String when &str suffices
+// BAD - takes String when &str suffices
 fn word_count_bad(text: String) -> usize {
     text.split_whitespace().count()
 }
@@ -70,14 +70,14 @@ fn word_count_bad(text: String) -> usize {
 
 ## 错误处理
 
-* 使用 `Result<T, E>` 和 `?` 进行传播 — 切勿在生产代码中使用 `unwrap()`
+* 使用 `Result<T, E>` 和 `?` 进行传播 - 切勿在生产代码中使用 `unwrap()`
 * **库**：使用 `thiserror` 定义类型化错误
 * **应用程序**：使用 `anyhow` 以获取灵活的错误上下文
 * 使用 `.with_context(|| format!("failed to ..."))?` 添加上下文
 * 将 `unwrap()` / `expect()` 保留用于测试和真正无法到达的状态
 
 ```rust
-// GOOD — library error with thiserror
+// GOOD - library error with thiserror
 #[derive(Debug, thiserror::Error)]
 pub enum ConfigError {
     #[error("failed to read config: {0}")]
@@ -86,7 +86,7 @@ pub enum ConfigError {
     Parse(String),
 }
 
-// GOOD — application error with anyhow
+// GOOD - application error with anyhow
 use anyhow::Context;
 
 fn load_config(path: &str) -> anyhow::Result<Config> {
@@ -102,13 +102,13 @@ fn load_config(path: &str) -> anyhow::Result<Config> {
 对于转换操作，优先使用迭代器链；对于复杂的控制流，使用循环：
 
 ```rust
-// GOOD — declarative and composable
+// GOOD - declarative and composable
 let active_emails: Vec<&str> = users.iter()
     .filter(|u| u.is_active)
     .map(|u| u.email.as_str())
     .collect();
 
-// GOOD — loop for complex logic with early returns
+// GOOD - loop for complex logic with early returns
 for user in &users {
     if let Some(verified) = verify_email(&user.email)? {
         send_welcome(&verified)?;

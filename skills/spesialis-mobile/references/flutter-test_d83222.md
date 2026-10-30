@@ -75,7 +75,7 @@ $ flutter test
 失败：`getById` 在应返回 null 时返回了一个用户（针对缺失的 ID）
 
 根本原因：测试设置添加了一个 ID 为 'test-id' 的用户，但查询时使用了 'missing-id'。
-修复：更新测试以查询 'missing-id' —— 设置是正确的，查询是错误的。
+修复：更新测试以查询 'missing-id' -- 设置是正确的，查询是错误的。
 
 ```
 $ flutter test test/unit/data/user_repository_test.dart
@@ -129,9 +129,9 @@ $ flutter test --coverage
 
 ## 相关命令
 
-* `/flutter-build` — 运行测试前修复构建错误
-* `/flutter-review` — 测试通过后审查代码
-* `tdd-workflow` 技能 — 测试驱动开发工作流
+* `/flutter-build` - 运行测试前修复构建错误
+* `/flutter-review` - 测试通过后审查代码
+* `tdd-workflow` 技能 - 测试驱动开发工作流
 
 ## 相关内容
 

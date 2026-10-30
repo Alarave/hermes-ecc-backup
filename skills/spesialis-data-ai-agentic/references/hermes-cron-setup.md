@@ -4,14 +4,14 @@ Coverage: cron job creation, WhatsApp/Telegram delivery targeting, Windows auto-
 
 ## 1. Create a cron job
 
-Use `cronjob_manage(action='create')` — required fields: `schedule`, `prompt`.
+Use `cronjob_manage(action='create')` - required fields: `schedule`, `prompt`.
 
 - `deliver`: platform target (see Delivery section below)
-- `continuity: true`: each run sees its own previous output — use for dedup/incremental jobs
+- `continuity: true`: each run sees its own previous output - use for dedup/incremental jobs
 - `enabled_toolsets`: narrow to what the job needs (`["web"]`, `["terminal", "web"]`)
 - `schedule` forms: `"every day at 7am"`, `"every monday 9am"`, `"30m"`, ISO timestamp
 
-## 2. WhatsApp delivery — CRITICAL PITFALL
+## 2. WhatsApp delivery - CRITICAL PITFALL
 
 `deliver="whatsapp"` alone fails with **"no delivery target resolved"** unless a prior origin session registered a chat ID.
 
@@ -47,7 +47,7 @@ Hermes gateway must be running for cron jobs to fire. VBS script in Windows Star
 %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Hermes_Gateway.vbs
 ```
 
-Check before creating a new startup script — one likely already exists. Do NOT create duplicates.
+Check before creating a new startup script - one likely already exists. Do NOT create duplicates.
 
 Verify gateway status: `hermes gateway status`
 
@@ -63,9 +63,9 @@ cmd = f'cmd.exe /c mklink /J "{dst}" "{src}"'
 subprocess.run(cmd, capture_output=True, text=True, shell=True)
 ```
 
-Pitfall: `mklink /J` via bash `cmd //c` does NOT work reliably in MSYS/git-bash — use Python subprocess calling `cmd.exe /c` directly. The bash shell mangles the arguments before they reach Windows.
+Pitfall: `mklink /J` via bash `cmd //c` does NOT work reliably in MSYS/git-bash - use Python subprocess calling `cmd.exe /c` directly. The bash shell mangles the arguments before they reach Windows.
 
-Result is a live junction — edits to source folder reflect instantly in Hermes skills with no sync step.
+Result is a live junction - edits to source folder reflect instantly in Hermes skills with no sync step.
 
 ## 6. Catch-up missed jobs
 

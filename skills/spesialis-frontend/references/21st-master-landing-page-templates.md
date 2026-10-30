@@ -146,6 +146,6 @@ export function NorthstarLandingPage() {
 ## 3. Strategi Psikologi Landing Page Berlayar Cafe
 Jika kita mengadaptasi arsitektur "Northstar" (Template senilai $39 ini) untuk **Berlayar Cafe**, berikut adalah terjemahan konseptualnya:
 1. **Hero Gradient**: Ubah warna *glow* dari Indigo/Purple menjadi perpaduan Cokelat Kopi Emas (Amber) dan Senja Laut (Teal).
-2. **Pill Badge**: Alih-alih "Memperkenalkan AI", ganti menjadi lencana "Voucher Eksklusif — Terbatas Bulan Ini".
+2. **Pill Badge**: Alih-alih "Memperkenalkan AI", ganti menjadi lencana "Voucher Eksklusif - Terbatas Bulan Ini".
 3. **Hero Mockup**: Jangan tampilkan foto dasbor, tapi tampilkan *mockup* layar ponsel (Telegram Bot) berdampingan dengan ilustrasi mesin kasir pintar yang memancarkan struk digital.
 4. **Logo Cloud**: Gantikan dengan logo *partner* kopi lokal atau merek *roastery* yang mensuplai biji kopi.

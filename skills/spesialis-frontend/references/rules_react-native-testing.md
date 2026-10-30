@@ -14,7 +14,7 @@
 
 ## Component Tests
 
-- Query by accessible role/label/text, not by `testID` unless necessary — this also enforces accessibility.
+- Query by accessible role/label/text, not by `testID` unless necessary - this also enforces accessibility.
 - Assert on user-visible behavior, not implementation details.
 - Follow Arrange-Act-Assert.
 

@@ -22,7 +22,7 @@ Crie ou atualize codemaps em `docs/CODEMAPS/` (ou `.reports/codemaps/`):
 
 ### Formato de Codemap
 
-Cada codemap deve ser enxuto em tokens — otimizado para consumo de contexto por IA:
+Cada codemap deve ser enxuto em tokens - otimizado para consumo de contexto por IA:
 
 ```markdown
 # Backend Architecture

@@ -57,7 +57,7 @@ fn get_order(user: UserId, order: OrderId) -> anyhow::Result<Order> {
 
 ## 列挙型ステートマシン
 
-状態を列挙型としてモデリングする — 不正な状態を表現不可能にする:
+状態を列挙型としてモデリングする - 不正な状態を表現不可能にする:
 
 ```rust
 enum ConnectionState {
@@ -79,7 +79,7 @@ fn handle(state: &ConnectionState) {
 }
 ```
 
-ビジネス上重要な列挙型では常に網羅的にマッチする — ワイルドカード `_` は使わない。
+ビジネス上重要な列挙型では常に網羅的にマッチする - ワイルドカード `_` は使わない。
 
 ## ビルダーパターン
 

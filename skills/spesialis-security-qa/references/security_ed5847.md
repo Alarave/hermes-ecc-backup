@@ -13,28 +13,28 @@
 // BAD
 private static final String API_KEY = "sk-abc123...";
 
-// GOOD — environment variable
+// GOOD - environment variable
 String apiKey = System.getenv("PAYMENT_API_KEY");
 Objects.requireNonNull(apiKey, "PAYMENT_API_KEY must be set");
 ```
 
 ## SQL 注入防护
 
-* 始终使用参数化查询——切勿将用户输入拼接到 SQL 语句中
+* 始终使用参数化查询--切勿将用户输入拼接到 SQL 语句中
 * 使用 `PreparedStatement` 或你所使用框架的参数化查询 API
 * 对用于原生查询的任何输入进行验证和清理
 
 ```java
-// BAD — SQL injection via string concatenation
+// BAD - SQL injection via string concatenation
 Statement stmt = conn.createStatement();
 String sql = "SELECT * FROM orders WHERE name = '" + name + "'";
 stmt.executeQuery(sql);
 
-// GOOD — PreparedStatement with parameterized query
+// GOOD - PreparedStatement with parameterized query
 PreparedStatement ps = conn.prepareStatement("SELECT * FROM orders WHERE name = ?");
 ps.setString(1, name);
 
-// GOOD — JDBC template
+// GOOD - JDBC template
 jdbcTemplate.query("SELECT * FROM orders WHERE name = ?", mapper, name);
 ```
 
@@ -60,16 +60,16 @@ public Order createOrder(String customerName, BigDecimal amount) {
 
 ## 认证与授权
 
-* 切勿自行实现认证加密逻辑——请使用成熟的库
+* 切勿自行实现认证加密逻辑--请使用成熟的库
 * 使用 bcrypt 或 Argon2 存储密码，切勿使用 MD5/SHA1
 * 在服务边界强制执行授权检查
-* 清理日志中的敏感数据——切勿记录密码、令牌或个人身份信息
+* 清理日志中的敏感数据--切勿记录密码、令牌或个人身份信息
 
 ## 依赖项安全
 
 * 运行 `mvn dependency:tree` 或 `./gradlew dependencies` 来审计传递依赖项
 * 使用 OWASP Dependency-Check 或 Snyk 扫描已知的 CVE
-* 保持依赖项更新——设置 Dependabot 或 Renovate
+* 保持依赖项更新--设置 Dependabot 或 Renovate
 
 ## 错误信息
 

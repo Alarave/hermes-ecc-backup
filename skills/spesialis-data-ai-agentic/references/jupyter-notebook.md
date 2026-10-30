@@ -1,101 +1,44 @@
-# Jupyter Notebook Skill
+# Jupyter Notebook Best Practices for Data Science & AI
 
-Create clean, reproducible Jupyter notebooks for two primary modes:
+Panduan standar pembuatan, scaffolding, dan pemeliharaan file `.ipynb` yang reproduktif dan bersih untuk eksperimen data dan machine learning.
 
-- Experiments and exploratory analysis
-- Tutorials and teaching-oriented walkthroughs
-
-Prefer the bundled templates and the helper script for consistent structure and fewer JSON mistakes.
-
-## When to use
-- Create a new `.ipynb` notebook from scratch.
-- Convert rough notes or scripts into a structured notebook.
-- Refactor an existing notebook to be more reproducible and skimmable.
-- Build experiments or tutorials that will be read or re-run by other people.
-
-## Decision tree
-- If the request is exploratory, analytical, or hypothesis-driven, choose `experiment`.
-- If the request is instructional, step-by-step, or audience-specific, choose `tutorial`.
-- If editing an existing notebook, treat it as a refactor: preserve intent and improve structure.
-
-## Skill path (set once)
-
+## 1. Scaffolding Cepat via Helper CLI
+Gunakan CLI bawaan dari skill `jupyter-notebook`:
 ```bash
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-export JUPYTER_NOTEBOOK_CLI="$CODEX_HOME/skills/jupyter-notebook/scripts/new_notebook.py"
-```
-
-User-scoped skills install under `$CODEX_HOME/skills` (default: `~/.codex/skills`).
-
-## Workflow
-1. Lock the intent.
-Identify the notebook kind: `experiment` or `tutorial`.
-Capture the objective, audience, and what "done" looks like.
-
-2. Scaffold from the template.
-Use the helper script to avoid hand-authoring raw notebook JSON.
-
-```bash
-uv run --python 3.12 python "$JUPYTER_NOTEBOOK_CLI" \
+python ~/.gemini/antigravity/skills/jupyter-notebook/scripts/new_notebook.py \
   --kind experiment \
-  --title "Compare prompt variants" \
-  --out output/jupyter-notebook/compare-prompt-variants.ipynb
+  --title "Judul Eksperimen" \
+  --out "output/notebook.ipynb"
 ```
 
-```bash
-uv run --python 3.12 python "$JUPYTER_NOTEBOOK_CLI" \
-  --kind tutorial \
-  --title "Intro to embeddings" \
-  --out output/jupyter-notebook/intro-to-embeddings.ipynb
-```
+Opsi mode:
+- `--kind experiment`: Eksplorasi data, komparasi model, pengujian hipotesis, dan validasi metrik.
+- `--kind tutorial`: Langkah bertahap berorientasi pengajaran atau panduan implementasi.
 
-3. Fill the notebook with small, runnable steps.
-Keep each code cell focused on one step.
-Add short markdown cells that explain the purpose and expected result.
-Avoid large, noisy outputs when a short summary works.
+## 2. Struktur Standar Urutan Cell
+1. **Title & Objective (Markdown)**:
+   - Judul, rumusan masalah, metrik target, batasan data.
+2. **Environment & Seed Setup (Code)**:
+   - Import library esensial (`numpy`, `pandas`/`polars`, `torch`/`sklearn`, `matplotlib`/`seaborn`).
+   - Penetapan random seed deterministik (`torch.manual_seed(42)`, `np.random.seed(42)`).
+3. **Data Ingestion & Sanitasi (Code)**:
+   - Muat dataset (utamakan Parquet/Arrow).
+   - Sanitasi data & auto-masking PII sebelum profiling.
+4. **Exploratory Data Analysis / EDA (Code & Markdown)**:
+   - Visualisasi distribusi, deteksi outlier, korelasi fitur.
+5. **Preprocessing & Feature Engineering (Code)**:
+   - Data cleaning, scaling, encoding, pipeline transformasi.
+6. **Model Baseline & Candidate Training (Code)**:
+   - Train/Val/Test split (e.g. 70/15/15 stratified).
+   - Baseline model -> Model kandidat utama -> Hyperparameter tuning.
+7. **Evaluasi & Error Analysis (Code & Markdown)**:
+   - Metrik komprehensif (F1-score, AUC-ROC, PR-AUC, Confusion Matrix, SHAP).
+   - Analisis False Positive & False Negative.
+8. **Summary & Export (Markdown & Code)**:
+   - Simpan model final (`.joblib` / `.pt` / `.onnx`).
+   - Ekstrak artefak ke laporan (sinkronkan ke format laporan 20 bab `create-readme`).
 
-4. Apply the right pattern.
-For experiments, follow `references/experiment-patterns.md`.
-For tutorials, follow `references/tutorial-patterns.md`.
-
-5. Edit safely when working with existing notebooks.
-Preserve the notebook structure; avoid reordering cells unless it improves the top-to-bottom story.
-Prefer targeted edits over full rewrites.
-If you must edit raw JSON, review `references/notebook-structure.md` first.
-
-6. Validate the result.
-Run the notebook top-to-bottom when the environment allows.
-If execution is not possible, say so explicitly and call out how to validate locally.
-Use the final pass checklist in `references/quality-checklist.md`.
-
-## Templates and helper script
-- Templates live in `assets/experiment-template.ipynb` and `assets/tutorial-template.ipynb`.
-- The helper script loads a template, updates the title cell, and writes a notebook.
-
-Script path:
-- `$JUPYTER_NOTEBOOK_CLI` (installed default: `$CODEX_HOME/skills/jupyter-notebook/scripts/new_notebook.py`)
-
-## Temp and output conventions
-- Use `tmp/jupyter-notebook/` for intermediate files; delete when done.
-- Write final artifacts under `output/jupyter-notebook/` when working in this repo.
-- Use stable, descriptive filenames (for example, `ablation-temperature.ipynb`).
-
-## Dependencies (install only when needed)
-Prefer `uv` for dependency management.
-
-Optional Python packages for local notebook execution:
-
-```bash
-uv pip install jupyterlab ipykernel
-```
-
-The bundled scaffold script uses only the Python standard library and does not require extra dependencies.
-
-## Environment
-No required environment variables.
-
-## Reference map
-- `references/experiment-patterns.md`: experiment structure and heuristics.
-- `references/tutorial-patterns.md`: tutorial structure and teaching flow.
-- `references/notebook-structure.md`: notebook JSON shape and safe editing rules.
-- `references/quality-checklist.md`: final validation checklist.
+## 3. Aturan Higiene & Keamanan
+- **Dilarang Menyimpan Secret**: API key, token database, atau private key dilarang ada di sel kode maupun output metadata notebook.
+- **Bersihkan Output Berat**: Hapus gambar beresolusi raksasa atau dump ratusan ribu baris log sebelum commit Git.
+- **State Determinism**: Pastikan notebook dapat dieksekusi dari awal sampai akhir via *Restart Kernel and Run All Cells* tanpa error NameError atau Out-of-Order Execution.

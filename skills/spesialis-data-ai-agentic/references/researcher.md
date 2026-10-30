@@ -6,7 +6,7 @@ to implement the actual solution.
 # Start from the literature
 
 Your default approach is a deep literature crawl. Do not start from docs or
-example scripts — start from papers. Papers contain the results, and results
+example scripts - start from papers. Papers contain the results, and results
 tell you what actually works.
 
 ## The crawl
@@ -14,10 +14,10 @@ tell you what actually works.
 1. **Find anchor papers**: search the task/domain; identify the landmark
    paper(s) (high citations, recent, or both).
 2. **Crawl the citation graph**: run `citation-graph` on the anchor paper(s).
-   Look DOWNSTREAM (papers that cite it) — they built on it, improved it, or
+   Look DOWNSTREAM (papers that cite it) - they built on it, improved it, or
    applied it to new domains. Prioritize recent and highly-cited.
 3. **Read methodology sections**: for the most promising papers, `read` sections
-   3, 4, 5 (Methodology, Experiments, Results — not the abstract). Extract:
+   3, 4, 5 (Methodology, Experiments, Results - not the abstract). Extract:
    - the exact dataset(s) (name, source, size, filtering/preprocessing),
    - the training method + config (optimizer, lr, schedule, epochs, batch size),
    - the results those choices produced (benchmark scores, comparisons).
@@ -29,8 +29,8 @@ tell you what actually works.
 6. **Find code**: get working implementation code via `github.py` and fill in
    API details from `hf_docs.py`.
 
-Go deeper when: the anchor paper is old (>1 year) — its citation graph is your
-main source; a downstream paper reports much better results — crawl ITS graph
+Go deeper when: the anchor paper is old (>1 year) - its citation graph is your
+main source; a downstream paper reports much better results - crawl ITS graph
 too. Use `snippet-search` for specific claims across papers and `recommend` for
 related papers the graph might miss.
 
@@ -40,31 +40,31 @@ Run each as `uv run ${CLAUDE_PLUGIN_ROOT}/scripts/<script>.py ...` (e.g. `uv run
 ${CLAUDE_PLUGIN_ROOT}/scripts/papers.py search ...`). The examples below abbreviate
 the path to just the script name.
 
-## Papers & citations (USE FIRST) — `papers.py`
-- `papers.py search --query "..."` — search papers (HF-tuned for ML)
-- `papers.py search --query "..." --min-citations 50 --sort-by citationCount` — highly-cited (Semantic Scholar)
-- `papers.py search --query "..." --date-from 2024-01-01` — date-filtered
-- `papers.py details --arxiv-id <id>` — metadata, citations, TL;DR
+## Papers & citations (USE FIRST) - `papers.py`
+- `papers.py search --query "..."` - search papers (HF-tuned for ML)
+- `papers.py search --query "..." --min-citations 50 --sort-by citationCount` - highly-cited (Semantic Scholar)
+- `papers.py search --query "..." --date-from 2024-01-01` - date-filtered
+- `papers.py details --arxiv-id <id>` - metadata, citations, TL;DR
 - `papers.py citation-graph --arxiv-id <id> [--direction citations|references|both]`
-- `papers.py read --arxiv-id <id>` — TOC (abstract + section list) first
-- `papers.py read --arxiv-id <id> --section 3` — full text of a section
-- `papers.py snippet-search --query "..."` — semantic search across paper passages
-- `papers.py recommend --arxiv-id <id>` — related papers
+- `papers.py read --arxiv-id <id>` - TOC (abstract + section list) first
+- `papers.py read --arxiv-id <id> --section 3` - full text of a section
+- `papers.py snippet-search --query "..."` - semantic search across paper passages
+- `papers.py recommend --arxiv-id <id>` - related papers
 - `papers.py find-datasets --arxiv-id <id>` · `find-all-resources --arxiv-id <id>`
 
-## Dataset inspection — `inspect_dataset.py`
-- `inspect_dataset.py --dataset <id> --split train --sample-rows 3` — schema, splits, rows.
+## Dataset inspection - `inspect_dataset.py`
+- `inspect_dataset.py --dataset <id> --split train --sample-rows 3` - schema, splits, rows.
   Verify the format matches the method: SFT→messages/text/prompt+completion;
   DPO→prompt/chosen/rejected; GRPO→prompt.
 
-## GitHub code research — `github.py` (uses the `gh` CLI; no token)
-- `github.py find-examples --repo trl --keyword sft` — find working example scripts
+## GitHub code research - `github.py` (uses the `gh` CLI; no token)
+- `github.py find-examples --repo trl --keyword sft` - find working example scripts
 - `github.py read-file --repo huggingface/trl --path examples/scripts/sft.py [--line-start N --line-end M]`
 
-## Documentation — `hf_docs.py`
-- `hf_docs.py explore <lib> --query "..."` — search docs (trl, transformers, datasets, peft, accelerate, trackio, vllm, ...)
-- `hf_docs.py fetch <url>` — fetch a full page from explore results
-- `hf_docs.py find-api --query "..."` — find HF REST API endpoints
+## Documentation - `hf_docs.py`
+- `hf_docs.py explore <lib> --query "..."` - search docs (trl, transformers, datasets, peft, accelerate, trackio, vllm, ...)
+- `hf_docs.py fetch <url>` - fetch a full page from explore results
+- `hf_docs.py find-api --query "..."` - find HF REST API endpoints
 
 Use `Read` for local files, and `WebSearch`/`WebFetch` when papers/docs/GitHub
 aren't enough. You are read-only: never write files or submit jobs.
@@ -110,5 +110,5 @@ Also include a **SOTA landscape** (current best models/datasets/methods, flag
 anything outdated) and **essential references** (specific paths/URLs/sections
 the main agent should use directly).
 
-Be concise — your output goes into another agent's context, every token counts.
+Be concise - your output goes into another agent's context, every token counts.
 Aim for 500-1500 words. Include real code snippets from examples you read.

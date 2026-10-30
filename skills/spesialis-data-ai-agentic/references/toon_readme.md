@@ -17,7 +17,7 @@ The similarity to CSV is intentional: CSV is simple and ubiquitous, and TOON aim
 Think of it as a translation layer: use JSON programmatically, and encode it as TOON for LLM input.
 
 > [!TIP]
-> The TOON format is stable, but also an idea in progress. Nothing's set in stone – help shape where it goes by contributing to the [spec](https://github.com/toon-format/spec) or sharing feedback.
+> The TOON format is stable, but also an idea in progress. Nothing's set in stone - help shape where it goes by contributing to the [spec](https://github.com/toon-format/spec) or sharing feedback.
 
 ## Table of Contents
 
@@ -37,7 +37,7 @@ Think of it as a translation layer: use JSON programmatically, and encode it as 
 
 ## Why TOON?
 
-AI is becoming cheaper and more accessible, but larger context windows allow for larger data inputs as well. **LLM tokens still cost money** – and standard JSON is verbose and token-expensive:
+AI is becoming cheaper and more accessible, but larger context windows allow for larger data inputs as well. **LLM tokens still cost money** - and standard JSON is verbose and token-expensive:
 
 ```json
 {
@@ -111,7 +111,7 @@ hikes:
 
 </details>
 
-TOON conveys the same information with **even fewer tokens** – combining YAML-like indentation with CSV-style tabular arrays:
+TOON conveys the same information with **even fewer tokens** - combining YAML-like indentation with CSV-style tabular arrays:
 
 ```yaml
 context:
@@ -136,15 +136,15 @@ hikes[3]{id,name,distanceKm,elevationGain,companion,wasSunny}:
 
 ## Media Type & File Extension
 
-By convention, TOON files use the `.toon` extension and the provisional media type `text/toon` for HTTP and content-type–aware contexts. TOON documents are always UTF-8 encoded; the `charset=utf-8` parameter may be specified but defaults to UTF-8 when omitted. See [SPEC.md §17](https://github.com/toon-format/spec/blob/main/SPEC.md#17-iana-considerations) for normative details.
+By convention, TOON files use the `.toon` extension and the provisional media type `text/toon` for HTTP and content-type-aware contexts. TOON documents are always UTF-8 encoded; the `charset=utf-8` parameter may be specified but defaults to UTF-8 when omitted. See [SPEC.md §17](https://github.com/toon-format/spec/blob/main/SPEC.md#17-iana-considerations) for normative details.
 
 ## When Not to Use TOON
 
 TOON excels with uniform arrays of objects, but there are cases where other formats are better:
 
 - **Deeply nested or non-uniform structures** (tabular eligibility ≈ 0%): JSON-compact often uses fewer tokens. Example: complex configuration objects with many nested levels.
-- **Semi-uniform arrays** (~40–60% tabular eligibility): Token savings diminish. Prefer JSON if your pipelines already rely on it.
-- **Pure tabular data**: CSV is smaller than TOON for flat tables. TOON adds minimal overhead (~5–10%) to provide structure (array length declarations, field headers, delimiter scoping) that improves LLM reliability.
+- **Semi-uniform arrays** (~40-60% tabular eligibility): Token savings diminish. Prefer JSON if your pipelines already rely on it.
+- **Pure tabular data**: CSV is smaller than TOON for flat tables. TOON adds minimal overhead (~5-10%) to provide structure (array length declarations, field headers, delimiter scoping) that improves LLM reliability.
 - **Latency-critical applications**: If end-to-end response time is your top priority, benchmark on your exact setup. Some deployments (especially local/quantized models like Ollama) may process compact JSON faster despite TOON's lower token count. Measure TTFT, tokens/sec, and total time for both formats and use whichever is faster.
 
 See [benchmarks](#benchmarks) for concrete comparisons across different data structures.
@@ -187,7 +187,7 @@ Benchmarks test LLM comprehension across different input formats using 209 data 
 - **nested**: Objects with nested structures (nested objects or arrays)
 - **deep**: Highly nested with minimal tabular eligibility
 
-**CSV Support:** ✓ (supported), ✗ (not supported – would require lossy flattening)
+**CSV Support:** ✓ (supported), ✗ (not supported - would require lossy flattening)
 
 **Eligibility:** Percentage of arrays that qualify for TOON's tabular format (uniform objects with primitive values)
 
@@ -436,7 +436,7 @@ grok-4-1-fast-non-reasoning
 
 #### What's Being Measured
 
-This benchmark tests **LLM comprehension and data retrieval accuracy** across different input formats. Each LLM receives formatted data and must answer questions about it. This does **not** test the model's ability to generate TOON output – only to read and understand it.
+This benchmark tests **LLM comprehension and data retrieval accuracy** across different input formats. Each LLM receives formatted data and must answer questions about it. This does **not** test the model's ability to generate TOON output - only to read and understand it.
 
 #### Datasets Tested
 
@@ -444,7 +444,7 @@ Eleven datasets designed to test different structural patterns and validation ca
 
 **Primary datasets:**
 
-1. **Tabular** (100 employee records): Uniform objects with identical fields – optimal for TOON's tabular format.
+1. **Tabular** (100 employee records): Uniform objects with identical fields - optimal for TOON's tabular format.
 2. **Nested** (50 e-commerce orders): Complex structures with nested customer objects and item arrays.
 3. **Analytics** (60 days of metrics): Time-series data with dates and numeric values.
 4. **GitHub** (100 repositories): Real-world data from top GitHub repos by stars.
@@ -828,7 +828,7 @@ The [TOON Playground](https://toonformat.dev/playground) lets you convert JSON o
 
 ### VS Code
 
-[TOON Language Support](https://marketplace.visualstudio.com/items?itemName=vishalraut.vscode-toon) – Syntax highlighting, validation, conversion, and token analysis.
+[TOON Language Support](https://marketplace.visualstudio.com/items?itemName=vishalraut.vscode-toon) - Syntax highlighting, validation, conversion, and token analysis.
 
 ```bash
 code --install-extension vishalraut.vscode-toon
@@ -836,11 +836,11 @@ code --install-extension vishalraut.vscode-toon
 
 ### Tree-sitter Grammar
 
-[tree-sitter-toon](https://github.com/3swordman/tree-sitter-toon) – Grammar for Tree-sitter-compatible editors (Neovim, Helix, Emacs, Zed).
+[tree-sitter-toon](https://github.com/3swordman/tree-sitter-toon) - Grammar for Tree-sitter-compatible editors (Neovim, Helix, Emacs, Zed).
 
 ### Neovim
 
-[toon.nvim](https://github.com/thalesgelinger/toon.nvim) – Lua-based plugin.
+[toon.nvim](https://github.com/thalesgelinger/toon.nvim) - Lua-based plugin.
 
 ### Other Editors
 
@@ -875,13 +875,13 @@ npx @toon-format/cli data.json --stats
 
 Detailed syntax references, implementation guides, and quick lookups for understanding and using the TOON format.
 
-- [Format Overview](https://toonformat.dev/guide/format-overview) – Complete syntax documentation
-- [Syntax Cheatsheet](https://toonformat.dev/reference/syntax-cheatsheet) – Quick reference
-- [API Reference](https://toonformat.dev/reference/api) – Encode/decode usage (TypeScript)
+- [Format Overview](https://toonformat.dev/guide/format-overview) - Complete syntax documentation
+- [Syntax Cheatsheet](https://toonformat.dev/reference/syntax-cheatsheet) - Quick reference
+- [API Reference](https://toonformat.dev/reference/api) - Encode/decode usage (TypeScript)
 
 ## Using TOON with LLMs
 
-TOON works best when you show the format instead of describing it. The structure is self-documenting – models parse it naturally once they see the pattern. Wrap data in ` ```toon` code blocks for input, and show the expected header template when asking models to generate TOON. Use tab delimiters for even better token efficiency.
+TOON works best when you show the format instead of describing it. The structure is self-documenting - models parse it naturally once they see the pattern. Wrap data in ` ```toon` code blocks for input, and show the expected header template when asking models to generate TOON. Use tab delimiters for even better token efficiency.
 
 Follow the detailed [LLM integration guide](https://toonformat.dev/guide/llm-prompts) for strategies, examples, and validation techniques.
 
@@ -891,22 +891,22 @@ Comprehensive guides, references, and resources to help you get the most out of 
 
 ### Getting Started
 
-- [Introduction & Installation](https://toonformat.dev/guide/getting-started) – What TOON is, when to use it, first steps
-- [Format Overview](https://toonformat.dev/guide/format-overview) – Complete syntax with examples
-- [Benchmarks](https://toonformat.dev/guide/benchmarks) – Accuracy & token efficiency results
+- [Introduction & Installation](https://toonformat.dev/guide/getting-started) - What TOON is, when to use it, first steps
+- [Format Overview](https://toonformat.dev/guide/format-overview) - Complete syntax with examples
+- [Benchmarks](https://toonformat.dev/guide/benchmarks) - Accuracy & token efficiency results
 
 ### Tools & Integration
 
-- [CLI](https://toonformat.dev/cli/) – Command-line tool for JSON↔TOON conversions
-- [Playgrounds](https://toonformat.dev/ecosystem/tools-and-playgrounds) – Interactive tools
-- [Tooner](https://github.com/chaindead/tooner) – MCP proxy that converts JSON tool responses to TOON
-- [Using TOON with LLMs](https://toonformat.dev/guide/llm-prompts) – Prompting strategies & validation
+- [CLI](https://toonformat.dev/cli/) - Command-line tool for JSON↔TOON conversions
+- [Playgrounds](https://toonformat.dev/ecosystem/tools-and-playgrounds) - Interactive tools
+- [Tooner](https://github.com/chaindead/tooner) - MCP proxy that converts JSON tool responses to TOON
+- [Using TOON with LLMs](https://toonformat.dev/guide/llm-prompts) - Prompting strategies & validation
 
 ### References
 
-- [API Reference](https://toonformat.dev/reference/api) – TypeScript/JavaScript encode/decode API
-- [Syntax Cheatsheet](https://toonformat.dev/reference/syntax-cheatsheet) – Quick format lookup
-- [Specification](https://github.com/toon-format/spec/blob/main/SPEC.md) – Normative rules for implementers
+- [API Reference](https://toonformat.dev/reference/api) - TypeScript/JavaScript encode/decode API
+- [Syntax Cheatsheet](https://toonformat.dev/reference/syntax-cheatsheet) - Quick format lookup
+- [Specification](https://github.com/toon-format/spec/blob/main/SPEC.md) - Normative rules for implementers
 
 ## Other Implementations
 

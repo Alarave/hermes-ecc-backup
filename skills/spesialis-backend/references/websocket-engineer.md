@@ -126,7 +126,7 @@ Security hardening:
 - Short-lived JWT/token auth, re-validated on reconnect and token refresh
 - Per-connection and per-IP rate limiting; enforce max message size and schema validation
 - Backpressure handling: bound send buffers, drop or disconnect slow consumers rather than exhausting memory
-- Be cautious with `permessage-deflate` compression (CPU cost, known compression-based DoS vectors) — disable or cap per-message compression under high fan-out
+- Be cautious with `permessage-deflate` compression (CPU cost, known compression-based DoS vectors) - disable or cap per-message compression under high fan-out
 - Choose binary serialization (MessagePack/Protobuf) over JSON when throughput is a bottleneck
 
 Monitoring and debugging:

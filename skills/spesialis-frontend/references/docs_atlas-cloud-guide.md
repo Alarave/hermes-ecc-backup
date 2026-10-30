@@ -1,4 +1,4 @@
-# Atlas Cloud — LLM Provider Guide
+# Atlas Cloud - LLM Provider Guide
 
 [Atlas Cloud](https://www.atlascloud.ai/?utm_source=github&utm_medium=link&utm_campaign=everything-claude-code) is a full-modal AI inference platform providing an OpenAI-compatible API for 59+ LLM models, image generation, and video generation.
 

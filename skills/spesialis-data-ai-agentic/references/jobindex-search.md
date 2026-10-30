@@ -22,11 +22,11 @@ bun run .agents/skills/jobindex-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
-- `--query <text>` / `-q <text>` — keyword search (job title, skill, company, city). **Required** for meaningful results.
-- `--jobage <days>` — filter by posting age: `1` (today), `7`, `14`, `30`, or `9999` (all, default)
-- `--sort <order>` — `score` (relevance, default) or `date` (newest first)
-- `--page <n>` — page number (1-indexed, 20 results per page, fixed)
-- `--limit <n>` — cap total results the CLI outputs (client-side)
+- `--query <text>` / `-q <text>` - keyword search (job title, skill, company, city). **Required** for meaningful results.
+- `--jobage <days>` - filter by posting age: `1` (today), `7`, `14`, `30`, or `9999` (all, default)
+- `--sort <order>` - `score` (relevance, default) or `date` (newest first)
+- `--page <n>` - page number (1-indexed, 20 results per page, fixed)
+- `--limit <n>` - cap total results the CLI outputs (client-side)
 - `--format json|table|plain`
 
 > **Area note**: The Jobindex API does not support area filtering via params. To find jobs in a specific city, include the city in `--query` (e.g. `--query "data engineer københavn"` or `--query "python aarhus"`).
@@ -80,7 +80,7 @@ bun run .agents/skills/jobindex-search/cli/src/cli.ts search \
   --format table
 ```
 
-### Graphic designer jobs — all time, by relevance
+### Graphic designer jobs - all time, by relevance
 
 ```bash
 bun run .agents/skills/jobindex-search/cli/src/cli.ts search \
@@ -130,7 +130,7 @@ bun run .agents/skills/jobindex-search/cli/src/cli.ts search \
 
 | Format | Best for |
 |--------|----------|
-| `json` | Default — programmatic use, data processing, passing IDs to `detail` |
+| `json` | Default - programmatic use, data processing, passing IDs to `detail` |
 | `table` | Quick human-readable overview and scanning |
 | `plain` | Reading a single job's full detail (`detail` command) |
 
@@ -140,9 +140,9 @@ All errors are written to **stderr** as `{ "error": "...", "code": "..." }` and 
 
 ## Notes
 
-- All data is from the public `jobindex.dk` API — no credentials required.
+- All data is from the public `jobindex.dk` API - no credentials required.
 - Page size is fixed at 20 results per page (Jobindex API limitation).
-- Area/region filtering via API params does not work — include city names in `--query` instead.
+- Area/region filtering via API params does not work - include city names in `--query` instead.
 - `--jobage 9999` is the default and includes all postings regardless of age.
-- Total count in `meta.total` uses Danish dot-thousands notation internally (e.g. `18.903`) — the CLI normalizes this to a plain integer.
-- Job IDs are string-prefixed (e.g. `h1647303`) — pass them as-is to `detail`.
+- Total count in `meta.total` uses Danish dot-thousands notation internally (e.g. `18.903`) - the CLI normalizes this to a plain integer.
+- Job IDs are string-prefixed (e.g. `h1647303`) - pass them as-is to `detail`.

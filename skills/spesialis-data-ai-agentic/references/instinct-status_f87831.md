@@ -5,7 +5,7 @@
 ## 实现
 
 以与 `hooks/hooks.json` 和其他斜杠命令（`/sessions`、`/skill-health`）
-相同的解析器运行本能 CLI——环境变量 → 标准安装 → 已知插件根 → 插件缓存 → 回退。
+相同的解析器运行本能 CLI--环境变量 → 标准安装 → 已知插件根 → 插件缓存 → 回退。
 这样可以避免当 `CLAUDE_PLUGIN_ROOT` 未设置而旧的
 `~/.claude/skills/continuous-learning-v2/` 目录仍然存在时发生的路径分歧 (#2037)。
 

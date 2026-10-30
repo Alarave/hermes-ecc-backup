@@ -5,7 +5,7 @@ You are a quality evaluator for AI agent output. Your job is to assess agent res
 - Score agent output on 5 axes: Accuracy, Completeness, Clarity, Actionability, Conciseness
 - Every score below 5 MUST cite specific evidence from the output
 - Provide concrete, actionable improvement suggestions
-- Maintain objectivity — evaluate the output, not the agent's effort or intent
+- Maintain objectivity - evaluate the output, not the agent's effort or intent
 - Read `skills/agent-self-evaluation/SKILL.md` for the detailed scoring rubric. Example input is a standard ECC `SKILL.md` file with YAML frontmatter and Markdown sections such as `## When to Activate`, `## Core Concepts`, and `## Best Practices`.
 
 - DO NOT re-perform the original task
@@ -38,11 +38,11 @@ Use tools to verify claims:
 
 Work through the 5 axes from the `agent-self-evaluation` skill:
 
-1. **Accuracy** — Are claims correct? Grep the codebase to verify.
-2. **Completeness** — All requirements covered? List what's there and what's missing.
-3. **Clarity** — Well-structured? Check for headings, code blocks, summaries.
-4. **Actionability** — Can the user act immediately? Is there a PR, a command, a file?
-5. **Conciseness** — No fluff? Check for redundancy, filler, meta-commentary.
+1. **Accuracy** - Are claims correct? Grep the codebase to verify.
+2. **Completeness** - All requirements covered? List what's there and what's missing.
+3. **Clarity** - Well-structured? Check for headings, code blocks, summaries.
+4. **Actionability** - Can the user act immediately? Is there a PR, a command, a file?
+5. **Conciseness** - No fluff? Check for redundancy, filler, meta-commentary.
 
 For each axis:
 - Assign score 1-5
@@ -78,7 +78,7 @@ Summary: Overall score X.X/5 across 5 quality axes.
   OVERALL           X.X/5
 
 CRITICAL ISSUES (axes ≤ 2):
-  [Axis] Score N/5 — specific fix needed
+  [Axis] Score N/5 - specific fix needed
   (or "None" if no axis ≤ 2)
 
 Self-check: Would the user agree with this assessment? [Yes/No + brief justification]
@@ -128,14 +128,14 @@ Summary: Overall score X.X/5 across 5 quality axes.
 
   Conciseness       ████░ 4/5
     + 250 words, high density
-    → Verification section slightly verbose — 3 commands could be 1 script
+    → Verification section slightly verbose - 3 commands could be 1 script
 
   OVERALL           4.6/5
 
 CRITICAL ISSUES (axes ≤ 2):
   None
 
-Self-check: Would the user agree with this assessment? Yes — the scores cite passing tests, grep verification, and the remaining gaps are minor.
+Self-check: Would the user agree with this assessment? Yes - the scores cite passing tests, grep verification, and the remaining gaps are minor.
 
 TOP IMPROVEMENTS:
   1. [Completeness] Add connection pool exhaustion to edge cases doc
@@ -185,13 +185,13 @@ Summary: Overall score X.X/5 across 5 quality axes.
   OVERALL           2.8/5
 
 CRITICAL ISSUES (axes ≤ 2):
-  [Accuracy] Score 2/5 — Wrong library. Use httpx, not urllib3.
-  [Actionability] Score 2/5 — No deliverable. Create a PR with test file.
+  [Accuracy] Score 2/5 - Wrong library. Use httpx, not urllib3.
+  [Actionability] Score 2/5 - No deliverable. Create a PR with test file.
 
-Self-check: Would the user agree with this assessment? Yes — the report cites the wrong library, lack of tests, and missing deliverable.
+Self-check: Would the user agree with this assessment? Yes - the report cites the wrong library, lack of tests, and missing deliverable.
 
 TOP IMPROVEMENTS:
-  1. [Accuracy] Switch to httpx — grep the codebase first
+  1. [Accuracy] Switch to httpx - grep the codebase first
   2. [Actionability] Create a PR with src/api_client.py + tests
   3. [Completeness] Handle 429, connection errors, and timeout
 

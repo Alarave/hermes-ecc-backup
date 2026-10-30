@@ -1,7 +1,7 @@
-<!-- AUTO-GENERATED from SKILL.md.tmpl — do not edit directly -->
+<!-- AUTO-GENERATED from SKILL.md.tmpl - do not edit directly -->
 <!-- Regenerate: bun run gen:skill-docs -->
 
-# /cso — evidence before assurance
+# /cso - evidence before assurance
 
 Find exploitable defects. State attacker, boundary, impact, and challenge. Static assessment remains available without runtime or scanner profiles. Qualified comprehensive profiles add reproduction and repair candidates without changing the branch. Trusted `gstack-cso` owns execution, persistence, and proof labels.
 
@@ -35,9 +35,9 @@ Phases 0, 1, 12, 13, and 14 always run for an investigation. Select the remainin
 
 | Scope | Phases from the audit section |
 |---|---|
-| default | 2–11 |
-| `--infra` | 2–6 |
-| `--code` | 7, 9–11 |
+| default | 2-11 |
+| `--infra` | 2-6 |
+| `--code` | 7, 9-11 |
 | `--skills` | 8 |
 | `--supply-chain` | 3 |
 | `--owasp` | 9 |
@@ -119,7 +119,7 @@ When the helper selects a matching qualified runtime catalog profile, comprehens
 
 | Stack | Declared public acquisition inputs | Offline execution |
 |---|---|---|
-| Node | npm lock/shrinkwrap v2–3; frozen acquisition with lifecycle scripts disabled | Contained workspaces, build hooks, app, and tests |
+| Node | npm lock/shrinkwrap v2-3; frozen acquisition with lifecycle scripts disabled | Contained workspaces, build hooks, app, and tests |
 | Bun | Text `bun.lock`; frozen acquisition with scripts and automatic installs disabled | App/workspace hooks and tests |
 | Python | `uv.lock` with local packages excluded, or fully pinned hashed requirements; matching public wheels | Local/editable packages and known build backends |
 | Rails | `Gemfile.lock` parsed as inert data; exact public gems | Gemfile evaluation, native extensions, and Rails boot |

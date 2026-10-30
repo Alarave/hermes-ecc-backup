@@ -20,7 +20,7 @@ Otherwise:
 
 Comprehensive security and quality review of uncommitted changes.
 
-### Phase 1 — GATHER
+### Phase 1 - GATHER
 
 ```bash
 git diff --name-only HEAD
@@ -28,7 +28,7 @@ git diff --name-only HEAD
 
 If no changed files, stop: "Nothing to review."
 
-### Phase 2 — REVIEW
+### Phase 2 - REVIEW
 
 Read each changed file in full. Check for:
 
@@ -55,7 +55,7 @@ Read each changed file in full. Check for:
 - Missing tests for new code
 - Accessibility issues (a11y)
 
-### Phase 3 — REPORT
+### Phase 3 - REPORT
 
 Generate report with:
 - Severity: CRITICAL, HIGH, MEDIUM, LOW
@@ -70,9 +70,9 @@ Never approve code with security vulnerabilities.
 
 ## PR Review Mode
 
-Comprehensive GitHub PR review — fetches diff, reads full files, runs validation, posts review.
+Comprehensive GitHub PR review - fetches diff, reads full files, runs validation, posts review.
 
-### Phase 1 — FETCH
+### Phase 1 - FETCH
 
 Parse input to determine PR:
 
@@ -89,18 +89,18 @@ gh pr diff <NUMBER>
 
 If PR not found, stop with error. Store PR metadata for later phases.
 
-### Phase 2 — CONTEXT
+### Phase 2 - CONTEXT
 
 Build review context:
 
-1. **Project rules** — Read `CLAUDE.md`, `.claude/docs/`, and any contributing guidelines
-2. **Planning artifacts** — Check `.claude/prds/`, `.claude/plans/`, `.claude/reviews/`, and legacy `.claude/PRPs/{prds,plans,reports,reviews}/` for context related to this PR
-3. **PR intent** — Parse PR description for goals, linked issues, test plans
-4. **Changed files** — List all modified files and categorize by type (source, test, config, docs)
+1. **Project rules** - Read `CLAUDE.md`, `.claude/docs/`, and any contributing guidelines
+2. **Planning artifacts** - Check `.claude/prds/`, `.claude/plans/`, `.claude/reviews/`, and legacy `.claude/PRPs/{prds,plans,reports,reviews}/` for context related to this PR
+3. **PR intent** - Parse PR description for goals, linked issues, test plans
+4. **Changed files** - List all modified files and categorize by type (source, test, config, docs)
 
-### Phase 3 — REVIEW
+### Phase 3 - REVIEW
 
-Read each changed file **in full** (not just the diff hunks — you need surrounding context).
+Read each changed file **in full** (not just the diff hunks - you need surrounding context).
 
 For PR reviews, fetch the full file contents at the PR head revision:
 ```bash
@@ -130,7 +130,7 @@ Assign severity to each finding:
 | **MEDIUM** | Code quality issue or missing best practice | Fix recommended |
 | **LOW** | Style nit or minor suggestion | Optional |
 
-### Phase 4 — VALIDATE
+### Phase 4 - VALIDATE
 
 Run available validation commands:
 
@@ -165,7 +165,7 @@ pytest  # Tests
 
 Run only the commands that apply to the detected project type. Record pass/fail for each.
 
-### Phase 5 — DECIDE
+### Phase 5 - DECIDE
 
 Form recommendation based on findings:
 
@@ -174,19 +174,19 @@ Form recommendation based on findings:
 | Zero CRITICAL/HIGH issues, validation passes | **APPROVE** |
 | Only MEDIUM/LOW issues, validation passes | **APPROVE** with comments |
 | Any HIGH issues or validation failures | **REQUEST CHANGES** |
-| Any CRITICAL issues | **BLOCK** — must fix before merge |
+| Any CRITICAL issues | **BLOCK** - must fix before merge |
 
 Special cases:
 - Draft PR → Always use **COMMENT** (not approve/block)
 - Only docs/config changes → Lighter review, focus on correctness
 - Explicit `--approve` or `--request-changes` flag → Override decision (but still report all findings)
 
-### Phase 6 — REPORT
+### Phase 6 - REPORT
 
 Create review artifact at `.claude/reviews/pr-<NUMBER>-review.md` unless the repo already uses legacy `.claude/PRPs/reviews/` for this workstream:
 
 ```markdown
-# PR Review: #<NUMBER> — <TITLE>
+# PR Review: #<NUMBER> - <TITLE>
 
 **Reviewed**: <date>
 **Author**: <author>
@@ -223,7 +223,7 @@ Create review artifact at `.claude/reviews/pr-<NUMBER>-review.md` unless the rep
 <list of files with change type: Added/Modified/Deleted>
 ```
 
-### Phase 7 — PUBLISH
+### Phase 7 - PUBLISH
 
 Post the review to GitHub:
 
@@ -256,7 +256,7 @@ gh api "repos/{owner}/{repo}/pulls/<NUMBER>/reviews" \
   --input comments.json  # [{"path": "file", "line": N, "body": "comment"}, ...]
 ```
 
-### Phase 8 — OUTPUT
+### Phase 8 - OUTPUT
 
 Report to user:
 

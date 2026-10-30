@@ -27,15 +27,15 @@
 
 以下のファイルを標準マップとして使用:
 
-- `README.md` — インストールパス、リセット/アンインストールガイダンス、高レベルの位置づけ
-- `AGENTS.md` — コントリビューターとプロジェクト構造のガイダンス
-- `agent.yaml` — エクスポートされたエージェントとコマンドサーフェス
-- `commands/` — メンテナンスされたスラッシュコマンドシム
-- `skills/*/SKILL.md` — 再利用可能なスキルワークフロー
-- `agents/*.md` — 委任されたエージェントの役割
-- `hooks/README.md`と`hooks/hooks.json` — フックの動作
-- `manifests/install-*.json` — 選択的インストールモジュール、コンポーネント、プロファイル
-- `scripts/ci/catalog.js --json` — ECC内で実行時のライブカタログカウント
+- `README.md` - インストールパス、リセット/アンインストールガイダンス、高レベルの位置づけ
+- `AGENTS.md` - コントリビューターとプロジェクト構造のガイダンス
+- `agent.yaml` - エクスポートされたエージェントとコマンドサーフェス
+- `commands/` - メンテナンスされたスラッシュコマンドシム
+- `skills/*/SKILL.md` - 再利用可能なスキルワークフロー
+- `agents/*.md` - 委任されたエージェントの役割
+- `hooks/README.md`と`hooks/hooks.json` - フックの動作
+- `manifests/install-*.json` - 選択的インストールモジュール、コンポーネント、プロファイル
+- `scripts/ci/catalog.js --json` - ECC内で実行時のライブカタログカウント
 
 ## レスポンスパターン
 
@@ -82,8 +82,8 @@
 
 ## 関連コマンド
 
-- `/project-init` — スタック対応のECCオンボーディング
-- `/harness-audit` — 決定論的リポジトリ準備度スコアリング
-- `/skill-health` — スキル品質チェック
-- `/skill-create` — ローカルgit履歴からの新しいスキル抽出
-- `/security-scan` — Claude/OpenCode設定のセキュリティレビュー
+- `/project-init` - スタック対応のECCオンボーディング
+- `/harness-audit` - 決定論的リポジトリ準備度スコアリング
+- `/skill-health` - スキル品質チェック
+- `/skill-create` - ローカルgit履歴からの新しいスキル抽出
+- `/security-scan` - Claude/OpenCode設定のセキュリティレビュー

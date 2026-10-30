@@ -2,7 +2,7 @@
 
 > Adapted from PRPs-agentic-eng by Wirasm. Part of the PRP workflow series.
 
-**Input**: `$ARGUMENTS` — optional, may contain a base branch name and/or flags (e.g., `--draft`).
+**Input**: `$ARGUMENTS` - optional, may contain a base branch name and/or flags (e.g., `--draft`).
 
 **Parse `$ARGUMENTS`**:
 - Extract any recognized flags (`--draft`)
@@ -11,7 +11,7 @@
 
 ---
 
-## Phase 1 — VALIDATE
+## Phase 1 - VALIDATE
 
 Check preconditions:
 
@@ -32,13 +32,13 @@ If all checks pass, proceed.
 
 ---
 
-## Phase 2 — DISCOVER
+## Phase 2 - DISCOVER
 
 ### PR Template
 
 Search for PR template in order:
 
-1. `.github/PULL_REQUEST_TEMPLATE/` directory — if exists, list files and let user choose (or use `default.md`)
+1. `.github/PULL_REQUEST_TEMPLATE/` directory - if exists, list files and let user choose (or use `default.md`)
 2. `.github/PULL_REQUEST_TEMPLATE.md`
 3. `.github/pull_request_template.md`
 4. `docs/pull_request_template.md`
@@ -52,7 +52,7 @@ git log origin/<base>..HEAD --format="%h %s" --reverse
 ```
 
 Analyze commits to determine:
-- **PR title**: Use conventional commit format with type prefix — `feat: ...`, `fix: ...`, etc.
+- **PR title**: Use conventional commit format with type prefix - `feat: ...`, `fix: ...`, etc.
   - If multiple types, use the dominant one
   - If single commit, use its message as-is
 - **Change summary**: Group commits by type/area
@@ -69,15 +69,15 @@ Categorize changed files: source, tests, docs, config, migrations.
 ### PRP Artifacts
 
 Check for related PRP artifacts:
-- `.claude/PRPs/reports/` — Implementation reports
-- `.claude/PRPs/plans/` — Plans that were executed
-- `.claude/PRPs/prds/` — Related PRDs
+- `.claude/PRPs/reports/` - Implementation reports
+- `.claude/PRPs/plans/` - Plans that were executed
+- `.claude/PRPs/prds/` - Related PRDs
 
 Reference these in the PR body if they exist.
 
 ---
 
-## Phase 3 — PUSH
+## Phase 3 - PUSH
 
 ```bash
 git push -u origin HEAD
@@ -94,11 +94,11 @@ If rebase conflicts occur, stop and inform the user.
 
 ---
 
-## Phase 4 — CREATE
+## Phase 4 - CREATE
 
 ### With Template
 
-If a PR template was found in Phase 2, fill in each section using the commit and file analysis. Preserve all template sections — leave sections as "N/A" if not applicable rather than removing them.
+If a PR template was found in Phase 2, fill in each section using the commit and file analysis. Preserve all template sections - leave sections as "N/A" if not applicable rather than removing them.
 
 ### Without Template
 
@@ -138,7 +138,7 @@ gh pr create \
 
 ---
 
-## Phase 5 — VERIFY
+## Phase 5 - VERIFY
 
 ```bash
 gh pr view --json number,url,title,state,baseRefName,headRefName,additions,deletions,changedFiles
@@ -147,7 +147,7 @@ gh pr checks --json name,status,conclusion 2>/dev/null || true
 
 ---
 
-## Phase 6 — OUTPUT
+## Phase 6 - OUTPUT
 
 Report to user:
 

@@ -24,7 +24,7 @@ Dokumen referensi pola desain (UI patterns), layout, interaksi, dan aksesibilita
 - **Struktur**:
   - Grid 2 kolom berisi kartu permanen terbuka atau semi-terbuka.
   - Setiap kartu memiliki icon penanda tema di sudut atas, judul tebal, dan jawaban ringkas.
-- **Keunggulan UX**: Cocok jika pertanyaan sedikit (4–6 pertanyaan kunci) dan ingin audiens langsung membaca tanpa harus klik membuka accordion.
+- **Keunggulan UX**: Cocok jika pertanyaan sedikit (4-6 pertanyaan kunci) dan ingin audiens langsung membaca tanpa harus klik membuka accordion.
 
 ### Pola D: Accordion + Embedded "Still Have Questions?" Support Card
 - **Struktur**:

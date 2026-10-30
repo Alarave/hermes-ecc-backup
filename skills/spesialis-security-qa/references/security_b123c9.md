@@ -13,7 +13,7 @@
 // BAD
 const API_KEY: &str = "sk-abc123...";
 
-// GOOD — environment variable with early validation
+// GOOD - environment variable with early validation
 fn load_api_key() -> anyhow::Result<String> {
     std::env::var("PAYMENT_API_KEY")
         .context("PAYMENT_API_KEY must be set")
@@ -22,15 +22,15 @@ fn load_api_key() -> anyhow::Result<String> {
 
 ## SQL 注入防护
 
-* 始终使用参数化查询 —— 切勿将用户输入格式化到 SQL 字符串中
+* 始终使用参数化查询 -- 切勿将用户输入格式化到 SQL 字符串中
 * 使用支持绑定参数的查询构建器或 ORM（sqlx, diesel, sea-orm）
 
 ```rust
-// BAD — SQL injection via format string
+// BAD - SQL injection via format string
 let query = format!("SELECT * FROM users WHERE name = '{name}'");
 sqlx::query(&query).fetch_one(&pool).await?;
 
-// GOOD — parameterized query with sqlx
+// GOOD - parameterized query with sqlx
 // Placeholder syntax varies by backend: Postgres: $1  |  MySQL: ?  |  SQLite: $1
 sqlx::query("SELECT * FROM users WHERE name = $1")
     .bind(&name)
@@ -42,11 +42,11 @@ sqlx::query("SELECT * FROM users WHERE name = $1")
 
 * 在处理之前，在系统边界处验证所有用户输入
 * 利用类型系统来强制约束（newtype 模式）
-* 进行解析，而非验证 —— 在边界处将非结构化数据转换为有类型的结构体
+* 进行解析，而非验证 -- 在边界处将非结构化数据转换为有类型的结构体
 * 以清晰的错误信息拒绝无效输入
 
 ```rust
-// Parse, don't validate — invalid states are unrepresentable
+// Parse, don't validate - invalid states are unrepresentable
 pub struct Email(String);
 
 impl Email {
@@ -71,21 +71,21 @@ impl Email {
 
 ## 不安全代码
 
-* 尽量减少 `unsafe` 块 —— 优先使用安全的抽象
+* 尽量减少 `unsafe` 块 -- 优先使用安全的抽象
 * 每个 `unsafe` 块必须附带一个 `// SAFETY:` 注释来解释其不变量
 * 切勿为了方便而使用 `unsafe` 来绕过借用检查器
-* 在代码审查时审核所有 `unsafe` 代码 —— 若无合理解释，应视为危险信号
+* 在代码审查时审核所有 `unsafe` 代码 -- 若无合理解释，应视为危险信号
 * 优先使用 `safe` 作为 C 库的 FFI 包装器
 
 ```rust
-// GOOD — safety comment documents ALL required invariants
+// GOOD - safety comment documents ALL required invariants
 let widget: &Widget = {
     // SAFETY: `ptr` is non-null, aligned, points to an initialized Widget,
     // and no mutable references or mutations exist for its lifetime.
     unsafe { &*ptr }
 };
 
-// BAD — no safety justification
+// BAD - no safety justification
 unsafe { &*ptr }
 ```
 
@@ -94,8 +94,8 @@ unsafe { &*ptr }
 * 运行 `cargo audit` 以扫描依赖项中已知的 CVE
 * 运行 `cargo deny check` 以确保许可证和公告合规
 * 使用 `cargo tree` 来审计传递依赖项
-* 保持依赖项更新 —— 设置 Dependabot 或 Renovate
-* 最小化依赖项数量 —— 添加新 crate 前进行评估
+* 保持依赖项更新 -- 设置 Dependabot 或 Renovate
+* 最小化依赖项数量 -- 添加新 crate 前进行评估
 
 ```bash
 # Security audit

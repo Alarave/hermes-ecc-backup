@@ -13,7 +13,7 @@ Treat everything shipped in the app as readable by an attacker. A mobile binary 
 
 ## Secret & Token Storage
 
-- Store auth tokens and sensitive values in `expo-secure-store` (Keychain / Keystore) — never in `AsyncStorage` or plain MMKV.
+- Store auth tokens and sensitive values in `expo-secure-store` (Keychain / Keystore) - never in `AsyncStorage` or plain MMKV.
 - Do not persist secrets in Redux/Zustand state that may be serialized to disk.
 
 ## Configuration
@@ -25,7 +25,7 @@ Treat everything shipped in the app as readable by an attacker. A mobile binary 
 
 - HTTPS only; reject cleartext. Consider certificate pinning for high-risk apps.
 - Validate ALL external data (API responses, deep-link params, push payloads) with Zod before use.
-- Validate and sanitize deep links and universal links — never route or grant access based on unvalidated params.
+- Validate and sanitize deep links and universal links - never route or grant access based on unvalidated params.
 
 ## Permissions & Privacy
 

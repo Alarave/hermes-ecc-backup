@@ -99,8 +99,8 @@ Help identify patterns, themes, and unexpected connections among the generated i
 - Map relationships between ideas visually (if helpful)
 
 **Prompts:**
-- "I notice several ideas involve [theme]—what if we combined them?"
-- "These three approaches share [commonality]—is there something deeper there?"
+- "I notice several ideas involve [theme]-what if we combined them?"
+- "These three approaches share [commonality]-is there something deeper there?"
 - "What's the most unexpected connection you're seeing?"
 
 For literature-combination work, keep the matrix lightweight: list candidate papers or methods, compare complementarity, data compatibility, theory fit, implementation cost, and likely innovation value. Do not turn this into a separate routed workflow.
@@ -178,6 +178,6 @@ Use this file when the scientist requests a specific methodology or when the bra
 
 - This is a **conversation**, not a lecture. The scientist should be doing at least 50% of the talking.
 - Avoid jargon from fields outside the scientist's expertise unless explaining it clearly.
-- Be comfortable with silence—give space for thinking.
+- Be comfortable with silence-give space for thinking.
 - Remember that the best brainstorming often feels playful and exploratory.
 - The goal is not to solve everything, but to open new possibilities.

@@ -1,7 +1,7 @@
 # React Native / Expo Production Readiness
 
 > Extends the ECC philosophy to ship-grade concerns that style/pattern rules cannot encode by themselves.
-> A clean codebase is necessary but not sufficient for production — these items are mandatory before release.
+> A clean codebase is necessary but not sufficient for production - these items are mandatory before release.
 
 ## Architecture
 
@@ -17,13 +17,13 @@
 ## Over-the-Air Updates
 
 - Use **EAS Update** (`expo-updates`) for JS-only fixes, with a defined runtime version policy.
-- Never push native changes via OTA — those require a new store build.
+- Never push native changes via OTA - those require a new store build.
 - Roll out gradually and keep the ability to roll back.
 
 ## Observability
 
 - Integrate crash + error reporting (e.g. **Sentry** via `@sentry/react-native`) in production builds.
-- Add structured logging and, where useful, analytics — but strip verbose logs from release.
+- Add structured logging and, where useful, analytics - but strip verbose logs from release.
 - Capture and surface failed network/mutation states; do not fail silently.
 
 ## Configuration & Versioning

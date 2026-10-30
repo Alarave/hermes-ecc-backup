@@ -57,7 +57,7 @@ fn get_order(user: UserId, order: OrderId) -> anyhow::Result<Order> {
 
 ## Enum State Machines
 
-Model states as enums — make illegal states unrepresentable:
+Model states as enums - make illegal states unrepresentable:
 
 ```rust
 enum ConnectionState {
@@ -79,7 +79,7 @@ fn handle(state: &ConnectionState) {
 }
 ```
 
-Always match exhaustively — no wildcard `_` for business-critical enums.
+Always match exhaustively - no wildcard `_` for business-critical enums.
 
 ## Builder Pattern
 

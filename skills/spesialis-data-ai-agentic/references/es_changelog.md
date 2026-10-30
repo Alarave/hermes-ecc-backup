@@ -37,9 +37,9 @@
 
 ### Nuevos Carriles de Flujo de Trabajo
 
-- `brand-voice` — sistema de estilo de escritura derivado de fuentes canónicas.
-- `social-graph-ranker` — primitiva de clasificación de grafos de introducción cálida ponderada.
-- `connections-optimizer` — flujo de trabajo de poda/adición de redes sobre la clasificación de grafos.
+- `brand-voice` - sistema de estilo de escritura derivado de fuentes canónicas.
+- `social-graph-ranker` - primitiva de clasificación de grafos de introducción cálida ponderada.
+- `connections-optimizer` - flujo de trabajo de poda/adición de redes sobre la clasificación de grafos.
 - `customer-billing-ops`, `google-workspace-ops`, `project-flow-ops`, `workspace-surface-audit`.
 - `manim-video`, `remotion-video-creation`, `nestjs-patterns`.
 
@@ -65,40 +65,40 @@
 
 ### Nuevos Agentes
 
-- `typescript-reviewer` — especialista en revisión de código TypeScript/JavaScript (#647)
-- `pytorch-build-resolver` — resolución de errores de runtime, CUDA y entrenamiento de PyTorch (#549)
-- `java-build-resolver` — resolución de errores de build de Maven/Gradle (#538)
-- `java-reviewer` — revisión de código Java y Spring Boot (#528)
-- `kotlin-reviewer` — revisión de código Kotlin/Android/KMP (#309)
-- `kotlin-build-resolver` — errores de build en Kotlin/Gradle (#309)
-- `rust-reviewer` — revisión de código Rust (#523)
-- `rust-build-resolver` — resolución de errores de build en Rust (#523)
-- `docs-lookup` — investigación de documentación y referencia de API (#529)
+- `typescript-reviewer` - especialista en revisión de código TypeScript/JavaScript (#647)
+- `pytorch-build-resolver` - resolución de errores de runtime, CUDA y entrenamiento de PyTorch (#549)
+- `java-build-resolver` - resolución de errores de build de Maven/Gradle (#538)
+- `java-reviewer` - revisión de código Java y Spring Boot (#528)
+- `kotlin-reviewer` - revisión de código Kotlin/Android/KMP (#309)
+- `kotlin-build-resolver` - errores de build en Kotlin/Gradle (#309)
+- `rust-reviewer` - revisión de código Rust (#523)
+- `rust-build-resolver` - resolución de errores de build en Rust (#523)
+- `docs-lookup` - investigación de documentación y referencia de API (#529)
 
 ### Nuevas Skills
 
-- `pytorch-patterns` — flujos de trabajo de aprendizaje profundo con PyTorch (#550)
-- `documentation-lookup` — investigación de referencia de API y documentación de bibliotecas (#529)
-- `bun-runtime` — patrones de runtime de Bun (#529)
-- `nextjs-turbopack` — flujos de trabajo de Turbopack con Next.js (#529)
-- `mcp-server-patterns` — patrones de diseño de servidores MCP (#531)
-- `data-scraper-agent` — recopilación de datos públicos asistida por IA (#503)
-- `team-builder` — skill de composición de equipos (#501)
-- `ai-regression-testing` — flujos de trabajo de pruebas de regresión con IA (#433)
-- `claude-devfleet` — orquestación multi-agente (#505)
-- `blueprint` — planificación de construcción de múltiples sesiones
-- `everything-claude-code` — skill autorreferencial de ECC (#335)
-- `prompt-optimizer` — skill de optimización de prompts (#418)
+- `pytorch-patterns` - flujos de trabajo de aprendizaje profundo con PyTorch (#550)
+- `documentation-lookup` - investigación de referencia de API y documentación de bibliotecas (#529)
+- `bun-runtime` - patrones de runtime de Bun (#529)
+- `nextjs-turbopack` - flujos de trabajo de Turbopack con Next.js (#529)
+- `mcp-server-patterns` - patrones de diseño de servidores MCP (#531)
+- `data-scraper-agent` - recopilación de datos públicos asistida por IA (#503)
+- `team-builder` - skill de composición de equipos (#501)
+- `ai-regression-testing` - flujos de trabajo de pruebas de regresión con IA (#433)
+- `claude-devfleet` - orquestación multi-agente (#505)
+- `blueprint` - planificación de construcción de múltiples sesiones
+- `everything-claude-code` - skill autorreferencial de ECC (#335)
+- `prompt-optimizer` - skill de optimización de prompts (#418)
 - 8 skills de dominio operacional de Evos (#290)
 - 3 skills de Laravel (#420)
 - Skills de VideoDB (#301)
 
 ### Nuevos Comandos
 
-- `/docs` — búsqueda de documentación (#530)
-- `/aside` — conversación lateral (#407)
-- `/prompt-optimize` — optimización de prompts (#418)
-- `/resume-session`, `/save-session` — gestión de sesiones
+- `/docs` - búsqueda de documentación (#530)
+- `/aside` - conversación lateral (#407)
+- `/prompt-optimize` - optimización de prompts (#418)
+- `/resume-session`, `/save-session` - gestión de sesiones
 - Mejoras de `learn-eval` con veredicto holístico basado en lista de verificación
 
 ### Nuevas Reglas
@@ -133,7 +133,7 @@
 - Lógica de inicio diferido del observador (#508)
 - Guardia de prevención de bucle de 5 capas del observador (#399)
 - Portabilidad de hooks y soporte de .cmd en Windows
-- Optimización del hook de Biome — eliminada la sobrecarga de npx (#359)
+- Optimización del hook de Biome - eliminada la sobrecarga de npx (#359)
 - Hook de seguridad de InsAIts convertido en opt-in (#370)
 - Corrección de exportación de spawnSync en Windows (#431)
 - Corrección de codificación UTF-8 para la CLI de instintos (#353)
@@ -141,21 +141,21 @@
 
 ### Traducciones
 
-- Traducción al coreano (ko-KR) — README, agentes, comandos, skills, reglas (#392)
+- Traducción al coreano (ko-KR) - README, agentes, comandos, skills, reglas (#392)
 - Sincronización de documentación al chino (zh-CN) (#428)
 
 ### Créditos
 
-- @ymdvsymd — correcciones de sandbox y worktrees del observador
-- @pythonstrup — optimización del hook de Biome
-- @Nomadu27 — hook de seguridad de InsAIts
-- @hahmee — traducción al coreano
-- @zdocapp — sincronización de documentación al chino
-- @cookiee339 — ecosistema Kotlin
-- @pangerlkr — correcciones del flujo de trabajo de CI
-- @0xrohitgarg — skills de VideoDB
-- @nocodemf — skills operacionales de Evos
-- @swarnika-cmd — contribuciones comunitarias
+- @ymdvsymd - correcciones de sandbox y worktrees del observador
+- @pythonstrup - optimización del hook de Biome
+- @Nomadu27 - hook de seguridad de InsAIts
+- @hahmee - traducción al coreano
+- @zdocapp - sincronización de documentación al chino
+- @cookiee339 - ecosistema Kotlin
+- @pangerlkr - correcciones del flujo de trabajo de CI
+- @0xrohitgarg - skills de VideoDB
+- @nocodemf - skills operacionales de Evos
+- @swarnika-cmd - contribuciones comunitarias
 
 ## 1.8.0 - 2026-03-04
 

@@ -4,7 +4,7 @@
 
 ---
 
-**Soy usuario activo de Claude Code desde el lanzamiento experimental en febrero, y gané el hackathon de Anthropic x Forum Ventures con [zenith.chat](https://zenith.chat) junto a [@DRodriguezFX](https://x.com/DRodriguezFX) — usando Claude Code por completo.**
+**Soy usuario activo de Claude Code desde el lanzamiento experimental en febrero, y gané el hackathon de Anthropic x Forum Ventures con [zenith.chat](https://zenith.chat) junto a [@DRodriguezFX](https://x.com/DRodriguezFX) - usando Claude Code por completo.**
 
 Aquí está mi configuración completa tras 10 meses de uso diario: skills, hooks, subagentes, MCPs, plugins y lo que realmente funciona.
 
@@ -14,7 +14,7 @@ Aquí está mi configuración completa tras 10 meses de uso diario: skills, hook
 
 Las skills son la superficie principal de flujo de trabajo. Actúan como paquetes de flujo de trabajo con alcance definido: prompts reutilizables, estructura, archivos de soporte y codemaps cuando necesitas un patrón de ejecución específico.
 
-Después de una sesión larga de codificación con Opus 4.5, ¿quieres limpiar código muerto y archivos .md sueltos? Ejecuta `/refactor-clean`. ¿Necesitas pruebas? `/tdd`, `/e2e`, `/test-coverage`. Esas entradas slash son convenientes, pero la unidad duradera real es la skill subyacente. Las skills también pueden incluir codemaps — una forma para que Claude navegue rápidamente tu código base sin quemar contexto en exploración.
+Después de una sesión larga de codificación con Opus 4.5, ¿quieres limpiar código muerto y archivos .md sueltos? Ejecuta `/refactor-clean`. ¿Necesitas pruebas? `/tdd`, `/e2e`, `/test-coverage`. Esas entradas slash son convenientes, pero la unidad duradera real es la skill subyacente. Las skills también pueden incluir codemaps - una forma para que Claude navegue rápidamente tu código base sin quemar contexto en exploración.
 
 ![Terminal mostrando comandos encadenados](../../assets/images/shortform/02-chaining-commands.jpeg)
 *Encadenando comandos juntos*
@@ -77,7 +77,7 @@ Los hooks son automatizaciones basadas en eventos que se disparan en eventos esp
 
 Los subagentes son procesos a los que tu orquestador (Claude principal) puede delegar tareas con alcances limitados. Pueden ejecutarse en segundo plano o en primer plano, liberando contexto para el agente principal.
 
-Los subagentes funcionan bien con las skills — un subagente capaz de ejecutar un subconjunto de tus skills puede recibir tareas delegadas y usar esas skills de forma autónoma. También pueden ser aislados con permisos específicos de herramientas.
+Los subagentes funcionan bien con las skills - un subagente capaz de ejecutar un subconjunto de tus skills puede recibir tareas delegadas y usar esas skills de forma autónoma. También pueden ser aislados con permisos específicos de herramientas.
 
 ```bash
 # Estructura de subagente de ejemplo
@@ -125,14 +125,14 @@ Tu carpeta `.rules` contiene archivos `.md` con las mejores prácticas que Claud
 
 ## MCPs (Protocolo de Contexto de Modelos)
 
-Los MCPs conectan Claude a servicios externos directamente. No son un reemplazo para las APIs — son un wrapper orientado a prompts alrededor de ellas, que permite más flexibilidad para navegar información.
+Los MCPs conectan Claude a servicios externos directamente. No son un reemplazo para las APIs - son un wrapper orientado a prompts alrededor de ellas, que permite más flexibilidad para navegar información.
 
 **Ejemplo:** El MCP de Supabase permite a Claude obtener datos específicos, ejecutar SQL directamente en origen sin copiar y pegar. Lo mismo para bases de datos, plataformas de despliegue, etc.
 
 ![MCP de Supabase listando tablas](../../assets/images/shortform/04-supabase-mcp.jpeg)
 *Ejemplo del MCP de Supabase listando las tablas dentro del schema público*
 
-**Chrome en Claude:** es un plugin MCP integrado que permite a Claude controlar autónomamente tu navegador — haciendo clic para ver cómo funcionan las cosas.
+**Chrome en Claude:** es un plugin MCP integrado que permite a Claude controlar autónomamente tu navegador - haciendo clic para ver cómo funcionan las cosas.
 
 **CRÍTICO: Gestión de la Ventana de Contexto**
 
@@ -181,7 +181,7 @@ hookify@claude-plugins-official         # Crear hooks conversacionalmente
 mgrep@Mixedbread-Grep                   # Mejor búsqueda que ripgrep
 ```
 
-Misma advertencia que los MCPs — vigila tu ventana de contexto.
+Misma advertencia que los MCPs - vigila tu ventana de contexto.
 
 ---
 
@@ -242,7 +242,7 @@ Configura revisiones de código en tus PRs con GitHub Actions. Claude puede revi
 
 ### Sandboxing
 
-Usa el modo sandbox para operaciones arriesgadas — Claude se ejecuta en un entorno restringido sin afectar tu sistema real.
+Usa el modo sandbox para operaciones arriesgadas - Claude se ejecuta en un entorno restringido sin afectar tu sistema real.
 
 ---
 
@@ -252,7 +252,7 @@ Tu elección de editor impacta significativamente el flujo de trabajo con Claude
 
 ### Zed (Mi Preferencia)
 
-Uso [Zed](https://zed.dev) — escrito en Rust, por lo que es genuinamente rápido. Abre al instante, maneja bases de código masivas sin sudar, y apenas toca los recursos del sistema.
+Uso [Zed](https://zed.dev) - escrito en Rust, por lo que es genuinamente rápido. Abre al instante, maneja bases de código masivas sin sudar, y apenas toca los recursos del sistema.
 
 **Por qué Zed + Claude Code es una gran combinación:**
 
@@ -335,7 +335,7 @@ mgrep@Mixedbread-Grep                  # Mejor búsqueda
 }
 ```
 
-Esta es la clave — tengo 14 MCPs configurados pero solo ~5-6 habilitados por proyecto. Mantiene la ventana de contexto saludable.
+Esta es la clave - tengo 14 MCPs configurados pero solo ~5-6 habilitados por proyecto. Mantiene la ventana de contexto saludable.
 
 ### Hooks Clave
 

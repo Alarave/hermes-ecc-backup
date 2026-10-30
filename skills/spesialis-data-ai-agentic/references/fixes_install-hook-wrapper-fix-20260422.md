@@ -60,7 +60,7 @@ Windows PowerShell 5.1 installed (no `pwsh`).
 
 ## Related
 
-- PR #1524 — settings.local.json shape fix (same argv-dup root cause)
-- PR #1511 — skip `AppInstallerPythonRedirector.exe` in observer python resolution
-- PR #1539 — locale-independent `detect-project.sh`
-- PR #1542 — `patch_settings_cl_v2_simple.ps1` companion fix
+- PR #1524 - settings.local.json shape fix (same argv-dup root cause)
+- PR #1511 - skip `AppInstallerPythonRedirector.exe` in observer python resolution
+- PR #1539 - locale-independent `detect-project.sh`
+- PR #1542 - `patch_settings_cl_v2_simple.ps1` companion fix

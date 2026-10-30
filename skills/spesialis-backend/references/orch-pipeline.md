@@ -1,6 +1,6 @@
 # Orchestrator Pipeline (shared engine)
 
-The `orch-*` skills are thin wrappers. They do not re-implement any work — they
+The `orch-*` skills are thin wrappers. They do not re-implement any work - they
 classify the request, choose which phases of *this* pipeline run, and delegate
 each phase to an existing ECC agent or command. This file is that pipeline.
 
@@ -29,7 +29,7 @@ each phase to an existing ECC agent or command. This file is that pipeline.
 > size classifier and the two gates
 > on top of them, so one umbrella covers all five operations consistently.
 
-## Step 0 — Classify size (right-sizing)
+## Step 0 - Classify size (right-sizing)
 
 Ceremony scales to blast radius. Score the request on three signals, take the
 **highest** tier any signal reaches, and state the result in one line so the user
@@ -37,9 +37,9 @@ can override:
 
 | Tier | Files touched | New dependency / contract | Design ambiguity | Phases that run |
 |------|---------------|---------------------------|------------------|-----------------|
-| trivial | 1, a few lines | none | none — the change is obvious | 4 → 5 → 6 |
+| trivial | 1, a few lines | none | none - the change is obvious | 4 → 5 → 6 |
 | small | 1 file / 1 function | none | clear once you read the code | (1 light) → 4 → 5 → 6 |
-| standard | 2–5 files | maybe a new internal module | one real choice to make | 1 → 2 → 4 → 5 → 6 |
+| standard | 2-5 files | maybe a new internal module | one real choice to make | 1 → 2 → 4 → 5 → 6 |
 | large | many / cross-cutting | new external dep, public API, or a spec doc | multiple open questions | 1 → 2 → (3) → 4 → 5 → 6 |
 
 Phase 0 (Intake) always runs and is omitted from the mask column above. The
@@ -48,31 +48,31 @@ contract is **at least** standard, regardless of file count.
 
 ## The phases
 
-Each phase delegates — it does not do the work inline.
+Each phase delegates - it does not do the work inline.
 
-- **0. Intake** — restate the request. For `orch-build-mvp`, read the spec/design
+- **0. Intake** - restate the request. For `orch-build-mvp`, read the spec/design
   doc and extract scope, locked decisions, and a feature list.
-- **1. Research & Reuse** — per `rules/common/development-workflow.md`: `gh search repos` /
+- **1. Research & Reuse** - per `rules/common/development-workflow.md`: `gh search repos` /
   `gh search code`, then Context7 / vendor docs, then package registries, then
   Exa. Prefer adopting a proven implementation over net-new code.
-- **2. Plan** — delegate to the `planner` agent (or `architect` /
+- **2. Plan** - delegate to the `planner` agent (or `architect` /
   `code-architect` for structural decisions). Output a `task_list` ordered as
   thin vertical slices. → **GATE 1.**
-- **3. Scaffold** — `orch-build-mvp` only: stand up the first end-to-end slice.
-- **4. Implement (TDD)** — drive each task through the `tdd-guide` agent (or the `tdd-workflow` skill):
+- **3. Scaffold** - `orch-build-mvp` only: stand up the first end-to-end slice.
+- **4. Implement (TDD)** - drive each task through the `tdd-guide` agent (or the `tdd-workflow` skill):
   red → green → refactor. Honor the operation's first-move rule.
-- **5. Review** — `code-reviewer` agent / `/code-review`. Add `security-reviewer`
+- **5. Review** - `code-reviewer` agent / `/code-review`. Add `security-reviewer`
   whenever the diff touches a security trigger (below).
-- **6. Commit** — conventional commits (`feat:` / `fix:` / `refactor:` / …), one
+- **6. Commit** - conventional commits (`feat:` / `fix:` / `refactor:` / …), one
   per logical chunk. → **GATE 2.**
 
 ## The two gates
 
 This family is **gated, not autonomous**:
 
-1. **GATE 1 — after Plan.** Present the `task_list`; do not write implementation
+1. **GATE 1 - after Plan.** Present the `task_list`; do not write implementation
    code until the user approves.
-2. **GATE 2 — before Commit.** Present the diff summary and proposed messages;
+2. **GATE 2 - before Commit.** Present the diff summary and proposed messages;
    do not commit until the user confirms.
 
 Everything between the gates flows without stopping.
@@ -85,7 +85,7 @@ Everything between the gates flows without stopping.
 | Plan | `planner` | `architect`, `code-architect` for structural calls |
 | Implement | `tdd-guide` (or `tdd-workflow` skill) | `build-error-resolver` / `/build-fix` on build breaks |
 | Review | `code-reviewer` / `/code-review` | language reviewer (`python-reviewer`, `typescript-reviewer`, …) |
-| Security | `security-reviewer` | — |
+| Security | `security-reviewer` | - |
 | MVP inner loop | `/gan-build "<brief>" --skip-planner` | drives `gan-generator` → `gan-evaluator`; tune `--max-iterations` / `--pass-threshold` |
 
 Match the language reviewer to the repo (see the repo's own `CLAUDE.md`).
@@ -98,7 +98,7 @@ external API calls, cryptography, or secrets / credentials. (Per `rules/common/s
 
 ## Handoff artifacts
 
-The pipeline carries no hidden state — the planning docs *are* the handoff:
+The pipeline carries no hidden state - the planning docs *are* the handoff:
 
 - `task_list` (from Plan) drives the Implement loop.
 - Larger work may also emit PRD / architecture / system_design under the repo's

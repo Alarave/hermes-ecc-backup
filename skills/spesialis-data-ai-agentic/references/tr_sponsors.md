@@ -24,10 +24,10 @@ Bu projeye sponsor olan herkese teşekkürler! Desteğiniz ECC ekosisteminin bü
 
 Sponsorluğunuz şunlara yardımcı olur:
 
-- **Daha hızlı teslimat** — Araçlar ve özellikler geliştirmeye daha fazla zaman ayrılması
-- **Ücretsiz kalmasını sağlama** — Premium özellikler herkes için ücretsiz katmanı finanse eder
-- **Daha iyi destek** — Sponsorlar öncelikli yanıtlar alır
-- **Yol haritasını şekillendirme** — Pro+ sponsorlar özelliklere oy verir
+- **Daha hızlı teslimat** - Araçlar ve özellikler geliştirmeye daha fazla zaman ayrılması
+- **Ücretsiz kalmasını sağlama** - Premium özellikler herkes için ücretsiz katmanı finanse eder
+- **Daha iyi destek** - Sponsorlar öncelikli yanıtlar alır
+- **Yol haritasını şekillendirme** - Pro+ sponsorlar özelliklere oy verir
 
 ## Sponsor Hazırlık Sinyalleri
 

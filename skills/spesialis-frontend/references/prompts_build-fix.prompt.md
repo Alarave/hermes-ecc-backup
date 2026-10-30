@@ -1,6 +1,6 @@
 # Build Error Resolution
 
-Work through the error systematically. Fix root causes — do not suppress warnings or skip checks.
+Work through the error systematically. Fix root causes - do not suppress warnings or skip checks.
 
 ## Process
 
@@ -24,11 +24,11 @@ Paste or describe the complete error output (not just the last line). Include:
 
 ### 3. Fix strategy
 
-- **Type errors** — fix the type, do not cast to `any` or `unknown` unless truly unavoidable.
-- **Import errors** — verify the export exists; check for circular dependencies.
-- **Dependency errors** — update lockfile, reconcile peer dep versions, do not delete `node_modules` as a first step.
-- **Test failures** — fix the implementation if behavior is wrong; fix the test only if the test itself is incorrect.
-- **Lint errors** — fix the code, do not add `// eslint-disable` unless the rule is genuinely inapplicable and you document why.
+- **Type errors** - fix the type, do not cast to `any` or `unknown` unless truly unavoidable.
+- **Import errors** - verify the export exists; check for circular dependencies.
+- **Dependency errors** - update lockfile, reconcile peer dep versions, do not delete `node_modules` as a first step.
+- **Test failures** - fix the implementation if behavior is wrong; fix the test only if the test itself is incorrect.
+- **Lint errors** - fix the code, do not add `// eslint-disable` unless the rule is genuinely inapplicable and you document why.
 
 ### 4. Verify the fix
 After applying a fix, run the build/test command again. Confirm the specific error is resolved and no new errors were introduced.

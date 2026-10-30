@@ -12,15 +12,15 @@
 ## 不変性
 
 - 値型には `record` を優先（Java 16+）
-- フィールドはデフォルトで `final` にする — 可変状態は必要な場合のみ使用
+- フィールドはデフォルトで `final` にする - 可変状態は必要な場合のみ使用
 - public API からは防御的コピーを返す: `List.copyOf()`、`Map.copyOf()`、`Set.copyOf()`
 - コピーオンライト: 既存のインスタンスを変更するのではなく、新しいインスタンスを返す
 
 ```java
-// GOOD — 不変の値型
+// GOOD - 不変の値型
 public record OrderSummary(Long id, String customerName, BigDecimal total) {}
 
-// GOOD — final フィールド、setter なし
+// GOOD - final フィールド、setter なし
 public class Order {
     private final Long id;
     private final List<LineItem> items;
@@ -34,20 +34,20 @@ public class Order {
 ## 命名
 
 標準的な Java の慣例に従う:
-- `PascalCase` — クラス、インターフェース、レコード、列挙型
-- `camelCase` — メソッド、フィールド、パラメータ、ローカル変数
-- `SCREAMING_SNAKE_CASE` — `static final` 定数
+- `PascalCase` - クラス、インターフェース、レコード、列挙型
+- `camelCase` - メソッド、フィールド、パラメータ、ローカル変数
+- `SCREAMING_SNAKE_CASE` - `static final` 定数
 - パッケージ: すべて小文字、逆ドメイン（`com.example.app.service`）
 
 ## モダン Java 機能
 
 明確さを向上させるモダンな言語機能を使用する:
-- **レコード** — DTO と値型（Java 16+）
-- **シールドクラス** — 閉じた型階層（Java 17+）
-- **パターンマッチング** — `instanceof` で明示的キャスト不要（Java 16+）
-- **テキストブロック** — 複数行文字列（SQL、JSON テンプレート）（Java 15+）
-- **Switch 式** — アロー構文（Java 14+）
-- **switch でのパターンマッチング** — 網羅的なシールド型処理（Java 21+）
+- **レコード** - DTO と値型（Java 16+）
+- **シールドクラス** - 閉じた型階層（Java 17+）
+- **パターンマッチング** - `instanceof` で明示的キャスト不要（Java 16+）
+- **テキストブロック** - 複数行文字列（SQL、JSON テンプレート）（Java 15+）
+- **Switch 式** - アロー構文（Java 14+）
+- **switch でのパターンマッチング** - 網羅的なシールド型処理（Java 21+）
 
 ```java
 // パターンマッチング instanceof
@@ -69,7 +69,7 @@ String label = switch (status) {
 ## Optional の使い方
 
 - 結果がない可能性がある検索メソッドから `Optional<T>` を返す
-- `map()`、`flatMap()`、`orElseThrow()` を使用する — `isPresent()` なしで `get()` を呼ばない
+- `map()`、`flatMap()`、`orElseThrow()` を使用する - `isPresent()` なしで `get()` を呼ばない
 - `Optional` をフィールド型やメソッドパラメータとして使用しない
 
 ```java
@@ -78,7 +78,7 @@ return repository.findById(id)
     .map(ResponseDto::from)
     .orElseThrow(() -> new OrderNotFoundException(id));
 
-// BAD — パラメータとしての Optional
+// BAD - パラメータとしての Optional
 public void process(Optional<String> name) {}
 ```
 

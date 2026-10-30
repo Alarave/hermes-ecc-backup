@@ -1,9 +1,9 @@
 $ARGUMENTSから以下を解析:
-1. `brief` — 何をビルドするかのユーザーの一行説明
-2. `--max-iterations N` — （オプション、デフォルト15）ジェネレーター-エバリュエーターサイクルの最大回数
-3. `--pass-threshold N` — （オプション、デフォルト7.0）合格するための重み付きスコア
-4. `--skip-planner` — （オプション）プランナーをスキップし、spec.mdが既に存在すると想定
-5. `--eval-mode MODE` — （オプション、デフォルト"playwright"）次のいずれか: playwright, screenshot, code-only
+1. `brief` - 何をビルドするかのユーザーの一行説明
+2. `--max-iterations N` - （オプション、デフォルト15）ジェネレーター-エバリュエーターサイクルの最大回数
+3. `--pass-threshold N` - （オプション、デフォルト7.0）合格するための重み付きスコア
+4. `--skip-planner` - （オプション）プランナーをスキップし、spec.mdが既に存在すると想定
+5. `--eval-mode MODE` - （オプション、デフォルト"playwright"）次のいずれか: playwright, screenshot, code-only
 
 ## GANスタイルハーネスビルド
 
@@ -55,7 +55,7 @@ while iteration <= max_iterations:
         中断
 
     if iteration >= 3 and 直近2イテレーションでスコアが改善していない:
-        "プラトー検出 — 早期停止" をログ
+        "プラトー検出 - 早期停止" をログ
         中断
 
     iteration += 1

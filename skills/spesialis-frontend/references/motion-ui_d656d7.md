@@ -2,7 +2,7 @@
 
 Production-ready UI motion system for React / Next.js.
 
-Focused on **performance, accessibility, and usability** — not decoration.
+Focused on **performance, accessibility, and usability** - not decoration.
 
 ## When to Use
 
@@ -59,7 +59,7 @@ npm install motion
 * `motion/react` - default for current Motion for React projects (package: `motion`)
 * `framer-motion` - legacy import path for projects that still depend on Framer Motion
 
-**Do not mix.** Mixing causes conflicting internal schedulers and broken `AnimatePresence` contexts — components from one package will not coordinate exit animations with components from the other.
+**Do not mix.** Mixing causes conflicting internal schedulers and broken `AnimatePresence` contexts - components from one package will not coordinate exit animations with components from the other.
 
 To check which version your project uses:
 
@@ -221,7 +221,7 @@ export function FadeIn() {
 
 #### AnimatePresence `mode`
 
-Always specify `mode` explicitly — the default (`"sync"`) runs enter and exit simultaneously, which causes visual overlap in most UI patterns.
+Always specify `mode` explicitly - the default (`"sync"`) runs enter and exit simultaneously, which causes visual overlap in most UI patterns.
 
 | `mode` | When to use |
 |---|---|
@@ -230,12 +230,12 @@ Always specify `mode` explicitly — the default (`"sync"`) runs enter and exit 
 | `"popLayout"` | Exiting element is popped out of flow immediately; remaining items animate to fill. Use for **lists, tabs, dismissible cards**. |
 
 ```tsx
-// Modal — always use "wait"
+// Modal - always use "wait"
 <AnimatePresence mode="wait">
   {open && <Modal key="modal" />}
 </AnimatePresence>
 
-// Dismissible list item — use "popLayout"
+// Dismissible list item - use "popLayout"
 <AnimatePresence mode="popLayout">
   {items.map(item => <Card key={item.id} />)}
 </AnimatePresence>
@@ -544,7 +544,7 @@ export function Skeleton() {
       className="bg-gray-200 h-6 w-full rounded"
       animate={{ opacity: [0.5, 1, 0.5] }}
       transition={{
-        duration: 1.5,       // comfortable pulse — was missing, caused fast flash
+        duration: 1.5,       // comfortable pulse - was missing, caused fast flash
         repeat: Infinity,
         ease: "easeInOut"
       }}

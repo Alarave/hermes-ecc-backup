@@ -1,6 +1,6 @@
 # Windows Desktop E2E Testing
 
-End-to-end testing for Windows native desktop applications using **pywinauto** backed by Windows UI Automation (UIA). Covers WPF, WinForms, Win32/MFC, and Qt (5.x / 6.x) — with Qt-specific guidance as a dedicated section.
+End-to-end testing for Windows native desktop applications using **pywinauto** backed by Windows UI Automation (UIA). Covers WPF, WinForms, Win32/MFC, and Qt (5.x / 6.x) - with Qt-specific guidance as a dedicated section.
 
 ## When to Activate
 
@@ -38,7 +38,7 @@ Your test (Python)
 | UWP / WinUI 3 | 5/5 | Excellent | Full Microsoft support |
 | Qt 6.x | 5/5 | Excellent | Accessibility enabled by default; class names change to `Qt6*` |
 | Qt 5.15+ | 4/5 | Good | Improved Accessibility module |
-| Qt 5.7–5.14 | 3/5 | Fair | Needs `QT_ACCESSIBILITY=1`; objectName manual |
+| Qt 5.7-5.14 | 3/5 | Fair | Needs `QT_ACCESSIBILITY=1`; objectName manual |
 | Win32 / MFC | 3/5 | Fair | Control IDs accessible; text matching common |
 
 ## Setup & Prerequisites
@@ -57,7 +57,7 @@ from pywinauto import Desktop
 Desktop(backend="uia").windows()  # lists all top-level windows
 ```
 
-Install **Accessibility Insights for Windows** (free, from Microsoft) — your DevTools equivalent for inspecting the UIA element tree before writing any test.
+Install **Accessibility Insights for Windows** (free, from Microsoft) - your DevTools equivalent for inspecting the UIA element tree before writing any test.
 
 ## Testability Setup (by Framework)
 
@@ -91,7 +91,7 @@ lblError.AccessibleName = "lblError";
 // Prefer SetWindowText for Name; add IAccessible for richer support
 ```
 
-### Qt — see dedicated section below
+### Qt - see dedicated section below
 
 ---
 
@@ -128,7 +128,7 @@ class BasePage:
     # --- Locators (priority order) ---
 
     def by_id(self, auto_id, **kw):
-        """AutomationId — most stable. Use as first choice."""
+        """AutomationId - most stable. Use as first choice."""
         return self.window.child_window(auto_id=auto_id, **kw)
 
     def by_name(self, name, **kw):
@@ -136,7 +136,7 @@ class BasePage:
         return self.window.child_window(title=name, **kw)
 
     def by_class(self, cls, index=0, **kw):
-        """Control class + index — fragile, avoid if possible."""
+        """Control class + index - fragile, avoid if possible."""
         return self.window.child_window(class_name=cls, found_index=index, **kw)
 
     # --- Waits ---
@@ -156,7 +156,7 @@ class BasePage:
         return dlg
 
     def wait_until(self, fn, timeout=ACTION_TIMEOUT, interval=0.3):
-        """Poll an arbitrary condition — use when UIA events are unreliable."""
+        """Poll an arbitrary condition - use when UIA events are unreliable."""
         deadline = time.time() + timeout
         while time.time() < deadline:
             try:
@@ -241,7 +241,7 @@ class LoginPage(BasePage):
 
 ### conftest.py
 
-> For new projects prefer the **Tier 1 sandbox fixture** (see below) — it adds filesystem isolation at zero extra cost. This basic fixture is for minimal/legacy setups only.
+> For new projects prefer the **Tier 1 sandbox fixture** (see below) - it adds filesystem isolation at zero extra cost. This basic fixture is for minimal/legacy setups only.
 
 ```python
 import os, pytest
@@ -268,7 +268,7 @@ def app(request):
         except Exception:
             pass
     # Graceful exit first, force-kill as fallback
-    # proc is a pywinauto Application — use wait_for_process_exit(), not wait_for_process()
+    # proc is a pywinauto Application - use wait_for_process_exit(), not wait_for_process()
     try:
         win.close()
         proc.wait_for_process_exit(timeout=5)
@@ -285,7 +285,7 @@ def pytest_runtest_makereport(item, call):
 
 ```python
 import os
-APP_PATH          = os.environ.get("APP_PATH", "")           # set via env — no default path
+APP_PATH          = os.environ.get("APP_PATH", "")           # set via env - no default path
 MAIN_WINDOW_TITLE = os.environ.get("APP_TITLE", "")
 LAUNCH_TIMEOUT    = int(os.environ.get("LAUNCH_TIMEOUT", "15"))
 ACTION_TIMEOUT    = int(os.environ.get("ACTION_TIMEOUT", "10"))
@@ -313,7 +313,7 @@ AutomationId  >  Name (text)  >  ClassName + index  >  XPath
 Inspect with Accessibility Insights → **Properties** pane → look for `AutomationId` first.
 
 ```python
-# Inspect at runtime — paste into a REPL to explore the tree
+# Inspect at runtime - paste into a REPL to explore the tree
 win.print_control_identifiers()
 # or narrow scope:
 win.child_window(auto_id="groupBox1").print_control_identifiers()
@@ -335,7 +335,7 @@ dlg = page.wait_window("Confirm Delete")
 page.wait_until(lambda: page.get_text(page.by_id("lblStatus")) == "Ready")
 ```
 
-**Never use `time.sleep()` as primary synchronization** — use `wait()` or `wait_until()`.
+**Never use `time.sleep()` as primary synchronization** - use `wait()` or `wait_until()`.
 
 ## Artifact Management
 
@@ -362,7 +362,7 @@ def stop_recording(proc):
 
 ## Per-Step Trace (opt-in)
 
-The default failure screenshot is often too thin for diagnosing flaky tests. The step-level trace below is **off by default** — enable it only when reproducing a flaky case.
+The default failure screenshot is often too thin for diagnosing flaky tests. The step-level trace below is **off by default** - enable it only when reproducing a flaky case.
 
 ### Enable
 
@@ -414,7 +414,7 @@ class BasePage:
 ### Caveats
 
 - **PII / credentials**: `type_text` content is `<redacted>` by default. Never set `E2E_TRACE_INCLUDE_TEXT=1` on login or payment flows.
-- **Overhead**: ~50–200ms per action + one PNG per step on disk. Don't enable on the default CI matrix — only on a dedicated flake-repro job.
+- **Overhead**: ~50-200ms per action + one PNG per step on disk. Don't enable on the default CI matrix - only on a dedicated flake-repro job.
 - **Artifact bloat**: a long flow produces tens of MB; tune `retention-days` accordingly.
 - **Parallel/rerun hygiene**: this simple example appends to `trace.jsonl` and uses a class-level counter. Clear the artifact directory before reruns, and use per-worker artifact dirs for parallel tests.
 - **Coverage gap**: actions performed outside `BasePage` (raw `pywinauto` calls in test code) are not traced.
@@ -422,7 +422,7 @@ class BasePage:
 ## Flaky Test Handling
 
 ```python
-# Quarantine — equivalent to Playwright's test.fixme()
+# Quarantine - equivalent to Playwright's test.fixme()
 @pytest.mark.skip(reason="Flaky: animation race on slow CI. Issue #42")
 def test_animated_transition(self, app): ...
 
@@ -440,19 +440,19 @@ Common causes and fixes:
 | Animation in progress | `wait_until(lambda: not loading_indicator.exists())` |
 | Dialog timing | `wait_window(title, timeout=15)` |
 | CI display not ready | Set `DISPLAY` or use virtual desktop in CI |
-| `set_edit_text` raises NotImplementedError | UIA ValuePattern missing (common on Qt 5.x) — `BasePage.type_text` already falls back to `keyboard.send_keys` |
-| Control exists but `wait_visible` times out | Window minimised or off-screen — call `win.restore()` + `win.set_focus()` before waiting |
+| `set_edit_text` raises NotImplementedError | UIA ValuePattern missing (common on Qt 5.x) - `BasePage.type_text` already falls back to `keyboard.send_keys` |
+| Control exists but `wait_visible` times out | Window minimised or off-screen - call `win.restore()` + `win.set_focus()` before waiting |
 
 ## Test Isolation & Sandbox
 
-Three tiers of isolation — use the lightest tier that satisfies your needs.
+Three tiers of isolation - use the lightest tier that satisfies your needs.
 
-### Tier 1 — Filesystem Isolation (default, always use)
+### Tier 1 - Filesystem Isolation (default, always use)
 
 Each test gets its own `APPDATA` / `LOCALAPPDATA` / `TEMP` via `subprocess.Popen` and `Application.connect()`. pytest's `tmp_path` fixture handles cleanup automatically.
 
 ```python
-# conftest.py — replace the basic `app` fixture with this
+# conftest.py - replace the basic `app` fixture with this
 import os, subprocess, pytest
 from pywinauto import Application
 from config import APP_PATH, APP_ARGS, APP_TITLE, LAUNCH_TIMEOUT, ACTION_TIMEOUT, ARTIFACT_DIR
@@ -508,7 +508,7 @@ def pytest_runtest_makereport(item, call):
     setattr(item, f"rep_{outcome.get_result().when}", outcome.get_result())
 ```
 
-### Tier 2 — Windows Job Object (optional: process-lifetime containment)
+### Tier 2 - Windows Job Object (optional: process-lifetime containment)
 
 Attach the process to a Job Object so it is **automatically terminated** when
 the test fixture's job handle is GC'd. Also prevents the app from spawning
@@ -528,7 +528,7 @@ def restrict_process(pid: int):
     """
     Attach the process to a Job Object that prevents it from:
     - spawning processes outside the job (LIMIT_KILL_ON_JOB_CLOSE)
-    Does NOT block network — use Windows Firewall rules for that.
+    Does NOT block network - use Windows Firewall rules for that.
     """
     JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE = 0x00002000
     # Minimal rights: SET_QUOTA (0x0100) | TERMINATE (0x0001)
@@ -538,7 +538,7 @@ def restrict_process(pid: int):
     job   = kernel32.CreateJobObjectW(None, None)
     hproc = kernel32.OpenProcess(PROCESS_SET_QUOTA_AND_TERMINATE, False, pid)
 
-    # Correct struct layout — LimitFlags is at offset +16, not +44
+    # Correct struct layout - LimitFlags is at offset +16, not +44
     class JOBOBJECT_BASIC_LIMIT_INFORMATION(ctypes.Structure):
         _fields_ = [
             ("PerProcessUserTimeLimit", wt.LARGE_INTEGER),
@@ -559,12 +559,12 @@ def restrict_process(pid: int):
         raise ctypes.WinError()
     kernel32.AssignProcessToJobObject(job, hproc)
     kernel32.CloseHandle(hproc)
-    return job  # keep alive — job closes (kills proc) when GC'd
+    return job  # keep alive - job closes (kills proc) when GC'd
 
 # After proc = subprocess.Popen(...):  job = restrict_process(proc.pid)
 ```
 
-### Tier 3 — Windows Sandbox (CI full-OS isolation)
+### Tier 3 - Windows Sandbox (CI full-OS isolation)
 
 When you need a clean Windows image per run (no leftover registry keys, no
 shared GPU state, true isolation), run the **entire test suite** inside
@@ -616,13 +616,13 @@ Launch: `WindowsSandbox.exe e2e-sandbox.wsb`
 
 | Tier | Isolation | Setup cost | Works on CI | Use when |
 |------|-----------|-----------|-------------|----------|
-| 1 — `tmp_path` env redirect | Filesystem | Zero | Always | Default for all tests |
-| 2 — Job Object | Process tree | Low | Always | Prevent child-process escape |
-| 3 — Windows Sandbox | Full OS | Medium | Needs Pro/Enterprise image | Nightly clean-room runs |
+| 1 - `tmp_path` env redirect | Filesystem | Zero | Always | Default for all tests |
+| 2 - Job Object | Process tree | Low | Always | Prevent child-process escape |
+| 3 - Windows Sandbox | Full OS | Medium | Needs Pro/Enterprise image | Nightly clean-room runs |
 
 ### Prevent hanging tests
 
-Add `pytest-timeout` to cap any single test. In `pytest.ini` set `timeout = 60` and `timeout_method = thread`. Note: `thread` method cannot kill Qt app subprocesses on Windows — add `atexit.register(lambda: [p.kill() for p in psutil.Process().children(recursive=True)])` in `conftest.py` to reap orphans.
+Add `pytest-timeout` to cap any single test. In `pytest.ini` set `timeout = 60` and `timeout_method = thread`. Note: `thread` method cannot kill Qt app subprocesses on Windows - add `atexit.register(lambda: [p.kill() for p in psutil.Process().children(recursive=True)])` in `conftest.py` to reap orphans.
 
 ## CI/CD Integration
 
@@ -665,10 +665,10 @@ jobs:
 
 ### Enable UIA in Qt 5.x
 
-Qt 5.x accessibility is disabled by default in some builds (especially 5.7–5.14). Set the environment variable **before** launching. Qt 6.x enables accessibility by default — skip this step for Qt 6.
+Qt 5.x accessibility is disabled by default in some builds (especially 5.7-5.14). Set the environment variable **before** launching. Qt 6.x enables accessibility by default - skip this step for Qt 6.
 
 ```python
-# conftest.py — add at module top
+# conftest.py - add at module top
 import os
 os.environ["QT_ACCESSIBILITY"] = "1"
 ```
@@ -708,7 +708,7 @@ Centralise all IDs in a header to avoid typos:
 
 ### Qt-Specific Quirks
 
-**QComboBox** — the dropdown is a separate top-level window:
+**QComboBox** - the dropdown is a separate top-level window:
 
 ```python
 from pywinauto import Desktop
@@ -716,21 +716,21 @@ from pywinauto import Desktop
 def select_combo_item(page, combo_spec, item_text):
     page.click(combo_spec)
     # Dropdown appears as a new root-level window
-    # class_name varies by Qt version — verify with Accessibility Insights
-    # Qt 5.x: "Qt5QWindowIcon"  |  Qt 6.x: "Qt6QWindowIcon" — verify with Accessibility Insights
+    # class_name varies by Qt version - verify with Accessibility Insights
+    # Qt 5.x: "Qt5QWindowIcon"  |  Qt 6.x: "Qt6QWindowIcon" - verify with Accessibility Insights
     popup = Desktop(backend="uia").window(class_name_re="Qt[56]QWindowIcon")
     popup.wait("visible", timeout=5)
     popup.child_window(title=item_text).click_input()
 ```
 
-**QMessageBox / QDialog** — also separate top-level windows:
+**QMessageBox / QDialog** - also separate top-level windows:
 
 ```python
 dlg = page.wait_window("Confirm")          # wait for dialog title
 dlg.child_window(title="OK").click_input() # click button inside it
 ```
 
-**QTableWidget / QTableView** — row/cell access:
+**QTableWidget / QTableView** - row/cell access:
 
 ```python
 table = page.by_id("tblUsers").wrapper_object()
@@ -738,7 +738,7 @@ cell  = table.cell(row=0, column=1)
 print(cell.window_text())
 ```
 
-**Self-drawn controls** (`paintEvent`-only, `QGraphicsView`, `QOpenGLWidget`) — UIA cannot see their internals. Use the Fallback section below.
+**Self-drawn controls** (`paintEvent`-only, `QGraphicsView`, `QOpenGLWidget`) - UIA cannot see their internals. Use the Fallback section below.
 
 ## Fallback: Screenshot Mode
 
@@ -778,21 +778,21 @@ def click_image(template_path, confidence=0.85):
 
 Screenshot matching is brutally sensitive to Windows display scaling (100% / 125% / 150%). Three hard rules:
 
-1. **Capture templates at the same scale as the target machine.** Don't try to rescue a mismatch with `PIL.Image.resize` — `cv2.matchTemplate` is very fragile against resampling artefacts.
+1. **Capture templates at the same scale as the target machine.** Don't try to rescue a mismatch with `PIL.Image.resize` - `cv2.matchTemplate` is very fragile against resampling artefacts.
 2. **Pin the CI display scaling.** On `windows-latest` add a step like `Set-DisplayResolution 1920 1080 -Force` and disable per-monitor DPI scaling, so screenshot dimensions are reproducible.
-3. **Record the scale alongside each artefact.** On capture, write `GetDpiForWindow(hwnd) / 96` to `artifacts/<test>/metadata.json` — postmortems become obvious instead of guess-work.
+3. **Record the scale alongside each artefact.** On capture, write `GetDpiForWindow(hwnd) / 96` to `artifacts/<test>/metadata.json` - postmortems become obvious instead of guess-work.
 
 > Process-level DPI awareness (`SetProcessDpiAwarenessContext`) **can conflict with Qt's own DPI handling** when the app under test is Qt-based. Prefer "same-scale templates + CI pin" over flipping process-wide DPI mode in fixtures.
 
 ### Debugging Match Confidence
 
-When tuning the `confidence` threshold, the only sane workflow is to **see** where the match landed. The helper below is diagnosis-only — do not call it from test code.
+When tuning the `confidence` threshold, the only sane workflow is to **see** where the match landed. The helper below is diagnosis-only - do not call it from test code.
 
 ```python
 def debug_match(template_path, out="artifacts/match_debug.png", confidence=0.85):
     """Diagnosis-only. Draw the best-match rectangle + score back on the current screen.
 
-    NOT for production tests — use when calibrating confidence or chasing false matches.
+    NOT for production tests - use when calibrating confidence or chasing false matches.
     """
     import os, cv2, pyautogui, numpy as np
     screen = np.array(pyautogui.screenshot())[:, :, ::-1]
@@ -812,7 +812,7 @@ def debug_match(template_path, out="artifacts/match_debug.png", confidence=0.85)
     return mv
 ```
 
-**Use sparingly** — image matching breaks on DPI changes, theme switches, and partial occlusion.
+**Use sparingly** - image matching breaks on DPI changes, theme switches, and partial occlusion.
 Always try UIA first; fall back to screenshots only for genuinely unreachable controls.
 
 ## Anti-Patterns
@@ -876,6 +876,6 @@ pytest tests/test_login.py --count=5 -v
 
 ## Related Skills
 
-- `e2e-testing` — Playwright E2E for web applications
-- `cpp-testing` — C++ unit/integration testing with GoogleTest
-- `cpp-coding-standards` — C++ code style and patterns
+- `e2e-testing` - Playwright E2E for web applications
+- `cpp-testing` - C++ unit/integration testing with GoogleTest
+- `cpp-coding-standards` - C++ code style and patterns

@@ -1,9 +1,9 @@
-# plugins/ecc — Codex Repo-Marketplace Plugin Target
+# plugins/ecc - Codex Repo-Marketplace Plugin Target
 
 This directory is the plugin folder that `.agents/plugins/marketplace.json`
 points at. Codex does not discover plugins whose local marketplace
 `source.path` is the marketplace root itself (`./`), so the marketplace entry
-must target a concrete plugin subdirectory — verified against Codex CLI
+must target a concrete plugin subdirectory - verified against Codex CLI
 0.137.0 and the official plugin docs (`$REPO_ROOT/plugins/<name>`).
 
 ## Single source of truth
@@ -21,14 +21,14 @@ parent-relative paths:
 The canonical Codex plugin manifest for the repo-root bundle (used by the
 official `openai/plugins` directory shape and other harness tooling) remains
 at `.codex-plugin/plugin.json`. Keep `name` and `version` in both manifests in
-sync — `tests/plugin-manifest.test.js` enforces this and `scripts/release.sh`
+sync - `tests/plugin-manifest.test.js` enforces this and `scripts/release.sh`
 bumps both.
 
 ## Current Codex plugin-mode status
 
 With this layout, `codex plugin marketplace add affaan-m/ECC` discovers and
 installs `ecc@ecc`. Runtime skill loading from repo marketplaces is still
-unreliable upstream — Codex copies only the plugin folder into its install
+unreliable upstream - Codex copies only the plugin folder into its install
 cache, and local/personal marketplace plugins are not always exposed at
 runtime (see [openai/codex#26037](https://github.com/openai/codex/issues/26037)
 and [affaan-m/ECC#2128](https://github.com/affaan-m/ECC/issues/2128)).

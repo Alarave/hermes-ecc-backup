@@ -160,5 +160,5 @@ deep_researcher_check(researchId: "<id>")
 
 ## Related Skills
 
-- `deep-research` — Full research workflow using firecrawl + exa together
-- `market-research` — Business-oriented research with decision frameworks
+- `deep-research` - Full research workflow using firecrawl + exa together
+- `market-research` - Business-oriented research with decision frameworks

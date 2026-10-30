@@ -37,14 +37,14 @@ Seluruh eksekusi wajib dipecah menjadi 6 fase atomik berdasarkan standar **CRISP
   - Gunakan pemudaran lag autokorelasi (ACF/PACF) untuk justifikasi saintifik penetapan batas jendela *look_back*.
 
 ### 3. Data Preparation (The Ultimate Data Transformation Pipeline)
-- **Anti-Leakage Decomposition (*Moving Front / Padding*)**: Pisahkan *Train* dan *Test* **sebelum** dekomposisi. Saat CEEMDAN memproses *Test Set*, tempelkan (*pad*) jendela jangkar historis (misal: 100–200 baris terakhir dari *Train*) di pangkalnya untuk meredam *endpoint distortion*, lalu potong kembali pasca-dekomposisi.
+- **Anti-Leakage Decomposition (*Moving Front / Padding*)**: Pisahkan *Train* dan *Test* **sebelum** dekomposisi. Saat CEEMDAN memproses *Test Set*, tempelkan (*pad*) jendela jangkar historis (misal: 100-200 baris terakhir dari *Train*) di pangkalnya untuk meredam *endpoint distortion*, lalu potong kembali pasca-dekomposisi.
 - **Kalibrasi Parameter CEEMDAN Saintifik**: Tetapkan *noise standard deviation* ($\epsilon$) sebesar 0.2 dari $\sigma_{\text{train}}$ dan *ensemble size* ($50 \le N \le 100$) agar *sifting process* CEEMDAN optimal.
 - **Reduksi Co-IMF (Sample Entropy + K-Means)**: Hitung entropi IMF *Train Set*. Latih K-Means ($k=3$) pada nilai entropi tersebut, lalu gabungkan belasan IMF menjadi 3 Co-IMF (HF, MF, LF). Pakai fungsi `.predict()` untuk memetakan IMF di *Test Set*.
 - **Seleksi Fitur Non-Linear Berbasis MIC**: Jika terdapat variabel eksternal multivariat, hitung **Maximal Information Coefficient (MIC)** terhadap masing-masing Co-IMF. Buang fitur dengan MIC $< 0.15$. (Jalur HF/Noise wajib murni univariat tanpa fitur luar).
 - **Penskalaan Terkunci & Mandiri**: Gunakan 3 objek `MinMaxScaler` terpisah untuk tiap Co-IMF. Wajib batasi `.fit()` murni pada *Train Set*, sedangkan *Test Set* hanya menggunakan `.transform()`.
 - **First-Difference & Multi-Scale Tensor**: 
   - Terapkan `np.diff` tingkat-1 pada Co-IMF LF/Tren jika uji ADF menunjukkan non-stasioner.
-  - Bentuk tensor 3D (`[samples, time_steps, features]`) dengan *look-back window* asimetris: HF sangat pendek (misal 5), MF menengah (misal 20), LF sangat panjang (misal 40–60).
+  - Bentuk tensor 3D (`[samples, time_steps, features]`) dengan *look-back window* asimetris: HF sangat pendek (misal 5), MF menengah (misal 20), LF sangat panjang (misal 40-60).
 
 ### 4. Modeling (Differentiated Multi-Scale & Hybrid Routing)
 - **Co-IMF HF (High-Frequency)**: *Look-back* sangat pendek (5), model ringan (1 lapis LSTM/Informer, 16 unit), tanpa data eksternal.

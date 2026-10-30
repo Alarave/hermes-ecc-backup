@@ -114,9 +114,9 @@ genhtml coverage.info --output-directory coverage_html
 
 ## 関連コマンド
 
-- `/cpp-build` — ビルドエラーを修正
-- `/cpp-review` — 実装後にコードをレビュー
-- `verification-loop`スキル — 完全な検証ループを実行
+- `/cpp-build` - ビルドエラーを修正
+- `/cpp-review` - 実装後にコードをレビュー
+- `verification-loop`スキル - 完全な検証ループを実行
 
 ## 関連
 

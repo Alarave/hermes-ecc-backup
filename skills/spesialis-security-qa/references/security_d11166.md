@@ -9,7 +9,7 @@
 
 ## 输入验证
 
-* 使用允许列表正则表达式进行去污化 — 绝不要使用 `/(.*)/s`
+* 使用允许列表正则表达式进行去污化 - 绝不要使用 `/(.*)/s`
 * 使用明确的模式验证所有用户输入：
 
 ```perl
@@ -20,7 +20,7 @@ if ($input =~ /\A([a-zA-Z0-9_-]+)\z/) {
 
 ## 文件 I/O
 
-* **仅使用三参数 open** — 绝不要使用两参数 open
+* **仅使用三参数 open** - 绝不要使用两参数 open
 * 使用 `Cwd::realpath` 防止路径遍历：
 
 ```perl
@@ -31,7 +31,7 @@ die "Path traversal" unless $safe_path =~ m{\A/allowed/directory/};
 
 ## 进程执行
 
-* 使用 **列表形式的 `system()`** — 绝不要使用单字符串形式
+* 使用 **列表形式的 `system()`** - 绝不要使用单字符串形式
 * 使用 **IPC::Run3** 来捕获输出
 * 绝对不要在反引号中使用变量插值
 
@@ -41,7 +41,7 @@ system('grep', '-r', $pattern, $directory);  # safe
 
 ## SQL 注入预防
 
-始终使用 DBI 占位符 — 绝不要将变量插值到 SQL 中：
+始终使用 DBI 占位符 - 绝不要将变量插值到 SQL 中：
 
 ```perl
 my $sth = $dbh->prepare('SELECT * FROM users WHERE email = ?');

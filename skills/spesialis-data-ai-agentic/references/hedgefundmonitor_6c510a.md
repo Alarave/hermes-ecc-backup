@@ -40,20 +40,20 @@ None required. The API is fully open and free.
 
 | Key | Dataset | Update Frequency |
 |-----|---------|-----------------|
-| `fpf` | SEC Form PF — aggregated stats from qualifying hedge fund filings | Quarterly |
-| `tff` | CFTC Traders in Financial Futures — futures market positioning | Monthly |
+| `fpf` | SEC Form PF - aggregated stats from qualifying hedge fund filings | Quarterly |
+| `tff` | CFTC Traders in Financial Futures - futures market positioning | Monthly |
 | `scoos` | FRB Senior Credit Officer Opinion Survey on Dealer Financing Terms | Quarterly |
 | `ficc` | FICC Sponsored Repo Service Volumes | Monthly |
 
 ## Data Categories
 
 The HFM organizes data into six categories (each downloadable as CSV):
-- **size** — Hedge fund industry size (AUM, count of funds, net/gross assets)
-- **leverage** — Leverage ratios, borrowing, gross notional exposure
-- **counterparties** — Counterparty concentration, prime broker lending
-- **liquidity** — Financing maturity, investor redemption terms, portfolio liquidity
-- **complexity** — Open positions, strategy distribution, asset class exposure
-- **risk_management** — Stress test results (CDS, equity, rates, FX scenarios)
+- **size** - Hedge fund industry size (AUM, count of funds, net/gross assets)
+- **leverage** - Leverage ratios, borrowing, gross notional exposure
+- **counterparties** - Counterparty concentration, prime broker lending
+- **liquidity** - Financing maturity, investor redemption terms, portfolio liquidity
+- **complexity** - Open positions, strategy distribution, asset class exposure
+- **risk_management** - Stress test results (CDS, equity, rates, FX scenarios)
 
 ## Core Endpoints
 
@@ -107,11 +107,11 @@ mnemonics = [
 
 ## Reference Files
 
-- **[references/api-overview.md](references/api-overview.md)** — Base URL, versioning, protocols, response format
-- **[references/endpoints-metadata.md](references/endpoints-metadata.md)** — Mnemonics, query, and search endpoints with full parameter details
-- **[references/endpoints-series-data.md](references/endpoints-series-data.md)** — Timeseries, spread, and full data endpoints
-- **[references/endpoints-combined.md](references/endpoints-combined.md)** — Full, multifull, dataset, and category endpoints
-- **[references/datasets.md](references/datasets.md)** — Dataset descriptions (fpf, tff, scoos, ficc) and dataset-specific notes
-- **[references/parameters.md](references/parameters.md)** — Complete parameter reference with periodicity codes, how values
-- **[references/examples.md](references/examples.md)** — Python examples: discovery, bulk download, spread analysis, DataFrame workflows
+- **[references/api-overview.md](references/api-overview.md)** - Base URL, versioning, protocols, response format
+- **[references/endpoints-metadata.md](references/endpoints-metadata.md)** - Mnemonics, query, and search endpoints with full parameter details
+- **[references/endpoints-series-data.md](references/endpoints-series-data.md)** - Timeseries, spread, and full data endpoints
+- **[references/endpoints-combined.md](references/endpoints-combined.md)** - Full, multifull, dataset, and category endpoints
+- **[references/datasets.md](references/datasets.md)** - Dataset descriptions (fpf, tff, scoos, ficc) and dataset-specific notes
+- **[references/parameters.md](references/parameters.md)** - Complete parameter reference with periodicity codes, how values
+- **[references/examples.md](references/examples.md)** - Python examples: discovery, bulk download, spread analysis, DataFrame workflows
 

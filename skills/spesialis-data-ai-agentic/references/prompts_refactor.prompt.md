@@ -32,10 +32,10 @@ Improve the internal structure of the selected code without changing its observa
 - Align naming with the domain language used elsewhere in the codebase
 
 ## Constraints
-- **No behavior changes** — refactoring is purely structural.
-- **One concern at a time** — do not mix refactoring with feature work or bug fixes.
-- **Keep tests green** — run the suite after each meaningful change.
-- **Don't add abstractions preemptively** — extract only what has already proven to be duplicated (rule of three).
+- **No behavior changes** - refactoring is purely structural.
+- **One concern at a time** - do not mix refactoring with feature work or bug fixes.
+- **Keep tests green** - run the suite after each meaningful change.
+- **Don't add abstractions preemptively** - extract only what has already proven to be duplicated (rule of three).
 
 ## Output
 After refactoring, summarize:

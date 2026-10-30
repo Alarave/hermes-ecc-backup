@@ -19,7 +19,7 @@ Missing `htmlFor` / `id` pairing and disconnected error messages are the most co
 ### Label Connection
 
 ```tsx
-// BAD: label has no connection to input — screen readers cannot associate them
+// BAD: label has no connection to input - screen readers cannot associate them
 <label>Email</label>
 <input type="email" />
 
@@ -175,12 +175,12 @@ Use ARIA only when native HTML semantics are insufficient. Wrong ARIA is worse t
 ### aria-label vs aria-labelledby
 
 ```tsx
-// aria-label: inline string label — use when no visible label text exists
+// aria-label: inline string label - use when no visible label text exists
 <button aria-label="Close modal">
   <XIcon />
 </button>
 
-// aria-labelledby: references another element's text — use when a visible label exists
+// aria-labelledby: references another element's text - use when a visible label exists
 <section aria-labelledby="section-title">
   <h2 id="section-title">Recent Orders</h2>
   {/* content */}
@@ -204,7 +204,7 @@ Use ARIA only when native HTML semantics are insufficient. Wrong ARIA is worse t
 ```tsx
 // Use aria-live to announce content that updates without a page reload
 // polite: waits for user to finish current action before announcing
-// assertive: interrupts immediately — use only for urgent errors
+// assertive: interrupts immediately - use only for urgent errors
 
 export function StatusMessage({ message, isError }: { message: string; isError?: boolean }) {
   return (
@@ -306,7 +306,7 @@ export function Dropdown({ options, onSelect }: { options: string[]; onSelect: (
 
 ## Focus Management
 
-Focus must move logically when UI state changes — especially for modals and route transitions.
+Focus must move logically when UI state changes - especially for modals and route transitions.
 
 ### Modal Focus Restoration
 
@@ -408,7 +408,7 @@ export function AnimatedCard({ children }: { children: React.ReactNode }) {
 // BAD: positive tabIndex creates unpredictable tab order
 <button tabIndex={3}>Submit</button>
 
-// BAD: aria-hidden on a focusable element — keyboard users get trapped
+// BAD: aria-hidden on a focusable element - keyboard users get trapped
 <button aria-hidden="true">Open</button>
 
 // BAD: role="button" on div without keyboard handler
@@ -431,6 +431,6 @@ Before submitting any interactive component for review:
 
 ## Related Skills
 
-- `frontend-patterns` — general React component and state patterns
-- `design-system` — design token and component consistency
-- `motion-ui` — animation patterns with accessibility considerations
+- `frontend-patterns` - general React component and state patterns
+- `design-system` - design token and component consistency
+- `motion-ui` - animation patterns with accessibility considerations

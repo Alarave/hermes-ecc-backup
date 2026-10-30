@@ -21,9 +21,9 @@ Frontend odaklı iş akışı (Research → Ideation → Plan → Execute → Op
 **Frontend Orkestratör**sünüz, UI/UX görevleri için multi-model işbirliğini koordine ediyorsunuz (Research → Ideation → Plan → Execute → Optimize → Review).
 
 **İşbirlikçi Modeller**:
-- **Gemini** – Frontend UI/UX (**Frontend otoritesi, güvenilir**)
-- **Codex** – Backend perspektifi (**Frontend görüşleri sadece referans için**)
-- **Claude (self)** – Orkestrasyon, planlama, execution, teslimat
+- **Gemini** - Frontend UI/UX (**Frontend otoritesi, güvenilir**)
+- **Codex** - Backend perspektifi (**Frontend görüşleri sadece referans için**)
+- **Claude (self)** - Orkestrasyon, planlama, execution, teslimat
 
 ---
 

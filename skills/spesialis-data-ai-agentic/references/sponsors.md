@@ -2,7 +2,7 @@
 
 Thank you to everyone funding ECC's open-source work. Your sponsorship is what lets the OSS layer stay free while the GitHub App, hosted security scans, and continuous improvements ship every week.
 
-## Strategic Sponsors — $3,700/mo
+## Strategic Sponsors - $3,700/mo
 
 *Become a [Strategic sponsor](https://github.com/sponsors/affaan-m) to be featured here.*
 
@@ -20,7 +20,7 @@ Thank you to everyone funding ECC's open-source work. Your sponsorship is what l
 
 Run or self-host any open-source model. Itô partners with ECC on compute, while ECC remains provider-agnostic and any GPU provider works. The [Itô dashboard](https://compute.itomarkets.com) sponsorship link is passive: it does not invoke an RFQ, reserve capacity, provision compute, or configure serving. Separately, the opt-in `ecc ito find` bridge invokes the explicitly configured canonical Itô CLI and submits a live authenticated RFQ; it does not reserve capacity. Managed inference through Itô is not live yet.
 
-## Team Sponsors — $200/mo
+## Team Sponsors - $200/mo
 
 | Sponsor | Since |
 |---------|-------|
@@ -28,11 +28,11 @@ Run or self-host any open-source model. Itô partners with ECC on compute, while
 
 *[Become a Team sponsor](https://github.com/sponsors/affaan-m) to be listed in SPONSORS.md.*
 
-## Pro Sponsors — $50/mo
+## Pro Sponsors - $50/mo
 
 *[Become a Pro sponsor](https://github.com/sponsors/affaan-m) to support the project and be listed here.*
 
-## Builder Sponsors — $25/mo
+## Builder Sponsors - $25/mo
 
 - @jasonwu513 (grandfathered at $10)
 - @1anter (grandfathered at $10)
@@ -41,7 +41,7 @@ Run or self-host any open-source model. Itô partners with ECC on compute, while
 
 *[Become a Builder sponsor](https://github.com/sponsors/affaan-m) to support the project and get your name in this list.*
 
-## Supporters — $10/mo
+## Supporters - $10/mo
 
 *[Become a Supporter](https://github.com/sponsors/affaan-m) to back the project with a profile badge and a thank-you in release notes.*
 
@@ -68,10 +68,10 @@ For corporate sponsorship inquiries, custom partnerships, or PR integrations, em
 
 Your sponsorship directly funds:
 
-- **OSS work that stays free** — the core repo, AgentShield, install scripts, and skills library remain MIT
-- **Weekly releases** — full-time work on the harness, not a side project
-- **Independent maintenance** — no acquisition pressure, no rug pulls, no enshittification
-- **Sponsor-funded roadmap** — paid sponsors fund ongoing work without turning unpaid README placement into a supply-chain risk
+- **OSS work that stays free** - the core repo, AgentShield, install scripts, and skills library remain MIT
+- **Weekly releases** - full-time work on the harness, not a side project
+- **Independent maintenance** - no acquisition pressure, no rug pulls, no enshittification
+- **Sponsor-funded roadmap** - paid sponsors fund ongoing work without turning unpaid README placement into a supply-chain risk
 
 ## Existing Sponsors Are Grandfathered
 

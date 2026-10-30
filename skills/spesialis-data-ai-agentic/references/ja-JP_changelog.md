@@ -37,9 +37,9 @@
 
 ### 新しいワークフローレーン
 
-- `brand-voice` — 正規のソース派生ライティングスタイルシステム。
-- `social-graph-ranker` — 重み付きウォームイントログラフランキングプリミティブ。
-- `connections-optimizer` — グラフランキング上のネットワーク整理/追加ワークフロー。
+- `brand-voice` - 正規のソース派生ライティングスタイルシステム。
+- `social-graph-ranker` - 重み付きウォームイントログラフランキングプリミティブ。
+- `connections-optimizer` - グラフランキング上のネットワーク整理/追加ワークフロー。
 - `customer-billing-ops`、`google-workspace-ops`、`project-flow-ops`、`workspace-surface-audit`。
 - `manim-video`、`remotion-video-creation`、`nestjs-patterns`。
 
@@ -65,40 +65,40 @@
 
 ### 新しいエージェント
 
-- `typescript-reviewer` — TypeScript/JavaScriptコードレビュースペシャリスト (#647)
-- `pytorch-build-resolver` — PyTorchランタイム、CUDA、トレーニングエラー解決 (#549)
-- `java-build-resolver` — Maven/Gradleビルドエラー解決 (#538)
-- `java-reviewer` — JavaおよびSpring Bootコードレビュー (#528)
-- `kotlin-reviewer` — Kotlin/Android/KMPコードレビュー (#309)
-- `kotlin-build-resolver` — Kotlin/Gradleビルドエラー (#309)
-- `rust-reviewer` — Rustコードレビュー (#523)
-- `rust-build-resolver` — Rustビルドエラー解決 (#523)
-- `docs-lookup` — ドキュメントとAPIリファレンスの調査 (#529)
+- `typescript-reviewer` - TypeScript/JavaScriptコードレビュースペシャリスト (#647)
+- `pytorch-build-resolver` - PyTorchランタイム、CUDA、トレーニングエラー解決 (#549)
+- `java-build-resolver` - Maven/Gradleビルドエラー解決 (#538)
+- `java-reviewer` - JavaおよびSpring Bootコードレビュー (#528)
+- `kotlin-reviewer` - Kotlin/Android/KMPコードレビュー (#309)
+- `kotlin-build-resolver` - Kotlin/Gradleビルドエラー (#309)
+- `rust-reviewer` - Rustコードレビュー (#523)
+- `rust-build-resolver` - Rustビルドエラー解決 (#523)
+- `docs-lookup` - ドキュメントとAPIリファレンスの調査 (#529)
 
 ### 新しいスキル
 
-- `pytorch-patterns` — PyTorchディープラーニングワークフロー (#550)
-- `documentation-lookup` — APIリファレンスとライブラリドキュメントの調査 (#529)
-- `bun-runtime` — Bunランタイムパターン (#529)
-- `nextjs-turbopack` — Next.js Turbopackワークフロー (#529)
-- `mcp-server-patterns` — MCPサーバー設計パターン (#531)
-- `data-scraper-agent` — AI駆動のパブリックデータ収集 (#503)
-- `team-builder` — チーム構成スキル (#501)
-- `ai-regression-testing` — AIリグレッションテストワークフロー (#433)
-- `claude-devfleet` — マルチエージェントオーケストレーション (#505)
-- `blueprint` — マルチセッション構築計画
-- `everything-claude-code` — 自己参照型ECCスキル (#335)
-- `prompt-optimizer` — プロンプト最適化スキル (#418)
+- `pytorch-patterns` - PyTorchディープラーニングワークフロー (#550)
+- `documentation-lookup` - APIリファレンスとライブラリドキュメントの調査 (#529)
+- `bun-runtime` - Bunランタイムパターン (#529)
+- `nextjs-turbopack` - Next.js Turbopackワークフロー (#529)
+- `mcp-server-patterns` - MCPサーバー設計パターン (#531)
+- `data-scraper-agent` - AI駆動のパブリックデータ収集 (#503)
+- `team-builder` - チーム構成スキル (#501)
+- `ai-regression-testing` - AIリグレッションテストワークフロー (#433)
+- `claude-devfleet` - マルチエージェントオーケストレーション (#505)
+- `blueprint` - マルチセッション構築計画
+- `everything-claude-code` - 自己参照型ECCスキル (#335)
+- `prompt-optimizer` - プロンプト最適化スキル (#418)
 - 8つのEvos運用ドメインスキル (#290)
 - 3つのLaravelスキル (#420)
 - VideoDBスキル (#301)
 
 ### 新しいコマンド
 
-- `/docs` — ドキュメントルックアップ (#530)
-- `/aside` — サイドカンバセーション (#407)
-- `/prompt-optimize` — プロンプト最適化 (#418)
-- `/resume-session`、`/save-session` — セッション管理
+- `/docs` - ドキュメントルックアップ (#530)
+- `/aside` - サイドカンバセーション (#407)
+- `/prompt-optimize` - プロンプト最適化 (#418)
+- `/resume-session`、`/save-session` - セッション管理
 - チェックリストベースの総合評価による `learn-eval` の改善
 
 ### 新しいルール
@@ -133,7 +133,7 @@
 - オブザーバーの遅延起動ロジック (#508)
 - オブザーバーの5層ループ防止ガード (#399)
 - フックのポータビリティとWindows .cmdサポート
-- Biomeフック最適化 — npxオーバーヘッドを排除 (#359)
+- Biomeフック最適化 - npxオーバーヘッドを排除 (#359)
 - InsAItsセキュリティフックをオプトイン化 (#370)
 - Windows spawnSync エクスポート修正 (#431)
 - instinct CLIのUTF-8エンコーディング修正 (#353)
@@ -141,21 +141,21 @@
 
 ### 翻訳
 
-- 韓国語（ko-KR）翻訳 — README、エージェント、コマンド、スキル、ルール (#392)
+- 韓国語（ko-KR）翻訳 - README、エージェント、コマンド、スキル、ルール (#392)
 - 中国語（zh-CN）ドキュメント同期 (#428)
 
 ### クレジット
 
-- @ymdvsymd — オブザーバーサンドボックスとワークツリー修正
-- @pythonstrup — Biomeフック最適化
-- @Nomadu27 — InsAItsセキュリティフック
-- @hahmee — 韓国語翻訳
-- @zdocapp — 中国語翻訳同期
-- @cookiee339 — Kotlinエコシステム
-- @pangerlkr — CIワークフロー修正
-- @0xrohitgarg — VideoDBスキル
-- @nocodemf — Evos運用スキル
-- @swarnika-cmd — コミュニティへの貢献
+- @ymdvsymd - オブザーバーサンドボックスとワークツリー修正
+- @pythonstrup - Biomeフック最適化
+- @Nomadu27 - InsAItsセキュリティフック
+- @hahmee - 韓国語翻訳
+- @zdocapp - 中国語翻訳同期
+- @cookiee339 - Kotlinエコシステム
+- @pangerlkr - CIワークフロー修正
+- @0xrohitgarg - VideoDBスキル
+- @nocodemf - Evos運用スキル
+- @swarnika-cmd - コミュニティへの貢献
 
 ## 1.8.0 - 2026-03-04
 

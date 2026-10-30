@@ -49,7 +49,7 @@ The far more efficient approach is to first look for `b` elements, then check if
 they have superior `a` elements: Using big O notation again, that would be
 `O(n)`. That's called right-to-left execution.
 
-And that's what css-select does – and why it's quite performant.
+And that's what css-select does - and why it's quite performant.
 
 ## How does it work?
 

@@ -25,7 +25,7 @@ prove -lr -j8 t/         # 再帰的、8並列ジョブ
 
 ## カバレッジ
 
-**Devel::Cover** を使用する — 80% 以上を目標:
+**Devel::Cover** を使用する - 80% 以上を目標:
 
 ```bash
 cover -test
@@ -33,8 +33,8 @@ cover -test
 
 ## モック
 
-- **Test::MockModule** — 既存モジュールのメソッドをモック
-- **Test::MockObject** — ゼロからテストダブルを作成
+- **Test::MockModule** - 既存モジュールのメソッドをモック
+- **Test::MockObject** - ゼロからテストダブルを作成
 
 ## 注意点
 

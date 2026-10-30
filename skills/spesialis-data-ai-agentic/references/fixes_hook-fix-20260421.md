@@ -1,4 +1,4 @@
-# ECC Hook Fix — 2026-04-21
+# ECC Hook Fix - 2026-04-21
 
 ## Summary
 
@@ -20,7 +20,7 @@ Result: `observations.jsonl` stopped updating after `2026-04-20T23:03:38Z`
 
 `C:\Users\sugig\.claude\settings.local.json` had two defects:
 
-### Defect 1 — UTF-8 BOM + CRLF line endings
+### Defect 1 - UTF-8 BOM + CRLF line endings
 
 The file started with `EF BB BF` (UTF-8 BOM) and used `CRLF` line terminators.
 This is the PowerShell `ConvertTo-Json | Out-File` default behavior, and it is
@@ -30,7 +30,7 @@ what `patch_settings_cl_v2_simple.ps1` leaves behind when it rewrites the file.
 00000000: efbb bf7b 0d0a 2020 2020 2268 6f6f 6b73  ...{..    "hooks
 ```
 
-### Defect 2 — Double-wrapped bash.exe invocation
+### Defect 2 - Double-wrapped bash.exe invocation
 
 The command string explicitly re-invoked bash.exe:
 
@@ -55,7 +55,7 @@ Before `patch_settings_cl_v2_simple.ps1` ran, the command was simply:
 "command": "C:\\Users\\sugig\\.claude\\skills\\continuous-learning\\hooks\\observe.sh"
 ```
 
-Claude Code on Windows detects `.sh` and invokes it via Git Bash itself — no
+Claude Code on Windows detects `.sh` and invokes it via Git Bash itself - no
 manual `bash.exe` wrapping needed.
 
 ## Fix
@@ -128,13 +128,13 @@ confirm new rows appear in `observations.jsonl` from the actual CLI session.
 
 ## Files Touched
 
-- `C:\Users\sugig\.claude\settings.local.json` — rewritten
-- `C:\Users\sugig\.claude\settings.local.json.bak-hookfix-20260421-145718` — pre-fix backup
+- `C:\Users\sugig\.claude\settings.local.json` - rewritten
+- `C:\Users\sugig\.claude\settings.local.json.bak-hookfix-20260421-145718` - pre-fix backup
 
 ## Known Upstream Bugs (not fixed here)
 
-- `install_hook_wrapper.ps1` — halts at step [3/4], never reaches [4/4].
-- `patch_settings_cl_v2_simple.ps1` — overwrites `settings.local.json` with
+- `install_hook_wrapper.ps1` - halts at step [3/4], never reaches [4/4].
+- `patch_settings_cl_v2_simple.ps1` - overwrites `settings.local.json` with
   UTF-8-BOM + CRLF and re-introduces the double-wrapped `bash.exe` command.
   Should be replaced with a patcher that emits UTF-8 (no BOM), LF, and a
   direct `.sh` path.

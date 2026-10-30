@@ -4,27 +4,27 @@ Follow the RED → GREEN → IMPROVE cycle strictly. Do not write implementation
 
 ## Cycle
 
-### 1. RED — Write the failing test
+### 1. RED - Write the failing test
 - Write a test that describes the desired behavior.
 - Run it. It **must fail** before continuing.
 - Use Arrange-Act-Assert structure.
 - Name tests descriptively: `returns empty array when no items match filter`, not `test itemFilter`.
 
-### 2. GREEN — Minimal implementation
+### 2. GREEN - Minimal implementation
 - Write the **minimum** code needed to make the test pass.
 - Do not over-engineer at this stage.
-- Run the test again — it **must pass**.
+- Run the test again - it **must pass**.
 
-### 3. IMPROVE — Refactor
+### 3. IMPROVE - Refactor
 - Clean up duplication, naming, structure.
 - Keep all tests passing after each change.
 - Check coverage: target **≥ 80%**.
 
 ## Test Layer Checklist
 
-- [ ] **Unit** — pure functions, utilities, isolated components
-- [ ] **Integration** — API endpoints, database operations, service boundaries
-- [ ] **E2E** — at least one critical user flow covered
+- [ ] **Unit** - pure functions, utilities, isolated components
+- [ ] **Integration** - API endpoints, database operations, service boundaries
+- [ ] **E2E** - at least one critical user flow covered
 
 ## Quality Gates
 

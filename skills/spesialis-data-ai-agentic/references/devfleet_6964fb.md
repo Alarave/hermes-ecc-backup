@@ -1,4 +1,4 @@
-# DevFleet — 多智能体编排
+# DevFleet - 多智能体编排
 
 通过 Claude DevFleet 编排并行的 Claude Code 智能体。每个智能体在隔离的 git worktree 中运行，并配备完整的工具链。
 
@@ -41,7 +41,7 @@ mcp__devfleet__dispatch_mission(mission_id="<first_mission_id>")
 
 剩余的任务会在其依赖项完成时自动派发（因为 `plan_project` 创建它们时使用了 `auto_dispatch=true`）。当使用 `create_mission` 手动创建任务时，您必须显式设置 `auto_dispatch=true` 才能启用此行为。
 
-4. **监控进度** — 检查正在运行的内容：
+4. **监控进度** - 检查正在运行的内容：
 
 ```
 mcp__devfleet__get_dashboard()
@@ -85,5 +85,5 @@ mcp__devfleet__get_report(mission_id="<mission_id>")
 * 报告状态时包含任务标题和 ID
 * 如果任务失败，在重试前先读取其报告以了解错误
 * 智能体并发数是可配置的（默认：3）。超额的任务会排队，并在有空闲槽位时自动派发。检查 `get_dashboard()` 以了解槽位可用性。
-* 依赖关系形成一个 DAG — 切勿创建循环依赖
+* 依赖关系形成一个 DAG - 切勿创建循环依赖
 * 每个智能体在完成时自动合并其 worktree。如果发生合并冲突，更改将保留在 worktree 分支上，以供手动解决。

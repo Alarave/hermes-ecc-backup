@@ -2,7 +2,7 @@
 
 # Everything Claude Code
 
-![Everything Claude Code — система повышения эффективности сред агентного ИИ](../../assets/hero.png)
+![Everything Claude Code - система повышения эффективности сред агентного ИИ](../../assets/hero.png)
 
 [![Stars](https://img.shields.io/github/stars/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/stargazers)
 [![Forks](https://img.shields.io/github/forks/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/network/members)
@@ -85,80 +85,80 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 
 ## Что нового
 
-### v2.0.0-rc.1 — Обновление публичного контура, операторские рабочие процессы и ECC 2.0 Alpha (апрель 2026)
+### v2.0.0-rc.1 - Обновление публичного контура, операторские рабочие процессы и ECC 2.0 Alpha (апрель 2026)
 
-- **Dashboard GUI** — новое настольное приложение на Tkinter (`ecc_dashboard.py` или `npm run dashboard`) с переключателем тёмной/светлой темы, настройкой шрифта и логотипом проекта в заголовке и панели задач.
-- **Публичный контур синхронизирован с текущим репозиторием** — метаданные, счётчики каталога, манифесты плагинов и документация для установки теперь соответствуют реальному OSS-набору: 50 агентов, 185 навыков и 68 устаревших совместимых заглушек команд.
-- **Расширение операторских и outbound-рабочих процессов** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `ecc-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` и `workspace-surface-audit` закрывают операторское направление.
-- **Медиа и инструменты запуска** — `manim-video`, `remotion-video-creation` и обновлённые интерфейсы публикации в соцсетях делают технические объяснения и launch-контент частью той же системы.
-- **Рост поддержки фреймворков и продуктов** — `nestjs-patterns`, более развитые пути установки для Codex/OpenCode и расширенная упаковка для разных сред сохраняют полезность репозитория не только для Claude Code.
-- **ECC 2.0 alpha находится в дереве репозитория** — прототип control plane на Rust в `ecc2/` теперь собирается локально и предоставляет команды `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` и `daemon`. Это пригодная к использованию alpha-версия, но ещё не общий релиз.
-- **Укрепление экосистемы** — AgentShield, контроль затрат ECC Tools, работа над billing portal и обновления сайта продолжают поставляться вокруг основного плагина, а не расползаются по отдельным направлениям.
+- **Dashboard GUI** - новое настольное приложение на Tkinter (`ecc_dashboard.py` или `npm run dashboard`) с переключателем тёмной/светлой темы, настройкой шрифта и логотипом проекта в заголовке и панели задач.
+- **Публичный контур синхронизирован с текущим репозиторием** - метаданные, счётчики каталога, манифесты плагинов и документация для установки теперь соответствуют реальному OSS-набору: 50 агентов, 185 навыков и 68 устаревших совместимых заглушек команд.
+- **Расширение операторских и outbound-рабочих процессов** - `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `ecc-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` и `workspace-surface-audit` закрывают операторское направление.
+- **Медиа и инструменты запуска** - `manim-video`, `remotion-video-creation` и обновлённые интерфейсы публикации в соцсетях делают технические объяснения и launch-контент частью той же системы.
+- **Рост поддержки фреймворков и продуктов** - `nestjs-patterns`, более развитые пути установки для Codex/OpenCode и расширенная упаковка для разных сред сохраняют полезность репозитория не только для Claude Code.
+- **ECC 2.0 alpha находится в дереве репозитория** - прототип control plane на Rust в `ecc2/` теперь собирается локально и предоставляет команды `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` и `daemon`. Это пригодная к использованию alpha-версия, но ещё не общий релиз.
+- **Укрепление экосистемы** - AgentShield, контроль затрат ECC Tools, работа над billing portal и обновления сайта продолжают поставляться вокруг основного плагина, а не расползаются по отдельным направлениям.
 
-### v1.9.0 — Выборочная установка и расширение языковой поддержки (март 2026)
+### v1.9.0 - Выборочная установка и расширение языковой поддержки (март 2026)
 
-- **Архитектура выборочной установки** — установка на основе манифестов через `install-plan.js` и `install-apply.js` для точечной установки компонентов. Хранилище состояния отслеживает установленные компоненты и поддерживает инкрементальные обновления.
-- **6 новых агентов** — `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` расширяют языковое покрытие до 10 языков.
-- **Новые навыки** — `pytorch-patterns` для рабочих процессов глубокого обучения, `documentation-lookup` для исследования API-справочников, `bun-runtime` и `nextjs-turbopack` для современных JS-инструментов, а также 8 операционных предметных навыков и `mcp-server-patterns`.
-- **Инфраструктура сессий и состояния** — SQLite-хранилище состояния с CLI для запросов, адаптеры сессий для структурированной записи, фундамент эволюции навыков для самоулучшающихся skills.
-- **Переработка оркестрации** — оценка аудита среды стала детерминированной, статус оркестрации и совместимость launcher укреплены, предотвращение observer loops реализовано 5-уровневой защитой.
-- **Надёжность observer** — исправление взрывного роста памяти через throttling и tail sampling, исправление доступа к песочнице, lazy-start логика и защита от повторного входа.
-- **12 языковых экосистем** — новые правила для Java, PHP, Perl, Kotlin/Android/KMP, C++ и Rust добавлены к существующим правилам TypeScript, Python, Go и общим правилам.
-- **Вклад сообщества** — переводы на корейский и китайский, оптимизация biome hook, навыки обработки видео, операционные навыки, PowerShell-установщик, поддержка Antigravity IDE.
-- **Укрепление CI** — исправлены 19 падений тестов, добавлена принудительная проверка счётчиков каталога, валидация установочного манифеста, полный набор тестов проходит.
+- **Архитектура выборочной установки** - установка на основе манифестов через `install-plan.js` и `install-apply.js` для точечной установки компонентов. Хранилище состояния отслеживает установленные компоненты и поддерживает инкрементальные обновления.
+- **6 новых агентов** - `typescript-reviewer`, `pytorch-build-resolver`, `java-build-resolver`, `java-reviewer`, `kotlin-reviewer`, `kotlin-build-resolver` расширяют языковое покрытие до 10 языков.
+- **Новые навыки** - `pytorch-patterns` для рабочих процессов глубокого обучения, `documentation-lookup` для исследования API-справочников, `bun-runtime` и `nextjs-turbopack` для современных JS-инструментов, а также 8 операционных предметных навыков и `mcp-server-patterns`.
+- **Инфраструктура сессий и состояния** - SQLite-хранилище состояния с CLI для запросов, адаптеры сессий для структурированной записи, фундамент эволюции навыков для самоулучшающихся skills.
+- **Переработка оркестрации** - оценка аудита среды стала детерминированной, статус оркестрации и совместимость launcher укреплены, предотвращение observer loops реализовано 5-уровневой защитой.
+- **Надёжность observer** - исправление взрывного роста памяти через throttling и tail sampling, исправление доступа к песочнице, lazy-start логика и защита от повторного входа.
+- **12 языковых экосистем** - новые правила для Java, PHP, Perl, Kotlin/Android/KMP, C++ и Rust добавлены к существующим правилам TypeScript, Python, Go и общим правилам.
+- **Вклад сообщества** - переводы на корейский и китайский, оптимизация biome hook, навыки обработки видео, операционные навыки, PowerShell-установщик, поддержка Antigravity IDE.
+- **Укрепление CI** - исправлены 19 падений тестов, добавлена принудительная проверка счётчиков каталога, валидация установочного манифеста, полный набор тестов проходит.
 
-### v1.8.0 — Система повышения эффективности сред агентного ИИ (март 2026)
+### v1.8.0 - Система повышения эффективности сред агентного ИИ (март 2026)
 
-- **Релиз с фокусом на средах агентного ИИ** — ECC теперь явно позиционируется как система повышения эффективности таких сред, а не просто набор конфигов.
-- **Переработка надёжности хуков** — fallback корня для SessionStart, сводки сессий в фазе Stop и скриптовые хуки вместо хрупких inline-однострочников.
-- **Управление хуками во время выполнения** — `ECC_HOOK_PROFILE=minimal|standard|strict` и `ECC_DISABLED_HOOKS=...` для runtime-ограничений без редактирования файлов хуков.
-- **Новые команды для сред** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
-- **NanoClaw v2** — маршрутизация моделей, горячая загрузка навыков, ветвление/поиск/экспорт/компактификация/метрики сессий.
-- **Паритет между средами** — поведение ужесточено для Claude Code, Cursor, OpenCode и Codex app/CLI.
-- **997 внутренних тестов проходят** — весь набор зелёный после рефакторинга hooks/runtime и обновлений совместимости.
+- **Релиз с фокусом на средах агентного ИИ** - ECC теперь явно позиционируется как система повышения эффективности таких сред, а не просто набор конфигов.
+- **Переработка надёжности хуков** - fallback корня для SessionStart, сводки сессий в фазе Stop и скриптовые хуки вместо хрупких inline-однострочников.
+- **Управление хуками во время выполнения** - `ECC_HOOK_PROFILE=minimal|standard|strict` и `ECC_DISABLED_HOOKS=...` для runtime-ограничений без редактирования файлов хуков.
+- **Новые команды для сред** - `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
+- **NanoClaw v2** - маршрутизация моделей, горячая загрузка навыков, ветвление/поиск/экспорт/компактификация/метрики сессий.
+- **Паритет между средами** - поведение ужесточено для Claude Code, Cursor, OpenCode и Codex app/CLI.
+- **997 внутренних тестов проходят** - весь набор зелёный после рефакторинга hooks/runtime и обновлений совместимости.
 
-### v1.7.0 — Расширение на другие платформы и конструктор презентаций (февраль 2026)
+### v1.7.0 - Расширение на другие платформы и конструктор презентаций (февраль 2026)
 
-- **Поддержка Codex app + CLI** — прямая поддержка Codex через `AGENTS.md`, выбор цели установщика и документация по Codex
-- **Навык `frontend-slides`** — HTML-конструктор презентаций без зависимостей, с рекомендациями по конвертации PPTX и строгими правилами подгонки под viewport
-- **5 новых общих бизнес- и контент-навыков** — `article-writing`, `content-engine`, `market-research`, `investor-materials`, `investor-outreach`
-- **Более широкое покрытие инструментов** — поддержка Cursor, Codex и OpenCode усилена так, чтобы один репозиторий аккуратно поставлялся во все основные среды
-- **992 внутренних теста** — расширенная валидация и регрессионное покрытие для плагина, хуков, навыков и упаковки
+- **Поддержка Codex app + CLI** - прямая поддержка Codex через `AGENTS.md`, выбор цели установщика и документация по Codex
+- **Навык `frontend-slides`** - HTML-конструктор презентаций без зависимостей, с рекомендациями по конвертации PPTX и строгими правилами подгонки под viewport
+- **5 новых общих бизнес- и контент-навыков** - `article-writing`, `content-engine`, `market-research`, `investor-materials`, `investor-outreach`
+- **Более широкое покрытие инструментов** - поддержка Cursor, Codex и OpenCode усилена так, чтобы один репозиторий аккуратно поставлялся во все основные среды
+- **992 внутренних теста** - расширенная валидация и регрессионное покрытие для плагина, хуков, навыков и упаковки
 
-### v1.6.0 — Codex CLI, AgentShield и Marketplace (февраль 2026)
+### v1.6.0 - Codex CLI, AgentShield и Marketplace (февраль 2026)
 
-- **Поддержка Codex CLI** — новая команда `/codex-setup` генерирует `codex.md` для совместимости с OpenAI Codex CLI
-- **7 новых навыков** — `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing`, `regex-vs-llm-structured-text`, `content-hash-cache-pattern`, `cost-aware-llm-pipeline`, `skill-stocktake`
-- **Интеграция AgentShield** — навык `/security-scan` запускает AgentShield прямо из Claude Code; 1282 теста, 102 правила
-- **GitHub Marketplace** — GitHub App ECC Tools доступен на [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) с тарифами free/pro/enterprise
-- **Объединено 30+ PR сообщества** — вклад 30 участников на 6 языках
-- **978 внутренних тестов** — расширенный набор валидации для агентов, навыков, команд, хуков и правил
+- **Поддержка Codex CLI** - новая команда `/codex-setup` генерирует `codex.md` для совместимости с OpenAI Codex CLI
+- **7 новых навыков** - `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing`, `regex-vs-llm-structured-text`, `content-hash-cache-pattern`, `cost-aware-llm-pipeline`, `skill-stocktake`
+- **Интеграция AgentShield** - навык `/security-scan` запускает AgentShield прямо из Claude Code; 1282 теста, 102 правила
+- **GitHub Marketplace** - GitHub App ECC Tools доступен на [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) с тарифами free/pro/enterprise
+- **Объединено 30+ PR сообщества** - вклад 30 участников на 6 языках
+- **978 внутренних тестов** - расширенный набор валидации для агентов, навыков, команд, хуков и правил
 
-### v1.4.1 — Исправление ошибки (февраль 2026)
+### v1.4.1 - Исправление ошибки (февраль 2026)
 
-- **Исправлена потеря содержимого при импорте инстинктов** — `parse_instinct_file()` незаметно отбрасывал всё содержимое после frontmatter (разделы Action, Evidence, Examples) во время `/instinct-import`. ([#148](https://github.com/affaan-m/everything-claude-code/issues/148), [#161](https://github.com/affaan-m/everything-claude-code/pull/161))
+- **Исправлена потеря содержимого при импорте инстинктов** - `parse_instinct_file()` незаметно отбрасывал всё содержимое после frontmatter (разделы Action, Evidence, Examples) во время `/instinct-import`. ([#148](https://github.com/affaan-m/everything-claude-code/issues/148), [#161](https://github.com/affaan-m/everything-claude-code/pull/161))
 
-### v1.4.0 — Многоязычные правила, мастер установки и PM2 (февраль 2026)
+### v1.4.0 - Многоязычные правила, мастер установки и PM2 (февраль 2026)
 
-- **Интерактивный мастер установки** — новый навык `configure-ecc` предоставляет пошаговую настройку с обнаружением merge/overwrite
-- **PM2 и многоагентная оркестрация** — 6 новых команд (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) для управления сложными многоcервисными рабочими процессами
-- **Архитектура многоязычных правил** — правила реструктурированы из плоских файлов в директории `common/` + `typescript/` + `python/` + `golang/`. Устанавливайте только нужные языки
-- **Переводы на китайский (zh-CN)** — полный перевод всех агентов, команд, навыков и правил (80+ файлов)
-- **Поддержка GitHub Sponsors** — поддержите проект через GitHub Sponsors
-- **Улучшенный CONTRIBUTING.md** — подробные шаблоны PR для каждого типа вклада
+- **Интерактивный мастер установки** - новый навык `configure-ecc` предоставляет пошаговую настройку с обнаружением merge/overwrite
+- **PM2 и многоагентная оркестрация** - 6 новых команд (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) для управления сложными многоcервисными рабочими процессами
+- **Архитектура многоязычных правил** - правила реструктурированы из плоских файлов в директории `common/` + `typescript/` + `python/` + `golang/`. Устанавливайте только нужные языки
+- **Переводы на китайский (zh-CN)** - полный перевод всех агентов, команд, навыков и правил (80+ файлов)
+- **Поддержка GitHub Sponsors** - поддержите проект через GitHub Sponsors
+- **Улучшенный CONTRIBUTING.md** - подробные шаблоны PR для каждого типа вклада
 
-### v1.3.0 — Поддержка плагина OpenCode (февраль 2026)
+### v1.3.0 - Поддержка плагина OpenCode (февраль 2026)
 
-- **Полная интеграция OpenCode** — 12 агентов, 24 команды, 16 навыков с поддержкой хуков через систему плагинов OpenCode (20+ типов событий)
-- **3 нативных custom tools** — run-tests, check-coverage, security-audit
-- **LLM-документация** — `llms.txt` с полной документацией OpenCode
+- **Полная интеграция OpenCode** - 12 агентов, 24 команды, 16 навыков с поддержкой хуков через систему плагинов OpenCode (20+ типов событий)
+- **3 нативных custom tools** - run-tests, check-coverage, security-audit
+- **LLM-документация** - `llms.txt` с полной документацией OpenCode
 
-### v1.2.0 — Унифицированные команды и навыки (февраль 2026)
+### v1.2.0 - Унифицированные команды и навыки (февраль 2026)
 
-- **Поддержка Python/Django** — паттерны Django, безопасность, TDD и навыки верификации
-- **Навыки Java Spring Boot** — паттерны, безопасность, TDD и верификация для Spring Boot
-- **Управление сессиями** — команда `/sessions` для истории сессий
-- **Непрерывное обучение v2** — обучение на основе инстинктов с оценкой уверенности, импортом/экспортом и эволюцией
+- **Поддержка Python/Django** - паттерны Django, безопасность, TDD и навыки верификации
+- **Навыки Java Spring Boot** - паттерны, безопасность, TDD и верификация для Spring Boot
+- **Управление сессиями** - команда `/sessions` для истории сессий
+- **Непрерывное обучение v2** - обучение на основе инстинктов с оценкой уверенности, импортом/экспортом и эволюцией
 
 Полный журнал изменений смотрите в [Releases](https://github.com/affaan-m/everything-claude-code/releases).
 
@@ -336,7 +336,7 @@ ECC удаляет только файлы, записанные в его insta
 ### Шаг 3: Начните использовать
 
 ```bash
-# Навыки — основной рабочий интерфейс.
+# Навыки - основной рабочий интерфейс.
 # Существующие slash-style имена команд продолжают работать, пока ECC мигрирует с commands/.
 
 # Установка через плагин использует каноническую форму с namespace
@@ -439,7 +439,7 @@ export ECC_SESSION_START_CONTEXT=off
 
 ## Что внутри
 
-Этот репозиторий — **плагин Claude Code**: установите его напрямую или скопируйте компоненты вручную.
+Этот репозиторий - **плагин Claude Code**: установите его напрямую или скопируйте компоненты вручную.
 
 ```
 everything-claude-code/
@@ -678,11 +678,11 @@ everything-claude-code/
 ```
 
 Оба варианта создают:
-- **файлы SKILL.md** — готовые к использованию навыки для Claude Code
-- **коллекции инстинктов** — для continuous-learning-v2
-- **извлечение паттернов** — обучение на вашей истории коммитов
+- **файлы SKILL.md** - готовые к использованию навыки для Claude Code
+- **коллекции инстинктов** - для continuous-learning-v2
+- **извлечение паттернов** - обучение на вашей истории коммитов
 
-### AgentShield — аудитор безопасности
+### AgentShield - аудитор безопасности
 
 > Создан на Claude Code Hackathon (Cerebral Valley x Anthropic, февраль 2026). 1282 теста, 98% покрытия, 102 правила статического анализа.
 
@@ -759,7 +759,7 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 
 ### Вариант 1: установить как плагин (рекомендуется)
 
-Самый простой способ использовать этот репозиторий — установить его как плагин Claude Code:
+Самый простой способ использовать этот репозиторий - установить его как плагин Claude Code:
 
 ```bash
 # Добавить этот репозиторий как marketplace
@@ -871,7 +871,7 @@ pwsh -File .\install.ps1 --target claude --modules hooks-runtime
 
 Если вы установили ECC через `/plugin install`, не копируйте эти хуки в `settings.json`. Claude Code v2.1+ уже автоматически загружает plugin `hooks/hooks.json`, а дублирование в `settings.json` вызывает двойное выполнение и кроссплатформенные конфликты хуков.
 
-Примечание для Windows: директория конфигурации Claude — `%USERPROFILE%\\.claude`, а не `~/claude`.
+Примечание для Windows: директория конфигурации Claude - `%USERPROFILE%\\.claude`, а не `~/claude`.
 
 #### Настроить MCP
 
@@ -887,7 +887,7 @@ pwsh -File .\install.ps1 --target claude --modules hooks-runtime
 export ECC_DISABLED_MCPS="github,context7,exa,playwright,sequential-thinking,memory"
 ```
 
-ECC-managed install и Codex sync flows будут пропускать или удалять эти bundled servers вместо повторного добавления дубликатов. `ECC_DISABLED_MCPS` — это фильтр установки/синхронизации ECC, а не live-переключатель Claude Code.
+ECC-managed install и Codex sync flows будут пропускать или удалять эти bundled servers вместо повторного добавления дубликатов. `ECC_DISABLED_MCPS` - это фильтр установки/синхронизации ECC, а не live-переключатель Claude Code.
 
 **Важно:** замените placeholders `YOUR_*_HERE` на реальные API keys.
 
@@ -907,12 +907,12 @@ tools: ["Read", "Grep", "Glob", "Bash"]
 model: opus
 ---
 
-Вы — senior code reviewer...
+Вы - senior code reviewer...
 ```
 
 ### Навыки
 
-Навыки — основной рабочий интерфейс. Их можно вызывать напрямую, предлагать автоматически и переиспользовать агентами. ECC всё ещё поставляет поддерживаемые `commands/` во время миграции, а retired short-name shims живут в `legacy-command-shims/` только для явного opt-in. Новая разработка рабочих процессов должна сначала попадать в `skills/`.
+Навыки - основной рабочий интерфейс. Их можно вызывать напрямую, предлагать автоматически и переиспользовать агентами. ECC всё ещё поставляет поддерживаемые `commands/` во время миграции, а retired short-name shims живут в `legacy-command-shims/` только для явного opt-in. Новая разработка рабочих процессов должна сначала попадать в `skills/`.
 
 ```markdown
 # TDD Workflow
@@ -926,7 +926,7 @@ model: opus
 
 ### Хуки
 
-Хуки срабатывают на события инструментов. Пример — предупреждение о `console.log`:
+Хуки срабатывают на события инструментов. Пример - предупреждение о `console.log`:
 
 ```json
 {
@@ -940,7 +940,7 @@ model: opus
 
 ### Правила
 
-Правила — always-follow guidelines, организованные в `common/` (языконезависимые) и language-specific директории:
+Правила - always-follow guidelines, организованные в `common/` (языконезависимые) и language-specific директории:
 
 ```
 rules/
@@ -958,7 +958,7 @@ rules/
 
 ## Какого агента использовать?
 
-Не знаете, с чего начать? Используйте эту краткую справку. Skills — канонический рабочий интерфейс; поддерживаемые slash entries остаются доступными для command-first workflows.
+Не знаете, с чего начать? Используйте эту краткую справку. Skills - канонический рабочий интерфейс; поддерживаемые slash entries остаются доступными для command-first workflows.
 
 | Я хочу... | Использовать | Агент |
 |-----------|---------------|-------|
@@ -1084,7 +1084,7 @@ cp -r everything-claude-code/rules/common ~/.claude/rules/ecc/
 - **Codex**: первоклассная поддержка macOS app и CLI, с guards против adapter drift и SessionStart fallback. См. PR [#257](https://github.com/affaan-m/everything-claude-code/pull/257).
 - **Antigravity**: плотная настройка для workflows, skills и flattened rules в `.agent/`. См. [Antigravity Guide](../ANTIGRAVITY-GUIDE.md).
 - **Ненативные среды**: ручной fallback path для Grok и похожих интерфейсов. См. [Manual Adaptation Guide](../MANUAL-ADAPTATION-GUIDE.md).
-- **Claude Code**: нативно — это основная цель.
+- **Claude Code**: нативно - это основная цель.
 </details>
 
 <details>
@@ -1129,8 +1129,8 @@ node tests/hooks/hooks.test.js
 
 ### Идеи для вклада
 
-- Language-specific skills (Rust, C#, Kotlin, Java) — Go, Python, Perl, Swift и TypeScript уже включены
-- Framework-specific configs (Rails, FastAPI) — Django, NestJS, Spring Boot и Laravel уже включены
+- Language-specific skills (Rust, C#, Kotlin, Java) - Go, Python, Perl, Swift и TypeScript уже включены
+- Framework-specific configs (Rails, FastAPI) - Django, NestJS, Spring Boot и Laravel уже включены
 - DevOps-агенты (Kubernetes, Terraform, AWS, Docker)
 - Стратегии тестирования (разные фреймворки, визуальная регрессия)
 - Предметные знания (ML, data engineering, mobile)
@@ -1139,9 +1139,9 @@ node tests/hooks/hooks.test.js
 
 Они не поставляются вместе с ECC и не аудируются этим репозиторием, но о них стоит знать, если вы изучаете более широкую экосистему Claude Code skills:
 
-- [claude-seo](https://github.com/AgriciDaniel/claude-seo) — SEO-focused коллекция skills и agents
-- [claude-ads](https://github.com/AgriciDaniel/claude-ads) — коллекция ad-audit и paid-growth workflows
-- [claude-cybersecurity](https://github.com/AgriciDaniel/claude-cybersecurity) — security-oriented коллекция skills и agents
+- [claude-seo](https://github.com/AgriciDaniel/claude-seo) - SEO-focused коллекция skills и agents
+- [claude-ads](https://github.com/AgriciDaniel/claude-ads) - коллекция ad-audit и paid-growth workflows
+- [claude-cybersecurity](https://github.com/AgriciDaniel/claude-cybersecurity) - security-oriented коллекция skills и agents
 
 ---
 
@@ -1191,11 +1191,11 @@ Cursor stdin JSON → adapter.js → transforms → scripts/hooks/*.js
 ```
 
 Ключевые хуки:
-- **beforeShellExecution** — блокирует dev servers вне tmux (exit 2), review перед git push
-- **afterFileEdit** — auto-format + TypeScript check + предупреждение о console.log
-- **beforeSubmitPrompt** — обнаруживает секреты (паттерны sk-, ghp_, AKIA) в prompts
-- **beforeTabFileRead** — блокирует чтение Tab файлов .env, .key, .pem (exit 2)
-- **beforeMCPExecution / afterMCPExecution** — MCP audit logging
+- **beforeShellExecution** - блокирует dev servers вне tmux (exit 2), review перед git push
+- **afterFileEdit** - auto-format + TypeScript check + предупреждение о console.log
+- **beforeSubmitPrompt** - обнаруживает секреты (паттерны sk-, ghp_, AKIA) в prompts
+- **beforeTabFileRead** - блокирует чтение Tab файлов .env, .key, .pem (exit 2)
+- **beforeMCPExecution / afterMCPExecution** - MCP audit logging
 
 ### Формат правил
 
@@ -1218,7 +1218,7 @@ ECC предоставляет **первоклассную поддержку C
 ### Быстрый старт (Codex App + CLI)
 
 ```bash
-# Запустить Codex CLI в репозитории — AGENTS.md и .codex/ определяются автоматически
+# Запустить Codex CLI в репозитории - AGENTS.md и .codex/ определяются автоматически
 codex
 
 # Автоматическая настройка: синхронизировать assets ECC (AGENTS.md, skills, MCP servers) в ~/.codex
@@ -1246,12 +1246,12 @@ Codex macOS app:
 
 | Компонент | Количество | Детали |
 |-----------|------------|--------|
-| Config | 1 | `.codex/config.toml` — top-level approvals/sandbox/web_search, MCP servers, notifications, profiles |
+| Config | 1 | `.codex/config.toml` - top-level approvals/sandbox/web_search, MCP servers, notifications, profiles |
 | AGENTS.md | 2 | Root (universal) + `.codex/AGENTS.md` (Codex-specific supplement) |
-| Skills | 32 | `.agents/skills/` — SKILL.md + agents/openai.yaml для каждого skill |
+| Skills | 32 | `.agents/skills/` - SKILL.md + agents/openai.yaml для каждого skill |
 | MCP Servers | 6 | GitHub, Context7, Exa, Memory, Playwright, Sequential Thinking (7 с Supabase через `--update-mcp` sync) |
 | Profiles | 2 | `strict` (read-only sandbox) и `yolo` (full auto-approve) |
-| Agent Roles | 3 | `.codex/agents/` — explorer, reviewer, docs-researcher |
+| Agent Roles | 3 | `.codex/agents/` - explorer, reviewer, docs-researcher |
 
 ### Skills
 
@@ -1438,7 +1438,7 @@ npm install ecc-universal
 
 ## Паритет возможностей между инструментами
 
-ECC — **первый плагин, который помогает максимально использовать каждый крупный инструмент AI-кодинга**. Вот как сравниваются среды:
+ECC - **первый плагин, который помогает максимально использовать каждый крупный инструмент AI-кодинга**. Вот как сравниваются среды:
 
 | Возможность | Claude Code | Cursor IDE | Codex CLI | OpenCode |
 |-------------|-------------|------------|-----------|----------|
@@ -1457,7 +1457,7 @@ ECC — **первый плагин, который помогает макси�
 | **Version** | Plugin | Plugin | Reference config | 2.0.0-rc.1 |
 
 **Ключевые архитектурные решения:**
-- **AGENTS.md** в корне — универсальный cross-tool файл (читается всеми 4 инструментами)
+- **AGENTS.md** в корне - универсальный cross-tool файл (читается всеми 4 инструментами)
 - **DRY adapter pattern** позволяет Cursor переиспользовать hook scripts Claude Code без дублирования
 - **Формат Skills** (SKILL.md с YAML frontmatter) работает в Claude Code, Codex и OpenCode
 - Отсутствие хуков в Codex компенсируется `AGENTS.md`, опциональными overrides `model_instructions_file` и sandbox permissions
@@ -1466,7 +1466,7 @@ ECC — **первый плагин, который помогает макси�
 
 ## Предыстория
 
-Я использую Claude Code с экспериментального rollout. В сентябре 2025 выиграл Anthropic x Forum Ventures hackathon вместе с [@DRodriguezFX](https://x.com/DRodriguezFX) — мы построили [zenith.chat](https://zenith.chat) полностью с помощью Claude Code.
+Я использую Claude Code с экспериментального rollout. В сентябре 2025 выиграл Anthropic x Forum Ventures hackathon вместе с [@DRodriguezFX](https://x.com/DRodriguezFX) - мы построили [zenith.chat](https://zenith.chat) полностью с помощью Claude Code.
 
 Эти конфиги проверены в бою на нескольких production-приложениях.
 
@@ -1494,7 +1494,7 @@ ECC — **первый плагин, который помогает макси�
 |-----------|--------------|---------------|--------|
 | `model` | opus | **sonnet** | ~60% снижение затрат; справляется с 80%+ coding tasks |
 | `MAX_THINKING_TOKENS` | 31,999 | **10,000** | ~70% снижение скрытой стоимости thinking на request |
-| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | Более ранняя compaction — лучшее качество в длинных сессиях |
+| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | Более ранняя compaction - лучшее качество в длинных сессиях |
 
 Переключайтесь на Opus только когда нужно глубокое архитектурное рассуждение:
 ```
@@ -1577,7 +1577,7 @@ Agent Teams создаёт несколько context windows. Каждый уч
 
 | Проект | Описание |
 |--------|----------|
-| [EVC](https://github.com/SaigonXIII/evc) | Marketing agent workspace — 42 команды для content operators, brand governance и multi-channel publishing. [Визуальный обзор](https://saigonxiii.github.io/evc). |
+| [EVC](https://github.com/SaigonXIII/evc) | Marketing agent workspace - 42 команды для content operators, brand governance и multi-channel publishing. [Визуальный обзор](https://saigonxiii.github.io/evc). |
 
 Построили что-то с ECC? Откройте PR, чтобы добавить это сюда.
 
@@ -1608,7 +1608,7 @@ Agent Teams создаёт несколько context windows. Каждый уч
 
 ## Лицензия
 
-MIT — используйте свободно, изменяйте по необходимости, вносите вклад, если можете.
+MIT - используйте свободно, изменяйте по необходимости, вносите вклад, если можете.
 
 ---
 

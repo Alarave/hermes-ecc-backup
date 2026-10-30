@@ -4,7 +4,7 @@
 
 ## バージョンの確認
 
-コードを書く前に、必ずプロジェクトの Angular バージョンを確認してください — バージョン間で機能が大きく異なります。`ng version` を実行するか、`package.json` を確認してください。新しいプロジェクトを作成する場合、ユーザーが指定しない限りバージョンを固定しないでください。
+コードを書く前に、必ずプロジェクトの Angular バージョンを確認してください - バージョン間で機能が大きく異なります。`ng version` を実行するか、`package.json` を確認してください。新しいプロジェクトを作成する場合、ユーザーが指定しない限りバージョンを固定しないでください。
 
 Angular コードを生成または変更した後は、完了前に必ず `ng build` を実行してエラーを検出してください。
 
@@ -76,7 +76,7 @@ increment() {
 }
 ```
 
-### `linkedSignal` — 書き込み可能な派生状態
+### `linkedSignal` - 書き込み可能な派生状態
 
 ソースが変更されたときにリセットまたは適応する必要があるが、独立して書き込み可能なシグナルには `linkedSignal` を使用してください:
 
@@ -85,7 +85,7 @@ selectedOption = linkedSignal(() => this.options()[0]);
 // options が変更されると最初のオプションにリセットされるが、ユーザーはオーバーライド可能
 ```
 
-### `resource` — 非同期データをシグナルに変換
+### `resource` - 非同期データをシグナルに変換
 
 手動サブスクリプションなしで非同期データをリアクティブに取得するには `resource()` を使用してください:
 
@@ -100,7 +100,7 @@ userResource = resource({
 
 ### `effect` の使用法
 
-`effect()` はシグナルの変更に反応する必要がある副作用（ログ記録、サードパーティの DOM 操作）にのみ使用してください。シグナルの同期にエフェクトを使用しないでください — 代わりに `computed` または `linkedSignal` を使用してください。レンダリング後の DOM 作業には `afterRenderEffect` を使用してください。
+`effect()` はシグナルの変更に反応する必要がある副作用（ログ記録、サードパーティの DOM 操作）にのみ使用してください。シグナルの同期にエフェクトを使用しないでください - 代わりに `computed` または `linkedSignal` を使用してください。レンダリング後の DOM 作業には `afterRenderEffect` を使用してください。
 
 ```typescript
 // 正しい: 副作用
@@ -139,7 +139,7 @@ v17+ のブロック構文を使用してください。`@for` では必ず `tra
 - **Template-Driven Forms**: `ngModel`。シンプルなフォームにのみ適しています。
 
 ```typescript
-// Reactive Forms — ほとんどのアプリの標準的なアプローチ
+// Reactive Forms - ほとんどのアプリの標準的なアプローチ
 export class LoginComponent {
   private fb = inject(FormBuilder);
 
@@ -167,5 +167,5 @@ export class LoginComponent {
 ## 変更検知
 
 - すべての新しいコンポーネントでデフォルトとして `ChangeDetectionStrategy.OnPush` を使用
-- シグナルと `async` パイプが検知を自動的に処理 — `markForCheck()` と `detectChanges()` を避ける
+- シグナルと `async` パイプが検知を自動的に処理 - `markForCheck()` と `detectChanges()` を避ける
 - OnPush 使用時に `@Input()` オブジェクトをインプレースで変更しない

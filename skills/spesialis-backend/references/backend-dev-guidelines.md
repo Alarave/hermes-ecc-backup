@@ -25,7 +25,7 @@ This skill defines **how backend code must be written**, not merely suggestions.
 
 Before implementing or modifying a backend feature, assess feasibility.
 
-### BFRI Dimensions (1–5)
+### BFRI Dimensions (1-5)
 
 | Dimension                     | Question                                                         |
 | ----------------------------- | ---------------------------------------------------------------- |
@@ -47,9 +47,9 @@ BFRI = (Architectural Fit + Testability) − (Complexity + Data Risk + Operation
 
 | BFRI     | Meaning   | Action                 |
 | -------- | --------- | ---------------------- |
-| **6–10** | Safe      | Proceed                |
-| **3–5**  | Moderate  | Add tests + monitoring |
-| **0–2**  | Risky     | Refactor or isolate    |
+| **6-10** | Safe      | Proceed                |
+| **3-5**  | Moderate  | Add tests + monitoring |
+| **0-2**  | Risky     | Refactor or isolate    |
 | **< 0**  | Dangerous | Redesign before coding |
 
 ---

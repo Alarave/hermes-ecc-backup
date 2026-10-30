@@ -94,7 +94,7 @@ No sanitices los archivos del repo en respuesta a recordatorios efímeros; no so
 
 ## Recursos de Seguridad
 
-- **AgentShield**: Analiza tu configuración de agentes en busca de vulnerabilidades — `npx ecc-agentshield scan`
+- **AgentShield**: Analiza tu configuración de agentes en busca de vulnerabilidades - `npx ecc-agentshield scan`
 - **Guía de Seguridad**: [La Guía Resumida de Seguridad Agentiva](../../the-security-guide.md)
 - **Respuesta a incidentes en la cadena de suministro**: [Guía npm/GitHub Actions](../security/supply-chain-incident-response.md)
 - **OWASP MCP Top 10**: [owasp.org/www-project-mcp-top-10](https://owasp.org/www-project-mcp-top-10/)

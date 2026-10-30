@@ -12,15 +12,15 @@
 ## 不可变性
 
 * 对于值类型，优先使用 `record`（Java 16+）
-* 默认将字段标记为 `final` —— 仅在需要时才使用可变状态
+* 默认将字段标记为 `final` -- 仅在需要时才使用可变状态
 * 从公共 API 返回防御性副本：`List.copyOf()`、`Map.copyOf()`、`Set.copyOf()`
 * 写时复制：返回新实例，而不是修改现有实例
 
 ```java
-// GOOD — immutable value type
+// GOOD - immutable value type
 public record OrderSummary(Long id, String customerName, BigDecimal total) {}
 
-// GOOD — final fields, no setters
+// GOOD - final fields, no setters
 public class Order {
     private final Long id;
     private final List<LineItem> items;
@@ -46,10 +46,10 @@ public class Order {
 
 * **记录** 用于 DTO 和值类型（Java 16+）
 * **密封类** 用于封闭的类型层次结构（Java 17+）
-* 使用 `instanceof` 进行**模式匹配** —— 避免显式类型转换（Java 16+）
-* **文本块** 用于多行字符串 —— SQL、JSON 模板（Java 15+）
+* 使用 `instanceof` 进行**模式匹配** -- 避免显式类型转换（Java 16+）
+* **文本块** 用于多行字符串 -- SQL、JSON 模板（Java 15+）
 * 使用箭头语法的**Switch 表达式**（Java 14+）
-* **Switch 中的模式匹配** —— 用于处理密封类型的穷举情况（Java 21+）
+* **Switch 中的模式匹配** -- 用于处理密封类型的穷举情况（Java 21+）
 
 ```java
 // Pattern matching instanceof
@@ -71,7 +71,7 @@ String label = switch (status) {
 ## Optional 的使用
 
 * 从可能没有结果的查找方法中返回 `Optional<T>`
-* 使用 `map()`、`flatMap()`、`orElseThrow()` —— 绝不直接调用 `get()` 而不先检查 `isPresent()`
+* 使用 `map()`、`flatMap()`、`orElseThrow()` -- 绝不直接调用 `get()` 而不先检查 `isPresent()`
 * 绝不将 `Optional` 用作字段类型或方法参数
 
 ```java
@@ -80,7 +80,7 @@ return repository.findById(id)
     .map(ResponseDto::from)
     .orElseThrow(() -> new OrderNotFoundException(id));
 
-// BAD — Optional as parameter
+// BAD - Optional as parameter
 public void process(Optional<String> name) {}
 ```
 
