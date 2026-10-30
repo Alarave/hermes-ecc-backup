@@ -1,8 +1,16 @@
 ---
 name: autonomous-agent-harness
-description: Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (Hermes, AutoGPT) by leveraging Claude Code's native crons, dispatch, MCP tools, and memory. Use when the user wants continuous autonomous operation, scheduled tasks, or a self-directing agent loop.
+description: "[omh] Transform agent into an autonomous harness with persistent memory, scheduled tasks, and queues. Use when the user says: autonomous-agent-harness, autonomous harness, continuous agent, scheduled agent."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, harness, autonomy]
+    category: orchestration
+    phase: harness-execution
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [autonomous-loops, continuous-agent-loop, cronjob_manage]
 ---
 
 # Autonomous Agent Harness
@@ -267,7 +275,7 @@ Trigger: 30 min before each calendar event
 
 ## Constraints
 
-- Cron tasks run in isolated sessions — they don't share context with interactive sessions unless through memory.
+- Cron tasks run in isolated sessions: they don't share context with interactive sessions unless through memory.
 - Computer use requires explicit permission grants. Don't assume access.
 - Remote dispatch may have rate limits. Design crons with appropriate intervals.
 - Memory files should be kept concise. Archive old data rather than letting files grow unbounded.

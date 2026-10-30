@@ -1,8 +1,16 @@
 ---
 name: skill-comply
-description: スキル、ルール、エージェント定義が実際に遵守されているかを可視化する——3種類のプロンプト厳格度レベルのシナリオを自動生成し、エージェントを実行し、動作シーケンスを分類し、完全なツール呼び出しタイムラインの遵守率をレポートする
-origin: ECC
-tools: Read, Bash
+description: "[omh] Measure and report compliance of skills, rules, and agent definitions across prompt rigor levels. Use when the user says: skill-comply, skill comply, check compliance, verify rule compliance."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, compliance, quality]
+    category: skill-engineering
+    phase: compliance-audit
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [skill-stocktake, rules-distill, spesialis-skills]
 ---
 
 # skill-comply：自動化された遵守測定
@@ -57,4 +65,4 @@ uv run python -m scripts.run --gen-model haiku --model sonnet <path>
 
 ### 高度な内容（オプション）
 
-フックに精通したユーザー向けに、レポートには遵守率が低いステップに対するフック強化の推奨事項も含まれる。これは参考情報——主要な価値は遵守性自体の可視化にある。
+フックに精通したユーザー向けに、レポートには遵守率が低いステップに対するフック強化の推奨事項も含まれる。これは参考情報: 主要な価値は遵守性自体の可視化にある。

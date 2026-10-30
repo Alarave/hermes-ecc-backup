@@ -1,6 +1,16 @@
 ---
-name: asep
-description: "Use when managing AI skills. Master engine RCCO Asep."
+name: spesialis-skills
+description: "[omh] Unified RCCO AI skill engineering engine for creating, auditing, and optimizing skills. Use when the user says: spesialis-skills, asep, skill-architect, skill engineering, buat skill."
+license: MIT
+author: "Asep (Principal AI Skill Architect)"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, skills, rcco]
+    category: skill-engineering
+    phase: lifecycle
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [specialist-skill-architect, pram-orchestrator, rules-distill]
 ---
 
 # Asep (Spesialis Rekayasa & Arsitektur Skill AI / spesialis-skills)
@@ -60,6 +70,8 @@ Skill ini dipicu saat pengguna memanggil `/spesialis-skills`, `/specialist-skill
 - Bersihkan bayangan direktori (skill shadowing) jika skill terpasang di tier ganda (.agent, .kiro, .cursor, .agents) yang memicu penolakan pemanggilan akibat duplikasi identik.
 17. **Protokol Integritas AI Akademik & Riset (15-Pillar "Bukan, Melainkan" Standard)**: Saat merancang atau mengaudit modul skill riset akademik (`spesialis-research-akademik`, `academic-researcher`, `scientific-writing`), Asep wajib memastikan penegakan 15 pilar prinsip "Bukan, Melainkan": AI adalah alat bantu berpikir tepat, logis, dan sistematis (bukan pengganti manusia), wajib deklarasi terbuka (COPE compliance), validasi primer seluruh sitasi, SPOK kalimat tegas, paragraf satu adegan (deduktif/induktif), transisi kohesif, serta kolaborasi terbuka bersama dosen pembimbing atau promotor (rujukan: `skills/spesialis-research-akademik/references/prinsip-bukan-melainkan-etika-ai.md`).
 18. **Protokol Dependensi Multi-Tier Skill Eksternal (Multi-Tier Skill Dependency Gate)**: Saat memasang atau mengonfigurasi dependensi skill (seperti visual/diagram/formula/headless browser), wajib verifikasi 3 lapisan secara berurutan: 1) Python package di venv via uv pip install, 2) Biner browser/headless via playwright install chromium dengan batas waktu tinggi (timeout >= 600s untuk unduhan besar >150 MB), dan 3) Submodul Node.js (seperti scripts/mathjax via npm install). Uji coba eksekusi nyata (smoke test) seluruh pipeline script sebelum menyatakan skill siap digunakan.
+19. **Protokol Standardisasi Skill Oh My Hermes (OMH) & Paritas RCCO**: Saat merapikan atau mengoptimalkan skill agar patuh format Oh My Hermes, terapkan struktur: 1) Frontmatter YAML lengkap: name, description dengan klausa pemicu spesifik ("Use when the user says: ..."), license, author, metadata.hermes (tags, category, phase, role, quality_tier, related_skills), 2) Seksi wajib deterministik: Why This Exists, When to Use (disertai blok Strong routing signals), Do Not Use When, Operating Steps berbutir sekuensial ringkas, Completion Checklist berbasis bukti, dan Recovery Notes, 3) Konfirmasi kapabilitas lugas (jawab bisa/tidak di awal) sebelum menyajikan perencanaan teknis.
+20. **Protokol Eksekusi Bergelombang & Mandat Direct Patch (Wave Partitioning Guard)**: Pada pemeliharaan pustaka skill skala ratusan (500+ hingga 700+ skill), DILARANG melakukan patch massal sekaligus dalam satu giliran untuk mencegah context overflow dan kehabisan kuota tool call. DILARANG membuat skrip perantara Python untuk menyunting atau menghasilkan file. Partisi eksekusi menjadi gelombang terukur (Waves) berdasarkan klaster domain, lakukan patch langsung (direct patch) per modul, dan uji kepatuhan dengan validator validate_skill.py.
 
 ## Linked References
 Agen memuat berkas referensi dari engine inti `specialist-skill-architect` secara bertahap sesuai kebutuhan fase:

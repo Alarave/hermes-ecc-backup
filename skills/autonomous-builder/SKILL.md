@@ -1,8 +1,17 @@
 ---
 name: autonomous-builder
 version: "1.0.0"
-description: "Full-stack software development agent for design, implementation, testing, and deployment. Use when the user explicitly asks for end-to-end project creation, feature development, bug fixing, or code refactoring."
-user-invocable: true
+description: "[omh] Full-stack autonomous software development agent for design, implementation, testing, and deployment. Use when the user says: autonomous-builder, build project, create app end to end, autonomous build."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, builder, autonomy]
+    category: software-engineering
+    phase: autonomous-build
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [autonomous-loops, pram-orchestrator, tdd-workflow]
 allowed-tools:
   - Read
   - Write
@@ -1118,7 +1127,7 @@ git checkout -b rollback-to-v0.1.0
 - `references/architecture-patterns.md`: Clean Architecture, Hexagonal, DDD
 - `references/multi-language.md`: Language-specific patterns (Python, Node.js, Go, Rust)
 - `references/error-recovery.md`: Detailed error handling strategies
-- `references/testing-patterns.md`: Unit, integration, E2E testing
+- `skills/tdd-workflow/SKILL.md`: Unit, integration, E2E testing
 
 ## Plugin 智能发现与自动使用 (ToolSearch Auto-Discovery)
 

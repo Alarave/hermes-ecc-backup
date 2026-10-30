@@ -1,27 +1,37 @@
 ---
 name: kiro-mode-router
-description: "Gunakan untuk: Routing otomatis ke Kiro-equivalent mode (Spec/Quick Spec/Bug Fix/Plan/Default) berdasarkan intent user. Single entry point untuk semua workflow Kiro di Antigravity. Trigger: 'kiro', 'mode kiro', 'gunakan kiro', atau saat tidak yakin mau pakai skill yang mana."
+description: "[omh] Automatic routing to Kiro-equivalent mode (Spec, Quick Spec, Bug Fix, Plan, Default) based on user intent. Use when the user says: kiro, mode kiro, gunakan kiro, route kiro."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, router, kiro]
+    category: orchestration
+    phase: mode-routing
+    role: guide
+    quality_tier: workflow-surface-gated
+    related_skills: [kiro-workflow, systematic-debugging, writing-plans]
 ---
 
 # Rule: kiro-mode-router
 
 ## R (Role / Identity)
 - **Peran**: Kiro Mode Detector & Workflow Router
-- **Keahlian**: Menganalisis konteks / intent user dan merutekan ke skill Antigravity yang paling tepat — meniru UX pemilihan mode Kiro (Default / Spec / Quick Spec / Bug Fix / Plan).
+- **Keahlian**: Menganalisis konteks / intent user dan merutekan ke skill Antigravity yang paling tepat: meniru UX pemilihan mode Kiro (Default / Spec / Quick Spec / Bug Fix / Plan).
 
 ---
 
 ## C (Context & Input)
 - Digunakan saat user menyebut "kiro", "mode kiro", atau saat permintaan ambigu antara spec, plan, bugfix, dan coding umum.
 - Input bisa berupa: deskripsi fitur, laporan bug, permintaan plan, atau pertanyaan umum.
-- Router ini adalah **thin wrapper** — tidak menduplikasi logika, hanya mendeteksi mode lalu mendelegasikan.
+- Router ini adalah **thin wrapper**: tidak menduplikasi logika, hanya mendeteksi mode lalu mendelegasikan.
 
 ---
 
 ## C (Constraints & Guardrails)
 - **DILARANG** memulai implementasi sebelum mode ditentukan.
 - Jika konteks masih ambigu setelah baca pesan user, tanyakan **1 pertanyaan klarifikasi** saja (lihat format di bawah).
-- Setelah mode ditentukan, **langsung load dan ikuti skill yang sesuai** — jangan duplikasi instruksinya di sini.
+- Setelah mode ditentukan, **langsung load dan ikuti skill yang sesuai**: jangan duplikasi instruksinya di sini.
 - Jika user sudah eksplisit menyebut kata kunci mode, **skip pertanyaan klarifikasi** dan langsung route.
 
 ---
@@ -49,13 +59,13 @@ Selalu umumkan mode yang terdeteksi sebelum delegate, dengan format:
 
 ```
 🎯 **Mode terdeteksi**: [MODE_NAME]
-📋 **Mendelegasikan ke**: `[skill-name]` — [jalur jika ada]
+📋 **Mendelegasikan ke**: `[skill-name]` - [jalur jika ada]
 ```
 
 Contoh:
 ```
 🎯 **Mode terdeteksi**: QUICK SPEC
-📋 **Mendelegasikan ke**: `kiro-workflow` — jalur cepat (quick-spec.md)
+📋 **Mendelegasikan ke**: `kiro-workflow` - jalur cepat (quick-spec.md)
 ```
 
 ---
@@ -67,35 +77,35 @@ Jika tidak bisa menentukan mode dari konteks, ajukan pertanyaan ini **sekali saj
 ```
 Saya perlu tahu mode yang tepat untuk request ini. Pilih salah satu:
 
-**A) Spec Penuh** — Fitur baru besar, butuh requirements.md + design.md + tasks.md
-**B) Quick Spec** — Fitur kecil (1-3 hari), satu file ringkas
-**C) Micro Spec / Bug Spec** — Tweak kecil atau bug fix < 1 hari
-**D) Bug Fix** — Ada sesuatu yang rusak/error, perlu investigation mendalam
-**E) Plan Only** — Mau breakdown rencana, TANPA langsung coding
-**F) Coding Langsung** — Langsung bantu implementasi tanpa spec dulu
+**A) Spec Penuh** - Fitur baru besar, butuh requirements.md + design.md + tasks.md
+**B) Quick Spec** - Fitur kecil (1-3 hari), satu file ringkas
+**C) Micro Spec / Bug Spec** - Tweak kecil atau bug fix < 1 hari
+**D) Bug Fix** - Ada sesuatu yang rusak/error, perlu investigation mendalam
+**E) Plan Only** - Mau breakdown rencana, TANPA langsung coding
+**F) Coding Langsung** - Langsung bantu implementasi tanpa spec dulu
 
 Reply dengan huruf pilihanmu (atau ketik sendiri kalau beda).
 ```
 
 ---
 
-## Mapping Lengkap: Kiro Built-in → Antigravity Equivalent
+## Mapping Lengkap: Kiro Built-in -> Antigravity Equivalent
 
 | Kiro Mode | Deskripsi Kiro | Antigravity Equivalent | Skill |
 |-----------|---------------|------------------------|-------|
 | **Default** | General coding assistance | Meta-skill detection otomatis | `using-superantigravity` |
 | **Spec** | Structured feature development | Jalur standar 3-file | `kiro-workflow` |
-| **Quick Spec** | Clarify → requirements → design → tasks (fast) | Jalur cepat 1-file | `kiro-workflow` (quick) |
-| **Bug Fix** | Investigate → Diagnose → Resolve | Root-cause first debugging | `systematic-debugging` |
+| **Quick Spec** | Clarify -> requirements -> design -> tasks (fast) | Jalur cepat 1-file | `kiro-workflow` (quick) |
+| **Bug Fix** | Investigate -> Diagnose -> Resolve | Root-cause first debugging | `systematic-debugging` |
 | **Plan** | Plan-only, no code changes | Plan ringan atau plan ke file | `create-plan` / `writing-plans` |
 
 ---
 
 ## Referensi Skill yang Didelegasikan
 
-- [`kiro-workflow`](C:\Users\HP\.gemini\antigravity\skills\kiro-workflow\SKILL.md) — Spec workflow utama (3 jalur)
-- [`systematic-debugging`](C:\Users\HP\.gemini\antigravity\skills\systematic-debugging\SKILL.md) — Bug fix dengan root cause investigation
-- [`diagnosing-bugs`](C:\Users\HP\.gemini\antigravity\skills\diagnosing-bugs\SKILL.md) — Hard bugs dengan feedback loop
-- [`create-plan`](C:\Users\HP\.gemini\antigravity\skills\create-plan\SKILL.md) — Plan ringan, read-only
-- [`writing-plans`](C:\Users\HP\.gemini\antigravity\skills\writing-plans\SKILL.md) — Plan detail yang disimpan ke file
-- [`using-superantigravity`](C:\Users\HP\.gemini\antigravity\skills\using-superantigravity\SKILL.md) — Meta-skill detection
+- `skills/kiro-workflow/SKILL.md`: Spec workflow utama (3 jalur)
+- `skills/systematic-debugging/SKILL.md`: Bug fix dengan root cause investigation
+- `skills/diagnosing-bugs/SKILL.md`: Hard bugs dengan feedback loop
+- `skills/create-plan/SKILL.md`: Plan ringan, read-only
+- `skills/writing-plans/SKILL.md`: Plan detail yang disimpan ke file
+- `skills/using-superantigravity/SKILL.md`: Meta-skill detection
