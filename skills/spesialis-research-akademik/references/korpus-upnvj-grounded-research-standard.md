@@ -86,3 +86,28 @@ Jika pengguna belum memiliki data konkret lapangan saat diinterogasi:
 2. Agen wajib secara otomatis menyajikan 3 alternatif repositori data publik terverifikasi (Kaggle bersih, UCI Machine Learning, atau data survei resmi kementerian/lembaga).
 3. Agen membantu merumuskan draf judul menggunakan formula 4-elemen (Metode + Masalah + Objek + Metrik).
 4. Setelah objek dan angka disepakati, barulah penulisan paragraf dilanjutkan dengan menerapkan formula empat kalimat.
+
+---
+
+## 6. Standar Penamaan Judul Bab dan Sub-Bab (Aturan 2 Sampai 4 Kata Anti-Slop)
+
+Kecenderungan model bahasa besar menghasilkan judul sub-bab yang berbelit-belit (*"Tinjauan Teoretis Komprehensif Mengenai Dinamika Transformasi..."*) ditolak secara mutlak.
+
+### Tiga Pilar Penamaan Sub-Bab Baku:
+1. **Fungsi Judul adalah Label Taksonomi**: Judul sub-bab (H2/H3) adalah label klasifikasi keilmuan untuk navigasi pembaca dan dewan penguji, BUKAN ringkasan kalimat atau berita.
+2. **Batas Panjang 2 Sampai 4 Kata**: Setiap sub-bab dibatasi maksimal 2 sampai 4 kata padat.
+3. **Larangan Preposisi dan Kata Sifat Kosong**:
+   - Dilarang kata depan/gerund pembuka: *Mengenai, Tentang, Pemanfaatan, Tinjauan Umum Tentang, Upaya, Analisis Mendalam Terkait*.
+   - Dilarang kata sifat hiperbolis: *Komprehensif, Krusial, Esensial, Revolusioner, Holistik*.
+   - Wajib langsung menunjuk nama konsep atau algoritma tunggal.
+
+### Matriks Komparasi Penamaan Judul (Draf Rusak AI vs Standar Korpus UPNVJ):
+
+| Posisi Naskah | Draf Rusak AI Slop (Ditolak) | Standar Dingin Baku Korpus UPNVJ (Disahkan) |
+|---|---|---|
+| **Bab 2 (Konsep Inti 1)** | `2.1 Landasan Teoretis Mengenai Kecerdasan Buatan dan Arsitektur Konvolusi` | `2.1 Convolutional Neural Network` |
+| **Bab 2 (Karakteristik Masalah)** | `2.2 Dinamika Fluktuasi Harga Saham Perbankan dan Berbagai Permasalahannya` | `2.2 Karakteristik Deret Waktu Saham` |
+| **Bab 2 (Metode Usulan)** | `2.3 Eksplorasi Metode Dekomposisi Sinyal CEEMDAN Sebagai Solusi Prediksi` | `2.3 Dekomposisi CEEMDAN` |
+| **Bab 2 (Tinjauan Studi)** | `2.4 Sintesis Komprehensif Terhadap Berbagai Penelitian Terdahulu yang Relevan` | `2.4 Penelitian Terdahulu` |
+| **Bab 3 (Tahap Data)** | `3.2 Prosedur Menyeluruh Pengumpulan dan Pembersihan Data Katalog Kosmetik` | `3.2 Pengumpulan Data` |
+| **Bab 4 (Hasil Evaluasi)** | `4.2 Pembuktian Empiris Hasil Performa Akurasi dan Evaluasi Model` | `4.2 Evaluasi Performa` |
