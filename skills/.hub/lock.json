@@ -129,6 +129,403 @@
       },
       "installed_at": "2026-09-25T01:42:29.062644+00:00",
       "updated_at": "2026-09-25T01:42:29.062644+00:00"
+    },
+    "react-best-practices": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/vercel-labs/agent-skills/vercel-react-best-practices",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:06c92a29e848b85c",
+      "install_path": "react-best-practices",
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "README.md",
+        "metadata.json",
+        "rules/_sections.md",
+        "rules/_template.md",
+        "rules/advanced-effect-event-deps.md",
+        "rules/advanced-event-handler-refs.md",
+        "rules/advanced-init-once.md",
+        "rules/advanced-use-latest.md",
+        "rules/async-api-routes.md",
+        "rules/async-cheap-condition-before-await.md",
+        "rules/async-defer-await.md",
+        "rules/async-dependencies.md",
+        "rules/async-parallel.md",
+        "rules/async-suspense-boundaries.md",
+        "rules/bundle-analyzable-paths.md",
+        "rules/bundle-barrel-imports.md",
+        "rules/bundle-conditional.md",
+        "rules/bundle-defer-third-party.md",
+        "rules/bundle-dynamic-imports.md",
+        "rules/bundle-preload.md",
+        "rules/client-event-listeners.md",
+        "rules/client-localstorage-schema.md",
+        "rules/client-passive-event-listeners.md",
+        "rules/client-swr-dedup.md",
+        "rules/js-batch-dom-css.md",
+        "rules/js-cache-function-results.md",
+        "rules/js-cache-property-access.md",
+        "rules/js-cache-storage.md",
+        "rules/js-combine-iterations.md",
+        "rules/js-early-exit.md",
+        "rules/js-flatmap-filter.md",
+        "rules/js-hoist-regexp.md",
+        "rules/js-index-maps.md",
+        "rules/js-length-check-first.md",
+        "rules/js-min-max-loop.md",
+        "rules/js-request-idle-callback.md",
+        "rules/js-set-map-lookups.md",
+        "rules/js-tosorted-immutable.md",
+        "rules/rendering-activity.md",
+        "rules/rendering-animate-svg-wrapper.md",
+        "rules/rendering-conditional-render.md",
+        "rules/rendering-content-visibility.md",
+        "rules/rendering-hoist-jsx.md",
+        "rules/rendering-hydration-no-flicker.md",
+        "rules/rendering-hydration-suppress-warning.md",
+        "rules/rendering-resource-hints.md",
+        "rules/rendering-script-defer-async.md",
+        "rules/rendering-svg-precision.md",
+        "rules/rendering-usetransition-loading.md",
+        "rules/rerender-defer-reads.md",
+        "rules/rerender-dependencies.md",
+        "rules/rerender-derived-state-no-effect.md",
+        "rules/rerender-derived-state.md",
+        "rules/rerender-functional-setstate.md",
+        "rules/rerender-lazy-state-init.md",
+        "rules/rerender-memo-with-default-value.md",
+        "rules/rerender-memo.md",
+        "rules/rerender-move-effect-to-event.md",
+        "rules/rerender-no-inline-components.md",
+        "rules/rerender-simple-expression-in-memo.md",
+        "rules/rerender-split-combined-hooks.md",
+        "rules/rerender-transitions.md",
+        "rules/rerender-use-deferred-value.md",
+        "rules/rerender-use-ref-transient-values.md",
+        "rules/server-after-nonblocking.md",
+        "rules/server-auth-actions.md",
+        "rules/server-cache-lru.md",
+        "rules/server-cache-react.md",
+        "rules/server-dedup-props.md",
+        "rules/server-hoist-static-io.md",
+        "rules/server-no-shared-module-state.md",
+        "rules/server-parallel-fetching.md",
+        "rules/server-parallel-nested-fetching.md",
+        "rules/server-serialization.md"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices",
+        "source_revision": "063bee94c3f4df8453406c830b0a7df0f2860278"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:06c92a29e848b85ceb9b0367d4384f67c51c20b0013dd29679a3d5163e8a34b7",
+        "scanner_version": "skills-guard-v10",
+        "source": "skills-sh/vercel-labs/agent-skills/vercel-react-best-practices",
+        "source_url": "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "too_many_files",
+            "severity": "medium",
+            "category": "structural",
+            "file": "(directory)",
+            "line": 0,
+            "match": "76 files",
+            "description": "skill has 76 files (limit: 50)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "README.md",
+            "line": 13,
+            "match": "- __`AGENTS.md`__ - Compiled output (generated)",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "README.md",
+            "line": 23,
+            "match": "2. Build AGENTS.md from rules:",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "README.md",
+            "line": 52,
+            "match": "5. Run `pnpm build` to regenerate AGENTS.md and test-cases.json",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "README.md",
+            "line": 105,
+            "match": "- `pnpm build` - Compile rules into AGENTS.md",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "README.md",
+            "line": 118,
+            "match": "5. Run `pnpm build` to regenerate AGENTS.md and test-cases.json",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          },
+          {
+            "pattern_id": "agent_config_ref",
+            "severity": "low",
+            "category": "persistence",
+            "file": "SKILL.md",
+            "line": 149,
+            "match": "For the complete guide with all rules expanded: `AGENTS.md`",
+            "description": "references agent config files (informational; only modification intent is scored)"
+          }
+        ],
+        "rules": [
+          "agent_config_ref",
+          "too_many_files"
+        ],
+        "scanned_at": "2026-10-21T16:31:03.944638+00:00",
+        "summary": "react-best-practices: safe — 7 finding(s) in persistence, structural",
+        "fresh": false
+      },
+      "installed_at": "2026-10-21T16:31:21.024778+00:00",
+      "updated_at": "2026-10-21T16:31:21.024778+00:00"
+    },
+    "frontend-design": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/anthropics/skills/frontend-design",
+      "trust_level": "trusted",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:19de668f2da4a0cd",
+      "install_path": "frontend-design",
+      "files": [
+        "SKILL.md",
+        "LICENSE.txt"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design",
+        "source_revision": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:19de668f2da4a0cd78cce1a5e7e10094ac01d0feb80bcc7190fee085ce49df32",
+        "scanner_version": "skills-guard-v10",
+        "source": "skills-sh/anthropics/skills/frontend-design",
+        "source_url": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design",
+        "verdict": "safe",
+        "trust_level": "trusted",
+        "findings": [],
+        "rules": [],
+        "scanned_at": "2026-10-21T16:31:38.453771+00:00",
+        "summary": "frontend-design: clean scan, no threats detected",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T16:31:38.478079+00:00",
+      "updated_at": "2026-10-21T16:31:38.478079+00:00"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/supabase/agent-skills/supabase-postgres-best-practices",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:8c91a728aec7a178",
+      "install_path": "supabase-postgres-best-practices",
+      "files": [
+        "SKILL.md",
+        "CHANGELOG.md",
+        "references/_contributing.md",
+        "references/_sections.md",
+        "references/_template.md",
+        "references/advanced-full-text-search.md",
+        "references/advanced-jsonb-indexing.md",
+        "references/conn-idle-timeout.md",
+        "references/conn-limits.md",
+        "references/conn-pooling.md",
+        "references/conn-prepared-statements.md",
+        "references/data-batch-inserts.md",
+        "references/data-n-plus-one.md",
+        "references/data-pagination.md",
+        "references/data-upsert.md",
+        "references/lock-advisory.md",
+        "references/lock-deadlock-prevention.md",
+        "references/lock-short-transactions.md",
+        "references/lock-skip-locked.md",
+        "references/monitor-explain-analyze.md",
+        "references/monitor-pg-stat-statements.md",
+        "references/monitor-vacuum-analyze.md",
+        "references/query-composite-indexes.md",
+        "references/query-covering-indexes.md",
+        "references/query-index-types.md",
+        "references/query-missing-indexes.md",
+        "references/query-partial-indexes.md",
+        "references/schema-constraints.md",
+        "references/schema-data-types.md",
+        "references/schema-foreign-key-indexes.md",
+        "references/schema-lowercase-identifiers.md",
+        "references/schema-partitioning.md",
+        "references/schema-primary-keys.md",
+        "references/security-privileges.md",
+        "references/security-rls-basics.md",
+        "references/security-rls-performance.md"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices",
+        "source_revision": "c9be0e931b7930f7d02126d04774d904c381e7d7"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:8c91a728aec7a1783af146b5a21de8425ffc9f8c5ae6d6a2295508f6dcf1139a",
+        "scanner_version": "skills-guard-v10",
+        "source": "skills-sh/supabase/agent-skills/supabase-postgres-best-practices",
+        "source_url": "https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [],
+        "rules": [],
+        "scanned_at": "2026-10-21T16:36:33.147100+00:00",
+        "summary": "supabase-postgres-best-practices: clean scan, no threats detected",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T16:36:33.191829+00:00",
+      "updated_at": "2026-10-21T16:36:33.191829+00:00"
+    },
+    "best-practices": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/better-auth/skills/better-auth-best-practices",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:2e7099c7a914cff4",
+      "install_path": "best-practices",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/better-auth/skills/tree/20c9e88a5c007461a703f1c213572b073196113e/better-auth/best-practices",
+        "source_revision": "20c9e88a5c007461a703f1c213572b073196113e"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:2e7099c7a914cff4b71051ae205cfd2d0603bddf345612c2700bd025b29c2d7d",
+        "scanner_version": "skills-guard-v10",
+        "source": "skills-sh/better-auth/skills/better-auth-best-practices",
+        "source_url": "https://github.com/better-auth/skills/tree/20c9e88a5c007461a703f1c213572b073196113e/better-auth/best-practices",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "unpinned_npm_install",
+            "severity": "medium",
+            "category": "supply_chain",
+            "file": "SKILL.md",
+            "line": 24,
+            "match": "1. Install: `npm install better-auth`",
+            "description": "npm install without version pinning"
+          }
+        ],
+        "rules": [
+          "unpinned_npm_install"
+        ],
+        "scanned_at": "2026-10-21T16:36:46.669410+00:00",
+        "summary": "best-practices: safe — 1 finding(s) in supply_chain",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T16:36:46.694070+00:00",
+      "updated_at": "2026-10-21T16:36:46.694070+00:00"
+    },
+    "deploy-to-vercel": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/vercel-labs/agent-skills/deploy-to-vercel",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:a5210a5fa08557ee",
+      "install_path": "deploy-to-vercel",
+      "files": [
+        "SKILL.md",
+        "Archive.zip",
+        "resources/deploy-codex.sh",
+        "resources/deploy.sh"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/deploy-to-vercel",
+        "source_revision": "063bee94c3f4df8453406c830b0a7df0f2860278"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:a5210a5fa08557ee5c00b247fd481e0769ca6254ba1a4d3a67a2a436c935d791",
+        "scanner_version": "skills-guard-v10",
+        "source": "skills-sh/vercel-labs/agent-skills/deploy-to-vercel",
+        "source_url": "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/deploy-to-vercel",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "unpinned_npm_install",
+            "severity": "medium",
+            "category": "supply_chain",
+            "file": "SKILL.md",
+            "line": 141,
+            "match": "npm install -g vercel",
+            "description": "npm install without version pinning"
+          }
+        ],
+        "rules": [
+          "unpinned_npm_install"
+        ],
+        "scanned_at": "2026-10-21T16:37:00.241882+00:00",
+        "summary": "deploy-to-vercel: safe — 1 finding(s) in supply_chain",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T16:37:00.267968+00:00",
+      "updated_at": "2026-10-21T16:37:00.267968+00:00"
+    },
+    "semantic-scholar": {
+      "source": "skills.sh",
+      "identifier": "skills-sh/wanshuiyin/auto-claude-code-research-in-sleep/semantic-scholar",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:f0e09a2cd46cbace",
+      "install_path": "semantic-scholar",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "source_url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep/tree/6564cab43dd9df3dbab85e459af0202ff0830a35/skills/skills-codex/semantic-scholar",
+        "source_revision": "6564cab43dd9df3dbab85e459af0202ff0830a35"
+      },
+      "scan_provenance": {
+        "bundle_hash": "sha256:f0e09a2cd46cbace1a765cc708dec8063fa48686f3d55a6842274fdd18caa245",
+        "scanner_version": "skills-guard-v10",
+        "source": "skills-sh/wanshuiyin/auto-claude-code-research-in-sleep/semantic-scholar",
+        "source_url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep/tree/6564cab43dd9df3dbab85e459af0202ff0830a35/skills/skills-codex/semantic-scholar",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "allowed_tools_field",
+            "severity": "low",
+            "category": "privilege_escalation",
+            "file": "SKILL.md",
+            "line": 5,
+            "match": "allowed-tools: Bash(*), Read, Write",
+            "description": "skill declares allowed-tools (standard frontmatter; informational)"
+          }
+        ],
+        "rules": [
+          "allowed_tools_field"
+        ],
+        "scanned_at": "2026-10-21T16:47:12.316185+00:00",
+        "summary": "semantic-scholar: safe — 1 finding(s) in privilege_escalation",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T16:47:12.352883+00:00",
+      "updated_at": "2026-10-21T16:47:12.352883+00:00"
     }
   }
 }

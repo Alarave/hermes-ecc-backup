@@ -6,3 +6,9 @@
 2026-10-10T15:53:09Z BLOCKED google-calendar-api clawhub:community caution 4_findings
 2026-10-10T15:54:10Z BLOCKED google-calendar-api clawhub:community caution 4_findings
 2026-10-10T15:54:30Z BLOCKED google-calendar-api clawhub:community caution 4_findings
+2026-10-21T16:31:21Z INSTALL react-best-practices skills.sh:community safe sha256:06c92a29e848b85c
+2026-10-21T16:31:38Z INSTALL frontend-design skills.sh:trusted safe sha256:19de668f2da4a0cd
+2026-10-21T16:36:33Z INSTALL supabase-postgres-best-practices skills.sh:community safe sha256:8c91a728aec7a178
+2026-10-21T16:36:46Z INSTALL best-practices skills.sh:community safe sha256:2e7099c7a914cff4
+2026-10-21T16:37:00Z INSTALL deploy-to-vercel skills.sh:community safe sha256:a5210a5fa08557ee
+2026-10-21T16:47:12Z INSTALL semantic-scholar skills.sh:community safe sha256:f0e09a2cd46cbace
