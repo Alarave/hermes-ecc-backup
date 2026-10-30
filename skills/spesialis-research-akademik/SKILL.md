@@ -189,6 +189,7 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 - `references/section-prompts-blueprint.md` (Cetak Biru Hierarki Section Prompts Bab 1-5 Skripsi & Manuskrip Ilmiah)
 - `references/claim-confidence-and-hedging.md` (Sistem Audit Claim Confidence & Academic Hedging Berbasis Bukti Empiris)
 - `references/pedoman-bahasa-akademik-eyd.md` (Pedoman Standar Bahasa Akademik EYD V & Eliminasi Kata Hiperbolis)
+- `references/korpus-upnvj-grounded-research-standard.md` (Standar Riset Empiris Berjangkar Korpus UPNVJ & Diksi Akademik Dingin)
 - `references/wordcraft-mcp-typesetting.md`
 - `references/socratic-interrogation-form.md`
 - `references/pedoman-tipografi-format.md`
