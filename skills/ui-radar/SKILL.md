@@ -1,6 +1,16 @@
 ---
 name: ui-radar
-description: Find and compare real UI examples from UIZZE’s 800,000+ web and iOS screens. Use for UI inspiration, UI research, design references, comparable apps, user flows, layouts, navigation, components, interaction states, and product patterns before designing or redesigning an interface.
+description: "[omh] Find and compare real UI examples from UIZZE's 800,000+ web and iOS screens. Use when the user says: ui-radar, ui inspiration, ui examples, design references, real app designs."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, frontend, ui-radar, design-references, uizze, ui-examples]
+    category: frontend
+    phase: design-research
+    role: researcher
+    quality_tier: evidence-gated
+    related_skills: [anti-ui-slop, frontend-design, spesialis-frontend]
 ---
 
 > ***Don't let your AI agents design blind.***
@@ -18,7 +28,7 @@ UI Radar answers one focused question with visible evidence. It does not choose 
 ## Find Only What Matters
 
 1. Identify the platform, screen job, and one unresolved decision.
-2. Search by product job, object, state, or interaction—not by a predetermined style.
+2. Search by product job, object, state, or interaction: not by a predetermined style.
 3. Keep zero to three strong references. One can be enough.
 4. Inspect the screenshots. Metadata and OCR only locate candidates.
 5. State the visible fact and the decision it informs. If nothing useful appears, say so and stop.

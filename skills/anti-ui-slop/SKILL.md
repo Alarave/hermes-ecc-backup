@@ -1,12 +1,17 @@
 ---
 name: anti-ui-slop
-description: Stop coding agents from shipping generic UI. Use UIZZE's 800,000+ real web and iOS screens to build product-specific interfaces, define a design contract, cover required states, and run a hard finish gate. Use when designing, implementing, redesigning, critiquing, or pre-ship reviewing a web or iOS interface in Codex, Claude Code, Cursor, Copilot, or another coding agent. Trigger with "anti-ui-slop", "stop UI slop", "ground this UI in real screens", or "run the UI finish gate".
+description: "[omh] Stop coding agents from shipping generic UI: build product-specific interfaces, cover required states, and run UI finish gate. Use when the user says: anti-ui-slop, stop ui slop, ui finish gate, real screen design."
 license: MIT
+author: "UIZZE <business@uizze.com>"
 metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, ui-design, frontend, design-system, design-review, web-ui, ios-ui]
+    category: frontend
+    phase: ui-polish
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [ui-radar, frontend-design, spesialis-frontend]
   version: "1.2.13"
-  author: "UIZZE <business@uizze.com>"
-  compatibility: "Designed for Claude Code, Codex, Cursor, and GitHub Copilot; works in any agent that can read project files and fetch a URL."
-  tags: "ui-design, design-system, design-review, frontend, web-ui, ios-ui"
 ---
 
 > **Stop AI coding agents from shipping generic UI.**
@@ -23,7 +28,7 @@ Use the product brief, existing UI, components, and local design system to make 
 
 ## Prerequisites
 
-- A screen or component to build, redesign, or review — a file path or a short description.
+- A screen or component to build, redesign, or review: a file path or a short description.
 - The product's existing components, design tokens, and visual language, so the build extends them instead of inventing a new system.
 - Optional access to the paid Uizze MCP for focused references and hosted materials.
 

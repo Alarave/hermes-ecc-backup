@@ -1,7 +1,16 @@
 ---
 name: vue-patterns
-description: Vue.js 3 Composition API patterns, component architecture, reactivity best practices, Pinia state management, Vue Router navigation, and Nuxt SSR patterns. Activates for Vue, Nuxt, Vite, or Pinia projects.
-origin: ECC
+description: "[omh] Vue.js 3 Composition API patterns, reactivity, Pinia state management, and Vue Router navigation. Use when the user says: vue-patterns, vue patterns, vue 3, pinia, nuxt ssr."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, frontend, vue, pinia, composition-api, nuxt]
+    category: frontend
+    phase: component-development
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [frontend-patterns, tdd-workflow, spesialis-frontend]
 ---
 
 # Vue.js Patterns and Best Practices
@@ -100,7 +109,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 - Always provide `type`, and `required`/`default` where appropriate.
 - Boolean props: `isXxx`, `hasXxx`, `canXxx`.
-- Never mutate props — emit events instead.
+- Never mutate props: emit events instead.
 - For v-model binding, use `defineModel()` (Vue 3.4+) or `modelValue` + `update:modelValue`.
 
 ### Events
@@ -375,7 +384,7 @@ export default defineNuxtConfig({
 
 ### Reactive Props Destructure
 
-Vue 3.5 stabilized reactive props destructure — destructured variables from `defineProps()` are automatically reactive:
+Vue 3.5 stabilized reactive props destructure: destructured variables from `defineProps()` are automatically reactive:
 
 ```ts
 // Vue 3.5+: destructured props are reactive (no need for toRefs)
@@ -451,7 +460,7 @@ const AsyncComp = defineAsyncComponent({
 | Anti-Pattern | Why It's Wrong | The Fix |
 |-------------|---------------|---------|
 | Destructuring `defineProps()` (Vue < 3.5) | Captures snapshot, loses reactivity | Access via `props.xxx` or use `toRefs()` |
-| `watch()` on destructured prop (Vue 3.5+) | Compile-time error — destructured props can't be watched directly | Use getter wrapper: `watch(() => count, ...)` |
+| `watch()` on destructured prop (Vue 3.5+) | Compile-time error: destructured props can't be watched directly | Use getter wrapper: `watch(() => count, ...)` |
 | `v-if` + `v-for` on same element | Ambiguous execution order | Use computed filtered array |
 | `v-for` key = index | Broken state on reorder | Use stable database IDs |
 | Mutating props | Violates one-way data flow | Emit events or use `v-model` |
@@ -465,7 +474,7 @@ const AsyncComp = defineAsyncComponent({
 
 ## Related Skills
 
-- `accessibility` — ARIA, semantic HTML, focus management
-- `frontend-patterns` — Cross-framework frontend architecture
-- `typescript` — TypeScript best practices applied to Vue projects
-- `coding-standards` — General code quality standards
+- `accessibility`: ARIA, semantic HTML, focus management
+- `frontend-patterns`: Cross-framework frontend architecture
+- `typescript`: TypeScript best practices applied to Vue projects
+- `coding-standards`: General code quality standards

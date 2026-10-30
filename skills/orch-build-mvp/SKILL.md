@@ -1,8 +1,16 @@
 ---
 name: orch-build-mvp
-description: Orchestrate bootstrapping a working MVP from a design or spec document — ingest the doc, plan thin vertical slices, scaffold the first end-to-end slice, then TDD-implement, review, and gated commit. Use to turn an SDD/PRD into a running starting point.
+description: "[omh] Orchestrate bootstrapping a working MVP from a design or spec document: ingest, vertical slice planning, scaffolding, and TDD implementation. Use when the user says: orch-build-mvp, bootstrap mvp, build mvp, slice planning."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, architecture, mvp, orchestration, scaffolding]
+    category: architecture
+    phase: mvp-bootstrap
+    role: orchestrator
+    quality_tier: evidence-gated
+    related_skills: [orch-pipeline, writing-plans, blueprint]
 ---
 
 # orch-build-mvp
@@ -18,7 +26,7 @@ engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 
 ## Operation settings
 
-- **Default size floor:** large — this is the full pipeline including Scaffold.
+- **Default size floor:** large: this is the full pipeline including Scaffold.
 - **Phase mask:** 0 (read the spec) → 1 → 2 (heavy) → 3 (scaffold) → 4 → 5 → 6.
 - **First move (phase 0 → 2):** read the doc; extract scope, locked decisions,
   and the feature list; order it into **thin vertical slices** (one end-to-end
@@ -29,7 +37,7 @@ engine in [`orch-pipeline`](../orch-pipeline/SKILL.md).
 1. Run the `orch-pipeline` engine with the settings above.
 2. **Reuse the existing GAN harness** instead of hand-rolling an iterate loop:
    - Translate the SDD into `gan-harness/spec.md` + `gan-harness/eval-rubric.md`
-     (this stands in for what `gan-planner` would generate — you already have the spec).
+     (this stands in for what `gan-planner` would generate: you already have the spec).
    - Drive the build with `/gan-build "<one-line brief>" --skip-planner`
      (defaults: `--max-iterations 15`, `--pass-threshold 7.0`,
      `--eval-mode playwright`; use `--eval-mode code-only` for non-UI slices).

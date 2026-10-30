@@ -1,6 +1,6 @@
 ---
 name: reverse-engineer-anything
-description: "Use when user says 'reverse engineering', 'reverse engineer', 'bedah binary', 'decompile', 'bongkar aplikasi', 'ekstrak asar', atau 'analisis binary/executable'."
+description: "Use when user says 'reverse engineering', 'reverse engineer', 'rea', 'bedah binary', 'decompile', 'bongkar aplikasi', 'ekstrak asar', 'dekonstruksi saas', atau 'analisis binary/executable'."
 ---
 
 # Reverse Engineer Anything (reverse-engineer-anything)
@@ -21,14 +21,15 @@ Modul spesialis rekayasa balik aplikasi dan artefak terkompilasi yang diadaptasi
 
 Skill ini dipicu saat pengguna ingin memahami cara kerja fitur aplikasi tertutup, memeriksa isi arsip ASAR/Electron, mengekstrak metadata dependensi biner terkompilasi, atau menyusun spesifikasi rekonstruksi fitur.
 
-### 1. Mode A: Static JavaScript, Web SPA, Electron, & ASAR Inspection
-- **Tujuan**: Memetakan struktur modul, boundary IPC, rute SPA, endpoint API tersembunyi, dan dependensi pada aplikasi JavaScript/Web/Electron.
+### 1. Mode A: Static JavaScript, Web SPA, SaaS, Electron, & ASAR Inspection
+- **Tujuan**: Memetakan struktur modul, boundary IPC, rute SPA, arsitektur Web SaaS, pohon hierarki prompt AI, dan endpoint API tersembunyi.
 - **Alur Kerja**:
   1. Identifikasi lokasi berkas target (berkas `.asar`, direktori hasil ekstraksi, atau asset bundle SPA dari HTML shell).
-  2. Ekstraksi manifest rute (TanStack Router, React Router) untuk memetakan alur wizard, query params, dan switch-case komponen.
-  3. Lakukan inspeksi statis modul, saluran IPC, dan endpoint API internal tanpa harus menjalankan browser penuh.
-  4. Dekonstruksi paket pendukung (companion CLI npm) via inspeksi tarball registry untuk mengekstrak protokol komunikasi dan token contract.
-  5. Simpan peta relasi modul ke berkas ringkasan terstruktur dan rujuk panduan mendalam pada `references/javascript-and-electron.md`.
+  2. Untuk aplikasi Web SaaS di balik login wall: terapkan triangulasi 3-lapis bukti (landing shell, subdomain dokumentasi teknis `docs.<domain>`, dan skema API bantuan) untuk membedah pohon prompt (*Cascading Context Tree*) dan editor state machine.
+  3. Ekstraksi manifest rute (TanStack Router, React Router) untuk memetakan alur wizard, query params, dan switch-case komponen.
+  4. Lakukan inspeksi statis modul, saluran IPC, dan endpoint API internal tanpa harus menjalankan browser penuh.
+  5. Dekonstruksi paket pendukung (companion CLI npm) via inspeksi tarball registry untuk mengekstrak protokol komunikasi dan token contract.
+  6. Simpan peta relasi modul ke berkas ringkasan terstruktur dan rujuk panduan mendalam pada `references/javascript-and-electron.md` serta `references/saas-and-web-app-deconstruction.md`.
 
 ### 2. Mode B: Compiled Binary & Package Metadata
 - **Tujuan**: Memeriksa identitas kompiler, versi pustaka dependensi, tabel simbol, dan sumber daya biner tanpa dekompilasi penuh.
@@ -71,6 +72,7 @@ Skill ini dipicu saat pengguna ingin memahami cara kerja fitur aplikasi tertutup
 ## Linked References
 Modul panduan operasional teknis dimuat bertahap sesuai kebutuhan target:
 - `references/javascript-and-electron.md` (Inspeksi ASAR, Electron IPC, dan bundling web)
+- `references/saas-and-web-app-deconstruction.md` (Dekonstruksi arsitektur Web SaaS, SPA, pohon prompt, dan rich-text editor)
 - `references/native-binaries-and-pe.md` (Metadata Go, Rust, PE Windows, dan Ghidra)
 - `references/cli-tool-workflows.md` (Tata cara perintah CLI rea-agents dan isolasi bukti)
 

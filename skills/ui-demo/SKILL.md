@@ -1,7 +1,16 @@
 ---
 name: ui-demo
-description: Playwrightを使用して美しいUIデモ動画を録画する。ユーザーがWebアプリのデモ、ウォークスルー、スクリーン録画、またはチュートリアル動画の作成を求める場合に使用する。可視カーソル、自然なリズム、プロフェッショナルな仕上がりのWebM動画を生成する。
-origin: ECC
+description: "[omh] Record UI walkthrough demo videos using Playwright with cursor overlay and narrative flow. Use when the user says: ui-demo, record demo video, ui walkthrough, screen recording demo."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, frontend, demo-video, playwright, screen-recording, ui]
+    category: frontend
+    phase: demo-recording
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [browser-qa, video-studio, spesialis-frontend]
 ---
 
 # UI デモ動画レコーダー
@@ -93,7 +102,7 @@ console.log(JSON.stringify(fields, null, 2));
 
 ### 方法
 
-`ensureVisible` を使用する——ログを記録して大きくエラーを報告するラッパー：
+`ensureVisible` を使用する: ログを記録して大きくエラーを報告するラッパー：
 
 ```javascript
 async function ensureVisible(page, locator, label) {
@@ -451,15 +460,15 @@ node demo-script.cjs
 
 ## よくある落とし穴
 
-1. ナビゲーション後にカーソルが消える——再注入する。
-2. 動画が速すぎる——一時停止を追加する。
-3. カーソルが矢印ではなく点になっている——SVGオーバーレイを使用する。
-4. カーソルが瞬間移動する——クリック前に移動する。
-5. ドロップダウン選択が途切れる——移動を表示してからオプションを選択する。
-6. モーダルが唐突に見える——確認前に読み取り一時停止を追加する。
-7. 動画ファイルパスがランダム——安定した出力名にコピーする。
-8. セレクターの失敗が飲み込まれる——サイレントキャッチブロックを絶対に使わない。
-9. フィールドタイプを仮定する——まず探索する。
-10. 機能を仮定する——スクリプトを書く前に実際のUIを確認する。
-11. プレースホルダーの選択値が本物に見える——`"0"` と `"Select..."` に注意する。
-12. ポップアップが別の動画を作成する——ポップアップページを明示的にキャプチャし、必要に応じて後でマージする。
+1. ナビゲーション後にカーソルが消える: 再注入する。
+2. 動画が速すぎる: 一時停止を追加する。
+3. カーソルが矢印ではなく点になっている: SVGオーバーレイを使用する。
+4. カーソルが瞬間移動する: クリック前に移動する。
+5. ドロップダウン選択が途切れる: 移動を表示してからオプションを選択する。
+6. モーダルが唐突に見える: 確認前に読み取り一時停止を追加する。
+7. 動画ファイルパスがランダム: 安定した出力名にコピーする。
+8. セレクターの失敗が飲み込まれる: サイレントキャッチブロックを絶対に使わない。
+9. フィールドタイプを仮定する: まず探索する。
+10. 機能を仮定する: スクリプトを書く前に実際のUIを確認する。
+11. プレースホルダーの選択値が本物に見える: `"0"` と `"Select..."` に注意する。
+12. ポップアップが別の動画を作成する: ポップアップページを明示的にキャプチャし、必要に応じて後でマージする。

@@ -1,17 +1,25 @@
 ---
 name: design-system
-description: Use this skill to generate or audit design systems, check visual consistency, and review PRs that touch styling.
+description: "[omh] Generate or audit design systems, check visual consistency, and review UI styling. Use when the user says: design-system, audit design system, visual audit, check design consistency."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, frontend, design-system, visual-audit, tokens, ui]
+    category: frontend
+    phase: design-system-audit
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [anti-ui-slop, frontend-design, spesialis-frontend]
 ---
 
-# Design System — Generate & Audit Visual Systems
+# Design System: Generate & Audit Visual Systems
 
 ## When to Use
 
 - Starting a new project that needs a design system
 - Auditing an existing codebase for visual consistency
-- Before a redesign — understand what you have
+- Before a redesign: understand what you have
 - When the UI looks "off" but you can't pinpoint why
 - Reviewing PRs that touch styling
 
@@ -37,16 +45,16 @@ Output: `DESIGN.md` + `design-tokens.json` + `design-preview.html`
 Scores your UI across 10 dimensions (0-10 each):
 
 ```
-1. Color consistency — are you using your palette or random hex values?
-2. Typography hierarchy — clear h1 > h2 > h3 > body > caption?
-3. Spacing rhythm — consistent scale (4px/8px/16px) or arbitrary?
-4. Component consistency — do similar elements look similar?
-5. Responsive behavior — fluid or broken at breakpoints?
-6. Dark mode — complete or half-done?
-7. Animation — purposeful or gratuitous?
-8. Accessibility — contrast ratios, focus states, touch targets
-9. Information density — cluttered or clean?
-10. Polish — hover states, transitions, loading states, empty states
+1. Color consistency: are you using your palette or random hex values?
+2. Typography hierarchy: clear h1 > h2 > h3 > body > caption?
+3. Spacing rhythm: consistent scale (4px/8px/16px) or arbitrary?
+4. Component consistency: do similar elements look similar?
+5. Responsive behavior: fluid or broken at breakpoints?
+6. Dark mode: complete or half-done?
+7. Animation: purposeful or gratuitous?
+8. Accessibility: contrast ratios, focus states, touch targets
+9. Information density: cluttered or clean?
+10. Polish: hover states, transitions, loading states, empty states
 ```
 
 Each dimension gets a score, specific examples, and a fix with exact file:line.

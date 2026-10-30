@@ -1,6 +1,16 @@
 ---
 name: pm-discovery-memo
-description: "Convert user research, support tickets, and competitor data into crisp discovery memos."
+description: "[omh] Convert user research, support tickets, and competitor data into crisp discovery memos. Use when the user says: pm-discovery-memo, discovery memo, user research memo, product decision memo."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, product, discovery, user-research, decision-memo]
+    category: product-pm
+    phase: discovery-synthesis
+    role: planner
+    quality_tier: evidence-gated
+    related_skills: [pm-deep-discovery, pm-interview-synthesis, spesialis-product-bisnis]
 ---
 
 # Discovery Memo & Anti-Slop Protocol
@@ -22,7 +32,7 @@ Panduan mengubah tumpukan riset (wawancara, tiket, kompetitor) menjadi memo kepu
    - Wajib pakai pola: **Klaim Spesifik + Bukti Spesifik + Rekomendasi Spesifik**.
 
 ## O (Output Format - The Discovery Memo)
-Panjang maksimal: 300–400 kata. Struktur wajib:
+Panjang maksimal: 300-400 kata. Struktur wajib:
 1. **THE QUESTION**: Keputusan spesifik dalam 1 kalimat pembuka.
 2. **WHAT WE KNOW**: 3 fakta temuan (Fakta + Sumber Bukti + Implikasi).
 3. **WHAT WE DON'T KNOW**: 2 asumsi yang masih berisiko salah + cara validasinya.

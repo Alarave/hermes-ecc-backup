@@ -1,6 +1,16 @@
 ---
 name: pm-lightweight-spec
-description: "Lightweight spec sizing and 1-page spec generator for agile engineering scopes."
+description: "[omh] Lightweight spec sizing and 1-page spec generator for agile engineering scopes. Use when the user says: pm-lightweight-spec, lightweight spec, 1 page spec, spec sizing, spec-or-prd."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, product, spec, agile, sizing, lightweight-spec]
+    category: product-pm
+    phase: specification
+    role: planner
+    quality_tier: evidence-gated
+    related_skills: [product-capability, pm-prd-review, writing-plans]
 ---
 
 # Lightweight Spec & Sizing Protocol
@@ -22,7 +32,7 @@ Panduan menentukan ukuran spesifikasi (*Spec Sizing*) dan menulis spesifikasi 1-
 
 **Rekomendasi Berdasarkan Jawaban**:
 - **TICKET SAJA**: < 1 minggu sprint, tanpa sentuh platform, tanpa desain.
-- **LIGHTWEIGHT SPEC**: 1–2 minggu sprint, cakupan mandiri (gunakan template ini).
+- **LIGHTWEIGHT SPEC**: 1-2 minggu sprint, cakupan mandiri (gunakan template ini).
 - **FULL PRD**: > 2 minggu sprint, menyentuh platform, lintas tim, atau ada risiko compliance.
 
 ## C (Constraints - 5 Bagian Wajib)
