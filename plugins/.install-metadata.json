@@ -10,5 +10,17 @@
     "pinned": true,
     "revision": "ba30cb0cf86c52bdb5cde98974bc062e97966529",
     "source": "https://github.com/NousResearch/hermes-homeassistant"
+  },
+  "omh": {
+    "catalog": {
+      "name": "omh",
+      "pin": "021e5c63d976b4e0faf9cfc7d608701d98fe1722",
+      "repo": "https://github.com/rlaope/oh-my-hermes",
+      "sha": "021e5c63d976b4e0faf9cfc7d608701d98fe1722",
+      "tier": "community"
+    },
+    "pinned": true,
+    "revision": "021e5c63d976b4e0faf9cfc7d608701d98fe1722",
+    "source": "https://github.com/rlaope/oh-my-hermes#src/plugin_bundle/omh"
   }
 }
