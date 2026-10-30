@@ -1,6 +1,16 @@
 ---
 name: scientific-reporting
-description: "Write research/technical reports with strong structure + figure standards. Supports Markdown/HTML/PDF outputs (Quarto optional), executive summary, methods, results, discussion, and reproducibility appendix."
+description: "[omh] Write research and technical reports with strong structure and figure standards in Markdown/HTML/PDF. Use when the user says: scientific-reporting, technical report, research report, experiment report."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, research, technical-report, reporting, scientific]
+    category: research-academic
+    phase: report-generation
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [scientific-writing, scholarly-publishing, spesialis-research-akademik]
 allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 ---
 
@@ -51,7 +61,7 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 
 ## 工作流（强制顺序）
 
-### Phase 1 — 结构先行（先搭骨架）
+### Phase 1: 结构先行（先搭骨架）
 
 报告必须包含（即使简写）：
 1) Executive Summary（结论先行）
@@ -61,13 +71,13 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 5) Discussion（解释意义、局限、建议）
 6) Appendix（可选但推荐：环境/补充图/表）
 
-### Phase 2 — 结果以图为锚
+### Phase 2: 结果以图为锚
 
 - 图表走 `scientific-visualization`（publication-quality）
 - 示意图走 `scientific-schematics`（流程/机制/系统图）
 - 文本解释走 `scientific-writing`（段落化、避免 bullet 作为最终稿）
 
-### Phase 3 — 导出策略（HTML/PDF）
+### Phase 3: 导出策略（HTML/PDF）
 
 如果要 HTML：
 - 优先：Markdown + 静态图（PDF/SVG/PNG）

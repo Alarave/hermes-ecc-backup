@@ -1,8 +1,16 @@
 ---
 name: csharp-testing
-description: C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test organization best practices.
+description: "[omh] C# and .NET testing patterns with xUnit, FluentAssertions, mocking, and integration tests. Use when the user says: csharp-testing, c# testing, dotnet test, xunit test."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, qa, testing, csharp, dotnet, xunit]
+    category: qa-testing
+    phase: verification
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [dotnet-patterns, tdd-workflow, spesialis-security-qa]
 ---
 
 # C# Testing Patterns
@@ -141,7 +149,7 @@ public async Task PlaceOrderAsync_PersistsOrder()
     // Act
     await _sut.PlaceOrderAsync(request, CancellationToken.None);
 
-    // Assert — verify the repository was called
+    // Assert: verify the repository was called
     await _repository.Received(1).AddAsync(
         Arg.Is<Order>(o => o.CustomerId == request.CustomerId),
         Arg.Any<CancellationToken>());

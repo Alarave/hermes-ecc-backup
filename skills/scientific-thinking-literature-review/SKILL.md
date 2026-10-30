@@ -1,8 +1,16 @@
 ---
-name: literature-review
-description: Systematic literature-review workflow for academic, biomedical, technical, and scientific topics, including search planning, source screening, synthesis, citation checks, and evidence logging.
+name: scientific-thinking-literature-review
+description: "[omh] Systematic literature-review workflow: search planning, source screening, synthesis, citation checks, and evidence logging. Use when the user says: scientific-thinking-literature-review, literature review, systematic review, review literature."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: community
+  hermes:
+    tags: [workflow, oh-my-hermes, research, literature-review, systematic-review, synthesis]
+    category: research-academic
+    phase: literature-search
+    role: researcher
+    quality_tier: evidence-gated
+    related_skills: [scholarly-publishing, scientific-writing, deep-research]
 ---
 
 # Literature Review

@@ -1,6 +1,16 @@
 ---
 name: content-research-writer
-description: Assists in writing high-quality content by conducting research, adding citations, improving hooks, iterating on outlines, and providing real-time feedback on each section. Transforms your writing process from solo effort to collaborative partnership.
+description: "[omh] Assists in writing high-quality content by conducting research, adding citations, improving hooks, and section feedback. Use when the user says: content-research-writer, research writing, content writer, write article with citations."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, research, writing, citations, content-creation]
+    category: research-academic
+    phase: content-drafting
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [scientific-writing, article-writing, deep-research]
 ---
 
 # Content Research Writer
@@ -406,7 +416,7 @@ All added to your outline with proper citations.
 > "Last month, I asked AI to analyze 500 customer interviews. It took 30 minutes instead of 3 weeks. Product management will never be the same."
 
 **Option 2 (Question)**:
-> "What if you could talk to every customer, read every review, and analyze every support ticket—all before your morning coffee?"
+> "What if you could talk to every customer, read every review, and analyze every support ticket - all before your morning coffee?"
 
 **Option 3 (Story)**:
 > "Sarah spent two weeks building the wrong feature. Not because she didn't understand her users, but because she couldn't process the hundreds of interviews fast enough to spot the pattern."

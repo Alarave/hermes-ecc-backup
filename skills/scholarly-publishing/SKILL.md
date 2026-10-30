@@ -1,6 +1,16 @@
 ---
 name: scholarly-publishing
-description: "Use when planning an end-to-end scholarly publishing workflow, including manuscript source-of-truth, submission assets, revision/rebuttal files, camera-ready checks, reproducible build expectations, and publication package structure."
+description: "[omh] End-to-end scholarly publishing workflow: manuscript source-of-truth, submission assets, revision/rebuttal, camera-ready checks. Use when the user says: scholarly-publishing, paper submission, camera ready, rebuttal matrix, publish paper."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, research, publishing, academic, latex, rebuttal]
+    category: research-academic
+    phase: publishing-workflow
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [scientific-writing, research-grants, spesialis-research-akademik]
 allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 ---
 
@@ -46,7 +56,7 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 
 ## 工作流（可执行流程）
 
-### Phase 0 — 选择“单一事实源”（Single Source of Truth）
+### Phase 0: 选择“单一事实源”（Single Source of Truth）
 
 在以下三者中选一个做源文件（强烈建议只选一个）：
 - **LaTeX**：适合期刊/会议、公式多、需要严格排版、可 CI 构建
@@ -55,13 +65,13 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 
 > 元规则：同一论文不要在多个格式里并行编辑。其它格式只能是“导出物”。
 
-### Phase 1 — 先建“投稿约束”再写正文
+### Phase 1: 先建“投稿约束”再写正文
 
 1) 目标投向与模板：记录版式、匿名、页数、图表、引用和补充材料约束
 2) 投稿清单：按 pre-submission、submission、revision、camera-ready 四类阶段列出必需文件
 3) 明确图的规格：列出每张图的用途、类型（line art / raster / combination）与导出格式（PDF/TIFF）
 
-### Phase 2 — 论文主线（写作）
+### Phase 2: 论文主线（写作）
 
 执行两段式写作：
 - 先写“结构大纲（允许 bullet）”
@@ -72,14 +82,14 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 - **句子不超载**：每句一个主张；每段一个中心句；每节一个问题
 - **让审稿人省力**：方法可复现、统计可追溯、图注自解释
 
-### Phase 3 — 图表交付约束
+### Phase 3: 图表交付约束
 
 本 skill 只定义投稿所需的图表交付约束，不在正文内要求调用其它作图专家：
 - 对 data figure：统一字体、字号、线宽、配色、子图间距、panel label（A/B/C）
 - 导出：优先 `PDF/EPS/SVG`（矢量），必要时 `TIFF 600dpi`（栅格）
 - 可访问性：色盲友好（Okabe-Ito / colorcet / cmcrameri）
 
-### Phase 4 — LaTeX/构建/打包
+### Phase 4: LaTeX/构建/打包
 
 如果 source-of-truth 是 LaTeX：
 - 明确本地编译命令、lint/format 要求、CI 编译要求和 submission zip 文件清单
@@ -87,13 +97,13 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 如果 source-of-truth 是 Word：
 - 仍然遵循“图表输出标准 + 引用一致性 + 文件命名规范”，并准备投稿系统所需附件
 
-### Phase 5 — 投稿与返修
+### Phase 5: 投稿与返修
 
 - 投稿前：列出主文稿、图表、补充材料、伦理/数据/利益冲突声明、cover letter
 - 返修：维护逐条回应矩阵、修改位置、证据来源和未采纳理由
 - 相机就绪：检查最终版式、作者信息、版权/许可、源文件和最终 PDF
 
-### Phase 6 — 传播资产（可选）
+### Phase 6: 传播资产（可选）
 
 如果需要项目主页、视频摘要或海报，先定义输入来源、目标受众、输出目录和会议/机构限制。本 skill 不负责生成幻灯片，也不在正文内要求调用传播类专家。
 

@@ -1,10 +1,17 @@
 ---
 name: scientific-critical-thinking
-description: Evaluate scientific claims and evidence quality. Use for assessing experimental design validity, identifying biases and confounders, applying evidence grading frameworks (GRADE, Cochrane Risk of Bias), or teaching critical analysis. Best for understanding evidence quality, identifying flaws. For formal peer review writing use peer-review.
-allowed-tools: Read Write Edit Bash
-license: MIT license
+description: "[omh] Evaluate scientific claims, experimental design validity, biases, confounders, and evidence grading frameworks. Use when the user says: scientific-critical-thinking, critical thinking, evaluate scientific claims, grade evidence."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-    skill-author: K-Dense Inc.
+  hermes:
+    tags: [workflow, oh-my-hermes, research, critical-thinking, methodology, evidence-evaluation]
+    category: research-academic
+    phase: methodology-evaluation
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [scientific-brainstorming, scientific-writing, peer-review]
+allowed-tools: Read Write Edit Bash
 ---
 
 # Scientific Critical Thinking
@@ -339,7 +346,7 @@ Detect and name logical errors in scientific arguments and claims.
 - Name the specific fallacy
 - Explain why the reasoning is flawed
 - Identify what evidence would be needed for valid inference
-- Note that fallacious reasoning doesn't prove the conclusion false—just that this argument doesn't support it
+- Note that fallacious reasoning doesn't prove the conclusion false: just that this argument doesn't support it
 
 **Reference:** See `references/logical_fallacies.md` for comprehensive fallacy catalog with examples and detection strategies.
 

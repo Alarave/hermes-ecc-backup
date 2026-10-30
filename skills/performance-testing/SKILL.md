@@ -1,6 +1,16 @@
 ---
 name: performance-testing
-description: Benchmark indicator performance with BenchmarkDotNet. Use for Series/Buffer/Stream benchmarks, regression detection, and optimization patterns. Target 1.5x Series for StreamHub, 1.2x for BufferList.
+description: "[omh] Benchmark indicator performance with BenchmarkDotNet: Series, Buffer, and Stream regression detection. Use when the user says: performance-testing, benchmark dotnet, benchmarkdotnet, performance regression."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, performance, benchmark, dotnet, csharp, testing]
+    category: qa-testing
+    phase: performance-audit
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [csharp-testing, detecting-performance-regressions, spesialis-security-qa]
 ---
 
 # Performance testing
@@ -60,7 +70,7 @@ public IReadOnlyList<MyResult> MyIndicatorStream() => quoteHub.ToMyIndicator(14)
 
 ## Performance targets
 
-**Note**: These are optimization goals for future v3.1+ effort. Current implementations vary—see `PERFORMANCE_ANALYSIS.md` for actual measured performance. Some indicator families (e.g., EMA) have inherent framework overhead due to simple operation costs.
+**Note**: These are optimization goals for future v3.1+ effort. Current implementations vary: see `PERFORMANCE_ANALYSIS.md` for actual measured performance. Some indicator families (e.g., EMA) have inherent framework overhead due to simple operation costs.
 
 | Style | Target vs Series | Use Case |
 | ----- | ---------------- | -------- |

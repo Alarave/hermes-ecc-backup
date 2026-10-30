@@ -1,8 +1,17 @@
 ---
 name: security-review
-description: Security code review for vulnerabilities. Use when asked to "security review", "find vulnerabilities", "check for security issues", "audit security", "OWASP review", or review code for injection, XSS, authentication, authorization, cryptography issues. Provides systematic review with confidence-based reporting.
+description: "[omh] Security code review for vulnerabilities: injection, XSS, auth, and crypto issues with confidence reporting. Use when the user says: security-review, security review, find vulnerabilities, audit security, owasp review."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, security, code-review, vulnerabilities, owasp]
+    category: security
+    phase: vulnerability-audit
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [security-scan, security-threat-model, spesialis-security-qa]
 allowed-tools: Read, Grep, Glob, Bash, Task
-license: LICENSE
 ---
 
 <!--
@@ -12,7 +21,7 @@ https://cheatsheetseries.owasp.org/
 
 # Security Review Skill
 
-Identify exploitable security vulnerabilities in code. Report only **HIGH CONFIDENCE** findings—clear vulnerable patterns with attacker-controlled input.
+Identify exploitable security vulnerabilities in code. Report only **HIGH CONFIDENCE** findings: clear vulnerable patterns with attacker-controlled input.
 
 ## Scope: Research vs. Reporting
 

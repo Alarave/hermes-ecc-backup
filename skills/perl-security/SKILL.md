@@ -1,8 +1,16 @@
 ---
 name: perl-security
-description: Comprehensive Perl security covering taint mode, input validation, safe process execution, DBI parameterized queries, web security (XSS/SQLi/CSRF), and perlcritic security policies.
+description: "[omh] Comprehensive Perl security: taint mode, input validation, safe process execution, DBI parameterized queries, and perlcritic. Use when the user says: perl-security, perl security, secure perl, perl injection."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, security, perl, taint-mode, dbi]
+    category: security
+    phase: vulnerability-audit
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [perl-patterns, perl-testing, security-review]
 ---
 
 # Perl Security Patterns
@@ -67,7 +75,7 @@ sub untaint_filename($input) {
 # Bad: Overly permissive untainting (defeats the purpose)
 sub bad_untaint($input) {
     $input =~ /^(.*)$/s;
-    return $1;  # Accepts ANYTHING — pointless
+    return $1;  # Accepts ANYTHING: pointless
 }
 ```
 
@@ -78,7 +86,7 @@ sub bad_untaint($input) {
 ```perl
 use v5.36;
 
-# Good: Allowlist — define exactly what's permitted
+# Good: Allowlist: define exactly what's permitted
 sub validate_sort_field($field) {
     my %allowed = map { $_ => 1 } qw(name email created_at updated_at);
     die "Invalid sort field: $field\n" unless $allowed{$field};
@@ -100,7 +108,7 @@ sub validate_integer($input) {
     die "Invalid integer\n";
 }
 
-# Bad: Blocklist — always incomplete
+# Bad: Blocklist: always incomplete
 sub bad_validate($input) {
     die "Invalid" if $input =~ /[<>"';&|]/;  # Misses encoded attacks
     return $input;
@@ -216,7 +224,7 @@ Use `File::Temp` for temporary files (`tempfile(UNLINK => 1)`) and `flock(LOCK_E
 ```perl
 use v5.36;
 
-# Good: List form — no shell interpolation
+# Good: List form: no shell interpolation
 sub run_command(@cmd) {
     system(@cmd) == 0
         or die "Command failed: @cmd\n";
@@ -235,7 +243,7 @@ sub capture_output(@cmd) {
     return $stdout;
 }
 
-# Bad: String form — shell injection!
+# Bad: String form: shell injection!
 sub bad_search($pattern) {
     system("grep -r '$pattern' /var/log/app/");  # If $pattern = "'; rm -rf / #"
 }
@@ -260,7 +268,7 @@ my $dbh = DBI->connect($dsn, $user, $pass, {
     AutoCommit => 1,
 });
 
-# Good: Parameterized queries — always use placeholders
+# Good: Parameterized queries: always use placeholders
 sub find_user($dbh, $email) {
     my $sth = $dbh->prepare('SELECT * FROM users WHERE email = ?');
     $sth->execute($email);
@@ -349,11 +357,11 @@ sub safe_json($data) {
 }
 
 # Template auto-escaping (Mojolicious)
-# <%= $user_input %>   — auto-escaped (safe)
-# <%== $raw_html %>    — raw output (dangerous, use only for trusted content)
+# <%= $user_input %>  : auto-escaped (safe)
+# <%== $raw_html %>   : raw output (dangerous, use only for trusted content)
 
 # Template auto-escaping (Template Toolkit)
-# [% user_input | html %]  — explicit HTML encoding
+# [% user_input | html %] : explicit HTML encoding
 
 # Bad: Raw output in HTML
 sub bad_html($input) {
@@ -373,7 +381,7 @@ sub generate_csrf_token() {
 }
 ```
 
-Use constant-time comparison when verifying tokens. Most web frameworks (Mojolicious, Dancer2, Catalyst) provide built-in CSRF protection — prefer those over hand-rolled solutions.
+Use constant-time comparison when verifying tokens. Most web frameworks (Mojolicious, Dancer2, Catalyst) provide built-in CSRF protection: prefer those over hand-rolled solutions.
 
 ### Session and Header Security
 
@@ -408,7 +416,7 @@ Always encode output for its context: `HTML::Entities::encode_entities()` for HT
 ### perlcritic Security Policies
 
 ```ini
-# .perlcriticrc — security-focused configuration
+# .perlcriticrc: security-focused configuration
 severity = 3
 theme = security + core
 
@@ -492,7 +500,7 @@ my $path = $ENV{UPLOAD_DIR};             # Could be manipulated
 system("ls $path");                      # Double vulnerability
 
 # 6. Disabling taint without validation
-($input) = $input =~ /(.*)/s;           # Lazy untaint — defeats purpose
+($input) = $input =~ /(.*)/s;           # Lazy untaint: defeats purpose
 
 # 7. Raw user data in HTML
 print "<div>Welcome, $username!</div>";  # XSS
@@ -501,4 +509,4 @@ print "<div>Welcome, $username!</div>";  # XSS
 print $cgi->redirect($user_url);         # Open redirect
 ```
 
-**Remember**: Perl's flexibility is powerful but requires discipline. Use taint mode for web-facing code, validate all input with allowlists, use DBI placeholders for every query, and encode all output for its context. Defense in depth — never rely on a single layer.
+**Remember**: Perl's flexibility is powerful but requires discipline. Use taint mode for web-facing code, validate all input with allowlists, use DBI placeholders for every query, and encode all output for its context. Defense in depth: never rely on a single layer.

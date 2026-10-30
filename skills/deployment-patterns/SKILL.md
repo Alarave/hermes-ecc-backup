@@ -1,8 +1,16 @@
 ---
 name: deployment-patterns
-description: Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists for web applications.
+description: "[omh] Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists. Use when the user says: deployment-patterns, cicd pipeline, rolling deployment, blue green deployment."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, deployment, cicd, devops, production]
+    category: devops
+    phase: release-deployment
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [docker-patterns, kubernetes-patterns, spesialis-devops-infrastruktur]
 ---
 
 # Deployment Patterns
@@ -22,7 +30,7 @@ Production deployment workflows and CI/CD best practices.
 
 ### Rolling Deployment (Default)
 
-Replace instances gradually — old and new versions run simultaneously during rollout.
+Replace instances gradually: old and new versions run simultaneously during rollout.
 
 ```
 Instance 1: v1 → v2  (update first)
@@ -39,7 +47,7 @@ Instance 3: v1 → v2  (update last)
 ```
 
 **Pros:** Zero downtime, gradual rollout
-**Cons:** Two versions run simultaneously — requires backward-compatible changes
+**Cons:** Two versions run simultaneously: requires backward-compatible changes
 **Use when:** Standard deployments, backward-compatible changes
 
 ### Blue-Green Deployment
@@ -334,8 +342,8 @@ startupProbe:
 ### Twelve-Factor App Pattern
 
 ```bash
-# All config via environment variables — never in code
-DATABASE_URL=postgres://user:pass@host:5432/db
+# All config via environment variables: never in code
+DATABASE_URL=postgres://user:***@host:5432/db
 REDIS_URL=redis://host:6379/0
 API_KEY=${API_KEY}           # injected by secrets manager
 LOG_LEVEL=info
@@ -360,7 +368,7 @@ const envSchema = z.object({
   LOG_LEVEL: z.enum(["debug", "info", "warn", "error"]).default("info"),
 });
 
-// Validate at startup — fail fast if config is wrong
+// Validate at startup: fail fast if config is wrong
 export const env = envSchema.parse(process.env);
 ```
 

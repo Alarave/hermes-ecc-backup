@@ -1,6 +1,16 @@
 ---
 name: netlify-deploy
-description: Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.
+description: "[omh] Deploy web projects to Netlify using the Netlify CLI: preview and production deploys, site linking, and build detection. Use when the user says: netlify-deploy, deploy to netlify, netlify deploy, host on netlify."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, netlify, deployment, cloud, frontend]
+    category: devops
+    phase: release-deployment
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [deploy-to-vercel, vercel-deploy, deployment-patterns]
 ---
 
 # Netlify Deployment Skill
@@ -217,7 +227,7 @@ If deployment fails due to network issues (timeouts, DNS errors, connection rese
 Example guidance to the user:
 
 ```
-The deploy needs escalated network access to deploy to Netlify. I can rerun the command with escalated permissions—want me to proceed?
+The deploy needs escalated network access to deploy to Netlify. I can rerun the command with escalated permissions: want me to proceed?
 ```
 
 ## Environment Variables

@@ -1,6 +1,16 @@
 ---
 name: test-driven-development
-description: Use when implementing any feature or bugfix, before writing implementation code
+description: "[omh] Test-Driven Development (TDD) workflow: red-green-refactor cycle and iron laws before writing implementation code. Use when the user says: test-driven-development, tdd, write test first, red green refactor."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, qa, testing, tdd, red-green-refactor]
+    category: qa-testing
+    phase: implementation-test
+    role: planner
+    quality_tier: evidence-gated
+    related_skills: [tdd-workflow, spesialis-security-qa]
 ---
 
 # Test-Driven Development (TDD)
@@ -358,7 +368,7 @@ Never fix bugs without a test.
 
 When adding mocks or test utilities, avoid these common pitfalls:
 - Testing mock behavior instead of real behavior (mocks should stand in for dependencies, not be the subject of the test)
-- Adding test-only methods to production classes (if you need a hook for testing, the design is coupled — use dependency injection instead)
+- Adding test-only methods to production classes (if you need a hook for testing, the design is coupled: use dependency injection instead)
 - Mocking without understanding dependencies (read the real implementation before mocking it; wrong mock = wrong test)
 
 ## Final Rule

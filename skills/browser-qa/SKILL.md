@@ -1,17 +1,25 @@
 ---
 name: browser-qa
-description: Use this skill to automate visual testing and UI interaction verification using browser automation after deploying features.
+description: "[omh] Automate visual testing and UI interaction verification using browser automation after deploying features. Use when the user says: browser-qa, browser qa, visual testing, ui interaction verification."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, qa, browser-qa, visual-testing, e2e]
+    category: qa-testing
+    phase: verification
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [e2e-testing, canary-watch, spesialis-security-qa]
 ---
 
-# Browser QA — Automated Visual Testing & Interaction
+# Browser QA: Automated Visual Testing & Interaction
 
 ## When to Use
 
 - After deploying a feature to staging/preview
 - When you need to verify UI behavior across pages
-- Before shipping — confirm layouts, forms, interactions actually work
+- Before shipping: confirm layouts, forms, interactions actually work
 - When reviewing PRs that touch frontend code
 - Accessibility audits and responsive testing
 
@@ -19,11 +27,11 @@ metadata:
 
 Uses the browser automation MCP (claude-in-chrome, Playwright, or Puppeteer) to interact with live pages like a real user.
 
-### Safety first — blast radius (run read-only by default)
+### Safety first: blast radius (run read-only by default)
 
 Browser QA drives real auth and real user journeys, so treat the blast radius explicitly.
 Default to **read-only**: never run a **mutating** journey (checkout, payment, delete,
-mass-update) against a production URL — require an explicit opt-in **and** a staging/preview
+mass-update) against a production URL: require an explicit opt-in **and** a staging/preview
 URL. Use seeded **test credentials**, never real production logins, and **redact**
 credentials/tokens/PII before saving any screenshot.
 
@@ -39,12 +47,12 @@ credentials/tokens/PII before saving any screenshot.
 
 ### Phase 2: Interaction Test
 ```
-1. Click every nav link — verify no dead links
-2. Submit forms with valid data — verify success state
-3. Submit forms with invalid data — verify error state
+1. Click every nav link: verify no dead links
+2. Submit forms with valid data: verify success state
+3. Submit forms with invalid data: verify error state
 4. Test auth flow: login → protected page → logout (test creds only, never prod)
 5. Test critical user journeys (checkout, onboarding, search)
-   — read-only by default; only exercise mutating journeys against staging
+   - read-only by default; only exercise mutating journeys against staging
      with explicit opt-in (see "Safety first" above)
 ```
 
@@ -52,7 +60,7 @@ credentials/tokens/PII before saving any screenshot.
 ```
 1. Screenshot key pages at 3 breakpoints (375px, 768px, 1440px)
 2. Compare against committed baseline screenshots
-   — no baseline ⇒ report INCONCLUSIVE, never a silent PASS
+   - no baseline ⇒ report INCONCLUSIVE, never a silent PASS
 3. Flag layout shifts > 5px, missing elements, overflow
 4. Check dark mode if applicable
 ```
@@ -65,14 +73,14 @@ credentials/tokens/PII before saving any screenshot.
 4. Check screen reader landmarks
 ```
 
-> Note: axe-core automatically covers roughly 30–40% of WCAG. A clean run is **necessary,
-> not sufficient** — keyboard nav, focus order, and a screen-reader pass still need a manual
+> Note: axe-core automatically covers roughly 30-40% of WCAG. A clean run is **necessary,
+> not sufficient**: keyboard nav, focus order, and a screen-reader pass still need a manual
 > check. Don't report "accessible" from an automated pass alone.
 
 ## Output Format
 
 ```markdown
-## QA Report — [URL] — [timestamp]
+## QA Report: [URL]: [timestamp]
 
 ### Smoke Test
 - Console errors: 0 critical, 2 warnings (analytics noise)
@@ -98,7 +106,7 @@ credentials/tokens/PII before saving any screenshot.
 ## Integration
 
 Works with any browser MCP:
-- `mChild__claude-in-chrome__*` tools (preferred — uses your actual Chrome)
+- `mChild__claude-in-chrome__*` tools (preferred: uses your actual Chrome)
 - Playwright via `mcp__browserbase__*`
 - Direct Puppeteer scripts
 

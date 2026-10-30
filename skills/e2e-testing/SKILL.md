@@ -1,8 +1,16 @@
 ---
 name: e2e-testing
-description: Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky test strategies.
+description: "[omh] Playwright E2E testing patterns, Page Object Model, configuration, and CI/CD integration. Use when the user says: e2e-testing, playwright e2e, end to end test, pom test."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, qa, e2e, playwright, testing]
+    category: qa-testing
+    phase: verification
+    role: reviewer
+    quality_tier: evidence-gated
+    related_skills: [browser-qa, tdd-workflow, spesialis-security-qa]
 ---
 
 # E2E Testing Patterns
@@ -304,7 +312,7 @@ test('wallet connection', async ({ page, context }) => {
 
 ```typescript
 test('trade execution', async ({ page }) => {
-  // Skip on production — real money
+  // Skip on production: real money
   test.skip(process.env.NODE_ENV === 'production', 'Skip on production')
 
   await page.goto('/markets/test-market')

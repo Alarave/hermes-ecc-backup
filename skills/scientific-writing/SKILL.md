@@ -1,6 +1,16 @@
 ---
 name: scientific-writing
-description: "Use when writing or revising scientific manuscript prose: IMRAD sections, abstracts, figure/table captions, citation-integrated paragraphs, reporting-guideline language, terminology, clarity, and journal-submission text."
+description: "[omh] Write and revise scientific manuscript prose: IMRAD sections, abstracts, captions, and citations. Use when the user says: scientific-writing, paper writing, manuscript writing, imrad, journal submission text."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, research, scientific-writing, imrad, manuscript, prose]
+    category: research-academic
+    phase: manuscript-drafting
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [scholarly-publishing, scientific-reporting, spesialis-research-akademik]
 allowed-tools: [Read, Write, Edit, Bash]
 ---
 
@@ -184,7 +194,7 @@ When starting a new section:
    - Key studies to cite
    - Data points and statistics to include
    - Logical flow and organization
-3. These bullet points serve as scaffolding—they are NOT the final manuscript
+3. These bullet points serve as scaffolding: they are NOT the final manuscript
 
 **Example outline (Introduction section):**
 ```
@@ -410,7 +420,7 @@ Adapt language, terminology, and conventions to match the specific scientific di
 7. Craft Abstract (synthesizing the complete story)
 8. Create Title (concise and descriptive)
 
-**Remember**: Bullet points are for planning only—the final manuscript must be in complete paragraphs.
+**Remember**: Bullet points are for planning only: the final manuscript must be in complete paragraphs.
 
 **Stage 3: Revision**
 1. Check logical flow and "red thread" throughout

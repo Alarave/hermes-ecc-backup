@@ -26,8 +26,9 @@ metadata:
 ```
 
 ### Aturan Kunci Frontmatter:
-- **Kesesuaian Nama Direktori**: Kunci `name` wajib identik 1:1 dengan nama direktori kanonikal (kebab-case). Nama berbeda memicu peringatan linter dan potensi tabrakan namespace.
+- **Kesesuaian Nama Direktori**: Kunci `name` wajib identik 1:1 dengan nama direktori kanonikal (kebab-case) dan ditulis polos tanpa tanda petik (`name: my-skill`, bukan `name: "my-skill"`). Tanda petik memicu kegagalan regex linter `^[a-z0-9_-]+$`.
 - **Klausul Pemicu Wajib**: Deskripsi wajib memuat kalimat pemicu terstandarisasi: `Use when the user says: ...` untuk memastikan aktivasi berbasis intent yang deterministik.
+- **Format Deskripsi Single-Line**: Hindari blok skalar multi-baris (`|` atau `>`) pada atribut `description` karena dapat memicu peringatan linter deskripsi pendek atau pemotongan pembacaan.
 
 ---
 
@@ -57,4 +58,5 @@ metadata:
 
 - **Partisi Gelombang (Wave Execution)**: Pada repositori skala 500+ skill, pembaruan wajib dipecah menjadi gelombang klaster domain (misalnya 20-30 skill per putaran) untuk mencegah kehabisan kuota tool call dan context overflow.
 - **Mandat Direct Patch**: Modifikasi naskah skill wajib dilakukan langsung via tool patch atau write_file. Dilarang membuat skrip perantara Python atau skrip shell sementara hanya untuk menyunting berkas.
+- **Penanganan Berkas Raksasa (>100 KB / >1.500 baris)**: Selesaikan kasus batas (edge cases) tanda pisah terisolasi (seperti awalan baris atau akhir baris) secara spesifik terlebih dahulu sebelum menerapkan `replace_all: true` untuk pola spasi umum (` — ` menjadi `: `) agar menghindari kegagalan matcher atau timeout.
 - **Verifikasi Linter**: Setiap gelombang wajib divalidasi dengan `python skills/specialist-skill-architect/scripts/validate_skill.py <path> --strict` hingga mencapai status PASS 100/100.

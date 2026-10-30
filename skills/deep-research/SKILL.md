@@ -1,8 +1,16 @@
 ---
 name: deep-research
-description: Multi-source deep research using firecrawl and exa MCPs. Searches the web, synthesizes findings, and delivers cited reports with source attribution. Use when the user wants thorough research on any topic with evidence and citations.
+description: "[omh] Multi-source deep research: searches the web, synthesizes findings, and delivers cited reports with source attribution. Use when the user says: deep-research, deep research, deep dive, web research report."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, research, deep-research, firecrawl, exa, citations]
+    category: research-academic
+    phase: deep-investigation
+    role: researcher
+    quality_tier: evidence-gated
+    related_skills: [content-research-writer, webthinker-deep-research, spesialis-research-akademik]
 ---
 
 # Deep Research
@@ -24,8 +32,8 @@ Produce thorough, cited research reports from multiple web sources using firecra
 ## MCP Requirements
 
 At least one of:
-- **firecrawl** — `firecrawl_search`, `firecrawl_scrape`, `firecrawl_crawl`
-- **exa** — `web_search_exa`, `web_search_advanced_exa`, `crawling_exa`
+- **firecrawl**: `firecrawl_search`, `firecrawl_scrape`, `firecrawl_crawl`
+- **exa**: `web_search_exa`, `web_search_advanced_exa`, `crawling_exa`
 
 Both together give the best coverage. Configure in `~/.claude.json` or `~/.codex/config.toml`.
 
@@ -34,10 +42,10 @@ Both together give the best coverage. Configure in `~/.claude.json` or `~/.codex
 ### Step 1: Understand the Goal
 
 Ask 1-2 quick clarifying questions:
-- "What's your goal — learning, making a decision, or writing something?"
+- "What's your goal: learning, making a decision, or writing something?"
 - "Any specific angle or depth you want?"
 
-If the user says "just research it" — skip ahead with reasonable defaults.
+If the user says "just research it": skip ahead with reasonable defaults.
 
 ### Step 2: Plan the Research
 
@@ -114,7 +122,7 @@ Structure the report:
 - [Actionable insight 3]
 
 ## Sources
-1. [Title](url) — [one-line summary]
+1. [Title](url): [one-line summary]
 2. ...
 
 ## Methodology

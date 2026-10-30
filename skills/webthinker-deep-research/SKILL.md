@@ -1,6 +1,16 @@
 ---
 name: webthinker-deep-research
-description: "Deep web research for VCO: multi-hop search+browse+extract with an auditable action trace and a structured report (WebThinker-style)."
+description: "[omh] Deep web research: multi-hop search, browse, extract with auditable action trace and structured report. Use when the user says: webthinker-deep-research, webthinker, multi hop research, deep web research."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, research, webthinker, deep-research, multi-hop]
+    category: research-academic
+    phase: deep-investigation
+    role: researcher
+    quality_tier: evidence-gated
+    related_skills: [deep-research, content-research-writer, spesialis-research-akademik]
 ---
 
 # WebThinker Deep Research (VCO)
@@ -24,10 +34,10 @@ Use this skill when the task requires **deep web research** (not just one-shot s
 
 Produce a folder with:
 
-- `report.md` — structured report (problem → findings → implications → next steps)
-- `sources.json` — all sources (URL/title/access time/snippet)
-- `trace.jsonl` — append-only action trace (search/open/extract/decision)
-- `notes.md` — working notes with per-source anchors
+- `report.md`: structured report (problem → findings → implications → next steps)
+- `sources.json`: all sources (URL/title/access time/snippet)
+- `trace.jsonl`: append-only action trace (search/open/extract/decision)
+- `notes.md`: working notes with per-source anchors
 
 Use `scripts/init_webthinker_run.py` to scaffold the folder.
 
@@ -50,7 +60,7 @@ LLM endpoint conventions (recommended):
 
 ## Modes
 
-### Mode A (Recommended): Lite — tool-orchestrated deep research
+### Mode A (Recommended): Lite: tool-orchestrated deep research
 
 Use existing tools (no heavy model hosting):
 

@@ -1,8 +1,16 @@
 ---
 name: kubernetes-patterns
-description: Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret handling, and kubectl debugging for production-grade deployments.
+description: "[omh] Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret handling, and kubectl debugging. Use when the user says: kubernetes-patterns, k8s manifests, kubernetes deployment, kubectl debug."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  origin: ECC
+  hermes:
+    tags: [workflow, oh-my-hermes, kubernetes, k8s, devops, containers, orchestration]
+    category: devops
+    phase: release-deployment
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [deployment-patterns, docker-patterns, spesialis-devops-infrastruktur]
 ---
 
 # Kubernetes Patterns
@@ -27,16 +35,16 @@ Production-grade Kubernetes patterns for deploying, managing, and debugging work
 
 This skill provides **copy-pasteable, production-grade YAML patterns** and **kubectl debugging commands** organized by task:
 
-1. **Deployment template** — A fully configured production `Deployment` with security context, rolling update strategy, all three probe types, resource limits, and environment injection from ConfigMap/Secret.
-2. **Probes** — Decision table for startup vs liveness vs readiness, with correct `failureThreshold × periodSeconds` math.
-3. **Services & Ingress** — ClusterIP, LoadBalancer, and TLS Ingress patterns with cert-manager annotations.
-4. **ConfigMaps & Secrets** — `envFrom`, file-mount, and external secrets guidance.
-5. **Resource management** — Requests vs limits rules of thumb by workload type (web API, JVM, worker, sidecar).
-6. **RBAC** — Least-privilege ServiceAccount → Role → RoleBinding chain.
-7. **HPA & PDB** — Autoscaling and node-drain safety configurations.
-8. **Jobs & CronJobs** — One-off and scheduled workload patterns with correct `restartPolicy`.
-9. **kubectl cheatsheet** — Logs, exec, rollback, port-forward, dry-run, and common error diagnosis commands.
-10. **Anti-patterns & checklist** — What NOT to do, and a security/reliability/observability checklist.
+1. **Deployment template**: A fully configured production `Deployment` with security context, rolling update strategy, all three probe types, resource limits, and environment injection from ConfigMap/Secret.
+2. **Probes**: Decision table for startup vs liveness vs readiness, with correct `failureThreshold × periodSeconds` math.
+3. **Services & Ingress**: ClusterIP, LoadBalancer, and TLS Ingress patterns with cert-manager annotations.
+4. **ConfigMaps & Secrets**: `envFrom`, file-mount, and external secrets guidance.
+5. **Resource management**: Requests vs limits rules of thumb by workload type (web API, JVM, worker, sidecar).
+6. **RBAC**: Least-privilege ServiceAccount → Role → RoleBinding chain.
+7. **HPA & PDB**: Autoscaling and node-drain safety configurations.
+8. **Jobs & CronJobs**: One-off and scheduled workload patterns with correct `restartPolicy`.
+9. **kubectl cheatsheet**: Logs, exec, rollback, port-forward, dry-run, and common error diagnosis commands.
+10. **Anti-patterns & checklist**: What NOT to do, and a security/reliability/observability checklist.
 
 ## Examples
 
@@ -54,7 +62,7 @@ See the sections below for complete, runnable examples. Quick references:
 
 ## Core Workload Patterns
 
-### Deployment — Production Template
+### Deployment: Production Template
 
 ```yaml
 apiVersion: apps/v1
@@ -161,7 +169,7 @@ spec:
 
 ---
 
-## Probes — Liveness, Readiness, Startup
+## Probes: Liveness, Readiness, Startup
 
 Understanding when to use each probe is critical:
 
@@ -213,7 +221,7 @@ livenessProbe:
 ### Service Types
 
 ```yaml
-# ClusterIP (default) — internal-only
+# ClusterIP (default): internal-only
 apiVersion: v1
 kind: Service
 metadata:
@@ -230,7 +238,7 @@ spec:
 ```
 
 ```yaml
-# LoadBalancer — external traffic (cloud providers)
+# LoadBalancer: external traffic (cloud providers)
 spec:
   type: LoadBalancer
   ports:
@@ -272,7 +280,7 @@ spec:
 
 ## ConfigMaps and Secrets
 
-### ConfigMap — Non-sensitive configuration
+### ConfigMap: Non-sensitive configuration
 
 ```yaml
 apiVersion: v1
@@ -306,7 +314,7 @@ volumeMounts:
     readOnly: true
 ```
 
-### Secrets — Sensitive data
+### Secrets: Sensitive data
 
 ```bash
 # Create secret from literal (CLI, then store in Vault/SOPS)
@@ -323,7 +331,7 @@ metadata:
   name: my-app-secrets
   namespace: my-namespace
 type: Opaque
-# Values are base64-encoded (NOT encrypted — use Sealed Secrets or ESO for real encryption)
+# Values are base64-encoded (NOT encrypted: use Sealed Secrets or ESO for real encryption)
 data:
   db-password: czNjcjN0  # base64 of 's3cr3t'
 ```
@@ -348,40 +356,40 @@ resources:
 
 | Workload Type | CPU Request | Memory Request | Notes |
 |---------------|-------------|----------------|-------|
-| Web API | 100–250m | 128–256Mi | Set limits 2-4x requests |
-| Worker/consumer | 250–500m | 256–512Mi | Memory limit = request for predictability |
-| JVM app | 500m–1 | 512Mi–2Gi | Allow headroom above `-Xmx` for JVM overhead |
-| Sidecar | 10–50m | 32–64Mi | Keep minimal |
+| Web API | 100-250m | 128-256Mi | Set limits 2-4x requests |
+| Worker/consumer | 250-500m | 256-512Mi | Memory limit = request for predictability |
+| JVM app | 500m-1 | 512Mi-2Gi | Allow headroom above `-Xmx` for JVM overhead |
+| Sidecar | 10-50m | 32-64Mi | Keep minimal |
 
 ```yaml
-# WRONG: No requests or limits — unpredictable scheduling, OOM evictions
+# WRONG: No requests or limits: unpredictable scheduling, OOM evictions
 containers:
   - name: app
     image: myapp:latest
-    # Missing resources: {} — this is dangerous in production
+    # Missing resources: {} (this is dangerous in production)
 
-# WRONG: Limits without requests — requests default to limits, over-reserves capacity
+# WRONG: Limits without requests: requests default to limits, over-reserves capacity
 resources:
   limits:
     cpu: "2"
     memory: "1Gi"
-  # requests missing — will default to limits values
+  # requests missing: will default to limits values
 ```
 
 ---
 
-## RBAC — Roles and ServiceAccounts
+## RBAC: Roles and ServiceAccounts
 
 ### Principle of Least Privilege
 
 **Two patterns depending on whether the app calls the Kubernetes API:**
 
-#### Pattern A — App does NOT need the Kubernetes API (most apps)
+#### Pattern A: App does NOT need the Kubernetes API (most apps)
 
 Disable token automounting on the ServiceAccount. The Role/RoleBinding are not needed.
 
 ```yaml
-# ServiceAccount with token disabled — safest default
+# ServiceAccount with token disabled: safest default
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -391,7 +399,7 @@ automountServiceAccountToken: false   # No K8s API token injected into pods
 ```
 
 ```yaml
-# Reference in Deployment — no token, no API access
+# Reference in Deployment: no token, no API access
 spec:
   template:
     spec:
@@ -399,12 +407,12 @@ spec:
       automountServiceAccountToken: false   # Belt-and-suspenders: also set at pod level
 ```
 
-#### Pattern B — App DOES need the Kubernetes API (operators, controllers, config watchers)
+#### Pattern B: App DOES need the Kubernetes API (operators, controllers, config watchers)
 
 Enable the token and grant only the permissions actually required.
 
 ```yaml
-# 1. ServiceAccount — enable token for this SA
+# 1. ServiceAccount: enable token for this SA
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -414,7 +422,7 @@ automountServiceAccountToken: true    # Token required: app calls K8s API
 ```
 
 ```yaml
-# 2. Role — grant only what the app needs (namespace-scoped)
+# 2. Role: grant only what the app needs (namespace-scoped)
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -453,7 +461,7 @@ spec:
   template:
     spec:
       serviceAccountName: my-app-sa
-      # automountServiceAccountToken defaults to true from SA — token is injected
+      # automountServiceAccountToken defaults to true from SA: token is injected
 ```
 
 ---
@@ -488,7 +496,7 @@ spec:
           averageUtilization: 80
 ```
 
-> HPA requires `resources.requests` to be set on all containers — it calculates utilization as `current / request`.
+> HPA requires `resources.requests` to be set on all containers: it calculates utilization as `current / request`.
 
 ---
 
@@ -654,7 +662,7 @@ kubectl describe pod <pod-name> -n my-namespace | grep -A5 "Last State"
 ## Anti-Patterns
 
 ```yaml
-# BAD: Using :latest tag — non-deterministic deployments
+# BAD: Using :latest tag: non-deterministic deployments
 image: myapp:latest
 
 # GOOD: Pin to a specific immutable tag (SHA or semver)
@@ -674,7 +682,7 @@ securityContext:
 
 # ---
 
-# BAD: No resource limits — one pod can starve the entire node
+# BAD: No resource limits: one pod can starve the entire node
 containers:
   - name: app
     image: myapp:1.0.0
@@ -695,7 +703,7 @@ resources:
 apiVersion: v1
 kind: ConfigMap
 data:
-  DB_PASSWORD: "mysecretpassword"   # NEVER — use Secret or external secrets manager
+  DB_PASSWORD: "mysecretpassword"   # NEVER: use Secret or external secrets manager
 
 # ---
 
@@ -708,7 +716,7 @@ roleRef:
 
 # ---
 
-# BAD: minAvailable: 0 in PDB — defeats the purpose
+# BAD: minAvailable: 0 in PDB: defeats the purpose
 spec:
   minAvailable: 0
 
@@ -750,7 +758,7 @@ spec:
 
 ## Related Skills
 
-- `docker-patterns` — Multi-stage Dockerfiles and image security
-- `deployment-patterns` — CI/CD pipelines, rollback strategy, health check endpoints
-- `security-review` — Broader security hardening context
-- `git-workflow` — GitOps integration with K8s (ArgoCD / Flux patterns)
+- `docker-patterns`: Multi-stage Dockerfiles and image security
+- `deployment-patterns`: CI/CD pipelines, rollback strategy, health check endpoints
+- `security-review`: Broader security hardening context
+- `git-workflow`: GitOps integration with K8s (ArgoCD / Flux patterns)

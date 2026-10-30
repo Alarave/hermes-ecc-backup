@@ -1,6 +1,16 @@
 ---
 name: vercel-deploy
-description: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+description: "[omh] Deploy applications and websites to Vercel instantly: preview, production, and fallback script deployments. Use when the user says: vercel-deploy, deploy to vercel, deploy vercel, vercel preview deploy."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, vercel, deployment, cloud, frontend]
+    category: devops
+    phase: release-deployment
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [deploy-to-vercel, netlify-deploy, deployment-patterns]
 ---
 
 # Vercel Deploy
@@ -73,5 +83,5 @@ If deployment fails due to network issues (timeouts, DNS errors, connection rese
 Example guidance to the user:
 
 ```
-The deploy needs escalated network access to deploy to Vercel. I can rerun the command with escalated permissions—want me to proceed?
+The deploy needs escalated network access to deploy to Vercel. I can rerun the command with escalated permissions: want me to proceed?
 ```
