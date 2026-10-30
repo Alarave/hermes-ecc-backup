@@ -1,6 +1,16 @@
 ---
 name: obsidian-cli
-description: Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.
+description: "[omh] Interact with Obsidian vaults using the Obsidian CLI: read, create, search, and manage notes, tasks, and properties. Use when the user says: obsidian-cli, obsidian vault, manage notes obsidian, obsidian search, obsidian task."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, workspace, obsidian, notes, vault, cli]
+    category: workspace
+    phase: knowledge-management
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [cli-anything-obsidian, note, obsidian-mind]
 ---
 
 # Obsidian CLI
@@ -8,7 +18,7 @@ description: Interact with Obsidian vaults using the Obsidian CLI to read, creat
 Use the `obsidian` CLI to interact with a running Obsidian instance. Requires Obsidian to be open.
 
 > [!IMPORTANT]
-> **macOS — open Obsidian once before using the CLI.** On macOS the `obsidian` command launches the Electron app if no Obsidian instance is running, producing a visible window flash on the first call. Once Obsidian is open, subsequent CLI calls forward args to the running instance silently — no further flicker. For interactive workflows (slash commands), ensure Obsidian is open at the start of the session. For non-interactive contexts where you can't guarantee Obsidian is open (background hooks, automation, CI), prefer filesystem reads via `Read` / `Grep` / `Glob`.
+> **macOS: open Obsidian once before using the CLI.** On macOS the `obsidian` command launches the Electron app if no Obsidian instance is running, producing a visible window flash on the first call. Once Obsidian is open, subsequent CLI calls forward args to the running instance silently: no further flicker. For interactive workflows (slash commands), ensure Obsidian is open at the start of the session. For non-interactive contexts where you can't guarantee Obsidian is open (background hooks, automation, CI), prefer filesystem reads via `Read` / `Grep` / `Glob`.
 
 ## Command reference
 
@@ -34,8 +44,8 @@ For multiline content use `\n` for newline and `\t` for tab.
 
 Many commands accept `file` or `path` to target a file. Without either, the active file is used.
 
-- `file=<name>` — resolves like a wikilink (name only, no path or extension needed)
-- `path=<path>` — exact path from vault root, e.g. `folder/note.md`
+- `file=<name>`: resolves like a wikilink (name only, no path or extension needed)
+- `path=<path>`: exact path from vault root, e.g. `folder/note.md`
 
 ## Vault targeting
 
@@ -72,7 +82,7 @@ After making code changes to a plugin or theme, follow this workflow:
    ```bash
    obsidian plugin:reload id=my-plugin
    ```
-2. **Check for errors** — if errors appear, fix and repeat from step 1:
+2. **Check for errors**: if errors appear, fix and repeat from step 1:
    ```bash
    obsidian dev:errors
    ```

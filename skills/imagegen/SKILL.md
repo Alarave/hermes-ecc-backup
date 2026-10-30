@@ -1,6 +1,16 @@
 ---
-name: "imagegen"
-description: "Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls."
+name: imagegen
+description: "[omh] Generate or edit raster images using the OpenAI Image API via bundled CLI: concept art, product shots, covers, and batch variants. Use when the user says: imagegen, generate image, edit image, inpaint image, image generation."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, media, image-gen, openai-image, visual-assets]
+    category: creative-media
+    phase: media-generation
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [fal-ai-media, video-editing, spesialis-kreatif-media]
 ---
 
 
@@ -73,24 +83,24 @@ Reformat user prompts into a structured, production-oriented spec. Only make imp
 Classify each request into one of these buckets and keep the slug consistent across prompts and references.
 
 Generate:
-- photorealistic-natural — candid/editorial lifestyle scenes with real texture and natural lighting.
-- product-mockup — product/packaging shots, catalog imagery, merch concepts.
-- ui-mockup — app/web interface mockups that look shippable.
-- infographic-diagram — diagrams/infographics with structured layout and text.
-- logo-brand — logo/mark exploration, vector-friendly.
-- illustration-story — comics, children’s book art, narrative scenes.
-- stylized-concept — style-driven concept art, 3D/stylized renders.
-- historical-scene — period-accurate/world-knowledge scenes.
+- photorealistic-natural: candid/editorial lifestyle scenes with real texture and natural lighting.
+- product-mockup: product/packaging shots, catalog imagery, merch concepts.
+- ui-mockup: app/web interface mockups that look shippable.
+- infographic-diagram: diagrams/infographics with structured layout and text.
+- logo-brand: logo/mark exploration, vector-friendly.
+- illustration-story: comics, children’s book art, narrative scenes.
+- stylized-concept: style-driven concept art, 3D/stylized renders.
+- historical-scene: period-accurate/world-knowledge scenes.
 
 Edit:
-- text-localization — translate/replace in-image text, preserve layout.
-- identity-preserve — try-on, person-in-scene; lock face/body/pose.
-- precise-object-edit — remove/replace a specific element (incl. interior swaps).
-- lighting-weather — time-of-day/season/atmosphere changes only.
-- background-extraction — transparent background / clean cutout.
-- style-transfer — apply reference style while changing subject/scene.
-- compositing — multi-image insert/merge with matched lighting/perspective.
-- sketch-to-render — drawing/line art to photoreal render.
+- text-localization: translate/replace in-image text, preserve layout.
+- identity-preserve: try-on, person-in-scene; lock face/body/pose.
+- precise-object-edit: remove/replace a specific element (incl. interior swaps).
+- lighting-weather: time-of-day/season/atmosphere changes only.
+- background-extraction: transparent background / clean cutout.
+- style-transfer: apply reference style while changing subject/scene.
+- compositing: multi-image insert/merge with matched lighting/perspective.
+- sketch-to-render: drawing/line art to photoreal render.
 
 Quick clarification (augmentation vs invention):
 - If the user says “a hero image for a landing page”, you may add *layout/composition constraints* that are implied by that use (e.g., “generous negative space on the right for headline text”).

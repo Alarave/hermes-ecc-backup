@@ -1,11 +1,21 @@
 ---
 name: knowledge-steward
-description: "AI工作经验知识库管理。适用于用户明确要求'保存到Obsidian'、'记录这个'、'save this insight'、'memo this'、'capture this'等知识沉淀场景。将对话中的提示词、模式、问题修复、想法和效率优化保存到Obsidian知识库，并自动同步到GitHub。"
+description: "[omh] AI knowledge base management for Obsidian: capture prompts, patterns, bugfixes, and ideas. Use when the user says: knowledge-steward, save to obsidian, record insight, save prompt, capture idea."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, workspace, obsidian, knowledge-base, notes, capture]
+    category: workspace
+    phase: knowledge-management
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [obsidian-cli, note, cli-anything-obsidian]
 ---
 
 # Knowledge Steward Skill
 
-你的"数字记账员"——防止智力剩余价值随着电缆流失。将稍纵即逝的灵感、有效的提示词、踩过的坑和突然的顿悟转化为永久存储的知识资产，并自动备份到GitHub云端。
+你的"数字记账员": 防止智力剩余价值随着电缆流失。将稍纵即逝的灵感、有效的提示词、踩过的坑和突然的顿悟转化为永久存储的知识资产，并自动备份到GitHub云端。
 
 ## When to Use This Skill
 

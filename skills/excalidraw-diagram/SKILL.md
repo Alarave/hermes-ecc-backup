@@ -1,8 +1,16 @@
 ---
 name: excalidraw-diagram
-description: Generate Excalidraw diagrams from text content. Supports three output modes - Obsidian (.md), Standard (.excalidraw), and Animated (.excalidraw with animation order). Triggers on "Excalidraw", "diagram", "standard excalidraw", "animate".
+description: "[omh] Generate Excalidraw diagrams from text: Obsidian, Standard, and Animated output modes. Use when the user says: excalidraw-diagram, excalidraw, diagram excalidraw, animated diagram."
+license: MIT
+author: "oh-my-hermes maintainers"
 metadata:
-  version: 1.2.1
+  hermes:
+    tags: [workflow, oh-my-hermes, diagram, excalidraw, visual, architecture]
+    category: creative-media
+    phase: diagram-generation
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [gstack-diagram, markdown-mermaid-writing, spesialis-kreatif-media]
 ---
 
 # Excalidraw Diagram Generator
@@ -102,7 +110,7 @@ Same as Standard format, but each element adds a `customData.animate` field to c
 ```
 
 **Animation order rules:**
-- `order`: Playback order (1, 2, 3...) — lower numbers appear first
+- `order`: Playback order (1, 2, 3...): lower numbers appear first
 - `duration`: Drawing duration for the element (milliseconds), default 500
 - Elements with the same `order` appear simultaneously
 - Recommended order: title → main framework → connection lines → detail text
@@ -137,14 +145,14 @@ Choose the appropriate diagram type to maximize clarity and visual impact.
 - **All text elements must use** `fontFamily: 5` (Excalifont handwriting font)
 - **Double quote replacement**: replace `"` with `『』`
 - **Parentheses replacement**: replace `()` with `「」`
-- **Font size rules** (hard minimums — below these values, text is unreadable at normal zoom):
+- **Font size rules** (hard minimums: below these values, text is unreadable at normal zoom):
   - Title: 20-28px (minimum 20px)
   - Subtitle: 18-20px
   - Body/labels: 16-18px (minimum 16px)
   - Minor annotations: 14px (only for unimportant auxiliary notes, use sparingly)
   - **Never go below 14px**
 - **Line height**: all text uses `lineHeight: 1.25`
-- **Text centering**: standalone text elements have no auto-centering — manually calculate x coordinate:
+- **Text centering**: standalone text elements have no auto-centering: manually calculate x coordinate:
   - Estimate text width: `estimatedWidth = text.length * fontSize * 0.5`
   - Centering formula: `x = centerX - estimatedWidth / 2`
   - Example: text "Hello" (5 chars, fontSize 20) centered at x=300 → `estimatedWidth = 5 * 20 * 0.5 = 50` → `x = 300 - 25 = 275`
@@ -155,7 +163,7 @@ Choose the appropriate diagram type to maximize clarity and visual impact.
 - **Element spacing**: minimum 20-30px gap to prevent overlap
 - **Clear hierarchy**: use different colors and shapes to distinguish information levels
 - **Graphic elements**: use rectangles, circles, arrows etc. to organize information
-- **No Emoji**: do not use any Emoji symbols in diagram text — use simple shapes (circles, squares, arrows) or color coding instead
+- **No Emoji**: do not use any Emoji symbols in diagram text: use simple shapes (circles, squares, arrows) or color coding instead
 
 ### Color Palette
 
@@ -361,13 +369,13 @@ Text elements (type: "text") require additional properties (do NOT include `rawT
 
 ## Common Mistakes to Avoid
 
-- **Text offset** — standalone text element `x` is the left edge, not center. Must use the centering formula to manually calculate, or text will be off to one side
-- **Element overlap** — elements with similar y coordinates easily stack. Check for at least 20px spacing before placing new elements
-- **Insufficient canvas padding** — don't place content flush with canvas edges. Leave 50-80px padding on all sides
-- **Title not centered over diagram** — title should be centered over the overall width of the diagram below it, not fixed at x=0
-- **Arrow label overflow** — long text labels (e.g., "ATP + NADPH") will exceed short arrows. Keep labels short or increase arrow length
-- **Insufficient contrast** — light text on white background is nearly invisible. Text color must be no lighter than `#757575`; colored text should use dark variants
-- **Font size too small** — below 14px is unreadable at normal zoom; body text minimum is 16px
+- **Text offset**: standalone text element `x` is the left edge, not center. Must use the centering formula to manually calculate, or text will be off to one side
+- **Element overlap**: elements with similar y coordinates easily stack. Check for at least 20px spacing before placing new elements
+- **Insufficient canvas padding**: don't place content flush with canvas edges. Leave 50-80px padding on all sides
+- **Title not centered over diagram**: title should be centered over the overall width of the diagram below it, not fixed at x=0
+- **Arrow label overflow**: long text labels (e.g., "ATP + NADPH") will exceed short arrows. Keep labels short or increase arrow length
+- **Insufficient contrast**: light text on white background is nearly invisible. Text color must be no lighter than `#757575`; colored text should use dark variants
+- **Font size too small**: below 14px is unreadable at normal zoom; body text minimum is 16px
 
 ## Implementation Notes
 

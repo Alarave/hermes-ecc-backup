@@ -1,7 +1,16 @@
 ---
 name: taste
-description: A creative-direction (taste) layer for music videos and short-form edits in the angelcore / cloud-trance / hyperpop visual family. Distills a named-genre aesthetic vocabulary, a mood + color + light system, and a beat-synced editing grammar, then chains ECC's video skills (video-editing, fal-ai-media, remotion-video-creation, motion-*, content-engine) into one production pipeline. Use when the work is not just making a video function but making it feel intentional, when building a music video, a fancam/edit, a moodboard-driven reel, or when choosing a coherent visual direction for AI-generated b-roll.
-origin: ECC
+description: "[omh] Creative-direction (taste) layer for music videos, short-form edits, and aesthetic pipelines. Use when the user says: taste, music video direction, video aesthetics, angelcore video, short-form edit style."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, media, video, creative-direction, taste, aesthetics]
+    category: creative-media
+    phase: video-direction
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [video-editing, fal-ai-media, remotion-video-creation]
 ---
 
 # Taste
@@ -10,8 +19,8 @@ Most AI video advice stops at *how to render frames*. This skill is the layer ab
 that: **what the frames should look like, in what order, cut to what rhythm, so the
 result reads as one intentional thing instead of a pile of generations.**
 
-It encodes a specific taste — the **angelcore / cloud-trance / hyperpop** family
-(Bladee "Silver Surfer"-era ethereal trance crossed with heavy angelcore) — distilled
+It encodes a specific taste: the **angelcore / cloud-trance / hyperpop** family
+(Bladee "Silver Surfer"-era ethereal trance crossed with heavy angelcore): distilled
 from a corpus of saved Reels and a tour through a ~70-entry visual-genre library. It
 is opinionated on purpose. Taste is a point of view, not a menu.
 
@@ -48,7 +57,7 @@ This skill sits **on top of** `video-editing` (the mechanics) and `remotion-vide
 ## The Aesthetic Vocabulary (distilled)
 
 The reference corpus tours a large library of *named* visual genres. The full list lives in
-`references/genre-taxonomy.md`. The useful move is not memorizing 70 names — it is seeing
+`references/genre-taxonomy.md`. The useful move is not memorizing 70 names: it is seeing
 that **a genre name is a complete prompt-and-grade preset.** When you pick one, you inherit
 its palette, texture, lighting, and subject matter as a unit.
 
@@ -64,19 +73,19 @@ The genres cluster into families. Pick a **primary** family and at most **one ac
 | **Systemic / data** | numbers, mazes, code web, heatmap, pixel, 8-bit | gridded, generative, schematic |
 
 **For the current project**, the primary is **Ethereal / divine** with a **Hyperpop / Y2K-cyber**
-accent — i.e. holy light and crystalline bloom, punctuated by chrome and neon. That pairing
+accent: i.e. holy light and crystalline bloom, punctuated by chrome and neon. That pairing
 *is* the angelcore × cloud-trance brief.
 
-## The Mood System — angelcore × cloud-trance
+## The Mood System: angelcore × cloud-trance
 
 Distilled directly from the strongest reference reels. This is the concrete grade.
 
 ### Palette
 - **Base:** near-black void (#05060a) and bone white (#f4f1ea). Most frames are one or the other.
-- **Divine accent:** molten gold / ember orange (#ffb24d → #ff7a18) — the *one warm light* in the dark.
-- **Crystalline accent:** iridescent violet→cyan→magenta bokeh (#8a6bff, #4fc3ff, #ff6ad5) — the
+- **Divine accent:** molten gold / ember orange (#ffb24d → #ff7a18): the *one warm light* in the dark.
+- **Crystalline accent:** iridescent violet→cyan→magenta bokeh (#8a6bff, #4fc3ff, #ff6ad5): the
   hyperpop bloom, used in bright frames.
-- **Danger accent (sparingly):** a single glowing red (#ff2a2a) on monochrome — for one or two
+- **Danger accent (sparingly):** a single glowing red (#ff2a2a) on monochrome: for one or two
   shock cuts only.
 - **Hyperpop subject:** candy pink hair / chrome / glossy white against blue sky.
 
@@ -85,15 +94,15 @@ never both in one shot.
 
 ### Light & texture
 - Darkness pierced by a single warm source (ember bloom, divine shaft). High contrast, deep blacks.
-- Crystalline / glitter bokeh, lens flares, bloom, light leaks — *heavenly*, not dirty.
+- Crystalline / glitter bokeh, lens flares, bloom, light leaks: *heavenly*, not dirty.
 - Film grain + subtle chromatic aberration on the dark frames; clean gloss on the bright frames.
 - Macro detail on negative space: a hero object centered on black (key, eye, gear, petal, water).
 - Subjects: winged figures, clouds, halos, angels, crystalline structures, candy-cyber portraits.
 
 ### Motion
-- Slow, floating, weightless camera (drift, slow push, slow orbit) — *cloud* trance.
+- Slow, floating, weightless camera (drift, slow push, slow orbit): *cloud* trance.
 - Bursts of speed only at the drop. Otherwise everything breathes.
-- Particles rising (embers, dust, glitter) — upward motion = ascension.
+- Particles rising (embers, dust, glitter): upward motion = ascension.
 
 ## The Editing Grammar (distilled)
 
@@ -102,7 +111,7 @@ From the reference edits, the techniques that recur and define the style:
 1. **Beat-locked hard cuts.** No dissolves in the verse/drop. Cut on the kick. The eye should
    feel the BPM.
 2. **Hero-on-black macro inserts.** A single sharp object centered in black negative space,
-   held for 1–2 beats, then cut. Rhythmic montage of these = the cloud-trance signature.
+   held for 1-2 beats, then cut. Rhythmic montage of these = the cloud-trance signature.
 3. **Bloom / explosion reveal.** A white or ember bloom that blows out the frame on a transient,
    then resolves into the next shot. The "divine flash" transition.
 4. **Color-pop on monochrome.** Run a passage in B&W, then a single colored element (red eye,
@@ -119,7 +128,7 @@ From the reference edits, the techniques that recur and define the style:
 shot held past its musical phrase; readable on-screen UI chrome (crop it out); mixed aspect
 ratios in one timeline.
 
-## The Pipeline — mixing the ECC video skills
+## The Pipeline: mixing the ECC video skills
 
 This skill is the conductor. Each ECC skill is an instrument. Do not skip layers.
 
@@ -170,7 +179,7 @@ The song arrangement (from the project's own notes) is
 | Section | Genre/mood lean | Grammar | Shot ideas |
 |---------|-----------------|---------|------------|
 | **Intro** | Ethereal/divine, near-black | slow push, no cuts | ember bloom in the void; a single shaft of gold; dust rising |
-| **Verse** | Dark + macro hero-on-black | hard cuts every 2 beats | key, eye, gear, water drop, petal — rhythmic macro montage |
+| **Verse** | Dark + macro hero-on-black | hard cuts every 2 beats | key, eye, gear, water drop, petal: rhythmic macro montage |
 | **Drop** | Hyperpop bloom + crystalline | speed-ramp in, cut on the one, fast | candy-pink figure, chrome, iridescent bokeh, winged ascension |
 | **Bridge** | Spiritualism, weightless | one long held shot, color-pop | clouds + halo; single red accent punches once |
 | **Drop 2** | as Drop, intensify | add divine-flash blooms on transients | wings open, glitter burst, light leaks maxed |
@@ -194,7 +203,7 @@ Use with `fal-ai-media`. Each preset is the genre rendered to the project palett
 - **Cold outro:** "pale crystalline ice structure slowly dissolving, glacial folk, cold blue
   and bone white, minimal, calm, fading to black"
 
-Generate 6–10 per preset, keep 2–3. For motion, animate stills with an image-to-video model
+Generate 6-10 per preset, keep 2-3. For motion, animate stills with an image-to-video model
 or generate short clips directly; keep camera moves slow per the Motion rules.
 
 ## FFmpeg Recipes (cut + reframe)
@@ -255,13 +264,13 @@ for project setup, audio track binding, and render flags.
 
 ## Related Skills
 
-- `video-editing` — the mechanical pipeline (FFmpeg, reframe, EDL, polish) this sits on top of
-- `remotion-video-creation` — programmable beat-synced composition and rendering
-- `fal-ai-media` — generate the b-roll, transition SFX, and risers
-- `motion-foundations`, `motion-patterns`, `motion-advanced`, `motion-ui` — easing and motion timing
-- `videodb` — server-side smart reframe and indexing for large footage
-- `content-engine` — platform-native distribution, covers, captions
-- `frontend-design-direction` — the same "decide a direction first" discipline, for UI
+- `video-editing`: the mechanical pipeline (FFmpeg, reframe, EDL, polish) this sits on top of
+- `remotion-video-creation`: programmable beat-synced composition and rendering
+- `fal-ai-media`: generate the b-roll, transition SFX, and risers
+- `motion-foundations`, `motion-patterns`, `motion-advanced`, `motion-ui`: easing and motion timing
+- `videodb`: server-side smart reframe and indexing for large footage
+- `content-engine`: platform-native distribution, covers, captions
+- `frontend-design-direction`: the same "decide a direction first" discipline, for UI
 
 
 ## Linked References

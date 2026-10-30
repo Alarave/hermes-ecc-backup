@@ -1,40 +1,30 @@
 ---
 name: markdown-mermaid-writing
-description: >
-  Comprehensive markdown and Mermaid diagram writing skill that establishes text-based
-  diagrams as the DEFAULT documentation standard. Use this skill when creating ANY
-  scientific document, report, analysis, or visualization — it ensures all outputs are
-  in version-controlled, token-efficient markdown with embedded Mermaid diagrams as the
-  source of truth, with clear pathways to downstream Python or AI-generated images.
-  Includes full style guides (markdown + mermaid), 24 diagram type references, and
-  9 document templates ready to use.
-allowed-tools: Read Write Edit Bash
+description: "[omh] Markdown and Mermaid diagram writing establishing text-based diagrams as default documentation. Use when the user says: markdown-mermaid-writing, mermaid diagram, text diagram, markdown report, mermaid flowchart."
 license: Apache-2.0
+author: "Clayton Young / Superior Byte Works, LLC"
 metadata:
-  skill-author: Clayton Young / Superior Byte Works, LLC (@borealBytes)
-  skill-source: https://github.com/SuperiorByteWorks-LLC/agent-project
-  skill-version: "1.0.0"
-  skill-contributors:
-    - name: Clayton Young
-      org: Superior Byte Works, LLC / @borealBytes
-      role: Author and originator
-    - name: K-Dense Team
-      org: K-Dense Inc.
-      role: Integration target and community feedback
+  hermes:
+    tags: [workflow, oh-my-hermes, documentation, markdown, mermaid, diagram, technical-writing]
+    category: documentation
+    phase: diagram-authoring
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [gstack-diagram, excalidraw-diagram, spesialis-produktivitas-workspace]
 ---
 
 # Markdown and Mermaid Writing
 
 ## Overview
 
-This skill teaches you — and enforces a standard for — creating scientific documentation
+This skill teaches you: and enforces a standard for: creating scientific documentation
 using **markdown with embedded Mermaid diagrams as the default and canonical format**.
 
 The core bet: a relationship expressed as a Mermaid diagram inside a `.md` file is more
 valuable than any image. It is text, so it diffs cleanly in git. It requires no build step.
 It renders natively on GitHub, GitLab, Notion, VS Code, and any markdown viewer. It uses
 fewer tokens than a prose description of the same relationship. And it can always be
-converted to a polished image later — but the text version remains the source of truth.
+converted to a polished image later: but the text version remains the source of truth.
 
 > "The more you get your reports and files in .md in just regular text, which mermaid is
 > as well as being a simple 'script language'. This just helps with any downstream rendering
@@ -42,21 +32,21 @@ converted to a polished image later — but the text version remains the source 
 > describe relationships < tokens). Additionally mermaid can render along with markdown for
 > easy use almost anywhere by humans or AI."
 >
-> — Clayton Young (@borealBytes), K-Dense Discord, 2026-02-19
+>: Clayton Young (@borealBytes), K-Dense Discord, 2026-02-19
 
 ## When to Use This Skill
 
 Use this skill when:
 
-- Creating **any scientific document** — reports, analyses, manuscripts, methods sections
-- Writing **any documentation** — READMEs, how-tos, decision records, project docs
-- Producing **any diagram** — workflows, data pipelines, architectures, timelines, relationships
-- Generating **any output that will be version-controlled** — if it's going into git, it should be markdown
-- Working with **any other skill** — this skill defines the documentation layer that wraps every other output
-- Someone asks you to "add a diagram" or "visualize the relationship" — Mermaid first, always
+- Creating **any scientific document**: reports, analyses, manuscripts, methods sections
+- Writing **any documentation**: READMEs, how-tos, decision records, project docs
+- Producing **any diagram**: workflows, data pipelines, architectures, timelines, relationships
+- Generating **any output that will be version-controlled**: if it's going into git, it should be markdown
+- Working with **any other skill**: this skill defines the documentation layer that wraps every other output
+- Someone asks you to "add a diagram" or "visualize the relationship": Mermaid first, always
 
 Do NOT start with Python matplotlib, seaborn, or AI image generation for structural or relational diagrams.
-Those are Phase 2 and Phase 3 — only used when Mermaid cannot express what's needed (e.g., scatter plots with real data, photorealistic images).
+Those are Phase 2 and Phase 3: only used when Mermaid cannot express what's needed (e.g., scatter plots with real data, photorealistic images).
 
 ## 🎨 The Source Format Philosophy
 
@@ -71,7 +61,7 @@ Those are Phase 2 and Phase 3 — only used when Mermaid cannot express what's n
 | Parseable by AI without vision | ✅ | ❌ |
 | Works in GitHub / GitLab / Notion | ✅ | ⚠️ if hosted |
 | Accessible (screen readers) | ✅ accTitle/accDescr | ⚠️ needs alt text |
-| Convertible to image later | ✅ anytime | — already image |
+| Convertible to image later | ✅ anytime |: already image |
 
 ### The three-phase workflow
 
@@ -80,9 +70,9 @@ flowchart LR
     accTitle: Three-Phase Documentation Workflow
     accDescr: Phase 1 Mermaid in markdown is always required and is the source of truth. Phases 2 and 3 are optional downstream conversions for polished output.
 
-    p1["📄 Phase 1<br/>Mermaid in Markdown<br/>(ALWAYS — source of truth)"]
-    p2["🐍 Phase 2<br/>Python Generated<br/>(optional — data charts)"]
-    p3["🎨 Phase 3<br/>AI Generated Visuals<br/>(optional — polish)"]
+    p1["📄 Phase 1<br/>Mermaid in Markdown<br/>(ALWAYS: source of truth)"]
+    p2["🐍 Phase 2<br/>Python Generated<br/>(optional: data charts)"]
+    p3["🎨 Phase 3<br/>AI Generated Visuals<br/>(optional: polish)"]
     out["📊 Final Deliverable"]
 
     p1 --> out
@@ -163,13 +153,13 @@ Before writing any `.md` file: read `references/markdown_style_guide.md`.
 
 Key rules to internalize:
 
-- **One H1 per document** — the title. Never more.
-- **Emoji on H2 headings only** — one emoji per H2, none in H3/H4
-- **Cite everything** — every external claim gets a footnote `[^N]` with full URL
-- **Bold sparingly** — max 2-3 bold terms per paragraph, never full sentences
-- **Horizontal rule after every `</details>`** — mandatory
+- **One H1 per document**: the title. Never more.
+- **Emoji on H2 headings only**: one emoji per H2, none in H3/H4
+- **Cite everything**: every external claim gets a footnote `[^N]` with full URL
+- **Bold sparingly**: max 2-3 bold terms per paragraph, never full sentences
+- **Horizontal rule after every `</details>`**: mandatory
 - **Tables over prose** for comparisons, configurations, structured data
-- **Diagrams over walls of text** — if it describes flow, structure, or relationships, add Mermaid
+- **Diagrams over walls of text**: if it describes flow, structure, or relationships, add Mermaid
 
 ### Step 3: Pick the diagram type and read its guide
 
@@ -184,18 +174,18 @@ accTitle: Short Name 3-8 Words
 accDescr: One or two sentences explaining what this diagram shows.
 ```
 
-- **No `%%{init}` directives** — breaks GitHub dark mode
-- **No inline `style`** — use `classDef` only
-- **One emoji per node max** — at the start of the label
-- **`snake_case` node IDs** — match the label
+- **No `%%{init}` directives**: breaks GitHub dark mode
+- **No inline `style`**: use `classDef` only
+- **One emoji per node max**: at the start of the label
+- **`snake_case` node IDs**: match the label
 
 ### Step 4: Write the document
 
-Start from the template. Apply the markdown style guide. Place diagrams inline with related text — not in a separate "Figures" section.
+Start from the template. Apply the markdown style guide. Place diagrams inline with related text: not in a separate "Figures" section.
 
 ### Step 5: Commit as text
 
-The `.md` file with embedded Mermaid is what gets committed. If you also generated a PNG or AI image, those are supplementary — the markdown is the source.
+The `.md` file with embedded Mermaid is what gets committed. If you also generated a PNG or AI image, those are supplementary: the markdown is the source.
 
 ---
 
@@ -223,7 +213,7 @@ max 3
 - **Use `radar-beta`** not `radar` (the bare keyword doesn't exist)
 - **Use `axis`** to define dimensions, **not** `x-axis`
 - **Use `curve`** to define data series, **not** quoted labels with colon
-- **No `accTitle`/`accDescr`** — radar-beta doesn't support accessibility annotations; always add a descriptive italic paragraph above the diagram
+- **No `accTitle`/`accDescr`**: radar-beta doesn't support accessibility annotations; always add a descriptive italic paragraph above the diagram
 
 ### XY Chart vs Radar confusion
 
@@ -253,9 +243,9 @@ radar-beta
 
 ```
 Workflow:
-1. Create the concept as Mermaid in .md (this skill — Phase 1)
+1. Create the concept as Mermaid in .md (this skill: Phase 1)
 2. Describe the same concept to scientific-schematics for a polished PNG (Phase 3)
-3. Commit both — the .md as source, the PNG as a supplementary figure
+3. Commit both: the .md as source, the PNG as a supplementary figure
 ```
 
 ### With `scientific-writing`
@@ -305,15 +295,15 @@ Before finalizing any document from any skill, apply this skill's checklist:
 
 Each file contains: production-quality exemplar, tips specific to that type, and a copy-paste template.
 
-`references/diagrams/` — architecture, block, c4, class, complex\_examples, er, flowchart, gantt, git\_graph, kanban, mindmap, packet, pie, quadrant, radar, requirement, sankey, sequence, state, timeline, treemap, user\_journey, xy\_chart, zenuml
+`references/diagrams/`: architecture, block, c4, class, complex\_examples, er, flowchart, gantt, git\_graph, kanban, mindmap, packet, pie, quadrant, radar, requirement, sankey, sequence, state, timeline, treemap, user\_journey, xy\_chart, zenuml
 
 ### Document templates (9 types)
 
-`templates/` — decision\_record, how\_to\_guide, issue, kanban, presentation, project\_documentation, pull\_request, research\_paper, status\_report
+`templates/`: decision\_record, how\_to\_guide, issue, kanban, presentation, project\_documentation, pull\_request, research\_paper, status\_report
 
 ### Examples
 
-`assets/examples/example-research-report.md` — a complete scientific research report demonstrating proper heading hierarchy, multiple diagram types (flowchart, sequence, gantt), tables, footnote citations, collapsible sections, and all style guide rules applied.
+`assets/examples/example-research-report.md`: a complete scientific research report demonstrating proper heading hierarchy, multiple diagram types (flowchart, sequence, gantt), tables, footnote citations, collapsible sections, and all style guide rules applied.
 
 ---
 

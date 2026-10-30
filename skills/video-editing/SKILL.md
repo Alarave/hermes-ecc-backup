@@ -1,7 +1,16 @@
 ---
 name: video-editing
-description: 実写素材のカット、構築、強化のためのAI支援ビデオ編集ワークフロー。生の撮影素材からFFmpeg、Remotion、ElevenLabs、fal.aiを経て、DescriptまたはCapCutで最終仕上げを行う完全なパイプラインをカバーする。ユーザーがビデオの編集、素材のカット、vlogの作成、またはビデオコンテンツの構築を望む場合に使用する。
-origin: ECC
+description: "[omh] AI-assisted video editing workflows for cutting, structuring, and enhancing footage. Use when the user says: video-editing, edit video, cut footage, video workflow, make vlog."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, media, video, video-editing, ffmpeg, remotion]
+    category: creative-media
+    phase: video-production
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [fal-ai-media, videodb, remotion-video-creation]
 ---
 
 # ビデオ編集
@@ -312,6 +321,6 @@ Claudeを使用してトランスクリプト+シーンタイムスタンプを�
 
 ## 関連スキル
 
-* `fal-ai-media` — AI画像、ビデオ、オーディオ生成
-* `videodb` — サーバーサイドのビデオ処理、インデックス作成、ストリーミング
-* `content-engine` — プラットフォームネイティブなコンテンツ配信
+* `fal-ai-media`: AI画像、ビデオ、オーディオ生成
+* `videodb`: サーバーサイドのビデオ処理、インデックス作成、ストリーミング
+* `content-engine`: プラットフォームネイティブなコンテンツ配信

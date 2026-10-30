@@ -1,7 +1,16 @@
 ---
 name: slides-as-code
-description: "Build research slides with text-first source (Slidev/Marp/Reveal/Quarto) and reproducible export (PDF). Includes structure, figure reuse rules, and quality checklist for top-tier scientific presentations."
-allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
+description: "[omh] Build research slides with text-first source (Slidev/Marp/Reveal/Quarto) and reproducible PDF export. Use when the user says: slides-as-code, research slides, slidev, marp slides, scientific presentation."
+license: MIT
+author: "oh-my-hermes maintainers"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, research, presentation, slides, slidev, marp]
+    category: research-stem
+    phase: presentation-authoring
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [scientific-slides, frontend-slides]
 ---
 
 # Slides as Code（顶级科研汇报的可复现幻灯片）
@@ -46,10 +55,10 @@ allowed-tools: [Read, Write, Edit, Bash, Grep, Glob]
 ### 3) 讲述顺序固定
 
 推荐骨架：
-1) 背景与缺口（1–2 页）
-2) 方法直觉（1–2 页示意图）
-3) 核心结果（3–6 页，每页一图一结论）
-4) 局限与下一步（1–2 页）
+1) 背景与缺口（1-2 页）
+2) 方法直觉（1-2 页示意图）
+3) 核心结果（3-6 页，每页一图一结论）
+4) 局限与下一步（1-2 页）
 
 ---
 
