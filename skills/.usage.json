@@ -698,14 +698,14 @@
     "first_seen_at": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-10-30T08:22:08.823626+00:00",
-    "last_viewed_at": "2026-10-30T04:04:15.215208+00:00",
+    "last_used_at": "2026-10-30T14:01:13.892662+00:00",
+    "last_viewed_at": "2026-10-30T14:01:13.863522+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
-    "view_count": 1
+    "use_count": 5,
+    "view_count": 2
   },
   "data-scientist": {
     "archived_at": null,
@@ -2432,14 +2432,14 @@
     "first_seen_at": null,
     "last_patched_at": "2026-10-30T04:08:28.421556+00:00",
     "last_reused_patch_generation": 31,
-    "last_used_at": "2026-10-30T08:50:34.669395+00:00",
-    "last_viewed_at": "2026-10-30T08:50:34.648568+00:00",
+    "last_used_at": "2026-10-30T14:01:14.908696+00:00",
+    "last_viewed_at": "2026-10-30T14:01:14.886198+00:00",
     "patch_count": 31,
     "patch_generation": 31,
     "pinned": false,
     "state": "active",
-    "use_count": 207,
-    "view_count": 207
+    "use_count": 208,
+    "view_count": 208
   },
   "prd": {
     "archived_at": null,
@@ -2584,16 +2584,16 @@
     "created_at": "2026-10-17T06:30:21.851018+00:00",
     "created_by": null,
     "first_seen_at": null,
-    "last_patched_at": "2026-10-17T16:05:23.065196+00:00",
-    "last_reused_patch_generation": 1,
-    "last_used_at": "2026-10-17T17:00:45.205740+00:00",
-    "last_viewed_at": "2026-10-17T17:00:45.186782+00:00",
-    "patch_count": 1,
-    "patch_generation": 1,
+    "last_patched_at": "2026-10-30T14:23:23.606865+00:00",
+    "last_reused_patch_generation": 5,
+    "last_used_at": "2026-10-30T14:23:32.622023+00:00",
+    "last_viewed_at": "2026-10-30T14:23:32.600061+00:00",
+    "patch_count": 5,
+    "patch_generation": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 10,
-    "view_count": 10
+    "use_count": 15,
+    "view_count": 15
   },
   "scholar-evaluation": {
     "archived_at": null,
@@ -2957,15 +2957,15 @@
     "created_at": "2026-09-27T08:29:40.672438+00:00",
     "created_by": null,
     "last_patched_at": "2026-10-30T07:06:30.277577+00:00",
-    "last_reused_patch_generation": 39,
-    "last_used_at": "2026-10-30T07:06:11.171572+00:00",
-    "last_viewed_at": "2026-10-30T07:06:11.154444+00:00",
+    "last_reused_patch_generation": 40,
+    "last_used_at": "2026-10-30T14:10:34.956788+00:00",
+    "last_viewed_at": "2026-10-30T14:10:34.921837+00:00",
     "patch_count": 40,
     "patch_generation": 40,
     "pinned": false,
     "state": "active",
-    "use_count": 252,
-    "view_count": 163
+    "use_count": 254,
+    "view_count": 165
   },
   "spesialis-research-akademik-rules": {
     "archived_at": null,
@@ -3006,14 +3006,14 @@
     "first_seen_at": null,
     "last_patched_at": "2026-10-30T08:05:26.815026+00:00",
     "last_reused_patch_generation": 12,
-    "last_used_at": "2026-10-30T13:34:57.384701+00:00",
-    "last_viewed_at": "2026-10-30T13:34:57.363203+00:00",
+    "last_used_at": "2026-10-30T14:10:07.057744+00:00",
+    "last_viewed_at": "2026-10-30T14:10:07.016365+00:00",
     "patch_count": 12,
     "patch_generation": 12,
     "pinned": false,
     "state": "active",
-    "use_count": 13,
-    "view_count": 13
+    "use_count": 15,
+    "view_count": 15
   },
   "spesialis-ui-templates": {
     "archived_at": null,
