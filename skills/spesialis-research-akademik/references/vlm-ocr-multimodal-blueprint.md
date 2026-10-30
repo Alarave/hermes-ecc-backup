@@ -23,11 +23,11 @@
 Untuk menjaga riset tetap fokus, terukur, dan tidak dibantai penguji sidang:
 1. **Objek Penelitian**: Produk kemasan fisik kategori Fast-Moving Consumer Goods (FMCG), dibatasi pada sub-kategori Makanan dan Minuman Olahan Kemasan yang beredar di lokapasar Shopee Indonesia.
 2. **Sumber Citra Produk**: Foto produk kemasan yang diunggah penjual (*product catalog images*) dan foto ulasan pembeli (*user review images*) yang diperoleh melalui scraping beretika atau dataset publik e-commerce.
-3. **Atribut Verifikasi Target**: Verifikasi difokuskan pada 4 atribut kunci kemasan:
+3. **Atribut Verifikasi Target (3 Atribut Statis Permanen)**: Verifikasi difokuskan secara ketat pada 3 atribut legal permanen kemasan:
    - Nama Merk / Brand.
-   - Berat Bersih / Netto (beserta satuan volume/massa: gr, kg, ml, l).
-   - Nomor Registrasi Resmi (BPOM RI MD/ML 12 digit atau Nomor P-IRT 15 digit).
-   - Tanggal Kedaluwarsa / Expired Date (format DD/MM/YYYY atau MM/YYYY).
+   - Berat Bersih / Netto (beserta normalisasi satuan volume/massa: gr, kg, ml, l).
+   - Nomor Registrasi Resmi (Nomor Notifikasi BPOM Kosmetik format NA/NB/NC/ND 11 digit, atau BPOM Pangan MD/ML 12 digit, atau P-IRT 15 digit).
+   - *Catatan Metodologi Keras*: Atribut tanggal kedaluwarsa secara sengaja dieksklusikan dari pencocokan katalog statis karena tanggal kedaluwarsa bersifat dinamis per-batch pengiriman fisik, sedangkan foto katalog seller bersifat statis. Mencocokkan tanggal kedaluwarsa pada foto katalog statis terbukti memicu *false mismatch* tinggi dan merupakan cacat logika yang rentan digugurkan oleh dewan penguji sidang.
 4. **Karakteristik Citra Masukan**: Citra digital format JPEG/PNG dengan resolusi minimal 640x640 piksel, dengan batas sudut kemiringan kemasan (*tilt angle*) maksimal 45 derajat dari sumbu vertikal.
 5. **Model Vision-Language (VLM)**: Menggunakan model pretrained open-weights ringkas (Florence-2-base / Qwen2-VL-2B) yang dioptimasi untuk inferensi lokal.
 6. **Model OCR**: Menggunakan arsitektur deteksi DBNet dan pengenal SVTR (PaddleOCR v4) yang dioptimasi untuk teks bahasa Indonesia dan alfanumerik.

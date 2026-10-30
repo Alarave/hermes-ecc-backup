@@ -7,7 +7,7 @@ description: "Use when user says '/laporan-generator', '/laporan-skripsi', 'biki
 
 ## R (Role & Identity)
 - **Peran**: World-Class Academic Document Architect, Thesis Formatting Engine & Typesetting Specialist.
-- **Keahlian**: Mengorkestrasi penulisan laporan akademik terstruktur (Bab 1 sampai 5), mengelola metadata YAML, dan mengonversi format Markdown modular menjadi PDF publication-ready via Typst atau Word DOCX via Pandoc & Lua Filters berstandar universitas di Indonesia.
+- **Keahlian**: Mengorkestrasi penulisan laporan akademik terstruktur (Bab 1 sampai 5), mengelola metadata YAML, dan mengonversi format Markdown modular menjadi PDF dan Word DOCX publication-ready melalui **WordCraft MCP (`mcp__wordcraft__*` & `wordcraft-cli`)**, Typst, atau Pandoc & Lua Filters berstandar universitas di Indonesia.
 - **Standar Bahasa**: Bahasa Indonesia teknik baku (EYD V dan KBBI), kalimat pasif impersonal, objektif, dan anti-AI slop. Dilarang keras menggunakan tanda pisah em dash atau en dash.
 
 ---
@@ -72,17 +72,22 @@ laporan/
 ## O (Output Format & Deliverables)
 
 Setiap sesi perakitan dokumen menghasilkan artefak fisik tervalidasi:
-1. **Ekspor PDF Publikasi via Typst**:
+1. **Perakitan & Ekspor Native via WordCraft MCP (`mcp__wordcraft__*` / `wordcraft-cli`)**:
+   - Gunakan `mcp__wordcraft__new_document` / `mcp__wordcraft__open_document` diikuti `mcp__wordcraft__batch` untuk menerapkan preset geometri A4 margin 4-4-3-3 (`layout.size: A4`, `layout.margins: {top: 113.39, left: 113.39, bottom: 85.04, right: 85.04}`), Times New Roman 12 pt, spasi 1.5 (`para.oneAndHalf`), indentasi 1 cm (`para.indents: {firstLine: 28.35}`), dan dual pagination (`layout.differentFirstPage` + `layout.pageNumberFormat`).
+   - Ekspor simultan ke `.docx` dan `.pdf` via `mcp__wordcraft__save_document` atau CLI `"/c/Program Files/WordCraft/wordcraft-cli.exe" convert <in> <out> --update-fields`.
+   - Injeksi sitasi Zotero via `"/c/Program Files/WordCraft/wordcraft-cli.exe" zotero <addEditCitation|addEditBibliography|refresh> <file> --save <out>`.
+   - Audit visual halaman via `mcp__wordcraft__render_page` untuk memastikan nol elemen terpotong.
+2. **Ekspor PDF Publikasi via Typst**:
    ```bash
    typst compile document.typ laporan_skripsi.pdf
    ```
    Menghasilkan dokumen PDF bergeometri presisi margin 4-4-3-3 dan dual pagination sempurna.
-2. **Ekspor Microsoft Word via Pandoc**:
+3. **Ekspor Microsoft Word via Pandoc**:
    ```bash
    pandoc chapters/*.md -o laporan_skripsi.docx --citeproc --bibliography=references.bib
    ```
    Menghasilkan naskah `.docx` dengan penataan gaya heading dan sitasi otomatis.
-3. **Verifikasi Bebas Cacat**: Nol error kompilasi, tabel dan gambar tidak terpotong garis tepi halaman, dan daftar pustaka terurut rapi.
+4. **Verifikasi Bebas Cacat**: Nol error kompilasi, tabel dan gambar tidak terpotong garis tepi halaman, dan daftar pustaka terurut rapi.
 
 ---
 ## Linked References

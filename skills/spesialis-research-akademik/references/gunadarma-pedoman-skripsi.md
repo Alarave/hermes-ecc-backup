@@ -44,14 +44,16 @@ Universitas Gunadarma menggunakan sistem penomoran bab **Numerik Arab Bergradasi
 
 ### 1. PENDAHULUAN
 - **1.1. Latar Belakang**:
-  - Struktur piramida terbalik: Isu makro global -> Masalah teknis spesifik -> Dampak jika tidak diselesaikan -> Usulan solusi sistem/algoritma beserta keunggulannya.
+  - Struktur piramida terbalik: Isu makro regulasi/industri -> Masalah riil lapangan -> Celah riset terdahulu -> Usulan solusi sistem/algoritma.
+  - Aturan Hemat Tanda Kurung (Parenthesis Economy): Dilarang menulis terjemahan istilah asing di dalam tanda kurung seperti `penjual pihak ketiga (*third-party sellers*)` atau `pantulan cahaya (*glare*)`. Istilah teknis asing langsung dicetak miring (*italic*) tanpa tanda kurung. Tanda kurung dibatasi hanya untuk singkatan perdana, sitasi tahun, dan pasal perundang-undangan.
 - **1.2. Ruang Lingkup**:
   - Wajib menggunakan istilah **"Ruang Lingkup"** (Dilarang menggunakan "Batasan Masalah").
-  - Disajikan dalam bentuk daftar angka tegas (8 poin spesifik: objek riset, dataset, parameter masukan, alur algoritma, model/arsitektur, batasan fitur, batasan metrik pengujian, dan pernyataan non-scope).
+  - Disajikan dalam bentuk butir-butir kalimat bernomor yang mengalir secara wajar dan alami (mencakup 8 aspek pembatasan tanpa format label-key-value kaku seperti `**Objek**: ...`).
 - **1.3. Tujuan Penelitian**:
   - Pernyataan aktif terukur (misal: "Membangun sistem...", "Menganalisis performa algoritma...").
 - **1.4. Sistematika Penulisan**:
-  - Narasi mengalir dalam 5 paragraf yang merangkum isi Bab 1 hingga Bab 5 secara kronologis.
+  - Disajikan secara proporsional dalam 5 paragraf terpisah (1 paragraf ringkas per bab) yang menguraikan alur pengerjaan penelitian secara runtut, lugas, dan substantif.
+  - DILARANG KERAS menggunakan kata-kata AI slop ("membedah", "saling berkesinambungan", "memetakan 1:1", "secara komprehensif mengintegrasikan"). Gunakan bahasa Indonesia akademik baku dan objektif sesuai bukti korpus skripsi nasional.
 
 ### 2. LANDASAN TEORI
 - Teori fundamental pendukung sistem, dasar matematika algoritma, arsitektur deep learning, dan konsep rekayasa perangkat lunak.
@@ -141,9 +143,18 @@ Setiap gambar skripsi (Kerangka Pemikiran, Diagram Alir Metodologi, Arsitektur S
 
 ## 7. Paket Deliverables Skripsi Terpadu (AgentSkillOS Standard)
 
-Setiap penyusunan skripsi menghasilkan bundel artefak fisik terstruktur di folder `artifacts/skripsi_gunadarma/`:
-1. `naskah_skripsi_gunadarma.pdf`: Dokumen lengkap A4 dengan margin 4-4-3-3 dan Dual Pagination sempurna.
-2. `naskah_skripsi_gunadarma.docx`: Berkas Word hasil kompilasi Pandoc dengan sitasi otomatis BibTeX.
-3. `slide_sidang_skripsi.pptx`: Slide presentasi sidang sarjana berisi diagram vektor native dari FigGenie.
-4. `figures/`: Kumpulan berkas sumber diagram vektor `.svg` dan rumus `.tex`.
-5. `reproducible_code/`: Skrip implementasi dan evaluasi model yang dapat diuji ulang secara mandiri.
+Setiap penyusunan skripsi menghasilkan bundel artefak fisik terstruktur di folder `docs/` dan folder proyek terkait:
+1. **Kompilasi Naskah Ganda (Pandoc & Typst)**:
+   - `docs/naskah_skripsi_gunadarma.docx`: Dihasilkan via `pandoc <file>.md -o <file>.docx`.
+   - `docs/naskah_skripsi_gunadarma.pdf`: Dihasilkan via `typst compile <template>.typ <output>.pdf` dengan margin baku `top: 4cm, left: 4cm, bottom: 3cm, right: 3cm`, tipografi `Times New Roman 12pt`, spasi 1.5 (`leading: 0.9em`), dan Dual Pagination otomatis (nomor halaman awal bab di tengah bawah, halaman berikutnya di kanan atas).
+   - `docs/naskah_skripsi_gunadarma.md` dan `docs/bab*.typ`: Sumber berkas teks mentah.
+2. **Standar Kebersihan Struktur Direktori Proyek (Project Hygiene Gate)**:
+   - `/docs`: Wadah resmi naskah akademik (PDF, DOCX, Markdown, Typst).
+   - `/src`: Kode program utama, notebook preprocessing, dan skrip inferensi/aplikasi.
+   - `/dataset`: Wadah citra dan file anotasi master ground truth.
+   - `/REFERENSI JURNAL`: Kumpulan berkas PDF rujukan ilmiah dan file indeks matriks SOTA.
+   - `/tools/generators`: Tempat isolasi seluruh skrip generator sementara, raw crawl JSON, dan utilitas penunjang. DILARANG KERAS membiarkan skrip generator bekas dan file JSON mentah berserakan di root direktori.
+3. **Slide Presentasi Sidang Sarjana**:
+   - `docs/slide_sidang_skripsi.pptx`: Slide presentasi sidang sarjana berisi diagram vektor native dari FigGenie.
+4. **Kode Pengujian Mandiri**:
+   - `src/reproducible_code/`: Skrip implementasi dan evaluasi model yang dapat diuji ulang secara mandiri.

@@ -12,14 +12,21 @@
   3. *Paragraf 4 (State-of-the-Art & Research Gap)*: Kaji keterbatasan 3-5 paper rujukan terdahulu. Tunjukkan apa yang *belum* terselesaikan.
   4. *Paragraf 5 (Solusi yang Diusulkan)*: Argumen kuat mengapa metode/arsitektur yang Anda bawa adalah solusi paling rasional untuk menutup *gap* tersebut.
 - **Standar Sitasi**: Wajib menggunakan format Markdown Citation Keys `[@citekey]` yang terhubung ke `references.bib` untuk kompilasi Pandoc/Typst.
-- **Anti-Slop & Anti-Fluff**: Dilarang melakukan *word-vomit* / pengulangan kalimat demi memenuhi target halaman. Kalimat harus padat, lugas, dan mematuhi EYD V (bedakan kata depan "di " dan imbuhan "di-").
+- **Aturan Hemat Tanda Kurung (Parenthesis Economy - Audit E:\SKRIPSI_UPNVJ_TEXT)**:
+  - Berdasarkan audit empiris 484 naskah skripsi riil di `E:\SKRIPSI_UPNVJ_TEXT`, rata-rata pemakaian tanda kurung dalam skripsi resmi hanya berkisar **6 pasang per 1.000 kata**.
+  - DILARANG KERAS menyelipkan istilah bahasa Inggris di dalam kurung setelah terjemahan Indonesianya (seperti `penjual pihak ketiga (*third-party sellers*)`, `ketidaksesuaian katalog (*catalog mismatch*)`, `pantulan cahaya (*glare*)`, atau `kebocoran data (*data leakage*)`). Pola ini adalah ciri khas *AI Slop*.
+  - Istilah asing cukup dicetak miring (*italic*) secara langsung menyatu di dalam kalimat tanpa tanda kurung (misalnya: *e-commerce*, *third-party seller*, *catalog mismatch*, *visual grounding*, *data leakage*), atau gunakan padanan bahasa Indonesia yang baku.
+  - Tanda kurung HANYA diizinkan untuk 3 fungsi sah: 1) Akronim / singkatan pada penyebutan pertama (misal: *Optical Character Recognition* (OCR)), 2) Tahun sitasi rujukan (misal: Zhang et al. (2023)), dan 3) Rujukan pasal/ayat perundang-undangan (misal: Pasal 8 ayat (1)).
+- **Anti-Slop & Anti-Fluff**: Dilarang menggunakan kalimat berbunga-bunga, klausa bertumpuk, atau kata hiperbolis robotik. Kalimat harus padat, lugas, beralur logis, dan mematuhi EYD V.
 
 ### 2. Identifikasi Masalah
 - Wajib menggunakan **Kalimat Deklaratif Berita** bernomor (Bukan kalimat tanya).
 - Setiap butir masalah harus merupakan kristalisasi langsung dari fakta yang telah dipaparkan pada Latar Belakang Masalah (Dilarang mengarang masalah baru yang tiba-tiba muncul).
 
-### 3. Batasan Masalah (Scope Defenses)
+### 3. Batasan Masalah / Ruang Lingkup (Scope Defenses)
 - Bertindak sebagai **Perisai Penguji**: Membatasi ruang lingkup agar tidak diserang pada aspek di luar penelitian.
+- **Larangan Format Label Kaku (Anti-Key-Value Slop)**: DILARANG menggunakan format key-value tebal ala prompt AI seperti `**Objek Penelitian**: ...`, `**Dataset**: ...`, `**Tumpukan Teknologi**: ...`, `**Pernyataan Non-Scope**: ...`. Format ini membuat naskah terlihat seperti draf mentah generator AI.
+- Wajib disajikan dalam bentuk butir kalimat naratif bernomor yang mengalir secara alami (misalnya: "1. Objek penelitian difokuskan pada...", "2. Data yang digunakan berupa...", "3. Penelitian ini tidak mencakup...").
 - Wajib memuat **Hard-Boundaries**:
   - Ruang lingkup data (jumlah sampel, rentang waktu pengambilan, resolusi/format, kriteria inklusi/eksklusi).
   - Algoritma/arsitektur spesifik yang dipakai (bukan seluruh cabang ilmu AI).
@@ -40,8 +47,16 @@
   1. **Manfaat Teoretis**: Kontribusi terhadap khazanah keilmuan, literatur akademik, atau dasar penelitian selanjutnya.
   2. **Manfaat Praktis**: Manfaat terukur dan realistis yang dirasakan langsung oleh pihak terkait/objek penelitian (Dilarang membuat klaim muluk-muluk/utopis).
 
-### 7. Sistematika Penulisan
-- Berupa deskripsi naratif singkat per bab (Bab I hingga Bab V) yang memandu alur baca penguji, bukan sekadar salinan Daftar Isi (Table of Contents).
+### 7. Sistematika Penulisan (Anti-AI-Slop Standard)
+- **Landasan Empiris Korpus (E:\SKRIPSI_UPNVJ_TEXT)**: Berdasarkan audit korpus 205 naskah skripsi komputasi riil, sistematika penulisan berfungsi memetakan bab secara jernih, lugas, dan fungsional kepada pembaca dan dewan penguji.
+- **Daftar Larangan AI Slop (Strict Anti-Slop Rules)**:
+  - DILARANG menggunakan kata-kata hiperbolis atau puitis buatan bot: *"membedah"*, *"mengupas tuntas"*, *"secara holistik"*, *"saling berkesinambungan"*, *"secara komprehensif mengintegrasikan"*, *"menjawab secara revolusioner"*.
+  - DILARANG membocorkan frasa meta-prompting ke dalam naskah: *"memetakan secara satu-ke-satu (1:1)"*, *"anti-data leakage protocol"*, *"strict gate"*. Gunakan bahasa akademis natural: *"menjawab tujuan penelitian"*, *"pembagian data latih dan uji terisolasi"*.
+- **Pola Pembuka Baku**: Gunakan kalimat pengantar formal dan wajar:
+  *"Sistematika penulisan skripsi ini disusun untuk memberikan gambaran menyeluruh dan sistematis mengenai alur pembahasan pada setiap bab. Adapun sistematika penulisan laporan ini diuraikan sebagai berikut:"*
+- **Penyajian Terpilih**:
+  1. *Format Heading per Bab (Standar Nasional / UPNVJ)*: Format paling disukai penguji karena memudahkan *scanning* cepat saat sidang. Setiap bab dituliskan nama babnya, diikuti 1 paragraf ringkas berisi komponen operasionalnya.
+  2. *Format Naratif Bergradasi (Standar Gunadarma)*: Terdiri dari 5 paragraf terpisah (1 paragraf per bab) atau narasi proporsional yang lugas, tidak bertele-tele, dan secara konkret menyebutkan variabel, metode, dan metrik yang diuji.
 
 ---
 
@@ -98,13 +113,28 @@ Penelitian ini diharapkan dapat memberikan manfaat sebagai berikut:
 2. Menyediakan instrumen otomatisasi berbasis data yang dapat digunakan secara terukur oleh pengembang sistem di industri.
 
 ## 1.7 Sistematika Penulisan
-Sistematika penulisan laporan ini disusun ke dalam lima bab sebagai berikut:
+Sistematika penulisan laporan skripsi ini disusun untuk memberikan gambaran menyeluruh dan sistematis mengenai alur pembahasan pada setiap bab. Adapun sistematika penulisan pada penelitian ini diuraikan sebagai berikut:
 
-- **BAB I PENDAHULUAN**: Menguraikan latar belakang masalah, identifikasi masalah, batasan masalah, rumusan masalah, tujuan penelitian, manfaat penelitian, serta sistematika penulisan.
-- **BAB II TINJAUAN PUSTAKA**: Membahas landasan teori yang relevan mengenai [Teori 1], [Teori 2], serta penelitian terdahulu yang mendasari perancangan sistem.
-- **BAB III METODOLOGI PENELITIAN**: Menjelaskan tahapan penelitian, desain arsitektur sistem, teknik pengumpulan data, instrumen evaluasi, dan skenario eksperimen.
-- **BAB IV HASIL DAN PEMBAHASAN**: Menyajikan hasil eksperimen, visualisasi data, analisis perbandingan performa terhadap model baseline, serta interpretasi temuan ilmiah.
-- **BAB V KESIMPULAN DAN SARAN**: Berisi kesimpulan akhir yang menjawab rumusan masalah secara komprehensif serta saran strategis untuk pengembangan penelitian di masa depan.
+**BAB I PENDAHULUAN**  
+Bab ini menguraikan latar belakang permasalahan yang mendasari penelitian, identifikasi masalah, pembatasan ruang lingkup penelitian, rumusan masalah, tujuan penelitian, manfaat penelitian (baik teoretis maupun praktis), serta sistematika penulisan laporan.
+
+**BAB II LANDASAN TEORI**  
+Bab ini menyajikan teori-teori dasar dan konsep fundamental yang mendukung topik penelitian, mencakup kajian pustaka mengenai [Nama Teori/Metode Utama], serta telaah penelitian-penelitian terdahulu yang relevan sebagai acuan pembanding.
+
+**BAB III METODOLOGI PENELITIAN**  
+Bab ini menguraikan tahapan pelaksanaan penelitian secara terperinci, meliputi teknik pengumpulan data, prapemrosesan data, perancangan arsitektur pemodelan [Nama Metode/Sistem], serta instrumen dan metrik pengujian yang digunakan untuk mengevaluasi kinerja sistem.
+
+**BAB IV HASIL DAN PEMBAHASAN**  
+Bab ini memaparkan hasil implementasi sistem atau model, analisis hasil pengujian performa berdasarkan metrik evaluasi kuantitatif, pengujian signifikansi statistik terhadap model pembanding, serta pembahasan mendalam terhadap temuan empiris hasil eksperimen.
+
+**BAB V KESIMPULAN DAN SARAN**  
+Bab ini menyajikan kesimpulan akhir yang ditarik dari hasil analisis dan pembahasan guna menjawab tujuan penelitian yang telah ditetapkan, serta memuat saran-saran teknis yang relevan bagi pengembangan penelitian lanjutan di masa depan.
+
+**DAFTAR PUSTAKA**  
+Bagian ini memuat daftar seluruh sumber referensi ilmiah, jurnal, buku, dan dokumen resmi yang dijadikan acuan dalam penyusunan penelitian ini.
+
+**LAMPIRAN**  
+Bagian ini menyajikan data pendukung, cuplikan kode program utama, dokumentasi pengujian, atau berkas pendukung lainnya yang melengkapi laporan penelitian.
 ```
 
 ---
@@ -120,15 +150,15 @@ Khusus mahasiswa Universitas Gunadarma (FIKTI/FTI), gunakan struktur numerik 4 s
 [Piramida terbalik 4 paragraf: Makro industri -> Masalah lapangan & data awal -> Research Gap -> Solusi usulan.]
 
 ## 1.2. Ruang Lingkup
-Untuk menjaga fokus penelitian, ruang lingkup penelitian ini dibatasi pada 8 aspek berikut:
-1. **Objek Penelitian**: Sistem [Nama Objek] yang berfokus pada [Topik].
-2. **Dataset**: Menggunakan data historis [Sumber] periode [Bulan/Tahun - Bulan/Tahun] sebanyak [N] observasi.
-3. **Fitur Masukan & Luaran**: Input berupa [Fitur X] dengan target luaran berupa [Variabel Y].
-4. **Alur Algoritma**: Pemodelan menerapkan [Metode Inti] dengan optimasi [Metode Optimasi/Decomposition].
-5. **Tumpukan Teknologi**: Backend dibangun menggunakan [Framework], bahasa [Python/Node], dan database [DB].
-6. **Batasan Antarmuka**: Sistem menyediakan fungsionalitas inferensi berbasis [Web/CLI/API].
-7. **Batasan Evaluasi**: Evaluasi kinerja kuantitatif diukur melalui [RMSE, MAE, MDA] dan uji signifikansi statistik Diebold-Mariano.
-8. **Pernyataan Non-Scope**: Penelitian ini tidak mencakup [aspek di luar lingkup, misal fine-tuning parameter hardware].
+Agar penelitian ini terarah dan tidak meluas pada aspek di luar fokus utama, maka ruang lingkup penelitian ini dibatasi sebagai berikut:
+1. Objek penelitian difokuskan pada [Objek Penelitian] khususnya pada kategori [Kategori Spesifik].
+2. Data yang digunakan bersumber dari [Sumber Data] periode [Rentang Waktu] dengan total sampel sebanyak [Jumlah Observasi].
+3. Masukan sistem berupa [Fitur/Karakteristik Citra atau Teks] dengan luaran berupa [Status/Keputusan/Klasifikasi].
+4. Pemodelan utama menerapkan arsitektur [Metode/Model Inti] yang dipadukan dengan [Metode Pendukung].
+5. Implementasi sistem dibangun menggunakan bahasa pemrograman [Bahasa] serta pustaka komputasi [Framework/Library].
+6. Antarmuka pengujian sistem disajikan dalam bentuk [Web/REST API/Dashboard].
+7. Evaluasi kinerja sistem diukur menggunakan metrik kuantitatif [Daftar Metrik] serta pengujian signifikansi statistik [Nama Uji Statistik].
+8. Penelitian ini tidak mencakup [Batasan yang sengaja dikecualikan, misal integrasi live database internal].
 
 ## 1.3. Tujuan Penelitian
 Tujuan operasional yang hendak dicapai dalam penelitian ini adalah:
@@ -136,6 +166,15 @@ Tujuan operasional yang hendak dicapai dalam penelitian ini adalah:
 2. Menganalisis signifikansi peningkatan akurasi model usulan terhadap baseline.
 
 ## 1.4. Sistematika Penulisan
-Penulisan skripsi ini disusun ke dalam 5 bab yang saling berkesinambungan:
-Bab 1 Pendahuluan menguraikan latar belakang, ruang lingkup, tujuan, dan sistematika penulisan. Bab 2 Landasan Teori membedah teori pendukung, matriks SOTA, dan kerangka pemikiran. Bab 3 Metodologi Penelitian merinci alur CRISP-DM, partisi data anti-leakage, dan formula evaluasi. Bab 4 Hasil dan Pembahasan memaparkan pengujian black-box, evaluasi metrik, uji statistik Diebold-Mariano, dan diskusi temuan. Bab 5 Penutup merangkum kesimpulan 1:1 terhadap tujuan penelitian dan rekomendasi teknis lanjutan.
+Sistematika penulisan laporan skripsi ini disusun untuk mempermudah penyampaian alur penelitian secara runtut ke dalam lima bab pembahasan:
+
+Bab 1 Pendahuluan menguraikan latar belakang permasalahan mengenai [isu utama], batasan ruang lingkup penelitian dalam 8 aspek spesifik, perumusan masalah, tujuan operasional penelitian, serta sistematika penulisan laporan.
+
+Bab 2 Landasan Teori memuat tinjauan pustaka dan konsep fundamental yang melandasi penelitian, meliputi teori [konsep inti], arsitektur [model utama], matriks perbandingan State-of-the-Art (SOTA) dari penelitian terdahulu, serta kerangka pemikiran teoritis penelitian.
+
+Bab 3 Metodologi Penelitian menjelaskan tahapan pelaksanaan riset berbasis kerangka kerja CRISP-DM, mencakup teknik pengumpulan dataset [jumlah sampel], prosedur prapemrosesan data dan partisi data uji terisolasi, perancangan arsitektur [model hibrida/metode], serta formula metrik evaluasi kinerja.
+
+Bab 4 Hasil dan Pembahasan memaparkan implementasi sistem dan model, dokumentasi pengujian fungsional black-box, evaluasi metrik kinerja kuantitatif per atribut, hasil pengujian signifikansi statistik terhadap model pembanding, serta pembahasan mendalam terhadap faktor yang mempengaruhi performa model.
+
+Bab 5 Penutup menyajikan kesimpulan akhir yang ditarik secara objektif untuk menjawab tujuan penelitian berdasarkan hasil pengujian empiris, serta merumuskan saran-saran teknis yang konkret untuk pengembangan penelitian lanjutan.
 ```
