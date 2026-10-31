@@ -17,7 +17,7 @@ Pram Orchestrator mewajibkan penegakan standar mutu anti-slop pada 3 pilar utama
 
 ## 2. Pilar 1: Anti-Slop Kode & Arsitektur (Code Slop)
 
-Mengadopsi pola Deslop dan AI-Slop-Cleaner. AI cenderung menulis kode dengan scaffolding berlebihan, komentar naratif yang berisik, dan penanganan error defensif palsu.
+Mengadopsi pola Karpathy Guidelines (`karpathy-guidelines`), Deslop, dan AI-Slop-Cleaner. AI cenderung menulis kode dengan scaffolding berlebihan, komentar naratif yang berisik, dan penanganan error defensif palsu.
 
 ### Aturan Penegakan Mutu Kode:
 1. **Dilarang Komentar Naratif AI (No AI Commentary Noise)**:

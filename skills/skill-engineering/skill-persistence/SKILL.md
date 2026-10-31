@@ -35,9 +35,10 @@ Di lingkungan Hermes, skill tidak diinjeksi secara penuh ke setiap chat baru unt
 ## C (Constraints & Operating Rules)
 1. **Satu Direktori Kanonikal Tunggal**: Setiap modul skill hanya boleh memiliki satu path direktori fisik tunggal di bawah `skills/<nama-skill>/`. Bersihkan salinan bayangan di sub-tier.
 2. **Batas Deskripsi Frontmatter 60 Karakter**: Atribut `description` wajib ringkas (maksimal 60 karakter, satu kalimat, pemicu di awal, diakhiri titik). Tempatkan kata kunci pencarian detail di dalam body dokumen.
-3. **Pemuatan Berbasis Intent & Hook**: Gunakan plugin hook giliran pertama (`pre_llm_call`) atau bundle domain untuk menjamin skill inti aktif tanpa menunggu prompt eksplisit dari pengguna.
-4. **Higiene Berkas Kunci**: Bersihkan file kunci basi (`.locks/`, `.git/index.lock`, `.usage.json.lock`) sebelum menjalankan pembaruan hub agar update tidak dilewati.
-5. **Anti-Reset Format & Integrasi Brief Proyek**: Saat pengguna mendefinisikan aturan naskah atau format penulisan (seperti standar Gunadarma 4-4-3-3, Harvard 'dkk.', anti-slop kurung), aturan tersebut wajib diintegrasikan ke 3 titik: 1) Tambahkan kata kunci pemicu 'brief', 'paper', 'proposal', 'format penulisan' pada deskripsi YAML frontmatter, 2) Kunci di hook giliran pertama (`pram_bootstrap`) agar terbaca di semua chat baru, 3) Rekonsiliasikan ke gerbang G0/G1 `pram-orchestrator` agar pembuatan folder brief proyek baru otomatis mematuhi format tanpa pengguna mengulang instruksi.
+3. **Universal Intent Interceptor Per-Turn**: Hook `pre_llm_call` wajib aktif memindai pesan pengguna pada SETIAP giliran (bukan hanya giliran pertama). Interceptor memetakan 12 domain taksonomi dan mencocokkan nama fisik skill eksak pada disk.
+4. **Injeksi Direktif Pengikat Mutlak**: Ketika intent cocok, hook wajib menyuntikkan blok direktif `<PERINTAH_ORCHESTRASI_SKILL_MUTLAK>` yang melarang agen merespons atau koding sebelum memanggil `skill_view` untuk spesialis domain terkait.
+5. **Higiene Berkas Kunci**: Bersihkan file kunci basi (`.locks/`, `.git/index.lock`, `.usage.json.lock`) sebelum menjalankan pembaruan hub agar update tidak dilewati.
+6. **Anti-Reset Format & Integrasi Brief Proyek**: Saat pengguna mendefinisikan aturan naskah atau format penulisan (seperti standar Gunadarma 4-4-3-3, Harvard 'dkk.', anti-slop kurung), aturan tersebut wajib diintegrasikan ke 3 titik: 1) Tambahkan kata kunci pemicu 'brief', 'paper', 'proposal', 'format penulisan' pada deskripsi YAML frontmatter, 2) Kunci di hook giliran pertama (`pram_bootstrap`) agar terbaca di semua chat baru, 3) Rekonsiliasikan ke gerbang G0/G1 `pram-orchestrator` agar pembuatan folder brief proyek baru otomatis mematuhi format tanpa pengguna mengulang instruksi.
 
 ---
 ## When to Use
@@ -72,9 +73,13 @@ Gunakan modul ini saat:
    - Contoh: Bundle `/backend` (8 skill), `/ml` (17 skill), `/research` (11 skill).
    - Pengguna cukup mengetik slash command bundle di awal chat baru untuk memuat seluruh armada skill sekaligus.
 
-4. **Koneksikan ke Hook Pre-LLM Call (Deterministik)**:
-   - Pastikan plugin seperti `pram_bootstrap` terpasang di `plugins/` dan aktif di `config.yaml`.
-   - Hook `pre_llm_call` menyuntikkan arahan pemanggilan registry di giliran pertama setiap sesi chat baru.
+4. **Koneksikan ke Universal Intent Interceptor (`pre_llm_call`)**:
+   - Pasang interceptor real-time di `plugins/pram_bootstrap/__init__.py`.
+   - Pada giliran pertama (`is_first_turn`), suntikkan hierarki orkestrasi lengkap dan tabel anti-alibi.
+   - Pada setiap giliran berpesan (`user_message`), jalankan `detect_skill_intent(user_message)`:
+     - Lapisan 1: Pindai 12 taksonomi domain berdasarkan leksikon kata kunci dwibahasa.
+     - Lapisan 2: Pindai nama fisik skill eksak yang terdaftar di direktori `skills/`.
+   - Jika terdeteksi, suntikkan blok `<PERINTAH_ORCHESTRASI_SKILL_MUTLAK>` yang mewajibkan `skill_view("<nama-skill>")` sebelum agen memberikan jawaban atau koding.
 
 5. **Pembaruan Aman & Higiene Kunci**:
    - Periksa ketiadaan berkas kunci `.locks/` atau `.git/index.lock`.

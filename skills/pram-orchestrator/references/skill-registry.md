@@ -33,7 +33,7 @@
   - `gstack-ios-design-review`, `gstack-ios-sync`, `gstack-learn`, `gstack-pair-agent`, `gstack-review`, `gstack-setup-browser-cookies`, `gstack-unfreeze`, `gtars`
   - `healthcare-cdss-patterns`, `healthcare-emr-patterns`, `healthcare-phi-compliance`, `hedgefundmonitor`, `hexagonal-architecture`, `hipaa-compliance`, `histolab`, `homelab-vlan-segmentation`
   - `hypothesis-generation`, `hypothesis-testing`, `imagegen`, `ios-icon-gen`, `ito-compute`, `ito-trade-planner`, `java-coding-standards`, `jpa-patterns`
-  - `jupyter-notebook`, `knowledge-ops`, `kotlin-coroutines-flows`, `kotlin-exposed-patterns`, `kotlin-ktor-patterns`, `kotlin-patterns`, `kotlin-testing`, `kubernetes-patterns`
+  - `jupyter-notebook`, `karpathy-guidelines`, `knowledge-ops`, `kotlin-coroutines-flows`, `kotlin-exposed-patterns`, `kotlin-ktor-patterns`, `kotlin-patterns`, `kotlin-testing`, `kubernetes-patterns`
   - `landing-page-design`, `laporan-generator-thesis`, `laravel-patterns`, `laravel-plugin-discovery`, `laravel-security`, `laravel-tdd`, `laravel-verification`, `latchbio-integration`, `latex-submission-pipeline`
   - `liquid-glass-design`, `literature-review`, `llm-trading-agent-security`, `mailtrap-email-integration`, `manim-video`, `manuscript-as-code`, `mathematical-logic-expert`, `mcp-server-patterns`
   - `mermaid-expert`, `mermaid-visualizer`, `metabolomics-workbench-database`, `ml-pipeline-workflow`, `mlops-zoomcamp-scaffold`, `motion-advanced`, `motion-foundations`, `motion-patterns`

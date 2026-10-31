@@ -372,16 +372,18 @@ DOMAIN_TAXONOMY = {
         )
     },
     "general-engineering": {
-        "name": "Rekayasa Software Umum (Pram Engine)",
+        "name": "Rekayasa Software Umum (Pram Engine & Karpathy Guidelines)",
         "pic": "pram-orchestrator",
         "bundle": "/pm",
         "keywords": [
             "bikin fitur", "buat fitur", "koding", "coding", "bantu koding", "rancang arsitektur",
-            "desain sistem", "refactor", "pipeline", "buat aplikasi", "implementasi", "debugging", "fix bug"
+            "desain sistem", "refactor", "pipeline", "buat aplikasi", "implementasi", "debugging", "fix bug",
+            "karpathy", "karpathy-guidelines", "code review", "koding bersih", "anti slop koding"
         ],
         "rules": (
             "- WAJIB panggil skill_view('pram-orchestrator').\n"
-            "- SOP MUTLAK: Spec -> Plan -> TDD -> Code."
+            "- SOP MUTLAK: Spec -> Plan -> TDD -> Code.\n"
+            "- TEGAKKAN PEDOMAN KARPATHY (skill_view('karpathy-guidelines')): 1) Think before coding (klarifikasi asumsi), 2) Simplicity first (YAGNI, no bloat), 3) Surgical changes (direct patch, zero collateral damage), 4) Goal-driven execution (looping hingga kriteria uji hijau)."
         )
     }
 }
