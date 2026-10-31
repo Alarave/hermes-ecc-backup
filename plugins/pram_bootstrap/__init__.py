@@ -261,18 +261,21 @@ DOMAIN_TAXONOMY = {
         )
     },
     "ml": {
-        "name": "Machine Learning, AI & Data Science",
+        "name": "Machine Learning, Vision-Language & Data Science",
         "pic": "spesialis-data-ai-agentic",
         "bundle": "/ml",
         "keywords": [
             "machine learning", "deep learning", "data science", "ml", "ai model", "training",
             "dataset", "prediksi", "forecasting", "time series", "lstm", "ceemdan", "timesfm",
-            "cnn", "yolo", "object detection", "vlm", "ocr", "eda", "data leakage",
+            "cnn", "yolo", "object detection", "vlm", "ocr", "vision-language", "florence-2",
+            "paddleocr", "qwen2-vl", "multimodal", "ekstraksi atribut", "kemasan produk",
+            "verifikasi kemasan", "bpom", "netto", "eda", "data leakage",
             "data preparation", "scikit", "pytorch", "huggingface", "transformers", "unsloth"
         ],
         "rules": (
-            "- WAJIB panggil skill_view('spesialis-data-ai-agentic').\n"
-            "- Wajib anti-leakage split (split sebelum scaling/dekomposisi), Diebold-Mariano test, dan evaluasi metrik empiris."
+            "- WAJIB panggil skill_view('spesialis-data-ai-agentic') atau skill_view('multimodal-attribute-extraction').\n"
+            "- Wajib anti-leakage split (split sebelum scaling/dekomposisi), Diebold-Mariano test (deret waktu) atau uji McNemar (multimodal).\n"
+            "- Standar Vision-Language & OCR Kemasan: 2-branch pipeline (Florence-2 visual grounding + PaddleOCR PP-OCRv4), verifikasi 3 atribut statis (Merek Levenshtein >= 0.85, Netto MAVE exact match, Izin Edar BPOM/P-IRT regex; expired date excluded), fusi spasial IoA >= 0.50, dan uji signifikansi McNemar."
         )
     },
     "devops": {

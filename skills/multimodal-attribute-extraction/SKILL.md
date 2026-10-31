@@ -1,6 +1,16 @@
 ---
 name: multimodal-attribute-extraction
-description: "Use when user says '/ml', 'ml', 'vision-language', 'vlm', 'ocr', 'florence-2', 'paddleocr', 'qwen2-vl', 'sociolla', 'ekstraksi atribut', 'kemasan produk', 'verifikasi kemasan', atau butuh implementasi dan evaluasi komparasi model multimodal skripsi."
+description: "VLM and OCR pipeline for packaging attribute verification."
+license: MIT
+author: "Firman (Lead Researcher & Fullstack MLOps Engineer)"
+metadata:
+  hermes:
+    tags: [workflow, oh-my-hermes, vision-language, vlm, ocr, florence-2, paddleocr, multimodal]
+    category: machine-learning
+    phase: modeling-and-evaluation
+    role: operator
+    quality_tier: evidence-gated
+    related_skills: [spesialis-data-ai-agentic, senior-computer-vision, ml-data-leakage-guard, crisp-dm-dgx-notebook]
 ---
 
 # Multimodal Attribute Value Extraction & Packaging Verification (MAVE-Sociolla)
@@ -13,18 +23,35 @@ Modul utama rekayasa dan orkestrasi kecerdasan buatan multimodal untuk verifikas
 - **Kepatuhan Sistem**: Beroperasi di bawah koordinasi **Pram Orchestrator** dan **Asep (spesialis-skills)**, mematuhi metodologi CRISP-DM dan dokumen spesifikasi pada `brief/` (`requirements.md`, `design.md`, `tasks.md`).
 - **Standar Tipografi**: Wajib menggunakan karakter ASCII strip `-` (0 pelanggaran Unicode em-dash atau en-dash).
 
+## When to Use
+
+Gunakan modul ini saat:
+- Mengeksekusi pipeline verifikasi atribut kemasan produk (Merek, Netto, Nomor Izin Edar BPOM/P-IRT).
+- Membangun dan menguji pipeline 2-branch hibrida (Florence-2 visual grounding + PaddleOCR PP-OCRv4).
+- Membangun agen visual ReAct menggunakan MLLM (Qwen2-VL-7B-Instruct).
+- Melakukan evaluasi statistik komparatif akurasi, CER, WER, dan uji McNemar.
+- Memeriksa kepatuhan katalog e-commerce (Sociolla, Shopee, Tokopedia) terhadap bukti fisik kemasan.
+
+**Strong routing signals**: `multimodal-attribute-extraction`, `vision-language`, `vlm`, `florence-2`, `paddleocr`, `qwen2-vl`, `ekstraksi atribut`, `verifikasi kemasan`, `bpom`, `netto`, `mcnemar`.
+
 ---
 ## C (Context & 6 CRISP-DM Phases)
 
-Diterapkan pada siklus end-to-end verifikasi kemasan kosmetik Sociolla lintas 3 domain terpadu (Skincare, Makeup, dan Hair Care: 5.490 produk mentah, 5.358 sampel bersih lolos uji resolusi >= 640x640 px):
+Diterapkan pada siklus end-to-end verifikasi kemasan produk e-commerce (Sociolla / Shopee) lintas domain (Skincare, Makeup, Hair Care, FMCG):
 
-1. **Fase 1: Business Understanding**: Deteksi ketidaksesuaian (*discrepancy*) antara teks klaim seller katalog Sociolla (nama merek dan isi bersih) terhadap bukti fisik pada foto kemasan produk.
-2. **Fase 2: Data Understanding (5-Pillar Multimodal EDA)**: Eksplorasi 5.490 produk katalog Sociolla, audit dimensi resolusi citra, eliminasi 132 sampel beresolusi rendah (< 640x640 px) ke `logs/master_4806_preprocessing_errors.log`. Penerapan 5 Pilar EDA: Text Profiling (TTR & token distribution), Brand Distribution (kurva Lorenz & Koefisien Gini $G = 0.5022$), Spatial Geometry (rasio aspek $W/H$), Photometric Luminance ($L^*$ dan specular highlight ratio), serta Blur Estimation (Varians Laplacian $\sigma^2 \ge 100$).
-3. **Fase 3: Data Preparation**: Prapemrosesan visual CIE LAB CLAHE pada kanal $L^*$ (`clipLimit=2.0`, `tileGridSize=(8, 8)`) diaplikasikan SEBELUM penempatan pada kanvas letterbox padding 640x640 latar putih dengan pencatatan parameter affine $[s, dx, dy]$. Normalisasi teks merek Unicode NFKD, preservasi apostrof identitas merek (`d'Alba`, `I'm From`), kuantitas netto kanonikal MAVE (`ml`, `g`, `pcs`, `patch`, `sheet`), serta partisi bebas bocor *stratified group split by brand* 70:15:15 (Train: 3.750, Val: 804, Test: 804).
-4. **Fase 4: Modeling (2 Paradigma Komparatif)**:
-   - *Cabang Konvensional Hibrida*: `microsoft/Florence-2-base` (visual grounding `<CAPTION_TO_PHRASE_GROUNDING>`) + `PaddleOCR PP-OCRv4` (DBNet++ dan SVTR, `use_angle_cls=True`, keyakinan >= 0.50, IoA >= 0.50) + Normalized Levenshtein (>= 0.85) + Exact Match Netto.
-   - *Cabang Agentic MLLM*: `Qwen/Qwen2-VL-7B-Instruct` (Dynamic Resolution ViT) dalam alur ReAct (Thought-Action-Observation <= 5 langkah) dengan alat mikro `crop_roi`, `enhance_patch`, dan `finalize_verdict`.
-5. **Fase 5: Evaluation**: Perhitungan Akurasi, Precision, Recall, Macro/Micro F1, CER, WER, latensi inferensi (ms), alokasi memori VRAM (MB), serta uji signifikansi komparatif non-parametrik McNemar dengan koreksi kontinuitas Edwards pada alpha = 0.05 pada 804 data uji independen.
+1. **Fase 1: Business Understanding**: Deteksi ketidaksesuaian (*discrepancy*) antara klaim teks katalog produk terhadap bukti fisik citra kemasan pada **3 Atribut Statis Wajib**:
+   - **Atribut 1 (Merek / Brand)**: Nama entitas produsen atau merek resmi.
+   - **Atribut 2 (Netto / Volume)**: Kuantitas isi bersih produk (satuan metrik baku MAVE: ml, g, pcs, patch, sheet).
+   - **Atribut 3 (Izin Edar BPOM / P-IRT)**: Legalitas edar resmi pemerintah (Nomor Notifikasi BPOM Kosmetik NA/NB/NC/ND, BPOM Pangan MD/ML 12 digit, atau P-IRT 15 digit).
+   - *Invarian Anti-Mismatch Sidang*: Atribut dinamis seperti tanggal kedaluwarsa (*expired date*) DILARANG dimasukkan dalam pencocokan citra katalog statis karena foto seller bersifat generik/lama sehingga menimbulkan false mismatch yang mematikan validitas sidang.
+2. **Fase 2: Data Understanding (5-Pillar Multimodal EDA)**: Eksplorasi katalog produk, audit dimensi resolusi citra, eliminasi sampel beresolusi rendah (< 640x640 px). Penerapan 5 Pilar EDA: Text Profiling (TTR & token distribution), Brand Distribution (kurva Lorenz & Koefisien Gini), Spatial Geometry (rasio aspek W/H), Photometric Luminance (L* dan specular highlight ratio), serta Blur Estimation (Varians Laplacian >= 100).
+3. **Fase 3: Data Preparation**: Prapemrosesan visual CIE LAB CLAHE pada kanal L* (clipLimit=2.0, tileGridSize=(8, 8)) diaplikasikan SEBELUM penempatan pada kanvas letterbox padding 640x640 latar putih dengan pencatatan parameter affine [s, dx, dy]. Normalisasi teks merek Unicode NFKD, preservasi apostrof identitas merek (d'Alba, I'm From), kuantitas netto kanonikal MAVE, serta partisi bebas bocor stratified group split by brand 70:15:15.
+4. **Fase 4: Modeling (2-Branch Hibrida vs Agentic MLLM)**:
+   - **Cabang Konvensional Hibrida 2-Branch**:
+     - *Branch A (Grounding-Guided RoI Extraction)*: `microsoft/Florence-2-base` visual grounding (`<CAPTION_TO_PHRASE_GROUNDING>`) melokalisasi koordinat spasial teks merek dan netto -> pemotongan RoI ber-margin adaptif 10% s/d 15% -> pengenalan teks via `PaddleOCR PP-OCRv4` (SVTR) dengan verifikasi spasial Intersection over Area ($IoA \ge 0.50$).
+     - *Branch B (Full-Scene OCR & Regex Matching)*: `PaddleOCR PP-OCRv4` (DBNet++) pada citra penuh -> ekstraksi nomor izin edar via regex BPOM resmi (`NA/NB/NC/ND` 11 digit, `MD/ML` 12 digit, `P-IRT` 15 digit) -> pencocokan merek Normalized Levenshtein ($\ge 0.85$) -> konversi idempoten satuan netto MAVE.
+   - **Cabang Agentic MLLM**: `Qwen/Qwen2-VL-7B-Instruct` (Dynamic Resolution ViT) dalam alur ReAct (Thought-Action-Observation <= 5 langkah) dengan alat mikro `crop_roi`, `enhance_patch`, dan `finalize_verdict`.
+5. **Fase 5: Evaluation**: Perhitungan Akurasi, Precision, Recall, Macro/Micro F1, CER, WER, latensi inferensi (ms), alokasi memori VRAM (MB), serta uji signifikansi komparatif non-parametrik McNemar dengan koreksi kontinuitas Edwards pada alpha = 0.05 pada data uji independen.
 6. **Fase 6: Deployment**: Pelaporan data terstruktur JSON (`verification_verdict.json`, `agent_trajectory.json`) dan dasbor interaktif Streamlit side-by-side dengan fitur *Catalog Auto-Remediation* dan label penafian regulasi *BPOM Guard*.
 
 ---

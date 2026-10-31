@@ -69,7 +69,7 @@
   - `laya-text-classifier`, `lead-intelligence`, `markitdown`, `matlab`, `matplotlib`, `ml-adoption-playbook`, `ml-data-leakage-guard`, `mle-workflow`
   - `neurokit2`, `neuropixels-analysis`, `nowait-reasoning-optimizer`, `openrig-team-assembly`, `opensource-pipeline`, `parkinson-speech-progression`, `pathml`, `plan-canvas`
   - `pm-discovery-memo`, `pm-eda-analytics`, `pm-prd-versioning`, `polars`, `pptx-posters`, `prediction-market-oracle-research`, `prediction-market-risk-review`, `preprocessing-data-with-automated-pipelines`
-  - `pymoo`, `pytorch-lightning`, `ralphinho-rfc-pipeline`, `recsys-pipeline-architect`, `recursive-decision-ledger`, `regex-vs-llm-structured-text`, `reverse-engineer-anything`, `scanpy`
+  - `multimodal-attribute-extraction`, `pymoo`, `pytorch-lightning`, `ralphinho-rfc-pipeline`, `recsys-pipeline-architect`, `recursive-decision-ledger`, `regex-vs-llm-structured-text`, `reverse-engineer-anything`, `scanpy`
   - `scholar-evaluation`, `scholarly-publishing`, `scientific-critical-thinking`, `scientific-data-preprocessing`, `scientific-reporting`, `scientific-thinking-scholar-evaluation`, `scientific-visualization`, `scientific-writing`
   - `scikit-bio`, `seaborn`, `senior-computer-vision`, `sentry`, `seo`, `shap`, `skypilot-multi-cloud-orchestration`, `sparse-autoencoder-training`
   - `spesialis-data-ai-agentic`, `splitting-datasets`, `statistics-math`, `structured-content-storage`, `submission-checklist`, `theme-factory`, `tiledbvcf`, `timesfm-forecasting`

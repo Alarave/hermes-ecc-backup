@@ -32,6 +32,7 @@ profiles/
 
 .locks/
 .hub/
+skills/.system/
 *.lock
 *.jsonl
 *.json

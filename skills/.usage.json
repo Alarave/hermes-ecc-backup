@@ -1783,15 +1783,15 @@
     "created_by": "agent",
     "first_seen_at": null,
     "last_patched_at": "2026-10-29T03:14:52.741375+00:00",
-    "last_reused_patch_generation": 3,
-    "last_used_at": "2026-10-29T03:14:37.876399+00:00",
-    "last_viewed_at": "2026-10-29T03:14:37.863278+00:00",
+    "last_reused_patch_generation": 4,
+    "last_used_at": "2026-10-31T12:40:22.993013+00:00",
+    "last_viewed_at": "2026-10-31T12:40:22.972992+00:00",
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 9,
-    "view_count": 9
+    "use_count": 10,
+    "view_count": 10
   },
   "nlp-research-competition": {
     "archived_at": null,
@@ -2511,15 +2511,15 @@
     "created_by": null,
     "first_seen_at": null,
     "last_patched_at": "2026-10-31T11:31:42.169686+00:00",
-    "last_reused_patch_generation": 31,
-    "last_used_at": "2026-10-31T11:31:30.028397+00:00",
-    "last_viewed_at": "2026-10-31T11:31:30.011973+00:00",
+    "last_reused_patch_generation": 32,
+    "last_used_at": "2026-10-31T12:33:49.990384+00:00",
+    "last_viewed_at": "2026-10-31T12:33:49.974853+00:00",
     "patch_count": 32,
     "patch_generation": 32,
     "pinned": false,
     "state": "active",
-    "use_count": 211,
-    "view_count": 211
+    "use_count": 212,
+    "view_count": 212
   },
   "prd": {
     "archived_at": null,
@@ -2839,14 +2839,14 @@
     "first_seen_at": null,
     "last_patched_at": "2026-10-31T11:16:49.063838+00:00",
     "last_reused_patch_generation": 3,
-    "last_used_at": "2026-10-31T11:30:42.150367+00:00",
-    "last_viewed_at": "2026-10-31T11:30:42.132788+00:00",
+    "last_used_at": "2026-10-31T12:33:25.212994+00:00",
+    "last_viewed_at": "2026-10-31T12:33:25.194777+00:00",
     "patch_count": 3,
     "patch_generation": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 6,
-    "view_count": 6
+    "use_count": 7,
+    "view_count": 7
   },
   "socratic-intake-hygiene": {
     "archived_at": null,
@@ -2946,15 +2946,15 @@
     "created_at": "2026-09-27T03:07:54.729077+00:00",
     "created_by": null,
     "last_patched_at": "2026-10-28T08:36:52.479092+00:00",
-    "last_reused_patch_generation": 4,
-    "last_used_at": "2026-10-28T08:36:23.089800+00:00",
-    "last_viewed_at": "2026-10-28T08:36:23.075845+00:00",
+    "last_reused_patch_generation": 5,
+    "last_used_at": "2026-10-31T12:36:32.043800+00:00",
+    "last_viewed_at": "2026-10-31T12:36:32.025781+00:00",
     "patch_count": 5,
     "patch_generation": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 37,
-    "view_count": 23
+    "use_count": 38,
+    "view_count": 24
   },
   "spesialis-devops-infrastruktur": {
     "archived_at": null,
@@ -3101,15 +3101,15 @@
     "created_by": null,
     "first_seen_at": null,
     "last_patched_at": "2026-10-31T11:31:20.726245+00:00",
-    "last_reused_patch_generation": 15,
-    "last_used_at": "2026-10-31T11:30:51.869215+00:00",
-    "last_viewed_at": "2026-10-31T11:30:51.847805+00:00",
+    "last_reused_patch_generation": 16,
+    "last_used_at": "2026-10-31T12:33:38.937437+00:00",
+    "last_viewed_at": "2026-10-31T12:33:38.920032+00:00",
     "patch_count": 16,
     "patch_generation": 16,
     "pinned": false,
     "state": "active",
-    "use_count": 28,
-    "view_count": 28
+    "use_count": 29,
+    "view_count": 29
   },
   "spesialis-ui-templates": {
     "archived_at": null,
