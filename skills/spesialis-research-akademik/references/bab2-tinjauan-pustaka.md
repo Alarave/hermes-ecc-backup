@@ -9,9 +9,25 @@
 - **Kredibilitas & Kebaruan (Recency)**: 
   - Wajib rujukan 5 tahun terakhir untuk teknologi/metode, kecuali *Grand Theory* fundamental.
   - HANYA mengutip jurnal/prosiding *Peer-Reviewed* atau buku teks resmi. **DILARANG KERAS** mengutip Wikipedia, Blog, atau portal berita untuk konsep sains.
-- **Hierarki Deduktif (Umum ke Khusus)**: Susun sub-bab dari *Grand Theory* (Topik Makro) $
-ightarrow$ Variabel Terikat (Y) $
-ightarrow$ Variabel Bebas/Teknis (X).
+- **Hierarki Deduktif 5-Lapis (Standar Korpus FIK UPNVJ)**:
+  Urutan sub-bab pada Bab 2 wajib mengalir secara deduktif dari objek masalah fisik ke instrumen komputasi:
+  1. *Sub-Bab Objek / Domain Lapangan* (contoh: `2.1 Tandan Buah Segar Kelapa Sawit`, `2.1 Katalog E-Commerce Kosmetik`, `2.1 Karakteristik Deret Waktu Saham`). Membahas definisi domain, klasifikasi/taksonomi resmi, dan standar regulasi.
+  2. *Sub-Bab Representasi & Prapemrosesan Data* (contoh: `2.2 Citra Digital`, `2.3 Pengolahan Citra Digital`, `2.3 Text Preprocessing`). Membahas representasi matematis masukan $f(x, y)$ dan transformasi awal.
+  3. *Sub-Bab Paradigma & Arsitektur Inti* (contoh: `2.4 Deep Learning`, `2.5 Convolutional Neural Network`, `2.5 Vision-Language Model`). Membahas struktur lapisan, ekstraksi fitur, dan alur propagasi maju.
+  4. *Sub-Bab Algoritma Spesifik & Fungsi Objektif* (contoh: `2.6 Arsitektur Florence-2`, `2.7 PaddleOCR PP-OCRv4`, `2.8 Evaluasi Metrik dan Uji McNemar`). Membahas persamaan matematis fungsi kerugian (*loss function*) dan metrik evaluasi.
+  5. *Sub-Bab Penelitian Terdahulu* (`2.9 Penelitian Terdahulu`): Narasi komparatif 5 sampai 10 studi primer, Tabel Penelitian Terdahulu, dan Paragraf Sintesis Research Gap.
+- **Pola Gaya Paragraf Sintesis Teori (4-Sentence Theoretical Paragraph Style Korpus UPNVJ)**:
+  Setiap sub-bab teori wajib disusun dalam 2 hingga 3 paragraf kohesif di mana setiap paragraf mematuhi struktur 4 kalimat deduktif dingin:
+  1. *Kalimat 1 (Definisi Fungsional / Ontologis)*: Langsung mendefinisikan konsep secara teknis tanpa kalimat pembuka hiperbolis. Contoh baku: *"Citra digital merupakan representasi visual dua dimensi $f(x, y)$ yang terbentuk dari kuantisasi sinyal kontinu menjadi matriks piksel diskrit (Gonzalez dan Woods, 2018)."*
+  2. *Kalimat 2 (Mekanisme Operasional / Matematis)*: Menguraikan cara kerja internal, transformasi variabel, atau cara komponen berinteraksi. Contoh baku: *"Pada fungsi tersebut, koordinat spasial $x$ dan $y$ menentukan lokasi elemen gambar, sedangkan nilai amplitudo $f$ merepresentasikan intensitas luminansi atau kanal warna pada rentang integer $[0, 255]$."*
+  3. *Kalimat 3 (Karakteristik Kritis / Trade-off Komputasi)*: Menjelaskan keunggulan spesifik sekaligus batasan teknis metode tersebut. Contoh baku: *"Representasi matriks memungkinkan operasi konvolusi paralel berkecepatan tinggi, namun variasi pencahayaan ekstrem saat akuisisi citra dapat menggeser distribusi histogram dan menurunkan ketajaman fitur tepi."*
+  4. *Kalimat 4 (Jangkar Relevansi terhadap Penelitian)*: Menjelaskan peran langsung konsep tersebut pada pipeline yang dibangun di Bab 3. Contoh baku: *"Oleh sebab itu, penelitian ini menerapkan normalisasi ruang warna CIE LAB dan penyetaraan kontras adaptif sebelum citra dimasukkan ke jaringan detektor objek."*
+- **Pola Sintesis Multi-Rujukan (Anti-Dictionary Syndrome)**:
+  - DILARANG KERAS menulis paragraf daftar kamus: *"Menurut Penulis A (2021), X adalah... Menurut Penulis B (2022), X merupakan... Sedangkan menurut Penulis C (2023), X didefinisikan sebagai..."*.
+  - WAJIB menggunakan **Pola Sintesis Konvergen/Kontrastif**: Rajut gagasan dari 2 hingga 3 rujukan ke dalam satu klaim konseptual terpadu dengan sitasi di akhir klausa atau di awal argumen. Contoh baku: *"Ekstraksi fitur konvolusional bekerja dengan memindai bidang reseptif lokal menggunakan filter terlatih untuk menghasilkan peta aktivasi hierarkis (Lecun dkk., 2015; He, Zhang, Ren, dan Sun, 2016)."*
+- **Transisi Kohesif Antar-Paragraf & Eliminasi Klausa "Di Mana"**:
+  - Hubungan antarkalimat dan antarparagraf wajib menggunakan penanda transisi logis baku EYD V (*Sehubungan dengan hal tersebut, Berdasarkan mekanisme tersebut, Berbeda dengan pendekatan satu tahap, Sebaliknya, Oleh karena itu*).
+  - DILARANG KERAS menggunakan kata *"di mana"* atau *"yang mana"* sebagai kata sambung penjelas non-spasial. Ganti dengan kata *"ketika"*, *"yang"*, *"sehingga"*, tanda titik dua (`:`), atau pecah menjadi kalimat baru.
 - **Aturan Anti-Padding (Relevansi Mutlak)**: Hanya masukkan teori yang benar-benar akan digunakan sebagai pisau analisis atau diimplementasikan di Bab 3 (Metodologi). Buang teori *filler* yang menebalkan halaman tanpa makna.
 - **Eliminasi AI Slop & Prinsip Seleksi Tunggal (Single-Term Selection)**:
   - DILARANG KERAS menjejerkan istilah ganda yang maknanya sama, baik dengan tanda kurung maupun tanpa tanda kurung (contoh salah AI slop: *kelapa sawit Elaeis guineensis*, *kotak pembatas bounding box*, *tulang punggung backbone*, *buah kecil spikelet*, *lapisan penyatuan pooling layer*).
@@ -75,65 +91,61 @@ ightarrow$ Variabel Bebas/Teknis (X).
 ```markdown
 # BAB II TINJAUAN PUSTAKA
 
-## 2.1 Landasan Teori
+## 2.1 [Objek / Domain Masalah Lapangan, maks 2-4 kata]
+[Paragraf 1 - Formula 4 Kalimat: (1) Definisi ontologis entitas dan payung regulasi resmi, (2) Karakteristik parameter penentu kualitas/masalah, (3) Analisis kegagalan prosedur konvensional/manual di lapangan, (4) Jangkar relevansi mengapa objek ini membutuhkan ekstraksi/deteksi otomatis.]
 
-### 2.1.1 [Grand Theory / Konsep Payung Utama]
-[Paragraf Sintesis: Bahas definisi dari 3-4 sumber berbeda, lalu rajut menjadi satu kesimpulan mandiri tanpa menjejerkan "Menurut A, Menurut B" secara kaku [@sitasi1; @sitasi2].]
+## 2.2 [Representasi Sinyal / Prapemrosesan Data]
+[Paragraf Sintesis Konvergen: Rajut definisi matematis dari 2-3 sumber primer menjadi satu kesimpulan terpadu tanpa menjejerkan "Menurut A, Menurut B" secara kaku. Uraikan representasi matriks $f(x, y)$ dan peran transformasi prapemrosesan.]
 
-### 2.1.2 [Variabel Terikat / Dependent Variable]
-[Uraikan mengapa variabel ini penting. Jika ada gambar arsitektur:]
-![Arsitektur Transformer untuk Visi Komputer](gambar/arsitektur-vit.png)  
-*Gambar 2.1: Arsitektur Vision Transformer (Sumber: [@dosovitskiy2020])*
+## 2.3 [Arsitektur Model & Fungsi Objektif]
+[Uraikan mekanisme kerja lapisan jaringan dan penurunan rumus matematis. Setiap persamaan wajib diikuti penjelasan parameter atau Tabel Dekomposisi Variabel:]
+Fungsi kerugian yang dioptimasi pada model ini diekspresikan pada Persamaan (2.1):
 
-### 2.1.3 [Variabel Bebas / Metode Teknis yang Digunakan]
-[Jelaskan cara kerja algoritma. Jika melibatkan matematika, gunakan LaTeX:]
-Fungsi kerugian (Loss Function) yang dioptimasi pada model ini diekspresikan pada Persamaan 2.1:
+$$ L(y, \hat{y}) = -\frac{1}{N} \sum_{i=1}^{N} y_i \log(\hat{y}_i) \quad (2.1) $$
 
-$$ L(y, \hat{y}) = -\frac{1}{N} \sum_{i=1}^{N} y_i \log(\hat{y}_i) $$
-
-**Tabel 2.1 Dekomposisi Variabel Persamaan Cross-Entropy**
+Tabel 2.1 Dekomposisi Variabel Persamaan Cross-Entropy
 | Simbol | Deskripsi | Satuan / Rentang |
 |:---:|:---|:---:|
-| $L$ | Nilai fungsi kerugian (*Loss*) | $[0, \infty)$ |
+| $L$ | Nilai fungsi kerugian | $[0, \infty)$ |
 | $N$ | Jumlah sampel dalam satu *batch* | Integer |
-| $y_i$ | Nilai target aktual (Ground Truth) | $\{0, 1\}$ |
+| $y_i$ | Nilai target aktual (*ground truth*) | $\{0, 1\}$ |
 | $\hat{y}_i$ | Probabilitas prediksi dari jaringan model | $[0, 1]$ |
 
-## 2.2 Penelitian Terdahulu
-Penelitian ini dibangun di atas fondasi riset-riset sebelumnya yang berfokus pada optimasi [Topik Riset].
+## 2.4 Penelitian Terdahulu
+Penelitian ini dibangun di atas evaluasi kritis terhadap studi terdahulu yang berfokus pada optimasi [Topik Riset].
 
-Penelitian pertama dilakukan oleh [@penulisA2022] yang bertujuan memecahkan masalah inefisiensi waktu komputasi pada *edge device*. Mereka mengusulkan algoritma *MobileNetV3* dan berhasil mencapai akurasi 92%. Namun, penelitian ini memiliki keterbatasan karena tidak mampu menangani kondisi pencahayaan minim. 
+Penelitian pertama oleh PenulisA, PenulisB, dan PenulisC (2022) mengevaluasi masalah inefisiensi waktu komputasi deteksi objek pada perangkat bergerak. Studi tersebut menerapkan arsitektur *MobileNetV3* dan mencatat akurasi sebesar 92,00% pada laju 30 FPS. Meskipun efisien secara komputasi, model tersebut mengalami penurunan akurasi yang tajam pada citra dengan pencahayaan minim.
 
-Selanjutnya, [@penulisB2023] membuktikan bahwa penambahan modul *Attention* dapat mengatasi masalah pencahayaan. Mereka menggunakan dataset *NightVision-DB*, tetapi arsitektur tersebut membutuhkan VRAM sangat besar, membatasi aplikasinya pada perangkat server murni.
+Selanjutnya, PenulisD dan PenulisE (2023) mengintegrasikan modul *spatial attention* pada jaringan konvolusional untuk mengatasi degradasi iluminasi pada dataset *NightVision-DB*. Pendekatan tersebut meningkatkan akurasi hingga 95,50%, namun membutuhkan alokasi memori VRAM yang besar sehingga tidak dapat dijalankan pada infrastruktur komputasi terbatas.
 
-[Lanjutkan hingga 5-10 paper utama...]
+[Lanjutkan sintesis 5-10 paper utama dengan pola 4-unsur: Penulis & Tahun First-Mention -> Masalah & Objek -> Metode -> Capaian Metrik Kuantitatif & Keterbatasan...]
 
-**Tabel 2.2 Penelitian Terdahulu**
+Tabel 2.2 Penelitian Terdahulu
 
 | Penulis dan Tahun | Tautan Artikel | Latar Belakang Masalah | Hasil Capaian Kuantitatif | Kesimpulan Studi | Relevansi Terhadap Penelitian Ini |
 |:---|:---|:---|:---|:---|:---|
-| PenulisA dkk. (2022) | [DOI / URL] | Deteksi wajah cepat di perangkat bergerak | Akurasi mencapai 92,00% pada 30 FPS | Arsitektur efisien namun akurasi menurun pada pencahayaan minim | Menjadi pembanding model ringan; penelitian ini menambahkan modul robust terhadap iluminasi |
-| PenulisB dan PenulisC (2023) | [DOI / URL] | Optimasi akurasi pada variasi pencahayaan | Akurasi mencapai 95,50% namun membutuhkan memori besar | Modul attention efektif meningkatkan akurasi namun beban VRAM tinggi | Mengadopsi mekanisme attention teroptimasi agar tetap efisien di GPU komputasi terbatas |
-| **Penelitian Ini** | - | Evaluasi komparatif model deteksi objek pada kondisi pencahayaan dinamis | Target mAP > 85,00% dengan inferensi real-time | Komparasi empiris terkontrol dengan partisi data anti-bocor | **Fokus menguji komparasi langsung dua tahap vs satu tahap dengan dataset representatif** |
+| PenulisA, PenulisB, dan PenulisC (2022) | [DOI / URL] | Deteksi objek cepat pada perangkat bergerak | Akurasi mencapai 92,00% pada 30 FPS | Arsitektur efisien namun akurasi menurun pada pencahayaan minim | Menjadi pembanding model ringan; penelitian ini menambahkan normalisasi kontras CIE LAB CLAHE |
+| PenulisD dan PenulisE (2023) | [DOI / URL] | Optimasi akurasi pada variasi pencahayaan ekstrem | Akurasi mencapai 95,50% namun membutuhkan memori besar | Modul *attention* efektif meningkatkan akurasi namun beban VRAM tinggi | Mengadopsi isolasi *Region of Interest* terarah agar tetap hemat memori |
+| **Penelitian Ini** | - | Evaluasi komparatif model pada kondisi pencahayaan dan kemasan dinamis | Target akurasi > 85,00% dengan uji signifikansi statistik | Komparasi empiris terkontrol dengan partisi data anti-bocor | **Mengisi celah efisiensi dan ketangguhan melalui pipeline hibrida terverifikasi** |
 
-Berdasarkan komparasi pada Tabel 2.2, *research gap* yang belum terselesaikan oleh literatur saat ini adalah absennya arsitektur yang ringan secara komputasi namun tangguh terhadap variasi pencahayaan ekstrem. Oleh karena itu, penelitian ini diposisikan untuk mengisi celah tersebut dengan mengusulkan arsitektur hibrida.
+Berdasarkan komparasi pada Tabel 2.2, celah penelitian (*research gap*) yang belum diselesaikan oleh literatur terdahulu adalah ketiadaan arsitektur yang mampu menjaga presisi ekstraksi fitur pada kondisi pencahayaan tidak merata tanpa mengorbankan efisiensi komputasi. Oleh karena itu, penelitian ini diposisikan untuk mengisi celah tersebut melalui penggabungan lokalisasi wilayah terarah dan pengenalan karakter berpresisi tinggi.
 
-## 2.3 Kerangka Pemikiran
-Kerangka pemikiran menggambarkan alur logika penelitian dari hulu ke hilir. Secara konseptual, tahapan sistem yang diusulkan divisualisasikan pada Gambar 2.2:
+## 2.5 Kerangka Pemikiran
+Kerangka pemikiran memetakan alur logika penelitian dari identifikasi masalah hingga evaluasi akhir. Secara konseptual, tahapan sistem yang diusulkan divisualisasikan pada Gambar 2.1:
 
 ```mermaid
 graph TD
-    A[Pengumpulan Citra Mentah] --> B(Pra-pemrosesan: CLAHE & Resize)
+    A[Pengumpulan Citra Mentah] --> B(Prapemrosesan: CIE LAB CLAHE & Letterbox)
     B --> C{Pemilihan Jalur Ekstraksi}
-    C -->|Pencahayaan Normal| D[MobileNet Block]
-    C -->|Pencahayaan Minim| E[Attention Block]
-    D --> F[Global Average Pooling]
+    C -->| Cabang Grounding | D[Visual Grounding RoI]
+    C -->| Cabang Rekognisi | E[Scene-Text OCR]
+    D --> F[Fusi Spasial IoA & Pencocokan Atribut]
     E --> F
-    F --> G((Klasifikasi Akhir))
+    F --> G((Putusan Verifikasi & Uji Statistik))
 ```
-*Gambar 2.2: Skema Kerangka Pemikiran Konseptual Sistem*
+Gambar 2.1 Skema Kerangka Pemikiran Konseptual Sistem
 
-Berdasarkan Gambar 2.2, aliran data dimulai dari pengumpulan citra mentah yang kemudian dikenakan operasi pra-pemrosesan CLAHE untuk meratakan histogram kecerahan. Sistem kemudian menerapkan logika percabangan fitur; di mana fitur dengan iluminasi normal diproses melalui blok *MobileNet* konvensional, sedangkan area gelap diperkuat melalui blok *Attention* sebelum keduanya diagregasikan di lapisan klasifikasi akhir.
+Berdasarkan Gambar 2.1, aliran pemrosesan dimulai dari akuisisi citra mentah yang kemudian dikenakan normalisasi kontras CIE LAB CLAHE untuk meratakan distribusi luminansi sebelum penempatan kanvas *letterbox*. Sistem selanjutnya menjalankan dua cabang pemrosesan paralel: cabang pertama melokalisasi wilayah kandidat menggunakan *visual grounding*, sedangkan cabang kedua mengekstraksi deretan karakter menggunakan mesin OCR, yang kemudian digabungkan melalui aturan fusi spasial untuk menghasilkan putusan verifikasi akhir.
 
 ## 2.4 Hipotesis Penelitian
 *(Catatan: Hapus sub-bab ini jika penelitian murni berjenis Rancang Bangun/Rekayasa Perangkat Lunak)*

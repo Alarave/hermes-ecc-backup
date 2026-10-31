@@ -70,7 +70,7 @@ Gunakan modul ini saat:
 
 3. **Petakan Domain ke Hermes Skill Bundles**:
    - Kelompokkan skill yang sering digunakan bersama ke dalam bundle domain di `C:\Users\HP\AppData\Local\hermes\skill-bundles`.
-   - Contoh: Bundle `/backend` (8 skill), `/ml` (17 skill), `/research` (11 skill).
+   - Contoh: Bundle `/backend` (8 skill), `/ml` (20 skill terintegrasi multimodal vision-language), `/research` (11 skill).
    - Pengguna cukup mengetik slash command bundle di awal chat baru untuk memuat seluruh armada skill sekaligus.
 
 4. **Koneksikan ke Universal Intent Interceptor (`pre_llm_call`)**:
@@ -81,8 +81,13 @@ Gunakan modul ini saat:
      - Lapisan 2: Pindai nama fisik skill eksak yang terdaftar di direktori `skills/`.
    - Jika terdeteksi, suntikkan blok `<PERINTAH_ORCHESTRASI_SKILL_MUTLAK>` yang mewajibkan `skill_view("<nama-skill>")` sebelum agen memberikan jawaban atau koding.
 
-5. **Pembaruan Aman & Higiene Kunci**:
+5. **Pembersihan Direktori Read-Only pada Windows**:
+   - Saat memindahkan atau menghapus direktori bayangan duplikat pada host Windows, berkas sering kali memiliki atribut read-only yang memicu penolakan izin `shutil.rmtree` atau rebase error.
+   - Gunakan handler izin eksplisit `os.chmod(path, stat.S_IWRITE)` pada setiap berkas sebelum penghapusan.
+
+6. **Pembaruan Aman, Rekonsiliasi Remote & Higiene Kunci**:
    - Periksa ketiadaan berkas kunci `.locks/` atau `.git/index.lock`.
+   - Jika `git push` ditolak karena remote memiliki commit berkala otomatis (`.state/last_evolution.txt`), lakukan `git fetch origin main` lalu `git merge origin/main --no-edit` secara bersih sebelum mendorong kembali.
    - Jalankan pembaruan paksa terverifikasi via `hermes skills update --force`.
 
 ---

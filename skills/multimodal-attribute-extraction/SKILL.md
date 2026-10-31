@@ -1,6 +1,7 @@
 ---
 name: multimodal-attribute-extraction
-description: "VLM and OCR pipeline for packaging attribute verification."
+version: "1.1.0"
+description: "Use when verifying packaging attributes via VLM and OCR."
 license: MIT
 author: "Firman (Lead Researcher & Fullstack MLOps Engineer)"
 metadata:
@@ -45,7 +46,7 @@ Diterapkan pada siklus end-to-end verifikasi kemasan produk e-commerce (Sociolla
    - **Atribut 3 (Izin Edar BPOM / P-IRT)**: Legalitas edar resmi pemerintah (Nomor Notifikasi BPOM Kosmetik NA/NB/NC/ND, BPOM Pangan MD/ML 12 digit, atau P-IRT 15 digit).
    - *Invarian Anti-Mismatch Sidang*: Atribut dinamis seperti tanggal kedaluwarsa (*expired date*) DILARANG dimasukkan dalam pencocokan citra katalog statis karena foto seller bersifat generik/lama sehingga menimbulkan false mismatch yang mematikan validitas sidang.
 2. **Fase 2: Data Understanding (5-Pillar Multimodal EDA)**: Eksplorasi katalog produk, audit dimensi resolusi citra, eliminasi sampel beresolusi rendah (< 640x640 px). Penerapan 5 Pilar EDA: Text Profiling (TTR & token distribution), Brand Distribution (kurva Lorenz & Koefisien Gini), Spatial Geometry (rasio aspek W/H), Photometric Luminance (L* dan specular highlight ratio), serta Blur Estimation (Varians Laplacian >= 100).
-3. **Fase 3: Data Preparation**: Prapemrosesan visual CIE LAB CLAHE pada kanal L* (clipLimit=2.0, tileGridSize=(8, 8)) diaplikasikan SEBELUM penempatan pada kanvas letterbox padding 640x640 latar putih dengan pencatatan parameter affine [s, dx, dy]. Normalisasi teks merek Unicode NFKD, preservasi apostrof identitas merek (d'Alba, I'm From), kuantitas netto kanonikal MAVE, serta partisi bebas bocor stratified group split by brand 70:15:15.
+3. **Fase 3: Data Preparation**: Prapemrosesan visual CIE LAB CLAHE pada kanal L* (clipLimit=2.0, tileGridSize=(8, 8)) diaplikasikan SEBELUM penempatan pada kanvas letterbox padding 640x640 latar putih dengan pencatatan parameter affine [s, dx, dy]. Dilengkapi opsi atenuasi pantulan kilap (*specular highlight suppression* berbasis HLS + inpainting Navier-Stokes; Zhang et al., 2021) dan penajaman teks mikro (< 8 px via Bilateral Filter + Unsharp Masking). Normalisasi teks merek Unicode NFKD, preservasi apostrof identitas merek (d'Alba, I'm From), kuantitas netto kanonikal MAVE (mendukung ekspresi multi-pack dan konversi satuan ganda fl oz ke ml), serta partisi bebas bocor terstratifikasi (*StratifiedGroupKFold* by brand & category 70:15:15).
 4. **Fase 4: Modeling (2-Branch Hibrida vs Agentic MLLM)**:
    - **Cabang Konvensional Hibrida 2-Branch**:
      - *Branch A (Grounding-Guided RoI Extraction)*: `microsoft/Florence-2-base` visual grounding (`<CAPTION_TO_PHRASE_GROUNDING>`) melokalisasi koordinat spasial teks merek dan netto -> pemotongan RoI ber-margin adaptif 10% s/d 15% -> pengenalan teks via `PaddleOCR PP-OCRv4` (SVTR) dengan verifikasi spasial Intersection over Area ($IoA \ge 0.50$).
@@ -68,10 +69,10 @@ Diterapkan pada siklus end-to-end verifikasi kemasan produk e-commerce (Sociolla
 5. **Standarisasi Spasial Bounding Box**:
    Koordinat kotak pembatas wajib dinormalisasi ke rentang `[0.0, 1.0]` terhadap dimensi kanvas 640x640. Penggabungan teks OCR fisik ke area visual grounding Florence-2 mensyaratkan nilai Intersection over Area:
    $$	ext{IoA} = \frac{	ext{Area}(B_{	ext{ocr}} \cap B_{	ext{grounding}})}{	ext{Area}(B_{	ext{ocr}})} \ge 0.50$$
-6. **Kaidah Pencocokan Discrepancy Gate**:
+6. **Kaidah Pencocokan Discrepancy Gate & Prioritas Parser Netto**:
    - Merek cocok jika *Normalized Levenshtein Similarity* >= 0.85.
    - Tipe produk cocok jika *Normalized Levenshtein Similarity* >= 0.85.
-   - Netto cocok jika nilai angka dan satuan metrik baku terstandarisasi cocok persis (*exact match*).
+   - Netto cocok jika nilai angka dan satuan metrik baku terstandarisasi cocok persis (*exact match*). Urutan evaluasi regex netto wajib mendahulukan pola *multi-pack* ($N 	imes V$), bundel aditif ($V_1 + V_2$), dan satuan metrik baku sebelum fallback ke satuan imperial (`fl. oz.`), sehingga string dwi-satuan seperti `"100 ml / 3.38 fl. oz."` terkunci secara deterministik pada angka metrik tanpa selisih pembulatan konversi.
    - Status akhir: `MATCH` (seluruh atribut cocok), `MISMATCH` (salah satu atribut bertentangan), atau `UNVERIFIED` (teks tidak terdeteksi atau keyakinan OCR < 0.50).
 7. **Batasan Pengaman Loop Agentic (ReAct Guards)**:
    - Maksimal 5 siklus penalaran per sampel.
@@ -80,15 +81,22 @@ Diterapkan pada siklus end-to-end verifikasi kemasan produk e-commerce (Sociolla
    - Setiap sampel wajib mencatat jejak penalaran ke `outputs/agent_traces/{product_id}_trajectory.json`.
 8. **Validitas Uji Statistik McNemar**:
    Uji McNemar wajib menggunakan koreksi kontinuitas Edwards pada tabel kontingensi 2x2 data uji berpasangan 804 produk. Jika sel diskordan ($n_{01} + n_{10} < 25$), sistem wajib otomatis fallback ke uji binomial eksak dua sisi.
+9. **Preservasi Resolusi Asli untuk Teks Mikro**:
+   Pemotongan RoI untuk pembacaan karakter kecil (< 8 piksel seperti netto) pada modul OCR wajib dipetakan balik (*inverse affine mapping*) ke koordinat citra resolusi asli (*native resolution*), bukan dipotong dari kanvas letterbox 640x640 yang telah mengalami kompresi.
+10. **Keseimbangan Distribusi Subkategori pada Group Split**:
+    Pembagian partisi kelompok merek wajib menggunakan *StratifiedGroupKFold* atau pembobotan defisit komposit (defisit global + defisit kategori) untuk menjaga keseimbangan distribusi subkategori kosmetik lintas partisi (deviasi <= 5%) sembari mempertahankan zero brand leakage.
+11. **Proteksi Latar Putih Studio pada Inpainting Kilap Spekular**:
+    Deteksi masker kilap spekular HLS ($L \ge 240, S \le 40$) hanya boleh memicu *inpainting* Navier-Stokes apabila piksel kilap bersifat lokal ($0 < \text{nonzero} \le 35\%$ luas citra), sehingga latar putih studio murni dan kanvas uji putih seragam pada *property-based testing* tidak ikut terdistorsi.
 
 ---
 ## Linked References
-Modul ini didukung oleh 5 dokumen referensi teknis mendalam:
+Modul ini didukung oleh 6 dokumen referensi teknis mendalam:
 - `references/florence2-paddleocr-pipeline.md` (Spesifikasi & blueprint implementasi Python siap pakai Florence-2 + PaddleOCR)
 - `references/journal-sota-synthesis.md` (Sintesis 42 jurnal: 35 internasional + 7 nasional termasuk BMHCA Gunadarma)
 - `references/codebase-architecture.md` (Pemetaan 21 repositori kode referensi lokal ke tasks skripsi)
 - `references/verification-pipelines.md` (Spesifikasi teknis pipeline Florence-2 + PaddleOCR dan Qwen2-VL ReAct)
 - `references/evaluation-mcnemar.md` (Formulasi matematis metrik evaluasi CER/WER dan uji signifikansi McNemar)
+- `references/data-preprocessing-enhancements.md` (Jurnal rujukan & kode peningkatan Data Preparation: Specular Glare Suppression, Micro-Text Unsharp Masking, Multi-Pack Netto Parser, dan StratifiedGroupKFold)
 
 ---
 ## O (Output Format & Operational Deliverables)

@@ -23,13 +23,14 @@ Protokol ini berlaku untuk tugas audit kepatuhan katalog niaga elektronik:
 3. Catat seluruh sampel yang tidak memenuhi syarat ke log kesalahan terpisah dan kunci subset sampel bersih.
 
 ### 2. Prapemrosesan Citra & Koordinat Affine
-1. Penskalaan proporsional menggunakan interpolasi area (`cv2.INTER_AREA`) dan tempatkan di tengah kanvas berlatar putih (letterbox padding).
-2. Catat parameter transformasi affine `[scale, dx, dy]` secara deterministik untuk pemetaan balik koordinat spasial (`inverse_affine_bbox`) ke citra native.
-3. Terapkan filter kontras adaptif CLAHE (`clipLimit=2.0`, `tileGridSize=(8, 8)`) eksklusif pada kanal L ruang warna CIE LAB untuk mereduksi pantulan kilap lampu tanpa merusak palet warna identitas merek.
+1. Terapkan atenuasi kilap spekular (`suppress_specular_highlights`) berbasis ruang HLS ($L \ge 240, S \le 40$) dan inpainting Navier-Stokes lokal. Batasi inpainting hanya ketika area masker kilap mencakup `0 < nonzero <= 35%` total piksel citra agar latar putih studio murni tidak ikut ter-inpaint.
+2. Terapkan penajaman teks mikro (`enhance_micro_text`: `bilateralFilter` + `unsharp masking` dengan `amount=1.2`) diikuti filter kontras adaptif CLAHE (`clipLimit=2.0`, `tileGridSize=(8, 8)`) eksklusif pada kanal L ruang warna CIE LAB SEBELUM letterbox resize, supaya area padding putih kanvas tidak merusak distribusi histogram ubin lokal CLAHE.
+3. Lakukan penskalaan proporsional menggunakan interpolasi area (`cv2.INTER_AREA`) dan tempatkan di tengah kanvas putih 640x640 (letterbox padding).
+4. Catat parameter transformasi affine `[scale, dx, dy]` secara deterministik untuk pemetaan balik koordinat spasial (`inverse_affine_bbox`) ke citra native.
 
 ### 3. Kanonisasi Atribut Teks Terstruktur
 1. **Merek**: Huruf kecil, dekomposisi Unicode NFKD, eliminasi karakter non-alfanumerik, namun wajib mempertahankan tanda petik tunggal identitas merek (contoh: "d'Alba", "I'm From").
-2. **Netto (MAVE Taxonomy)**: Ekstraksi numerik (float) dan satuan metrik baku (`ml`, `g`, `pcs`, `patch`, `sheet`). Konversi liter ke ml (x1000) dan kilogram ke g (x1000). Kanonisasi wajib idempoten: `f(f(x)) == f(x)`.
+2. **Netto (MAVE Taxonomy)**: Ekstraksi numerik (float) dan satuan metrik baku (`ml`, `g`, `pcs`, `patch`, `sheet`) dengan evaluasi berjenjang: (a) pola multi-pack (`2 x 50 ml` -> `100 ml`, `pack_count=2`), (b) pola bundel aditif (`15 g + Refill 15 g` -> `30 g`), (c) satuan metrik standar (diprioritaskan di atas satuan imperial pada teks ganda seperti `100 ml / 3.38 fl. oz.`), dan (d) fallback konversi fluid ounce (`1 fl. oz. = 29.5735 ml`). Konversi liter ke ml (x1000) dan kilogram ke g (x1000). Kanonisasi wajib idempoten: `f(f(x)) == f(x)`.
 3. **Tipe Produk (Prioritas & Stem Boundary)**:
    - Pencocokan nama produk (`product_name`) wajib didahulukan sebelum fallback ke kategori (`category`).
    - Sediaan spesifik (`lotion`, `cream`, `serum`, `ampoule`) wajib dievaluasi sebelum istilah kategori payung (`moisturizer`).
@@ -38,7 +39,7 @@ Protokol ini berlaku untuk tugas audit kepatuhan katalog niaga elektronik:
 
 ### 4. Partisi Bebas Bocor (Deficiency Bin-Packing Group Split)
 1. Kelompokkan SKU berdasarkan merek / entitas.
-2. Gunakan algoritma bin-packing berbasis defisiensi greedy terurut ukuran kelompok dan random seed deterministik guna mencapai rasio target presisi (misal 70:15:15).
+2. Gunakan algoritma bin-packing berbasis defisiensi greedy terurut ukuran kelompok dan random seed deterministik guna mencapai rasio target presisi (misal 70:15:15). Bila kolom kategori tersedia (`category_col`), gunakan skor defisiensi komposit (`0.5 * def_global + 0.5 * def_kategori_dominan`) agar proporsi kategori produk seimbang di setiap partisi tanpa melanggar isolasi merek.
 3. Untuk mencapai target rasio 70:15:15 presisi integer pada dataset diskret (misal 2.217 train, 475 val, 476 test pada N = 3.168), gunakan formula:
    `target_val = int(round(N * val_ratio))`
    `target_train = int(N * train_ratio)`

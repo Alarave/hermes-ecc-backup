@@ -111,3 +111,35 @@ Kecenderungan model bahasa besar menghasilkan judul sub-bab yang berbelit-belit 
 | **Bab 2 (Tinjauan Studi)** | `2.4 Sintesis Komprehensif Terhadap Berbagai Penelitian Terdahulu yang Relevan` | `2.4 Penelitian Terdahulu` |
 | **Bab 3 (Tahap Data)** | `3.2 Prosedur Menyeluruh Pengumpulan dan Pembersihan Data Katalog Kosmetik` | `3.2 Pengumpulan Data` |
 | **Bab 4 (Hasil Evaluasi)** | `4.2 Pembuktian Empiris Hasil Performa Akurasi dan Evaluasi Model` | `4.2 Evaluasi Performa` |
+
+---
+
+## 7. Arsitektur Narasi & Gaya Paragraf Bab 2 Tinjauan Pustaka (Standar Korpus FIK UPNVJ)
+
+Berdasarkan audit empiris terhadap 314 berkas Bab 2 skripsi Fakultas Ilmu Komputer UPNVJ (khususnya rumpun Informatika dan Sistem Informasi bidang AI, Visi Komputer, NLP, dan Machine Learning), ditemukan pola baku arsitektur paragraf teori:
+
+### 1. Hierarki Deduktif 5-Tingkat Bab 2
+1. **Sub-Bab Objek & Domain Riil**: Wajib diletakkan di `2.1` sebelum teori algoritma. Menguraikan karakteristik entitas fisik, taksonomi resmi, standar regulasi pemerintah, dan parameter penentu kualitas produk.
+2. **Sub-Bab Representasi Sinyal & Prapemrosesan**: Menguraikan representasi matematis citra/teks $f(x, y)$, ruang warna (RGB, CIE LAB), dan normalisasi filter.
+3. **Sub-Bab Paradigma & Arsitektur Jaringan Inti**: Menguraikan struktur lapisan konvolusi, mekanisme visual grounding, ekstraksi fitur hierarkis, dan fungsi aktivasi.
+4. **Sub-Bab Algoritma Spesifik & Fungsi Objektif**: Menguraikan formulasi matematis persamaan fungsi kerugian (*loss function*), parameter transformasi spasial, dan metrik evaluasi.
+5. **Sub-Bab Penelitian Terdahulu (SOTA)**: Narasi 5 sampai 10 studi terdahulu berformat 4-pilar, Tabel Komparasi Penelitian Terdahulu 6-kolom, dan Paragraf Sintesis Celah Riset (*Research Gap*).
+
+### 2. Pola 4-Kalimat Paragraf Sintesis Teori (Theory Synthesis Pattern)
+Setiap paragraf pembahasan konsep teknis wajib mematuhi formula deduktif:
+- **Kalimat 1 (Definisi Fungsional & Sitasi Primer)**: Langsung menyatakan peran operasional konsep tanpa pengantar klise.
+- **Kalimat 2 (Mekanisme Matematis / Alur Pemrosesan)**: Menguraikan variabel masukan, perkalian bobot/kernel, atau fungsi transformasi.
+- **Kalimat 3 (Karakteristik Kritis & Batasan Baseline)**: Menguraikan keunggulan spesifik sekaligus batasan komputasi atau kerentanan terhadap gangguan lingkungan.
+- **Kalimat 4 (Jangkar Relevansi terhadap Desain Sistem)**: Menegaskan peran langsung metode tersebut dalam alur penelitian yang dibangun.
+
+### 3. Pola Narasi Penelitian Terdahulu (4-Pillar Literature Synthesis)
+Sebelum menyajikan tabel matriks komparasi, setiap studi terdahulu diulas dalam satu paragraf padat berisi 4 unsur:
+1. **Identitas & First-Mention**: Nama peneliti dan tahun terbit (3 sampai 5 penulis wajib ditulis lengkap pada pemunculan pertama, misal: *PenulisA, PenulisB, dan PenulisC (2023)*).
+2. **Masalah & Objek Lapangan**: Masalah konkret yang diselesaikan pada domain tertentu.
+3. **Metode & Arsitektur**: Algoritma atau model yang diusulkan.
+4. **Hasil Kuantitatif & Celah Keterbatasan**: Angka capaian metrik kuantitatif terverifikasi (mAP, akurasi, F1, latency) serta kelemahan spesifik yang belum tertangani.
+
+### 4. Paragraf Penutup Sintesis Celah Riset (Research Gap Synthesis)
+Sub-bab Penelitian Terdahulu wajib ditutup dengan paragraf kesimpulan benang merah:
+*"Berdasarkan komparasi pada Tabel 2.X, celah penelitian (research gap) yang belum terselesaikan oleh literatur terdahulu adalah [absennya metode yang mampu mengatasi masalah X tanpa mengorbankan parameter Y]. Oleh karena itu, penelitian ini diposisikan untuk mengisi celah tersebut dengan mengusulkan [arsitektur/pipeline Z]."*
+
