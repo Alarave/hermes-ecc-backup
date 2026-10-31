@@ -143,3 +143,25 @@ Sebelum menyajikan tabel matriks komparasi, setiap studi terdahulu diulas dalam 
 Sub-bab Penelitian Terdahulu wajib ditutup dengan paragraf kesimpulan benang merah:
 *"Berdasarkan komparasi pada Tabel 2.X, celah penelitian (research gap) yang belum terselesaikan oleh literatur terdahulu adalah [absennya metode yang mampu mengatasi masalah X tanpa mengorbankan parameter Y]. Oleh karena itu, penelitian ini diposisikan untuk mengisi celah tersebut dengan mengusulkan [arsitektur/pipeline Z]."*
 
+---
+
+## 8. Arsitektur Narasi & Gaya Paragraf Bab 1 Pendahuluan (Standar Korpus FIK UPNVJ)
+
+Berdasarkan audit empiris terhadap 205 berkas Bab 1 skripsi Fakultas Ilmu Komputer UPNVJ (S1 Informatika & S1 Sistem Informasi tahun 2022-2026), struktur Bab 1 memiliki pola baku yang sangat disiplin:
+
+### 1. Pola Corong Terbalik 5-Paragraf Latar Belakang (1.1)
+- **Paragraf 1 (Fenomena Makro & Bukti Lembaga Resmi - Das Sollen)**: Membuka dengan peran nyata sektor/objek masalah, didukung data kuantitatif dari lembaga resmi (BPS, WHO, Kemenkes, IDF, APJII, atau BPOM) beserta tahun rujukan, dan tuntutan kondisi ideal. DILARANG menggunakan pembuka klise bot (*"Di era globalisasi/teknologi yang pesat saat ini..."*).
+- **Paragraf 2 (Realitas Masalah Lapangan & Kelemahan Manual - Das Sein)**: Mengungkap fakta inefisiensi, tingkat kesalahan verifikasi, atau lonjakan kasus di lokus penelitian. Menjelaskan secara kritis keterbatasan prosedur konvensional/manual (bergantung pengamatan visual subjektif, memakan waktu 2 sampai 3 hari, atau tidak ada sistem berbasis data).
+- **Paragraf 3 (Transisi Paradigma Komputasi & Logika Algoritma)**: Menjelaskan mengapa pendekatan pembelajaran mesin/pengolahan citra/pemodelan cerdas merupakan jawaban rasional, bagaimana arsitektur model mengekstraksi representasi data, dan keunggulannya terhadap derau data lapangan.
+- **Paragraf 4 (Sintesis 3-5 Studi Terdahulu Berangka Metrik & Celah Riset)**: Merangkum 3 sampai 5 paper primer secara berurutan dalam satu paragraf dengan menyebutkan: Penulis (Tahun) lengkap *first-mention*, objek penelitian, algoritma yang diuji, dan angka metrik hasil pengujian (akurasi/presisi/mAP). Diakhiri dengan perumusan *Research Gap* tegas mengenai apa yang belum diselesaikan literatur tersebut.
+- **Paragraf 5 (Penegasan Solusi Usulan, Antarmuka & Kontribusi)**: Menegaskan metode/arsitektur yang diusulkan untuk menutup *gap*, bentuk integrasi sistem (web dashboard/Streamlit/REST API), serta manfaat langsung bagi operasional pengambilan keputusan.
+
+### 2. Standar Kalimat Sub-Bab 1.2 hingga 1.7
+- **Rumusan Masalah (1.2)**: Kalimat tanya terukur yang diawali kata operasional (*"Bagaimana..."*, *"Sejauh mana..."*). Terdiri dari 2 sampai 4 butir bernomor yang mencakup: pembangunan model, evaluasi kuantitatif beruji signifikansi statistik, dan integrasi antarmuka/sistem. DILARANG pertanyaan biner tertutup (*"Apakah..."*).
+- **Batasan Masalah (1.3)**: 5 sampai 8 butir kalimat deklaratif alami (larangan format label tebal `**Key**: Value`). Mengunci *hard-boundaries*: sumber & volume data, pembatasan kelas/atribut target (dan pengecualian tegas atribut non-cakupan), format berkas, algoritma yang diuji, serta lingkungan komputasi.
+- **Tujuan Penelitian (1.4)**: Keselarasan 1:1 (*cermin sempurna*) terhadap Rumusan Masalah menggunakan Kata Kerja Operasional (KKO) aktif (*Mengolah, Membangun, Menganalisis, Mengevaluasi, Mengembangkan*). Dilarang kata kognitif pasif (*Untuk mengetahui*).
+- **Manfaat Penelitian (1.5)**: Dipetakan per penerima manfaat nyata: Bagi Pengguna Lapangan/Praktisi, Bagi Institusi Terkait, dan Bagi Akademisi/Peneliti Selanjutnya.
+- **Luaran Penelitian (1.6)**: Menjabarkan artefak fisik konkret: Model komputasi terlatih (*trained weights*), laporan evaluasi metrik, dan aplikasi purwarupa interaktif.
+- **Sistematika Penulisan (1.7)**: Pengantar formal baku diikuti ringkasan operasional BAB I sampai BAB V, Daftar Pustaka, dan Lampiran.
+
+
