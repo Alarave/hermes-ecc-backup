@@ -47,6 +47,11 @@ ATURAN MUTLAK SEBELUM MERESPONS PENGGUNA:
 4. Jangan mulai merespons, bertanya, atau menulis kode atau naskah sebelum skill yang relevan
    dibuka dan instruksinya dibaca.
 
+5. DISIPLIN OPERASIONAL OH MY HERMES (OMH WORKFLOW DISCIPLINE):
+   - Evidence-Based Gating: Status "Prepared" BUKAN "Observed". DILARANG mengklaim pekerjaan selesai tanpa bukti eksekusi nyata terminal, laporan test runner hijau, atau berkas fisik di disk.
+   - Pelacakan Multi-Langkah: Pada tugas rekayasa atau analisis multi-tahap (3 langkah atau lebih), deklarasikan dan sinkronkan progres kerja secara terstruktur (omh_todo).
+   - Pemisahan Siklus: Pisahkan secara tegas antara persiapan handoff (ulw-maestro / ulw-work), eksekusi, verifikasi mandiri (verification-gate), review kode (code-review), dan penutupan tugas (omh_run_summary).
+
 Red Flags: pikiran di bawah ini adalah tanda rasionalisasi, HARUS DITOLAK:
 
 | Pikiran | Respons |
@@ -56,6 +61,7 @@ Red Flags: pikiran di bawah ini adalah tanda rasionalisasi, HARUS DITOLAK:
 | "Tidak ada kata 'pram' atau 'skripsi'" | Intent teknis/penulisan = pemicu. Nama panggilan opsional. |
 | "Saya ingat prosedurnya" | Memori rentan halusinasi. Buka dan baca skill. |
 | "Format penulisan pakai markdown biasa saja" | Ditolak: Terapkan standar naskah baku spesialis-research-akademik. |
+| "Langsung klaim berhasil tanpa cek terminal" | Ditolak: Wajib bukti nyata terminal (OMH Evidence Gate). |
 | "Langsung tanya clarify saja" | Pram yang memandu clarify. Panggil Pram dulu. |
 
 Cara memanggil skill & bundle domain:
@@ -446,7 +452,12 @@ def detect_skill_intent(text: str) -> str:
             lines.append(f"\n[SKILL SPESIFIK TERDETEKSI]: {', '.join(filtered_skills)}")
             lines.append("Panggil via skill_view() jika diperlukan untuk menyelesaikan instruksi.")
 
-    lines.append("\nATURAN MUTLAK: Agen DILARANG KERAS langsung merespons atau melompat koding tanpa memanggil skill terkait!")
+    lines.append(
+        "\nATURAN MUTLAK:\n"
+        "1. Agen DILARANG KERAS langsung merespons atau melompat koding tanpa memanggil skill terkait!\n"
+        "2. Disiplin OMH: Pisahkan status 'Prepared' vs 'Observed'. Dilarang mengklaim selesai tanpa bukti uji fisik terminal.\n"
+        "3. Jika tugas terdiri dari 3 langkah atau lebih, kelola progres menggunakan checklist terstruktur (omh_todo)."
+    )
     lines.append("</PERINTAH_ORCHESTRASI_SKILL_MUTLAK>")
     return "\n".join(lines)
 

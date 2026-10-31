@@ -227,6 +227,7 @@ Setiap penyelesaian milestone wajib menyajikan 4 pilar ringkas:
 - `references/macro-context-and-delegation.md` (Protokol sintesis konteks makro & formula delegasi presisi sub-agen)
 - `references/skill-registry.md` (Peta 720+ skill per domain untuk Two-Stage Dynamic Routing)
 - `references/using-pram-bootstrap.md` (Pola gerbang deterministik & handoff spesialis)
+- `skills/karpathy-guidelines/SKILL.md` (Pilar Rekayasa Perilaku Koding Anti-Slop: Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven)
 - `skills/spesialis-copywriter/SKILL.md`
 - `skills/ai-job-search/SKILL.md`
 - `skills/writing-plans/SKILL.md`
