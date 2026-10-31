@@ -175,4 +175,28 @@ Berdasarkan audit empiris terhadap 205 berkas Bab 1 skripsi Fakultas Ilmu Komput
 - **Luaran Penelitian (1.6)**: Menjabarkan artefak fisik konkret: Model komputasi terlatih (*trained weights*), laporan evaluasi metrik, dan aplikasi purwarupa interaktif.
 - **Sistematika Penulisan (1.7)**: Pengantar formal baku diikuti ringkasan operasional BAB I sampai BAB V, Daftar Pustaka, dan Lampiran.
 
+---
+
+## 9. Standar Diagram, Flowchart & Ilustrasi Arsitektur Bebas AI Slop (Standar Korpus PDF UPNVJ)
+
+Berdasarkan inspeksi piksel dan ekstraksi objek vektor pada berkas PDF Bab 2 dan Bab 3 Fakultas Ilmu Komputer UPNVJ (`E:\SKRIPSI_UPNVJ_PDF`), visualisasi diagram akademik wajib mematuhi standar berikut:
+
+### 1. Tiga Kategori Diagram Baku Skripsi AI / Komputasi
+1. **Flowchart Metodologi Penelitian & CRISP-DM / SDLC (Bab 3.1)**:
+   - Alur vertikal atas-ke-bawah atau berkelok 2 kolom (*serpentine*).
+   - Menggunakan simbol standar ISO/ANSI: elips mendatar (`Mulai` & `Selesai`), persegi panjang sudut tegak (proses utama), jajar genjang (masukan samping seperti `Studi Literatur`, `Survei`, `Black Box Testing`), dan belah ketupat (`Berhasil` dengan cabang `Ya` ke bawah dan `Tidak` melingkar kembali secara ortogonal 90 derajat ke tahap perancangan).
+   - Fase makro dibungkus oleh kontainer persegi panjang bergaris tipis dengan label nama fase di kiri atas (`Business Understanding`, `Data Preparation`, `Analisis Kebutuhan`, `Pengujian`).
+2. **Diagram Arsitektur Jaringan & Transfer Learning (Bab 2 / Bab 3)**:
+   - Tumpukan lapisan konvolusi berurutan dengan label resolusi tensor spasial ($224 \times 224 \times 3 \rightarrow 112 \times 112 \times 64 \rightarrow \dots$).
+   - Menggunakan tanda kurung kurawal/siku di sisi kanan (*grouping brackets*) untuk memisahkan `Base Model (Pre-Trained Architecture)` dan `Head Network (Custom Classifier)`.
+   - Diakhiri dengan percabangan simetris ke kotak-kotak kelas target.
+3. **Pipeline Pelatihan, Pengujian, dan Evaluasi (Bab 3.2)**:
+   - Memisahkan alur ke dalam 3 kontainer bergaris putus-putus (*dashed border*): `PELATIHAN MODEL` (`DATA TRAIN`), `PENGUJIAN MODEL` (`DATA TEST`), dan `EVALUASI MODEL` (`Confusion Matrix`).
+
+### 2. Aturan Visual Monokromatik Dingin (Eliminasi Visual AI Slop)
+- **Palet Monokromatik Bersih**: Latar belakang wajib putih solid (`#FFFFFF`), kotak proses berisian putih dengan garis batas hitam tegas (`#000000`, ketebalan `0.75 - 1.0 pt`), dan kontainer fase bergaris putus-putus (`#555555`). DILARANG KERAS menggunakan warna neon, gradasi pelangi, efek *drop shadow*, atau ilustrasi ikon kartun.
+- **Tipografi & Konektor**: Huruf di dalam diagram wajib `Times New Roman` atau `Arial` (8.5 - 10 pt), istilah bahasa Inggris dicetak *Italic*, dan seluruh garis penghubung wajib siku-siku ortogonal 90 derajat dengan mata panah segitiga padat.
+- **Batas Lebar & Caption**: Lebar gambar maksimal `13,0 cm` (rata tengah), caption diletakkan **di bawah gambar** rata tengah (`Gambar X.Y Judul Gambar` tanpa titik dua), diapit oleh kalimat pengantar sebelum gambar dan paragraf bedah narasi sesudah gambar.
+
+
 

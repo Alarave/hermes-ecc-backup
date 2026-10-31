@@ -23,13 +23,15 @@ Everything is in **pt at print size**: a single-column figure is ≈ 240 pt wide
 
 Two figure kinds share this workflow: **architecture** (the whole system, `meta.kind: architecture`, 20 layout templates) and **mechanism** (how one part works, `meta.kind: mechanism`).
 
-### Skripsi & Academic Thesis Constraint (Khusus Dokumen Skripsi Indonesia)
-Untuk permintaan naskah skripsi/tesis (Bab 3/4):
-- Wajib mematuhi `references/preset-skripsi-indonesia.md`.
-- Font wajib Times New Roman (10-11 pt bold untuk blok, 8.5-9.5 pt regular untuk sub-label).
-- Latar belakang wajib putih solid `#FFFFFF` (dilarang transparan).
-- Palet warna formal: abu-abu lembut `#F8F9FA`, biru formal `#E7F5FF`, hijau lembut `#E6FCF5`. Dilarang warna neon AI.
-- Simpan berkas fisik di folder `figures/` (SVG + PNG 300 DPI).
+### Skripsi & Academic Thesis Constraint (Khusus Dokumen Skripsi Indonesia - Standar Korpus UPNVJ & Gunadarma)
+Untuk permintaan naskah skripsi/tesis (Bab 2, 3, dan 4):
+- Wajib mematuhi `references/preset-skripsi-indonesia.md` berbasis audit korpus empiris FIK UPNVJ.
+- **Tipografi & Font**: Font wajib `Times New Roman` (atau `Arial` standar), 10-11 pt bold untuk blok utama, 8.5-9.5 pt regular untuk sub-label. Istilah bahasa Inggris wajib dicetak miring (*Italic*).
+- **Latar Belakang & Geometri**: Latar belakang wajib putih solid `#FFFFFF` (dilarang transparan). Lebar maksimal gambar adalah **13,0 cm** agar tidak meluap dari area cetak bersih 14,0 cm pada kertas A4 margin 4-4-3-3 cm.
+- **Palet Warna Monokromatik Dingin (Anti-AI Slop)**: Wajib palet monokromatik bersih (garis hitam solid `#000000` 1 pt, isian putih `#FFFFFF`, kontainer fase garis putus-putus `#555555`). DILARANG KERAS menggunakan warna neon AI, gradasi pelangi, drop shadow, atau ikon ilustrasi kartun.
+- **Konektor Ortogonal 90 Derajat**: Seluruh panah alur wajib siku-siku 90 derajat dengan ujung panah segitiga padat terisi hitam.
+- **Simbol Baku ANSI/ISO**: Terminator elips (`Mulai` & `Selesai`), proses persegi panjang, keputusan belah ketupat (`Ya`/`Tidak`), dan masukan/instrumen jajar genjang.
+- **Penyimpanan Berkas Fisik**: Simpan berkas fisik di folder `figures/` (SVG + PNG 300 DPI). Caption gambar diletakkan di **BAWAH** gambar rata tengah (`Gambar X.Y Judul Gambar` tanpa titik dua).
 
 ## Workflow (gates in bold)
 
