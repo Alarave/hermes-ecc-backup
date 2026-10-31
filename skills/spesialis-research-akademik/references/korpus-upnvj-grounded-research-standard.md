@@ -89,28 +89,39 @@ Jika pengguna belum memiliki data konkret lapangan saat diinterogasi:
 
 ---
 
-## 6. Standar Penamaan Judul Bab dan Sub-Bab (Aturan 2 Sampai 4 Kata Anti-Slop)
+## 6. Standar Penamaan & Paragraph Style Judul Sub-Bab Bab 2 (Aturan 1 Sampai 2 Kata Anti-Slop)
 
-Kecenderungan model bahasa besar menghasilkan judul sub-bab yang berbelit-belit (*"Tinjauan Teoretis Komprehensif Mengenai Dinamika Transformasi..."*) ditolak secara mutlak.
+Berdasarkan audit statistik terhadap **3.866 judul sub-bab** dari 192 berkas Bab 2 skripsi Fakultas Ilmu Komputer UPNVJ (`E:\SKRIPSI_UPNVJ_PDF` dan `E:\SKRIPSI_UPNVJ_TEXT`), kecenderungan model bahasa besar (LLM) menghasilkan judul sub-bab berupa frasa panjang 4-8 kata (*"Tinjauan Teoretis Komprehensif Mengenai..."*, *"Arsitektur Model dan Fungsi Objektif"*) ditolak secara mutlak karena merupakan indikator *AI Slop*.
 
-### Tiga Pilar Penamaan Sub-Bab Baku:
-1. **Fungsi Judul adalah Label Taksonomi**: Judul sub-bab (H2/H3) adalah label klasifikasi keilmuan untuk navigasi pembaca dan dewan penguji, BUKAN ringkasan kalimat atau berita.
-2. **Batas Panjang 2 Sampai 4 Kata**: Setiap sub-bab dibatasi maksimal 2 sampai 4 kata padat.
-3. **Larangan Preposisi dan Kata Sifat Kosong**:
-   - Dilarang kata depan/gerund pembuka: *Mengenai, Tentang, Pemanfaatan, Tinjauan Umum Tentang, Upaya, Analisis Mendalam Terkait*.
-   - Dilarang kata sifat hiperbolis: *Komprehensif, Krusial, Esensial, Revolusioner, Holistik*.
-   - Wajib langsung menunjuk nama konsep atau algoritma tunggal.
+### 1. Distribusi Empiris Panjang Judul Sub-Bab Bab 2 (Korpus FIK UPNVJ):
+- **1 Kata (19,1% - 740 judul)**: `Python`, `Streamlit`, `Flask`, `Softmax`, `Clustering`, `Malware`, `Website`, `Puskesmas`, `BERT`.
+- **2 Kata (33,2% - 1.282 judul)**: `Citra Digital`, `Data Mining`, `Deep Learning`, `Machine Learning`, `Random Forest`, `Tanaman Selada`, `Evaluasi Model`, `Confusion Matrix`, `Convolutional Layer`, `Pooling Layer`, `Batch Normalization`, `Penelitian Terdahulu`.
+- **Total 1 Sampai 2 Kata: 52,3% (Mayoritas Mutlak)**.
+- **3 Kata (15,3% - 590 judul)**: Hanya diizinkan untuk nama algoritma atau istilah resmi yang tidak dapat dipenggal (`Convolutional Neural Network`, `Support Vector Machine`, `Unified Modeling Language`).
 
-### Matriks Komparasi Penamaan Judul (Draf Rusak AI vs Standar Korpus UPNVJ):
+### 2. Empat Aturan Mutlak Penamaan Judul Sub-Bab:
+1. **Batas Baku 1 Sampai 2 Kata Entitas Murni**: Setiap judul sub-bab Bab 2 wajib berupa kata benda tunggal atau frasa nomina 1 sampai 2 kata.
+2. **Larangan Menggabungkan Dua Topik (`dan` / `&` / `/`)**: DILARANG KERAS menulis judul gabungan seperti `2.3 Arsitektur Model dan Fungsi Objektif` atau `2.2 Representasi Sinyal dan Prapemrosesan Citra`. Pecah menjadi sub-bab masing-masing 1-2 kata!
+3. **Larangan Preposisi dan Kata Sifat Kosong**: Dilarang menggunakan kata depan/gerund pembuka (*Mengenai, Tentang, Pemanfaatan, Tinjauan, Konsep, Landasan, Analisis, Eksplorasi*) dan kata sifat hiperbolis (*Komprehensif, Krusial, Esensial, Modern*).
+4. **Keterpaduan Langsung dengan Kalimat Pertama Paragraf**: Kata pada judul sub-bab 1-2 kata langsung menjadi subjek kalimat pertama pada paragraf di bawahnya (`"Citra digital merupakan..."`, `"Deep learning merupakan..."`, `"Random Forest merupakan..."`).
 
-| Posisi Naskah | Draf Rusak AI Slop (Ditolak) | Standar Dingin Baku Korpus UPNVJ (Disahkan) |
+### 3. Telemetri Fisik Paragraph Style Judul (`E:\SKRIPSI_UPNVJ_PDF`):
+- **Heading 1 (Judul Bab)**: 2 baris rata tengah (*Center*), `Times New Roman 12 pt / 14 pt Bold`, `BAB II` (baris 1) dan `TINJAUAN PUSTAKA` (baris 2), jarak ke sub-bab `2.1` sebesar `47.0 s/d 56.0 pt`.
+- **Heading 2 (Sub-Bab `2.1`, `2.2`)**: `Times New Roman 12 pt Bold` (istilah asing wajib ***Bold Italic***: **2.3 *Deep Learning***, **2.5 *Random Forest***, **2.7 *Confusion Matrix***). Menggunakan **Hanging Indent 36.0 pt (1,27 cm)**: nomor `2.1` di margin kiri `x = 113.4 pt`, sedangkan teks judul dimulai di `x = 149.4 pt` (sejajar vertikal sempurna dengan awal baris pertama paragraf di bawahnya).
+- **Heading 3 (Sub-Sub-Bab `2.4.1`, `2.4.2`)**: `Times New Roman 12 pt Bold` (*Bold Italic* untuk istilah asing: **2.4.1 *Convolutional Layer***, **2.4.2 *Pooling Layer***, **2.4.3 *Softmax***). Nomor `2.4.1` dimulai di `x = 148.6 s/d 149.4 pt` (`leftIndent = 36.0 pt`), sedangkan teks judul dimulai di `x = 184.6 s/d 185.4 pt` (`tabStop = 72.0 pt`).
+
+### Matriks Komparasi Penamaan Judul (Draf Rusak AI Slop vs Standar 1-2 Kata Korpus UPNVJ):
+
+| Posisi Naskah | Draf Rusak AI Slop (Ditolak Keras) | Standar Baku 1-2 Kata Korpus UPNVJ (Disahkan) |
 |---|---|---|
-| **Bab 2 (Konsep Inti 1)** | `2.1 Landasan Teoretis Mengenai Kecerdasan Buatan dan Arsitektur Konvolusi` | `2.1 Convolutional Neural Network` |
-| **Bab 2 (Karakteristik Masalah)** | `2.2 Dinamika Fluktuasi Harga Saham Perbankan dan Berbagai Permasalahannya` | `2.2 Karakteristik Deret Waktu Saham` |
-| **Bab 2 (Metode Usulan)** | `2.3 Eksplorasi Metode Dekomposisi Sinyal CEEMDAN Sebagai Solusi Prediksi` | `2.3 Dekomposisi CEEMDAN` |
-| **Bab 2 (Tinjauan Studi)** | `2.4 Sintesis Komprehensif Terhadap Berbagai Penelitian Terdahulu yang Relevan` | `2.4 Penelitian Terdahulu` |
-| **Bab 3 (Tahap Data)** | `3.2 Prosedur Menyeluruh Pengumpulan dan Pembersihan Data Katalog Kosmetik` | `3.2 Pengumpulan Data` |
-| **Bab 4 (Hasil Evaluasi)** | `4.2 Pembuktian Empiris Hasil Performa Akurasi dan Evaluasi Model` | `4.2 Evaluasi Performa` |
+| **Bab 2 (Objek Riset)** | `2.1 Tinjauan Komprehensif Mengenai Budidaya Tanaman Selada Hidroponik` | `2.1 Tanaman Selada` |
+| **Bab 2 (Representasi)** | `2.2 Representasi Sinyal Matematis dan Prapemrosesan Citra Digital` | `2.2 Citra Digital` |
+| **Bab 2 (Paradigma AI)** | `2.3 Konsep Dasar Pembelajaran Mendalam dalam Visi Komputer` | `2.3 *Deep Learning*` |
+| **Bab 2 (Lapisan Jaringan)** | `2.4.1 Mekanisme Ekstraksi Fitur pada Lapisan Konvolusi` | `2.4.1 *Convolutional Layer*` |
+| **Bab 2 (Fungsi Aktivasi)** | `2.4.3 Formulasi Matematis Fungsi Aktivasi Softmax dan Loss` | `2.4.3 *Softmax*` |
+| **Bab 2 (Bahasa & Alat)** | `2.6 Pemanfaatan Bahasa Pemrograman Python dalam Komputasi` | `2.6 Python` |
+| **Bab 2 (Metrik Uji)** | `2.7 Evaluasi Metrik Kuantitatif dan Pengujian Statistik` | `2.7 Evaluasi Model` / `2.7 *Confusion Matrix*` |
+| **Bab 2 (Tinjauan Studi)** | `2.8 Sintesis Komprehensif Terhadap Penelitian Terdahulu yang Relevan` | `2.8 Penelitian Terdahulu` |
 
 ---
 

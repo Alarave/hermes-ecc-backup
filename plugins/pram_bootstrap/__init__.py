@@ -37,7 +37,7 @@ ATURAN MUTLAK SEBELUM MERESPONS PENGGUNA:
    WAJIB panggil skill_view("spesialis-research-akademik") TERLEBIH DAHULU.
    STANDAR PENULISAN BAKU MUTLAK:
    - Format Geometri Fisik: A4 margin 4-4-3-3 cm, Times New Roman 12 pt, spasi 1.5, rata kiri-kanan (justified), indentasi awal paragraf 36 pt (1,27 cm).
-   - Penomoran: Bab Arab (1. PENDAHULUAN, 2. TINJAUAN PUSTAKA), sub-bab tanpa titik penutup (1.1 Latar Belakang, 2.1 Penelitian Terdahulu).
+   - Penomoran & Paragraph Style Judul Sub-Bab: Bab Arab/Romawi (1. PENDAHULUAN, 2. TINJAUAN PUSTAKA). Judul sub-bab Bab 2 WAJIB 1 sampai 2 kata benda entitas murni (contoh: 2.1 Tanaman Selada, 2.2 Citra Digital, 2.3 *Deep Learning*, 2.6 Python, 2.7 Evaluasi Model, 2.8 Penelitian Terdahulu), DILARANG frasa panjang AI slop atau penggabungan dua topik dengan kata 'dan'. Menggunakan hanging indent 36 pt (nomor di x=113.4 pt, teks judul di x=149.4 pt sejajar awal baris pertama paragraf) dan *Bold Italic* untuk istilah bahasa Inggris.
    - Sitasi Harvard Author-Date & Aturan First-Mention: 3-5 penulis wajib disebut lengkap pada pemunculan pertama ('Ramadhani, Dewanta, dan Gunawan (2026)'), baru pemunculan berikutnya 'dkk.'.
    - Bahasa Indonesia Baku: WAJIB 'dkk.', DILARANG 'et al.' atau tanda '&'.
    - Eliminasi AI Slop Kurung: DILARANG pola terjemahan ganda padanan_indonesia (*istilah_asing*). Pilih satu istilah teknis murni cetak miring (*deep learning*, *backbone*, *bounding box*).
@@ -226,7 +226,7 @@ DOMAIN_TAXONOMY = {
         "rules": (
             "- WAJIB panggil skill_view('spesialis-research-akademik') SEBELUM merespons.\n"
             "- STANDAR FORMAT BAKU MUTLAK: A4 margin 4-4-3-3 cm, Times New Roman 12 pt, 1.5 spasi, rata kiri-kanan (justified), indentasi awal paragraf 36 pt (1,27 cm).\n"
-            "- Penomoran: Bab Arab (1. PENDAHULUAN), sub-bab tanpa titik penutup (1.1 Latar Belakang).\n"
+            "- Penomoran & Paragraph Style Judul Sub-Bab: Bab Arab/Romawi (1. PENDAHULUAN, 2. TINJAUAN PUSTAKA). Judul sub-bab Bab 2 WAJIB 1 sampai 2 kata benda entitas murni (contoh: 2.1 Tanaman Selada, 2.2 Citra Digital, 2.3 *Deep Learning*, 2.6 Python, 2.7 Evaluasi Model, 2.8 Penelitian Terdahulu), DILARANG frasa panjang AI slop. Hanging indent 36 pt dan Bold Italic untuk istilah asing.\n"
             "- Sitasi Harvard First-Mention: 3-5 penulis wajib disebut lengkap pada pemunculan pertama ('Ramadhani, Dewanta, dan Gunawan (2026)'), baru pemunculan berikutnya 'dkk.'.\n"
             "- Eliminasi AI Slop Kurung: DILARANG pola terjemahan ganda padanan (*istilah asing*). Gunakan istilah murni cetak miring (*deep learning*, *backbone*).\n"
             "- Format Draf Siap Salin: Sajikan draf naskah dalam blok kode plaintext bersih (```text) agar siap disalin langsung ke Word atau Google Docs tanpa kerusakan format."
