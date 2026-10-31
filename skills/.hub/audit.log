@@ -12,3 +12,6 @@
 2026-10-21T16:36:46Z INSTALL best-practices skills.sh:community safe sha256:2e7099c7a914cff4
 2026-10-21T16:37:00Z INSTALL deploy-to-vercel skills.sh:community safe sha256:a5210a5fa08557ee
 2026-10-21T16:47:12Z INSTALL semantic-scholar skills.sh:community safe sha256:f0e09a2cd46cbace
+2026-10-31T04:41:51Z INSTALL create-slack-agents browse-sh:community safe sha256:d26882ffd75611ce
+2026-10-31T04:41:58Z INSTALL deploy-to-vercel skills.sh:community safe sha256:2d7b73ffe7970f16
+2026-10-31T04:42:00Z INSTALL semantic-scholar skills.sh:community safe sha256:8cc11e24e686f21e

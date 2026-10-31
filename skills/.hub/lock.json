@@ -6,7 +6,7 @@
       "identifier": "browse-sh/valet.dev/create-slack-agents-52xlt6",
       "trust_level": "community",
       "scan_verdict": "safe",
-      "content_hash": "sha256:2be2b77f83478697",
+      "content_hash": "sha256:d26882ffd75611ce",
       "install_path": "create-slack-agents",
       "files": [
         "SKILL.md"
@@ -18,8 +18,8 @@
         "skill_md_url": "https://gh0lfhlmyzhg6tww.public.blob.vercel-storage.com/skills/valet.dev/create-slack-agents-52xlt6/SKILL.md"
       },
       "scan_provenance": {
-        "bundle_hash": "sha256:2be2b77f83478697ffb529a141b485f6e701e2bcd257e7feb77c8b8885f5f944",
-        "scanner_version": "skills-guard-v5",
+        "bundle_hash": "sha256:d26882ffd75611ced43a93f66c2f5ed75461b13c7efb509a817eeb5de9c47ecc",
+        "scanner_version": "skills-guard-v10",
         "source": "browse-sh/valet.dev/create-slack-agents-52xlt6",
         "source_url": "https://github.com/browserbase/browse.sh/blob/main/skills/valet.dev/create-slack-agents-52xlt6/SKILL.md",
         "verdict": "safe",
@@ -56,12 +56,12 @@
         "rules": [
           "agent_config_ref"
         ],
-        "scanned_at": "2026-09-25T01:36:27.552717+00:00",
+        "scanned_at": "2026-10-31T04:41:51.783004+00:00",
         "summary": "create-slack-agents: safe — 3 finding(s) in persistence",
-        "fresh": false
+        "fresh": true
       },
-      "installed_at": "2026-09-25T01:42:17.236435+00:00",
-      "updated_at": "2026-09-25T01:42:17.236435+00:00"
+      "installed_at": "2026-10-31T04:41:51.867267+00:00",
+      "updated_at": "2026-10-31T04:41:51.867267+00:00"
     },
     "agent-merge-conflict-arbiter": {
       "source": "official",
@@ -445,23 +445,22 @@
       "identifier": "skills-sh/vercel-labs/agent-skills/deploy-to-vercel",
       "trust_level": "community",
       "scan_verdict": "safe",
-      "content_hash": "sha256:a5210a5fa08557ee",
+      "content_hash": "sha256:2d7b73ffe7970f16",
       "install_path": "deploy-to-vercel",
       "files": [
-        "SKILL.md",
-        "Archive.zip",
-        "resources/deploy-codex.sh",
-        "resources/deploy.sh"
+        "SKILL.md"
       ],
       "metadata": {
-        "source_url": "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/deploy-to-vercel",
-        "source_revision": "063bee94c3f4df8453406c830b0a7df0f2860278"
+        "source_url": "https://github.com/vercel-labs/agent-skills/tree/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/deploy-to-vercel",
+        "source_revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+        "detail_url": "https://skills.sh/vercel-labs/agent-skills/deploy-to-vercel",
+        "repo_url": "https://github.com/vercel-labs/agent-skills"
       },
       "scan_provenance": {
-        "bundle_hash": "sha256:a5210a5fa08557ee5c00b247fd481e0769ca6254ba1a4d3a67a2a436c935d791",
+        "bundle_hash": "sha256:2d7b73ffe7970f160868589ba31174bc8364e6f26c29580bb9641efc056574be",
         "scanner_version": "skills-guard-v10",
         "source": "skills-sh/vercel-labs/agent-skills/deploy-to-vercel",
-        "source_url": "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/deploy-to-vercel",
+        "source_url": "https://github.com/vercel-labs/agent-skills/tree/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/deploy-to-vercel",
         "verdict": "safe",
         "trust_level": "community",
         "findings": [
@@ -478,32 +477,34 @@
         "rules": [
           "unpinned_npm_install"
         ],
-        "scanned_at": "2026-10-21T16:37:00.241882+00:00",
+        "scanned_at": "2026-10-31T04:41:58.208476+00:00",
         "summary": "deploy-to-vercel: safe — 1 finding(s) in supply_chain",
         "fresh": true
       },
-      "installed_at": "2026-10-21T16:37:00.267968+00:00",
-      "updated_at": "2026-10-21T16:37:00.267968+00:00"
+      "installed_at": "2026-10-31T04:41:58.231127+00:00",
+      "updated_at": "2026-10-31T04:41:58.231127+00:00"
     },
     "semantic-scholar": {
       "source": "skills.sh",
       "identifier": "skills-sh/wanshuiyin/auto-claude-code-research-in-sleep/semantic-scholar",
       "trust_level": "community",
       "scan_verdict": "safe",
-      "content_hash": "sha256:f0e09a2cd46cbace",
+      "content_hash": "sha256:8cc11e24e686f21e",
       "install_path": "semantic-scholar",
       "files": [
         "SKILL.md"
       ],
       "metadata": {
-        "source_url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep/tree/6564cab43dd9df3dbab85e459af0202ff0830a35/skills/skills-codex/semantic-scholar",
-        "source_revision": "6564cab43dd9df3dbab85e459af0202ff0830a35"
+        "source_url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep/tree/9a4f093dcf6fd7cd37ac2f2e79e9a0a7af05a492/skills/semantic-scholar",
+        "source_revision": "9a4f093dcf6fd7cd37ac2f2e79e9a0a7af05a492",
+        "detail_url": "https://skills.sh/wanshuiyin/auto-claude-code-research-in-sleep/semantic-scholar",
+        "repo_url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep"
       },
       "scan_provenance": {
-        "bundle_hash": "sha256:f0e09a2cd46cbace1a765cc708dec8063fa48686f3d55a6842274fdd18caa245",
+        "bundle_hash": "sha256:8cc11e24e686f21ec6c5ed7c82355f14d4c077d31ca94df30f7952bf7d07985a",
         "scanner_version": "skills-guard-v10",
         "source": "skills-sh/wanshuiyin/auto-claude-code-research-in-sleep/semantic-scholar",
-        "source_url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep/tree/6564cab43dd9df3dbab85e459af0202ff0830a35/skills/skills-codex/semantic-scholar",
+        "source_url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep/tree/9a4f093dcf6fd7cd37ac2f2e79e9a0a7af05a492/skills/semantic-scholar",
         "verdict": "safe",
         "trust_level": "community",
         "findings": [
@@ -520,12 +521,12 @@
         "rules": [
           "allowed_tools_field"
         ],
-        "scanned_at": "2026-10-21T16:47:12.316185+00:00",
+        "scanned_at": "2026-10-31T04:42:00.908095+00:00",
         "summary": "semantic-scholar: safe — 1 finding(s) in privilege_escalation",
         "fresh": true
       },
-      "installed_at": "2026-10-21T16:47:12.352883+00:00",
-      "updated_at": "2026-10-21T16:47:12.352883+00:00"
+      "installed_at": "2026-10-31T04:42:00.945273+00:00",
+      "updated_at": "2026-10-31T04:42:00.945273+00:00"
     }
   }
 }

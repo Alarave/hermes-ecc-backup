@@ -1,16 +1,6 @@
 ---
 name: semantic-scholar
-description: "[omh] Search published venue papers (IEEE, ACM, Springer) via Semantic Scholar API with citation counts and venue info. Use when the user says: semantic-scholar, semantic scholar, search published papers, ieee paper search."
-license: MIT
-author: "oh-my-hermes maintainers"
-metadata:
-  hermes:
-    tags: [workflow, oh-my-hermes, research, papers, semantic-scholar, citations, academic]
-    category: research-academic
-    phase: literature-search
-    role: researcher
-    quality_tier: evidence-gated
-    related_skills: [scholarly-publishing, deep-research, spesialis-research-akademik]
+description: Search published venue papers (IEEE, ACM, Springer, etc.) via Semantic Scholar API. Complements /arxiv (preprints) with citation counts, venue metadata, and TLDR. Use when user says "search semantic scholar", "find IEEE papers", "find journal papers", "venue papers", "citation search", or wants published literature beyond arXiv preprints.
 argument-hint: "query-or-paper-id"
 allowed-tools: Bash(*), Read, Write
 ---
@@ -28,28 +18,29 @@ This skill is the **published venue** counterpart to `/arxiv`:
 | `/arxiv` | arXiv API | Latest preprints, cutting-edge unrefereed work |
 | `/semantic-scholar` | Semantic Scholar API | **Published** journal/conference papers (IEEE, ACM, Springer, etc.) with citation counts, venue info, TLDR |
 
-**Do NOT duplicate arXiv's job.** If results contain an `externalIds.ArXiv` field, the paper is also on arXiv: note this but do not re-fetch from arXiv.
+**Do NOT duplicate arXiv's job.** If results contain an `externalIds.ArXiv` field, the paper is also on arXiv — note this but do not re-fetch from arXiv.
 
 ## Constants
 
-- **MAX_RESULTS = 10**: Default number of search results.
-- **S2_FETCHER**: canonical name `semantic_scholar_fetch.py`, resolved per
-  the shared integration contract §2
-  (Codex-side chain: `$ARIS_REPO/tools/` → `tools/` → `~/.codex/skills/semantic-scholar/`).
-  Policy D1: if unresolved (canonical chain exhausted), fall back to inline Python.
-- **DEFAULT_FILTERS**: For general research queries, apply these by default to reduce noise:
+- **MAX_RESULTS = 10** — Default number of search results.
+- **S2_FETCHER** — canonical name `semantic_scholar_fetch.py`, resolved per
+  [`shared-references/integration-contract.md`](../shared-references/integration-contract.md) §2
+  (Policy D1 — primary + fallback cascade). If unresolved (canonical
+  chain exhausted), fall back to the inline Python alternative
+  documented in Step 2.
+- **DEFAULT_FILTERS** — For general research queries, apply these by default to reduce noise:
   - `--fields-of-study "Computer Science,Engineering"`
   - `--publication-types JournalArticle,Conference`
 
 > Overrides (append to arguments):
-> - `/semantic-scholar "topic" - max: 20`: return up to 20 results
-> - `/semantic-scholar "topic" - type: journal`: only journal articles
-> - `/semantic-scholar "topic" - type: conference`: only conference papers
-> - `/semantic-scholar "topic" - min-citations: 50`: only highly-cited papers
-> - `/semantic-scholar "topic" - year: 2022-`: papers from 2022 onward
-> - `/semantic-scholar "topic" - fields: all`: remove default field-of-study filter
-> - `/semantic-scholar "topic" - sort: citations`: bulk search sorted by citation count
-> - `/semantic-scholar "DOI:10.1109/..."`: fetch a single paper by DOI
+> - `/semantic-scholar "topic" - max: 20` — return up to 20 results
+> - `/semantic-scholar "topic" - type: journal` — only journal articles
+> - `/semantic-scholar "topic" - type: conference` — only conference papers
+> - `/semantic-scholar "topic" - min-citations: 50` — only highly-cited papers
+> - `/semantic-scholar "topic" - year: 2022-` — papers from 2022 onward
+> - `/semantic-scholar "topic" - fields: all` — remove default field-of-study filter
+> - `/semantic-scholar "topic" - sort: citations` — bulk search sorted by citation count
+> - `/semantic-scholar "DOI:10.1109/..."` — fetch a single paper by DOI
 
 ## Workflow
 
@@ -73,23 +64,27 @@ If the argument matches a DOI pattern (`10.XXXX/...`), a Semantic Scholar ID (40
 
 ### Step 2: Search Papers
 
-Resolve `$S2_FETCHER` via the canonical strict-safe Codex chain
-(see the shared integration contract §2):
+Resolve `$S2_FETCHER` via the canonical strict-safe chain (see
+[`shared-references/integration-contract.md`](../shared-references/integration-contract.md) §2):
 
 ```bash
-if [ -z "${ARIS_REPO:-}" ] && [ -f .aris/installed-skills-codex.txt ]; then
-    ARIS_REPO=$(awk -F'\t' '$1=="repo_root"{print $2; exit}' .aris/installed-skills-codex.txt 2>/dev/null) || true
+cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)" || exit 1
+if [ -z "${ARIS_REPO:-}" ] && [ -f .aris/installed-skills.txt ]; then
+    ARIS_REPO=$(awk -F'\t' '$1=="repo_root"{print $2; exit}' .aris/installed-skills.txt 2>/dev/null) || true
 fi
-S2_FETCHER=""
-[ -n "${ARIS_REPO:-}" ] && [ -f "$ARIS_REPO/tools/semantic_scholar_fetch.py" ] && S2_FETCHER="$ARIS_REPO/tools/semantic_scholar_fetch.py"
-[ -z "$S2_FETCHER" ] && [ -f tools/semantic_scholar_fetch.py ] && S2_FETCHER="tools/semantic_scholar_fetch.py"
-[ -z "$S2_FETCHER" ] && [ -f ~/.codex/skills/semantic-scholar/semantic_scholar_fetch.py ] && S2_FETCHER="$HOME/.codex/skills/semantic-scholar/semantic_scholar_fetch.py"
+if [ -z "${ARIS_REPO:-}" ] && [ -f "$HOME/.aris/repo" ]; then
+    ARIS_REPO=$(cat "$HOME/.aris/repo" 2>/dev/null) || true
+fi
+S2_FETCHER=".aris/tools/semantic_scholar_fetch.py"
+[ -f "$S2_FETCHER" ] || S2_FETCHER="tools/semantic_scholar_fetch.py"
+[ -f "$S2_FETCHER" ] || { [ -n "${ARIS_REPO:-}" ] && S2_FETCHER="$ARIS_REPO/tools/semantic_scholar_fetch.py"; }
+[ -f "$S2_FETCHER" ] || S2_FETCHER=""
 ```
 
-**Standard search** (default: relevance-ranked):
+**Standard search** (default — relevance-ranked):
 
 ```bash
-[ -n "$S2_FETCHER" ] && python3 "$S2_FETCHER" search "QUERY" --max MAX_RESULTS \
+python3 "$S2_FETCHER" search "QUERY" --max MAX_RESULTS \
   --fields-of-study "Computer Science,Engineering" \
   --publication-types JournalArticle,Conference
 ```
@@ -97,13 +92,13 @@ S2_FETCHER=""
 **Bulk search** (when `- sort:` is specified, or MAX_RESULTS > 100):
 
 ```bash
-[ -n "$S2_FETCHER" ] && python3 "$S2_FETCHER" search-bulk "QUERY" --max MAX_RESULTS \
+python3 "$S2_FETCHER" search-bulk "QUERY" --max MAX_RESULTS \
   --sort citationCount:desc \
   --fields-of-study "Computer Science" \
   --year "2020-"
 ```
 
-If `semantic_scholar_fetch.py` is not found, fall back to inline Python using `urllib` against `https://api.semanticscholar.org/graph/v1/paper/search`.
+If `$S2_FETCHER` is empty (Policy D1 cascade), fall back to inline Python using `urllib` against `https://api.semanticscholar.org/graph/v1/paper/search`.
 
 **Recommended filter combos** (from testing):
 
@@ -114,14 +109,14 @@ If `semantic_scholar_fetch.py` is not found, fall back to inline Python using `u
 | Foundational / high-impact | `search-bulk --sort citationCount:desc --fields-of-study "Computer Science"` |
 | Conference papers only | `--publication-types Conference` |
 
-> **Note**: `--venue` requires exact venue names (e.g. "IEEE Transactions on Signal Processing"), not partial matches like "IEEE". Avoid using `--venue` in automated flows: prefer `--publication-types` + `--fields-of-study`.
+> **Note**: `--venue` requires exact venue names (e.g. "IEEE Transactions on Signal Processing"), not partial matches like "IEEE". Avoid using `--venue` in automated flows — prefer `--publication-types` + `--fields-of-study`.
 
 ### Step 3: Fetch Details for a Specific Paper
 
 When a single paper ID is requested:
 
 ```bash
-[ -n "$S2_FETCHER" ] && python3 "$S2_FETCHER" paper "PAPER_ID"
+python3 "$S2_FETCHER" paper "PAPER_ID"
 ```
 
 Where PAPER_ID can be:
@@ -173,30 +168,42 @@ For each paper (or top 5 if many results):
 ### Step 7: Update Research Wiki (if active)
 
 **Required when `research-wiki/` exists in the project**; skip silently
-otherwise. Ingest the papers presented to the user. For results with an
-`externalIds.ArXiv` field, use `--arxiv-id`; for venue-only papers (no
-arXiv mirror: common for IEEE/ACM), fall back to manual metadata:
+otherwise. When the wiki dir exists, resolve `$WIKI_SCRIPT` per the
+canonical chain at
+[`shared-references/wiki-helper-resolution.md`](../shared-references/wiki-helper-resolution.md)
+(Variant B — warn-and-skip). For results with an `externalIds.ArXiv`
+field, use `--arxiv-id`; for venue-only papers (no arXiv mirror —
+common for IEEE/ACM), fall back to manual metadata:
 
-```
-if [ -d research-wiki/ ]:
+```bash
+if [ -d research-wiki/ ]; then
+  cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)" || exit 1
+  ARIS_REPO="${ARIS_REPO:-$(awk -F'\t' '$1=="repo_root"{print $2; exit}' .aris/installed-skills.txt 2>/dev/null)}"
+  if [ -z "${ARIS_REPO:-}" ] && [ -f "$HOME/.aris/repo" ]; then
+    ARIS_REPO=$(cat "$HOME/.aris/repo" 2>/dev/null) || true
+  fi
+  WIKI_SCRIPT=".aris/tools/research_wiki.py"
+  [ -f "$WIKI_SCRIPT" ] || WIKI_SCRIPT="tools/research_wiki.py"
+  [ -f "$WIKI_SCRIPT" ] || { [ -n "${ARIS_REPO:-}" ] && WIKI_SCRIPT="$ARIS_REPO/tools/research_wiki.py"; }
+  [ -f "$WIKI_SCRIPT" ] || {
+    echo "WARN: research_wiki.py not found; semantic-scholar results delivered, wiki ingest skipped. Fix: bash tools/install_aris.sh or smart_update.sh (refreshes ~/.aris/repo), export ARIS_REPO, or cp <ARIS-repo>/tools/research_wiki.py tools/." >&2
     WIKI_SCRIPT=""
-    [ -n "$ARIS_REPO" ] && [ -f "$ARIS_REPO/tools/research_wiki.py" ] && WIKI_SCRIPT="$ARIS_REPO/tools/research_wiki.py"
-    [ -z "$WIKI_SCRIPT" ] && [ -f tools/research_wiki.py ] && WIKI_SCRIPT="tools/research_wiki.py"
-    [ -z "$WIKI_SCRIPT" ] && [ -f ~/.codex/skills/research-wiki/research_wiki.py ] && WIKI_SCRIPT="$HOME/.codex/skills/research-wiki/research_wiki.py"
-    for each paper in results:
+  }
+  [ -n "$WIKI_SCRIPT" ] && for each paper in results:
         if paper.externalIds.ArXiv:
-            [ -n "$WIKI_SCRIPT" ] && python3 "$WIKI_SCRIPT" ingest_paper research-wiki/ \
+            python3 "$WIKI_SCRIPT" ingest_paper research-wiki/ \
                 --arxiv-id "<ArXiv>"
         else:
-            [ -n "$WIKI_SCRIPT" ] && python3 "$WIKI_SCRIPT" ingest_paper research-wiki/ \
+            python3 "$WIKI_SCRIPT" ingest_paper research-wiki/ \
                 --title "<title>" --authors "<authors joined by , >" \
                 --year <year> --venue "<venue>" \
                 [--external-id-doi "<externalIds.DOI>"]
+fi
 ```
 
-The helper handles slug / dedup / page / index / log: **do not
+The helper handles slug / dedup / page / index / log — **do not
 handwrite `papers/<slug>.md`**. See
-the shared integration contract.
+[`shared-references/integration-contract.md`](../shared-references/integration-contract.md).
 Backfill with `/research-wiki sync --arxiv-ids <id1>,<id2>,...` for
 arXiv-available papers.
 
@@ -221,7 +228,7 @@ Suggest follow-up skills:
 
 - **Default to filtered search**: Always apply `--fields-of-study` and `--publication-types` unless user says `- fields: all`. Without filters, S2 returns cross-discipline noise (linguistics, psychology, etc.).
 - **Citation count is gold**: S2's citation data is its main advantage over arXiv. Always show `citationCount` prominently and use it to rank/prioritize results.
-- **Venue metadata matters**: Show `venue` and `publicationVenue.type` (journal vs conference): this helps users assess paper quality.
+- **Venue metadata matters**: Show `venue` and `publicationVenue.type` (journal vs conference) — this helps users assess paper quality.
 - **DOI is the canonical ID for published papers**: Always show DOI links for IEEE/ACM/Springer papers.
 - **Rate limiting**: S2 API without key is heavily rate-limited (~1 req/s, strict cooldown). If HTTP 429 occurs, wait and retry. Recommend users set `SEMANTIC_SCHOLAR_API_KEY` env var for higher limits (free at https://www.semanticscholar.org/product/api#api-key-form).
 - **TLDR may be null**: Some publishers (notably IEEE) elide the TLDR field. Fall back to showing the first sentence of the abstract.

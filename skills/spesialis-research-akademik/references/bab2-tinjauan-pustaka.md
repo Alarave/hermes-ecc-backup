@@ -9,21 +9,46 @@
 - **Kredibilitas & Kebaruan (Recency)**: 
   - Wajib rujukan 5 tahun terakhir untuk teknologi/metode, kecuali *Grand Theory* fundamental.
   - HANYA mengutip jurnal/prosiding *Peer-Reviewed* atau buku teks resmi. **DILARANG KERAS** mengutip Wikipedia, Blog, atau portal berita untuk konsep sains.
-- **Hierarki Deduktif (Umum ke Khusus)**: Susun sub-bab dari *Grand Theory* (Topik Makro) $\rightarrow$ Variabel Terikat (Y) $\rightarrow$ Variabel Bebas/Teknis (X).
+- **Hierarki Deduktif (Umum ke Khusus)**: Susun sub-bab dari *Grand Theory* (Topik Makro) $
+ightarrow$ Variabel Terikat (Y) $
+ightarrow$ Variabel Bebas/Teknis (X).
 - **Aturan Anti-Padding (Relevansi Mutlak)**: Hanya masukkan teori yang benar-benar akan digunakan sebagai pisau analisis atau diimplementasikan di Bab 3 (Metodologi). Buang teori *filler* yang menebalkan halaman tanpa makna.
+- **Eliminasi AI Slop & Prinsip Seleksi Tunggal (Single-Term Selection)**:
+  - DILARANG KERAS menjejerkan istilah ganda yang maknanya sama, baik dengan tanda kurung maupun tanpa tanda kurung (contoh salah AI slop: *kelapa sawit Elaeis guineensis*, *kotak pembatas bounding box*, *tulang punggung backbone*, *buah kecil spikelet*, *lapisan penyatuan pooling layer*).
+  - Pilih satu istilah secara tegas: gunakan istilah baku universal komputer/AI dalam cetak miring (*bounding box*, *backbone*, *pooling*, *feature map*, *stride*, *padding*, *receptive field*, *deep learning*) ATAU padanan bahasa Indonesia murni tanpa embel-embel padanan asing.
+  - Jangan menyandingkan nama ilmiah Latin jika nama komoditas/objeknya sudah baku di Indonesia (cukup tulis 'kelapa sawit', bukan 'kelapa sawit Elaeis guineensis').
+- **Aturan Hemat Tanda Kurung (Parenthesis Economy)**:
+  - Tanda kurung HANYA sah untuk:
+    1. Tahun sitasi: `(2026)` atau `(Ramadhani dkk., 2026)`.
+    2. Singkatan akronim saat pertama kali didefinisikan: `Tandan Buah Segar (TBS)`.
+    3. Nomor persamaan matematika: `Persamaan (2.1)`.
+    4. Nilai persentase/kadar atau koordinat: `(di atas 20%)` atau $[x_c, y_c, w, h]$.
+  - Dilarang membubuhkan terjemahan bahasa Inggris di dalam kurung pada nama fraksi atau istilah umum (tulis lugas: Mentah, Kurang Masak, Masak, Terlalu Masak; BUKAN Mentah (*Unripe*), Masak (*Ripe*)).
 - **Definisi Konseptual (Sintesis)**: Dilarang terkena *Dictionary Syndrome* (menjejerkan "Menurut A...", "Menurut B..."). Wajib merajut 3 pandangan ahli menjadi **1 paragraf sintesis** kesimpulan mandiri.
 - **Rumus Matematika & Gambar**:
-  - Rumus wajib diformat LaTeX Math (`$$...$$`) lalu diikuti **Tabel Dekomposisi Variabel** (simbol, arti, dan satuan SI).
+  - Rumus wajib diformat LaTeX Math (`$$...$$`) lalu diikuti **Tabel Dekomposisi Variabel** (simbol, arti/deskripsi variabel, dan satuan SI/rentang nilai).
+  - Pada riset deteksi objek visi komputer komparatif, wajib menyertakan penurunan matematis fungsi kerugian multi-tugas: RPN Loss dan Fast R-CNN Loss (Smooth L1) untuk model *two-stage*, serta agregasi BCE Loss, Bounding Box Regression Loss (CIoU), dan Distribution Focal Loss (DFL) untuk model *one-stage anchor-free*.
   - Gambar wajib menggunakan format `![Caption Gambar](URL)` dilengkapi dengan kunci sitasi sumber aslinya `[@citekey]`.
 - **Teori Usang**: Jika terpaksa membahas teori lama yang sudah dibantah, sertakan `> [!warning] Outdated Theory` dan bedah kelemahannya berdasarkan literatur modern.
 
 ### 2. Penelitian Terdahulu (State-of-the-Art / SOTA)
 - **Jumlah**: Bedah secara komprehensif **5 hingga 10 paper** utama (paling relevan).
 - **Empat Pilar Narasi**: Setiap paper yang dibahas harus mencakup: (1) Penulis & Tahun, (2) Masalah Riset, (3) Metode/Algoritma, dan (4) Hasil Temuan & Keterbatasannya.
-- **Matriks SOTA (Wajib)**: Setelah narasi paragraf, WAJIB merangkumnya ke dalam tabel **Matriks Komparasi Penelitian Terdahulu**.
-- **Kolom Krusial**: Tabel Matriks WAJIB memiliki kolom **"Perbedaan / Posisi Penelitian Ini"** untuk membuktikan *Novelty* (Pembaruan) skripsi Anda secara *apple-to-apple*.
+- **Aturan First-Mention Sitasi Dalam Teks**:
+  - *Penyebutan Pertama Kali (First-Mention)*: Untuk karya 3 hingga 5 penulis, WAJIB menyebutkan seluruh nama belakang penulis secara lengkap dihubungkan dengan kata 'dan' (misal: "Ramadhani, Dewanta, dan Gunawan (2026)"). Dilarang langsung memotong menjadi singkatan pada pemunculan pertama.
+  - *Penyebutan Berikutnya*: Cukup nama pertama diikuti singkatan "dkk." (misal: "Ramadhani dkk. (2026)").
+  - *Standarisasi Naskah Indonesia*: Gunakan singkatan resmi "dkk." (bukan "et al.") dan kata hubung "dan" (bukan "&" di narasi). Istilah "et al." hanya untuk naskah bertaraf internasional berbahasa Inggris penuh.
+- **Integritas Fakta Empiris (Zero Hallucination Gate)**:
+  - Seluruh angka capaian kuantitatif (mAP, akurasi, FPS, ukuran bobot, jumlah sampel dataset) WAJIB diverifikasi langsung dari publikasi primer/asli. Dilarang mengarang angka metrik atau menyimpulkan dari memori tanpa bukti teks paper.
+- **Format Judul Tabel Baku (Standar UPNVJ & Gunadarma)**:
+  - Format judul tabel: `Tabel X.Y Judul Tabel` (contoh: `Tabel 2.1 Dekomposisi Variabel Faster R-CNN`, `Tabel 2.3 Penelitian Terdahulu`).
+  - DILARANG memberi titik setelah nomor sub-bab (BUKAN `Tabel 2.3.` atau `Tabel 2.3. Matriks...`).
+  - DILARANG membubuhkan tanda kurung istilah asing pada judul tabel (BUKAN `Tabel 2.3 Matriks Perbandingan Penelitian Terdahulu (State-of-the-Art)`). Judul wajib singkat, padat, dan bermartabat dalam bahasa Indonesia baku.
+- **Matriks SOTA (Wajib)**: Setelah narasi paragraf, WAJIB merangkumnya ke dalam tabel **Tabel X.Y Penelitian Terdahulu**.
+- **Kolom Standar Matriks**:
+  Tabel wajib memuat 6 kolom terstruktur: `Penulis dan Tahun`, `Tautan Artikel` (DOI/arXiv/URL resmi), `Latar Belakang Masalah`, `Hasil Capaian Kuantitatif`, `Kesimpulan Studi`, dan `Relevansi Terhadap Penelitian Ini` (menegaskan posisi penelitian Anda).
 - **Tautan Langsung & Verifikasi DOI Terbuka**: Nama peneliti dalam tabel matriks SOTA wajib diberi hyperlink aktif ke sumber dokumen. Di bagian bawah tabel, sediakan blok rujukan bernomor lengkap dengan tautan DOI resmi (`https://doi.org/...`) atau arsip repositori/arXiv (`https://arxiv.org/abs/...`).
-- **Aturan Validasi DOI**: Wajib memvalidasi nomor DOI ke Crossref API (`https://api.crossref.org/works/...`) atau arsip penerbit sebelum menuliskannya ke naskah skripsi. Ketidaksesuaian digit sufiks DOI (misal salah nomor paper pada prosiding konferensi yang sama) mengarahkan pembaca/penguji ke artikel yang keliru dan merusak kredibilitas akademik saat sidang.
+- **Aturan Validasi DOI**: Wajib memvalidasi nomor DOI ke Crossref API (`https://api.crossref.org/works/...`) atau arsip penerbit sebelum menuliskannya ke naskah skripsi. Ketidaksesuaian digit sufiks DOI mengarahkan pembaca/penguji ke artikel yang keliru dan merusak kredibilitas akademik saat sidang.
 - **Penutup**: Akhiri sub-bab ini dengan **Paragraf Sintesis Research Gap** (Benang merah yang menegaskan kelemahan kolektif paper sebelumnya dan justifikasi solusi Anda).
 
 ### 3. Kerangka Pemikiran & Hipotesis
@@ -83,13 +108,13 @@ Selanjutnya, [@penulisB2023] membuktikan bahwa penambahan modul *Attention* dapa
 
 [Lanjutkan hingga 5-10 paper utama...]
 
-**Tabel 2.2 Matriks Komparasi Penelitian Terdahulu (State-of-the-Art)**
+**Tabel 2.2 Penelitian Terdahulu**
 
-| Peneliti (Tahun) | Tujuan / Fokus Masalah | Metode / Algoritma | Hasil & Keterbatasan | Perbedaan / Posisi Penelitian Ini |
-|:---|:---|:---|:---|:---|
-| PenulisA (2022) | Deteksi wajah cepat di *edge* | MobileNetV3 | Cepat (92% acc), tapi gagal di kondisi gelap | Menerapkan *Hybrid-Attention* untuk mengatasi gelap |
-| PenulisB (2023) | Optimasi akurasi pencahayaan | CNN + Attention | Sangat akurat di gelap, tapi butuh VRAM 16GB | Fokus pada kompresi parameter agar bisa jalan di VRAM 4GB |
-| **Penelitian Ini** | Deteksi cepat & akurat di kondisi gelap pada *edge* | Hybrid-Attention MobileNet | *(Sedang diteliti)* | **Menggabungkan efisiensi parameter MobileNet dengan akurasi modul Attention di pencahayaan minim** |
+| Penulis dan Tahun | Tautan Artikel | Latar Belakang Masalah | Hasil Capaian Kuantitatif | Kesimpulan Studi | Relevansi Terhadap Penelitian Ini |
+|:---|:---|:---|:---|:---|:---|
+| PenulisA dkk. (2022) | [DOI / URL] | Deteksi wajah cepat di perangkat bergerak | Akurasi mencapai 92,00% pada 30 FPS | Arsitektur efisien namun akurasi menurun pada pencahayaan minim | Menjadi pembanding model ringan; penelitian ini menambahkan modul robust terhadap iluminasi |
+| PenulisB dan PenulisC (2023) | [DOI / URL] | Optimasi akurasi pada variasi pencahayaan | Akurasi mencapai 95,50% namun membutuhkan memori besar | Modul attention efektif meningkatkan akurasi namun beban VRAM tinggi | Mengadopsi mekanisme attention teroptimasi agar tetap efisien di GPU komputasi terbatas |
+| **Penelitian Ini** | - | Evaluasi komparatif model deteksi objek pada kondisi pencahayaan dinamis | Target mAP > 85,00% dengan inferensi real-time | Komparasi empiris terkontrol dengan partisi data anti-bocor | **Fokus menguji komparasi langsung dua tahap vs satu tahap dengan dataset representatif** |
 
 Berdasarkan komparasi pada Tabel 2.2, *research gap* yang belum terselesaikan oleh literatur saat ini adalah absennya arsitektur yang ringan secara komputasi namun tangguh terhadap variasi pencahayaan ekstrem. Oleh karena itu, penelitian ini diposisikan untuk mengisi celah tersebut dengan mengusulkan arsitektur hibrida.
 

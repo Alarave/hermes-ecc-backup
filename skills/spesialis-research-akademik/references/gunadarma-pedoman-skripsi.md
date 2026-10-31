@@ -5,20 +5,24 @@
 
 ## 1. Aturan Format Fisik & Tata Letak Halaman (Margin 4-4-3-3)
 
-- **Ukuran Kertas**: A4 (210 x 297 mm), 80 gram, warna putih.
-- **Batas Tepi (Margins)**:
-  - Tepi Atas (*Top*): **4 cm**
-  - Tepi Kiri (*Left*): **4 cm**
-  - Tepi Bawah (*Bottom*): **3 cm**
-  - Tepi Kanan (*Right*): **3 cm**
+- **Ukuran Kertas**: A4 (210 x 297 mm), 80 gram putih (dimensi presisi: 595.32 pt x 841.92 pt).
+- **Batas Tepi (Margins Presisi Hasil Verifikasi Dokumen Asli)**:
+  - Tepi Atas (*Top*): **4,02 cm** (114.0 pt)
+  - Tepi Kiri (*Left*): **4,00 cm** (113.4 pt)
+  - Tepi Bawah (*Bottom*): **3,00 cm** (85.0 pt)
+  - Tepi Kanan (*Right*): **2,90 s/d 3,00 cm** (82.0 s/d 85.0 pt)
+  - Lebar Bidang Teks Efektif: **14,1 cm** (399.8 pt, rentang x = 113.4 pt s/d x = 513.2 pt).
 - **Tipografi & Spasi**:
-  - Jenis Huruf: **Times New Roman**
+  - Jenis Huruf: **Times New Roman** monolitik (didukung Cambria Math untuk rumus). Dilarang mencampur font sans-serif lain di tengah teks.
   - Ukuran Teks Utama: **12 pt**
-  - Spasi Antar-baris: **1.5 spasi**
-  - Indentasi Paragraf Baru: **1 cm** (atau 5-7 ketukan karakter) dari margin kiri.
-  - Perataan Teks: Rata Kiri-Kanan (*Justify*).
-  - Judul Bab: Huruf kapital, tebal (*Bold*), ukuran 14 pt, rata tengah.
-  - Sub-bab: Huruf tebal (*Bold*), ukuran 12 pt, rata kiri.
+  - Spasi Antar-baris: **1.5 spasi** (jarak vertikal dy = 20.7 pt pada font 12 pt).
+  - Indentasi Paragraf Baru: **36.0 pt (0,5 inci / 1,27 cm)** dari margin kiri (baris pertama mulai di x = 149.4 pt, baris berikutnya kembali ke x = 113.4 pt).
+  - Jarak Antar-Paragraf: space after 8 pt bawaan (dy = 28.7 pt). Dilarang menyisipkan baris kosong ganda (*double enter*).
+  - Perataan Teks: Rata Kiri-Kanan (*Justify* penuh).
+  - Judul Bab (Heading 1): Huruf kapital, tebal (*Bold*), ukuran 14 pt, rata tengah, dy = 56.2 pt sebelum sub-bab/teks pertama.
+  - Sub-bab (Heading 2): Huruf tebal (*Bold*), ukuran 12 pt, rata kiri di x = 113.4 pt, **TANPA titik di akhir nomor** (`1.1 Latar Belakang`, `1.2 Rumusan Masalah`).
+  - Sub-Sub-bab (Heading 3): Huruf tebal (*Bold*), ukuran 12 pt, rata kiri di x = 113.4 pt, **TANPA titik di akhir nomor** (`2.2.1 Kelebihan...`).
+  - Daftar Butir (*Numbered Lists*): Baris pertama mulai di x = 131.4 pt (indentasi 18.0 pt / 0,25 inci), baris lanjutan di x = 149.4 pt (indentasi 36.0 pt / 0,5 inci).
 
 ---
 
@@ -121,12 +125,19 @@ Setiap gambar skripsi (Kerangka Pemikiran, Diagram Alir Metodologi, Arsitektur S
 ## 5. Standar Format Tabel dan Persamaan Matematika
 
 - **Format Tabel**:
-  - Nomor Tabel: `Tabel [Nomor Bab].[Nomor Urut]` (Contoh: `Tabel 4.1`). Judul diletakkan **di atas tabel**, ukuran 11 pt, rata tengah.
-  - Desain Tabel: Format terbuka (*Open Table Style* / Tiga garis horizontal: garis atas, garis bawah kepala kolom, dan garis penutup bawah; tanpa garis vertikal).
-  - Keterangan Sumber: Diletakkan di bawah tabel, font 10 pt.
-- **Format Persamaan**:
-  - Ditulis rata kiri atau tengah dengan penomoran rata kanan dalam kurung:
+  - Nomor dan Judul Tabel: `Tabel [Nomor Bab].[Nomor Urut] [Judul Tabel]` (Contoh: `Tabel 2.1 Penelitian Terdahulu`). DILARANG menggunakan titik setelah nomor sub-bab (`Tabel 2.1.` salah). Judul diletakkan **di atas tabel**, ukuran 12 pt Regular, **100% RATA TENGAH (*Center* pada x = 313.3 pt)**.
+  - Header Kolom (Baris Pertama): Ukuran 12 pt Bold Rata Tengah, diberi **arsiran warna abu-abu 15%** (`fill=(0.85, 0.85, 0.85)` atau `#D9D9D9`).
+  - Desain Garis Tabel: Menggunakan garis kisi penuh (*Box Grid*) dengan garis luar dan pembatas kolom vertikal tipis `0.5 pt` (0.48 pt).
+  - Isi Sel Tabel: Ukuran 12 pt untuk tabel konsep/teori; ukuran 9 pt s/d 10 pt untuk tabel data metrik evaluasi besar di Bab 4. Spasi baris dalam sel adalah 1.5 spasi (`dy = 20.7 pt`).
+  - Keterangan Sumber / Catatan: Diletakkan di bawah tabel, font 10 pt.
+- **Format Gambar**:
+  - Posisi Gambar: Diletakkan rata tengah (*center*) pada bidang halaman.
+  - Judul / Caption Gambar: `Gambar [Nomor Bab].[Nomor Urut] [Judul Gambar]` diletakkan **di bawah gambar**, ukuran 12 pt Regular, spasi 1.5, **100% RATA TENGAH (*Center*)**.
+- **Format Persamaan Matematika**:
+  - Ditulis menggunakan font **`Cambria Math`**, posisi formula di tengah (*center*):
     $$RMSE = \sqrt{\frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2} \tag{3.1}$$
+  - Nomor persamaan diletakkan di batas margin kanan dalam tanda kurung: `(3.1)`.
+  - Keterangan variabel di bawah formula menjorok di x = 127.6 pt (indentasi ~0,5 cm), font Times New Roman 12 pt Cetak Miring (*Italic*).
 
 ---
 

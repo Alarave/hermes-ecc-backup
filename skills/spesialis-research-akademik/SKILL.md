@@ -1,6 +1,6 @@
 ---
 name: spesialis-research-akademik
-description: "[omh] Unified academic research and scientific manuscript authoring engine: methodology, literature review, CRISP-DM, Gunadarma standards, and statistical evaluation. Use when the user says: spesialis-research-akademik, research, cari paper, riset literatur, metodologi, skripsi, tulis skripsi, bab 1 skripsi, bab 2 skripsi, bab 3 skripsi, bab 4 skripsi, bab 5 skripsi, format laporan gunadarma, tinjauan pustaka, sitasi, bukan melainkan."
+description: "Gunakan untuk riset akademik, skripsi, tesis, paper, proposal, brief penelitian, format 4-4-3-3, sitasi Harvard, tinjauan pustaka, dan metodologi."
 license: MIT
 author: "Firman (Lead Researcher & Fullstack MLOps Engineer)"
 metadata:
@@ -78,12 +78,80 @@ Skill ini secara dinamis berganti mode sesuai fase kerja pengguna:
   - Menegakkan audit 6-status cacat klaim ilmiah (*Claim Confidence Gate*: Unsupported, Weakly Supported, Overstated, Misrepresented, Contradicted, Unverifiable) dan transformasi kalimat *Academic Hedging* berbasis p-value statistik formal sebelum asersi disahkan (`references/claim-confidence-and-hedging.md`).
 
 ### 3. Standar Preset Khusus Universitas Gunadarma (FIKTI/FTI)
-- **Geometri Fisik**: Kertas A4 80g, Margin Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm.
-- **Tipografi**: Times New Roman 12 pt, 1.5 spasi, indentasi awal paragraf 1 cm, teks rata kiri-kanan (*justify*).
-- **Sistematika Numerik Arab**: Bab 1 sampai 5 menggunakan nomor Arab (`1. PENDAHULUAN`, `2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).
+- **Geometri Fisik & Margin Presisi**:
+  - Ukuran Kertas: A4 (210 x 297 mm), 80 gram putih (595.32 pt x 841.92 pt).
+  - Margin Fisik (Standar Baku 4-4-3-3 cm):
+    - Atas (*Top*): 4,02 cm (114.0 pt).
+    - Kiri (*Left*): 4,00 cm (113.4 pt).
+    - Kanan (*Right*): 2,90 s/d 3,00 cm (82.0 s/d 85.0 pt).
+    - Bawah (*Bottom*): 3,00 cm (85.0 pt).
+  - Lebar Bidang Teks Efektif: 14,1 cm (399.8 pt, rentang x = 113.4 pt s/d x = 513.2 pt).
+- **Tipografi Monolitik**:
+  - Jenis Font: 100% Times New Roman (Regular, Bold, Italic), didukung Cambria Math untuk formula matematika. Dilarang mencampur font sembarangan (seperti Arial atau Calibri di tengah naskah).
+  - Hierarki Ukuran Font:
+    - 14 pt Bold: Judul Bab Utama (`1. PENDAHULUAN`, `2. TINJAUAN PUSTAKA`) dan Judul Cover/Halaman Judul.
+    - 13 pt Bold: Baris nama fakultas pada cover (`FAKULTAS ILMU KOMPUTER DAN TEKNOLOGI INFORMASI`).
+    - 12 pt Regular/Bold: Bodi teks narasi, sub-bab, caption tabel/gambar, dan bodi tabel teori/konsep standar.
+    - 9 pt s/d 10 pt: Isi tabel data metrik evaluasi berdimensi besar di Bab 4 serta Lampiran Listing Program Python.
+- **Gaya Paragraf Narasi Bodi Teks**:
+  - Perataan: Rata Kiri-Kanan (*Justified* penuh) tanpa kelonggaran spasial liar.
+  - Indentasi Baris Pertama (*First-Line Indent*): Tepat 36.0 pt (0,5 inci / 1,27 cm dari margin kiri, mulai di x = 149.4 pt).
+  - Baris Kedua dan Seterusnya: Kembali rata batas margin kiri di x = 113.4 pt.
+  - Spasi Antar-Baris (*Line Spacing*): 1.5 Spasi (jarak vertikal dy = 20.7 pt pada font 12 pt).
+  - Jarak Antar-Paragraf: Terdapat space after bawaan 8 pt (dy = 28.7 pt ke awal paragraf berikutnya). Dilarang menyisipkan baris kosong ganda (*double enter*) antar-paragraf narasi.
+- **Hierarki dan Tata Nama Judul Heading**:
+  - Judul Bab (Heading 1): Nomor Arab diikuti titik dan nama kapital (`1. PENDAHULUAN`, `2. TINJAUAN PUSTAKA`), 14 pt Bold, Rata Tengah (*Center*), jarak vertikal ke teks dy = 56.2 pt (~3 spasi).
+  - Sub-Bab Tingkat 2 (Heading 2): Huruf tebal 12 pt, Rata Kiri di x = 113.4 pt, TANPA titik di akhir nomor (contoh baku: `1.1 Latar Belakang`, `1.2 Rumusan Masalah`, `1.3 Ruang Lingkup`, `2.1 Penelitian Terdahulu`).
+  - Sub-Sub-Bab Tingkat 3 (Heading 3): Huruf tebal 12 pt, Rata Kiri di x = 113.4 pt, TANPA titik di akhir nomor (contoh baku: `2.2.1 Kelebihan Artificial Intelligence`, `2.4.1 ChatGPT`).
+- **Format Penomoran Butir (*Numbered Lists*)**:
+  - Baris Pertama (Nomor dan teks): Menjorok di x = 131.4 pt (indentasi 18.0 pt / 0,25 inci).
+  - Baris Lanjutan: Menjorok di x = 149.4 pt (indentasi 36.0 pt / 0,5 inci), membentuk format gantung (*hanging indent*) 18 pt yang konsisten.
+- **Standar Format Tabel**:
+  - Judul / Caption Tabel: Diletakkan di ATAS tabel, 100% RATA TENGAH (*Center* pada sumbu x = 313.3 pt), font 12 pt Regular, format `Tabel X.Y Judul Tabel` tanpa titik setelah angka (contoh: `Tabel 2.1 Penelitian Terdahulu`).
+  - Header Tabel: Baris pertama diberi arsiran warna abu-abu 15% (#D9D9D9, fill 0.85), font 12 pt Bold, Rata Tengah (*Center*).
+  - Garis Pembatas (*Border*): Grid kotak penuh tipis 0.5 pt (0.48 pt) dengan garis pembatas kolom vertikal.
+  - Isi Sel Tabel: Font 12 pt (teks/teori) atau 9-10 pt (tabel metrik evaluasi besar), spasi baris 1.5 spasi (dy = 20.7 pt), teks rata kiri, angka/nomor rata tengah.
+- **Standar Format Gambar**:
+  - Gambar diletakkan rata tengah (*center*) pada bidang kertas.
+  - Judul / Caption Gambar: Diletakkan di BAWAH gambar, 100% RATA TENGAH (*Center* pada sumbu x = 313.3 pt), font 12 pt Regular, spasi baris 1.5, format `Gambar X.Y Judul Gambar` tanpa titik setelah angka.
+- **Standar Formula & Persamaan Matematika**:
+  - Ditulis menggunakan font `Cambria Math`, posisi formula diletakkan di tengah (*center*).
+  - Label nomor persamaan diletakkan di batas margin kanan dalam tanda kurung: `(2.1)`, `(2.2)`.
+  - Keterangan variabel di bawah formula diletakkan menjorok di x = 127.6 pt (indentasi ~0,5 cm), font Times New Roman 12 pt Cetak Miring (*Italic*).
+- **Penomoran Halaman Ganda (*Dual Pagination Scheme*)**:
+  - Bagian Awal (*Front Matter* Cover s/d Daftar Lampiran): Angka Romawi kecil (`i, ii, iii ... xvii`) di tengah bawah (y = 779.4 pt).
+  - Bagian Isi & Akhir (Bab 1 s/d Penutup, Daftar Pustaka): Angka Arab (`1, 2, 3 ... 225`).
+    - Halaman Pertama Setiap Bab: Nomor halaman berada di Tengah Bawah (*Bottom Center* pada y = 779.8 pt).
+    - Halaman Kedua dan Seterusnya dalam Bab: Nomor halaman berada di Kanan Atas (*Top Right* pada y = 35.9 pt dan x = 504.3 pt, rata batas margin kanan).
+- **Standar Format Daftar Pustaka**:
+  - Judul: `DAFTAR PUSTAKA` (14 pt Bold Center).
+  - Gaya Indentasi Gantung (*Hanging Indent*): Baris pertama nama penulis rata kiri di x = 113.4 pt; baris kedua dan seterusnya menjorok ke dalam di x = 149.4 pt (36.0 pt / 1,27 cm).
+  - Spasi: 1.5 spasi di dalam entri, dengan jarak tambahan (*space after* ~8 pt) antar-entri rujukan yang berbeda.
 - **Sistematika Proposal Formal (FGD & Skripsi)**: Struktur baku proposal mencakup Halaman Judul dengan logo resmi Gunadarma (`logo_gunadarma.png`), Ringkasan (*Executive Summary*), Bab 1 Pendahuluan (Latar Belakang Penelitian, Rumusan Masalah, Batasan Masalah/Ruang Lingkup 8-poin, Tujuan Penelitian, Manfaat Penelitian), Bab 2 Tinjauan Pustaka (Karakteristik Domain, Pembelajaran Mesin, Model A, Model B, Research Gap, dan Matriks SOTA 6-kolom), Bab 3 Metodologi Penelitian (Data Penelitian, 6 fase CRISP-DM lengkap berdiagram visual), Bab 4 Agenda Kegiatan (Tabel jadwal pelaksanaan mingguan/bulanan), dan Daftar Pustaka format APA 7th Edition miring.
 - **Ruang Lingkup 8-Poin Natural**: Sub-bab 1.2 wajib menggunakan istilah *"Ruang Lingkup"* dan merinci 8 aspek pembatas dalam bentuk kalimat bernomor yang mengalir alami, DILARANG menggunakan format key-value tebal kaku seperti `**Objek**: ...`.
-- **Aturan Hemat Tanda Kurung (Parenthesis Economy)**: Kepadatan tanda kurung dibatasi maksimal 10 pasang per 1.000 kata. DILARANG KERAS menyisipkan istilah asing di dalam kurung setelah terjemahannya. Istilah asing langsung ditulis miring (*italic*) mengalir di dalam kalimat tanpa kurung. Tanda kurung hanya untuk singkatan pertama kali, tahun sitasi, dan nomor pasal.
+- **Aturan Hemat Tanda Kurung & Eliminasi AI Slop Terjemahan Ganda (Parenthesis Economy & Anti-Slop Gate)**:
+  - Kebiasaan 'dikit-dikit tanda kurung ()' adalah indikator mutlak teks AI slop (*translation reflex*).
+  - DILARANG KERAS menggunakan pola terjemahan ganda: `padanan_indonesia (*istilah_asing*)` seperti `pembelajaran mendalam (*deep learning*)`, `tulang punggung (*backbone*)`, `kotak pembatas (*bounding box*)`, `waktu nyata (*real-time*)`, `usulan wilayah (*region proposal*)`, `bingkai per detik (*frames per second* / FPS)`.
+  - Aturan Pemilihan: Pilih salah satu secara tegas. Jika istilah teknis sudah baku dan universal di bidang informatika/AI, langsung gunakan istilah aslinya dalam cetak miring (*deep learning*, *backbone*, *bounding box*, *real-time*, *region proposal*, *feature map*, *single forward pass*, *confidence score*, *early stopping*). Jika menggunakan bahasa Indonesia, gunakan istilah Indonesia murni tanpa membubuhkan istilah asing di dalam kurung.
+  - Tanda kurung HANYA sah untuk: 1) Tahun sitasi `(2026)` atau `(Ramadhani dkk., 2026)`, 2) Singkatan akronim saat pertama kali didefinisikan `Convolutional Neural Network (CNN)` atau `Tandan Buah Segar (TBS)`, 3) Nomor persamaan matematika `Persamaan (2.1)`, dan 4) Koordinat dan notasi matematis $[x_c, y_c, w, h]$.
+  - Kepadatan tanda kurung wajib ditekan hingga di bawah 5 sampai 7 pasang per 1.000 kata (hanya untuk sitasi dan nomor persamaan).
+- **Format Baku Penamaan Tabel dan Gambar (Standar Korpus UPNVJ & Gunadarma)**:
+  - Penomoran tabel dan gambar menggunakan format satu spasi tanpa titik ganda setelah angka sub-nomor: `Tabel X.Y Judul Tabel` dan `Gambar X.Y Judul Gambar` (DILARANG menggunakan titik setelah nomor seperti `Tabel X.Y.` atau `Gambar X.Y.`).
+  - DILARANG membubuhkan kurung istilah asing pada judul tabel dan gambar (contoh salah AI slop: `Tabel 2.3. Matriks Perbandingan Penelitian Terdahulu (State-of-the-Art)`).
+  - Judul tabel wajib singkat, padat, dan lugas sesuai korpus riil UPNVJ (contoh baku: Tabel 2.1 Kajian Pustaka, Tabel 2.3 Penelitian Terdahulu, Tabel 2.1 Dekomposisi Variabel Faster R-CNN, Tabel 2.2 Dekomposisi Variabel YOLOv11, Tabel 4.1 Jadwal Pelaksanaan Penelitian).
+  - Posisi caption: judul tabel diletakkan di atas tabel, sedangkan judul gambar diletakkan di bawah gambar.
+- **Standar Portabilitas & Kompatibilitas Mutlak Google Docs (Word-to-Docs Portability Guard)**:
+  - *Batas Lebar Gambar Maksimal 13,0 cm*: Pada kertas A4 dengan margin 4-4-3-3 cm, lebar area cetak bersih adalah 14,0 cm. Seluruh elemen citra dan diagram WAJIB disetel maksimal selebar 13,0 cm (width: 13.0 cm) dengan perataan tengah (center), dilarang menggunakan lebar 100% atau > 14,0 cm agar tidak meluap (overflow) dan tidak memicu pembuatan halaman kosong raksasa di Google Docs.
+  - *Larangan Mutlak Callout Box dan Format Rumus Baku Akademik*:
+    - DILARANG KERAS membungkus persamaan matematika ke dalam kotak panggil (*callout box*), tabel berarsir abu-abu, atau bingkai bergaris biru vertikal. Format kotak semacam itu adalah gaya blog/web tutorial IT dan ditolak pada karya ilmiah formal skripsi/tesis Gunadarma dan UPNVJ.
+    - DILARANG menuliskan matriks multi-baris atau persamaan menggunakan karakter ASCII kurung siku manual dengan spasi per baris karena spasi font proporsional di Google Docs akan meleset dan membuat matriks berantakan.
+    - Tata Letak Resmi: Persamaan wajib berlatar putih polos (*borderless*), rumus matematika diletakkan di tengah (*center-aligned*), dan label nomor persamaan (misalnya `(2.1)`) diletakkan di batas margin kanan (*right-aligned*) pada baris yang sama.
+    - Trik Tabel Borderless Dua Kolom: Diimplementasikan menggunakan tabel 1 baris 2 kolom tanpa bingkai (*borderless table* selebar total 14,0 cm: Kolom 1 = 12,0 cm rata tengah untuk rumus, Kolom 2 = 2,0 cm rata kanan untuk nomor persamaan).
+    - Rumus Matematis Presisi Tinggi (300 DPI PNG via Typst): Untuk matriks multi-baris $f(x, y)$ dan persamaan aljabar bertingkat, kompilasi rumus via Typst (`typst compile --format png --ppi 300`) dengan font Times New Roman Math berlatar transparan/putih ke dalam berkas PNG 300 DPI tajam, lalu sematkan ke dalam sel kiri tabel tanpa bingkai tersebut. Formula grafis ini kebal 100% terhadap kerusakan parser matematika Google Docs.
+  - *Pencegahan Garis Bawah Merah (Spellcheck Suppression)*: Sematkan tag XML `<w:noProof/>` pada properti run (`rPr`) di gaya default `Normal` dokumen Word agar pengolah kata (Word dan Google Docs) tidak memunculkan garis gelombang merah pada istilah teknis dan kosakata bahasa Indonesia.
+  - *Penguncian Lebar Kolom Tabel (Total 14,0 cm)*: Tabel wajib memiliki lebar kolom absolut (fixed width) yang jika dijumlahkan bernilai tepat 14,0 cm agar Google Docs tidak menghitung ulang lebar kolom (AutoFit) yang menyebabkan kolom melar keluar batas margin kanan.
+  - *Integritas Satuan Margin (Integer Twips pada XML)*: Atribut margin `w:top`, `w:bottom`, `w:left`, `w:right` pada `w:pgMar` di `word/document.xml` wajib bertipe integer twip (top: 2268, bottom: 1701, left: 2268, right: 1701), DILARANG bertipe float berkoma (seperti `1440.0000000000002`) yang menyebabkan parser Google Docs gagal dan mereset margin ke bawaan (1 inci).
+  - *Penataan Sampul Stabil*: Logo universitas wajib bersih dari garis batas (*bounding box*), blok daftar penyusun dan identitas nomor mahasiswa wajib disusun dalam tabel dua kolom tanpa bingkai (*borderless table*) selebar 11,0 cm rata tengah agar tidak bergeser saat diunggah ke Google Docs.
 - **Prinsip Atribut Statis vs Dinamis (Anti-Mismatch Sidang)**: Verifikasi kemasan e-commerce wajib difokuskan pada atribut legal permanen (Merek, Netto/Volume, Nomor Izin Edar BPOM/P-IRT). DILARANG memasukkan atribut dinamis per-batch pengiriman seperti tanggal kedaluwarsa ke dalam pencocokan citra katalog statis karena foto seller bersifat generik/lama sehingga menimbulkan false mismatch yang mematikan saat sidang.
 - **Sistematika Penulisan Natural (Anti-AI-Slop)**: Sub-bab 1.4 wajib disusun dalam 5 paragraf terpisah yang runtut dan menggunakan sintaksis akademik baku berbasis bukti korpus `E:\SKRIPSI_UPNVJ_TEXT`. DILARANG KERAS menggunakan kata klise AI seperti *"membedah"*, *"saling berkesinambungan"*, *"memetakan 1:1"*, atau meta-prompting yang bocor.
 - **Dual Pagination**: Angka Romawi kecil (`i, ii, iii...`) di tengah bawah untuk bagian awal; Angka Arab (`1, 2, 3...`) di kanan atas untuk bagian inti, kecuali halaman awal bab di tengah bawah.
@@ -127,7 +195,21 @@ Setiap interaksi riset, formulasi naskah, dan evaluasi WAJIB berlandaskan 15 pil
 - **Screening & Kemutakhiran Pustaka**: Wajib mengadopsi protokol PRISMA. Minimal 80% rujukan bersumber dari artikel jurnal ilmiah bereputasi (Scopus/SINTA) atau prosiding internasional terbitan 5 tahun terakhir.
 - **Matriks State-of-the-Art (SOTA)**: Wajib menyajikan tabel komparasi minimal 5 penelitian terdahulu (Penulis, Tahun, Metode, Dataset, Metrik Capaian, Keterbatasan, dan Posisi Penelitian Ini).
 - **Standar Kolom Matriks SOTA**: Tabel pemetaan studi terdahulu wajib memuat 6 kolom terstruktur: Penulis dan Tahun, Tautan Artikel (URL aktif), Latar Belakang (masalah riil lapangan), Hasil (temuan kuantitatif/mAP/akurasi), Kesimpulan, dan Relevansi Terhadap Penelitian Ini.
+- **Protokol Sitasi Dalam Teks & Aturan Penyebutan Pertama (First-Mention Rule)**:
+  - *Aturan Penyebutan Pertama (First-Mention)*: Untuk karya ilmiah dengan 3 hingga 5 penulis, pada pemunculan pertama kali dalam naskah WAJIB menyebutkan seluruh nama belakang penulis secara lengkap yang dihubungkan dengan kata 'dan' (contoh narasi: 'Ramadhani, Dewanta, dan Gunawan (2026) mengevaluasi...', contoh dalam kurung: '...(Ramadhani, Dewanta, dan Gunawan, 2026)'). DILARANG langsung memotong menjadi singkatan pada pemunculan pertama. Baru pada penyebutan kedua dan seterusnya dalam naskah diperbolehkan disingkat (contoh narasi: 'Ramadhani dkk. (2026)', contoh dalam kurung: '...(Ramadhani dkk., 2026)'). Untuk karya dengan 6 penulis atau lebih, diperkenankan langsung nama penulis pertama diikuti 'dkk.' sejak awal.
+  - *Standarisasi Bahasa Indonesia Baku (Anti-Et-Al)*: Pada naskah berbahasa Indonesia (skripsi, tesis, proposal penelitian, jurnal SINTA), WAJIB menggunakan singkatan resmi bahasa Indonesia 'dkk.' (dan kawan-kawan, huruf kecil semua dan diakhiri tanda titik tunggal) serta kata hubung 'dan' (bukan tanda ampersand '&'). Penggunaan istilah 'et al.' dan '&' hanya diizinkan untuk naskah bertaraf internasional berbahasa Inggris penuh (Academic English).
+  - *Dua Penulis*: Selalu sebutkan kedua nama belakang penulis pada setiap pemunculan (contoh: 'Han dan Yi (2025)' atau '(Han dan Yi, 2025)').
+  - *Satu Penulis*: Sebutkan nama belakang penulis dan tahun (contoh: 'Suharjito (2021)' atau '(Suharjito, 2021)').
+- **Taksonomi Multi-Style Sitasi & Bibliografi Ilmiah**:
+  - *Harvard Style (Author-Date)*: Standar baku Universitas Gunadarma dan skripsi nasional. Sitasi dalam teks (Penulis, Tahun), penyebutan pertama 3+ penulis lengkap, penyebutan berikutnya 'dkk.'. Daftar pustaka diurutkan alfabetis nama belakang penulis tanpa tanda kurung pada tahun atau menggunakan kurung tahun di awal.
+  - *APA 7th Edition (Author-Date)*: Standar internasional bidang sains sosial dan teknologi. Daftar pustaka memuat hingga 20 penulis secara lengkap sebelum elipsis. Adaptasi perguruan tinggi Indonesia mengadopsi aturan first-mention lengkap seperti Harvard.
+  - *IEEE Style (Citation-Order / Numbered)*: Standar baku teknik elektro, elektronika, telekomunikasi, dan informatika. Sitasi dalam teks menggunakan nomor kurung siku berurutan: [1], [2], [1]-[3]. Dalam teks naratif: 'Menurut Ramadhani dkk. [1], ...'. Daftar pustaka diurutkan berdasarkan urutan kemunculan nomor dalam teks (bukan alfabetis).
+  - *Vancouver Style (Numbered / Superscript)*: Standar baku bidang biomedis dan kesehatan. Menggunakan nomor numerik (1) atau superskrip, daftar pustaka diurutkan numerik berdasarkan urutan kemunculan.
+  - *Chicago / Turabian Style*: Menggunakan varian Author-Date atau Notes-Bibliography (catatan kaki footnote di bawah halaman).
+  - Panduan komparasi teknis lengkap mengacu ke `references/pedoman-sitasi-ilmiah-multi-style.md`.
 - **Format Baku Bibliografi (APA 7th + Direct URL + Mandatory Italics)**: Saat menyajikan daftar referensi mandiri, wajib menggunakan format kanonikal APA 7th Edition: `Penulis, Inisial. (Tahun). Judul Artikel. *Nama Jurnal/Prosiding/ArXiv*, *Volume*(Nomor), Halaman. URL`. Unsur nama berkala (jurnal/prosiding/arXiv) dan nomor volume WAJIB dicetak miring (*italic*) agar langsung siap disalin (ready-to-copy) ke dokumen pengolah kata tanpa pekerjaan format ulang manual. Setiap entri dipisahkan tepat satu baris kosong, URL dicantumkan utuh tanpa tanda baca penutup di ujungnya, dan disimpan sebagai berkas fisik proyek (misal `PENULISAN/referensi.md` atau `docs/referensi.md`).
+- **Protokol Paritas Sitasi Harvard & Sitasi Fondasi Wajib**: Seluruh rumus fungsi kerugian (seperti L_cls, L_CIoU, L_DFL) dan blok arsitektur utama (ResNet, FPN, RoIAlign, RPN) wajib diikat dengan sitasi primer penemunya dalam gaya Harvard baku (misal: He dkk. 2016 untuk ResNet, Lin dkk. 2017 untuk FPN, Ren dkk. 2017 untuk Faster R-CNN, He dkk. 2017 untuk RoIAlign, Zheng dkk. 2020 untuk CIoU, Li dkk. 2020 untuk DFL, Jocher dan Qiu 2024 untuk YOLOv11, Chapman dkk. 2000 untuk CRISP-DM). Agen wajib menjalankan audit rekonsiliasi in-text vs bibliografi untuk memastikan zero orphan references (tidak ada sitasi dalam teks yang hilang di Daftar Pustaka, dan tidak ada entri bibliografi yang tidak pernah disitir).
+- **Protokol Plaintext Deliverable Siap Salin (Copy-Paste Ready)**: Ketika pengguna meminta draf naskah bab/sub-bab yang siap disalin langsung ke Google Docs atau Word, sajikan bodi teks narasi, nomor rumus, dan tabel dalam satu blok kode plaintext bersih (```text) tanpa percampuran markdown formatting yang rusak saat disalin langsung, disertai panduan penataan gaya (font Times New Roman 12 pt, 1.5 spasi, justified, first-line indent 36 pt) di bawahnya.
 - **Validasi Tautan Digital & Pengenal Objek (DOI/URL)**: Setiap studi rujukan dalam tabel matriks SOTA wajib dilengkapi tautan digital aktif langsung pada nama peneliti dan daftar pustaka lengkap bernomor di bawah tabel dengan tautan DOI resmi (`https://doi.org/...`) atau arsip akses terbuka (`https://arxiv.org/abs/...`).
 - **Verifikasi Silang DOI (Crossref / arXiv API)**: Sebelum menaruh tautan DOI ke dalam draf atau daftar pustaka, nomor DOI wajib divalidasi ke Crossref API atau repositori resmi. Dilarang mengasumsikan nomor DOI hasil tebakan atau halusinasi untuk menghindari kesalahan atribusi artikel dan kegagalan verifikasi saat sidang skripsi.
 - **Anti-Sindrom Kamus**: Menolak penjejeran definisi umum hafalan. Setiap teori wajib memuat penurunan rumus matematis, fungsi objektif, dan sintesis kritis perannya dalam memecahkan masalah.
@@ -168,11 +250,24 @@ Setiap interaksi riset, formulasi naskah, dan evaluasi WAJIB berlandaskan 15 pil
 - **Saran Teknis Actionable**: Saran (5.2) harus berupa rekomendasi teknis konkret dan terarah untuk peneliti lanjutan, bukan saran umum klise.
 - **Penegakan Geometri & Format Label**: Wajib mematuhi batas margin 4-4-3-3 cm, Times New Roman 12 pt, spasi 1.5, penomoran caption tabel di atas (`Tabel X.Y Judul`) dan caption gambar di bawah (`Gambar X.Y Judul`).
 - **Pitfall Kompilasi Typst pada Simbol Metrik (@)**: Dalam dokumen Typst, simbol `@` secara bawaan diperlakukan sebagai sintaks pemanggilan label (`@label`). Penulisan nama metrik evaluasi seperti `mAP@0.50`, `mAP@0.50:0.95`, atau alamat surel WAJIB di-escape dengan garis miring terbalik (`mAP\@0.50`, `mAP\@0.50:0.95` atau `mAP \@ [0.50:0.95]`) agar tidak memicu kegagalan kompilasi `error: label <...> does not exist in the document`.
+- **Pitfall Notasi Matematika Typst vs LaTeX**: Dalam blok matematika Typst (`$ ... $`), simbol Yunani dan konstanta ditulis sebagai pengenal murni tanpa garis miring terbalik (misalnya `$alpha$`, `$lambda$`, `$pi$`, `$rho$`, `$cases(...)`). Penulisan simbol dengan garis miring terbalik ala LaTeX (seperti `$\alpha$`) memicu kegagalan kompilasi `error: unknown variable: lpha`.
 - **Disiplin Delimiter Cetak Miring Typst**: Pastikan penanda format miring dalam teks biasa (`_teks_`) ditutup rapat dan tidak tercampur dengan karakter bintang asterisk (`*`), karena ketidaksesuaian delimiter memicu galat kompilasi `unclosed delimiter`.
 - **Pandoc Multi-Asset Resource Path Guard (`--resource-path`)**: Saat mengompilasi naskah Markdown dari root direktori proyek di mana berkas gambar berada di dalam subfolder (misal `PENULISAN/figures/`), jalankan Pandoc dengan argumen `--resource-path=PENULISAN` agar seluruh aset citra tersemat utuh ke dalam dokumen `.docx` tanpa peringatan resource error.
+- **Pandoc & WordCraft Paritas Mutlak Multi-Format (.md ke .docx)**: Saat menyinkronkan naskah riset dalam format ganda (`.md`, `.typ`, `.docx`), kompilasi naskah Markdown via Pandoc (`pandoc -s proposal.md -o "Proposal FGD.docx" --resource-path=PENULISAN`) secara otomatis mentransformasikan rumus LaTeX `$$...$$` menjadi objek persamaan matematika OMML native pada Word. Setelah kompilasi, verifikasi berkas Word via WordCraft MCP (`mcp__wordcraft__open_document`) untuk audit telemetri jumlah kata/paragraf, lalu kunci perubahan secara in-place via `mcp__wordcraft__save_document` tanpa argumen path.
 - **Standar Parafrase Anti-AI Slop Naskah Akademik (`spesialis-copywriter` & `zero-slop`)**:
   - Singkirkan seluruh kata sifat hiperbolis dan klise robotik (*krusial, esensial, holistik, menjembatani, lanskap, paradigma, revolusioner, fondasi kokoh, membedah, saling berkesinambungan*).
+  - Tolak terjemahan harfiah kaku istilah teknis asing (misal hindari 'Deteksi Objek Pembelajaran Mendalam' yang terdengar canggung; gunakan istilah alami 'Deteksi Objek Berbasis Deep Learning' atau pertahankan istilah asing cetak miring).
+  - Tolak kalimat berbunga-bunga abstrak (seperti 'mentransformasi X dari manual menuju representasi otomatis berlapis'). Gunakan definisi fungsional operasional: objek masukan, proses matematis, dan format luaran parametrik konkret (bounding box $[x_c, y_c, w, h]$ atau $[x_{\min}, y_{\min}, x_{\max}, y_{\max}]$ beserta skor keyakinan).
+  - Wajib sertakan justifikasi kegagalan metode baseline di lapangan (misal mengapa klasifikasi citra tunggal gagal pada konveyor pabrik sawit yang memuat beberapa buah sekaligus, sehingga mutlak membutuhkan deteksi objek per tandan).
   - Gunakan struktur kalimat bahasa Indonesia ilmiah aktif (SPOK) yang mengalir wajar, dingin, berorientasi fakta lapangan (angka kuantitatif, nama dataset, kelas objek, rasio partisi), mematuhi EYD V, dan bebas tanda pisah em/en dash.
+- **Protokol Kompatibilitas Google Docs & Web Viewer (Anti-Breakage Guard)**:
+  - *Batas Lebar Gambar Maksimal 13,0 cm*: Pada kertas A4 margin 4-4-3-3 cm (kiri 4 cm, kanan 3 cm), area cetak bersih adalah 14,0 cm (21 - 4 - 3). Seluruh diagram, gambar, dan flowchart pada berkas `.docx` WAJIB dikunci dengan lebar maksimal 13,0 cm (DILARANG menggunakan 14,8 cm atau `{width=100%}` bawaan Pandoc). Gambar yang melebihi 14,0 cm menyebabkan Google Docs melempar gambar ke halaman baru dan menciptakan halaman bolong kosong raksasa.
+  - *Eliminasi Formula OMML Mentah & Larangan Callout Box*: Google Docs tidak memiliki mesin rendering native untuk formula matematika Word OMML (`<m:oMath>`). Rumus OMML menyebabkan Google Docs merusak spasi baris (*line height* membengkak acak) dan teks rumus pecah. DILARANG menggunakan kotak panggil (*callout box*) atau tabel bergaris biru/arsir abu-abu. Sajikan persamaan secara resmi di badan naskah menggunakan tabel 1 baris 2 kolom tanpa bingkai (*borderless table* selebar 14,0 cm): rumus di tengah (kolom 12,0 cm) dan nomor persamaan di kanan (kolom 2,0 cm). Untuk rumus kompleks dan matriks multi-baris, gunakan berkas gambar formula 300 DPI berlatar putih/transparan yang dikompilasi via Typst.
+  - *Integritas Integer Twips pada OpenXML `w:pgMar`*: Nilai margin pada XML OpenXML wajib berupa bilangan bulat murni (*integer twips*, misal 2268 twips = 4,0 cm dan 1701 twips = 3,0 cm). Keberadaan nilai desimal pecahan (seperti 1440.0000000000002) memicu kegagalan parser `python-docx` dan menyebabkan Google Docs mereset margin ke default 1 inci (2,54 cm).
+  - *Penguncian Akumulasi Lebar Tabel <= 14,0 cm*: Seluruh tabel wajib menetapkan lebar kolom eksplisit dengan total akumulasi tepat 14,0 cm agar tidak melar dan terpotong di margin kanan saat diimpor ke Google Docs.
+  - *Sinkronisasi Langsung ke Google Docs via Composio MCP*: Untuk menyunting atau memperbarui naskah Google Docs secara langsung dari balik layar, gunakan toolkit `googledocs` pada Composio MCP (`https://connect.composio.dev/mcp`). Ekstrak batas indeks karakter (`startIndex` dan `endIndex`) via `GOOGLEDOCS_GET_DOCUMENT_BY_ID` atau pratinjau teks `GOOGLEDOCS_GET_DOCUMENT_PLAINTEXT`, lalu suntikkan naskah baru secara presisi via `GOOGLEDOCS_UPDATE_DOCUMENT_SECTION_MARKDOWN` tanpa menimpa bagian awal dokumen maupun bab sesudahnya. Hindari penyisipan teks setelah paragraf ber-bullet aktif agar format heading tidak terkonversi menjadi nomor daftar. Untuk penerapan format paragraf via `GOOGLEDOCS_UPDATE_EXISTING_DOCUMENT` (batchUpdate), kunci objek wajib menggunakan `paragraphStyle` (bukan `style`) dan `textStyle` (bukan `style`), mencantumkan mask `fields` eksplisit, serta mengabaikan karakter newline penutup (`endIndex - 1`) pada range teks. Pada pembaruan masif (>30 paragraf), bagi pembaruan dalam chunk 20-25 paragraf untuk menjamin keandalan transaksi.
+  - *Disambiguasi Penggantian Sitasi Berulang (First-Mention vs Subsequent)*: Saat mengganti sitasi dalam teks secara terprogram via `GOOGLEDOCS_REPLACE_ALL_TEXT`, JANGAN menggunakan string pencarian nama penulis saja jika penulis tersebut muncul lebih dari satu kali. Sertakan klausa konteks kalimat unik di sekitarnya (misal `suatu citra atau gambar digital (Dompeipen et al., 2021).`) agar kemunculan pertama dapat diubah menjadi daftar nama lengkap, sedangkan kemunculan kedua dapat diubah menjadi singkatan `dkk.`.
+  - *Format Hanging Indent Daftar Pustaka Google Docs API*: Pada payload `updateParagraphStyle` untuk entri Daftar Pustaka, terapkan `indentStart: {"magnitude": 36, "unit": "PT"}` dan `indentFirstLine: {"magnitude": -36, "unit": "PT"}` dengan `fields: "alignment,lineSpacing,spaceBelow,indentStart,indentFirstLine"`. Nilai ini menghasilkan baris pertama menempel pada margin kiri 0 cm dan baris lanjutan menjorok 1,27 cm (0,5 inci) secara presisi.
 - **Protokol Privasi 8-Class PII (Zero Leakage)**: Dilarang keras mencantumkan data riil mahasiswa/staf (NIK KTP, nomor HP, email pribadi, password database kampus) pada naskah dan lampiran skripsi. Semua data sensitif wajib disamarkan menjadi `[REDACTED]`.
 
 ---
@@ -187,6 +282,8 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 
 ---
 ## Linked References
+- `skills/research-stem/anti-parenthesis-slop/SKILL.md` (Pilar Eliminasi Residu Kurung AI, Seleksi Istilah Tunggal, dan Tata Nama Tabel UPNVJ/Gunadarma)
+- `references/pedoman-sitasi-ilmiah-multi-style.md` (Pedoman Standar Sitasi Multi-Style Harvard/APA/IEEE dan Aturan First-Mention Bahasa Indonesia)
 - `skills/zero-slop/SKILL.md` (Pilar 3: Eliminasi AI Slop Naskah Ilmiah & 100% Fidelitas Fakta)
 - `references/prinsip-bukan-melainkan-etika-ai.md` (Manifesto Integritas Riset AI: 15 Pilar "Bukan, Melainkan" & Protokol Kolaborasi Dosen)
 - `references/section-prompts-blueprint.md` (Cetak Biru Hierarki Section Prompts Bab 1-5 Skripsi & Manuskrip Ilmiah)
@@ -194,6 +291,7 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 - `references/pedoman-bahasa-akademik-eyd.md` (Pedoman Standar Bahasa Akademik EYD V & Eliminasi Kata Hiperbolis)
 - `references/korpus-upnvj-grounded-research-standard.md` (Standar Riset Empiris Berjangkar Korpus UPNVJ & Diksi Akademik Dingin)
 - `references/wordcraft-mcp-typesetting.md`
+- `references/google-docs-api-styling.md` (Panduan Schema batchUpdate, paragraphStyle, textStyle, dan Chunking Google Docs API)
 - `references/socratic-interrogation-form.md`
 - `references/pedoman-tipografi-format.md`
 - `references/agent-memory-benchmarks.md`
@@ -215,6 +313,7 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 - `references/content-research-writer.md`
 - `references/cover.md`
 - `references/data-researcher.md`
+- `references/deep-research.md`
 - `references/fact-checker.md`
 - `references/laporan-generator.md`
 - `references/latex-mcp-server.md`
@@ -228,7 +327,13 @@ Manuskrip baru dianggap `DONE / VERIFIED` jika telah lolos Uji Semantik (Anti-Ha
 - `references/research-engineer.md`
 - `references/research-synthesizer.md`
 - `references/scientific-writing.md`
+- `references/search-first.md`
+- `references/section-prompts-blueprint.md`
 - `references/skripsi-indonesia-guideline.md`
+- `references/socratic-grill-protocol.md`
+- `references/socratic-interrogation-form.md`
 - `references/technical-researcher.md`
 - `references/texmcp.md`
+- `references/vlm-ocr-literature-corpus.md`
+- `references/vlm-ocr-multimodal-blueprint.md`
 - `references/wiki-page-writer.md`

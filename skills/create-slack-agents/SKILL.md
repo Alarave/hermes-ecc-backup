@@ -1,8 +1,39 @@
 ---
 name: create-slack-agents
-description: "Find, create, and deploy AI agents on Slack via Valet CLI and gallery."
+title: Create Slack AI Agents on Valet
+description: >-
+  Find and create AI agents that work with your team in Slack — research,
+  follow-up, sync, and reporting — using the valet CLI driven by the published
+  valet.dev/SKILL.md, across Sales, Venture, Finance, Product, Compliance,
+  Procurement, Engineering, and Nonprofit domains.
+website: valet.dev
+category: ai-agents
+tags:
+  - valet
+  - slack
+  - ai-agents
+  - cli
+  - automation
+  - skilled-agents
+source: 'browserbase: agent-runtime 2026-06-03'
+updated: '2026-06-03'
+recommended_method: cli
+alternative_methods:
+  - method: browser
+    rationale: >-
+      For the prebuilt agents in the valet.dev gallery (Sales, Venture, Finance,
+      Product, etc.), the fastest path is the browser: open valet.dev, filter by
+      team, and click 'Add to Slack' to run the OAuth install. Custom agents
+      still require the CLI.
+  - method: fetch
+    rationale: >-
+      valet.dev exposes an agent-skills discovery index at
+      /.well-known/agent-skills/index.json (Cloudflare agent-skills RFC v0.2.0)
+      pointing at the canonical SKILL.md with a sha256. Fetch it to bootstrap,
+      but actually doing the work still requires the CLI.
+verified: false
+proxies: false
 ---
-
 # Create Slack AI Agents on Valet
 
 ## Purpose
