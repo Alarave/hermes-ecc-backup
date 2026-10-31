@@ -22,12 +22,15 @@ Dipicu saat merancang, menyusun, memformat, atau mengompilasi naskah skripsi, te
 - **Tahap 1 (Substansi & Riset)**: `spesialis-research-akademik` merumuskan gap masalah, matriks SOTA, arsitektur model, dan pengujian signifikansi statistik (menghasilkan draf naskah di `artifacts/skripsi/` atau `chapters/`).
 - **Tahap 2 (Perakitan & Kompilasi)**: `laporan-generator` memvalidasi kelengkapan metadata `metadata.yml`, menyusun geometri margin, mengatur dual pagination, dan mengompilasi berkas Markdown menjadi PDF dan Word DOCX siap cetak.
 
-### 3. Preset Khusus Universitas Gunadarma (`preset: gunadarma`)
-- **Batas Tepi Kertas (Margin)**: **Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm** (Kertas A4 80 gram).
-- **Tipografi Resmi**: Times New Roman 12 pt, spasi 1.5, indentasi awal paragraf 1 cm, perataan teks rata kiri-kanan (*justify*).
-- **Sistematika Numerik Arab**: Bab 1 sampai 5 menggunakan penomoran Arab bertingkat (`1. PENDAHULUAN`, `1.1 Latar Belakang`, `1.2 Ruang Lingkup`, `2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).
-- **Ruang Lingkup 8-Poin**: Sub-bab 1.2 wajib menggunakan istilah baku *"Ruang Lingkup"* (bukan "Batasan Masalah").
-- **Diagram Alir Vektor FigGenie (Wajib Berkas Nyata)**: Dilarang keras menggunakan teks placeholder (`[Gambar ...]`) atau blok ASCII. Seluruh diagram kerangka pikir (Bab 3.1) dan diagram alur/arsitektur (Bab 3.2 / Bab 4) WAJIB dieksekusi menghasilkan berkas fisik di `laporan/figures/` via `figgenie-paper-diagram` (SVG + PNG 300 DPI dengan font Times New Roman). Setiap gambar wajib diawali kalimat pengantar naratif di paragraf sebelumnya.
+### 3. Preset Geometri & Paragraph Style Baku (`preset: gunadarma` & `upnvj`)
+- **Batas Tepi Kertas (Margin)**: **Atas 4 cm (`113.4 pt`), Kiri 4 cm (`113.4 pt`), Bawah 3 cm (`85.0 pt`), Kanan 3 cm (`85.0 pt`)** (Kertas A4 80 gram).
+- **Tipografi & Paragraf Resmi**: Times New Roman 12 pt, spasi 1.5, indentasi baris pertama tepat **1,27 cm (`36.0 pt` / `0,5 inci`)**, perataan teks rata kiri-kanan (*justified*).
+- **Standar Judul Sub-Bab Bab 2 (Aturan 1 Sampai 2 Kata Murni)**:
+  - Judul sub-bab Bab 2 wajib terdiri dari **1 sampai 2 kata benda entitas murni** (contoh: `2.1 Tanaman Selada`, `2.2 Citra Digital`, `2.3 *Deep Learning*`, `2.6 Python`, `2.7 Evaluasi Model`, `2.8 Penelitian Terdahulu`).
+  - DILARANG menggunakan kalimat panjang AI slop atau menggabungkan dua topik dengan kata `dan`.
+  - Menggunakan *hanging indent* `36.0 pt` (`1,27 cm`): nomor sub-bab di `x = 113.4 pt` dan teks judul di `x = 149.4 pt` (sejajar vertikal dengan awal baris pertama paragraf), serta mencetak istilah bahasa Inggris dengan format **Tebal Miring (*Bold Italic*)**.
+- **Sistematika Numerik**: Bab 1 sampai 5 menggunakan penomoran bertingkat (`1. PENDAHULUAN`, `1.1 Latar Belakang`, `1.2 Rumusan Masalah`, `1.3 Ruang Lingkup`, `2. TINJAUAN PUSTAKA`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).
+- **Diagram Alir Vektor FigGenie (Wajib Berkas Nyata)**: Dilarang keras menggunakan teks placeholder (`[Gambar ...]`) atau blok ASCII. Seluruh diagram kerangka pikir dan diagram alur/arsitektur WAJIB dieksekusi menghasilkan berkas fisik di `laporan/figures/` via `figgenie-paper-diagram` (SVG + PNG 300 DPI dengan font Times New Roman, lebar maksimal `13,0 cm`). Setiap gambar wajib diawali kalimat pengantar naratif di paragraf sebelumnya.
 
 ---
 ## C (Constraints & Production Guardrails)

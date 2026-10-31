@@ -80,9 +80,13 @@ Setiap gambar, diagram alir, dan tabel data TIDAK BOLEH ditaruh berdiri sendiri 
 
 ---
 
-## 6. Standar Tipografi & Geometri Fisik Naskah
-- **Margin Kertas**: Atas 4 cm, Kiri 4 cm, Bawah 3 cm, Kanan 3 cm (Kertas A4).
+## 6. Standar Tipografi, Paragraph Style Judul, & Geometri Fisik Naskah
+- **Margin Kertas**: Atas 4 cm (`113.4 pt`), Kiri 4 cm (`113.4 pt`), Bawah 3 cm (`85.0 pt`), Kanan 3 cm (`85.0 pt`) (Kertas A4).
 - **Huruf & Spasi**: Times New Roman 12 pt, spasi 1.5, perataan justify (rata kiri-kanan).
-- **Indentasi Paragraf**: Awal alinea menjorok ke dalam 1 cm (atau 5 sampai 7 ketukan spasi).
+- **Indentasi Paragraf**: Awal alinea menjorok ke dalam tepat **1,27 cm (`36.0 pt` / `0,5 inci`)**.
+- **Aturan Judul Sub-Bab Bab 2 (1 Sampai 2 Kata Murni)**:
+  - Judul sub-bab Bab 2 wajib terdiri dari **1 sampai 2 kata benda entitas murni** (contoh: `2.1 Tanaman Selada`, `2.2 Citra Digital`, `2.3 *Deep Learning*`, `2.6 Python`, `2.7 Evaluasi Model`, `2.8 Penelitian Terdahulu`).
+  - DILARANG menggunakan kalimat panjang AI slop atau menggabungkan dua topik dengan kata `dan`.
+  - Menggunakan *hanging indent* `36.0 pt` (`1,27 cm`): nomor sub-bab di `x = 113.4 pt` dan teks judul di `x = 149.4 pt` (sejajar vertikal dengan awal baris pertama paragraf), serta mencetak istilah bahasa Inggris dengan format **Tebal Miring (*Bold Italic*)**.
 - **Tanda Baca**: Dilarang menggunakan tanda pisah panjang em-dash atau en-dash. Gunakan tanda titik dua (:), kurung (), koma, atau tanda strip biasa (-).
 - **Penulisan Angka Desimal**: Gunakan koma (,) untuk bahasa Indonesia teknis (misal: `92,4%`, `0,05`) atau titik (.) jika mematuhi konvensi naskah komputasi berbahasa Inggris.
