@@ -13,7 +13,30 @@ description: "Use when formatting academic thesis, proposal, or skripsi."
 Dipicu saat menyusun, merevisi, atau menyinkronkan naskah proposal skripsi, laporan tugas akhir, atau tesis akademik.
 
 ## C (Constraints & Production Rules)
-- **Korespondensi 1:1 Rumusan Masalah & Tujuan Penelitian**:
+
+### 1. Struktur 5-Paragraf Latar Belakang Masalah (Bab 1.1)
+- Latar Belakang Masalah wajib mengalir secara deduktif murni dalam 5 paragraf (tanpa format daftar berbutir):
+  1. *Paragraf 1 (Makro & Statistik Resmi)*: Fenomena makro dan data kuantitatif lembaga resmi (BPS, WHO, Kemenkes, BPOM).
+  2. *Paragraf 2 (Mikro & Realitas Lapangan)*: Permasalahan konkret di lokus riset dan kelemahan prosedur manual konvensional.
+  3. *Paragraf 3 (Transisi Paradigma Komputasi)*: Rasionalitas pemilihan pendekatan AI/komputasi terhadap sifat data.
+  4. *Paragraf 4 (Sintesis 3-5 Paper Terdahulu & Research Gap)*: Rangkuman 3 sampai 5 paper primer dengan angka metrik akurasi nyata dan perumusan celah riset.
+  5. *Paragraf 5 (Solusi Usulan & Dampak Konkret)*: Penegasan metode usulan dan implementasi antarmuka sistem.
+
+### 2. Standar Judul Sub-Bab 1-2 Kata & Paragraph Style Bab 2 (Tinjauan Pustaka)
+- **Judul Sub-Bab Bab 2 Wajib 1 Sampai 2 Kata Benda Entitas Murni**:
+  - Dilarang judul panjang AI slop (*"Tinjauan Teoretis Komprehensif Mengenai..."*).
+  - Contoh baku: `2.1 Tanaman Selada`, `2.2 Citra Digital`, `2.3 Deep Learning`, `2.5 MobileNetV2`, `2.6 Python`, `2.7 Evaluasi Model`, `2.8 Penelitian Terdahulu`.
+  - Istilah bahasa Inggris pada judul wajib dicetak **Tebal Miring (*Bold Italic*)**.
+- **Hanging Indent 36.0 pt (1,27 cm)**:
+  - Nomor sub-bab (`2.1`) di margin kiri `x = 113.4 pt`.
+  - Teks judul dimulai di `x = 149.4 pt`, sejajar tegak lurus dengan huruf pertama baris ke-1 paragraf narasi di bawahnya.
+- **Formula 4-Kalimat Paragraf Sintesis Teori**:
+  - Kalimat 1: Definisi fungsional langsung (nama sub-bab menjadi subjek).
+  - Kalimat 2: Mekanisme operasional matematis/transformasi internal.
+  - Kalimat 3: Karakteristik kritis dan batasan baseline terhadap data lapangan.
+  - Kalimat 4: Jangkar relevansi terhadap pipeline Bab 3.
+
+### 3. Korespondensi 1:1 Rumusan Masalah & Tujuan Penelitian
   - Setiap butir pertanyaan penelitian pada Rumusan Masalah wajib memiliki butir pasangan operasional pada Tujuan Penelitian yang menjawabnya secara presisi dan terukur.
   - Jika Rumusan Masalah memiliki $N$ butir, Tujuan Penelitian wajib memiliki $N$ butir dengan topik yang identik:
     1. RQ Rancang Bangun & Integrasi $\leftrightarrow$ Tujuan Pengembangan Pipeline/Model.

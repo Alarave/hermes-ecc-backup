@@ -54,6 +54,10 @@ Skill ini aktif ketika pengguna ingin merapikan teks, menghapus kesan buatan rob
    - *Hype Buzzwords*: "Solusi mutakhir", "Revolusioner", "Seamless", "Robust", "Leverage", "Delve", "Foster", "Synergy", "Cutting-edge", "Game-changer".
 6. **Larangan Tanda Pisah Tipografi**:
    - DILARANG menggunakan karakter Unicode em dash (\u2014) atau en dash (\u2013). Gunakan titik dua (:), kurung (), koma, atau tanda strip biasa (-).
+7. **Standar Jawaban & Prosa Akademik Dingin (Academic Response Hygiene)**:
+   - Saat menyusun penjelasan teknis atau draf naskah ilmiah (Bab 1 s/d Bab 5), gunakan bahasa Indonesia ilmiah baku (EYD V dan KBBI) yang dingin, objektif, dan berorientasi data kuantitatif tanpa basa-basi pembuka/penutup.
+   - Eliminasi 100% kata sambung *"di mana / yang mana"* non-spasial serta pola kurung terjemahan ganda `padanan_indonesia (*istilah_asing*)`.
+   - Pada Bab 2 Tinjauan Pustaka, pastikan judul sub-bab hanya terdiri dari **1 sampai 2 kata benda entitas murni** (contoh: `2.1 Tanaman Selada`, `2.2 Citra Digital`, `2.3 *Deep Learning*`, `2.6 Python`, `2.7 Evaluasi Model`, `2.8 Penelitian Terdahulu`) dan setiap paragraf teori mengikuti struktur deduktif 4 kalimat (Definisi Fungsional -> Mekanisme Matematis -> Karakteristik/Batasan Baseline -> Jangkar Relevansi Sistem).
 
 ## Linked References
 - `references/anti-ai-slop-lexicon.md` (Daftar hitam 96 kata klise dan panduan penggantian konkret)
