@@ -37,6 +37,7 @@ Di lingkungan Hermes, skill tidak diinjeksi secara penuh ke setiap chat baru unt
 2. **Batas Deskripsi Frontmatter 60 Karakter**: Atribut `description` wajib ringkas (maksimal 60 karakter, satu kalimat, pemicu di awal, diakhiri titik). Tempatkan kata kunci pencarian detail di dalam body dokumen.
 3. **Pemuatan Berbasis Intent & Hook**: Gunakan plugin hook giliran pertama (`pre_llm_call`) atau bundle domain untuk menjamin skill inti aktif tanpa menunggu prompt eksplisit dari pengguna.
 4. **Higiene Berkas Kunci**: Bersihkan file kunci basi (`.locks/`, `.git/index.lock`, `.usage.json.lock`) sebelum menjalankan pembaruan hub agar update tidak dilewati.
+5. **Anti-Reset Format & Integrasi Brief Proyek**: Saat pengguna mendefinisikan aturan naskah atau format penulisan (seperti standar Gunadarma 4-4-3-3, Harvard 'dkk.', anti-slop kurung), aturan tersebut wajib diintegrasikan ke 3 titik: 1) Tambahkan kata kunci pemicu 'brief', 'paper', 'proposal', 'format penulisan' pada deskripsi YAML frontmatter, 2) Kunci di hook giliran pertama (`pram_bootstrap`) agar terbaca di semua chat baru, 3) Rekonsiliasikan ke gerbang G0/G1 `pram-orchestrator` agar pembuatan folder brief proyek baru otomatis mematuhi format tanpa pengguna mengulang instruksi.
 
 ---
 ## When to Use

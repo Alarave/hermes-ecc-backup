@@ -201,6 +201,254 @@ def hydrate_anchors(text: str) -> str:
     return "\n".join(sections)
 
 
+# ---------------------------------------------------------------------------
+# DOMAIN TAXONOMY & UNIVERSAL SKILL BINDING ENGINE
+# ---------------------------------------------------------------------------
+
+DOMAIN_TAXONOMY = {
+    "research": {
+        "name": "Riset Akademik, Skripsi & Naskah Ilmiah",
+        "pic": "spesialis-research-akademik",
+        "bundle": "/research",
+        "keywords": [
+            "skripsi", "tesis", "disertasi", "paper", "jurnal", "makalah", "proposal",
+            "naskah", "tinjauan pustaka", "bab 1", "bab 2", "bab 3", "bab 4", "bab 5",
+            "metodologi", "penelitian", "sitasi", "citation", "harvard", "daftar pustaka",
+            "format penulisan", "paragraf", "margin", "4-4-3-3", "brief", "pedoman",
+            "gunadarma", "upnvj", "sota", "state-of-the-art", "diebold-mariano", "academic", "thesis"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-research-akademik') SEBELUM merespons.\n"
+            "- STANDAR FORMAT BAKU MUTLAK: A4 margin 4-4-3-3 cm, Times New Roman 12 pt, 1.5 spasi, rata kiri-kanan (justified), indentasi awal paragraf 36 pt (1,27 cm).\n"
+            "- Penomoran: Bab Arab (1. PENDAHULUAN), sub-bab tanpa titik penutup (1.1 Latar Belakang).\n"
+            "- Sitasi Harvard First-Mention: 3-5 penulis wajib disebut lengkap pada pemunculan pertama ('Ramadhani, Dewanta, dan Gunawan (2026)'), baru pemunculan berikutnya 'dkk.'.\n"
+            "- Eliminasi AI Slop Kurung: DILARANG pola terjemahan ganda padanan (*istilah asing*). Gunakan istilah murni cetak miring (*deep learning*, *backbone*).\n"
+            "- Format Draf Siap Salin: Sajikan draf naskah dalam blok kode plaintext bersih (```text) agar siap disalin langsung ke Word atau Google Docs tanpa kerusakan format."
+        )
+    },
+    "backend": {
+        "name": "Backend & REST API Engineering",
+        "pic": "spesialis-backend",
+        "bundle": "/backend",
+        "keywords": [
+            "backend", "api", "rest api", "endpoint", "database", "postgres", "postgresql",
+            "mysql", "sqlite", "prisma", "migration", "fastapi", "express", "nest",
+            "better-auth", "supabase", "jwt", "oauth", "crud"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-backend') atau skill_view('api-design').\n"
+            "- SOP: Spec -> Plan -> TDD -> Code (DILARANG langsung koding tanpa kontrak DTO)."
+        )
+    },
+    "frontend": {
+        "name": "Frontend & UI Engineering",
+        "pic": "spesialis-frontend",
+        "bundle": "/frontend",
+        "keywords": [
+            "frontend", "ui", "ux", "tampilan", "slicing", "react", "next.js", "nextjs",
+            "tailwind", "css", "html", "komponen", "component", "desain antarmuka",
+            "landing page", "dashboard ui", "web design"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-frontend') dan terapkan anti-ui-slop.\n"
+            "- Hindari template generik AI, WCAG contrast pass, status komponen lengkap (loading, empty, error)."
+        )
+    },
+    "ml": {
+        "name": "Machine Learning, AI & Data Science",
+        "pic": "spesialis-data-ai-agentic",
+        "bundle": "/ml",
+        "keywords": [
+            "machine learning", "deep learning", "data science", "ml", "ai model", "training",
+            "dataset", "prediksi", "forecasting", "time series", "lstm", "ceemdan", "timesfm",
+            "cnn", "yolo", "object detection", "vlm", "ocr", "eda", "data leakage",
+            "data preparation", "scikit", "pytorch", "huggingface", "transformers", "unsloth"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-data-ai-agentic').\n"
+            "- Wajib anti-leakage split (split sebelum scaling/dekomposisi), Diebold-Mariano test, dan evaluasi metrik empiris."
+        )
+    },
+    "devops": {
+        "name": "DevOps, Cloud & Deployment",
+        "pic": "spesialis-devops-infrastruktur",
+        "bundle": "/devops",
+        "keywords": [
+            "devops", "deploy", "deployment", "docker", "dockerfile", "compose", "ci/cd",
+            "github actions", "pipeline", "kubernetes", "k8s", "infra", "infrastruktur",
+            "server", "cloud", "vercel", "caddy", "nginx"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-devops-infrastruktur').\n"
+            "- Pastikan konfigurasi aman tanpa hardcoded secret, minimal image size, multi-stage build."
+        )
+    },
+    "security": {
+        "name": "Security Review & QA Testing",
+        "pic": "spesialis-security-qa",
+        "bundle": "/security",
+        "keywords": [
+            "security", "keamanan", "vulnerability", "celah", "pentest", "sast",
+            "audit kode", "qa", "testing", "test", "tdd", "unit test", "e2e", "playwright", "bug", "regression"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-security-qa') atau skill_view('security-review').\n"
+            "- Terapkan TDD (Red-Green-Refactor) dan verifikasi bukti test pass di terminal."
+        )
+    },
+    "mobile": {
+        "name": "Mobile App Development",
+        "pic": "spesialis-mobile",
+        "bundle": "/mobile",
+        "keywords": [
+            "mobile", "android", "ios", "flutter", "dart", "react native", "swift",
+            "swiftui", "kmp", "kotlin multiplatform", "aplikasi hp"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-mobile').\n"
+            "- Terapkan Clean Architecture / BLoC / Provider."
+        )
+    },
+    "pm": {
+        "name": "Product Management & Karier",
+        "pic": "spesialis-project-manager",
+        "bundle": "/pm",
+        "keywords": [
+            "product manager", "pm", "prd", "bisnis", "wbs", "roadmap", "tpm", "proyek",
+            "scrum", "sprint", "lean canvas", "business model", "cari kerja", "lowongan", "resume", "cv", "interview"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-project-manager') atau skill_view('spesialis-product-bisnis').\n"
+            "- Alokasi PIC riil (Firman: Lead), batasan non-scope ketat."
+        )
+    },
+    "workspace": {
+        "name": "Obsidian Vault & Workspace",
+        "pic": "spesialis-produktivitas-workspace",
+        "bundle": "/workspace",
+        "keywords": [
+            "obsidian", "vault", "catatan", "note", "kuliah", "belajar", "materi", "rangkuman", "markitdown", "workspace"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('note') atau skill_view('cli-anything-obsidian').\n"
+            "- Lokasi Vault: E:\\BELAJAR BANGET\\SKILL BELAJAR. Terapkan struktur 0-100."
+        )
+    },
+    "scraper": {
+        "name": "Web Scraping & Automation",
+        "pic": "multi-platform-scraper",
+        "bundle": "/scraper",
+        "keywords": [
+            "scrape", "scraping", "scraper", "crawl", "crawling", "ekstrak web", "scrapling", "browser automation", "unduh web"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('multi-platform-scraper') atau skill_view('scrapling').\n"
+            "- Utamakan parser DOM cepat dibanding headless browser berat."
+        )
+    },
+    "creative": {
+        "name": "Copywriting & Creative Media",
+        "pic": "spesialis-copywriter",
+        "bundle": "/creative",
+        "keywords": [
+            "copywriter", "copywriting", "artikel", "konten", "media", "video", "animasi", "manim", "remotion", "social media"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-copywriter') atau skill_view('spesialis-kreatif-media').\n"
+            "- Terapkan zero-slop naskah (eliminasi 96 kata klise AI)."
+        )
+    },
+    "skill-arch": {
+        "name": "Rekayasa Skill AI (Asep Engine)",
+        "pic": "spesialis-skills",
+        "bundle": "/skill-arch",
+        "keywords": [
+            "skill", "buat skill", "update skill", "edit skill", "audit skill", "asep",
+            "prompt engineering", "rcco", "evals", "skill persistence"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('spesialis-skills') atau skill_view('skill-persistence').\n"
+            "- Standar RCCO, description <= 60 karakter, lolos linter strict 100/100."
+        )
+    },
+    "general-engineering": {
+        "name": "Rekayasa Software Umum (Pram Engine)",
+        "pic": "pram-orchestrator",
+        "bundle": "/pm",
+        "keywords": [
+            "bikin fitur", "buat fitur", "koding", "coding", "bantu koding", "rancang arsitektur",
+            "desain sistem", "refactor", "pipeline", "buat aplikasi", "implementasi", "debugging", "fix bug"
+        ],
+        "rules": (
+            "- WAJIB panggil skill_view('pram-orchestrator').\n"
+            "- SOP MUTLAK: Spec -> Plan -> TDD -> Code."
+        )
+    }
+}
+
+_EXACT_SKILL_REGEX = None
+
+
+def get_exact_skill_regex():
+    global _EXACT_SKILL_REGEX
+    if _EXACT_SKILL_REGEX is None:
+        try:
+            skills_dir = Path(__file__).resolve().parent.parent.parent / "skills"
+            if skills_dir.exists():
+                skills = sorted([s.name for s in skills_dir.iterdir() if s.is_dir() and not s.name.startswith('.')], key=len, reverse=True)
+                if skills:
+                    _EXACT_SKILL_REGEX = re.compile(
+                        r'(?<![a-zA-Z0-9_-])(' + '|'.join(re.escape(s) for s in skills if len(s) > 3) + r')(?![a-zA-Z0-9_-])',
+                        re.IGNORECASE
+                    )
+        except Exception:
+            pass
+    return _EXACT_SKILL_REGEX
+
+
+def detect_skill_intent(text: str) -> str:
+    if not text:
+        return ""
+
+    lowered = text.lower()
+    matched_domains = []
+
+    for dom_key, conf in DOMAIN_TAXONOMY.items():
+        for kw in conf["keywords"]:
+            if re.search(r'(?<![a-z0-9_-])' + re.escape(kw) + r'(?![a-z0-9_-])', lowered):
+                matched_domains.append(conf)
+                break
+
+    detected_exact_skills = []
+    rgx = get_exact_skill_regex()
+    if rgx:
+        raw_found = rgx.findall(text)
+        detected_exact_skills = list(dict.fromkeys(raw_found))
+
+    if not matched_domains and not detected_exact_skills:
+        return ""
+
+    lines = ["<PERINTAH_ORCHESTRASI_SKILL_MUTLAK>"]
+    lines.append("Sistem mendeteksi intent spesifik dalam pesan pengguna pada giliran ini:")
+
+    if matched_domains:
+        for d in matched_domains[:2]:
+            lines.append(f"\n[DOMAIN: {d['name']} (Shortcut: {d['bundle']})]")
+            lines.append(f"PIC Utama: skill_view(\"{d['pic']}\")")
+            lines.append("Perintah Operasional:")
+            lines.append(f"{d['rules']}")
+
+    if detected_exact_skills:
+        filtered_skills = [s for s in detected_exact_skills[:4] if not any(s.lower() == d['pic'].lower() for d in matched_domains)]
+        if filtered_skills:
+            lines.append(f"\n[SKILL SPESIFIK TERDETEKSI]: {', '.join(filtered_skills)}")
+            lines.append("Panggil via skill_view() jika diperlukan untuk menyelesaikan instruksi.")
+
+    lines.append("\nATURAN MUTLAK: Agen DILARANG KERAS langsung merespons atau melompat koding tanpa memanggil skill terkait!")
+    lines.append("</PERINTAH_ORCHESTRASI_SKILL_MUTLAK>")
+    return "\n".join(lines)
+
+
 def register(ctx):
     def pre_llm_call(
         session_id=None,
@@ -215,8 +463,11 @@ def register(ctx):
         if is_first_turn:
             context_parts.append(BOOTSTRAP_TEXT)
 
-        # Autonomous Anchor Ingestion pada setiap giliran prompt pengguna
         if user_message:
+            intent_ctx = detect_skill_intent(user_message)
+            if intent_ctx:
+                context_parts.append(intent_ctx)
+
             anchor_ctx = hydrate_anchors(user_message)
             if anchor_ctx:
                 context_parts.append(anchor_ctx)
