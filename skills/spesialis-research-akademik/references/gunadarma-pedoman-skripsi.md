@@ -47,26 +47,35 @@ Gunadarma menerapkan sistem dua jenis penomoran halaman:
 Universitas Gunadarma menggunakan sistem penomoran bab **Numerik Arab Bergradasi** (DILARANG menggunakan kata "BAB I", melainkan angka "1."):
 
 ### 1. PENDAHULUAN
-- **1.1. Latar Belakang**:
-  - Struktur piramida terbalik: Isu makro regulasi/industri -> Masalah riil lapangan -> Celah riset terdahulu -> Usulan solusi sistem/algoritma.
-  - Aturan Hemat Tanda Kurung (Parenthesis Economy): Dilarang menulis terjemahan istilah asing di dalam tanda kurung seperti `penjual pihak ketiga (*third-party sellers*)` atau `pantulan cahaya (*glare*)`. Istilah teknis asing langsung dicetak miring (*italic*) tanpa tanda kurung. Tanda kurung dibatasi hanya untuk singkatan perdana, sitasi tahun, dan pasal perundang-undangan.
-- **1.2. Ruang Lingkup**:
-  - Wajib menggunakan istilah **"Ruang Lingkup"** (Dilarang menggunakan "Batasan Masalah").
-  - Disajikan dalam bentuk butir-butir kalimat bernomor yang mengalir secara wajar dan alami (mencakup 8 aspek pembatasan tanpa format label-key-value kaku seperti `**Objek**: ...`).
-- **1.3. Tujuan Penelitian**:
-  - Pernyataan aktif terukur (misal: "Membangun sistem...", "Menganalisis performa algoritma...").
-- **1.4. Sistematika Penulisan**:
-  - Disajikan secara proporsional dalam 5 paragraf terpisah (1 paragraf ringkas per bab) yang menguraikan alur pengerjaan penelitian secara runtut, lugas, dan substantif.
-  - DILARANG KERAS menggunakan kata-kata AI slop ("membedah", "saling berkesinambungan", "memetakan 1:1", "secara komprehensif mengintegrasikan"). Gunakan bahasa Indonesia akademik baku dan objektif sesuai bukti korpus skripsi nasional.
+- **1.1 Latar Belakang**:
+  - Struktur corong terbalik 5-paragraf:
+    1. Paragraf 1: Isu makro regulasi/industri dan data statistik resmi (Das Sollen).
+    2. Paragraf 2: Masalah riil operasional di lokus riset dan inefisiensi prosedur manual (Das Sein).
+    3. Paragraf 3: Transisi komputasi cerdas dan rasionalitas pemilihan metode inti.
+    4. Paragraf 4: Sintesis komparatif 3-5 paper rujukan berangka metrik terverifikasi dan perumusan Research Gap.
+    5. Paragraf 5: Penegasan solusi usulan, spesifikasi antarmuka sistem, dan dampak operasional.
+  - Aturan Hemat Tanda Kurung (Parenthesis Economy): Dilarang menulis terjemahan istilah asing di dalam tanda kurung seperti `penjual pihak ketiga (*third-party sellers*)`. Istilah teknis asing langsung dicetak miring (*italic*) tanpa tanda kurung. Tanda kurung dibatasi hanya untuk singkatan perdana, sitasi tahun, dan pasal perundang-undangan.
+- **1.2 Rumusan Masalah**:
+  - Berisi kalimat tanya operasional bernomor (1, 2, 3, ...) yang menanyakan penerapan metode, analisis kinerja, perbandingan model, dan karakteristik sistem.
+  - Penataan gaya: Baris pertama nomor dimulai di `x = 131.4 pt` (indent 18.0 pt), baris lanjutan di `x = 149.4 pt` (indent 36.0 pt).
+- **1.3 Ruang Lingkup**:
+  - Wajib menggunakan judul **"1.3 Ruang Lingkup"** (Dilarang menggunakan "Batasan Masalah").
+  - Disajikan dalam bentuk butir-butir kalimat bernomor yang mengalir secara wajar dan alami (mencakup fokus riset, dataset, scraping, preprocessing, algoritma klasifikasi, kelas target, metrik evaluasi, penanganan imbalanced data, skenario split, alat/platform, dan pustaka komputasi).
+  - Penataan gaya: Baris pertama nomor di `x = 131.4 pt` (indent 18.0 pt), teks lanjutan di `x = 149.4 pt` (indent 36.0 pt).
+- **1.4 Tujuan Penelitian**:
+  - Wajib berpasangan selaras 1:1 dengan `1.2 Rumusan Masalah` menggunakan Kata Kerja Operasional (KKO) aktif (contoh: Menerapkan, Menganalisis, Membandingkan, Menentukan).
+- **1.5 Sistematika Penulisan**:
+  - Disajikan secara proporsional dalam narasi terstruktur berurutan: *Pertama, Pendahuluan... Kedua, Tinjauan Pustaka... Ketiga, Metode Penelitian... Keempat, Hasil dan Pembahasan... Terakhir, Penutup...*
+  - DILARANG KERAS menggunakan kata-kata AI slop ("membedah", "saling berkesinambungan", "secara komprehensif mengintegrasikan"). Gunakan bahasa Indonesia akademik baku dan objektif.
 
-### 2. LANDASAN TEORI
-- Teori fundamental pendukung sistem, dasar matematika algoritma, arsitektur deep learning, dan konsep rekayasa perangkat lunak.
-- **Matriks Komparasi Penelitian Terdahulu (SOTA Matrix)**:
-  - Tabel perbandingan minimal 5 penelitian bereputasi (Penulis, Tahun, Metode, Dataset, Kelebihan, dan Keterbatasan).
-  - Identifikasi kesenjangan riset (*Research Gap*) yang dijawab oleh skripsi ini.
-- **Kerangka Pemikiran Teoritis**:
-  - Visualisasi hubungan variabel, input, proses, dan output sistem.
-  - WAJIB digambar menggunakan engine vektor `figgenie-paper-diagram` (dilarang menggunakan diagram Mermaid kaku atau screenshot bitmap).
+### 2. TINJAUAN PUSTAKA
+- Sub-bab pertama wajib: **`2.1 Penelitian Terdahulu`** yang menyajikan narasi pengantar dan tabel komparasi (`Tabel 2.1 Penelitian Terdahulu` 100% rata tengah).
+- Sub-bab berikutnya (`2.2`, `2.3`, dst.) wajib menggunakan **1 sampai 2 kata benda entitas murni** (maksimal 3 kata untuk istilah resmi seperti `2.6 Natural Language Processing (NLP)`). Dilarang menggabungkan topik dengan kata `dan`.
+- **Standar Penyajian Rumus / Persamaan Matematika**:
+  1. Label rumus di atas: Times New Roman 12 pt Bold rata kiri (`Rumus X.Y Nama Rumus`).
+  2. Formula: Cambria Math 12 pt diletakkan 100% rata tengah (*center*).
+  3. Keterangan variabel di bawah rumus: Times New Roman 12 pt Italic menjorok di `x = 127.6 pt` (indentasi ~0,5 cm).
+  4. Seluruh rumus didaftarkan pada halaman **DAFTAR RUMUS** di front matter (halaman xvi).
 
 ### 3. METODOLOGI PENELITIAN
 - Sandaran kerangka kerja baku:
