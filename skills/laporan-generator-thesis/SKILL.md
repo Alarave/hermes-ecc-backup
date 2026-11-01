@@ -18,13 +18,15 @@ Dipicu saat menyusun, memformat, atau mengompilasi naskah skripsi, tesis, tugas 
 - Saat inisialisasi dokumen skripsi, periksa artefak proyek (`README.md`, notebook eksperimen, modul kode di `src/` atau `ai_engine/`) sebelum menulis bab.
 - Dilarang menggunakan topik generik atau data dummy jika repositori memiliki topik dan metodologi penelitian riil.
 
-### 2. Geometri Fisik & Paragraph Style Baku (UPNVJ & Gunadarma)
+### 2. Geometri Fisik & Spesifikasi Paragraph Style Baku (UPNVJ & Gunadarma)
 - **Margin Kertas A4**: Atas 4 cm (`113.4 pt`), Kiri 4 cm (`113.4 pt`), Bawah 3 cm (`85.0 pt`), Kanan 3 cm (`85.0 pt`).
-- **Tipografi & Paragraf**: Times New Roman 12 pt, spasi 1.5, rata kiri-kanan (*justified*), indentasi baris pertama tepat `36.0 pt` (`1,27 cm` / `0,5 inci`).
-- **Aturan Judul Sub-Bab Bab 2 (1 Sampai 2 Kata Murni)**:
-  - Judul sub-bab Bab 2 wajib terdiri dari **1 sampai 2 kata benda entitas murni** (contoh: `2.1 Tanaman Selada`, `2.2 Citra Digital`, `2.3 *Deep Learning*`, `2.6 Python`, `2.7 Evaluasi Model`, `2.8 Penelitian Terdahulu`).
-  - DILARANG menggunakan kalimat panjang AI slop atau menggabungkan dua topik dengan kata `dan`.
-  - Menggunakan *hanging indent* `36.0 pt` (`1,27 cm`): nomor sub-bab di `x = 113.4 pt` dan teks judul di `x = 149.4 pt` (sejajar vertikal dengan awal baris pertama paragraf), serta mencetak istilah bahasa Inggris dengan format **Tebal Miring (*Bold Italic*)**.
+- **Heading 1 (Judul Bab)**: Times New Roman 14 pt Bold rata tengah (*Center*), 2 baris (`BAB I` / `PENDAHULUAN`), jarak vertikal ke teks `36.0 - 47.0 pt`, `pageBreakBefore: true`.
+- **Heading 2 (Sub-Bab)**: Times New Roman 12 pt Bold (*Bold Italic* untuk istilah asing), batas **1 sampai 2 kata benda murni**, **Hanging Indent 36.0 pt (1,27 cm)**: nomor di `x = 113.4 pt` dan teks judul di `x = 149.4 pt` (sejajar vertikal tegak lurus dengan awal baris pertama paragraf narasi). Spasi 1.5, space before 12 pt, space after 6 pt.
+- **Heading 3 (Sub-Sub-Bab)**: Times New Roman 12 pt Bold (*Bold Italic* untuk istilah asing), batas 1-2 kata, **Nested Hanging Indent +36.0 pt**: nomor di `x = 149.4 pt`, teks di `x = 185.4 pt` (tab stop 72.0 pt). Space before 10 pt, space after 4 pt.
+- **Normal / Body Text**: Times New Roman 12 pt, spasi 1.5 (`para.oneAndHalf`), rata kiri-kanan (*justified*), **First-Line Indent tepat 36.0 pt (1,27 cm / 0,5 inci)**. Baris pertama di `x = 149.4 pt`, baris lanjutan di `x = 113.4 pt`. Space before 0 pt, space after 0 pt (atau 8 pt jika tanpa enter pemisah).
+- **Caption Tabel & Gambar**: Rata tengah (*Center*), Times New Roman 11-12 pt Regular, spasi 1.0, format `Tabel X.Y Judul` (di atas tabel) dan `Gambar X.Y Judul` (di bawah gambar) tanpa tanda titik dua.
+- **Daftar Pustaka**: Times New Roman 12 pt, spasi 1.5, **Hanging Indent 36.0 pt (1,27 cm)**: baris 1 di margin kiri `x = 113.4 pt`, baris 2 dst menjorok di `x = 149.4 pt`, space after 6-8 pt antar-entri.
+- **Persamaan Matematika**: Formula rata tengah (*center*), nomor persamaan rata kanan `14,0 cm` via borderless table 1x2 kolom atau tab stop kanan. DILARANG menggunakan callout box!
 
 ---
 

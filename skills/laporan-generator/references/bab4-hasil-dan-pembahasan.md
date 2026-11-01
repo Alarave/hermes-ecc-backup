@@ -30,18 +30,18 @@ laporan-generator/
 
 Kompilasi dokumen PDF menggunakan Typst menghasilkan dokumen akademik dengan kualitas tipografi tingkat tinggi. Beberapa pencapaian visual utama meliputi:
 
-1. **Struktur Penomoran Bab Dua Baris** --- Sesuai dengan pedoman penulisan karya ilmiah di Indonesia, judul bab level 1 dirender dalam dua baris simetris: baris pertama berisi prefix angka Romawi tebal (contoh: `BAB I`), dan baris kedua berisi nama judul bab dalam huruf kapital tebal 14pt (contoh: `PENDAHULUAN`).
-2. **Kerapian Spasi dan Indentasi Paragraf** --- Teks isi menggunakan font Libertinus Serif 12pt dengan spasi baris 1.5 (`leading: 0.75em`) dan perataan rata kanan-kiri (*justified*). Baris pertama setiap alinea diindentasi secara presisi sebesar 1.25 cm.
-3. **Penyusunan Tabel dan Gambar yang Bersih** --- Seluruh gambar diposisikan di tengah halaman dengan keterangan caption di bagian bawah. Tabel akademik bergaris tipis 0.5pt abu-abu tanpa border vertikal berlebih.
-4. **Sitasi Otomatis Format APA** --- Seluruh pengutipan dalam teks seperti `(Mädje & Haug, 2024)` secara otomatis ditautkan ke bagian DAFTAR PUSTAKA di akhir dokumen dengan penataan *hanging indent* 1.25 cm.
+1. **Struktur Penomoran Bab Dua Baris**: Sesuai dengan pedoman penulisan karya ilmiah di Indonesia, judul bab level 1 dirender dalam dua baris simetris: baris pertama berisi prefix angka Romawi tebal (contoh: `BAB I`), dan baris kedua berisi nama judul bab dalam huruf kapital tebal 14pt (contoh: `PENDAHULUAN`).
+2. **Kerapian Spasi dan Indentasi Paragraf**: Teks isi menggunakan font Times New Roman 12pt dengan spasi baris 1.5 (`leading: 0.75em`) dan perataan rata kanan-kiri (*justified*). Baris pertama setiap alinea diindentasi secara presisi sebesar 1,27 cm (`36.0 pt` / `0,5 inci`).
+3. **Penyusunan Tabel dan Gambar yang Bersih**: Seluruh gambar diposisikan di tengah halaman dengan keterangan caption di bagian bawah. Tabel akademik bergaris tipis 0.5pt abu-abu tanpa border vertikal berlebih.
+4. **Sitasi Otomatis Format APA/Harvard**: Seluruh pengutipan dalam teks seperti `(Mädje & Haug, 2024)` secara otomatis ditautkan ke bagian DAFTAR PUSTAKA di akhir dokumen dengan penataan *hanging indent* 1,27 cm (`36.0 pt`).
 
 ## Evaluasi Hasil Keluaran Dokumen Word (DOCX Multi-Pass)
 
 Dokumen Microsoft Word (`Laporan.docx`) yang dihasilkan melalui proses multi-pass berhasil memenuhi persyaratan format formal:
 
-1. **Pemisahan Seksi dan Penomoran Halaman** --- Sampul depan tampil bersih tanpa nomor halaman. Bagian KATA PENGANTAR dan DAFTAR ISI memiliki penomoran angka Romawi kecil (*i, ii*). Pada awal BAB I, penomoran halaman berhasil dimulai ulang (*restart*) dari angka Arab 1 (*1, 2, 3...*).
-2. **Daftar Isi Otomatis Terhubung (Hyperlinked TOC)** --- Entri Daftar Isi dihubungkan dengan *hyperlink internal* dan menampilkan nomor halaman aktual secara presisi berkat proses injeksi nilai cache oleh `docx-pagenum.py`.
-3. **Konsistensi Gaya dan Font** --- Dokumen Word menggunakan font Times New Roman berukuran 12pt pada teks normal dan 14pt tebal pada Heading 1, memastikan paritas visual yang identik dengan dokumen PDF.
+1. **Pemisahan Seksi dan Penomoran Halaman**: Sampul depan tampil bersih tanpa nomor halaman. Bagian KATA PENGANTAR dan DAFTAR ISI memiliki penomoran angka Romawi kecil (*i, ii*). Pada awal BAB I, penomoran halaman berhasil dimulai ulang (*restart*) dari angka Arab 1 (*1, 2, 3...*).
+2. **Daftar Isi Otomatis Terhubung (Hyperlinked TOC)**: Entri Daftar Isi dihubungkan dengan *hyperlink internal* dan menampilkan nomor halaman aktual secara presisi berkat proses injeksi nilai cache oleh `docx-pagenum.py`.
+3. **Konsistensi Gaya dan Font**: Dokumen Word menggunakan font Times New Roman berukuran 12pt pada teks normal dan 14pt tebal pada Heading 1, memastikan paritas visual yang identik dengan dokumen PDF.
 
 ## Analisis Komparasi Kinerja dan Efisiensi
 

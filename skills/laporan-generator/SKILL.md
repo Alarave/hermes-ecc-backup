@@ -32,6 +32,63 @@ Dipicu saat merancang, menyusun, memformat, atau mengompilasi naskah skripsi, te
 - **Sistematika Numerik**: Bab 1 sampai 5 menggunakan penomoran bertingkat (`1. PENDAHULUAN`, `1.1 Latar Belakang`, `1.2 Rumusan Masalah`, `1.3 Ruang Lingkup`, `2. TINJAUAN PUSTAKA`, `3. METODOLOGI PENELITIAN`, `4. HASIL DAN PEMBAHASAN`, `5. PENUTUP`).
 - **Diagram Alir Vektor FigGenie (Wajib Berkas Nyata)**: Dilarang keras menggunakan teks placeholder (`[Gambar ...]`) atau blok ASCII. Seluruh diagram kerangka pikir dan diagram alur/arsitektur WAJIB dieksekusi menghasilkan berkas fisik di `laporan/figures/` via `figgenie-paper-diagram` (SVG + PNG 300 DPI dengan font Times New Roman, lebar maksimal `13,0 cm`). Setiap gambar wajib diawali kalimat pengantar naratif di paragraf sebelumnya.
 
+### 4. Spesifikasi Lengkap Paragraph Styles Dokumen & Narasi Ilmiah
+
+Untuk menjamin kepatuhan mutlak terhadap kaidah penulisan akademik dan mengeliminasi format generik AI (*AI Slop*), `laporan-generator` menegakkan taksonomi gaya paragraf pada setiap elemen naskah:
+
+#### A. Parameter Teknis Paragraph Styles Dokumen (WordCraft / OpenXML / Typst / LaTeX)
+1. **Heading 1 (Judul Bab Utama)**:
+   - Font: Times New Roman 14 pt Bold (atau 12 pt Bold pada template UPNVJ tertentu), kapitalisasi penuh (*ALL CAPS*), perataan tengah (*Center*).
+   - Format: 2 baris terpisah (`BAB I` / `PENDAHULUAN`). Jarak vertikal ke teks berikutnya dy = `36.0 s/d 47.0 pt` (~2,5 sampai 3 spasi).
+   - Properti: `pageBreakBefore: true`.
+2. **Heading 2 (Sub-Bab Tingkat 2)**:
+   - Font: Times New Roman 12 pt Bold (*Bold Italic* untuk istilah bahasa Inggris).
+   - Panjang: Wajib 1 sampai 2 kata benda entitas murni (maksimal 3 kata untuk nama algoritma resmi).
+   - **Hanging Indent 36.0 pt (1,27 cm)**: Nomor sub-bab (contoh `2.1`) rata kiri di margin `x = 113.4 pt`, sedangkan teks judul dimulai tepat di `x = 149.4 pt` (sejajar vertikal tegak lurus dengan huruf pertama baris ke-1 paragraf narasi di bawahnya). Spasi 1.5, space before 12 pt, space after 6 pt.
+3. **Heading 3 (Sub-Sub-Bab Tingkat 3)**:
+   - Font: Times New Roman 12 pt Bold (*Bold Italic* untuk istilah asing).
+   - Panjang: Wajib 1 sampai 2 kata murni (contoh `2.4.1 *Convolutional Layer*`).
+   - **Nested Hanging Indent +36.0 pt**: Nomor sub-sub-bab dimulai di `x = 149.4 pt` (`leftIndent = 36.0 pt`), sedangkan teks judul dimulai di `x = 185.4 pt` (`tabStop = 72.0 pt` / 2,54 cm dari margin kiri). Space before 10 pt, space after 4 pt.
+4. **Normal / Body Text (Paragraf Narasi Standar)**:
+   - Font: Times New Roman 12 pt Regular, spasi baris 1.5 (`para.oneAndHalf`).
+   - Perataan: Rata Kiri-Kanan penuh (*Justified*).
+   - **First-Line Indent 36.0 pt (1,27 cm / 0,5 inci)**: Baris pertama menjorok di `x = 149.4 pt`, baris kedua dan seterusnya kembali rata margin kiri di `x = 113.4 pt`.
+   - Spasi Paragraf: Space before 0 pt, space after 0 pt (jika menggunakan baris kosong antar-paragraf) atau space after 8 pt (jika tanpa baris kosong pemisah).
+5. **Caption Tabel (Judul Tabel)**:
+   - Posisi: Di ATAS tabel, 100% rata tengah (*Center*).
+   - Font: Times New Roman 11 pt atau 12 pt Regular, spasi 1.0.
+   - Format: `Tabel X.Y Judul Tabel` (tanpa titik dua dan tanpa titik penutup). Space after 4-6 pt ke tabel.
+6. **Caption Gambar (Judul Gambar)**:
+   - Posisi: Di BAWAH gambar, 100% rata tengah (*Center*).
+   - Font: Times New Roman 11 pt atau 12 pt Regular, spasi 1.0.
+   - Format: `Gambar X.Y Judul Gambar` (tanpa titik dua dan tanpa titik penutup). Space before 4-6 pt dari gambar, space after 12 pt ke teks berikutnya.
+7. **Isi Sel Tabel (Table Body Text)**:
+   - Font: Times New Roman 10-12 pt Regular (10 pt untuk tabel data besar, 12 pt untuk tabel teori).
+   - Spasi baris 1.0 atau 1.15, tanpa first-line indent (`firstLine: 0 pt`). Teks rata kiri, angka/kode rata tengah.
+8. **Daftar Pustaka (Bibliography Entry Style)**:
+   - Font: Times New Roman 12 pt Regular, spasi 1.5.
+   - **Hanging Indent 36.0 pt (1,27 cm)**: Baris pertama rata kiri di `x = 113.4 pt`, baris kedua dan seterusnya menjorok ke dalam di `x = 149.4 pt`. Space after 6-8 pt antar-entri rujukan yang berbeda.
+9. **Persamaan Matematika (Equation Paragraph Style)**:
+   - Formula diletakkan di tengah (*center-aligned*), sedangkan label nomor persamaan `(X.Y)` diletakkan rata margin kanan `14,0 cm` (*right-aligned*) pada baris yang sama.
+   - Disajikan via tabel 1 baris 2 kolom tanpa bingkai (*borderless table*) selebar 14,0 cm (kolom kiri 12,0 cm untuk rumus, kolom kanan 2,0 cm untuk nomor) atau tab stop kanan pada Word/Typst/LaTeX. DILARANG menggunakan kotak panggil (*callout box*) berarsir.
+
+#### B. Paragraph Styles Struktur Narasi Akademik Baku
+1. **Bab 1 (Pola Corong Terbalik 5-Paragraf)**:
+   - *Paragraf 1*: Fenomena makro dan statistik resmi lembaga pemerintah/global (Das Sollen).
+   - *Paragraf 2*: Realitas masalah konkret di lokus penelitian dan kegagalan prosedur manual (Das Sein).
+   - *Paragraf 3*: Transisi komputasi cerdas dan rasionalitas pemilihan metode inti.
+   - *Paragraf 4*: Sintesis 3-5 paper terdahulu berangka metrik terverifikasi dan perumusan Research Gap.
+   - *Paragraf 5*: Penegasan solusi usulan, spesifikasi antarmuka sistem, dan dampak operasional.
+2. **Bab 2 (Pola 4-Kalimat Deduktif Paragraf Teori)**:
+   - *Kalimat 1*: Definisi fungsional langsung konsep pada judul beserta sitasi primer tanpa pengantar klise.
+   - *Kalimat 2*: Mekanisme matematis/operasional alur pemrosesan data internal.
+   - *Kalimat 3*: Karakteristik kritis dan batasan komputasi baseline terhadap gangguan lapangan.
+   - *Kalimat 4*: Jangkar relevansi konsep terhadap pipeline sistem yang dibangun di Bab 3.
+3. **Sintesis Konvergen (Anti-Dictionary Syndrome)**:
+   - Merajut pandangan dari 2 sampai 3 rujukan menjadi satu kesimpulan mandiri terpadu. Dilarang menjejerkan kutipan hafalan ("Menurut Penulis A..., Menurut Penulis B...").
+4. **Bab 4 (Paragraf Diskusi Analisis Kritis)**:
+   - Paragraf naratif utuh (bukan deretan bullet points) yang mengupas akar masalah keberhasilan/kegagalan model, kontribusi modul optimasi (*ablation study*), dan konfirmasi terhadap masalah lapangan Bab 1.
+
 ---
 ## C (Constraints & Production Guardrails)
 
@@ -76,7 +133,7 @@ laporan/
 
 Setiap sesi perakitan dokumen menghasilkan artefak fisik tervalidasi:
 1. **Perakitan & Ekspor Native via WordCraft MCP (`mcp__wordcraft__*` / `wordcraft-cli`)**:
-   - Gunakan `mcp__wordcraft__new_document` / `mcp__wordcraft__open_document` diikuti `mcp__wordcraft__batch` untuk menerapkan preset geometri A4 margin 4-4-3-3 (`layout.size: A4`, `layout.margins: {top: 113.39, left: 113.39, bottom: 85.04, right: 85.04}`), Times New Roman 12 pt, spasi 1.5 (`para.oneAndHalf`), indentasi 1 cm (`para.indents: {firstLine: 28.35}`), dan dual pagination (`layout.differentFirstPage` + `layout.pageNumberFormat`).
+   - Gunakan `mcp__wordcraft__new_document` / `mcp__wordcraft__open_document` diikuti `mcp__wordcraft__batch` untuk menerapkan preset geometri A4 margin 4-4-3-3 (`layout.size: A4`, `layout.margins: {top: 113.39, left: 113.39, bottom: 85.04, right: 85.04}`), Times New Roman 12 pt, spasi 1.5 (`para.oneAndHalf`), indentasi baris pertama 1,27 cm (`para.indents: {firstLine: 36.0}`), dan dual pagination (`layout.differentFirstPage` + `layout.pageNumberFormat`).
    - Ekspor simultan ke `.docx` dan `.pdf` via `mcp__wordcraft__save_document` atau CLI `"/c/Program Files/WordCraft/wordcraft-cli.exe" convert <in> <out> --update-fields`.
    - Injeksi sitasi Zotero via `"/c/Program Files/WordCraft/wordcraft-cli.exe" zotero <addEditCitation|addEditBibliography|refresh> <file> --save <out>`.
    - Audit visual halaman via `mcp__wordcraft__render_page` untuk memastikan nol elemen terpotong.
