@@ -33,15 +33,17 @@ ATURAN MUTLAK SEBELUM MERESPONS PENGGUNA:
    WAJIB panggil skill_view("spesialis-skills") TERLEBIH DAHULU.
 
 3. Jika permintaan menyangkut riset akademik, skripsi, tesis, paper, proposal, brief penelitian,
-   format naskah atau dokumen, sitasi, atau penulisan bab:
+   format naskah atau dokumen (Word, DOCX, WordCraft, Docs, Typst, LaTeX, Markdown), sitasi, atau penulisan bab:
    WAJIB panggil skill_view("spesialis-research-akademik") TERLEBIH DAHULU.
-   STANDAR PENULISAN BAKU MUTLAK:
-   - Format Geometri Fisik: A4 margin 4-4-3-3 cm, Times New Roman 12 pt, spasi 1.5, rata kiri-kanan (justified), indentasi awal paragraf 36 pt (1,27 cm).
+   STANDAR PENULISAN & PENYUNTINGAN DOKUMEN BAKU MUTLAK:
+   - Format Geometri Fisik: A4 margin 4-4-3-3 cm (Top 114 pt, Left 113.4 pt, Bottom 85 pt, Right 82.2 pt), Times New Roman 12 pt, spasi 1.5, rata kiri-kanan (justified), indentasi awal paragraf 36 pt (1,27 cm / 0,5 inci).
    - Penomoran & Paragraph Style Judul Sub-Bab: Bab Arab/Romawi (1. PENDAHULUAN, 2. TINJAUAN PUSTAKA). Judul sub-bab Bab 2 WAJIB 1 sampai 2 kata benda entitas murni (contoh: 2.1 Tanaman Selada, 2.2 Citra Digital, 2.3 *Deep Learning*, 2.6 Python, 2.7 Evaluasi Model, 2.8 Penelitian Terdahulu), DILARANG frasa panjang AI slop atau penggabungan dua topik dengan kata 'dan'. Menggunakan hanging indent 36 pt (nomor di x=113.4 pt, teks judul di x=149.4 pt sejajar awal baris pertama paragraf) dan *Bold Italic* untuk istilah bahasa Inggris.
    - Sitasi Harvard Author-Date & Aturan First-Mention: 3-5 penulis wajib disebut lengkap pada pemunculan pertama ('Ramadhani, Dewanta, dan Gunawan (2026)'), baru pemunculan berikutnya 'dkk.'.
    - Bahasa Indonesia Baku: WAJIB 'dkk.', DILARANG 'et al.' atau tanda '&'.
    - Eliminasi AI Slop Kurung: DILARANG pola terjemahan ganda padanan_indonesia (*istilah_asing*). Pilih satu istilah teknis murni cetak miring (*deep learning*, *backbone*, *bounding box*).
-   - Tabel dan Gambar: Judul tabel di ATAS (Tabel X.Y Judul), judul gambar di BAWAH (Gambar X.Y Judul), keduanya tanpa titik penutup.
+   - Tabel dan Gambar: Judul tabel di ATAS (Tabel X.Y Judul), judul gambar di BAWAH (Gambar X.Y Judul), keduanya 100% rata tengah tanpa titik penutup. Lebar gambar maksimal 13,0 cm agar tidak meluap ke halaman baru di Google Docs.
+   - Persamaan Matematika: Formula di tengah, nomor persamaan di batas margin kanan baris yang sama. Disajikan via borderless table 1x2 kolom selebar 14,0 cm (kolom kiri 12,0 cm untuk rumus, kolom kanan 2,0 cm untuk nomor) atau formula grafis 300 DPI via Typst. DILARANG menggunakan kotak panggil (callout box) berarsir.
+   - Penyuntingan Dokumen In-Place (DOCX / WordCraft / Docs): Setiap kali membuat atau menyunting dokumen naskah, WAJIB edit langsung di tempat (in-place) tanpa membuat berkas duplikat/perantara, patuhi seluruh aturan naskah di atas, dan simpan tanpa mengubah path asli.
    - Plaintext Siap Salin: Sajikan draf naskah dalam blok kode plaintext bersih (```text) agar siap disalin langsung ke Word atau Google Docs tanpa kerusakan format.
 
 4. Jangan mulai merespons, bertanya, atau menulis kode atau naskah sebelum skill yang relevan
@@ -227,7 +229,8 @@ DOMAIN_TAXONOMY = {
             "naskah", "tinjauan pustaka", "bab 1", "bab 2", "bab 3", "bab 4", "bab 5",
             "metodologi", "penelitian", "sitasi", "citation", "harvard", "daftar pustaka",
             "format penulisan", "paragraf", "margin", "4-4-3-3", "brief", "pedoman",
-            "gunadarma", "upnvj", "sota", "state-of-the-art", "diebold-mariano", "academic", "thesis"
+            "gunadarma", "upnvj", "sota", "state-of-the-art", "diebold-mariano", "academic", "thesis",
+            "docs", "dokumen", "word", "docx", "wordcraft", "google docs", "edit docs", "edit dokumen"
         ],
         "rules": (
             "- WAJIB panggil skill_view('spesialis-research-akademik') SEBELUM merespons.\n"
@@ -235,6 +238,7 @@ DOMAIN_TAXONOMY = {
             "- Penomoran & Paragraph Style Judul Sub-Bab: Bab Arab/Romawi (1. PENDAHULUAN, 2. TINJAUAN PUSTAKA). Judul sub-bab Bab 2 WAJIB 1 sampai 2 kata benda entitas murni (contoh: 2.1 Tanaman Selada, 2.2 Citra Digital, 2.3 *Deep Learning*, 2.6 Python, 2.7 Evaluasi Model, 2.8 Penelitian Terdahulu), DILARANG frasa panjang AI slop. Hanging indent 36 pt dan Bold Italic untuk istilah asing.\n"
             "- Sitasi Harvard First-Mention: 3-5 penulis wajib disebut lengkap pada pemunculan pertama ('Ramadhani, Dewanta, dan Gunawan (2026)'), baru pemunculan berikutnya 'dkk.'.\n"
             "- Eliminasi AI Slop Kurung: DILARANG pola terjemahan ganda padanan (*istilah asing*). Gunakan istilah murni cetak miring (*deep learning*, *backbone*).\n"
+            "- Aturan Penyuntingan Dokumen (DOCX/WordCraft/Docs): Wajib sunting di tempat (in-place) tanpa duplikasi file, terapkan margin 4-4-3-3 cm, TNR 12 pt 1.5 spasi, first-line indent 36 pt, rumus tabel borderless 14 cm, gambar maks 13 cm, caption tengah.\n"
             "- Format Draf Siap Salin: Sajikan draf naskah dalam blok kode plaintext bersih (```text) agar siap disalin langsung ke Word atau Google Docs tanpa kerusakan format."
         )
     },
