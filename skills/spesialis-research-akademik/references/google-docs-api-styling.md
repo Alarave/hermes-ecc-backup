@@ -172,3 +172,92 @@ Saat pengguna meminta penyuntingan dokumen Google Docs langsung di tautan (`docs
   - DILARANG melakukan replace global via `GOOGLEDOCS_REPLACE_ALL_TEXT` menggunakan kata kunci pendek tanpa nomor sub-bab (contoh: mengganti `Verifikasi Katalog` saja).
   - Hal ini memicu kerusakan teks seperti `2.1 Ve2.1 Penelitian Terdahulu` dan memotong huruf awal heading tetangga (contoh `2.2 Prapemrosesan Citra Kemasan` terpotong menjadi `n Citra Kemasan`). Selalu gunakan string jangkar lengkap beserta nomor sub-bab.
 
+## 10. Pencegahan Galat Hapus Paragraf Pre-Table (Invalid Deletion Range) & Netralisasi Outline
+- Setiap elemen tabel pada Google Docs API wajib didahului oleh pembatas paragraf (newline). Mencoba menghapus baris kosong tepat sebelum tabel via `deleteContentRange` akan ditolak dengan galat: `Invalid requests[0].deleteContentRange: Invalid deletion range. Cannot delete the requested range.`
+- Solusi: Alih-alih menghapusnya, netralkan gaya paragraf tersebut via `updateParagraphStyle`:
+```json
+{
+  "updateParagraphStyle": {
+    "range": {
+      "startIndex": 37298,
+      "endIndex": 37299
+    },
+    "paragraphStyle": {
+      "namedStyleType": "NORMAL_TEXT",
+      "spaceAbove": { "magnitude": 0, "unit": "PT" },
+      "spaceBelow": { "magnitude": 0, "unit": "PT" },
+      "lineSpacing": 100
+    },
+    "fields": "namedStyleType,spaceAbove,spaceBelow,lineSpacing"
+  }
+}
+```
+Langkah ini mengeliminasi celah vertikal kosong sebelum tabel dan mencegah paragraf kosong berstatus `HEADING_2` muncul sebagai entri hantu di Document Outline / Daftar Isi.
+
+## 11. Penguncian Lebar Kolom Tabel Akademik (updateTableColumnProperties)
+- Tabel yang baru disisipkan secara bawaan memiliki `tableColumnProperties.widthType: "EVENLY_DISTRIBUTED"`. Pada naskah A4 ber-margin 4-4-3-3 cm (lebar bidang teks efektif 14,0 cm = 396.86 PT), pembagian rata menyebabkan kolom nomor ("No") terlalu lebar (3,5 cm) dan kolom deskripsi teks sempit serta berisiko melar melampaui batas margin kanan.
+- Terapkan `updateTableColumnProperties` berbobot `FIXED_WIDTH` dengan total akumulasi tepat 14,0 cm (396.86 PT):
+```json
+[
+  {
+    "updateTableColumnProperties": {
+      "tableStartLocation": { "index": 37299 },
+      "columnIndices": [0],
+      "tableColumnProperties": {
+        "widthType": "FIXED_WIDTH",
+        "width": { "magnitude": 28.35, "unit": "PT" }
+      },
+      "fields": "widthType,width"
+    }
+  },
+  {
+    "updateTableColumnProperties": {
+      "tableStartLocation": { "index": 37299 },
+      "columnIndices": [1],
+      "tableColumnProperties": {
+        "widthType": "FIXED_WIDTH",
+        "width": { "magnitude": 90.71, "unit": "PT" }
+      },
+      "fields": "widthType,width"
+    }
+  },
+  {
+    "updateTableColumnProperties": {
+      "tableStartLocation": { "index": 37299 },
+      "columnIndices": [2],
+      "tableColumnProperties": {
+        "widthType": "FIXED_WIDTH",
+        "width": { "magnitude": 138.9, "unit": "PT" }
+      },
+      "fields": "widthType,width"
+    }
+  },
+  {
+    "updateTableColumnProperties": {
+      "tableStartLocation": { "index": 37299 },
+      "columnIndices": [3],
+      "tableColumnProperties": {
+        "widthType": "FIXED_WIDTH",
+        "width": { "magnitude": 138.9, "unit": "PT" }
+      },
+      "fields": "widthType,width"
+    }
+  }
+]
+```
+
+## 12. Penyeragaman Font dan Ukuran Massal Tanpa Merusak Format Cetak Miring
+- Saat menyeragamkan tipografi (Times New Roman 12 pt) pada blok teks besar yang sudah memuat istilah asing berformat miring (*e-commerce*, *skincare*, *product_id*, dsb.), KELUARKAN atribut `italic` dan `bold` dari `fields` mask:
+```json
+{
+  "updateTextStyle": {
+    "range": { "startIndex": 32925, "endIndex": 37232 },
+    "textStyle": {
+      "fontSize": { "magnitude": 12, "unit": "PT" },
+      "weightedFontFamily": { "fontFamily": "Times New Roman" }
+    },
+    "fields": "fontSize,weightedFontFamily"
+  }
+}
+```
+Google Docs API hanya akan menyentuh jenis font dan ukuran font tanpa menyentuh status `italic` dan `bold` karakter yang ada di dalamnya.
