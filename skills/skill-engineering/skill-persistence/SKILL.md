@@ -47,8 +47,9 @@ Gunakan modul ini saat:
 - Muncul peringatan sistem: `shares both its name and its path... cannot load it`.
 - Banyak skill lokal terpasang tetapi tidak pernah dipanggil oleh agen (idle skills).
 - Mengonfigurasi shortcut pemuatan cepat via Hermes Skill Bundles.
+- Menyinkronkan seluruh pustaka skill Hermes agar terbaca otomatis di Antigravity (Hub, CLI, IDE).
 
-**Strong routing signals**: `skill persistence`, `skill tidak memuat`, `skill baru tidak muncul`, `skill shadowing`, `fix skill loading`, `skill bundle setup`.
+**Strong routing signals**: `skill persistence`, `skill tidak memuat`, `skill baru tidak muncul`, `skill shadowing`, `fix skill loading`, `skill bundle setup`, `sinkron skill antigravity`.
 
 ---
 ## Do Not Use When
@@ -89,6 +90,12 @@ Gunakan modul ini saat:
    - Periksa ketiadaan berkas kunci `.locks/` atau `.git/index.lock`.
    - Jika `git push` ditolak karena remote memiliki commit berkala otomatis (`.state/last_evolution.txt`), lakukan `git fetch origin main` lalu `git merge origin/main --no-edit` secara bersih sebelum mendorong kembali.
    - Jalankan pembaruan paksa terverifikasi via `hermes skills update --force`.
+
+7. **Sinkronisasi Multi-Agen Antigravity (Hub 2.0, CLI, IDE)**:
+   - Antigravity memindai skill via `~/.gemini/config/skills.json` secara 1-tingkat (`skills/<nama>/SKILL.md`). Skill bersarang (`category/skill-name/SKILL.md`) wajib dibuatkan junction tingkat atas agar terdeteksi.
+   - Sambungkan direktori CLI via junction NTFS: `~/.gemini/antigravity-cli/skills` -> `AppData/Local/hermes/skills`.
+   - Daftarkan direktori master Hermes, direktori Antigravity, serta seluruh subfolder kategori OMH (`~/.omh/skills/<kategori>`) ke dalam `~/.gemini/config/skills.json`.
+   - Jalankan `sync_skills.py` untuk menyalin berkas skill ke `~/.gemini/config/skills/`, `~/.gemini/antigravity-ide/skills/`, dan mengekstrak aturan markdown tanpa frontmatter ke `~/.gemini/config/rules/*.md`.
 
 ---
 ## O (Output Format & Definition of Done)

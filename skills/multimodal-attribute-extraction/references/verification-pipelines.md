@@ -4,57 +4,72 @@ Dokumen ini memuat spesifikasi teknis dan logika eksekusi lengkap untuk dua para
 
 ---
 
-## 1. Paradigma 1: Pipeline Multimodal Konvensional Hibrida
+## 1. Paradigma 1: Pipeline Multimodal Konvensional Hibrida (Kolaborasi Dua Tahap Mengadopsi Richo, 2025)
 
 ### Komponen Inti
-1. **Model Pelacak Area Visual**: `microsoft/Florence-2-base` (232M parameter, arsitektur DaViT encoder + transformer decoder).
-2. **Mesin Pembaca Karakter (OCR)**: `PaddleOCR PP-OCRv4` (DBNet++ detektor 4.5M + SVTR-LCNet rekognizer 12.8M, total ~17.3M parameter).
-3. **Penyelaras Spasial & Matching Engine**: Filter Intersection over Area (IoA), Normalized Levenshtein Distance, dan Exact Netto Match.
+1. **Model Lokalisasi Spasial Objek**: `Ultralytics YOLOv11m` (arsitektur C3k2, SPPF, PAN, DSC, C2PSA attention, anchor-free decoupled head, loss CIoU + DFL) untuk melokalisasi 3 kelas atribut target (`brand`, `netto`, `product_type`).
+2. **Pemotongan RoI Atribut Ber-Margin Adaptif**: Memotong wilayah bounding box langsung dari citra resolusi asli dengan ekspansi margin adaptif 10% s.d. 15% guna mencegah pemotongan huruf tepi (*boundary truncation*) pada kemasan melengkung/silindris.
+3. **Mesin Pembaca Karakter (OCR)**: `PaddleOCR PP-OCRv4` (DBNet++ detektor binarisasi diferensiabel 4.5M + detektor arah teks `use_angle_cls=True` + SVTR-LCNet rekognizer 12.8M dengan CTC Loss, total ~17.3M parameter).
+4. **Penyelaras Spasial & Matching Engine**: Filter *Intersection over Area* (IoA >= 0.50), *Normalized Levenshtein Distance* (>= 0.85 untuk merek & tipe produk), dan *Exact Netto Match* (kuantitas dan satuan metrik baku MAVE).
 
 ### Alur Eksekusi Bertahap
 ```text
-Citra Kemasan (640x640) + Teks Klaim Katalog ("brand name: <brand>. net content: <netto>")
+Citra Kemasan (640x640) + Metadata Katalog Toko (Sociolla)
          |
-         +---------------------------------------+
-         |                                       |
-         v                                       v
-[Florence-2-base Grounding]             [PaddleOCR PP-OCRv4]
-Task: <CAPTION_TO_PHRASE_GROUNDING>     DBNet++ + SVTR-LCNet
-BBox: [x1, y1, x2, y2] in [0, 1000]     BBox Poligon + Teks + Conf
-         |                                       |
-         v                                       v
-[Normalisasi Koordinat ke [0.0, 1.0]]    [Penyaringan Conf >= 0.50]
-         \                                       /
-          \                                     /
-           v                                   v
-             [Spatial Fusion Filter: IoA >= 0.50]
-           IoA = Area(B_ocr n B_florence) / Area(B_ocr)
-                               |
-                               v
-                     [Discrepancy Matcher]
-           Brand: Normalized Levenshtein >= 0.85
-           Netto: Exact Numerical & Unit Match
-                               |
-                               v
-               Keputusan: MATCH / MISMATCH / UNVERIFIED
+         v
+[Ultralytics YOLOv11m Object Detection]
+Deteksi 3 Kelas: brand, netto, product_type
+BBox: [x1, y1, x2, y2] ternormalisasi [0.0, 1.0] (Conf >= 0.25)
+         |
+         v
+[Adaptive RoI Cropping (Margin 10%-15%)]
+Pemotongan Patch Resolusi Asli Tanpa Kompresi
+         |
+         v
+[PaddleOCR PP-OCRv4 (DBNet++ + use_angle_cls + SVTR-LCNet)]
+Deteksi Probabilitas Teks via Sigmoid DBNet + Rectification Sudut + CTC Loss
+Token Teks Alfanumerik Fisik + Keyakinan (Conf >= 0.50)
+         |
+         v
+[Spatial Fusion Filter: IoA >= 0.50]
+IoA = Area(B_ocr ∩ B_yolo) / Area(B_ocr) >= 0.50
+         |
+         v
+[Discrepancy Matcher & Canonicalizer]
+Brand: Normalized Levenshtein >= 0.85
+Product Type: Normalized Levenshtein >= 0.85
+Netto: Exact Numerical & Unit Match (MAVE Canonicalization)
+         |
+         v
+Keputusan: MATCH / MISMATCH / UNVERIFIED
 ```
 
 ### Logika Matematis & Ambang Batas
-1. **Intersection over Area (IoA)**:
-   $$\text{IoA}(B_{\text{ocr}}, B_{\text{grounding}}) = \frac{\text{Area}(B_{\text{ocr}} \cap B_{\text{grounding}})}{\text{Area}(B_{\text{ocr}})}$$
-   Ambang batas: $\text{IoA} \ge 0.50$. Memastikan teks OCR benar-benar berada di dalam wilayah atribut yang dilokalisasi Florence-2.
+1. **Formulasi Binarisasi DBNet++ (Richo, 2025)**:
+   $$P(i, j) = \frac{1}{1 + \exp(-k(X_{i,j} - \theta))}$$
+   di mana $X_{i,j}$ merepresentasikan nilai piksel fitur prapemrosesan, $\theta$ adalah ambang batas binarisasi adaptif, dan $k$ adalah faktor pengontrol kelandaian (*steepness factor*) fungsi sigmoid untuk membedakan teks dari latar belakang kemasan.
 
-2. **Normalized Levenshtein Similarity (Brand)**:
-   $$\text{Sim}_{\text{brand}}(s_1, s_2) = 1.0 - \frac{\text{Levenshtein}(s_1, s_2)}{\max(|s_1|, |s_2|)}$$
+2. **Probabilitas Rekognisi Karakter SVTR/CRNN & CTC Loss (Richo, 2025)**:
+   Konvolusi visual $F = \text{Conv}(X, K)$, pemodelan urutan tanpa segmentasi eksplisit:
+   $$p(l | X) = \sum_{\pi: \mathcal{B}(\pi) = l} p(\pi | X)$$
+   serta aktivasi softmax probabilitas karakter:
+   $$p(y_t = c | x) = \frac{\exp(W_c \cdot h_t)}{\sum_{c'} \exp(W_{c'} \cdot h_t)}$$
+
+3. **Intersection over Area (IoA)**:
+   $$\text{IoA}(B_{\text{ocr}}, B_{\text{yolo}}) = \frac{\text{Area}(B_{\text{ocr}} \cap B_{\text{yolo}})}{\text{Area}(B_{\text{ocr}})}$$
+   Ambang batas: $\text{IoA} \ge 0.50$. Memastikan teks OCR benar-benar berada di dalam wilayah atribut yang dilokalisasi YOLOv11m.
+
+4. **Normalized Levenshtein Similarity (Brand & Product Type)**:
+   $$\text{Sim}(s_1, s_2) = 1.0 - \frac{\text{Levenshtein}(s_1, s_2)}{\max(|s_1|, |s_2|)}$$
    Ambang batas kelulusan: $\ge 0.85$. Mentoleransi kesalahan baca kecil akibat teks melengkung atau pantulan cahaya botol.
 
-3. **Pencocokan Netto Eksak**:
+5. **Pencocokan Netto Eksak**:
    Nilai numerik `value_catalog == value_ocr` dan satuan baku `unit_catalog == unit_ocr` (`ml`, `g`, `pcs`, `patch`, `sheet`).
 
-4. **Kaidah Status Verifikasi**:
-   - `MATCH`: $\text{Sim}_{\text{brand}} \ge 0.85$ DAN nilai netto cocok persis.
-   - `MISMATCH`: $\text{Sim}_{\text{brand}} < 0.85$ ATAU nilai netto bertentangan.
-   - `UNVERIFIED`: Citra tidak terbaca, teks tidak terdeteksi, atau keyakinan OCR $< 0.50$. Batas waktu inferensi $\le 10.0$ detik per sampel.
+6. **Kaidah Status Verifikasi**:
+   - `MATCH`: $\text{Sim}_{\text{brand}} \ge 0.85$ DAN $\text{Sim}_{\text{type}} \ge 0.85$ DAN nilai netto cocok persis.
+   - `MISMATCH`: Salah satu atribut bertentangan secara definitif.
+   - `UNVERIFIED`: Citra tidak terbaca, teks tidak terdeteksi, atau keyakinan OCR $< 0.50$. Batas waktu inferensi $\le 5.0$ detik per sampel.
 
 ---
 

@@ -49,15 +49,36 @@ Pada karya ilmiah berbahasa Indonesia (skripsi, tesis, disertasi, proposal penel
 
 ## 3. Format Penulisan Sitasi dan Daftar Pustaka per Gaya
 
-### 3.1. Harvard Style (Standar Skripsi Indonesia & Gunadarma)
-- **Sitasi dalam Teks**:
-  - Penyebutan pertama (3 penulis): Ramadhani, Dewanta, dan Gunawan (2026) atau (Ramadhani, Dewanta, dan Gunawan, 2026).
-  - Penyebutan berikutnya: Ramadhani dkk. (2026) atau (Ramadhani dkk., 2026).
-- **Daftar Pustaka**:
-  - Artikel Jurnal Ilmiah:
-    `Ramadhani, Q. P., Dewanta, F. dan Gunawan, T. S. (2026) 'YOLOv11 and Faster R-CNN for Palm Fruit Ripeness Detection: Consistent Class-Level Difficulty with Explainable AI Insights', Jurnal Teknik Informatika, 12(1), hlm. 45-56. doi: 10.15408/jti.v12i1.53853.`
+### 3.1. Harvard Style (Standar Skripsi Indonesia & Gunadarma Berbasis Acuan Empiris DRAFT-5)
+- **Sitasi dalam Teks (In-Text Citation)**:
+  - 1 Penulis: `Ahmad (2017)` atau `(Ahmad, 2017)`.
+  - 2 Penulis: `Akbar dan Faisal (2024)` atau `(Akbar dan Faisal, 2024)`. Wajib menggunakan kata "dan", dilarang "and" atau simbol "&".
+  - 3 sampai 5 Penulis (Aturan First-Mention Baku):
+    - Pemunculan pertama: Wajib menuliskan lengkap seluruh nama belakang: `Tamlica, Irawan, dan Sukirman (2026)` atau `(Tamlica, Irawan, dan Sukirman, 2026)`. Dilarang menggunakan "et al." atau langsung disingkat.
+    - Pemunculan kedua dan seterusnya: Disingkat menggunakan "dkk.": `Tamlica dkk. (2026)` atau `(Tamlica dkk., 2026)`.
+  - Lebih dari 5 Penulis: Boleh langsung menggunakan "dkk." sejak pemunculan pertama: `Aldhafeeri dkk. (2025)` atau `(Aldhafeeri dkk., 2025)`.
+  - Larangan Istilah Asing: Dilarang menggunakan "et al." pada naskah bahasa Indonesia. Wajib diganti menjadi "dkk.".
+
+- **Daftar Pustaka Berdasarkan Taksonomi Sumber (Acuan Empiris DRAFT-5)**:
+  - Artikel Jurnal Ilmiah (1 Penulis):
+    `Ahmad, A. (2017) 'Mengenal Artificial Intelligence, Machine Learning, Neural Network, dan Deep Learning', Jurnal Teknologi Indonesia, vol. 1, no. 1, pp. 3-8.`
+  - Artikel Jurnal Ilmiah (2 Penulis):
+    `Akbar, I. dan Faisal, M. (2024) 'Perbandingan Analisis Sentimen PLN Mobile: Machine Learning vs. Deep Learning', JOINTECS (Journal of Information Technology and Computer Science), vol. 8, no. 1, pp. 1-10. doi: 10.31328/jointecs.v8i1.5078.`
+  - Artikel Jurnal Ilmiah (3 Penulis):
+    `Grandini, M., Bagli, E. dan Visani, G. (2020) 'Metrics for Multi-Class Classification: An Overview', arXiv preprint. doi: 10.48550/arXiv.2008.05756.`
+  - Artikel Jurnal Ilmiah (Banyak Penulis):
+    `Alifayoezra, M.D., Ibrahim, A., Utama, Y., Ruskan, E.L. dan Indah, D.R. (2026) 'Comparative Study of Machine Learning Models for Classifying Sentiment in Google Gemini App Reviews', Rabit: Jurnal Teknologi dan Sistem Informasi Univrab, vol. 11, no. 1, pp. 988-1000. doi: 10.36341/rabit.v11i1.7201.`
   - Buku Teks:
-    `Sutanto, H. (2022) Pengolahan Citra Digital dan Pembelajaran Mesin. Jakarta: Penerbit Informatika.`
+    `Eriana, E.S. dan Zein, A. (2023) Artificial Intelligence (AI). Purbalingga: Eureka Media Aksara.`
+    `Asri, Y., Kuswardani, D., Falahtama, F.D., Sari, A.A. dan Prasetiyo, S.M. (2025) A Large Language Model (LLM): Penerapan Large Language Model dalam Chatbot. Ponorogo: Uwais Inspirasi Indonesia.`
+  - Makalah Prosiding Konferensi / Seminar:
+    `Sugiyama, A. dan Yoshinaga, N. (2019) 'Data Augmentation Using Back-Translation for Context-Aware Neural Machine Translation', in Proceedings of the Fourth Workshop on Discourse in Machine Translation (DiscoMT 2019). Hong Kong, China: Association for Computational Linguistics, pp. 35-44. doi: 10.18653/v1/D19-6504.`
+    `Lubis, M.S.Y. (2021) 'Implementasi Artificial Intelligence pada System Manufaktur Terpadu', Prosiding Seminar Nasional Teknik UISU (SEMNASTEK), vol. 4, no. 1, pp. 1-7.`
+  - Preprint Repositori (arXiv):
+    `OpenAI (2023) 'GPT-4 Technical Report', arXiv preprint, arXiv:2303.08774. Available at: https://arxiv.org/abs/2303.08774 (Diakses: 12 April 2026).`
+    `Bubeck, S., Chandrasekaran, V., Eldan, R., Gehrke, J., Horvitz, E., Kamar, E., Lee, P., Lee, Y.T., Li, Y., Lundberg, S., Nori, H., Palangi, H., Ribeiro, M.T. dan Zhang, Y. (2023) 'Sparks of Artificial General Intelligence: Early experiments with GPT-4', arXiv preprint, arXiv:2303.12712. Available at: https://arxiv.org/abs/2303.12712 (Diakses: 12 April 2026).`
+  - Dokumen Web Resmi / Dokumentasi Teknis:
+    `Microsoft (2026) What is the Microsoft 365 Copilot app?. Available at: https://support.microsoft.com/en-US/microsoft-365-copilot (Diakses: 13 April 2026).`
 
 ### 3.2. APA 7th Edition (American Psychological Association)
 - **Sitasi dalam Teks**:
@@ -111,3 +132,31 @@ Dalam penulisan ilmiah bereputasi dan skripsi/tesis perguruan tinggi di Indonesi
    - Seluruh rumus fungsi objektif atau kerugian (seperti Complete IoU / $L_{CIoU}$ dan Distribution Focal Loss / $L_{DFL}$) wajib disitir penemunya (Zheng dkk., 2020; Li dkk., 2020).
    - Metodologi proses riset (CRISP-DM / SDLC) wajib disitir panduan standarnya (Chapman dkk., 2000).
 4. **Disambiguasi Penggantian Terprogram**: Saat menyunting dokumen via API pengolah kata (Google Docs / Word), gunakan klausa kalimat unik di sekitar sitasi untuk membedakan kemunculan pertama (wajib nama lengkap 3-5 penulis) dan kemunculan berikutnya (singkatan `dkk.`).
+
+---
+
+## 6. Prosedur Audit Terprogram Sitasi Harvard (Naskah Markdown)
+
+Urutan kerja saat pengguna meminta cek "100% sesuai Harvard" pada berkas bab:
+1. Pisahkan badan dan Daftar Pustaka: `body, bib = text.split('# DAFTAR PUSTAKA')` (cek dulu level heading sebenarnya dengan `search_files`, jangan menebak `##`/`###`). Pecah entri dengan `re.split(r'\n(?=\d+\.\s+)', bib)`, ambil kunci `(penulis pertama, tahun)` dengan `^\d+\.\s+(.*?)\s*\((\d{4}[a-z]?)\)`.
+2. Hitung jumlah penulis tiap entri. Cocokkan bentuk sitasi di teks: 1-2 penulis tulis lengkap setiap kali; 3-5 penulis lengkap pada kemunculan pertama dalam seluruh naskah lalu `dkk.`; 6+ penulis `dkk.` sejak awal. Urutan kemunculan dihitung dari awal naskah, bukan per bab.
+3. Cari pelanggaran bentuk: `et al`, `&` di badan teks (kecuali sel tabel/rumus), pemisah multi-sitasi selain `;`.
+4. Paritas: setiap kunci Daftar Pustaka muncul di badan sebagai nama DAN tahun pada sitasi yang sama; setiap sitasi punya entri. Pencarian substring nama dan tahun terpisah terlalu longgar, jadi verifikasi bentuk `Nama ... (tahun)` atau `(Nama ..., tahun)`.
+5. Cocokkan nama lengkap dan inisial penulis di tabel penelitian terdahulu terhadap entri Daftar Pustaka. Selisih inisial atau susunan penulis (mis. nama depan di tabel tidak sama dengan inisial di entri) adalah galat sitasi yang lolos dari regex dan harus dilaporkan.
+6. Gaya entri Daftar Pustaka harus satu gaya dengan sitasi teks. Untuk Harvard Indonesia gunakan `dan` sebelum penulis terakhir (bukan `&`) dan format bagian 3.1; entri bergaya APA dengan `&` dilaporkan sebagai inkonsistensi, lalu tanyakan sebelum menyuntingnya.
+7. Laporkan temuan per kategori dengan bukti keluaran skrip; tandai hal yang tidak sempat diverifikasi, jangan menyimpulkan "semua benar".
+
+---
+
+## 7. Protokol Audit Fidelitas Sumber-ke-Klaim (Source-to-Claim Fidelity Audit)
+
+Untuk mencegah cacat sitasi umum yang dihasilkan oleh asisten cerdas atau pemindahan manual dari skripsi terdahulu, naskah wajib melalui audit 3-pilar sebelum diajukan ke dewan penguji:
+1. **Audit Limitasi Penulis Jamak (Batas Maksimal 5 Penulis)**:
+   - DILARANG mencantumkan deretan 6 hingga 18 nama penulis di dalam tanda kurung sitasi badan teks (misal: paper Qwen2-VL 18 penulis atau laporan panel Stanford 17 penulis).
+   - Aturan Baku: Karya ilmiah dengan $\ge 6$ penulis WAJIB langsung disingkat menjadi `NamaPenulisPertama dkk. (Tahun)` atau `(NamaPenulisPertama dkk., Tahun)` sejak pemunculan pertama. Seluruh nama penulis lengkap hanya dicantumkan pada bagian Daftar Pustaka.
+2. **Pencegahan Halusinasi & Tertukarnya Penulis (Anti-Author Mixing)**:
+   - Jangan menyalin nama penulis dari string kutipan sekunder tanpa memverifikasi judul dan nama peneliti pada repositori primer (Crossref, Google Scholar, IEEE, arXiv, atau ACM).
+   - Pastikan nama penulis yang dikutip bersesuaian 1:1 dengan publikasi resmi paper yang dirujuk (misal: dataset MAVE dirumuskan oleh Li Yang dkk. 2022, bukan Damani dkk.).
+3. **Pemberian Atribusi Otoritatif Primer (Anti-Misattribution)**:
+   - DILARANG menyitir paper tinjauan sekunder atau paper etika untuk mendefinisikan konsep fundamental (misal: menyitir paper tinjauan etika AI untuk definisi umum kecerdasan buatan, atau menyitir paper uji coba komparatif lokal untuk penemuan arsitektur model besar).
+   - Gunakan selalu pustaka babon kanonikal (seperti Russell dan Norvig untuk kecerdasan buatan, Janiesch dkk. untuk pembelajaran mesin, Du dkk. untuk SVTR, Xiao dkk. untuk Florence-2, Wang dkk. untuk Qwen2-VL, dan Yao dkk. untuk ReAct).

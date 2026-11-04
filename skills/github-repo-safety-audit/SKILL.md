@@ -1,6 +1,6 @@
 ---
 name: github-repo-safety-audit
-description: "Analyze unknown GitHub repositories for security risks before cloning or installing."
+description: "Gunakan untuk: GitHub Repo Safety Audit"
 ---
 
 # GitHub Repo Safety Audit

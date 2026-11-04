@@ -6,7 +6,7 @@ license: MIT
 author: "Firman (Lead Researcher & Fullstack MLOps Engineer)"
 metadata:
   hermes:
-    tags: [workflow, oh-my-hermes, vision-language, vlm, ocr, florence-2, paddleocr, multimodal]
+    tags: [workflow, oh-my-hermes, vision-language, vlm, ocr, yolov11, paddleocr, multimodal]
     category: machine-learning
     phase: modeling-and-evaluation
     role: operator
@@ -16,7 +16,7 @@ metadata:
 
 # Multimodal Attribute Value Extraction & Packaging Verification (MAVE-Sociolla)
 
-Modul utama rekayasa dan orkestrasi kecerdasan buatan multimodal untuk verifikasi kesesuaian iklan katalog produk kosmetik Sociolla terhadap bukti fisik citra kemasan, membandingkan paradigma konvensional hibrida (Florence-2 dan PaddleOCR) terhadap paradigma Agentic MLLM (Qwen2-VL).
+Modul utama rekayasa dan orkestrasi kecerdasan buatan multimodal untuk verifikasi kesesuaian iklan katalog produk kosmetik Sociolla terhadap bukti fisik citra kemasan, membandingkan paradigma konvensional hibrida (Ultralytics YOLOv11m dan PaddleOCR) terhadap paradigma Agentic MLLM (Qwen2-VL).
 
 ## R (Role & Identity)
 - **Peran**: Principal Multimodal AI & MLOps Research Engineer.
@@ -28,12 +28,12 @@ Modul utama rekayasa dan orkestrasi kecerdasan buatan multimodal untuk verifikas
 
 Gunakan modul ini saat:
 - Mengeksekusi pipeline verifikasi atribut kemasan produk (Merek, Netto, Nomor Izin Edar BPOM/P-IRT).
-- Membangun dan menguji pipeline 2-branch hibrida (Florence-2 visual grounding + PaddleOCR PP-OCRv4).
+- Membangun dan menguji pipeline 2-tahap kolaboratif hibrida (Ultralytics YOLOv11m deteksi objek atribut + PaddleOCR PP-OCRv4; Richo, 2025).
 - Membangun agen visual ReAct menggunakan MLLM (Qwen2-VL-7B-Instruct).
 - Melakukan evaluasi statistik komparatif akurasi, CER, WER, dan uji McNemar.
 - Memeriksa kepatuhan katalog e-commerce (Sociolla, Shopee, Tokopedia) terhadap bukti fisik kemasan.
 
-**Strong routing signals**: `multimodal-attribute-extraction`, `vision-language`, `vlm`, `florence-2`, `paddleocr`, `qwen2-vl`, `ekstraksi atribut`, `verifikasi kemasan`, `bpom`, `netto`, `mcnemar`.
+**Strong routing signals**: `multimodal-attribute-extraction`, `vision-language`, `vlm`, `yolov11`, `paddleocr`, `qwen2-vl`, `ekstraksi atribut`, `verifikasi kemasan`, `bpom`, `netto`, `mcnemar`.
 
 ---
 ## C (Context & 6 CRISP-DM Phases)
@@ -47,10 +47,10 @@ Diterapkan pada siklus end-to-end verifikasi kemasan produk e-commerce (Sociolla
    - *Invarian Anti-Mismatch Sidang*: Atribut dinamis seperti tanggal kedaluwarsa (*expired date*) DILARANG dimasukkan dalam pencocokan citra katalog statis karena foto seller bersifat generik/lama sehingga menimbulkan false mismatch yang mematikan validitas sidang.
 2. **Fase 2: Data Understanding (5-Pillar Multimodal EDA)**: Eksplorasi katalog produk, audit dimensi resolusi citra, eliminasi sampel beresolusi rendah (< 640x640 px). Penerapan 5 Pilar EDA: Text Profiling (TTR & token distribution), Brand Distribution (kurva Lorenz & Koefisien Gini), Spatial Geometry (rasio aspek W/H), Photometric Luminance (L* dan specular highlight ratio), serta Blur Estimation (Varians Laplacian >= 100).
 3. **Fase 3: Data Preparation**: Prapemrosesan visual CIE LAB CLAHE pada kanal L* (clipLimit=2.0, tileGridSize=(8, 8)) diaplikasikan SEBELUM penempatan pada kanvas letterbox padding 640x640 latar putih dengan pencatatan parameter affine [s, dx, dy]. Dilengkapi opsi atenuasi pantulan kilap (*specular highlight suppression* berbasis HLS + inpainting Navier-Stokes; Zhang et al., 2021) dan penajaman teks mikro (< 8 px via Bilateral Filter + Unsharp Masking). Normalisasi teks merek Unicode NFKD, preservasi apostrof identitas merek (d'Alba, I'm From), kuantitas netto kanonikal MAVE (mendukung ekspresi multi-pack dan konversi satuan ganda fl oz ke ml), serta partisi bebas bocor terstratifikasi (*StratifiedGroupKFold* by brand & category 70:15:15).
-4. **Fase 4: Modeling (2-Branch Hibrida vs Agentic MLLM)**:
-   - **Cabang Konvensional Hibrida 2-Branch**:
-     - *Branch A (Grounding-Guided RoI Extraction)*: `microsoft/Florence-2-base` visual grounding (`<CAPTION_TO_PHRASE_GROUNDING>`) melokalisasi koordinat spasial teks merek dan netto -> pemotongan RoI ber-margin adaptif 10% s/d 15% -> pengenalan teks via `PaddleOCR PP-OCRv4` (SVTR) dengan verifikasi spasial Intersection over Area ($IoA \ge 0.50$).
-     - *Branch B (Full-Scene OCR & Regex Matching)*: `PaddleOCR PP-OCRv4` (DBNet++) pada citra penuh -> ekstraksi nomor izin edar via regex BPOM resmi (`NA/NB/NC/ND` 11 digit, `MD/ML` 12 digit, `P-IRT` 15 digit) -> pencocokan merek Normalized Levenshtein ($\ge 0.85$) -> konversi idempoten satuan netto MAVE.
+4. **Fase 4: Modeling (Kolaborasi 2-Tahap Hibrida vs Agentic MLLM)**:
+   - **Cabang Konvensional Hibrida (Kolaborasi Dua Tahap Mengadopsi Richo, 2025)**:
+     - *Tahap 1 (Lokalisasi Spasial Atribut YOLOv11m)*: `Ultralytics YOLOv11m` (C3k2, SPPF, PAN, DSC, C2PSA attention, loss CIoU + DFL) melokalisasi 3 kelas target kemasan (`brand`, `netto`, `product_type`) -> pemotongan RoI ber-margin adaptif 10% s/d 15% langsung dari citra resolusi asli tanpa kompresi guna mencegah pemotongan huruf tepi (*boundary truncation*).
+     - *Tahap 2 (Ekstraksi Teks PaddleOCR PP-OCRv4)*: `PaddleOCR PP-OCRv4` (DBNet++ binarisasi diferensiabel $P(i, j) = 1 / (1 + \exp(-k(X_{i,j} - \theta)))$ + detektor arah teks `use_angle_cls=True` + rekognizer SVTR-LCNet / CRNN dengan CTC Loss) membaca teks fisik -> verifikasi fusi spasial *Intersection over Area* ($IoA \ge 0.50$) -> pencocokan merek dan tipe *Normalized Levenshtein Similarity* ($\ge 0.85$) -> konversi idempoten satuan netto MAVE dan pencocokan persis (*exact match*).
    - **Cabang Agentic MLLM**: `Qwen/Qwen2-VL-7B-Instruct` (Dynamic Resolution ViT) dalam alur ReAct (Thought-Action-Observation <= 5 langkah) dengan alat mikro `crop_roi`, `enhance_patch`, dan `finalize_verdict`.
 5. **Fase 5: Evaluation**: Perhitungan Akurasi, Precision, Recall, Macro/Micro F1, CER, WER, latensi inferensi (ms), alokasi memori VRAM (MB), serta uji signifikansi komparatif non-parametrik McNemar dengan koreksi kontinuitas Edwards pada alpha = 0.05 pada data uji independen.
 6. **Fase 6: Deployment**: Pelaporan data terstruktur JSON (`verification_verdict.json`, `agent_trajectory.json`) dan dasbor interaktif Streamlit side-by-side dengan fitur *Catalog Auto-Remediation* dan label penafian regulasi *BPOM Guard*.
@@ -67,8 +67,8 @@ Diterapkan pada siklus end-to-end verifikasi kemasan produk e-commerce (Sociolla
 4. **Penyaringan Citra Resolusi Rendah**:
    Citra beresolusi di bawah 640x640 piksel (132 sampel: 56 Skincare, 76 Makeup) wajib dikeluarkan ke `logs/master_4806_preprocessing_errors.log` dan dilarang masuk ke subset evaluasi benchmark.
 5. **Standarisasi Spasial Bounding Box**:
-   Koordinat kotak pembatas wajib dinormalisasi ke rentang `[0.0, 1.0]` terhadap dimensi kanvas 640x640. Penggabungan teks OCR fisik ke area visual grounding Florence-2 mensyaratkan nilai Intersection over Area:
-   $$	ext{IoA} = \frac{	ext{Area}(B_{	ext{ocr}} \cap B_{	ext{grounding}})}{	ext{Area}(B_{	ext{ocr}})} \ge 0.50$$
+   Koordinat kotak pembatas wajib dinormalisasi ke rentang `[0.0, 1.0]` terhadap dimensi kanvas 640x640. Penggabungan teks OCR fisik ke area bounding box atribut YOLOv11 mensyaratkan nilai Intersection over Area:
+   $$	ext{IoA} = \frac{	ext{Area}(B_{	ext{ocr}} \cap B_{	ext{yolo}})}{	ext{Area}(B_{	ext{ocr}})} \ge 0.50$$
 6. **Kaidah Pencocokan Discrepancy Gate & Prioritas Parser Netto**:
    - Merek cocok jika *Normalized Levenshtein Similarity* >= 0.85.
    - Tipe produk cocok jika *Normalized Levenshtein Similarity* >= 0.85.
@@ -104,7 +104,7 @@ Modul ini didukung oleh 6 dokumen referensi teknis mendalam:
 1. **Kode & Notebook Kerja**:
    - `notebooks/01_eda/01_eda_sociolla_catalog.ipynb` (Fase 1 EDA)
    - `notebooks/02_preprocessing/02_data_preprocessing_and_splitting.ipynb` (Fase 2 Prapemrosesan)
-   - `notebooks/03_florence_ocr/03_conventional_florence_paddleocr.ipynb` (Fase 3 Konvensional)
+   - `notebooks/03_yolo_ocr/03_conventional_yolov11_paddleocr.ipynb` (Fase 3 Konvensional)
    - `notebooks/04_qwen_vl/04_agentic_qwen2_vl_react.ipynb` (Fase 4 Agentic MLLM)
    - `notebooks/05_benchmark/05_comparative_benchmark_and_mcnemar.ipynb` (Fase 5 Evaluasi)
    - `notebooks/06_demo/app.py` (Fase 6 Dasbor Streamlit)

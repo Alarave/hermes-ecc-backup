@@ -221,19 +221,30 @@ def hydrate_anchors(text: str) -> str:
 
 DOMAIN_TAXONOMY = {
     "research": {
-        "name": "Riset Akademik, Skripsi & Naskah Ilmiah",
+        "name": "Riset Akademik, Skripsi & Naskah Ilmiah (Klaster Spesialis Penulisan Terpadu)",
         "pic": "spesialis-research-akademik",
         "bundle": "/research",
+        "cluster_skills": [
+            "spesialis-research-akademik",
+            "laporan-generator",
+            "laporan-generator-thesis",
+            "latex-submission-pipeline",
+            "figgenie-paper-diagram",
+            "zero-slop",
+            "wordcraft-dual-mode-control"
+        ],
         "keywords": [
             "skripsi", "tesis", "disertasi", "paper", "jurnal", "makalah", "proposal",
             "naskah", "tinjauan pustaka", "bab 1", "bab 2", "bab 3", "bab 4", "bab 5",
             "metodologi", "penelitian", "sitasi", "citation", "harvard", "daftar pustaka",
             "format penulisan", "paragraf", "margin", "4-4-3-3", "brief", "pedoman",
             "gunadarma", "upnvj", "sota", "state-of-the-art", "diebold-mariano", "academic", "thesis",
-            "docs", "dokumen", "word", "docx", "wordcraft", "google docs", "edit docs", "edit dokumen"
+            "docs", "dokumen", "word", "docx", "wordcraft", "google docs", "edit docs", "edit dokumen",
+            "tulis", "menulis", "penulisan", "draft", "draf", "revisi", "judul", "sub-bab",
+            "paragraf", "kalimat", "abstrak", "latex", "typst", "buku", "sidang", "penguji"
         ],
         "rules": (
-            "- WAJIB panggil skill_view('spesialis-research-akademik') SEBELUM merespons.\n"
+            "- WAJIB otomatis aktifkan seluruh Klaster Ahli Penulisan: skill_view('spesialis-research-akademik'), skill_view('laporan-generator'), skill_view('latex-submission-pipeline'), skill_view('figgenie-paper-diagram'), skill_view('zero-slop'), dan skill_view('wordcraft-dual-mode-control') TANPA MEMERLUKAN PERINTAH SLASH.\n"
             "- STANDAR FORMAT BAKU MUTLAK: A4 margin 4-4-3-3 cm, Times New Roman 12 pt, 1.5 spasi, rata kiri-kanan (justified), indentasi awal paragraf 36 pt (1,27 cm).\n"
             "- Penomoran & Paragraph Style Judul Sub-Bab: Bab Arab/Romawi (1. PENDAHULUAN, 2. TINJAUAN PUSTAKA). Judul sub-bab Bab 2 WAJIB 1 sampai 2 kata benda entitas murni (contoh: 2.1 Tanaman Selada, 2.2 Citra Digital, 2.3 *Deep Learning*, 2.6 Python, 2.7 Evaluasi Model, 2.8 Penelitian Terdahulu), DILARANG frasa panjang AI slop. Hanging indent 36 pt dan Bold Italic untuk istilah asing.\n"
             "- Sitasi Harvard First-Mention: 3-5 penulis wajib disebut lengkap pada pemunculan pertama ('Ramadhani, Dewanta, dan Gunawan (2026)'), baru pemunculan berikutnya 'dkk.'.\n"
@@ -427,18 +438,28 @@ def get_exact_skill_regex():
     return _EXACT_SKILL_REGEX
 
 
-def detect_skill_intent(text: str) -> str:
-    if not text:
+def detect_skill_intent(text: str, context_text: str = "") -> str:
+    combined = (text or "") + " " + (context_text or "")
+    if not combined.strip():
         return ""
 
-    lowered = text.lower()
+    lowered_text = (text or "").lower()
+    lowered_combined = combined.lower()
     matched_domains = []
 
     for dom_key, conf in DOMAIN_TAXONOMY.items():
+        matched = False
         for kw in conf["keywords"]:
-            if re.search(r'(?<![a-z0-9_-])' + re.escape(kw) + r'(?![a-z0-9_-])', lowered):
-                matched_domains.append(conf)
+            if re.search(r'(?<![a-z0-9_-])' + re.escape(kw) + r'(?![a-z0-9_-])', lowered_text):
+                matched = True
                 break
+        if not matched and dom_key == "research":
+            for kw in ["skripsi", "naskah", "wordcraft", "tinjauan pustaka", "bab 1", "bab 2", "bab 3", "bab 4", "bab 5", "penulisan", "latex"]:
+                if re.search(r'(?<![a-z0-9_-])' + re.escape(kw) + r'(?![a-z0-9_-])', lowered_combined):
+                    matched = True
+                    break
+        if matched:
+            matched_domains.append(conf)
 
     detected_exact_skills = []
     rgx = get_exact_skill_regex()
@@ -456,6 +477,8 @@ def detect_skill_intent(text: str) -> str:
         for d in matched_domains[:2]:
             lines.append(f"\n[DOMAIN: {d['name']} (Shortcut: {d['bundle']})]")
             lines.append(f"PIC Utama: skill_view(\"{d['pic']}\")")
+            if "cluster_skills" in d:
+                lines.append(f"Armada Klaster Terpadu: {', '.join(d['cluster_skills'])}")
             lines.append("Perintah Operasional:")
             lines.append(f"{d['rules']}")
 
@@ -489,12 +512,23 @@ def register(ctx):
         if is_first_turn:
             context_parts.append(BOOTSTRAP_TEXT)
 
-        if user_message:
-            intent_ctx = detect_skill_intent(user_message)
+        history_context = ""
+        if conversation_history:
+            recent_texts = []
+            for msg in conversation_history[-6:]:
+                if isinstance(msg, dict):
+                    content = msg.get("content", "")
+                    if isinstance(content, str):
+                        recent_texts.append(content)
+            history_context = " ".join(recent_texts)
+
+        if user_message or history_context:
+            intent_ctx = detect_skill_intent(user_message or "", history_context)
             if intent_ctx:
                 context_parts.append(intent_ctx)
 
-            anchor_ctx = hydrate_anchors(user_message)
+        if user_message:
+            anchor_ctx = hydrate_anchors(str(user_message))
             if anchor_ctx:
                 context_parts.append(anchor_ctx)
 

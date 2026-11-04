@@ -8,10 +8,21 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 HERMES_DIR = BASE_DIR / "skills"
 GEMINI_DIR = Path.home() / ".gemini" / "config" / "rules"
+CONFIG_SKILLS_DIR = Path.home() / ".gemini" / "config" / "skills"
+IDE_SKILLS_DIR = Path.home() / ".gemini" / "antigravity-ide" / "skills"
+CLI_SKILLS_DIR = Path.home() / ".gemini" / "antigravity-cli" / "skills"
 
 def ensure_dirs():
     HERMES_DIR.mkdir(parents=True, exist_ok=True)
     GEMINI_DIR.mkdir(parents=True, exist_ok=True)
+    CONFIG_SKILLS_DIR.mkdir(parents=True, exist_ok=True)
+    IDE_SKILLS_DIR.mkdir(parents=True, exist_ok=True)
+    if not CLI_SKILLS_DIR.exists():
+        try:
+            import subprocess
+            subprocess.run(["cmd", "/c", "mklink", "/J", str(CLI_SKILLS_DIR), str(HERMES_DIR)], capture_output=True)
+        except Exception:
+            pass
 
 def has_frontmatter(content):
     return content.startswith("---")
@@ -132,6 +143,17 @@ def sync():
             hermes_file.write_text(hermes_content, encoding="utf-8")
             g_mtime = gemini_file.stat().st_mtime
             os.utime(hermes_file, (g_mtime, g_mtime))
+
+    # Synchronize skills to Antigravity config/skills and antigravity-ide/skills
+    for skill_dir in HERMES_DIR.iterdir():
+        if skill_dir.is_dir() and not skill_dir.name.startswith(".") and (skill_dir / "SKILL.md").exists():
+            for dest_root in (CONFIG_SKILLS_DIR, IDE_SKILLS_DIR):
+                dest_dir = dest_root / skill_dir.name
+                if not dest_dir.exists():
+                    try:
+                        shutil.copytree(skill_dir, dest_dir, dirs_exist_ok=True)
+                    except Exception:
+                        pass
 
 if __name__ == "__main__":
     sync()

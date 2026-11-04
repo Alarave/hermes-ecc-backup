@@ -16,13 +16,13 @@ Aturan penulisan ilmiah bahasa Indonesia baku untuk mengeliminasi residu kebiasa
      - Gunakan istilah teknis universal langsung dalam cetak miring (*bounding box*, *backbone*, *region proposal*, *real-time*, *deep learning*, *anchor-free*, *frames per second* / FPS) tanpa embel-embel padanan Indonesia di depannya.
      - ATAU gunakan istilah bahasa Indonesia murni tanpa istilah asing di sampingnya (kotak pembatas, brondolan, rendemen minyak, stasiun sortasi).
      - Jangan menyandingkan nama ilmiah Latin jika nama komoditasnya sudah baku (tulis 'kelapa sawit', bukan 'kelapa sawit Elaeis guineensis').
-  3. Tanda kurung HANYA sah untuk:
+  3. Tanda kurung HANYA sah untuk 4 kategori:
      - Tahun sitasi: `(Ramadhani dkk., 2026)` atau `Lai dkk. (2023)`.
-     - Singkatan akronim saat pertama kali didefinisikan: `Tandan Buah Segar (TBS)` atau `Free Fatty Acid (FFA)`.
-     - Nilai persentase/kadar: `(di atas 20%)` atau `(5%)`.
-     - Penomoran persamaan matematika: `Persamaan (2.1)`.
+     - Singkatan akronim saat pertama kali didefinisikan: `Stock Keeping Unit (SKU)` atau `Optical Character Recognition (OCR)`.
+     - Rujukan pasal atau ayat perundang-undangan: `Pasal 8 ayat (1) huruf f`.
+     - Penomoran persamaan matematika: `Persamaan (2.1)` atau `(2.1)`.
      - Koordinat dan notasi matematika: $[x_c, y_c, w, h]$.
-  4. Kepadatan tanda kurung wajib ditekan hingga di bawah 5 sampai 7 pasang per 1.000 kata.
+  4. Kepadatan tanda kurung non-sitasi wajib ditekan hingga 0 pasang, dan kepadatan kurung editorial non-ilmiah ditekan di bawah 5 sampai 7 pasang per 1.000 kata. Dilarang mengeliminasi kurung tahun sitasi ilmiah hanya demi mengejar target rasio kurung.
 - **Standar Penamaan Judul Sub-Bab Bab 2 (Aturan 1 Sampai 2 Kata Korpus UPNVJ)**:
   1. Judul sub-bab Bab 2 (`Heading 2` dan `Heading 3`) wajib terdiri dari **1 sampai 2 kata benda entitas murni** (contoh baku: `2.1 Tanaman Selada`, `2.2 Citra Digital`, `2.3 *Deep Learning*`, `2.4.1 *Convolutional Layer*`, `2.4.2 *Pooling Layer*`, `2.4.3 *Softmax*`, `2.5 MobileNetV2`, `2.6 Python`, `2.7 Evaluasi Model`, `2.8 Penelitian Terdahulu`). Maksimal 3 kata hanya untuk nama algoritma baku yang tidak dapat dipenggal (`2.4 *Convolutional Neural Network*`).
   2. DILARANG KERAS menulis judul sub-bab panjang ala AI slop (`2.1 Tinjauan Komprehensif Mengenai...`) atau menggabungkan dua topik dengan kata hubung `dan` / `&` / `/` (`2.3 Arsitektur Model dan Fungsi Objektif`).

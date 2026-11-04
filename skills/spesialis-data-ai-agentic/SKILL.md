@@ -64,15 +64,23 @@ Skill ini dipicu saat pengguna mengeksekusi inisiatif data, pemodelan ML, arsite
 ### 6. Riset Multimodal Visual-Language (Ad Verification)
 Berlaku untuk penelitian komparasi: *"Komparasi Model Multimodal Konvensional dan Agentic LLM dalam Verifikasi Kesesuaian Citra dan Deskripsi Iklan Produk"*.
 
-#### A. Arsitektur Baseline Konvensional (Track A)
-- Model: CLIP (ViT-L/14), SigLIP (So400M), BLIP-2 (OPT/FlanT5), OpenCLIP (ViT-H/14).
-- Mekanisme: Image Encoder + Text Encoder -> Cosine / Sigmoid Similarity Score -> Binary Classifier.
+#### A. Prapemrosesan Citra Kemasan Non-Planar & Peningkatan OCR
+- **Atenuasi Kilap Spekular Adaptif (Specular Highlight Removal)**: Masking piksel jenuh pada ruang warna HLS ($L \ge 240, S \le 40$) dengan inpainting Navier-Stokes radius 3 px. WAJIB menerapkan safety guard rasio area kilap $\le 0.35$ agar latar belakang putih studio katalog e-commerce tidak ikut terinpaint secara destruktif.
+- **Penajaman Teks Mikro (Micro-Text Enhancement)**: Terapkan bilateral filter ($d=5, \sigma_{\text{color}}=50, \sigma_{\text{space}}=50$) untuk meredam noise sensor, dilanjutkan unsharp masking kontras tinggi ($\text{amount}=1.2, \text{threshold}=3$) pada resolusi citra asli SEBELUM penskalaan letterbox untuk memaksimalkan deteksi teks kecil ($<8$ px) pada kemasan silindris/botol kosmetik.
+- **Kanonisasi Atribut Multi-Pack & Dual-Unit (Standar MAVE)**: Normalisasi kuantitas bundel perkalian ($N \times V$, misal `2 x 50 ml` $\to$ `100 ml`) dan aditif ($V_1 + V_2$, misal `15 g + Refill 15 g` $\to$ `30 g`). Konversi satuan imperial cairan (`fl. oz.` $\to 29.5735$ ml) dan massa (`oz` $\to 28.3495$ g) ke metrik standar SI.
+- **Pemisahan Data Bebas Bocor Merek & Berimbang Kategori**: Partisi dataset 70:15:15 wajib berbasis *Stratified Group Split by Brand* dengan parameter stratifikasi `category_col` untuk mencegah kontaminasi visual tipografi merek lintas subset sekaligus menjaga proporsi seimbang kategori produk (Skin Care, Makeup, Hair Care).
 
-#### B. Arsitektur Agentic MLLM (Track B)
+#### B. Arsitektur Baseline Konvensional (Track A)
+- **Model**:
+  1. *Kolaborasi Dua Tahap YOLOv11m + PaddleOCR (Richo, 2025)*: Arsitektur kolaboratif deteksi objek spasial `Ultralytics YOLOv11m` (C3k2, SPPF, PAN, DSC, C2PSA attention, CIoU + DFL loss) untuk melokalisasi letak posisional atribut kemasan (`brand`, `netto`, `product_type`) -> Pemotongan RoI ber-margin adaptif 10%-15% -> Mesin OCR `PaddleOCR PP-OCRv4` (DBNet++ binarisasi diferensiabel, klasifikasi orientasi `use_angle_cls=True`, dan SVTR-LCNet / CRNN CTC Loss) -> Fusi Spasial IoA >= 0.50 -> Pencocokan Normalized Levenshtein >= 0.85 & Exact Netto Match.
+  2. *Vision-Language Grounding / Contrastive Baseline*: Florence-2 (Large/Base), CLIP (ViT-L/14), SigLIP (So400M), BLIP-2 (OPT/FlanT5), OpenCLIP (ViT-H/14).
+- **Mekanisme**: Dua tahap (Object Localization -> Adaptive RoI Cropping -> OCR Text Extraction -> Spatial IoA Grounding -> String/Exact Matching) atau Image Encoder (RoI Grounding) + Text Encoder (OCR Feature Extractor) -> Similarity Score -> Binary Classifier.
+
+#### C. Arsitektur Agentic MLLM (Track B)
 - Model: Qwen2-VL (7B/72B), LLaVA-NeXT (34B), GPT-4o, InternVL2.
 - Mekanisme: MLLM Visual Encoder + Tool Use (PaddleOCR, Grounding DINO, Attribute Extractor) -> ReAct / Chain-of-Thought Loop -> Pydantic Structured Verification.
 
-#### C. Taksonomi Mismatch & Uji Statistik
+#### D. Taksonomi Mismatch & Uji Statistik
 - Kategori Mismatch: `SEMANTIC_MISMATCH`, `ATTRIBUTE_DISCREPANCY`, `OCR_CLAIM_CONTRADICTION`, `QUANTITY_MISMATCH`, `DECEPTIVE_PRESENTATION`, dan `MATCH`.
 - Uji Signifikansi Statistik Wajib: McNemar Test (p < 0.05) untuk komparasi pasangan Track A vs Track B, Wilcoxon Signed-Rank Test untuk metrik non-parametrik, dan Cohen's Kappa untuk inter-rater agreement.
 

@@ -12,7 +12,7 @@ Panduan integrasi native **WordCraft MCP (`mcp__wordcraft__*`)** dan **`wordcraf
 |---|---|
 | `mcp__wordcraft__new_document` | Membuat dokumen baru (`blank`, `report`, `letter`, `resume`, `sample`). |
 | `mcp__wordcraft__open_document` | Membuka berkas `.docx`, `.doc`, `.odt`, `.rtf`, `.md`, `.tex`, `.html`, `.txt`, atau `.json`. |
-| `mcp__wordcraft__save_document` | Menyimpan/mengekspor dokumen ke `.docx`, `.pdf`, `.odt`, `.rtf`, `.html`, `.md`, `.tex`, `.txt`, atau `.xml` berdasarkan ekstensi path. |
+| `mcp__wordcraft__save_document` | Menyimpan/mengekspor dokumen ke `.docx`, `.pdf`, `.odt`, `.rtf`, `.html`, `.md`, `.tex`, `.txt`, atau `.xml` berdasarkan ekstensi path. Simpan in-place tanpa argumen path. |
 | `mcp__wordcraft__batch` | Mengeksekusi serangkaian perintah pemformatan secara atomik dalam satu langkah. |
 | `mcp__wordcraft__execute` | Mengeksekusi satu perintah spesifik berdasarkan `id` dan `params`. |
 | `mcp__wordcraft__type_text` | Mengetik teks pada posisi kursor aktif. |
@@ -59,8 +59,9 @@ Gunakan `mcp__wordcraft__batch` segera setelah `mcp__wordcraft__new_document`:
   - Tabel: `{"command": "references.caption", "params": {"label": "Tabel", "text": " Hasil Evaluasi Model", "position": "above", "chapter": 1, "separator": "."}}`
   - Gambar: `{"command": "references.caption", "params": {"label": "Gambar", "text": " Diagram Alir Penelitian", "position": "below", "chapter": 1, "separator": "."}}`
 - **Persamaan Matematika & Ilustrasi Vektor**:
+  - Persamaan disajikan dalam tabel 1 baris 2 kolom tanpa garis batas selebar 14,0 cm (kolom kiri 12,0 cm untuk rumus rata tengah, kolom kanan 2,0 cm untuk nomor persamaan rata kanan). Dilarang kotak panggil (callout box).
   - Equation: `{"command": "insert.equation", "params": {}}` diikuti `{"command": "equation.type", "params": {"text": "..."}}`
-  - Gambar FigGenie: `{"command": "insert.picture", "params": {"path": "laporan/figures/arsitektur.png"}}`
+  - Gambar FigGenie: `{"command": "insert.picture", "params": {"path": "laporan/figures/arsitektur.png"}}` (lebar maks 13,0 cm rata tengah).
 
 ## 5. Integrasi Sitasi Zotero & Konversi CLI (`wordcraft-cli`)
 Untuk operasi batch dari terminal atau injeksi sitasi langsung dari Zotero desktop yang sedang berjalan:
@@ -78,35 +79,50 @@ Untuk operasi batch dari terminal atau injeksi sitasi langsung dari Zotero deskt
 - **Audit Visual Halaman (Machine Seal)**:
   Gunakan `mcp__wordcraft__render_page` atau CLI `wordcraft-cli render naskah.docx page1.png --page 1` untuk memastikan tidak ada tabel atau gambar yang melewati batas margin 4-4-3-3.
 
-## 6. Protokol Penggantian Bab Skripsi Berskala Besar (Surgical Chapter Replacement)
+## 6. Prosedur Penyuntingan Sub-Bab In-Place Bedah (Surgical Sub-Chapter Replacement)
+Saat memperbarui judul dan narasi sub-bab tertentu (seperti 2.1) secara langsung di dalam naskah WordCraft:
+1. **Cadangan Pengaman Fisik**: Selalu jalankan `cp "[NASKAH].docx" "[NASKAH].docx.bak_safety"`.
+2. **Buka Dokumen**: `mcp__wordcraft__open_document(path="...")`.
+3. **Penyuntingan Heading Sub-Bab**:
+   - Pilih judul sub-bab di badan teks dengan `mcp__wordcraft__select_text(occurrence=2, text="[Judul Lama]")` (kemunculan ke-2 melewati entri Daftar Isi).
+   - Ganti teks dengan judul baru 1-2 kata murni via `mcp__wordcraft__type_text(text="2.X Judul Baru")`.
+   - Terapkan hanging indent 36 pt: `para.indents: {left: 36.0, firstLine: -36.0}` via `mcp__wordcraft__batch`.
+4. **Penyuntingan Paragraf Narasi**:
+   - Dapatkan panjang karakter paragraf target via `document.paragraph` (`path: [P_idx]`).
+   - Pilih seluruh teks paragraf via `select.range` (`anchor: {path: [P_idx], off: 0, story: "body"}`, `focus: {path: [P_idx], off: P_len, story: "body"}`).
+   - Ketik narasi baru (formula deduktif 4-kalimat) via `mcp__wordcraft__type_text`.
+   - Terapkan gaya paragraf resmi via `mcp__wordcraft__batch`: Times New Roman 12 pt, 1.5 spasi, justified, firstLine indent 36.0 pt.
+   - Format istilah asing (*e-commerce*, *visual ground truth*, dll.) dengan `format.italic: {value: true}`.
+5. **Sinkronisasi Daftar Isi (TOC)**:
+   - Pilih kemunculan judul lama pada Daftar Isi via `mcp__wordcraft__select_text(occurrence=1, text="[Judul Lama]")`.
+   - Ganti teks entri dengan judul baru via `mcp__wordcraft__type_text`.
+6. **Penyimpanan In-Place**:
+   - Panggil `mcp__wordcraft__save_document()` tanpa argumen path.
+
+## 7. Protokol Penggantian Bab Skripsi Berskala Besar
 Saat mengganti sekumpulan bab (contoh: Bab 1 s.d. 3) pada naskah skripsi komprehensif tanpa merusak lembar pengesahan/abstrak di depan (*front matter*) dan Bab 4-5 di belakang:
 1. **Cadangan Pengaman Fisik Pra-Modifikasi**:
    - Selalu buat cadangan dokumen fisik via terminal: `cp "[NASKAH].docx" "[NASKAH].docx.bak_safety"`.
 2. **Identifikasi Batas Blok Presisi**:
    - Cari batas awal bab target (`1. PENDAHULUAN`) via `mcp__wordcraft__select_text`.
-   - Cari blok teks terakhir dari bab yang diganti (misal paragraf terakhir Bab 3) via teks uniknya, catat indeks path dan panjang karakternya.
-   - **Pitfall Batas Seleksi**: DILARANG mengarahkan `focus` ke `off: 0` pada blok *Section Break* (`w:sectPr`) atau bab selanjutnya (`4. HASIL DAN PEMBAHASAN`). Menghapus dengan seleksi hingga `off: 0` blok selanjutnya dapat memotong teks heading atau merusak atribut section break bab berikutnya. Selalu arahkan `focus` ke karakter terakhir teks bab target (`off: len(last_paragraph_text)`).
+   - Cari blok teks terakhir dari bab yang diganti via teks uniknya, catat indeks path dan panjang karakternya.
+   - **Pitfall Batas Seleksi**: DILARANG mengarahkan `focus` ke `off: 0` pada blok *Section Break* (`w:sectPr`) atau bab selanjutnya. Selalu arahkan `focus` ke karakter terakhir teks bab target (`off: len(last_paragraph_text)`).
 3. **Eksekusi Penghapusan Terarah**:
-   - Eksekusi `select.range` dengan `anchor: {"path": [start_block], "off": 0, "story": "body"}` dan `focus: {"path": [end_block], "off": last_len, "story": "body"}`.
-   - Panggil `text.delete` untuk mengosongkan blok bab lama.
+   - Eksekusi `select.range` dan panggil `text.delete`.
 4. **Kompilasi Multi-Berkas & Injeksi Bab Baru**:
-   - **Multi-File Serial Pandoc**: Hindari menyatukan naskah ke dalam satu berkas Markdown raksasa (>100k karakter) via `write_file` karena rentan penolakan overwrite akibat batas paginasi; langsung oper berkas-berkas bab terpisah secara berurutan ke baris perintah Pandoc:
+   - Oper berkas-berkas bab terpisah secara berurutan ke baris perintah Pandoc:
      ```bash
      pandoc -s BAB_1.md BAB_2.md BAB_3.md -o "BAB_1_3_STYLED.docx" --reference-doc="[NASKAH].docx" --resource-path=.
      ```
-   - Argumen `--reference-doc` memastikan format gaya tabel, font, margin, dan formula matematika OMML native tetap identik dengan naskah utama.
    - Tempatkan kursor ke `[start_block], off: 0` via `select.range`.
    - Panggil `insert.textFromFile` dengan path berkas `BAB_1_3_STYLED.docx`.
 5. **Penataan Ulang Pemisah Halaman Antar-Bab (Page Break Before)**:
    - Cari heading bab utama (`1. PENDAHULUAN`, `2. LANDASAN TEORI`, `3. METODOLOGI PENELITIAN`) menggunakan `select.text`.
-   - Terapkan `para.pageBreakBefore: {"value": true}` pada heading paragraf tersebut. Menyetel properti paragraf ini jauh lebih stabil dibandingkan `insert.pageBreak` karena tidak menciptakan baris kosong semu (*phantom blank lines*) atau merusak margin atas.
+   - Terapkan `para.pageBreakBefore: {"value": true}` pada heading paragraf tersebut.
 6. **Penyelarasan Metadata Front Matter & Tabel Sampul**:
-   - Pada draf naskah berbasis templat kampus (Gunadarma/UPNVJ), identitas mahasiswa, judul skripsi, dan pembimbing di Halaman Judul, Lembar Pernyataan, Lembar Pengesahan, dan Kata Pengantar sering tersimpan di dalam sel tabel tanpa bingkai (`borderless table` pada `path: [table_block, row, col, 0]`).
    - Pindai kemunculan nama lama dan NPM via `select.text`, ganti dengan `text.insert`.
-   - Jika judul lama terpecah ke beberapa baris di luar tabel (misal overflow `Machine Learning\ndan\nIndoBERT`), pilih baris berlebih dan hapus dengan `text.delete`.
 7. **Sinkronisasi Daftar Isi (TOC) & Update Fields**:
-   - Entri Daftar Isi sering berupa paragraf teks statis dengan titik-titik pemandu (*dot leaders*). Pilih rentang entri bab lama yang diganti via `select.range`, timpa dengan daftar sub-bab baru berformat titik pemandu yang selaras ke nomor halaman bab berikutnya, lalu jalankan `references.updateToc: {}` dan `references.updateFields: {"all": true}`.
+   - Mutakhirkan Daftar Isi dengan `references.updateToc: {}` dan `references.updateFields: {"all": true}`.
 8. **Penyimpanan In-Place, Ekspor PDF & Audit XML Zero-Dependency**:
-   - Panggil `mcp__wordcraft__save_document` tanpa argumen `path` untuk menyimpan berkas secara langsung di tempat.
-   - Ekspor naskah ke PDF via `mcp__wordcraft__save_document` dengan path berakhiran `.pdf` (misal `[NASKAH]_FORMATTED.pdf`).
-   - Jika pustaka `python-docx` tidak tersedia pada lingkungan Python lokal, audit integritas dokumen XML secara deterministik menggunakan pustaka standar Python `zipfile` dan `xml.etree.ElementTree` (`word/document.xml`) untuk memvalidasi jumlah paragraf, keberadaan seluruh heading, ketiadaan istilah terlarang (`et al.`, `niaga elektronik`), dan ketiadaan tanda pisah em-dash/en-dash.
+   - Panggil `mcp__wordcraft__save_document` tanpa argumen `path`.
+   - Ekspor naskah ke PDF via `mcp__wordcraft__save_document` dengan path berakhiran `.pdf`.

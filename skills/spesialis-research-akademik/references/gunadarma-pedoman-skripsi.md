@@ -24,6 +24,24 @@
   - Sub-Sub-bab (Heading 3): Huruf tebal (*Bold*), ukuran 12 pt, rata kiri di x = 113.4 pt, **TANPA titik di akhir nomor** (`2.2.1 Kelebihan...`).
   - Daftar Butir (*Numbered Lists*): Baris pertama mulai di x = 131.4 pt (indentasi 18.0 pt / 0,25 inci), baris lanjutan di x = 149.4 pt (indentasi 36.0 pt / 0,5 inci).
 
+### 1.1 Standar Halaman Sampul & Judul (Cover / Halaman 1)
+- **Urutan Hierarki Vertikal Elemen**:
+  1. Header Institusi: `UNIVERSITAS GUNADARMA` (14 pt Bold Rata Tengah, spasi 1.0) dan `FAKULTAS ILMU KOMPUTER DAN TEKNOLOGI INFORMASI` (13 pt / 14 pt Bold Rata Tengah).
+  2. Logo Universitas: Lambang bulat resmi Universitas Gunadarma, posisi tengah (Center), tinggi proporsional 5,5 s/d 6,0 cm, bersih dari garis pembatas (*bounding box*).
+  3. Judul Skripsi: Huruf kapital 14 pt Bold Rata Tengah, spasi 1.15, piramida terbalik / simetris. Istilah asing wajib dicetak miring tebal (*Bold Italic* seperti *E-COMMERCE*).
+  4. Kalimat Pengajuan Gelar: `Diajukan guna Melengkapi Sebagian Syarat dalam Mencapai Gelar Sarjana Strata Satu (S1)` (12 pt Bold Rata Tengah, 2 baris simetris). WAJIB diletakkan tepat di BAWAH judul skripsi dan di ATAS subjudul `Disusun Oleh:`, DILARANG diletakkan di bawah nama mahasiswa.
+  5. Subjudul Penyusun: `Disusun Oleh:` (12 pt Bold Rata Tengah, tanpa spasi sebelum titik dua).
+  6. Blok Identitas: Wajib menggunakan tabel TIGA kolom tanpa bingkai (*borderless table*) selebar 13,5 s/d 13,6 cm (7700 dxa) rata tengah pada margin A4:
+     - Kolom 1 (lebar 2,9 cm / 1650 dxa): Label entitas (`Nama`, `NPM`, `Program Studi`, `Pembimbing`) rata kiri. Lebar harus cukup agar label `Program Studi` tidak terpotong dua baris.
+     - Kolom 2 (lebar 0,35 cm / 200 dxa): Tanda titik dua (`:`) mandiri rata tengah/kiri.
+     - Kolom 3 (lebar 10,3 cm / 5850 dxa): Nilai data (`Firman Pambudiansyah`, `10123453`, `Sistem Informasi`, `Prof. Dr. rer. nat. Achmad Benny Mutiara, S.Si., S.Kom.`) rata kiri regular seragam. Gelar panjang pembimbing terjamin muat dalam 1 baris lurus tanpa terpotong, dan jika teks panjang membungkus (*wrap*), ia membungkus di dalam Kolom 3 tanpa merusak posisi titik dua.
+  7. Footer Kaki Halaman: Kota `JAKARTA` dan tahun `2026` (14 pt Bold Rata Tengah).
+- **Penindasan Ejaan & Paginasi (XML Word & Docs)**:
+  - Sematkan tag XML `<w:noProof/>` dan `<w:lang w:val="id-ID"/>` pada setiap properti run (`w:rPr`) halaman cover untuk menonaktifkan garis bawah merah pemeriksa ejaan (*spellcheck suppression*).
+  - Sematkan `<w:titlePg/>` pada `w:sectPr` halaman pertama agar nomor halaman cover tidak tercetak.
+  - DILARANG memberi style `Heading` (`Heading1`, `Heading2`) pada teks cover agar tidak bocor ke dalam Daftar Isi (TOC).
+  - Draf siap salin untuk Google Docs wajib berpemisah tab (`\t`) agar langsung terpetakan rapi ke dalam tabel saat ditempel.
+
 ---
 
 ## 2. Aturan Penomoran Halaman (Dual Pagination System)
@@ -152,7 +170,10 @@ Setiap gambar skripsi (Kerangka Pemikiran, Diagram Alir Metodologi, Arsitektur S
 
 ## 6. Standar Penulisan Daftar Pustaka & Privasi Data
 
-- **Format Sitasi**: Standar **IEEE** (numerik berurutan `[1], [2]`) atau **APA 7th Edition**.
+- **Format Sitasi**: Standar **Harvard Style (Author-Date)** berbasis acuan empiris naskah DRAFT-5 atau **IEEE** (numerik berurutan `[1], [2]`) / **APA 7th Edition**.
+  - Pada naskah bahasa Indonesia, wajib menggunakan singkatan `dkk.` (DILARANG `et al.`) dan kata hubung `dan` (DILARANG `and` atau `&` di narasi).
+  - Aturan *First-Mention*: Sumber dengan 3 sampai 5 penulis wajib menyebutkan lengkap seluruh nama belakang pada pemunculan pertama di naskah, baru disingkat `dkk.` pada pemunculan berikutnya.
+  - Taksonomi Entri Daftar Pustaka: Mengikuti format baku artikel jurnal, buku teks, prosiding seminar, preprint arXiv, dan dokumen web teknis (rujukan lengkap di `references/pedoman-sitasi-ilmiah-multi-style.md`).
 - **Komposisi Literatur**:
   - Minimal **80% bersumber dari artikel jurnal ilmiah bereputasi (Scopus/SINTA) atau prosiding internasional** dalam 5 tahun terakhir.
   - Sumber buku teks maksimal 20% (hanya untuk landasan teori fundamental).

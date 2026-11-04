@@ -51,12 +51,22 @@ Dipicu saat menyusun, merevisi, atau menyinkronkan naskah proposal skripsi, lapo
   - Pada proyek yang memelihara beberapa format naskah sekaligus (`.md`, `.typ`, `.docx`, `.pdf`), setiap pembaruan redaksional Rumusan Masalah, Ruang Lingkup, dan Tujuan Penelitian wajib diaplikasikan serentak ke seluruh berkas pendamping.
   - Jangan biarkan salah satu format naskah tertinggal atau memiliki redaksi berbeda.
   - Segera verifikasi kompilasi ulang format berbasis kode (contoh: `typst compile path/to/bab1.typ path/to/bab1.pdf`) guna menjamin keabsahan sintaks dan tata letak dokumen.
-- **Sistematika Baku Bab 1 (Format Gunadarma)**:
-  - `1.1. Latar Belakang`: Urgensi industri/hukum, kelemahan metode eksisting, tantangan fisik, usulan solusi dual-paradigma, dan ringkasan tujuan.
-  - `1.2. Rumusan Masalah`: Rincian $N$ butir pertanyaan penelitian operasional.
-  - `1.3. Ruang Lingkup`: 8 batasan operasional natural (objek, dataset & split, atribut, pipeline 1, pipeline 2, lingkungan komputasi, parameter evaluasi, batasan luar).
-  - `1.4. Tujuan Penelitian`: Rincian $N$ butir tujuan operasional yang menjawab Rumusan Masalah.
-  - `1.5. Sistematika Penulisan`: Penjabaran keterkaitan logis Bab 1 hingga Bab 5; wajib konsisten menyebutkan jumlah pertanyaan dan tujuan penelitian.
+- **Sistematika Baku Bab 1 (Format Gunadarma & UPNVJ Terverifikasi Empiris)**:
+  - `1.1 Latar Belakang`: Urgensi industri/hukum, kelemahan metode eksisting, tantangan fisik, usulan solusi dual-paradigma, dan ringkasan tujuan (tanpa titik di akhir nomor sub-bab).
+  - `1.2 Rumusan Masalah`: Rincian $N$ butir pertanyaan penelitian operasional bernomor.
+  - `1.3 Ruang Lingkup`: Butir batasan operasional natural (objek, dataset & split, atribut, algoritma, metrik evaluasi, lingkungan sistem). Dilarang judul "Batasan Masalah" pada preset Gunadarma.
+  - `1.4 Tujuan Penelitian`: Rincian $N$ butir tujuan operasional yang menjawab Rumusan Masalah 1:1.
+  - `1.5 Sistematika Penulisan`: Penjabaran keterkaitan logis Bab 1 hingga Bab 5; wajib konsisten menyebutkan alur tahapan secara proporsional.
+- **Format Butir Penomoran (*Numbered Lists*)**:
+  - Baris pertama (nomor dan teks awal): Mulai di `x = 131.4 pt` (indent 18.0 pt / 0,25 inci).
+  - Baris kedua dan seterusnya: Mulai di `x = 149.4 pt` (indent 36.0 pt / 0,5 inci), membentuk format gantung yang rapi.
+- **Sistem Penomoran Halaman (*Dual Pagination*)**:
+  - Bagian awal (Front Matter): Angka Romawi kecil (`i, ii, ...`) di tengah bawah.
+  - Bagian isi (Bab 1-5, Daftar Pustaka): Angka Arab (`1, 2, ...`) di kanan atas, kecuali halaman awal bab baru di tengah bawah.
+- **Standar Penyajian Rumus Matematika**:
+  - Label di atas formula: Times New Roman 12 pt Bold rata kiri (`Rumus X.Y Nama Rumus`).
+  - Formula: Cambria Math 12 pt rata tengah (*center*).
+  - Keterangan variabel di bawah formula: Times New Roman 12 pt Italic menjorok 127.6 pt. Wajib didaftarkan pada DAFTAR RUMUS di front matter.
 - **Kepatuhan Tipografi Ketat**:
   - 0 toleransi karakter Unicode em-dash maupun en-dash (U+2014 / U+2013). Gunakan tanda hubung strip biasa ASCII `-`, titik dua `:`, atau koma `,`.
 - **Pitfall Pengeditan Dokumen Naskah**:
